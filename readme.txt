@@ -3,8 +3,8 @@ Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw
 Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 3.1
-Tested up to: 3.4
-Stable tag: 3.08.0
+Tested up to: 3.5
+Stable tag: 3.08.1
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description == 
@@ -101,6 +101,13 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 * Complete rewrite. Old invoice data is not deleted, please notify us if you have any upgrading issues.
 
 == Change Log ==
+
+= Version 3.08.1 =
+* Added WordPress 3.5 compatibility.
+* TCPDF bug fixed for PDF Feature.
+* Fixed conflict with file names which have 'cookie' substring.
+* Localization files updated.
+* Visual/cosmetic UI fixes.
 
 = Version 3.08.0 =
 * Added Export/Import Invoices.

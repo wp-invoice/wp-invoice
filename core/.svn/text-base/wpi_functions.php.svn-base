@@ -1185,6 +1185,8 @@ class WPI_Functions {
     update_option('wp_invoice_version', WP_INVOICE_VERSION_NUM);
 
 		WPI_Functions::check_for_premium_features();
+
+    update_option('wpi_activation_time', time());
   }
 
   function Deactivate() {
@@ -2005,6 +2007,8 @@ class WPI_Functions {
         'Minimum Core Version' => __('Minimum Core Version', WPI)
     );
 
+    $wpi_settings['installed_features'] = array();
+
     if (!is_dir(WPI_Premium))
       return;
 
@@ -2496,6 +2500,44 @@ class WPI_Functions {
     $sendername = empty( $wpi_settings['mail_from_sender_name'] ) ? "WordPress" : stripslashes($wpi_settings['mail_from_sender_name']);
 
     return $sendername;
+  }
+
+  /**
+   * Promotional links notice
+   *
+   * @global type $wp_properties
+   * @author korotkov@ud
+   */
+  function promotional_notice() {
+    global $wpi_settings;
+
+    $hour = 3600;
+    $day = 24*$hour;
+
+    $show_after = 2*$day;
+    $activation_date = (int)get_option( 'wpi_activation_time' );
+    $now = time();
+
+    if ( empty( $wpi_settings['installed_features'] ) && $now - $activation_date > $show_after ) {
+      $screen = get_current_screen();
+
+      if ( $screen->id == 'invoice_page_wpi_page_settings' ) :
+        ?>
+        <div class="updated <?php wpp_css( 'admin_notice::promotional_notice', 'wpi_promotional_notice' ) ?>">
+          <div class="<?php wpp_css( 'admin_notice::promotional_notice::top', 'wpi_promotional_notice_top_line' ) ?>">
+            <?php echo sprintf( __('Find out how to <a target="_blank" href="%s">Extend</a> your <a target="_blank" href="%s">WP-Invoice</a> plugin', WPI), 'https://usabilitydynamics.com/products/wp-invoice/premium-features/', 'https://usabilitydynamics.com/products/wp-invoice/' ); ?>
+          </div>
+          <div class="<?php wpp_css( 'admin_notice::promotional_notice::bottom', 'wpi_promotional_notice_bottom_line' ) ?>">
+            <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/premium-features/"><?php _e( 'Premium Features', WPI ); ?></a>
+            |
+            <a target="_blank" href="https://usabilitydynamics.com/forums/"><?php _e( 'Support Forum', WPI ); ?></a>
+            |
+            <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/#documentation-tutorials"><?php _e( 'User Guide', WPI ); ?></a>
+          </div>
+        </div>
+        <?php
+      endif;
+    }
   }
 }
 

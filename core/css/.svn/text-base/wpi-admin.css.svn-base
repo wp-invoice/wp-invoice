@@ -6,10 +6,6 @@ ul {
   display: none;
 }
 
-.widefat th input.button {
-  padding: 5px;
-}
-
 .wpi_sectioned_content {
 
 }
@@ -440,8 +436,8 @@ input.wpi_no_input{
 #wpi_line_items_row ul{position: relative; left: -0px;}
 #wpi_invoice_form #wpi_message_box .inside{ margin: 0}
 
-#wpi_predefined_services_select {margin-right: 8px; float: left; width: 50px; padding: 4px 15px;}
-#wpi_add_discount {float: left; width: 80px; padding: 4px 15px;}
+#wpi_predefined_services_select {margin-right: 8px; float: left; width: 72px; padding: 4px 15px;}
+#wpi_add_discount {float: left; width: 90px; padding: 4px 15px;}
 #wpi_predefined_services {float: left;margin-right: 8px; }
 
 #wp_invoice_main_info #invoice_list {margin-bottom: 10px;}

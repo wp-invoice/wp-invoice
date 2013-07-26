@@ -73,14 +73,8 @@
     padding: 10px;
 }
 
-.wpi_other_actions ul.wpi_other_action_list > .button {
-	padding: 10px;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	width: 70%;
-	margin: 7px auto;
-	text-align: center
+.wpi_other_action_list_wrapper {
+  padding-bottom: 10px;
 }
 
 .wpi_orange_link {

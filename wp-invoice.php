@@ -4,7 +4,7 @@
  * Plugin URI: http://usabilitydynamics.com/products/wp-invoice/
  * Description: Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href="admin.php?page=wpi_page_settings">WP-Invoice Settings Page</a> to setup.
  * Author: UsabilityDynamics.com
- * Version: 3.08.0
+ * Version: 3.08.1
  * Author URI: http://UsabilityDynamics.com/
  * Copyright 2011 - 2012  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
@@ -24,7 +24,7 @@
  */
 
 /* Define WPI Version */
-define( 'WP_INVOICE_VERSION_NUM', '3.08.0' );
+define( 'WP_INVOICE_VERSION_NUM', '3.08.1' );
 
 /* Define shorthand for transdomain */
 define( 'WPI', 'wp-invoice' );
@@ -199,22 +199,25 @@ if (!class_exists('WPI_Core')) {
         die();
       }
 
-      // Action for premium features to use to hook in before init
+      //** Action for premium features to use to hook in before init */
       do_action('wpi_pre_init');
 
-      // Load premium features
+      //** Load premium features */
       $this->Functions->load_premium();
 
       add_action('admin_head', array($this, 'admin_head'));
-      /* Generate and display WP-Invoice notices on admin panel */
+      //** Generate and display WP-Invoice notices on admin panel */
       add_action('admin_notices', array($this, 'admin_notices'));
+
+      //** Promotional admin notice @author korotkov@ud */
+      add_action( 'admin_notices', array( 'WPI_Functions', 'promotional_notice' ) );
 
       do_action('wpi_premium_loaded');
 
-      /* After Premium Features are loaded we update invoices types */
+      //** After Premium Features are loaded we update invoices types */
       $wpi_settings['types'] = apply_filters('wpi_object_types', $wpi_settings['types']);
 
-      // Run Everytime
+      //** Run Everytime
       $this->Functions->register_post_type();
 
       add_action("wpi_contextual_help",   array('WPI_UI', "wpi_contextual_help"));
@@ -335,7 +338,7 @@ if (!class_exists('WPI_Core')) {
       wp_register_script('jquery.maskedinput', WPI_URL . "/core/js/jquery.maskedinput.js", array('jquery'));
       wp_register_script('jquery.form', WPI_URL . "/core/js/jquery.form.js", array('jquery'));
       wp_register_script('jquery.validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js', array('jquery'));
-      wp_register_script('jquery.cookie', WPI_URL . "/core/js/jquery.cookie.js", array('jquery'));
+      wp_register_script('jquery.smookie', WPI_URL . "/core/js/jquery.smookie.js", array('jquery'));
       wp_register_script('jquery.formatCurrency', WPI_URL . "/core/js/jquery.formatCurrency.js", array('jquery'));
       wp_register_script('jquery.number.format', WPI_URL . "/core/js/jquery.number.format.js", array('jquery'));
       wp_register_script('jquery.impromptu', WPI_URL . "/core/js/jquery-impromptu.1.7.js", array('jquery'));

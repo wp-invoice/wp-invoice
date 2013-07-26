@@ -1231,9 +1231,11 @@ class UD_API {
    */
   static function nice_time( $time = false, $args = false ) {
 
-     $args = wp_parse_args( $args, array(
+    $args = wp_parse_args( $args, array(
       'format' => 'date_and_time'
     ));
+
+    extract($args);
 
     if(!$time) {
       return false;

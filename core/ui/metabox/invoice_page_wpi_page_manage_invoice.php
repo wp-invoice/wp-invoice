@@ -31,8 +31,10 @@ function message_meta_box($this_invoice) {
                       <option value="0"></option>
                       <?php
                       global $wpi_settings;
-                      for ($i = 1; $i <= count($wpi_settings['notification']); $i++) {
-                        echo '<option value=' . $i . '>' . $wpi_settings['notification'][$i]['name'] . '</option>';
+                      foreach( $wpi_settings['notification'] as $notification_key => $notification ) {
+                        ?>
+                        <option value="<?php echo $notification_key; ?>"><?php echo $notification['name']; ?></option>
+                        <?php
                       }
                       ?>
                     </select>

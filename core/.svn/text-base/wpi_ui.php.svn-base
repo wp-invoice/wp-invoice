@@ -143,7 +143,7 @@ class WPI_UI {
     //** Extract passed args and load defaults */
     extract(wp_parse_args($args, array(
                 'input_name' => 'wpi[new_invoice][user_email]',
-                'input_class' => 'nput_field',
+                'input_class' => 'input_field',
                 'input_id' => 'wp_invoice_userlookup',
                 'input_style' => ''
             )), EXTR_SKIP);
@@ -552,7 +552,7 @@ class WPI_UI {
       case 'invoice_page_wpi_page_settings':
         wp_enqueue_script('jquery-ui-tabs');
         wp_enqueue_script('wp-invoice-functions');
-        wp_enqueue_script('jquery.cookie');
+        wp_enqueue_script('jquery.smookie');
         wp_enqueue_script('jquery-ui-autocomplete');
         wp_enqueue_script('wp-invoice-events');
         wp_enqueue_script('jquery.formatCurrency');
@@ -570,7 +570,7 @@ class WPI_UI {
         wp_enqueue_script('jquery.field');
         wp_enqueue_script('jquery.bind');
         wp_enqueue_script('jquery.form');
-        wp_enqueue_script('jquery.cookie');
+        wp_enqueue_script('jquery.smookie');
 
         /** Add scripts and styles for Tiny MCE Editor (default WP Editor) */
         wp_enqueue_script(array('editor', 'thickbox', 'media-upload'));
@@ -1274,7 +1274,7 @@ class WPI_UI {
     //** Extract passed args and load defaults */
     extract(wp_parse_args($args, array(
               'input_name' => 'wpi[new_invoice][template_copy]',
-              'input_class' => 'nput_field',
+              'input_class' => 'input_field',
               'input_id' => 'wpi_template_lookup',
               'input_style' => ''
             )), EXTR_SKIP);

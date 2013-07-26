@@ -26,6 +26,8 @@
  * @since 2004-10-27
  */
 
+/** korotkov@ud */
+$wp_uploads = wp_upload_dir();
 // If you define the constant K_TCPDF_EXTERNAL_CONFIG, the following settings will be ignored.
 
 if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
@@ -80,13 +82,15 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 
   /**
    * cache directory for temporary files (full path)
+   * modified by korotkov@ud
    */
-  define ('K_PATH_CACHE', K_PATH_MAIN.'cache/');
+  define ('K_PATH_CACHE', $wp_uploads['basedir'].'/');
 
   /**
    * cache directory for temporary files (url path)
+   * modified by korotkov@ud
    */
-  define ('K_PATH_URL_CACHE', K_PATH_URL.'cache/');
+  define ('K_PATH_URL_CACHE', $wp_uploads['baseurl'].'/');
 
   /**
    *images directory

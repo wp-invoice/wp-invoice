@@ -1,83 +1,83 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui
 END
 payment_processing.php
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/payment_processing.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/payment_processing.php
 END
 toplevel_page_wpi_main.php
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/toplevel_page_wpi_main.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/toplevel_page_wpi_main.php
 END
 invoice_page_wpi_page_manage_invoice_legacy.php
 K 25
 svn:wc:ra_dav:version-url
 V 95
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/invoice_page_wpi_page_manage_invoice_legacy.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/invoice_page_wpi_page_manage_invoice_legacy.php
 END
 class_wpi_object_list_table.php
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/class_wpi_object_list_table.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/class_wpi_object_list_table.php
 END
 invoice_page_wpi_spc.php
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/invoice_page_wpi_spc.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/invoice_page_wpi_spc.php
 END
 payment_accordion.php
 K 25
 svn:wc:ra_dav:version-url
 V 69
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/payment_accordion.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/payment_accordion.php
 END
 invoice_page_wpi_page_reports.php
 K 25
 svn:wc:ra_dav:version-url
 V 81
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/invoice_page_wpi_page_reports.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/invoice_page_wpi_page_reports.php
 END
 invoice_page_wpi_page_settings.php
 K 25
 svn:wc:ra_dav:version-url
 V 82
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/invoice_page_wpi_page_settings.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/invoice_page_wpi_page_settings.php
 END
 first_time_setup.php
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/first_time_setup.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/first_time_setup.php
 END
 profile_page_content.php
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/profile_page_content.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/profile_page_content.php
 END
 user_selection_form.php
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/user_selection_form.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/user_selection_form.php
 END
 wpi_metaboxes.php
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/wpi_metaboxes.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/wpi_metaboxes.php
 END
 invoice_page_wpi_page_manage_invoice.php
 K 25
 svn:wc:ra_dav:version-url
 V 88
-/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ui/invoice_page_wpi_page_manage_invoice.php
+/!svn/ver/638710/wp-invoice/tags/3.08.1/core/ui/invoice_page_wpi_page_manage_invoice.php
 END
