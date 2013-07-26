@@ -42,6 +42,8 @@ define( 'WPI_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WPI_Premium', WPI_Path . '/core/premium' );
 define( 'WPI_Gateways_Path', WPI_Path . '/core/gateways' );
 define( 'WPI_Gateways_URL', WPI_URL . '/core/gateways' );
+define( 'WPI_Templates_Path', WPI_Path . '/core/template' );
+define( 'WPI_Templates_URL', WPI_URL . '/core/template' );
 
 //** Always include everything below here */
 require_once( WPI_Path . '/wpi_legacy.php' );
@@ -58,6 +60,7 @@ require_once( WPI_Path . '/core/template.php' );
 require_once( WPI_Path . '/core/wpi_chargify.php' ); */
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
 require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
+require_once( WPI_Path . '/core/wpi_xmlrpc_api.php' );
 
 //** Need to do this before init. Temporary here. */
 add_filter("pre_update_option_wpi_options", array('WPI_Functions', 'pre_update_option_wpi_options'),10,3);
@@ -348,6 +351,7 @@ if (!class_exists('WPI_Core')) {
       wp_register_script('jquery.field', WPI_URL . "/third-party/dataTables/jquery.dataTables.js", array('jquery'));
       wp_register_script('jsapi', 'https://www.google.com/jsapi');
       wp_register_script('jquery-data-tables', WPI_URL . "/third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
+      wp_register_script('wpi.checkout', WPI_URL . "/core/js/wpi-checkout.js", array('jquery'));
 
       wp_register_style('wpi-jquery-data-tables', WPI_URL . "/core/css/wpi-data-tables.css");
 
