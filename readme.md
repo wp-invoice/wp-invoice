@@ -8,9 +8,9 @@ Once an invoice is created from the WP admin section, an email with a brief desc
 
 Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, PayPal or Google Checkout account. For recurring billing we have integrated Authorize.net's ARB API that will allow you to setup payment schedules along with invoices. Subscriptions implemented using PayPal Subscriptions and Google Checkout Subscriptions.
 
-### New Features
+### Features
 
-* Automatically import invoices from Web Invoice plugin.
+* Automatically import invoices from Web Invoice plugin
 * WP-CRM Integration
 * Brand new user interface for much improved invoicing filtering and searching
 * Minimum and Split / Partial Payments
@@ -20,9 +20,6 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Discount Line Items
 * Custom Payment Entry, and administrative adjustments
 * Customizable Invoice and Receipt Templates
-
-### More Features
-
 * Create invoices from the WordPress control panel
 * Prefill customer information using the WordPress user list
 * Send invoice notifications to customers with a secured link back to the web-invoice
