@@ -9,8 +9,6 @@ WP-Invoice lets you create and send web-invoices and setup recurring billing for
 
 == Description ==
 
-TEST
-
 This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.
 
 http://vimeo.com/27887971
