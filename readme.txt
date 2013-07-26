@@ -1,12 +1,12 @@
 === WP-Invoice - Web Invoice and Billing ===
-Contributors: andypotanin
+Contributors: jbrw, andypotanin
 Donate link: http://twincitiestech.com/services/wp-invoice/
 Tags: bill, paypal, invoice, pay, online payment
 Requires at least: 2.5
 Tested up to: 2.7
-Stable tag: 1.1
+Stable tag: 1.5
 
-WP-Invoice lets you send invoices to your clients using WordPress.
+WP-Invoice lets you send invoices to your clients.
 
 == Description ==
 

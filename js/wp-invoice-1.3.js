@@ -17,7 +17,8 @@ function recalc(){
 		// define the finish callback, this runs after the calculation has been complete
 		function ($this){
 			// sum the total of the $("[@id^=total_item]") selector
-			var sum = $this.sum();
+			var tax = jQuery('#wp_invoice_tax').val() / 100;
+			var sum = $this.sum() + ($this.sum() * tax);
 			
 			jQuery("#amount").html(sum.toFixed(2));
 			jQuery("#total_amount").val(sum.toFixed(2));
@@ -47,40 +48,80 @@ function add_itemized_list_row() {
 	jQuery('#invoice_list').append(lastRow);
 
 	recalc();
-	jQuery('.invoice_description_box').autogrow();
+	
 
 	return false;
 		
 }
 	
 	
+this.tooltip = function(){	
+
+	/* CONFIG */		
+		xOffset = 10;
+		yOffset = 20;		
+		// these 2 variable determine popup's distance from the cursor
+		// you might want to adjust to get the right result		
+	/* END CONFIG */		
+	jQuery(".wp_invoice_tooltip").hover(function(e) {									  
+		this.t = this.title;
+		this.title = "";									  
+		jQuery("body").append("<p id='wp_invoice_tooltip'>"+ this.t +"</p>");
+		jQuery("#wp_invoice_tooltip")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px")
+			.fadeIn("fast");		
+    },
+	function(){
+		this.title = this.t;		
+		jQuery("#wp_invoice_tooltip").remove();
+    });	
+	jQuery("a.wp_invoice_tooltip").mousemove(function(e){
+		jQuery("#tooltip")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px");
+	});			
+};
+
 	
 jQuery(document).ready(function(){
+
+	tooltip();
+	
+
+
+	jQuery("#invoices-filter").submit(function() {  if(jQuery("#invoices-filter select").val() == '-1') { return false;} })
+	jQuery("#wp_invoice_tax").keyup(function() { recalc(); }) 
+	jQuery("#wp_invoice_show_archived").click(function() { jQuery(".wp_invoice_archived_invoices").toggle(); return false;}) 
+	jQuery("#wp_invoice_need_mm").click(function() { jQuery(".wp_invoice_credit_card_processors").toggle();  }) 
+	jQuery("#wp_invoice_copy_invoice").click(function() { jQuery(".wp_invoice_copy_invoice").toggle();jQuery("#wp_invoice_create_new_invoice").toggle();jQuery("#wp_invoice_copy_invoice").toggle();  }) 
+	jQuery("#wp_invoice_copy_invoice_cancel").click(function() { jQuery(".wp_invoice_copy_invoice").toggle();jQuery("#wp_invoice_create_new_invoice").toggle();jQuery("#wp_invoice_copy_invoice").toggle();  }) 
+
+	jQuery("#wp_invoice_merchantplus_prefill").click(function() { jQuery("#wp_invoice_gateway_url").val('https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi');  }) 
+	jQuery("#wp_invoice_merchantexpress_prefill").click(function() { jQuery("#wp_invoice_gateway_url").val('https://gateway.merchantexpress.com');  }) 
+	jQuery("#wp_invoice_merchantwarehouse_prefill").click(function() { jQuery("#wp_invoice_gateway_url").val('https://gateway.merchantwarehouse.com');  }) 
+	
+	if(jQuery('#wp_invoice_payment_method').val() == 'cc') { jQuery('.gateway_info').show();  }
+	if(jQuery('#wp_invoice_payment_method').val() == 'paypal') {  jQuery('.paypal_info').show();  }
+
+	jQuery('#wp_invoice_payment_method').change(function(){
+		if(jQuery(this).val() == 'paypal') {  jQuery('.paypal_info').show();  jQuery('.gateway_info').hide();  }
+		if(jQuery(this).val() == 'cc') {  jQuery('.gateway_info').show(); jQuery('.paypal_info').hide(); }
+	});
 
 	if(jQuery('#first_name').val() == '') {jQuery('#first_name').addClass("error"); }
 	if(jQuery('#last_name').val() == '') {jQuery('#last_name').addClass("error"); }
 	if(jQuery('#streetaddress').val() == '') {jQuery('#streetaddress').addClass("error"); }
+	if(jQuery('#state').val() == '') {jQuery('#state').addClass("error"); }
 	if(jQuery('#city').val() == '') {jQuery('#city').addClass("error"); }
 	if(jQuery('#zip').val() == '') {jQuery('#zip').addClass("error"); }
-	if(jQuery('#zip').val() == '') {jQuery('#zip').addClass("error"); }
-	if(jQuery('#wp_invoice_paypal_address').val() == '') {jQuery('#wp_invoice_paypal_address').addClass("error"); }
 	
 	jQuery('#delete_all_databases').click(function() {
-
-	var txt = 'Are you sure you want to delete all the databases?  All your invoice and log data will be lost forever. ';
-			
-	jQuery.prompt(txt,{
-		buttons:{Delete:true, Cancel:false},
-		callback: function(v,m){
-				if(v){  document.location = "admin.php?page=new_invoice&tctiaction=complete_removal"; }	
-	}
+		var txt = 'Are you sure you want to delete all the databases?  All your invoice and log data will be lost forever. ';
+		jQuery.prompt(txt,{	buttons:{Delete:true, Cancel:false}, callback: function(v,m){ if(v){  document.location = "admin.php?page=new_invoice&tctiaction=complete_removal"; }	}
 	});
-
 	return false
-			
 	});
-
-
 
 	var tog = false; // or true if they are checked on load
 	 jQuery('#CheckAll').click(function() {
@@ -88,9 +129,6 @@ jQuery(document).ready(function(){
 	  tog = !tog;
 	 }); 
 	 
-	jQuery("#phonenumber").mask("999-999-9999");
-	jQuery("#zip").mask("99999");
-	jQuery("#state").mask("aa");
 	jQuery('.invoice_description_box').autogrow();
 	jQuery('.autogrow').autogrow();
 	jQuery('#add_itemized_item').bind('click', add_itemized_list_row);
