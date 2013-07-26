@@ -435,7 +435,7 @@ class wpi_chargify {
       $customer = $c->get_customer( $email, 'local' );
       
       /** If we don't have a result, throw an exception */
-      if( !$customer ) throw new Exception( __( 'Customer can not be found.', WPI ) );
+      if( !$customer ) throw new Exception( __( 'Customer cannot be found.', WPI ) );
       
       /** Now that we have a customer, try to grab the subscriptions */
       $subs = $c->get_subscriptions_by_customer( $customer->id );

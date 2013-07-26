@@ -369,7 +369,7 @@ class WPI_Settings {
 
       $this->options['currency']['types']['AUD'] = __("Australian Dollars", WPI);
       $this->options['currency']['types']['CAD'] = __("Canadian Dollars", WPI);
-      $this->options['currency']['types']['EUR'] = __("Euros", WPI);
+      $this->options['currency']['types']['EUR'] = __("Euro", WPI);
       $this->options['currency']['types']['GBP'] = __("Pounds Sterling", WPI);
       $this->options['currency']['types']['JPY'] = __("Yen", WPI);
       $this->options['currency']['types']['USD'] = __("U.S. Dollars", WPI);

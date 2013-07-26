@@ -95,8 +95,7 @@ class InvoiceHistoryWidget extends WP_Widget {
       return;
 
     $title = apply_filters('widget_title', $instance['title']);
-    $message = $instance['message'];
-    $button_text = !empty($instance['button_text']) ? $instance['button_text'] : __('Submit');
+    $allow_types = !empty($instance['allow_types']) ? $instance['allow_types'] : array( 'invoice', 'recurring' );
     ?>
     <?php echo $before_widget; ?>
     <?php if ($title)
@@ -104,6 +103,13 @@ class InvoiceHistoryWidget extends WP_Widget {
     <div class="wpi_widget_invoice_history">
       <?php
       $invoice_array = WPI_Functions::get_user_invoices("user_email={$current_user->user_email}&status=active");
+
+      foreach( $invoice_array as $key => $wpi_object ) {
+        if ( !in_array($wpi_object->data['type'], $allow_types) ) {
+          unset($invoice_array[$key]);
+        }
+      }
+
       if (!empty($invoice_array) && is_array($invoice_array)) {
         ?>
         <b class="wpi_sidebar_title"><?php _e("Active Invoice(s)"); ?></b>
@@ -121,6 +127,13 @@ class InvoiceHistoryWidget extends WP_Widget {
       ?>
       <?php
       $invoice_array = WPI_Functions::get_user_invoices("user_email={$current_user->user_email}&status=paid");
+
+      foreach( $invoice_array as $key => $wpi_object ) {
+        if ( !in_array($wpi_object->data['type'], $allow_types) ) {
+          unset($invoice_array[$key]);
+        }
+      }
+
       if (!empty($invoice_array) && is_array($invoice_array)) {
         ?>
         <b class="wpi_sidebar_title"><?php _e("Paid Invoice(s)"); ?></b>
@@ -160,12 +173,21 @@ class InvoiceHistoryWidget extends WP_Widget {
    * @param type $instance
    */
   function form($instance) {
-    $title = !empty($instance['title']) ? esc_attr($instance['title']) : '';
-    $message = !empty($instance['message']) ? esc_attr($instance['message']) : '';
-    $button_text = !empty($instance['button_text']) ? esc_attr($instance['button_text']) : '';
+    $title   = !empty($instance['title']) ? esc_attr($instance['title']) : '';
+    $types   = !empty($instance['allow_types']) ? $instance['allow_types'] : array( 'invoice', 'recurring' );
+
+    $allow_types = apply_filters('wpi_invoice_history_allow_types', array( 'invoice', 'recurring' ));
+
     ?>
     <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
-    <p><label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('Message:'); ?> <textarea class="widefat" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>" type="text"><?php echo $message; ?></textarea></label></p>
+    <p>
+      <label for="<?php echo $this->get_field_id('allow_types'); ?>"><?php _e('Types to display:'); ?></label>
+        <ul>
+        <?php foreach( $allow_types as $allow_type ): ?>
+          <li><input <?php checked(true, in_array($allow_type, $types)); ?> type="checkbox" name="<?php echo $this->get_field_name('allow_types'); ?>[]" value="<?php echo $allow_type; ?>" /> <?php echo ucfirst($allow_type); ?></li>
+        <?php endforeach; ?>
+        </ul>
+    </p>
     <?php
   }
 

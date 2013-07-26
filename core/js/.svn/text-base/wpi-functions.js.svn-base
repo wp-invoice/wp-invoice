@@ -1302,7 +1302,7 @@ function wpi_recalc_totals() {
 
   total = subtotal - total_discount + total_tax;
 
-  if ( total_discount >= ( subtotal + total_tax ) && total_discount > 0 ) {
+  if ( total_discount > ( subtotal + total_tax ) && total_discount > 0 ) {
     jQuery(".wp_invoice_discount_row:visible").each(function (i) {
       jQuery(".item_price input", this).val('');
     });

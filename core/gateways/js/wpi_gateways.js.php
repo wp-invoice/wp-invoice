@@ -1,10 +1,11 @@
-<?php 
+<?php
 /** Set our header */
-header("Content-type: application/x-javascript"); 
+header("Content-type: application/x-javascript");
 /** For each type of plugin we have, lets load the JavaScript file that's associated with it */
 if ($dir = opendir(getcwd())) {
   while (false !== ($file = readdir($dir))) {
-    if(end(explode(".", $file)) == 'js') {
+    $exploded = explode(".", $file);
+    if(end($exploded) == 'js') {
       $f = file_get_contents($file);
       print $f;
     }
@@ -44,10 +45,10 @@ function wpi_init_form(){
   var type_messages = eval(type + '_messages');
   var type_rules = eval(type + '_rules');
   jQuery(".online_payment_form").validate({
-    messages: type_messages, 
+    messages: type_messages,
     rules: type_rules,
-    errorLabelContainer: "#wpi_gateway_form_errors", 
-    wrapper: "li", 
+    errorLabelContainer: "#wpi_gateway_form_errors",
+    wrapper: "li",
     errorClass: "wpi_error",
     showErrors: function(errorMap, errorList) {
       this.defaultShowErrors();
@@ -66,9 +67,9 @@ function wpi_init_form(){
   jQuery(".online_payment_form").submit(function(e){
     if(jQuery(this).valid()){
       //We have a valid form, run our form specific validation!
-      eval('var wpi_validates = ' + type + '_validate_form();'); 
+      eval('var wpi_validates = ' + type + '_validate_form();');
       if(wpi_validates){
-        //We validated again, run our form specific handler, and 
+        //We validated again, run our form specific handler, and
         //return the value to determine if we do a full page submit
         eval('var wpi_submit = ' + type + '_submit();');
         return wpi_submit;

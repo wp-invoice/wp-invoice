@@ -163,7 +163,7 @@ class WPI_Invoice {
     }
 
     //** Determine if display_name is custom */
-    if(!empty($display_name) && $display_name != $user_email) {
+    if(!empty($display_name) && $display_name != $email) {
       $recipient = $display_name;
     }
 
@@ -181,7 +181,7 @@ class WPI_Invoice {
 
     //** If still empty, just default to email */
     if(empty($recipient)) {
-      $recipient = $user_email;
+      $recipient = $email;
     }
 
     //** Select Display Name */
@@ -202,7 +202,7 @@ class WPI_Invoice {
 
     // Include global tax if option turned on
     if ( !empty( $wpi_settings['use_global_tax'] ) && $wpi_settings['use_global_tax'] == 'true' && !empty( $wpi_settings['global_tax'] ) ) {
-      $this->data['tax'] = (int)$wpi_settings['global_tax'];
+      $this->data['tax'] = (float)$wpi_settings['global_tax'];
     }
 
     $defaults = array (
@@ -240,7 +240,7 @@ class WPI_Invoice {
 		$this->data['default_payment_method'] = $dpm;
     // Default Billings
     // Merge billings to get available billings - A.K.
-    WPI_Functions::merge_billings( $wpi_settings['billing'], &$this->data['billing'] );
+    WPI_Functions::merge_billings( $wpi_settings['billing'], $this->data['billing'] );
     //$this->data['billing'] = $wpi_settings['billing'];
   }
 
@@ -309,7 +309,7 @@ class WPI_Invoice {
       }
     }
 
-    WPI_Functions::merge_billings( $wpi_settings['billing'], &$invoice_data['billing'] );
+    WPI_Functions::merge_billings( $wpi_settings['billing'], $invoice_data['billing'] );
 
     //** Add support for MS and for old invoice histories which will have a blog_id of 0 after upgrade */
     if($blog_id == 1) {
@@ -801,7 +801,7 @@ There can only be one, so deletes any other schedule.
     }
 
     if(empty($data['post_title'])) {
-      wpi_log_event(__("Error saving invoice. Subject (Title) can not be empty.", WPI));
+      wpi_log_event(__("Error saving invoice. Subject (Title) cannot be empty.", WPI));
       return false;
     }
 

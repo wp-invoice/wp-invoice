@@ -113,7 +113,7 @@ function postbox_publish($this_invoice) {
   $status_names = apply_filters('wpi_invoice_statuses', $wpi_settings['invoice_statuses']);
 
   if (!empty($this_invoice['status'])) {
-    $status_label = ( $status_names[$this_invoice['status']] ? $status_names[$this_invoice['status']] : $this_invoice['status']);
+    $status_label = ( !empty($status_names[$this_invoice['status']]) ? $status_names[$this_invoice['status']] : $this_invoice['status']);
   }
 
   ?>

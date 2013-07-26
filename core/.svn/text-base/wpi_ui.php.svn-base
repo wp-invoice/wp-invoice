@@ -230,12 +230,20 @@ class WPI_UI {
        * and also check that the web_invoice_page is a real page
        */
       if (empty($wpi_settings['web_invoice_page'])) {
-        echo '<div class="error"><p>' . sprintf(__('Invoice page not selected. Visit <a href="%s">settings page</a> to configure.', WPI), 'admin.php?page=wpi_page_settings') . '</p></div>';
+        echo '<div class="error"><p>' . sprintf(__('Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI), 'admin.php?page=wpi_page_settings') . '</p></div>';
       } else {
         if (!$wpdb->get_var("SELECT post_name FROM {$wpdb->posts} WHERE ID = {$wpi_settings['web_invoice_page'] }")) {
-          echo '<div class="error"><p>' . sprintf(__('Selected invoice page does not exist. Visit <a href="%s">settings page</a> to configure.', WPI), 'admin.php?page=wpi_page_settings') . '</p></div>';
+          echo '<div class="error"><p>' . sprintf(__('Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI), 'admin.php?page=wpi_page_settings') . '</p></div>';
         }
       }
+
+      /**
+       * Check if curl is installed.
+       */
+      if ( !function_exists('curl_exec') ) {
+        echo '<div class="error"><p>' . __('Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI). '</p></div>';
+      }
+
       $file_path = apply_filters('wpi_page_loader_path', WPI_Path . "/core/ui/{$current_screen->base}.php", $current_screen->base, WPI_Path . "/core/ui/");
     }
 
@@ -630,38 +638,6 @@ class WPI_UI {
   }
 
   /**
-   * Main invoice page.  Displayes either the first_time_setup, or a list of invoices
-   *
-   * DOTO: Seems deprecated. - Anton Korotkov
-   *
-   */
-  /* function page_overview() {
-    global $wpi_settings;
-    WPI_Functions::check_tables();
-    // determine if user has compelted setup
-    if ($wpi_settings['first_time_setup_ran'] == 'false') {
-    include($wpi_settings['admin']['ui_path'] . '/first_time_setup.php');
-    } else {
-    include($wpi_settings['admin']['ui_path'] . '/overview.php');
-    }
-    } */
-
-  /**
-    Page for adding/editing invoices.  When first opened, displays the user selection form
-    Also checks that all proper tables and settings are stup.
-   */
-  function page_manage_invoice() {
-    global $wpi_settings;
-    WPI_Functions::check_tables();
-    WPI_Functions::check_settings();
-    if (isset($_REQUEST['wpi']['new_invoice']) || isset($_REQUEST['wpi']['existing_invoice'])) {
-      include($wpi_settings['admin']['ui_path'] . '/manage_invoice.php');
-    } else {
-      include($wpi_settings['admin']['ui_path'] . '/blocks/postbox_user_selection_form.php');
-    }
-  }
-
-  /**
    * Does our preprocessing for the manage invoice page, adds our meta boxes, and checks invoice data
    * @since 3.0
    */
@@ -742,15 +718,6 @@ class WPI_UI {
     }
     //add_meta_box('recurring_billing_box', __('Publish',WPI), 'recurring_billing_box', 'admin_page_wpi_invoice_edit', 'middle', 'low');
     add_meta_box('postbox_user_existing', __('User Information', WPI), 'postbox_user_existing', $screen_id, 'side', 'low');
-  }
-
-  /**
-    Settings page
-   */
-  function page_settings() {
-    global $wpdb, $wpi_settings;
-    WPI_Functions::check_tables();
-    include($wpi_settings['admin']['ui_path'] . '/settings_page.php');
   }
 
   // Displays messages. Can be outputted anywhere, WP JavaScript automatically moves it to the top of the page
@@ -999,10 +966,10 @@ class WPI_UI {
               wpi = wpi || {};
               wpi.invoice_title = '<?php echo addslashes($wpi_invoice_object->data['post_title']); ?>';
               wpi.invoice_amount = <?php echo $wpi_invoice_object->data['net']; ?>;
-              wpi.invoice_id = '<?php echo ($wpi_invoice_object->data['custom_id']) ? $wpi_invoice_object->data['custom_id'] : $wpi_invoice_object->data['ID']; ?>';
-              wpi.tax = '<?php echo $wpi_invoice_object->data['tax']; ?>';
+              wpi.invoice_id = '<?php echo !empty($wpi_invoice_object->data['custom_id']) ? $wpi_invoice_object->data['custom_id'] : $wpi_invoice_object->data['ID']; ?>';
+              wpi.tax = '<?php echo !empty($wpi_invoice_object->data['tax'])?$wpi_invoice_object->data['tax']:''; ?>';
               wpi.business_name = '<?php echo ($wpi_settings['business_name']); ?>';
-              wpi.user_data = {city:'<?php echo ($wpi_settings['user_data']['city']) ? $wpi_settings['user_data']['city'] : ''; ?>',state:'<?php echo ($wpi_settings['user_data']['state']) ? $wpi_settings['user_data']['state'] : ''; ?>',country:'<?php echo ($wpi_settings['user_data']['country']) ? $wpi_settings['user_data']['country'] : ''; ?>'}
+              wpi.user_data = {city:'<?php echo !empty($wpi_settings['user_data']['city']) ? $wpi_settings['user_data']['city'] : ''; ?>',state:'<?php echo !empty($wpi_settings['user_data']['state']) ? $wpi_settings['user_data']['state'] : ''; ?>',country:'<?php echo !empty($wpi_settings['user_data']['country']) ? $wpi_settings['user_data']['country'] : ''; ?>'}
               wpi.invoice_items = jQuery.parseJSON('<?php echo json_encode($invoice_items); ?>');
 
               if ( typeof window._gaq != 'undefined' ) wpi.ga.tracking.init( <?php echo!empty($wpi_settings['ga_event_tracking']['events']['invoices']) ? json_encode($wpi_settings['ga_event_tracking']['events']['invoices']) : '{}'; ?> );

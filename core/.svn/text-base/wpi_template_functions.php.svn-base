@@ -379,7 +379,8 @@ function show_payment_selection($args = '') {
   global $invoice, $wpi_settings;
 
   $defaults = array(
-    'title' => __("Payment Method", WPI)
+    'title' => __("Payment Method", WPI),
+    'return' => false
   );
 
   extract(wp_parse_args($args, $defaults), EXTR_SKIP);

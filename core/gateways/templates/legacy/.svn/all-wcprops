@@ -1,41 +1,41 @@
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy
 END
 authorize.php
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/authorize.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/authorize.php
 END
 moneybookers.php
 K 25
 svn:wc:ra_dav:version-url
 V 87
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/moneybookers.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/moneybookers.php
 END
 alertpay.php
 K 25
 svn:wc:ra_dav:version-url
 V 83
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/alertpay.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/alertpay.php
 END
 google_checkout.php
 K 25
 svn:wc:ra_dav:version-url
 V 90
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/google_checkout.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/google_checkout.php
 END
 payflow.php
 K 25
 svn:wc:ra_dav:version-url
 V 82
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/payflow.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/payflow.php
 END
 paypal.php
 K 25
 svn:wc:ra_dav:version-url
 V 81
-/!svn/ver/638710/wp-invoice/tags/3.08.1/core/gateways/templates/legacy/paypal.php
+/!svn/ver/665323/wp-invoice/tags/3.08.2/core/gateways/templates/legacy/paypal.php
 END

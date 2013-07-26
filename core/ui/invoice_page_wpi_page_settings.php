@@ -61,7 +61,7 @@ if (isset($_REQUEST['message'])) {
   };
 
   jQuery(document).ready( function() {
-    var wp_invoice_settings_page = jQuery("#wp_invoice_settings_page").tabs({cookie: {expires: 30}});
+    var wp_invoice_settings_page = jQuery("#wp_invoice_settings_page").tabs({cookie: {expires: 30, name: 'wp_invoice_settings_page_tabs'}});
     // The following runs specific functions when a given tab is loaded
     jQuery('#wp_invoice_settings_page').bind('tabsshow', function(event, ui) {
       var selected = wp_invoice_settings_page.tabs('option', 'selected');
@@ -119,11 +119,18 @@ if (isset($_REQUEST['message'])) {
 
 <?php
 
+/**
+ * Settings Page class
+ */
 class WPI_Settings_page {
 
+  /**
+   * Basic tab
+   *
+   * @global type $wpdb
+   * @param type $wpi_settings
+   */
   function basic($wpi_settings) {
-
-    global $wpdb;
     ?>
 
     <table class="form-table">
@@ -151,7 +158,7 @@ class WPI_Settings_page {
             <?php if (WPI_Functions::has_theme_specific_stylesheet()) : ?>
               <li>
                 <?php echo WPI_UI::checkbox("name=wpi_settings[do_not_load_theme_specific_css]&value=yes&label=" . __('Do <b>not</b> load theme specific styles.', WPI), WPI_Functions::is_true($wpi_settings['do_not_load_theme_specific_css'])); ?>
-                <div class="description"><?php echo sprintf( __("WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>", WPI), get_current_theme() ); ?></div>
+                <div class="description"><?php echo sprintf( __("WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>", WPI), wp_get_theme() ); ?></div>
               </li>
             <?php endif; ?>
             <li><?php echo WPI_UI::checkbox("name=wpi_settings[use_css]&value=yes&label=" . __('Load default CSS styles on the front-end', WPI), WPI_Functions::is_true($wpi_settings['use_css'])); ?></li>
@@ -164,7 +171,7 @@ class WPI_Settings_page {
         <td>
           <ul class="wpi_something_advanced_wrapper">
             <li><label for="wpi_tax_method"><?php _e('Calculate Taxable Subtotal', WPI) ?> <?php echo WPI_UI::select("name=tax_method&group=wpi_settings&values=" . serialize(array("after_discount" => __("After Discount", WPI), "before_discount" => __("Before Discount", WPI))) . "&current_value=" . (!empty($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : "")); ?> </label></li>
-            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), $wpi_settings['use_global_tax']); ?></li>
+            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), !empty($wpi_settings['use_global_tax'])?true:false); ?></li>
             <li class="wpi_advanced_option">
               Tax value: <?php echo WPI_UI::input("type=text&style=width:50px;&name=global_tax&group=wpi_settings&value={$wpi_settings['global_tax']}") ?>%
               <div class="description wpi_advanced_option"><?php _e("This will make all new invoices have default Tax value which can be changed for different invoice.", WPI) ?></div>
@@ -208,7 +215,7 @@ class WPI_Settings_page {
             <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", WPI); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", WPI); ?></li>
             <li class="wpi_install_custom_templates_result" style="display:none;"></li>
             <?php if (WPI_Functions::has_installed_premium_features()): ?>
-              <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true($wpi_settings['disable_automatic_feature_update'])); ?></li>
+              <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), !empty($wpi_settings['disable_automatic_feature_update'])?true:false); ?></li>
                 <?php endif; ?>
             <li>
               <label for="wpi_thousands_separator_symbol">
@@ -239,8 +246,12 @@ class WPI_Settings_page {
   <?php
   }
 
-/* end "Basic" */
-
+  /**
+   * Business tab
+   *
+   * @global type $wpdb
+   * @param type $wpi_settings
+   */
   function business_process($wpi_settings) {
 
     global $wpdb;
@@ -386,8 +397,12 @@ class WPI_Settings_page {
   <?php
   }
 
-/* end "business_process" */
-
+  /**
+   * Payment tab
+   *
+   * @global type $wpi_chargify
+   * @param type $wpi_settings
+   */
   function payment($wpi_settings) {
     global $wpi_chargify;
     ?>
@@ -447,7 +462,7 @@ class WPI_Settings_page {
         <th><?php _e("Default Payment Method", WPI) ?></th>
         <td>
           <select id="wp_invoice_payment_method">
-            <?php foreach ($wpi_settings['installed_gateways'] as $key => $payment_option) { ?>
+            <?php foreach ( (array)$wpi_settings['installed_gateways'] as $key => $payment_option ) { ?>
                 <option value="<?php echo $key; ?>" <?php echo $payment_option['object']->options['default_option']?'SELECTED':''; ?>><?php echo $payment_option['name']; ?></option>
             <?php } ?>
           </select>&nbsp;&nbsp;
@@ -538,11 +553,16 @@ class WPI_Settings_page {
 
     </table>
 
-            <?php }
+<?php }
 
-            function email_templates($wpi_settings) {
-              ?>
-            <?php $notifications_array = apply_filters('wpi_email_templates', $wpi_settings['notification']); ?>
+  /**
+   * Email templates tab
+   *
+   * @param type $wpi_settings
+   */
+  function email_templates($wpi_settings) {
+?>
+<?php $notifications_array = apply_filters('wpi_email_templates', $wpi_settings['notification']); ?>
     <?php //WPI_Functions::qc($notifications_array);  ?>
     <table class="ud_ui_dynamic_table widefat form-table" style="margin-bottom:8px;" auto_increment="true">
       <thead>
@@ -582,6 +602,11 @@ class WPI_Settings_page {
     <?php
   }
 
+  /**
+   * Log tab
+   *
+   * @param type $wpi_settings
+   */
   function log($wpi_settings) {
     ?>
     <?php $wpi_log = get_option('wpi_log'); ?>
@@ -612,6 +637,11 @@ class WPI_Settings_page {
     endif;
   }
 
+  /**
+   * Predefined Items tab
+   *
+   * @param type $wpi_settings
+   */
   function predefined($wpi_settings) {
     ?>
     <p><?php _e('Setup your common services and products in here to streamline invoice creation.', WPI); ?></p>
@@ -661,7 +691,7 @@ class WPI_Settings_page {
                 <span class="row_price"><input type="text" autocomplete="off" value="<?php echo esc_attr($itemized_item['price']); ?>"  name="wpi_settings[predefined_services][<?php echo $slug; ?>][price]" id="price_item_<?php echo $slug; ?>" class="item_price input_field"></span>
               </td>
               <td>
-                <span class="row_tax"><input type="text" autocomplete="off" value="<?php echo esc_attr($itemized_item['tax']); ?>"  name="wpi_settings[predefined_services][<?php echo $slug; ?>][tax]" id="price_item_<?php echo $slug; ?>" class="item_tax input_field"></span>
+                <span class="row_tax"><input type="text" autocomplete="off" value="<?php echo esc_attr(!empty($itemized_item['tax'])?$itemized_item['tax']:''); ?>"  name="wpi_settings[predefined_services][<?php echo $slug; ?>][tax]" id="price_item_<?php echo $slug; ?>" class="item_tax input_field"></span>
               </td>
               <td>
                 <span class="row_total" id="total_item_<?php echo $slug; ?>" ></span>
@@ -681,6 +711,11 @@ class WPI_Settings_page {
     <?php
   }
 
+  /**
+   * Help tab
+   *
+   * @param type $wpi_settings
+   */
   function help($wpi_settings) {
     ?>
     <script type='text/javascript'>
@@ -708,6 +743,11 @@ class WPI_Settings_page {
   <?php
   }
 
+  /**
+   * Plugins tab
+   *
+   * @param type $wpi_settings
+   */
   function plugins($wpi_settings) {
 
     $parseUrl = parse_url(trim(get_bloginfo('url')));
@@ -829,6 +869,4 @@ class WPI_Settings_page {
   }
 
 }
-
-/* end class WPI_Settings_page */
 ?>

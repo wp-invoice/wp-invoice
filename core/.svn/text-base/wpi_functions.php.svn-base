@@ -634,7 +634,7 @@ class WPI_Functions {
    * @param array $wpi_settings_billings
    * @param array &$invoice_billings
    */
-  function merge_billings($wpi_settings_billings, $invoice_billings) {
+  function merge_billings($wpi_settings_billings, &$invoice_billings) {
     if (!isset($invoice_billings) || !is_array($invoice_billings)) {
       $invoice_billings = array();
     }
@@ -870,7 +870,11 @@ class WPI_Functions {
   }
 
   /**
-    Get users paid and pending invoices
+   * get invoices by user and status
+   *
+   * @global object $wpdb
+   * @param type $args
+   * @return boolean|\WPI_Invoice
    */
   function get_user_invoices($args) {
     global $wpdb;
@@ -911,11 +915,6 @@ class WPI_Functions {
 
       if (!empty($status) && $status != $this_invoice->data['post_status'])
         continue;
-
-      // Do not include quotes
-      if ($this_invoice->data['type'] != 'invoice') {
-        continue;
-      }
 
       $return[] = $this_invoice;
     }
@@ -1385,7 +1384,7 @@ class WPI_Functions {
    */
   function money_format( $number ) {
     global $wpi_settings;
-    return number_format( (float)$number, 2, '.', $wpi_settings['thousands_separator_symbol']?$wpi_settings['thousands_separator_symbol']:'' );
+    return number_format( (float)$number, 2, '.', !empty($wpi_settings['thousands_separator_symbol'])?$wpi_settings['thousands_separator_symbol']:'' );
   }
 
   /**
@@ -1512,19 +1511,6 @@ class WPI_Functions {
     if ($echo == false)
       return $result;
     $echo;
-  }
-
-  function check_settings() {
-    global $wpi_settings;
-    if ($wpi_settings['web_invoice_page'] == '') {
-      $message .= __('Invoice page not selected. ', WPI);
-      $message .= __("Visit ", WPI) . "<a href='admin.php?page=wpi_page_settings'>".__('settings page', WPI)."</a>" . __(" to configure.", WPI);
-    }
-
-    if (!function_exists('curl_exec'))
-      $message .= __("cURL is not turned on on your server, credit card processing will not work. If you have access to your php.ini file, activate <b>extension=php_curl.dll</b>.", WPI);
-
-    WPI_UI::error_message($message);
   }
 
   function settings_action() {
@@ -2465,7 +2451,7 @@ class WPI_Functions {
 
     if ( empty( $wpi_settings['installed_features'] ) ) return false;
 
-    foreach ( $wpi_settings['available_features'] as $feature_key => $feature ) {
+    foreach ( (array)$wpi_settings['available_features'] as $feature_key => $feature ) {
       if ( array_key_exists( $feature_key, $wpi_settings['installed_features'] ) && class_exists( $feature_key ) ) {
         return true;
       }

@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/3.08.1/languages
+http://plugins.svn.wordpress.org/wp-invoice/tags/3.08.2/languages
 http://plugins.svn.wordpress.org
 
 
 
-2012-12-13T17:31:50.333987Z
-638710
+2013-02-08T18:00:13.194980Z
+665323
 andypotanin
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2013-07-25T23:21:34.000000Z
-2c578980ae4450c3dd1c62b1a7d27b87
-2012-12-13T17:31:50.333987Z
-638710
+2013-07-25T23:21:36.000000Z
+b98742d9d37e5cfb8719a2d9e11ef006
+2013-02-08T18:00:13.194980Z
+665323
 andypotanin
 has-props
 
@@ -58,7 +58,7 @@ has-props
 
 
 
-132517
+132821
 
 wp-invoice-ru_RU.po
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2013-07-25T23:21:34.000000Z
-03cdf624579171a0d95d7b9ad547ec76
-2012-12-13T17:31:50.333987Z
-638710
+2013-07-25T23:21:36.000000Z
+0a5436896bcf69279f954f73aa41dbd7
+2013-02-08T18:00:13.194980Z
+665323
 andypotanin
 
 
@@ -92,7 +92,7 @@ andypotanin
 
 
 
-191414
+193017
 
 wp-invoice.mo
 file
@@ -100,10 +100,10 @@ file
 
 
 
-2013-07-25T23:21:34.000000Z
-79affbb265d5211bf8f8701e0e8db292
-2012-12-13T17:31:50.333987Z
-638710
+2013-07-25T23:21:36.000000Z
+1204debef27150f0f9248152d1084d85
+2013-02-08T18:00:13.194980Z
+665323
 andypotanin
 has-props
 
@@ -128,16 +128,50 @@ has-props
 
 577
 
+wp-invoice-ja_JP.mo
+file
+
+
+
+
+2013-07-25T23:21:36.000000Z
+6b1b8f56f65c8ac62fa520178e9dbd39
+2013-02-08T18:00:13.194980Z
+665323
+andypotanin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+93306
+
 wp-invoice.po
 file
 
 
 
 
-2013-07-25T23:21:34.000000Z
-890b61830328159688d21d37516050f0
-2012-12-13T17:31:50.333987Z
-638710
+2013-07-25T23:21:36.000000Z
+7c86eecffd494fa07c0762b8da50a4c9
+2013-02-08T18:00:13.194980Z
+665323
 andypotanin
 
 
@@ -160,5 +194,39 @@ andypotanin
 
 
 
-79736
+79616
+
+wp-invoice-ja_JP.po
+file
+
+
+
+
+2013-07-25T23:21:36.000000Z
+c694f69ffbd1b044fb407cf3914000ef
+2013-02-08T18:00:13.194980Z
+665323
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+173961
 

@@ -140,7 +140,7 @@
         ?>
 
         <div id="poststuff_2" class="postarea">
-          <?php the_editor( !empty( $this_invoice->data['post_content'] )?$this_invoice->data['post_content']:'', 'content', 'title', false); ?>
+          <?php wp_editor( !empty( $this_invoice->data['post_content'] )?$this_invoice->data['post_content']:'', 'content', array('media_buttons' => false) ); ?>
         </div>
 
         <?php
@@ -230,6 +230,7 @@
 
           <?php
           /** Setup discounts, adding one blank one if none exist */
+          $no_discounts = false;
           if( empty($this_invoice->data['discount']) || !is_array($this_invoice->data['discount']))  {
             $no_discounts = true;
             $this_invoice->data['discount'][1] = true;

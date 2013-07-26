@@ -259,10 +259,10 @@ class wpi_authorize extends wpi_gateway_base {
             $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_authorize');
             $html = '';
 
+            ob_start();
+
             switch ( $field_data['type'] ) {
               case self::TEXT_INPUT_TYPE:
-
-                ob_start();
 
                 ?>
 
@@ -275,16 +275,13 @@ class wpi_authorize extends wpi_gateway_base {
                   </div>
                 </li>
 
-                <?
+                <?php
 
                 $html = ob_get_contents();
-                ob_end_clean();
 
                 break;
 
               case self::SELECT_INPUT_TYPE:
-
-                ob_start();
 
                 ?>
 
@@ -296,13 +293,15 @@ class wpi_authorize extends wpi_gateway_base {
                 <?php
 
                 $html = ob_get_contents();
-                ob_clean();
 
                 break;
 
               default:
                 break;
+
             }
+
+            ob_clean();
 
             echo $html;
 
