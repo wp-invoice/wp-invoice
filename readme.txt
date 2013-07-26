@@ -3,14 +3,14 @@ Contributors: jbrw, mattalland, andypotanin
 Donate link: http://twincitiestech.com/services/wp-invoice/
 Tags: bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 2.6
-Tested up to: 2.71
+Tested up to: 2.8.0
 Stable tag: trunk
 
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description ==
 
-**[Download now!](http://downloads.wordpress.org/plugin/wp-invoice.zip)**
+**[Download the original WordPress Invoicing plugin now!](http://downloads.wordpress.org/plugin/wp-invoice.zip)**
 
 WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill. The plugin ties into WP's user management database to keep track of your clients and their information.
 
@@ -21,6 +21,8 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 
 New Features:
 
+* Custom tax label, states input, and PayPal button URL
+* Insert an "Invoice Lookup" form using PHP or Wordpress Shortcode anywhere
 * Create users directly from WP-Invoice
 * Customize billing settings per invoice
 * Customize invoice notification email per invoice
@@ -60,3 +62,18 @@ Please visit the [wp-invoice community page](http://wpinvoice.uservoice.com/) fo
 1. New Invoice Creation 
 1. Client Email Preview
 1. Frontend Example
+
+
+== Change Log ==
+**Version 1.95**
+* Fixed array error that occurs if a user with an invoice has been deleted.
+
+**Version 1.94**
+* Compatibility with WordPress 2.8.0
+* Upgraded: jquery.calculation, jquery.field and jquery.form to latest available.  Replaced jquery.delegate to jquery.livequery.
+
+
+**Version 1.93**
+
+* Fixed jQuery conflict issues by isolating script loading to WP-Invoice Pages
+* Added function to hide errors if using PHP4 to avoid html_entity_decode() errors in function.php

@@ -1,41 +1,23 @@
 K 25
 svn:wc:ra_dav:version-url
-V 44
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui
+V 45
+/!svn/ver/233230/wp-invoice/tags/1.95/core/ui
 END
 payment_processing.php
 K 25
 svn:wc:ra_dav:version-url
-V 67
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/payment_processing.php
-END
-moneybookers.php
-K 25
-svn:wc:ra_dav:version-url
-V 61
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/moneybookers.php
-END
-alertpay.php
-K 25
-svn:wc:ra_dav:version-url
-V 57
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/alertpay.php
-END
-googlecheckout.php
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/googlecheckout.php
+V 68
+/!svn/ver/233230/wp-invoice/tags/1.95/core/ui/payment_processing.php
 END
 cc.php
 K 25
 svn:wc:ra_dav:version-url
-V 51
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/cc.php
+V 52
+/!svn/ver/233230/wp-invoice/tags/1.95/core/ui/cc.php
 END
 paypal.php
 K 25
 svn:wc:ra_dav:version-url
-V 55
-/!svn/ver/110359/wp-invoice/tags/1.9/core/ui/paypal.php
+V 56
+/!svn/ver/233230/wp-invoice/tags/1.95/core/ui/paypal.php
 END

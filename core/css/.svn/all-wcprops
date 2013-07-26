@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
-V 45
-/!svn/ver/110359/wp-invoice/tags/1.9/core/css
+V 46
+/!svn/ver/233230/wp-invoice/tags/1.95/core/css
 END
-wp_admin-1.8.css
+wp_admin-1.9.css
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/!svn/ver/110359/wp-invoice/tags/1.9/core/css/wp_admin-1.8.css
+V 63
+/!svn/ver/233230/wp-invoice/tags/1.95/core/css/wp_admin-1.9.css
 END

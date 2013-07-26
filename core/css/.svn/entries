@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/1.9/core/css
+http://plugins.svn.wordpress.org/wp-invoice/tags/1.95/core/css
 http://plugins.svn.wordpress.org
 
 
 
-2009-04-14T02:33:54.503119Z
-110353
+2010-04-24T20:56:55.253378Z
+233230
 andypotanin
 
 
@@ -26,16 +26,16 @@ andypotanin
 
 b8457f37-d9ea-0310-8a92-e5e31aec5664
 
-wp_admin-1.8.css
+wp_admin-1.9.css
 file
 
 
 
 
-2013-07-25T23:21:56.000000Z
+2013-07-25T23:21:47.000000Z
 d584da256be5f5d9a0e38634c042c656
-2009-04-14T02:33:54.503119Z
-110353
+2010-04-24T20:56:55.253378Z
+233230
 andypotanin
 
 

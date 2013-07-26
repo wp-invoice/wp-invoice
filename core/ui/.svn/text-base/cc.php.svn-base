@@ -37,10 +37,17 @@
 		<?php echo wp_invoice_draw_inputfield("city",$invoice->recipient('city')); ?>
 		</li>
 
-		<li>
+	<?php if(get_option('wp_invoice_fe_state_selection') != 'Hide') { ?>
+		<li id="state_field">
 		<label for="state"><?php _e('State', WP_INVOICE_TRANS_DOMAIN); ?></label>
+	<?php if(get_option('wp_invoice_fe_state_selection') == 'Dropdown') { ?>
 		<?php print wp_invoice_draw_select('state',wp_invoice_state_array(),$invoice->recipient('state'));  ?>
+	<?php } ?>
+	<?php if(get_option('wp_invoice_fe_state_selection') == 'Input_Field') { ?>
+		<?php echo wp_invoice_draw_inputfield("state",$invoice->recipient('state')); ?>
+	<?php } ?>
 		</li>
+		<?php } ?>
 
 		<li>
 		<label for="zip"><?php _e('Zip Code', WP_INVOICE_TRANS_DOMAIN); ?></label>

@@ -29,7 +29,7 @@ Copyright 2009  TwinCitiesTech.com Inc.   (email : andy.potanin@twincitiestech.c
 */
 
 
-define("WP_INVOICE_VERSION_NUM", "1.95");
+define("WP_INVOICE_VERSION_NUM", "1.94");
 define("WP_INVOICE_TRANS_DOMAIN", "wp-invoice");
 
 require_once("core/Flow.php");
@@ -72,37 +72,35 @@ class WP_Invoice {
 		$this->frontend_path = $this->frontend_path();
 				
 		add_action('init',  array($this, 'init'),0);
+		add_action('template_redirect',  array($this, 'print_frontend_scripts')); 
+		add_action('template_redirect',  array($this, 'template_redirect'),0);
 		add_action('profile_update','wp_invoice_profile_update');
 		add_action('edit_user_profile', 'wp_invoice_user_profile_fields');
 		add_action('show_user_profile', 'wp_invoice_user_profile_fields');
-
+		add_action('admin_menu', array($this, 'wp_invoice_add_pages'));
+		add_action('wp_head', 'wp_invoice_frontend_header'); 
 		add_action('wp', array($this, 'api'));
 
-		register_activation_hook(__FILE__, array(&$this, 'install'));
-		register_deactivation_hook(__FILE__, "wp_invoice_deactivation");
-
-		add_action('admin_head', array($this, 'admin_head'));
 		add_action('contextual_help', 'wp_invoice_contextual_help_list');
 		add_filter('favorite_actions', array(&$this, 'favorites'));
 		
+		register_activation_hook(__FILE__, array(&$this, 'install'));
+		register_deactivation_hook(__FILE__, "wp_invoice_deactivation");
+		add_shortcode('wp-invoice-lookup', 'wp_invoice_lookup');
+
 		// Only run the content script if we are not using the replace_tag method.  We want to avoid running the function twice
-		if(get_option('wp_invoice_where_to_display') != 'replace_tag') { add_filter('the_content', 'wp_invoice_the_content');  } else {
-		add_shortcode('wp-invoice', 'wp_invoice_the_content');
-		}
-		
-		add_action('admin_menu', array($this, 'wp_invoice_add_pages'));
-		add_action('wp_head', 'wp_invoice_frontend_header'); 
-
-		
-
-		
-		
-
+		if(get_option('wp_invoice_where_to_display') != 'replace_tag') { add_filter('the_content', 'wp_invoice_the_content');  } else { add_shortcode('wp-invoice', 'wp_invoice_the_content'); 	}
 		
 		$this->SetUserAccess(get_option('wp_invoice_user_level'));
 
 	}
-		
+	
+	function template_redirect() {
+		if(isset($_POST['wp_invoice_lookup_input'])) { 
+			header("location:" . wp_invoice_build_invoice_link($_POST['wp_invoice_lookup_input']));
+			exit;
+		}
+	}
 		
 	function SetUserAccess($level = 8) {
 		$this->wp_invoice_user_level = $level;
@@ -114,18 +112,47 @@ class WP_Invoice {
 	}
 
 
-	function admin_head() {
-		echo "<link rel='stylesheet' href='".$this->uri."/core/css/wp_admin-1.8.css' type='text/css'type='text/css' media='all' />";
-	}
-
-	 
+ 
 	function wp_invoice_add_pages() {
-		add_menu_page('Web Invoice System', 'Web Invoice',  $this->wp_invoice_user_level,__FILE__, array(&$this,'invoice_overview'),$this->uri."/core/images/wp_invoice.png");
-		add_submenu_page( __FILE__, "Manage Invoice", "New Invoice", $this->wp_invoice_user_level, 'new_invoice', array(&$this,'new_invoice'));
-		add_submenu_page( __FILE__, "Recurring Billing", "Recurring Billing", $this->wp_invoice_user_level, 'recurring_billing', array(&$this,'recurring'));
-		add_submenu_page( __FILE__, "Settings", "Settings", $this->wp_invoice_user_level, 'invoice_settings', array(&$this,'settings_page'));
+		$WP_Invoice_main_page = add_menu_page('Web Invoice System', 'Web Invoice',  $this->wp_invoice_user_level,__FILE__, array(&$this,'invoice_overview'),$this->uri."/core/images/wp_invoice.png");
+		$WP_Invoice_manage_page = add_submenu_page( __FILE__, "Manage Invoice", "New Invoice", $this->wp_invoice_user_level, 'new_invoice', array(&$this,'new_invoice'));
+		$WP_Invoice_recurring_page = add_submenu_page( __FILE__, "Recurring Billing", "Recurring Billing", $this->wp_invoice_user_level, 'recurring_billing', array(&$this,'recurring'));
+		$WP_Invoice_settings_page = add_submenu_page( __FILE__, "Settings", "Settings", $this->wp_invoice_user_level, 'invoice_settings', array(&$this,'settings_page'));
+		
+		add_action( "admin_print_scripts-$WP_Invoice_main_page", array($this, 'admin_print_scripts') );
+		add_action( "admin_print_scripts-$WP_Invoice_manage_page", array($this, 'admin_print_scripts') );
+		add_action( "admin_print_scripts-$WP_Invoice_recurring_page", array($this, 'admin_print_scripts') );
+		add_action( "admin_print_scripts-$WP_Invoice_settings_page", array($this, 'admin_print_scripts') );
+		
 	}
 
+	function admin_print_scripts() {
+		
+		wp_enqueue_script('jquery.cookie',$this->uri."/core/js/jquery.cookie.js", array('jquery'));
+		wp_enqueue_script('jquery.livequery',$this->uri."/core/js/jquery.livequery.js", array('jquery'));
+		wp_enqueue_script('jquery.formatCurrency',$this->uri."/core/js/jquery.formatCurrency.js", array('jquery'));
+		wp_enqueue_script('jquery.idTabs',$this->uri."/core/js/jquery.idTabs.min.js", array('jquery'));
+		wp_enqueue_script('jquery.impromptu',$this->uri."/core/js/jquery-impromptu.1.7.js", array('jquery'));
+		wp_enqueue_script('jquery.field',$this->uri."/core/js/jquery.field.min.js", array('jquery'));
+		wp_enqueue_script('jquery.calculation',$this->uri."/core/js/jquery.calculation.min.js", array('jquery'));
+		wp_enqueue_script('jquery.tablesorter',$this->uri."/core/js/jquery.tablesorter.min.js", array('jquery'));
+		wp_enqueue_script('jquery.autogrow-textarea',$this->uri."/core/js/jquery.autogrow-textarea.js", array('jquery') );
+		wp_enqueue_script('wp-invoice',$this->uri."/core/js/wp-invoice-1.94.js", array('jquery') );		
+
+   		wp_enqueue_style('wp_invoice_css', $this->uri . "/core/css/wp_admin-1.9.css");
+		wp_print_styles();
+
+	}
+	
+	function print_frontend_scripts() {
+		if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_invoice_web_invoice_page'))) {
+			wp_enqueue_script('jquery.maskedinput',$this->frontend_path."/core/js/jquery.maskedinput.js", array('jquery'));
+			wp_enqueue_script('jquery.form',$this->frontend_path."/core/js/jquery.form.js", array('jquery') );
+		}
+
+	}
+	
+	
 	function new_invoice() {
 		$WP_Invoice_Decider = new WP_Invoice_Decider('doInvoice');
 		if($this->message) echo "<div id=\"message\" class='error' ><p>".$this->message."</p></div>";
@@ -187,24 +214,7 @@ class WP_Invoice {
         else
         	load_plugin_textdomain(WP_INVOICE_TRANS_DOMAIN, PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/languages', dirname(plugin_basename(__FILE__)).'/languages');
 
-			
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('jquery.maskedinput',$this->frontend_path."/core/js/jquery.maskedinput.js", array('jquery'));
-		wp_enqueue_script('jquery.form',$this->frontend_path."/core/js/jquery.form.js", array('jquery') );
-		if(is_admin()) {
-			wp_enqueue_script('jquery.cookie',$this->uri."/core/js/jquery.cookie.js", array('jquery'));
-			wp_enqueue_script('jquery.formatCurrency',$this->uri."/core/js/jquery.formatCurrency.js", array('jquery'));
-			wp_enqueue_script('jquery.idTabs',$this->uri."/core/js/jquery.idTabs.min.js", array('jquery'));
-			wp_enqueue_script('jquery.impromptu',$this->uri."/core/js/jquery-impromptu.1.7.js", array('jquery'));
-			wp_enqueue_script('jquery.field',$this->uri."/core/js/jquery.field.min.js", array('jquery'));
-			wp_enqueue_script('jquery.delegate',$this->uri."/core/js/jquery.delegate-1.1.min.js", array('jquery') );
-			wp_enqueue_script('jquery.calculation',$this->uri."/core/js/jquery.calculation.min.js", array('jquery'));
-			wp_enqueue_script('jquery.tablesorter',$this->uri."/core/js/jquery.tablesorter.min.js", array('jquery'));
-			wp_enqueue_script('jquery.autogrow-textarea',$this->uri."/core/js/jquery.autogrow-textarea.js", array('jquery') );
-			wp_enqueue_script('wp-invoice',$this->uri."/core/js/wp-invoice-1.8.4.js", array('jquery') );
-		} else {
-			
-			
+						
 			// Make sure proper MD5 is being passed (32 chars), and strip of everything but numbers and letters
 			if(isset($_GET['invoice_id']) && strlen($_GET['invoice_id']) != 32) unset($_GET['invoice_id']); 
 			$_GET['invoice_id'] = preg_replace('/[^A-Za-z0-9-]/', '', $_GET['invoice_id']);
@@ -236,7 +246,7 @@ class WP_Invoice {
 				if(wp_invoice_does_invoice_exist($invoice_id)) { wp_invoice_process_cc_transaction($_POST); exit; }
 				}				
 
-		}
+		
 		if(empty($_GET['invoice_id'])) unset($_GET['invoice_id']);
 		}
 
@@ -320,6 +330,18 @@ class WP_Invoice {
 		if(get_option('wp_invoice_gateway_username','') != '') update_option('wp_invoice_cc_allow', 'yes');
 	
 	
+		// Localization Labels
+		add_option('wp_invoice_custom_label_tax', "Tax");
+		
+		// WP-Invoice Lookup
+		add_option('wp_invoice_lookup_text', "Pay Your Invoice");
+		add_option('wp_invoice_lookup_submit', "Lookup");
+		
+		
+		// Frontend Customization
+		add_option('wp_invoice_fe_paypal_link_url', "https://www.paypal.com/en_US/i/btn/btn_paynow_LG.gif");
+		add_option('wp_invoice_fe_state_selection', "Dropdown");
+	
 		add_option('wp_invoice_version', WP_INVOICE_VERSION_NUM);
 		add_option('wp_invoice_email_address',get_bloginfo('admin_email'));
 		add_option('wp_invoice_business_name', get_bloginfo('blogname'));
@@ -347,7 +369,6 @@ class WP_Invoice {
 		add_option('wp_invoice_gateway_delim_char',',');
 		add_option('wp_invoice_gateway_encap_char','');
 		add_option('wp_invoice_gateway_merchant_email',get_bloginfo('admin_email'));
-		add_option('wp_invoice_gateway_header_email_receipt','Thanks for your payment!');
 		add_option('wp_invoice_recurring_gateway_url','https://api.authorize.net/xml/v1/request.api');
 		add_option('wp_invoice_gateway_url','https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi');
 		add_option('wp_invoice_gateway_MD5Hash','');

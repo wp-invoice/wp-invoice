@@ -1,29 +1,29 @@
 K 25
 svn:wc:ra_dav:version-url
-V 41
-/!svn/ver/110359/wp-invoice/tags/1.9/core
+V 42
+/!svn/ver/233230/wp-invoice/tags/1.95/core
 END
 Frontend.php
 K 25
 svn:wc:ra_dav:version-url
-V 54
-/!svn/ver/110359/wp-invoice/tags/1.9/core/Frontend.php
+V 55
+/!svn/ver/233230/wp-invoice/tags/1.95/core/Frontend.php
 END
 Display.php
 K 25
 svn:wc:ra_dav:version-url
-V 53
-/!svn/ver/110359/wp-invoice/tags/1.9/core/Display.php
+V 54
+/!svn/ver/233230/wp-invoice/tags/1.95/core/Display.php
 END
 Flow.php
 K 25
 svn:wc:ra_dav:version-url
-V 50
-/!svn/ver/110359/wp-invoice/tags/1.9/core/Flow.php
+V 51
+/!svn/ver/233230/wp-invoice/tags/1.95/core/Flow.php
 END
 Functions.php
 K 25
 svn:wc:ra_dav:version-url
-V 55
-/!svn/ver/110359/wp-invoice/tags/1.9/core/Functions.php
+V 56
+/!svn/ver/233230/wp-invoice/tags/1.95/core/Functions.php
 END

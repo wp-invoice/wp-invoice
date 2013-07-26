@@ -18,6 +18,21 @@
 */
 
 
+
+
+function wp_invoice_lookup() {  ?>
+<div class="wp_invoice_lookup">
+	<form action="<?php echo get_permalink(get_option('wp_invoice_web_invoice_page')); ?>" method="POST">
+	<label for="wp_invoice_lookup_input"><?php echo stripslashes(get_option('wp_invoice_lookup_text')); ?></label>
+	<?php echo wp_invoice_draw_inputfield('wp_invoice_lookup_input', '',' AUTOCOMPLETE="off" '); ?>
+	<input type="submit" value="<?php echo stripslashes(get_option('wp_invoice_lookup_submit')); ?>" class="wp_invoice_lookup_submit" />
+	</form>
+ </div>
+<?php
+}
+      
+
+		  
 		
 function wp_invoice_default($message='')
 {
@@ -78,7 +93,7 @@ function wp_invoice_default($message='')
 	<?php
 	
 	$x_counter = 0;
-	foreach ($all_invoices as $invoice) {
+ 	foreach ($all_invoices as $invoice) {
 		// Stop if this is a recurring bill
 		if(!wp_invoice_meta($invoice->invoice_num,'wp_invoice_recurring_billing')) {
 		$x_counter++;
@@ -99,7 +114,7 @@ function wp_invoice_default($message='')
 		$show_money = wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($invoice->amount);
 		
 		// Determine What to Call Recipient
-		$profileuser = get_user_to_edit($user_id);
+		$profileuser = @get_user_to_edit($user_id);
 		$first_name = $profileuser->first_name;
 		$last_name = $profileuser->last_name;
 		$user_nicename = $profileuser->user_nicename;
@@ -136,7 +151,7 @@ function wp_invoice_default($message='')
 		$output_row .= "	<td><a href='admin.php?page=new_invoice&wp_invoice_action=doInvoice&invoice_id=$invoice_id'>$subject</a></td>\n";
 		$output_row .= "	<td class='row_money'>$show_money</td>\n";
 		$output_row .= "	<td>$days_since</td>\n";
-		$output_row .= "	<td> <a href='user-edit.php?user_id=$user_id'>$call_me_this</a></td>\n";
+		$output_row .= "	<td> ". ($call_me_this ? "<a href='user-edit.php?user_id=$user_id'>$call_me_this" : "User Deleted") . "</a></td>\n";
 		$output_row .= "	<td><a href='$invoice_link'>View Web Invoice</a></td>\n";
 		$output_row .= "</tr>"; 
 			
@@ -247,7 +262,7 @@ function wp_invoice_recurring_overview($message='') {
 		$show_money = wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($invoice->amount);
 		
 		// Determine What to Call Recipient
-		$profileuser = get_user_to_edit($user_id);
+		$profileuser = @get_user_to_edit($user_id);
 		$first_name = $profileuser->first_name;
 		$last_name = $profileuser->last_name;
 		$user_nicename = $profileuser->user_nicename;
@@ -404,7 +419,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$subject = $invoice_info->subject;
 		$description = $invoice_info->description;
 		$itemized = $invoice_info->itemized;
-		$profileuser = get_user_to_edit($_POST['user_id']);
+		$profileuser = @get_user_to_edit($_POST['user_id']);
 		$itemized_array = unserialize(urldecode($itemized)); 
 
 		$wp_invoice_tax = wp_invoice_meta($template_invoice_id,'wp_invoice_tax');
@@ -465,7 +480,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$subject = $invoice_info->subject;
 		$description = $invoice_info->description;
 		$itemized = $invoice_info->itemized;
-		$profileuser = get_user_to_edit($invoice_info->user_id);
+		$profileuser = @get_user_to_edit($invoice_info->user_id);
 		$itemized_array = unserialize(urldecode($itemized)); 
 
 		$wp_invoice_tax = wp_invoice_meta($invoice_id,'wp_invoice_tax');
@@ -520,8 +535,10 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	// Brand New Invoice
 	if(!isset($invoice_id) && isset($_REQUEST['user_id'])) {
 	
-		$profileuser = get_user_to_edit($_REQUEST['user_id']);
+		$profileuser = @get_user_to_edit($_REQUEST['user_id']);
 		
+
+	
 		// this is a new invoice, get defaults
 		$wp_invoice_client_change_payment_method = get_option('wp_invoice_client_change_payment_method');
 		$wp_invoice_payment_method = get_option('wp_invoice_payment_method');
@@ -546,7 +563,6 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$wp_invoice_gateway_encap_char = get_option('wp_invoice_gateway_encap_char');
 		$wp_invoice_gateway_merchant_email = get_option('wp_invoice_gateway_merchant_email');
 		$wp_invoice_gateway_email_customer = get_option('wp_invoice_gateway_email_customer');
-		$wp_invoice_gateway_header_email_receipt = get_option('wp_invoice_gateway_header_email_receipt');
 		$wp_invoice_gateway_MD5Hash = get_option('wp_invoice_gateway_MD5Hash');	
 
 		$wp_invoice_alertpay_allow = get_option('wp_invoice_alertpay_allow');
@@ -557,20 +573,33 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	//Whether recurring bill will start when client pays, or a date is specified
 	if($wp_invoice_subscription_start_month && $wp_invoice_subscription_start_year && $wp_invoice_subscription_start_day) $recurring_auto_start = true; else $recurring_auto_start = false;
 	
+	
+ 	
+	if(!$profileuser->data->ID): 
+		$message = "Notice: The user for this invoice has been deleted, this invoice may only be used as a template.";
+		$user_deleted = true;
+	else:
+		$user_deleted = false;
+	endif;
+ 	
+	
 	// Load Userdata
-	$user_email = $profileuser->user_email;
-	$first_name = $profileuser->first_name;
-	$last_name = $profileuser->last_name;
-	$streetaddress = $profileuser->streetaddress;
-	$company_name = $profileuser->company_name;
-	$city = $profileuser->city;
-	$state = $profileuser->state;
-	$zip = $profileuser->zip;
-	$country = $profileuser->country;
+	if(!$user_deleted):
+		$user_email = $profileuser->user_email;
+		$first_name = $profileuser->first_name;
+		$last_name = $profileuser->last_name;
+		$streetaddress = $profileuser->streetaddress;
+		$company_name = $profileuser->company_name;
+		$city = $profileuser->city;
+		$state = $profileuser->state;
+		$zip = $profileuser->zip;
+		$country = $profileuser->country;
+	else:
+		$user_id = false;
+	endif;
 	
 	//Load Invoice Specific Settings, and override default
 	if(!empty($wp_invoice_currency_code)) $currency = $wp_invoice_currency_code;
-	
 	// Crreae two blank arrays for itemized list if none is set
 	if(count($itemized_array) == 0) {
 	$itemized_array[1] = "";
@@ -584,8 +613,9 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	}
 	
 	if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('main')."';") || !$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('log')."';")) { 
-		$warning_message = __("The plugin database tables are gone, deactivate and reactivate plugin to re-create them.", WP_INVOICE_TRANS_DOMAIN);
+		$warning_message .= __("The plugin database tables are gone, deactivate and reactivate plugin to re-create them.", WP_INVOICE_TRANS_DOMAIN);
 	}
+
 
 	if($warning_message) echo "<div id=\"message\" class='error' ><p>$warning_message</p></div>";
 	if($message) echo "<div id=\"message\" class='updated fade' ><p>$message</p></div>";
@@ -593,6 +623,9 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	?>
 	<?php if(!isset($invoice_id)) { ?> <h2><?php _e('New Web Invoice', WP_INVOICE_TRANS_DOMAIN); ?></h2><?php  wp_invoice_draw_user_selection_form($user_id); } ?>
 	<?php if(isset($user_id) && isset($invoice_id)) { ?><h2><?php _e('Manage Invoice', WP_INVOICE_TRANS_DOMAIN); ?></h2><?php } ?>
+	
+	
+
 	
 	<?php if(isset($invoice_id) && wp_invoice_paid_status($invoice_id) || wp_invoice_recurring_started($invoice_id) || wp_invoice_query_log($invoice_id, 'subscription_error')) { ?>
 	<div class="updated wp_invoice_status">
@@ -633,6 +666,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	<input type="hidden" name="amount" id="total_amount" value="<?php echo $amount; ?>" />
 
 
+	<?php if(!$user_deleted): ?>
 <div class="postbox" id="wp_invoice_client_info_div">
 <h3><label for="link_name"><?php _e('Client Information', WP_INVOICE_TRANS_DOMAIN); ?> <?php if($user_id == 'create_new_user') echo " - New User"; ?></label></h3>
 <div class="inside">
@@ -729,6 +763,8 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	
 </div>
 </div>
+<?php endif; ?>
+
 
 <div class="postbox" id="wp_invoice_client_info_div">
 <h3><label for="link_name"><?php _e("Recurring Billing", WP_INVOICE_TRANS_DOMAIN) ?></label></h3>
@@ -872,7 +908,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 			<th><?php _e("Default Payment Method:") ?></th>
 			<td>
 				<?php
-				$payment_array = wp_invoice_accepted_payment('global'); ?>
+				$payment_array = wp_invoice_accepted_payment($invoice_id); ?>
 				<select id="wp_invoice_payment_method" name="wp_invoice_payment_method">
 				<?php foreach ($payment_array as $payment_option) { ?>
 				<option name="<?php echo $payment_option['name']; ?>" value="<?php echo $payment_option['name']; ?>" <?php if($payment_option['default']) { echo "SELECTED"; } ?>><?php echo $payment_option['nicename']; ?></option>
@@ -1045,13 +1081,10 @@ global $wpdb; ?>
 		<select id="wp_invoice_payment_method" name="wp_invoice_payment_method">
 		<option></option>
 		<option value="paypal" style="padding-right: 10px;"<?php if(get_option('wp_invoice_payment_method') == 'paypal') echo 'selected="yes"';?>>PayPal</option>
-		<option value="moneybookers" style="padding-right: 10px;"<?php if(get_option('wp_invoice_payment_method') == 'moneybookers') echo 'selected="yes"';?>>Moneybookers</option>
 		<option value="cc" style="padding-right: 10px;"<?php if(get_option('wp_invoice_payment_method') == 'cc') echo 'selected="yes"';?>>Credit Card</option>
 		</select> 
 
 		<li class="paypal_info payment_info">Your PayPal username: <input id='wp_invoice_paypal_address' name="wp_invoice_paypal_address" class="search-input input_field"  type="text" value="<?php echo stripslashes(get_option('wp_invoice_paypal_address')); ?>"></li>
-		<li class="moneybookers_info payment_info">Your Moneybookers username: <input id='wp_invoice_moneybookers_address' name="wp_invoice_moneybookers_address" class="search-input input_field"  type="text" value="<?php echo stripslashes(get_option('wp_invoice_moneybookers_address')); ?>" /></li>
-
 		
 		<li class="gateway_info payment_info">
 		<a class="wp_invoice_tooltip"  title="Your credit card processor will provide you with a gateway username.">Gateway Username</a>
@@ -1077,7 +1110,7 @@ global $wpdb; ?>
 		$get_all_users = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix . "users LEFT JOIN ". $wpdb->prefix . "usermeta on ". $wpdb->prefix . "users.id=". $wpdb->prefix . "usermeta.user_id and ". $wpdb->prefix . "usermeta.meta_key='last_name' ORDER BY ". $wpdb->prefix . "usermeta.meta_value");
 		foreach ($get_all_users as $user)
 		{ 
-		$profileuser = get_user_to_edit($user->ID);
+		$profileuser = @get_user_to_edit($user->ID);
 		echo "<option ";
 		if(isset($user_id) && $user_id == $user->ID) echo " SELECTED ";
 		if(!empty($profileuser->last_name) && !empty($profileuser->first_name)) { echo " value=\"".$user->ID."\">". $profileuser->last_name. ", " . $profileuser->first_name . " (".$profileuser->user_email.")</option>\n";  }
@@ -1132,7 +1165,8 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
     <li><a href="#tab2"><?php _e("Display Settings") ?></a></li> 
     <li><a href="#tab3"><?php _e("Payment Settings") ?></a></li> 
     <li><a href="#tab4"><?php _e("E-Mail Templates") ?></a></li> 
-    <li><a href="#tab5"><?php _e("Troubleshooting") ?></a></li> 
+    <li><a href="#tab5"><?php _e("Invoice Lookup") ?></a></li> 
+    <li><a href="#tab6"><?php _e("Troubleshooting") ?></a></li> 
   </ul> 
   <div id="tab1" class="wp_invoice_tab" >
 		<table class="form-table">
@@ -1231,7 +1265,7 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 		</tr>
 		
 		<tr>
-			<th> <a class="wp_invoice_tooltip"  title="<?php _e('If enforced, WordPress will automatically reload the invoice page into HTTPS mode even if the user attemps to open it in non-secure mode.', WP_INVOICE_TRANS_DOMAIN); ?>"><?php _e('Enforce HTTPS:', WP_INVOICE_TRANS_DOMAIN); ?></a>:</th>
+			<th> <a class="wp_invoice_tooltip"  title="<?php _e('If enforced, WordPress will automatically reload the invoice page into HTTPS mode even if the user attemps to open it in non-secure mode.', WP_INVOICE_TRANS_DOMAIN); ?>"><?php _e('Enforce HTTPS:', WP_INVOICE_TRANS_DOMAIN); ?></a></th>
 			<td>
 			<select  name="wp_invoice_force_https">
 			<option value="true" style="padding-right: 10px;"<?php if(get_option('wp_invoice_force_https') == 'true') echo 'selected="yes"';?>><?php _e('Yes', WP_INVOICE_TRANS_DOMAIN); ?></option>
@@ -1241,7 +1275,7 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 		</tr>
 		
 		<tr>
-			<th><a class="wp_invoice_tooltip"  title="Disable this if you want to use your own stylesheet."><?php _e('Use CSS', WP_INVOICE_TRANS_DOMAIN); ?></a></th>
+			<th><a class="wp_invoice_tooltip"  title="Disable this if you want to use your own stylesheet."><?php _e('Use CSS:', WP_INVOICE_TRANS_DOMAIN); ?></a></th>
 			<td>
 			<?php echo wp_invoice_draw_select('wp_invoice_use_css',array("yes" => __('Yes', WP_INVOICE_TRANS_DOMAIN), "no" => __('No', WP_INVOICE_TRANS_DOMAIN)), get_option('wp_invoice_use_css')); ?>
 			</td>
@@ -1255,8 +1289,20 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 		</tr>
 
 		<tr>
-			<th width="200"><a class="wp_invoice_tooltip"  title="Show quantity breakdowns in the itemized list on the front-end."><?php _e('Quantities on Front End', WP_INVOICE_TRANS_DOMAIN); ?></a></th><td>
+			<th width="200"><a class="wp_invoice_tooltip"  title="Show quantity breakdowns in the itemized list on the front-end."><?php _e('Quantities on Front End:', WP_INVOICE_TRANS_DOMAIN); ?></a></th><td>
 			<?php echo wp_invoice_draw_select('wp_invoice_show_quantities',array("Show" => __('Show', WP_INVOICE_TRANS_DOMAIN), "Hide" => __('Hide', WP_INVOICE_TRANS_DOMAIN)), get_option('wp_invoice_show_quantities')); ?>
+			</td>
+		</tr>		
+		
+		<tr>
+			<th width="200"><a class="wp_invoice_tooltip"  title=""><?php _e('Tax Label:', WP_INVOICE_TRANS_DOMAIN); ?></a></th><td>
+			<?php echo wp_invoice_draw_inputfield('wp_invoice_custom_label_tax', get_option('wp_invoice_custom_label_tax')); ?>
+			</td>
+		</tr>		
+		
+		<tr>
+			<th width="200"><a class="wp_invoice_tooltip"  title="What to display for states on checkout page."><?php _e('State Display:', WP_INVOICE_TRANS_DOMAIN); ?></a></th><td>
+			<?php echo wp_invoice_draw_select('wp_invoice_fe_state_selection',array("Dropdown" => __('Dropdown', WP_INVOICE_TRANS_DOMAIN), "Input_Field" => __('Input Field', WP_INVOICE_TRANS_DOMAIN), "Hide" => __('Hide Completely', WP_INVOICE_TRANS_DOMAIN)), get_option('wp_invoice_fe_state_selection')); ?>
 			</td>
 		</tr>
 		</table>
@@ -1310,6 +1356,7 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 				
 				$wp_invoice_paypal_allow = get_option('wp_invoice_paypal_allow');
 				$wp_invoice_paypal_address = get_option('wp_invoice_paypal_address');
+				$wp_invoice_fe_paypal_link_url = get_option('wp_invoice_fe_paypal_link_url');
 				
 				$wp_invoice_moneybookers_allow = get_option('wp_invoice_moneybookers_allow');
 				$wp_invoice_moneybookers_address = get_option('wp_invoice_moneybookers_address');
@@ -1327,7 +1374,6 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 				$wp_invoice_gateway_encap_char = get_option('wp_invoice_gateway_encap_char');
 				$wp_invoice_gateway_merchant_email = get_option('wp_invoice_gateway_merchant_email');
 				$wp_invoice_gateway_email_customer = get_option('wp_invoice_gateway_email_customer');
-				$wp_invoice_gateway_header_email_receipt = get_option('wp_invoice_gateway_header_email_receipt');
 				$wp_invoice_gateway_MD5Hash = get_option('wp_invoice_gateway_MD5Hash');
 				
 				$wp_invoice_alertpay_allow = get_option('wp_invoice_alertpay_allow');
@@ -1337,6 +1383,8 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 				
 				// Email Templates
 
+				$hide_advanced_paypal_features = true;
+				$hide_advanced_cc_features = true;
 				require_once("ui/payment_processing.php"); ?>
 				</td>
 			</tr>
@@ -1384,9 +1432,33 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_Invoice::tablename('meta')."';") || !$w
 		</tr>
 	
 		</table>
-	</div>
+	</div>	
 	
 	<div id="tab5"  class="wp_invoice_tab">
+	<table class="form-table" >
+		<tr>
+			<td colspan="2">
+			<p>Allow your clients to pull up their invoices by entering their invoice ID into a form. Include the form by either posting PHP code into your template or by using a shortcode.</p>
+			<p><b>PHP Tag</b> - insert into a template file: <span class="wp_invoice_explanation">&#60;&#63;&#112;&#104;&#112;&#32;&#119;&#112;&#95;&#105;&#110;&#118;&#111;&#105;&#99;&#101;&#95;&#108;&#111;&#111;&#107;&#117;&#112;&#40;&#41;&#59;&#32;&#63;&#62;</span></p>
+			<p><b>Shortcode</b> - insert into a page or post content: <span class="wp_invoice_explanation"><?php echo '[wp-invoice-lookup]'; ?></span></p>
+			</td>
+		</tr>
+		
+		<tr>
+			<th><?php _e("Lookup Text", WP_INVOICE_TRANS_DOMAIN) ?></th>
+			<td><?php echo wp_invoice_draw_inputfield('wp_invoice_lookup_text', get_option('wp_invoice_lookup_text')); ?></td>
+		</tr>
+
+		<tr>
+			<th><?php _e("Submit Button Text", WP_INVOICE_TRANS_DOMAIN) ?></th>
+			<td><?php echo wp_invoice_draw_inputfield('wp_invoice_lookup_submit', get_option('wp_invoice_lookup_submit')); ?></td>
+		</tr>
+
+
+		</table>
+	</div>
+	
+	<div id="tab6"  class="wp_invoice_tab">
 		<table class="form-table" >
 		<tr>
 			<td>
@@ -1507,8 +1579,8 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 	$currency_code = wp_invoice_determine_currency($invoice_id);
 	
 	
-	if($tax_percent) {
-		$tax_free_amount = $amount*(100/(100+(100*($tax_percent/100))));
+	if($wp_invoice_tax) {
+		$tax_free_amount = $amount*(100/(100+(100*($wp_invoice_tax/100))));
 		$tax_value = $amount - $tax_free_amount;
 		}
 	
@@ -1558,10 +1630,10 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 		}
 		
 		}
-		if($tax_percent) {
+		if($wp_invoice_tax) {
 		$response .= "<tr>";
 		if(get_option('wp_invoice_show_quantities') == "Show") { $response .= "<td></td>"; }
-		$response .= "<td>Tax (". round($tax_percent,2). "%) </td><td style='text-align:right;' colspan='2'>" . wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($tax_value)."</td></tr>";
+		$response .= "<td>". get_option('wp_invoice_custom_label_tax') . " (". round($wp_invoice_tax,2). "%) </td><td style='text-align:right;' colspan='2'>" . wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($tax_value)."</td></tr>";
 		}
 		
 		$response .="		
@@ -1614,7 +1686,7 @@ function wp_invoice_user_profile_fields()
 	global $user_id;
 	
 
-	$profileuser = get_user_to_edit($user_id);
+	$profileuser = @get_user_to_edit($user_id);
 	?>
 
 	<h3>Billing / Invoicing Info</h3>
@@ -1657,7 +1729,7 @@ function wp_invoice_user_profile_fields()
 	<th></th>
 	<td>
 
-	<input type='button' onclick="window.location='admin.php?page=new_invoice&user_id=<?PHP echo $_REQUEST['user_id']; ?>';" class='button' value='Create New Invoice For This User'>
+	<input type='button' onclick="window.location='admin.php?page=new_invoice&user_id=<?PHP echo $user_id; ?>';" class='button' value='Create New Invoice For This User'>
 
 	</td>
 	</tr>
@@ -1804,7 +1876,7 @@ function wp_invoice_draw_user_selection_form($user_id) {
 					$get_all_users = $wpdb->get_results("SELECT * FROM ". $wpdb->prefix . "users LEFT JOIN ". $wpdb->prefix . "usermeta on ". $wpdb->prefix . "users.id=". $wpdb->prefix . "usermeta.user_id and ". $wpdb->prefix . "usermeta.meta_key='last_name' ORDER BY ". $wpdb->prefix . "usermeta.meta_value");
 					foreach ($get_all_users as $user)
 					{ 
-					$profileuser = get_user_to_edit($user->ID);
+					$profileuser = @get_user_to_edit($user->ID);
 					echo "<option ";
 					if(isset($user_id) && $user_id == $user->ID) echo " SELECTED ";
 					if(!empty($profileuser->last_name) && !empty($profileuser->first_name)) { echo " value=\"".$user->ID."\">". $profileuser->last_name. ", " . $profileuser->first_name . " (".$profileuser->user_email.")</option>\n";  }
@@ -1828,7 +1900,7 @@ function wp_invoice_draw_user_selection_form($user_id) {
 			<select name="copy_from_template">
 <option SELECTED value=""></option>
 		<?php 	foreach ($all_invoices as $invoice) { 
-		$profileuser = get_user_to_edit($invoice->user_id);
+		$profileuser = @get_user_to_edit($invoice->user_id);
 		?>
 		
 		<option value="<?php echo $invoice->invoice_num; ?>"><?php if(wp_invoice_recurring($invoice->invoice_num)) {?>(recurring)<?php } ?> <?php echo $invoice->subject . " - $" .$invoice->amount; ?> </option>

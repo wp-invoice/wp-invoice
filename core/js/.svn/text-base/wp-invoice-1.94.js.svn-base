@@ -144,8 +144,20 @@ jQuery(document).ready(function(){
 	jQuery("#invoices-filter").submit(function() {  if(jQuery("#invoices-filter select").val() == '-1') { return false;} })
 
 	jQuery("#wp_invoice_tax").keyup(function() { recalc(); }) 
-	jQuery("#invoice_list").delegate("keyup", "input", function(event) {recalc();});
-	jQuery("#wp_invoice_subscription_total_occurances ").delegate("keyup", "input", function(event) {recalc();});
+	
+	
+	jQuery('.itemized_list input') 
+    .livequery('keyup', function(event) { 
+        recalc(); 
+        return false; 
+    }); 
+	
+	jQuery('#wp_invoice_subscription_total_occurances input') 
+    .livequery('keyup', function(event) { 
+        recalc(); 
+        return false; 
+    }); 
+
 	
 	jQuery("a.wp_invoice_custom_invoice_id").click(function() { jQuery("input.wp_invoice_custom_invoice_id").toggle(); return false;}) 
 	
@@ -223,24 +235,16 @@ jQuery(document).ready(function(){
 
 
 function recalc(){
-	jQuery("[@id^=total_item]").calc(
-		// the equation to use for the calculation
+	jQuery("[id^=total_item]").calc(
 		"qty * price",
-		// define the variables used in the equation, these can be a jQuery object
 		{
-			qty: 	jQuery("[@id^=qty_item_]"),
-			price: 	jQuery("[@id^=price_item_]") 
+			qty: 	jQuery("[id^=qty_item_]"),
+			price: 	jQuery("[id^=price_item_]") 
 		},
-		// define the formatting callback, the results of the calculation are passed to this function
-		function (s){
-			// return the number as a dollar amount
-
-			
+		function (s){			
 			return s.toFixed(2);
 		},
-		// define the finish callback, this runs after the calculation has been complete
 		function ($this){
-			// sum the total of the $("[@id^=total_item]") selector
 			var tax = jQuery('#wp_invoice_tax').val() / 100;
 			var sum = $this.sum() + ($this.sum() * tax);
 			var total_occurances = jQuery("#wp_invoice_subscription_total_occurances").val();

@@ -1,29 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
-V 50
-/!svn/ver/110359/wp-invoice/tags/1.9/core/gateways
+V 51
+/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways
 END
 authnet.class.php
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/!svn/ver/110359/wp-invoice/tags/1.9/core/gateways/authnet.class.php
-END
-moneybookers.class.php
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/!svn/ver/110359/wp-invoice/tags/1.9/core/gateways/moneybookers.class.php
+V 69
+/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways/authnet.class.php
 END
 authnetARB.class.php
 K 25
 svn:wc:ra_dav:version-url
-V 71
-/!svn/ver/110359/wp-invoice/tags/1.9/core/gateways/authnetARB.class.php
-END
-alertpay.class.php
-K 25
-svn:wc:ra_dav:version-url
-V 69
-/!svn/ver/110359/wp-invoice/tags/1.9/core/gateways/alertpay.class.php
+V 72
+/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways/authnetARB.class.php
 END

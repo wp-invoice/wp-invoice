@@ -19,6 +19,8 @@
 
 setlocale(LC_MONETARY, 'en_US'); 
 
+// Hide errors if using PHP4, otherwise we get many html_entity_decode() errors
+if (phpversion() <= 5 && $wp_invoice_debug == false) { ini_set('error_reporting', 0); }
 
 function wp_invoice_number_of_invoices()
 {
@@ -372,7 +374,7 @@ function wp_invoice_build_invoice_link($invoice_id) {
 
 function wp_invoice_draw_inputfield($name,$value,$special = '') {
 	
-	return "<input id='$name' class='$name input_field' name='$name' value='$value' $special>";
+	return "<input id='$name' class='$name input_field' name='$name' value='$value' $special />";
 }
 function wp_invoice_draw_textarea($name,$value,$special = '') {
 	
@@ -411,7 +413,7 @@ function wp_invoice_send_email_receipt($invoice_id) {
 	$message = wp_invoice_show_receipt_email($invoice_id);
 	$subject = preg_replace_callback('/(%([a-z_]+)%)/', 'wp_invoice_email_apply_variables', get_option('wp_invoice_email_send_receipt_subject'));
 
-	if(mail($invoice_info->recipient('email_address'), $subject, $message, $headers))
+	if(wp_mail($invoice_info->recipient('email_address'), $subject, $message, $headers))
 	{ wp_invoice_update_log($invoice_id,'contact','Receipt eMailed'); }
 
 	return $message;
@@ -462,6 +464,7 @@ function wp_invoice_complete_removal()
 	delete_option('wp_invoice_web_invoice_page');
 	delete_option('wp_invoice_billing_meta');
 	delete_option('wp_invoice_show_quantities');
+	delete_option('wp_invoice_fe_state_selection');
 	delete_option('wp_invoice_use_css');
 	delete_option('wp_invoice_hide_page_title');
 	delete_option('wp_invoice_send_thank_you_email');
@@ -476,7 +479,6 @@ function wp_invoice_complete_removal()
 	delete_option('wp_invoice_gateway_delim_char');
 	delete_option('wp_invoice_gateway_encap_char');
 	delete_option('wp_invoice_gateway_merchant_email');
-	delete_option('wp_invoice_gateway_header_email_receipt');
 	delete_option('wp_invoice_gateway_url');
 	delete_option('wp_invoice_recurring_gateway_url');
 	delete_option('wp_invoice_gateway_MD5Hash');
@@ -526,7 +528,7 @@ function wp_invoice_send_email($invoice_array, $reminder = false)
 
 			$message = html_entity_decode($message, ENT_QUOTES, 'UTF-8');
 
-			if(mail($profileuser->user_email, $subject, $message, $headers))
+			if(wp_mail($profileuser->user_email, $subject, $message, $headers))
 			{
 				$counter++; // Success in sending quantified.
 				wp_invoice_update_log($invoice_id,'contact','Invoice eMailed'); //make sent entry
@@ -558,7 +560,7 @@ function wp_invoice_send_email($invoice_array, $reminder = false)
 
 		$message = html_entity_decode($message, ENT_QUOTES, 'UTF-8');
 
-		if(mail($profileuser->user_email, $subject, $message, $headers))
+		if(wp_mail($profileuser->user_email, $subject, $message, $headers))
 		{
 			wp_invoice_update_invoice_meta($invoice_id, "sent_date", date("Y-m-d", time()));
 			wp_invoice_update_log($invoice_id,'contact','Invoice eMailed'); return "Web invoice sent successfully."; }
@@ -868,7 +870,7 @@ if(empty($_POST['email_address'])){$errors [ 'email_address' ] [] = "Please prov
 if(empty($_POST['phonenumber'])){$errors [ 'phonenumber' ] [] = "Please enter your phone number.";$stop_transaction = true;}
 if(empty($_POST['address'])){$errors [ 'address' ] [] = "Please enter your address.";$stop_transaction = true;}
 if(empty($_POST['city'])){$errors [ 'city' ] [] = "Please enter your city.";$stop_transaction = true;}
-if(empty($_POST['state'])){$errors [ 'state' ] [] = "Please select your state.";$stop_transaction = true;}
+if(get_option('wp_invoice_fe_state_selection') != 'Hide') {  if(empty($_POST['state'])){$errors [ 'state' ] [] = "Please select your state.";$stop_transaction = true;} }
 if(empty($_POST['zip'])){$errors [ 'zip' ] [] = "Please enter your ZIP code.";$stop_transaction = true;}
 if(empty($_POST['country'])){$errors [ 'country' ] [] = "Please enter your country.";$stop_transaction = true;}
 if(empty($_POST['card_num'])) {	$errors [ 'card_num' ] []  = "Please enter your credit card number.";	$stop_transaction = true;} else { if (!wp_invoice_validate_cc_number($_POST['card_num'])){$errors [ 'card_num' ] [] = "Please enter a valid credit card number."; $stop_transaction = true; } }
@@ -1178,7 +1180,6 @@ function wp_invoice_process_invoice_update($invoice_id) {
 	"wp_invoice_gateway_delim_data",
 	"wp_invoice_gateway_delim_char",
 	"wp_invoice_gateway_encap_char",
-	"wp_invoice_gateway_header_email_receipt",
 	"wp_invoice_gateway_MD5Hash",
 	"wp_invoice_gateway_test_mode",
 	"wp_invoice_gateway_relay_response",
@@ -1245,6 +1246,7 @@ function wp_invoice_process_settings() {
 	"wp_invoice_email_address",
 	"wp_invoice_force_https",
 	"wp_invoice_where_to_display",
+	"wp_invoice_custom_label_tax",
 	
 	"wp_invoice_googlecheckout_address",
 	"wp_invoice_payment_link",
@@ -1253,11 +1255,15 @@ function wp_invoice_process_settings() {
 	"wp_invoice_send_thank_you_email",
 	"wp_invoice_show_business_address",
 	"wp_invoice_show_quantities",
+	"wp_invoice_fe_state_selection",
 	"wp_invoice_use_css",
 	"wp_invoice_user_level",
 	"wp_invoice_web_invoice_page",
 	"wp_invoice_reminder_message",
 	"wp_invoice_cc_thank_you_email",
+
+	"wp_invoice_lookup_text",
+	"wp_invoice_lookup_submit",
 
 	"wp_invoice_email_send_invoice_subject",
 	"wp_invoice_email_send_invoice_content",
@@ -1280,7 +1286,6 @@ function wp_invoice_process_settings() {
 	"wp_invoice_gateway_delim_data",
 	"wp_invoice_gateway_delim_char",
 	"wp_invoice_gateway_encap_char",
-	"wp_invoice_gateway_header_email_receipt",
 	"wp_invoice_gateway_MD5Hash",
 	"wp_invoice_gateway_test_mode",
 	"wp_invoice_gateway_relay_response",
@@ -1544,21 +1549,25 @@ function wp_invoice_accepted_payment($invoice_id = 'global') {
 		
 		$invoice_info = new WP_Invoice_GetInfo($invoice_id);
 		$payment_array = array();
-
-		if($invoice_info->display('wp_invoice_paypal_allow') == 'yes') { 
+		if($invoice_info->display('wp_invoice_payment_method') != '') { $custom_default_payment = true; } else { $custom_default_payment = false; }
+		
+		if($invoice_info->display('wp_invoice_paypal_allow') == 'yes') {
 			$payment_array['paypal']['name'] = 'paypal'; 
 			$payment_array['paypal']['active'] = true; 
 			$payment_array['paypal']['nicename'] = "PayPal"; 
-			if($invoice_info->display('wp_invoice_payment_method') == 'paypal' || $invoice_info->display('wp_invoice_payment_method') == 'PayPal') $payment_array['paypal']['default'] = true; 
-			if(empty($payment_array['paypal']['default']) && get_option('wp_invoice_payment_method') == 'paypal') $payment_array['paypal']['default'] = true; 
+			
+
+			if($custom_default_payment && $invoice_info->display('wp_invoice_payment_method') == 'paypal' || $invoice_info->display('wp_invoice_payment_method') == 'PayPal') $payment_array['paypal']['default'] = true; 
+			if(!$custom_default_payment &&  empty($payment_array['paypal']['default']) && get_option('wp_invoice_payment_method') == 'paypal') { $payment_array['paypal']['default'] = true;}
+			
 		}
 		
 		if($invoice_info->display('wp_invoice_cc_allow') == 'yes') { 
 			$payment_array['cc']['name'] = 'cc'; 
 			$payment_array['cc']['active'] = true; 
 			$payment_array['cc']['nicename'] = "Credit Card"; 
-			if($invoice_info->display('wp_invoice_payment_method') == 'cc' || $invoice_info->display('wp_invoice_payment_method') == 'Credit Card') $payment_array['cc']['default'] = true; 
-			if(empty($payment_array['cc']['default']) && get_option('wp_invoice_payment_method') == 'cc') $payment_array['cc']['default'] = true; 
+			if($custom_default_payment && $invoice_info->display('wp_invoice_payment_method') == 'cc' || $invoice_info->display('wp_invoice_payment_method') == 'Credit Card') $payment_array['cc']['default'] = true; 
+			if(!$custom_default_payment && empty($payment_array['cc']['default']) && get_option('wp_invoice_payment_method') == 'cc') $payment_array['cc']['default'] = true; 
 
 		}
 

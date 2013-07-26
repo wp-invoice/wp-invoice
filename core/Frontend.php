@@ -28,7 +28,6 @@ function wp_invoice_the_content($content) {
 
 	$result .= "<div id=\"invoice_page\" class=\"clearfix\">";
 
-		
 		//If already paid, show thank you message
 		if(wp_invoice_paid_status($invoice_id)) { $result .= wp_invoice_show_already_paid($invoice_id); $stop = true; }
 
@@ -227,7 +226,7 @@ foreach ($payment_array as $payment_option) { ?>
 #invoice_page #country {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #wp_invoice_select_payment_method select {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #cc_pay_button {width: 230px; font-size: 1.1em; color: #FFF; border:#CF7319 1px solid; background: #FFAA28; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
-#invoice_page #state {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
+#invoice_page #state_field select {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #exp_month, #invoice_page #exp_year {width: 70px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page .invoice_page_subheading {text-align:left; margin:0;}
 #invoice_page .invoice_page_subheading_gray {text-align:left; color: #ebebeb}

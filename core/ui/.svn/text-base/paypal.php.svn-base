@@ -7,6 +7,10 @@
 	<input type="hidden" name="business" value="<?php echo $invoice->display('wp_invoice_paypal_address'); ?>">
 	<input type="hidden" name="return"  value="<?php echo $invoice->display('link'); ?>">
 	<input type="hidden" name="notify_url"  value="<?php echo $invoice->display('link'); ?>">
+	
+	<?php if($invoice->display('tax_total') == 0) : ?>
+	<input type="hidden" name="tax"  value="<?php echo $invoice->display('tax_total'); ?>">
+	<?php endif; ?>
 	<input type="hidden" name="rm" value="2">
 	<input type="hidden" name="cancel_return"  value="<?php echo $invoice->display('link'); ?>&return_info=cancel">
 	<input type="hidden" name="amount"  value="<?php echo $invoice->display('amount'); ?>">
@@ -55,10 +59,17 @@
 		<?php echo wp_invoice_draw_inputfield("city",$invoice->recipient('city')); ?>
 		</li>
 
-		<li>
+		<?php if(get_option('wp_invoice_fe_state_selection') != 'Hide') { ?>
+		<li id="state_field">
 		<label for="state"><?php _e('State', WP_INVOICE_TRANS_DOMAIN); ?></label>
+	<?php if(get_option('wp_invoice_fe_state_selection') == 'Dropdown') { ?>
 		<?php print wp_invoice_draw_select('state',wp_invoice_state_array(),$invoice->recipient('state'));  ?>
+	<?php } ?>
+	<?php if(get_option('wp_invoice_fe_state_selection') == 'Input_Field') { ?>
+		<?php echo wp_invoice_draw_inputfield("state",$invoice->recipient('state')); ?>
+	<?php } ?>
 		</li>
+		<?php } ?>
 
 		<li>
 		<label for="zip"><?php _e('Zip Code', WP_INVOICE_TRANS_DOMAIN); ?></label>
@@ -73,7 +84,7 @@
 
 		<li>
 		<label for="submit">&nbsp;</label>
-		<input type="image"  src="https://www.paypal.com/en_US/i/btn/btn_paynow_LG.gif" style="border:0; width:107px; height:26px;padding:0;" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+		<input type="image"  src="<?php echo get_option('wp_invoice_fe_paypal_link_url'); ?>" style="border:0; width:107px; height:26px;padding:0;" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 		</li>
 		
 		<br class="cb" />	
