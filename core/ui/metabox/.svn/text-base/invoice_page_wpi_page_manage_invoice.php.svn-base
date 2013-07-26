@@ -394,7 +394,15 @@ function postbox_user_existing($this_invoice) {
   <?php foreach ($user_information as $field_id => $field_name) { ?>
     <tr>
       <th><?php _e($field_name) ?></th>
-      <td><?php echo WPI_UI::input("name=wpi_invoice[user_data][{$field_id}]&class=wpi_{$field_id}&value=" . (!empty($this_invoice['user_data'][$field_id]) ? $this_invoice['user_data'][$field_id] : '')); ?></td>
+      <td>
+        <?php
+          echo WPI_UI::input(array(
+              'name'  => 'wpi_invoice[user_data]['.$field_id.']',
+              'class' => 'wpi_'.$field_id,
+              'value' => (!empty($this_invoice['user_data'][$field_id]) ? $this_invoice['user_data'][$field_id] : '')
+          ));
+        ?>
+      </td>
     </tr>
   <?php } ?>
   </table>

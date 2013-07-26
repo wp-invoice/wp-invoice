@@ -213,9 +213,7 @@ class WPI_Settings_page {
             </li>
             <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", WPI); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", WPI); ?></li>
             <li class="wpi_install_custom_templates_result" style="display:none;"></li>
-            <?php if (WPI_Functions::has_installed_premium_features()): ?>
-              <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true($wpi_settings['disable_automatic_feature_update'])); ?></li>
-                <?php endif; ?>
+            <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true($wpi_settings['disable_automatic_feature_update'])); ?></li>
             <li>
               <label for="wpi_thousands_separator_symbol">
                 <?php _e('Thousands Separator Symbol', WPI); ?>

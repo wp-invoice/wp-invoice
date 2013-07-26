@@ -21,7 +21,7 @@ class WPI_Invoice {
    */
   function set($args) {
     global $wpdb;
-    $data =wp_parse_args($args, array());
+    $data = wp_parse_args( $args, array() );
 
     foreach($data as $meta_key => $meta_value) {
       $this->data[$meta_key] = $meta_value;
@@ -293,7 +293,6 @@ class WPI_Invoice {
 
     $object_meta = get_post_custom($id);
 
-
     if(is_array($object_meta)) {
       foreach($object_meta as $meta_key => $meta_value) {
         if(is_array($meta_value)) {
@@ -346,60 +345,61 @@ class WPI_Invoice {
   }
 
   /**
-   * @TODO: Update it
    * Figure out status of invoice
-  */
-    function run_reports() {
-        if($this->data['amount'] == '0')
-            $reports['status'] = 'paid';
-        if($this->data['amount'] > '0')
-            $reports['status'] =  'balance_due';
-        if($this->data['amount'] < '0')
-            $reports['status'] =  'negative_balance';
-        if($this->data['is_recurring']) {
-            // How many cycles have we passed since start?
-            $start_date = $this->data['meta']['invoice_date'];
-            $current_date['year']     = date('Y');
-            $current_date['month']     = date('n');
-            $current_date['day']         = date('d');
-            switch ($this->data['meta']['recurring']['unit']) {
-                case '1-month':
-                    // How many month cycles.  The last part figures out if we need add another cycle based on the dates.
-                    $reports['cycles'] = (($current_date['year'] - $start_date['year']) * 12) - $start_date['month'] + $current_date['month'] + (($current_date['day'] - $start_date['day'] > 0) ? 1 : 0);
-                break;
-                case '1-week':
-                    $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 7));
-                break;
-                case '2-week':
-                    $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 14));
-                break;
-            }
-            $reports['lifetime_total'] = $reports['cycles'] * $this->data['amount'];
-            $reports['total_paid_in'] = $this->query_log("paid_in=true");
-        }
-        return $reports;
+   *
+   * @TODO: Update it
+   * @return type
+   */
+  function run_reports() {
+      if($this->data['amount'] == '0')
+          $reports['status'] = 'paid';
+      if($this->data['amount'] > '0')
+          $reports['status'] =  'balance_due';
+      if($this->data['amount'] < '0')
+          $reports['status'] =  'negative_balance';
+      if($this->data['is_recurring']) {
+          // How many cycles have we passed since start?
+          $start_date = $this->data['meta']['invoice_date'];
+          $current_date['year']     = date('Y');
+          $current_date['month']     = date('n');
+          $current_date['day']         = date('d');
+          switch ($this->data['meta']['recurring']['unit']) {
+              case '1-month':
+                  // How many month cycles.  The last part figures out if we need add another cycle based on the dates.
+                  $reports['cycles'] = (($current_date['year'] - $start_date['year']) * 12) - $start_date['month'] + $current_date['month'] + (($current_date['day'] - $start_date['day'] > 0) ? 1 : 0);
+              break;
+              case '1-week':
+                  $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 7));
+              break;
+              case '2-week':
+                  $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 14));
+              break;
+          }
+          $reports['lifetime_total'] = $reports['cycles'] * $this->data['amount'];
+          $reports['total_paid_in'] = $this->query_log("paid_in=true");
+      }
+      return $reports;
+  }
+
+  /**
+   * Queries invoice logs
+   *
+   * @param type $args
+   * @return type
+   */
+  function query_log($args = "") {
+    $defaults = array('paid_in' => false);
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    if (!is_array($this->data['log']))
+      return;
+    foreach ($this->data['log'] as $event) {
+      if ($event['event_type'] == 'add_payment') {
+        $total_paid_in = intval($total_paid_in) + intval($event['event_amount']);
+      }
     }
-/**
-    Queries invoice logs
-*/
-    function query_log($args = "" ) {
-        $defaults = array ('paid_in' => false);
-        extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-        if(!is_array($this->data['log']))
-            return;
-        foreach($this->data['log'] as $event) {
-            if($event['event_type'] == 'add_payment') {
-                 $total_paid_in = intval($total_paid_in) + intval($event['event_amount']);
-            }
-        }
-        if($paid_in)
-            return abs($total_paid_in);
-    }
-    /**
-    Calculates how much has been paid, how much is owed, etc. based off logs
-    */
-    function calculate_status() {
-    }
+    if ($paid_in)
+      return abs($total_paid_in);
+  }
 
   /**
    * This is a cruicial function.
@@ -437,308 +437,322 @@ class WPI_Invoice {
 
   }
 
-    /**
-    Adds line items to an invoice
-    */
-    function line_item($args = '') {
+  /**
+   * Adds line items to an invoice
+   *
+   * @param type $args
+   * @return boolean
+   */
+  function line_item($args = '') {
 
-      extract(wp_parse_args($args, array(
-          'name' => '',
-          'description' => '',
-          'quantity' => 1,
-          'price' => '',
-          'tax_rate' => ''
-      )), EXTR_SKIP);
-
-
-      if (empty ($name) || empty ($price))
-          return false;
-
-      $tax_rate = (!empty( $tax_rate ) && $tax_rate > 0) ? $tax_rate : 0 ;
-
-      if ( !empty( $this->data['itemized_list'] ) ) {
-        $items_in_list = count($this->data['itemized_list']) + 1;
-      } else {
-        $items_in_list = 1;
-      }
-      // Counted number of items in itemized list, and added another one
-      $this->data['itemized_list'][$items_in_list]['name'] = $name;
-      $this->data['itemized_list'][$items_in_list]['description'] = $description;
-      $this->data['itemized_list'][$items_in_list]['quantity'] = $quantity;
-      $this->data['itemized_list'][$items_in_list]['price'] = $price;
-      $this->data['itemized_list'][$items_in_list]['tax_rate'] = $tax_rate;
-
-      // Calculate line totals
-      $this->data['itemized_list'][$items_in_list]['line_total_tax'] = $quantity * $price * ($tax_rate / 100);
-      $this->data['itemized_list'][$items_in_list]['line_total_before_tax'] = $quantity * $price;
-      $this->data['itemized_list'][$items_in_list]['line_total_after_tax'] = $quantity * $price * (1 + ($tax_rate / 100));
-
-    }
+    extract(wp_parse_args($args, array(
+        'name' => '',
+        'description' => '',
+        'quantity' => 1,
+        'price' => '',
+        'tax_rate' => ''
+    )), EXTR_SKIP);
 
 
-    /**
-    Adds line charges to an invoice
-    */
-    function line_charge($args = '') {
-
-      $defaults = array (
-          'name' => '',
-          'amount' => '',
-          'tax' => 0
-      );
-
-      extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-      if (empty ($name) || empty ($amount))
+    if (empty ($name) || empty ($price))
         return false;
 
-      $items_in_list = count( empty( $this->data['itemized_charges'] ) ? null : $this->data['itemized_charges'] ) + 1;
-      // Counted number of items in itemized list, and added another one
-      $this->data['itemized_charges'][$items_in_list]['name'] = $name;
-      $this->data['itemized_charges'][$items_in_list]['amount'] = $amount;
-      $this->data['itemized_charges'][$items_in_list]['tax'] = $tax;
-      // Calculate line totals
-      $this->data['itemized_charges'][$items_in_list]['tax_amount'] = $amount / 100 * $tax;
-      $this->data['itemized_charges'][$items_in_list]['after_tax'] = $amount + ( $amount / 100 * $tax );
-      $this->data['itemized_charges'][$items_in_list]['before_tax'] = $amount;
+    $tax_rate = (!empty( $tax_rate ) && $tax_rate > 0) ? $tax_rate : 0 ;
 
+    if ( !empty( $this->data['itemized_list'] ) ) {
+      $items_in_list = count($this->data['itemized_list']) + 1;
+    } else {
+      $items_in_list = 1;
     }
 
+    //** Counted number of items in itemized list, and added another one */
+    $this->data['itemized_list'][$items_in_list]['name'] = $name;
+    $this->data['itemized_list'][$items_in_list]['description'] = $description;
+    $this->data['itemized_list'][$items_in_list]['quantity'] = $quantity;
+    $this->data['itemized_list'][$items_in_list]['price'] = $price;
+    $this->data['itemized_list'][$items_in_list]['tax_rate'] = $tax_rate;
 
-    /**
-    Adds discounts to an invoice
-    */
-    function add_discount($args = '') {
+    //** Calculate line totals */
+    $this->data['itemized_list'][$items_in_list]['line_total_tax'] = $quantity * $price * ($tax_rate / 100);
+    $this->data['itemized_list'][$items_in_list]['line_total_before_tax'] = $quantity * $price;
+    $this->data['itemized_list'][$items_in_list]['line_total_after_tax'] = $quantity * $price * (1 + ($tax_rate / 100));
 
-      $defaults = array (
-          'name' => '',
-          'description' => '',
-          'amount' => '',
-          'type' => ''
-      );
-      extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-      if(!isset($this->data['discount'])) {
-        $this->data['discount'] = array();
+  }
+
+  /**
+   * Adds line charges to an invoice
+   *
+   * @param type $args
+   * @return boolean
+   */
+  function line_charge($args = '') {
+
+    $defaults = array (
+        'name' => '',
+        'amount' => '',
+        'tax' => 0
+    );
+
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    if (empty ($name) || empty ($amount))
+      return false;
+
+    $items_in_list = count( empty( $this->data['itemized_charges'] ) ? null : $this->data['itemized_charges'] ) + 1;
+
+    //** Counted number of items in itemized list, and added another one */
+    $this->data['itemized_charges'][$items_in_list]['name'] = $name;
+    $this->data['itemized_charges'][$items_in_list]['amount'] = $amount;
+    $this->data['itemized_charges'][$items_in_list]['tax'] = $tax;
+
+    //** Calculate line totals */
+    $this->data['itemized_charges'][$items_in_list]['tax_amount'] = $amount / 100 * $tax;
+    $this->data['itemized_charges'][$items_in_list]['after_tax'] = $amount + ( $amount / 100 * $tax );
+    $this->data['itemized_charges'][$items_in_list]['before_tax'] = $amount;
+
+  }
+
+  /**
+   * Adds discounts to an invoice
+   *
+   * @param type $args
+   */
+  function add_discount($args = '') {
+
+    $defaults = array (
+        'name' => '',
+        'description' => '',
+        'amount' => '',
+        'type' => ''
+    );
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    if(!isset($this->data['discount'])) {
+      $this->data['discount'] = array();
+    }
+    $items_in_list = count($this->data['discount']) + 1;
+    $this->data['discount'][$items_in_list]['name'] = $name;
+    $this->data['discount'][$items_in_list]['amount'] = $amount;
+    $this->data['discount'][$items_in_list]['type'] = $type;
+
+  }
+
+  /**
+   * Creates an invoice schedule.
+   * There can only be one, so deletes any other schedule.
+   *
+   * @param type $args
+   * @return boolean
+   */
+  function create_schedule($args = '') {
+
+    $defaults = array (
+        'unit' => false,
+        'length' => false,
+        'cycles' => false,
+        'send_invoice_automatically' => false,
+        'start_date' => array()
+    );
+
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+
+    if(!isset($unit))
+        return false;
+    if(!isset($cycles))
+        return false;
+
+    $units  = array( 'months', 'days' );
+
+    $this->is_recurring = true;
+    $this->data['recurring']['active'] = 'on';
+    $this->data['recurring']['unit'] = in_array( $unit, $units ) ? $unit : 'months';
+    $this->data['recurring']['length'] = (int)$length;
+    $this->data['recurring']['cycles'] = (int)$cycles;
+    $this->data['recurring']['send_invoice_automatically'] =
+      ( $send_invoice_automatically != 'on' && $send_invoice_automatically != 'off' )
+      ? 'on'
+      : $send_invoice_automatically;
+    $this->data['recurring']['start_date']['month'] = (int)$start_date['month'];
+    $this->data['recurring']['start_date']['day'] = (int)$start_date['day'];
+    $this->data['recurring']['start_date']['year'] = (int)$start_date['year'];
+    $this->data['recurring'] = apply_filters('wpi_create_schedule_recurring', $this->data['recurring']);
+  }
+
+  /**
+   * Calculate amounts on each update
+   *
+   * @global type $wpdb
+   * @global type $blog_id
+   */
+  function calculate_totals() {
+    global $wpdb, $blog_id;
+
+    //** Flush vars */
+    $taxable_subtotal             = 0;
+    $non_taxable_subtotal         = 0;
+    $tax_percents                 = array();
+    $total_charges                = 0;
+    $total                        = 0;
+    $this->data['subtotal']       = 0;
+    $this->data['total_tax']      = 0;
+    $this->data['total_discount'] = 0;
+
+    //** Services itemized list */
+    if(isset($this->data['itemized_list']) && is_array($this->data['itemized_list'])) {
+      foreach ($this->data['itemized_list'] as $key => $value) {
+        if ( $value['line_total_tax'] > 0 ) {
+          $taxable_subtotal     += $value['line_total_before_tax'];
+          $tax_percents[]       =  array(
+              'tax' => $value['tax_rate'],
+              'qty' => $value['quantity'],
+              'prc' => $value['price']
+          );
+        } else {
+          $non_taxable_subtotal += $value['line_total_before_tax'];
+        }
       }
-      $items_in_list = count($this->data['discount']) + 1;
-      $this->data['discount'][$items_in_list]['name'] = $name;
-      $this->data['discount'][$items_in_list]['amount'] = $amount;
-      $this->data['discount'][$items_in_list]['type'] = $type;
-
     }
 
-/**
-Creates an invoice schedule.
-There can only be one, so deletes any other schedule.
-*/
-    function create_schedule($args = '') {
-
-      $defaults = array (
-          'unit' => false,
-          'length' => false,
-          'cycles' => false,
-          'send_invoice_automatically' => false,
-          'start_date' => array()
-      );
-      extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-      if(!isset($unit))
-          return false;
-      if(!isset($cycles))
-          return false;
-
-      $units  = array( 'months', 'days' );
-
-      $this->is_recurring = true;
-      $this->data['recurring']['active'] = 'on';
-      $this->data['recurring']['unit'] = in_array( $unit, $units ) ? $unit : 'months';
-      $this->data['recurring']['length'] = (int)$length;
-      $this->data['recurring']['cycles'] = (int)$cycles;
-      $this->data['recurring']['send_invoice_automatically'] =
-        ( $send_invoice_automatically != 'on' && $send_invoice_automatically != 'off' )
-        ? 'on'
-        : $send_invoice_automatically;
-      $this->data['recurring']['start_date']['month'] = (int)$start_date['month'];
-      $this->data['recurring']['start_date']['day'] = (int)$start_date['day'];
-      $this->data['recurring']['start_date']['year'] = (int)$start_date['year'];
-      $this->data['recurring'] = apply_filters('wpi_create_schedule_recurring', $this->data['recurring']);
+    //** The same is for Charges itemized list */
+    if(!empty($this->data['itemized_charges']) && is_array($this->data['itemized_charges'])) {
+      foreach ($this->data['itemized_charges'] as $key => $value) {
+        if ( !empty($value['tax_amount']) && $value['tax_amount'] > 0 ) {
+          $taxable_subtotal     += $value['amount'];
+          $tax_percents[]       =  array(
+              'tax' => $value['tax'],
+              'qty' => 1,
+              'prc' => $value['amount']
+          );
+          $total_charges        += $value['amount'];
+        } else {
+          $non_taxable_subtotal += $value['amount'];
+        }
+      }
     }
 
-    /**
-     * Calculate amounts on each update
-     *
-     * @global type $wpdb
-     * @global type $blog_id
-     */
-    function calculate_totals() {
-      global $wpdb, $blog_id;
+    $avg_tax = 0;
+    $sum = 0;
+    if ( !empty( $tax_percents ) ) {
+      foreach( $tax_percents as $tax_item ) {
+        $sum += $tax_item['tax'];
+      }
+      $avg_tax = $sum / count( $tax_percents );
+    }
 
-      //** Flush vars */
-      $taxable_subtotal             = 0;
-      $non_taxable_subtotal         = 0;
-      $tax_percents                 = array();
-      $total_charges                = 0;
-      $total                        = 0;
-      $this->data['subtotal']       = 0;
-      $this->data['total_tax']      = 0;
-      $this->data['total_discount'] = 0;
+    $this->data['subtotal'] = $taxable_subtotal + $non_taxable_subtotal;
 
-      //** Services itemized list */
-      if(isset($this->data['itemized_list']) && is_array($this->data['itemized_list'])) {
-        foreach ($this->data['itemized_list'] as $key => $value) {
-          if ( $value['line_total_tax'] > 0 ) {
-            $taxable_subtotal     += $value['line_total_before_tax'];
-            $tax_percents[]       =  array(
-								'tax' => $value['tax_rate'],
-								'qty' => $value['quantity'],
-								'prc' => $value['price']
-						);
+    //** Get discount */
+    if (!empty($this->data['discount']) && is_array($this->data['discount'])) {
+      $highest_percent = 0;
+      foreach ($this->data['discount'] as $key => $value) {
+        if ($value['type'] == 'percent') {
+          //** if a percentage is found, we make a note of it, and build a percentage array, which will later be used to calculate the highest */
+          $percentage_found = true;
+          if ((int) $highest_percent < (int) $value['amount']) {
+            $highest_percent = $value['amount'];
+          }
+        } else {
+          //** if non percentage, simply calculate the sum of all the discounts */
+          $this->data['total_discount'] = $this->data['total_discount'] + $value['amount'];
+        }
+      }
+      if (isset($percentage_found) && $percentage_found == true) {
+        //** Only do this if a percentage was found.  figure out highest percentage, and overwrite total_discount */
+        $this->data['total_discount'] = $this->data['subtotal'] * ($highest_percent / 100);
+      }
+    }
+
+    //** Handle Tax Method */
+    if ( !empty( $this->data['tax_method'] ) ) {
+      switch ( $this->data['tax_method'] ) {
+
+        case 'before_discount':
+
+          foreach( $tax_percents as $tax_item ) {
+            $this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
+          }
+
+          break;
+
+        case 'after_discount':
+          $subtotal_with_discount  = $this->data['subtotal'] - $this->data['total_discount'];
+
+          if ($this->data['subtotal'] > 0) {
+            $taxable_amount = $taxable_subtotal / $this->data['subtotal'] * $subtotal_with_discount;
           } else {
-            $non_taxable_subtotal += $value['line_total_before_tax'];
-          }
-        }
-      }
-
-      //** The same is for Charges itemized list */
-      if(!empty($this->data['itemized_charges']) && is_array($this->data['itemized_charges'])) {
-        foreach ($this->data['itemized_charges'] as $key => $value) {
-          if ( !empty($value['tax_amount']) && $value['tax_amount'] > 0 ) {
-            $taxable_subtotal     += $value['amount'];
-            $tax_percents[]       =  array(
-								'tax' => $value['tax'],
-								'qty' => 1,
-								'prc' => $value['amount']
-						);
-            $total_charges        += $value['amount'];
-          } else {
-            $non_taxable_subtotal += $value['amount'];
-          }
-        }
-      }
-
-      $avg_tax = 0;
-			$sum = 0;
-      if ( !empty( $tax_percents ) ) {
-				foreach( $tax_percents as $tax_item ) {
-					$sum += $tax_item['tax'];
-				}
-        $avg_tax = $sum / count( $tax_percents );
-      }
-
-      $this->data['subtotal'] = $taxable_subtotal + $non_taxable_subtotal;
-
-      //** Get discount */
-      if (!empty($this->data['discount']) && is_array($this->data['discount'])) {
-        $highest_percent = 0;
-        foreach ($this->data['discount'] as $key => $value) {
-          if ($value['type'] == 'percent') {
-            //** if a percentage is found, we make a note of it, and build a percentage array, which will later be used to calculate the highest */
-            $percentage_found = true;
-            if ((int) $highest_percent < (int) $value['amount']) {
-              $highest_percent = $value['amount'];
-            }
-          } else {
-            //** if non percentage, simply calculate the sum of all the discounts */
-            $this->data['total_discount'] = $this->data['total_discount'] + $value['amount'];
-          }
-        }
-        if (isset($percentage_found) && $percentage_found == true) {
-          //** Only do this if a percentage was found.  figure out highest percentage, and overwrite total_discount */
-          $this->data['total_discount'] = $this->data['subtotal'] * ($highest_percent / 100);
-        }
-      }
-
-      //** Handle Tax Method */
-      if ( !empty( $this->data['tax_method'] ) ) {
-        switch ( $this->data['tax_method'] ) {
-
-          case 'before_discount':
-
-						foreach( $tax_percents as $tax_item ) {
-							$this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
-						}
-
-            break;
-
-          case 'after_discount':
-            $subtotal_with_discount  = $this->data['subtotal'] - $this->data['total_discount'];
-
-            if ($this->data['subtotal'] > 0) {
-              $taxable_amount = $taxable_subtotal / $this->data['subtotal'] * $subtotal_with_discount;
-            } else {
-              $taxable_amount = 0;
-            }
-
-            $this->data['total_tax'] = $taxable_amount * $avg_tax / 100;
-            break;
-
-          default:
-						foreach( $tax_percents as $tax_item ) {
-							$this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
-						}
-            break;
-        }
-      } else {
-        $this->data['tax_method'] = 'before_discount';
-				foreach( $tax_percents as $tax_item ) {
-					$this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
-				}
-      }
-
-      $total = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
-
-      $total_payments = 0;
-      $total_admin_adjustment = 0;
-      $refunds = 0;
-
-      $invoice_id = $this->data['invoice_id'];
-
-      //** Add support for MS and for old invoice histories which will have a blog_id of 0 after upgrade */
-      if($blog_id == 1) {
-        $ms_blog_query = " AND ( blog_id = {$blog_id} OR blog_id = 0 ) ";
-      } else {
-        $ms_blog_query = " AND blog_id = {$blog_id} ";
-      }
-
-      $this->data['log'] = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpi_object_log WHERE object_id = '".wpi_invoice_id_to_post_id($invoice_id)."' {$ms_blog_query}  ", ARRAY_A);
-
-      //** Calculate adjustments and refunds */
-      if(is_array($this->data['log'])) {
-
-        //** Loop log items */
-        foreach($this->data['log'] as $log_event) {
-
-          //** If log item is add_payment */
-          if($log_event['action'] == 'add_payment') {
-            $total_payments += $log_event['value'];
+            $taxable_amount = 0;
           }
 
-          //** If log item is do_adjustment */
-          if($log_event['action'] == 'do_adjustment') {
-            $total_admin_adjustment += $log_event['value'];
+          $this->data['total_tax'] = $taxable_amount * $avg_tax / 100;
+          break;
+
+        default:
+          foreach( $tax_percents as $tax_item ) {
+            $this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
           }
-
-          //** If log item is refund */
-          if($log_event['action'] == 'refund') {
-            $refunds += $log_event['value'];
-          }
-        }
+          break;
       }
-
-      $this->data['total_payments'] = $total_payments - $refunds;
-      $this->data['adjustments']    = - ($total_payments + $total_admin_adjustment - $refunds);
-
-      $this->data['net'] = number_format( (float)($total + $this->data['adjustments']), 2, '.', '' );
-
-      //** Fixes calculations for recurring invoices - should be last to overwrite incorrect values. */
-      if( $this->data['type'] == 'recurring' ) {
-        $this->data['total_tax'] = number_format( (float)($this->data['subtotal'] * $avg_tax / 100), 2, '.', '' );
-        $this->data['net'] = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
-        unset($this->data['adjustments']);
-      }
-
-      if ( $refunds > 0 && $this->data['total_payments'] <= 0 ) {
-        $this->data['post_status'] = 'refund';
+    } else {
+      $this->data['tax_method'] = 'before_discount';
+      foreach( $tax_percents as $tax_item ) {
+        $this->data['total_tax'] += $tax_item['prc'] / 100 * $tax_item['tax'] * $tax_item['qty'];
       }
     }
+
+    $total = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
+
+    $total_payments = 0;
+    $total_admin_adjustment = 0;
+    $refunds = 0;
+
+    $invoice_id = $this->data['invoice_id'];
+
+    //** Add support for MS and for old invoice histories which will have a blog_id of 0 after upgrade */
+    if($blog_id == 1) {
+      $ms_blog_query = " AND ( blog_id = {$blog_id} OR blog_id = 0 ) ";
+    } else {
+      $ms_blog_query = " AND blog_id = {$blog_id} ";
+    }
+
+    $this->data['log'] = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpi_object_log WHERE object_id = '".wpi_invoice_id_to_post_id($invoice_id)."' {$ms_blog_query}  ", ARRAY_A);
+
+    //** Calculate adjustments and refunds */
+    if(is_array($this->data['log'])) {
+
+      //** Loop log items */
+      foreach($this->data['log'] as $log_event) {
+
+        //** If log item is add_payment */
+        if($log_event['action'] == 'add_payment') {
+          $total_payments += $log_event['value'];
+        }
+
+        //** If log item is do_adjustment */
+        if($log_event['action'] == 'do_adjustment') {
+          $total_admin_adjustment += $log_event['value'];
+        }
+
+        //** If log item is refund */
+        if($log_event['action'] == 'refund') {
+          $refunds += $log_event['value'];
+        }
+      }
+    }
+
+    $this->data['total_payments'] = $total_payments - $refunds;
+    $this->data['adjustments']    = - ($total_payments + $total_admin_adjustment - $refunds);
+
+    $this->data['net'] = number_format( (float)($total + $this->data['adjustments']), 2, '.', '' );
+
+    //** Fixes calculations for recurring invoices - should be last to overwrite incorrect values. */
+    if( $this->data['type'] == 'recurring' ) {
+      $this->data['total_tax'] = number_format( (float)($this->data['subtotal'] * $avg_tax / 100), 2, '.', '' );
+      $this->data['net'] = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
+      unset($this->data['adjustments']);
+    }
+
+    if ( $refunds > 0 && $this->data['total_payments'] <= 0 ) {
+      $this->data['post_status'] = 'refund';
+    }
+  }
 
 
   /**
@@ -943,12 +957,12 @@ There can only be one, so deletes any other schedule.
     $ID = $this->data['ID'];
     if($ID) {
       if ( 'trash' != $this->data['post_status'] && 'pending' != $this->data['post_status']) {
-        /* Update post status */
+        //** Update post status */
         $ID = wp_update_post(array(
           'ID' => $this->data['ID'],
           'post_status' => 'archived'
         ));
-        /* Determine if post was successfully updated */
+        //** Determine if post was successfully updated */
         if((int)$ID > 0) {
           return true;
         }
@@ -970,12 +984,12 @@ There can only be one, so deletes any other schedule.
     $ID = $this->data['ID'];
     if($ID) {
       if ( 'archived' == $this->data['post_status']) {
-        /* Update post status */
+        //** Update post status */
         $ID = wp_update_post(array(
           'ID' => $this->data['ID'],
           'post_status' => 'active'
         ));
-        /* Determine if post was successfully updated */
+        //** Determine if post was successfully updated */
         if((int)$ID > 0) {
           return true;
         }
@@ -984,15 +998,19 @@ There can only be one, so deletes any other schedule.
     return false;
   }
 
-/**
-    Figures out when next payment is due. Mostly for recurring cycles.
-*/
-    function payment_due($args = '') {
-        global $wpi_settings;
-        $defaults = array ('invoice_id' => false);
-        extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-        // Figure out if this is a recurring bill
-        return WPI_Functions::days_since($this->data['meta'][due_date]);
-    }
+  /**
+   * Figures out when next payment is due. Mostly for recurring cycles.
+   *
+   * @global type $wpi_settings
+   * @param type $args
+   * @return type
+   */
+  function payment_due($args = '') {
+      global $wpi_settings;
+      $defaults = array ('invoice_id' => false);
+      extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+      // Figure out if this is a recurring bill
+      return WPI_Functions::days_since($this->data['meta'][due_date]);
+  }
 }
 ?>

@@ -1500,16 +1500,20 @@ class WPI_Functions {
   }
 
   /**
-    Handles saving and updating
-    Can also handle AJAX save/update function
+   * Handles saving and updating
+   * Can also handle AJAX save/update function
+   *
+   * @param type $invoice
+   * @param type $args
+   * @return boolean
    */
-  function save_invoice($invoice, $args = '') {
-    //die( json_encode($invoice) );
+  function save_invoice( $invoice, $args = '' ) {
 
-    /* Set function additional params */
+    //** Set function additional params */
     $defaults = array(
         'type' => 'default'
     );
+
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
     if ($type != 'import') {
@@ -1518,108 +1522,137 @@ class WPI_Functions {
       }
     }
 
-    /* Init New Invoice object from passed variables */
+    //** Init New Invoice object from passed variables */
     $ni = new WPI_Invoice();
 
-    $ni->set("ID={$invoice['ID']}");
-    $ni->set("invoice_id={$invoice['invoice_id']}");
+    //** ID */
+    $ni->set(array('ID' => $invoice['ID']));
 
-    //$ni->set("terms_acceptance_required={$invoice['terms_acceptance_required']}");
+    //** invoice_id */
+    $ni->set(array('invoice_id' => $invoice['invoice_id']));
 
-    $ni->set("subject={$invoice['subject']}");
-    $ni->set("description={$invoice['description']}");
+    //** subject */
+    $ni->set( array('subject' => $invoice['subject'] ) );
 
-    //$ni->set("watermark={$invoice['meta']['watermark']}");
+    //** description */
+    $ni->set( array('description' => $invoice['description'] ) );
 
+    //** deposit */
     if ($invoice['deposit'] == 'on' || $invoice['deposit'] == 'true') {
-      $ni->set("deposit_amount={$invoice['deposit_amount']}");
+      $ni->set(array('deposit_amount' => $invoice['deposit_amount']));
     } else {
-      $ni->set("deposit_amount=0");
+      $ni->set(array('deposit_amount' => 0));
     }
 
-    $ni->set("due_date_year={$invoice['due_date_year']}");
-    $ni->set("due_date_month={$invoice['due_date_month']}");
-    $ni->set("due_date_day={$invoice['due_date_day']}");
+    //** Due date */
+    $ni->set(array('due_date_year'=>$invoice['due_date_year']));
+    $ni->set(array('due_date_month'=>$invoice['due_date_month']));
+    $ni->set(array('due_date_day'=>$invoice['due_date_day']));
 
-    $ni->set("default_currency_code={$invoice['default_currency_code']}");
+    //** Currency */
+    $ni->set(array('default_currency_code'=>$invoice['default_currency_code']));
 
+    //** Terms? */
     if (!empty($invoice['meta']['terms'])) {
-      $ni->set("terms={$invoice['meta']['terms']}");
+      $ni->set(array('terms'=>$invoice['meta']['terms']));
     }
-    $ni->set("tax={$invoice['meta']['tax']}");
 
-    $ni->set("custom_id={$invoice['meta']['custom_id']}");
+    //** Tax */
+    $ni->set(array('tax'=>$invoice['meta']['tax']));
 
-    /**
-     * DETECTING INVOICE TYPE
-     * (Changes for ability to use premium feature Quotes)
-     *
-     * @author Anton Korotkov
-     *
-     * There are three available types by default:
-     *    - invoice
-     *    - recurring
-     */
-    // 'invoice' is by default
+    //** Custom ID */
+    $ni->set(array('custom_id'=>$invoice['meta']['custom_id']));
+
+    //** type is 'invoice' by default */
     $invoice_type = 'invoice';
 
-    // If $invoice object has type definition then use it
+    //** If $invoice object has type definition then use it */
     if ( !empty( $invoice['type'] ) ) {
       $invoice_type = $invoice['type'];
     }
 
-    // Save status of invoice (quote or not quote)
+    //** Save status of invoice (quote or not quote) */
     if(isset ($invoice['quote'])) {
       if($invoice['quote'] == "on") {
-        $ni->set("status=quote");
-        $ni->set("is_quote=true");
+        $ni->set(array('status'=>'quote'));
+        $ni->set(array('is_quote'=>'true'));
         $invoice_type = 'quote';
       } else {
-        $ni->set("status=null");
+        $ni->set(array('status'=>'null'));
       }
     }
 
-    // But if recurring settings are defined then invoice type should be recurring
+    //** But if recurring settings are defined then invoice type should be recurring */
     if ($invoice['recurring']['active'] == 'on' && !empty($invoice['recurring']['cycles'])) {
-      $ni->create_schedule("unit={$invoice['recurring']['unit']}&length={$invoice['recurring']['length']}&cycles={$invoice['recurring']['cycles']}&send_invoice_automatically={$invoice['recurring']['send_invoice_automatically']}&start_date[month]={$invoice['recurring']['start_date']['month']}&start_date[day]={$invoice['recurring']['start_date']['day']}&start_date[year]={$invoice['recurring']['start_date']['year']}");
+      $ni->create_schedule(array(
+        'unit'   => $invoice['recurring']['unit'],
+        'length' => $invoice['recurring']['length'],
+        'cycles' => $invoice['recurring']['cycles'],
+        'send_invoice_automatically' => $invoice['recurring']['send_invoice_automatically'],
+        'start_date' => array(
+            'month' => $invoice['recurring']['start_date']['month'],
+            'day'   => $invoice['recurring']['start_date']['day'],
+            'year'  => $invoice['recurring']['start_date']['year']
+        )
+      ));
       $invoice_type = 'recurring';
     }
 
-    // Finally set invoice type
-    $ni->set("type=$invoice_type");
+    //** Finally set invoice type */
+    $ni->set(array('type'=>$invoice_type));
 
-    /* Set invoice status */
+    //** Set invoice status */
     $status = (!empty($invoice['post_status']) ? $invoice['post_status'] : 'active');
-    $ni->set("post_status={$status}");
+    $ni->set(array('post_status'=>$status));
 
-    /* Add discounts if exist */
+    //** Add discounts if exist */
     if (is_array($invoice['meta']['discount'])) {
       foreach ($invoice['meta']['discount'] as $discount) {
         if (!empty($discount['name']) && !empty($discount['amount'])) {
-          $ni->add_discount("name={$discount['name']}&type={$discount['type']}&amount={$discount['amount']}");
+          $ni->add_discount(array(
+              'name' => $discount['name'],
+              'type' => $discount['type'],
+              'amount' => $discount['amount']
+          ));
         }
       }
     }
 
+    //** Ability to change payment method */
     if (!empty($invoice['client_change_payment_method'])) {
-      $ni->set("client_change_payment_method={$invoice['client_change_payment_method']}");
+      $ni->set(array('client_change_payment_method'=>$invoice['client_change_payment_method']));
     }
-    $ni->set("default_payment_method={$invoice['default_payment_method']}");
 
-    $ni->set("tax_method={$invoice['tax_method']}");
+    //** Default payment method */
+    $ni->set(array('default_payment_method'=>$invoice['default_payment_method']));
+
+    //** Tax method */
+    $ni->set(array('tax_method'=>$invoice['tax_method']));
 
     //** Manually set billing settings due to the complexity of the hierarchy */
     $ni->data['billing'] = !empty($invoice['billing']) ? $invoice['billing'] : array();
 
     //** Add line items */
     foreach ($invoice['itemized_list'] as $line_item) {
-      $ni->line_item("name={$line_item['name']}&description={$line_item['description']}&quantity={$line_item['quantity']}&price={$line_item['price']}&tax_rate={$line_item['tax']}");
+      $ni->line_item(array(
+        'name'        => $line_item['name'],
+        'description' => $line_item['description'],
+        'quantity'    => $line_item['quantity'],
+        'price'       => $line_item['price'],
+        'tax_rate'    => $line_item['tax']
+      ));
     }
 
     //** Add line items for charges */
     if (!empty($invoice['itemized_charges'])) {
       foreach ($invoice['itemized_charges'] as $charge_item) {
-        $ni->line_charge("name={$charge_item['name']}&amount={$charge_item['amount']}&tax={$charge_item['tax']}");
+        $ni->line_charge(
+          array(
+            'name'   => $charge_item['name'],
+            'amount' => $charge_item['amount'],
+            'tax'    => $charge_item['tax']
+          )
+        );
       }
     }
 
@@ -1627,7 +1660,9 @@ class WPI_Functions {
      * Save Invoice Object to DB and update user
      * (trimming is a precaution because it could cause problems in inserted in DB w/ whitespace on end)
      */
-    $ni->set("user_email=" . trim($invoice['user_data']['user_email']));
+    $ni->set(array(
+      'user_email' => trim($invoice['user_data']['user_email'])
+    ));
 
     if ($type != 'import') {
       WPI_Functions::update_user($invoice['user_data']);
@@ -1639,12 +1674,6 @@ class WPI_Functions {
     } else {
       return false;
     }
-  }
-
-  function SendNotificationInvoice() {
-
-    $ni = new WPI_Invoice();
-    $ni->SendNotificationLog($_REQUEST);
   }
 
   /**

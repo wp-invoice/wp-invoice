@@ -1,29 +1,29 @@
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/js
+/!svn/ver/674071/wp-invoice/tags/3.08.5/core/gateways/js
 END
 wpi_paypal.js
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/js/wpi_paypal.js
+/!svn/ver/674071/wp-invoice/tags/3.08.5/core/gateways/js/wpi_paypal.js
 END
 wpi_authorize.js
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/js/wpi_authorize.js
+/!svn/ver/674071/wp-invoice/tags/3.08.5/core/gateways/js/wpi_authorize.js
 END
 wpi_gateways.js.php
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/js/wpi_gateways.js.php
+/!svn/ver/674071/wp-invoice/tags/3.08.5/core/gateways/js/wpi_gateways.js.php
 END
 wpi_googlecheckout.js
 K 25
 svn:wc:ra_dav:version-url
 V 78
-/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/js/wpi_googlecheckout.js
+/!svn/ver/674071/wp-invoice/tags/3.08.5/core/gateways/js/wpi_googlecheckout.js
 END

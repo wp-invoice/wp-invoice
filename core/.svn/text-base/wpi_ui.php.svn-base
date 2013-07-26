@@ -410,6 +410,7 @@ class WPI_UI {
     $email_vars['creator_name'] = __('Name of user who has created invoice', WPI);
     $email_vars['creator_email'] = __('Email of user who has created invoice', WPI);
     $email_vars['due_date'] = __('Invoice due date (if presented)', WPI);
+    $email_vars['type'] = __('Replaced by Invoice Type. (invoice, recurring invoice, quote)', WPI);
 
     $email_vars = apply_filters('wpi_email_template_vars', $email_vars);
 

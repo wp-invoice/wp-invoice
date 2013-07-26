@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/!svn/ver/670405/wp-invoice/tags/3.08.4/third-party/tcpdf/config
+/!svn/ver/674071/wp-invoice/tags/3.08.5/third-party/tcpdf/config
 END
 tcpdf_config.php
 K 25
 svn:wc:ra_dav:version-url
 V 81
-/!svn/ver/670405/wp-invoice/tags/3.08.4/third-party/tcpdf/config/tcpdf_config.php
+/!svn/ver/674071/wp-invoice/tags/3.08.5/third-party/tcpdf/config/tcpdf_config.php
 END
 tcpdf_config_alt.php
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/!svn/ver/670405/wp-invoice/tags/3.08.4/third-party/tcpdf/config/tcpdf_config_alt.php
+/!svn/ver/674071/wp-invoice/tags/3.08.5/third-party/tcpdf/config/tcpdf_config_alt.php
 END

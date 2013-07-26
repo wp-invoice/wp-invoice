@@ -248,6 +248,10 @@ class WPI_Ajax {
     $due_date = get_due_date($invoice);
     $due_date = $due_date ? $due_date : __('Due date is not set', WPI);
 
+    //** Type */
+    $type = !empty( $invoice['type'] ) ? $invoice['type'] : __( 'invoice', WPI );
+    $type = $type == 'recurring' ? $type.' '.__( 'invoice', WPI ) : $type;
+
     //** Load Templates */
     $template_array = apply_filters('wpi_email_templates', $wpi_settings['notification']);
 
@@ -290,8 +294,8 @@ class WPI_Ajax {
     //** Invoice Due Date */
     $ary['NotificationContent'] = str_replace("%due_date%", $due_date, $ary['NotificationContent']);
 
-    //** @todo: Recurring */
-    $ary['NotificationContent'] = str_replace("%recurring%", __("recurring", WPI), $ary['NotificationContent']);
+    //** Invoice type */
+    $ary['NotificationContent'] = str_replace("%type%", $type, $ary['NotificationContent']);
 
     $ary['NotificationSubject'] = $template_array[$template_id]['subject'];
 

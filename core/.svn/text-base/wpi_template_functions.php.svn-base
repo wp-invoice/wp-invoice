@@ -47,14 +47,14 @@ function show_itemized_table($args = '') {
   if (allow_partial_payments()) {
     ?>
     <script type="text/javascript">
-      // Partial payments JS
-      // @author Anton Korotkov
+      /**
+       * Partial payments JS
+       */
       var minimum_payment = <?php echo $invoice['deposit_amount'] ?>;
       var balance         = <?php echo $invoice['net'] ?>;
       jQuery(document).ready(function(){
         var validate_amount = function(amount) {
           amount = Math.abs( parseFloat( amount ) );
-          //alert( amount );
           if ( amount < minimum_payment ) return minimum_payment;
           if ( amount > balance ) return balance;
           if ( isNaN( amount ) ) return balance;
@@ -66,10 +66,10 @@ function show_itemized_table($args = '') {
             jQuery("#pay_button_value").html(pa);
           }
         }
-        // Find fields
+        //** Find fields */
         var payment_amount        = jQuery("#payment_amount");
         var my_amount             = jQuery("#my_amount");
-        // Find radios
+        //** Find radios */
         var custom_amount_option  = jQuery("#wpi_custom_amount_option");
         var minimum_amount_option = jQuery("#wpi_minimum_amount_option");
         var full_amount_option    = jQuery("#wpi_full_amount_option");
@@ -91,11 +91,11 @@ function show_itemized_table($args = '') {
           custom_amount_field.hide();
           set_pay_button_value();
         });
-        // Handle changing of payment method
+        //** Handle changing of payment method */
         jQuery("#online_payment_form_wrapper").live("formLoaded", function(){
           payment_amount = jQuery("#payment_amount");
           my_amount      = jQuery("#my_amount");
-          // update field data
+          //** update field data */
           if ( custom_amount_option.is(":checked") ) {
             payment_amount.val( validate_amount( my_amount.val() ) );
           }
@@ -104,9 +104,9 @@ function show_itemized_table($args = '') {
           }
           set_pay_button_value();
         });
-        // If there are required fields
+        //** If there are required fields */
         if ( payment_amount.length && my_amount.length ) {
-          // update field data
+          //** update field data */
           my_amount.live("keyup", function(){
             var new_value = my_amount.val();
             payment_amount.val( validate_amount( new_value ) );
@@ -207,6 +207,11 @@ function show_itemized_table($args = '') {
             <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Discounts:', WPI) ?></td>
             <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['total_discount']); ?></td>
           </tr>
+          <?php if ( !empty( $invoice['discount'][1]['name'] ) ): ?>
+            <tr>
+              <td colspan="2"><?php echo $invoice['discount'][1]['name']; ?></td>
+            </tr>
+          <?php endif; ?>
     <?php endif; ?>
     <?php if ($invoice['post_status'] != 'paid' && !empty($invoice['adjustments'])): ?>
           <tr class="wpi_subtotal">

@@ -27,7 +27,7 @@
 
 </script>
 
-<style>
+<style type="text/css">
   <?php if(!empty($this_invoice->data['allow_deposits'])):  ?>
   .wpi_deposit_settings {}
   <?php else: ?>
@@ -49,7 +49,7 @@
   .wpi_hide_until_saved {display:none;}
   <?php endif; ?>
 
-  <?php /** Toggle inline tax CSS */ ?>
+  <?php //** Toggle inline tax CSS */ ?>
   <?php if(get_user_option('wpi_ui_display_itemized_tax') != 'true') : ?>
   .row_tax {display:none;}
   .header .flexible_width_holder_content, .wp_invoice_itemized_list_row .flexible_width_holder_content, .wp_invoice_itemized_charge_row .flexible_width_holder_content { margin-right: 250px;}
@@ -60,7 +60,7 @@
   .header .fixed_width_holder, .wp_invoice_itemized_list_row .fixed_width_holder, .wp_invoice_itemized_charge_row .fixed_width_holder { width: 280px; }
   <?php endif; ?>
 
-  <?php /** Toggle global tax CSS display */ ?>
+  <?php //** Toggle global tax CSS display */ ?>
   <?php if(get_user_option('wpi_ui_display_global_tax') != 'true') : ?>
   tr.wpi_ui_display_global_tax {display:none;}
   <?php endif; ?>
@@ -102,15 +102,35 @@
   <div id="ajax-response" class="updated fade below-h2" id="message"><p></p></div>
 
   <?php
-  echo WPI_UI::input("id=wpi_post_id&type=hidden&name=wpi_invoice[ID]&value=".(!empty($this_invoice->data['ID'])? $this_invoice->data['ID'] : 0));
-  echo WPI_UI::input("id=wpi_invoice_id&type=hidden&name=wpi_invoice[invoice_id]&value=".(!empty($this_invoice->data['invoice_id'])?$this_invoice->data['invoice_id']:''));
-  echo WPI_UI::input("type=hidden&name=wp_invoice_action&value=wpi_save_and_preview");
-  echo WPI_UI::input("type=hidden&name=referredby&value=".esc_url(stripslashes(wp_get_referer())));
+  echo WPI_UI::input(array(
+      'id'   => 'wpi_post_id',
+      'type' => 'hidden',
+      'name' => 'wpi_invoice[ID]',
+      'value'=> !empty($this_invoice->data['ID'])? $this_invoice->data['ID'] : 0
+  ));
+
+  echo WPI_UI::input(array(
+      'id'   => 'wpi_invoice_id',
+      'type' => 'hidden',
+      'name' => 'wpi_invoice[invoice_id]',
+      'value' => !empty($this_invoice->data['invoice_id'])?$this_invoice->data['invoice_id']:''
+  ));
+
+  echo WPI_UI::input(array(
+      'type' => 'hidden',
+      'name' => 'wp_invoice_action',
+      'value' => 'wpi_save_and_preview'
+  ));
+
+  echo WPI_UI::input(array(
+      'type' => 'hidden',
+      'name' => 'referredby',
+      'value' => esc_url(stripslashes(wp_get_referer()))
+  ));
+
   wp_nonce_field( 'wpi-update-invoice', 'wpi-update-invoice', false );
   wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
   wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
-
-  /* displays information if the invoice has been paid, a payment schedule has been started, etc.  Basic log is displayed on bottom as before */
   ?>
 
   <div id="poststuff" class="crm-wp-v34">
@@ -119,20 +139,27 @@
         <?php status_meta_box( !empty( $this_invoice->data )?$this_invoice->data:null ); ?>
         <div id="titlediv">
           <div id="titlewrap">
-            <?php echo WPI_UI::input("id=title&name=wpi_invoice[subject]&value=".(!empty( $this_invoice->data['post_title'] )?$this_invoice->data['post_title']:'')."&special autocomplete='off'")?>
-            <?php echo WPI_UI::input("id=title&name=wpi_invoice[post_status]&value=".(!empty( $this_invoice->data['post_status'] )?$this_invoice->data['post_status']:'')."&type=hidden")?>
-          </div>
-          <div class="inside">
-            <div id="edit-slug-box" class="wpi-edit-slug-box" title="<?php _e('Click to view full link',WPI); ?>">
-              <strong><?php _e('Invoice Link',WPI); ?>:</strong>
-              <span id="sample-permalink"><?php echo get_invoice_permalink( !empty($this_invoice->data['invoice_id'])?$this_invoice->data['invoice_id']:'' ); ?></span>
-            </div>
+            <?php
+              echo WPI_UI::input(array(
+                  'id' => 'title',
+                  'name' => 'wpi_invoice[subject]',
+                  'value' => !empty( $this_invoice->data['post_title'] )?$this_invoice->data['post_title']:''
+              ));
+            ?>
+            <?php
+              echo WPI_UI::input(array(
+                  'id' => 'status',
+                  'name' => 'wpi_invoice[post_status]',
+                  'value' => !empty( $this_invoice->data['post_status'] )?$this_invoice->data['post_status']:'',
+                  'type' => 'hidden'
+              ));
+            ?>
           </div>
         </div>
 
         <?php
-        /** Fixed Metaboxes */
-        /** Always included but hidden until button is pressed */
+        //** Fixed Metaboxes */
+        //** Always included but hidden until button is pressed */
         message_meta_box( !empty( $this_invoice->data )?$this_invoice->data:null );
         if(!empty($new_user)) {
           postbox_user_new($this_invoice->data);
@@ -229,7 +256,7 @@
           <?php endforeach; ?>
 
           <?php
-          /** Setup discounts, adding one blank one if none exist */
+          //** Setup discounts, adding one blank one if none exist */
           $no_discounts = false;
           if( empty($this_invoice->data['discount']) || !is_array($this_invoice->data['discount']))  {
             $no_discounts = true;
@@ -244,13 +271,35 @@
               <div class="flexible_width_holder">
                 <div class="flexible_width_holder_content" style="margin-right:250px;">
                   <span class="row_delete">&nbsp;</span>
-                  <?php echo WPI_UI::input("class=item_name&name=wpi_invoice[meta][discount][$counter][name]&value={$discount_item['name']}")?>
+                  <?php
+                    echo WPI_UI::input(array(
+                        'class' => 'item_name',
+                        'name'  => 'wpi_invoice[meta][discount]['.$counter.'][name]',
+                        'value' => $discount_item['name']
+                    ));
+                  ?>
                 </div>
               </div>
               <span class="fixed_width_holder">
-                <span class="item_type"><?php echo WPI_UI::select("name=wpi_invoice[meta][discount][$counter][type]&values=$discount_types&current_value={$discount_item['type']}&class=item_type"); ?></span>
-                <span class="item_price"><?php echo WPI_UI::input("name=wpi_invoice[meta][discount][$counter][amount]&value={$discount_item['amount']}&class=item_amount")?></span>
-                <?php /**  <span class="row_total" id="total_item_<?php echo $counter; ?>" ></span> */ ?>
+                <span class="item_type">
+                  <?php
+                    echo WPI_UI::select(array(
+                        'name'   => 'wpi_invoice[meta][discount]['.$counter.'][type]',
+                        'values' => $discount_types,
+                        'current_value' => $discount_item['type'],
+                        'class' => 'item_type'
+                    ));
+                  ?>
+                </span>
+                <span class="item_price">
+                  <?php
+                    echo WPI_UI::input(array(
+                        'name'  => 'wpi_invoice[meta][discount]['.$counter.'][amount]',
+                        'value' => $discount_item['amount'],
+                        'class' => 'item_amount'
+                    ));
+                  ?>
+                </span>
               </span>
             </li>
             <?php $counter++; ?>
@@ -259,15 +308,15 @@
           <li class="wpi_invoice_totals clearfix">
             <dl>
               <dt class="hidden column-invoice-details-subtotal"><?php _e("Subtotal Excluding Tax:", WPI) ?></dt>
-              <dd class="hidden column-invoice-details-subtotal"><input class="calculate_invoice_subtotal wpi_no_input" disabled='true' value="<?php echo !empty( $this_invoice->data['subtotal'] ) ? $this_invoice->data['subtotal'] : ''; ?>"/></dd>
-              <dt class="hidden column-invoice-details-adjustments" ><?php _e("Adjustments:", WPI) ?></dt>
-              <dd class="hidden column-invoice-details-adjustments" ><input class="calculate_invoice_adjustments wpi_no_input" disabled='true' value="<?php echo !empty( $this_invoice->data['adjustments'] ) ? $this_invoice->data['adjustments'] : '';?>"/></dd>
+              <dd class="hidden column-invoice-details-subtotal"><input class="calculate_invoice_subtotal wpi_no_input" disabled="true" value="<?php echo !empty( $this_invoice->data['subtotal'] ) ? $this_invoice->data['subtotal'] : ''; ?>"/></dd>
+              <dt class="hidden column-invoice-details-adjustments"><?php _e("Adjustments:", WPI) ?></dt>
+              <dd class="hidden column-invoice-details-adjustments"><input class="calculate_invoice_adjustments wpi_no_input" disabled="true" value="<?php echo !empty( $this_invoice->data['adjustments'] ) ? $this_invoice->data['adjustments'] : '';?>"/></dd>
               <dt class="hidden column-invoice-details-discounts"><?php _e("Discount:", WPI) ?></dt>
-              <dd class="hidden column-invoice-details-discounts"><input class="wpi_no_input calculate_discount_total" disabled='true' value="<?php echo !empty( $this_invoice->data['total_discount'] ) ? $this_invoice->data['total_discount'] : '';?>"/></dd>
+              <dd class="hidden column-invoice-details-discounts"><input class="wpi_no_input calculate_discount_total" disabled="true" value="<?php echo !empty( $this_invoice->data['total_discount'] ) ? $this_invoice->data['total_discount'] : '';?>"/></dd>
               <dt class="hidden column-invoice-details-tax"><?php _e("Sales Tax:", WPI) ?></dt>
-              <dd class="hidden column-invoice-details-tax"><input class="calculate_invoice_tax wpi_no_input" disabled='true' value="<?php echo !empty( $this_invoice->data['total_tax'] ) ? $this_invoice->data['total_tax'] : '';?>"/></dd>
+              <dd class="hidden column-invoice-details-tax"><input class="calculate_invoice_tax wpi_no_input" disabled="true" value="<?php echo !empty( $this_invoice->data['total_tax'] ) ? $this_invoice->data['total_tax'] : '';?>"/></dd>
               <dt><b><?php _e("Balance:", WPI) ?></b></dt>
-              <dd><input class="calculate_invoice_total wpi_no_input" disabled='true' value="<?php echo !empty( $this_invoice->data['net'] ) ? $this_invoice->data['net'] : '';?>"/></dd>
+              <dd><input class="calculate_invoice_total wpi_no_input" disabled="true" value="<?php echo !empty( $this_invoice->data['net'] ) ? $this_invoice->data['net'] : '';?>"/></dd>
             </dl>
           </li>
           <li class="footer clearfix">
@@ -275,10 +324,10 @@
 
             <?php
             if(is_array($wpi_settings['predefined_services'])) {
-              /** Convert predefined services into special array */
+              //** Convert predefined services into special array */
               $services_array[""] = __("Insert a predefined line item", WPI);
               foreach($wpi_settings['predefined_services'] as $service) {
-                /** skip blanks */
+                //** skip blanks */
                 if(empty($service['name'])) {
                   continue;
                 }

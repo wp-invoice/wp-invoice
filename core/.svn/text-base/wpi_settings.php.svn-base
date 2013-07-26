@@ -420,15 +420,15 @@ class WPI_Settings {
       /** Mail - Notification */
       $this->options['notification'][1]['name']    = __("New Invoice", WPI);
       $this->options['notification'][1]['subject'] = __("[New Invoice] %subject%", WPI);
-      $this->options['notification'][1]['content'] = __("Dear %recipient%, \n\n%business_name% has sent you %recurring% invoice in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link% \n\nBest regards, \n%business_name% (%business_email%)", WPI);
+      $this->options['notification'][1]['content'] = __("Dear %recipient%, \n\n%business_name% has sent you the %type% in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link% \n\nBest regards, \n%business_name% (%business_email%)", WPI);
 
       $this->options['notification'][2]['name']    = __("Reminder", WPI);
       $this->options['notification'][2]['subject'] = __("[Reminder] %subject%", WPI);
-      $this->options['notification'][2]['content'] = __("Dear %recipient%, \n\n%business_name% has sent you a reminder for the %recurring% invoice in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link%. \n\nBest regards, \n%business_name% (%business_email%)", WPI);
+      $this->options['notification'][2]['content'] = __("Dear %recipient%, \n\n%business_name% has sent you a reminder for the %type% in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link%. \n\nBest regards, \n%business_name% (%business_email%)", WPI);
 
       $this->options['notification'][3]['name']    = __('Send Receipt', WPI);
       $this->options['notification'][3]['subject'] = __("[Payment Received] %subject%", WPI);
-      $this->options['notification'][3]['content'] = __("Dear %recipient%, \n\n%business_name% has received your payment for the %recurring% invoice in the amount of %amount%. \n\nThank you very much for your patronage. \n\nBest regards, \n%business_name% (%business_email%)", WPI);
+      $this->options['notification'][3]['content'] = __("Dear %recipient%, \n\n%business_name% has received your payment for the %type% in the amount of %amount%. \n\nThank you very much for your patronage. \n\nBest regards, \n%business_name% (%business_email%)", WPI);
 
     }
 
