@@ -250,8 +250,7 @@ class wpi_authorize extends wpi_gateway_base {
 					<ul class="wpi_checkout_block">
 						<li class="section_title"><?php _e( ucwords( str_replace('_', ' ', $key) ), WPI); ?></li>
 					<?php
-					$html = ob_get_contents();
-					ob_end_clean();
+					$html = ob_get_clean();
 					echo $html;
           // For each field
           foreach( $value as $field_slug => $field_data ) {
@@ -277,7 +276,7 @@ class wpi_authorize extends wpi_gateway_base {
 
                 <?php
 
-                $html = ob_get_contents();
+                $html = ob_get_clean();
 
                 break;
 
@@ -292,7 +291,7 @@ class wpi_authorize extends wpi_gateway_base {
 
                 <?php
 
-                $html = ob_get_contents();
+                $html = ob_get_clean();
 
                 break;
 
@@ -300,8 +299,6 @@ class wpi_authorize extends wpi_gateway_base {
                 break;
 
             }
-
-            ob_clean();
 
             echo $html;
 

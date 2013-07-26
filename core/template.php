@@ -80,7 +80,7 @@ function wp_invoice_lookup($args = '') {
   $defaults = array(
       'message' => __('Enter Invoice ID', WPI),
       'button' => __('Lookup', WPI),
-      'return' => false
+      'return' => true
   );
   extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 

@@ -3,7 +3,7 @@
 /**
   Template Name: Traditional
  */
-$font = 'droidserifb';
+//$font = 'droidserifb';
 $logo = '<td rowspan="2" width="150"><img src="%logo%" width="150" /></td>';
 $header_width = 'width="442"';
 

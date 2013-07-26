@@ -30,7 +30,11 @@ class InvoiceLookupWidget extends WP_Widget {
     if ($title)
       echo $before_title . $title . $after_title;
 
-    wp_invoice_lookup("message=$message&button=$button_text");
+    wp_invoice_lookup(array(
+        'message' => $message,
+        'button' => $button_text,
+        'return' => false
+    ));
     echo $after_widget;
   }
 

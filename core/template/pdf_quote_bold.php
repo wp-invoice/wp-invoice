@@ -4,7 +4,7 @@
   Template Name: Bold
  */
 
-$font = 'impact';
+//$font = 'impact';
 $logo = '<td width="150"><img src="%logo%" width="150" /></td>';
 $header_width = 'width="450"';
 

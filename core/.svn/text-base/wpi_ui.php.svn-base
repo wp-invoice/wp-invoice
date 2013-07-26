@@ -933,6 +933,9 @@ class WPI_UI {
       case 'above_content':
         return $result . $content;
         break;
+      case 'replace_tag':
+        return str_replace('[wp-invoice]', $result, $content);
+        break;
       default:
         return $content;
         break;
