@@ -1,0 +1,57 @@
+.light_text {font-size: .8em; }
+.form-table .invoice_main {background: #FFF;}
+.invoice_main .invoice_description_box{width: 90%;  height: 130px; padding: 4px;}
+.invoice_main .subject {width: 90%; font-size: 1.5em; padding:0;}
+
+.itemized_list {margin:0;padding:0; width: 90%;}
+.itemized_list td {padding: 3px;}
+.itemized_list th {padding: 3px;}
+.itemized_list .id {display:none; visibility:hidden;}
+
+.itemized_list .name {width: 36%;}
+.itemized_list .name input {width: 95%;}
+
+.itemized_list .description {width: 25%;}
+.itemized_list .description textarea {width: 95%;}
+
+.itemized_list .quantity {width: 8%; text-align:right;}
+.itemized_list .quantity input {width: 30px; text-align:right;}
+
+.itemized_list .price {width: 14%; text-align:right;}
+.itemized_list .price input {width: 40px; text-align:right;}
+
+.itemized_list .item_total {width: 12%;}
+.itemized_list .item_total {font-weight:bold;font-size:1.2em; text-align:right;}
+
+#invoice_sorter_table  .header {cursor:pointer;}
+#add_new_invoice .error {background: #FFF; border:1px solid red; padding}
+#add_new_invoice .white_background {background: #FFF;}
+
+#invoice_list tr, #invoice_list td, #invoice_list th {background: transparent; border:0;}
+#invoice_preview .subject {background: #FFF2CF; margin-bottom:10px; border:1px dotted; padding:10px 10px 10px 30px; font-size: 13px;  font-family: Arial;}
+#invoice_preview .main_content {background: #FFF2CF; border:1px dotted; padding:30px; font-size: 13px;  font-family: Arial; overflow:auto;}
+#invoice_preview pre {font-size: 13px; font-family: Arial;}
+.invoice_url {width: 400px;}
+.invoice_horizontal_buttons {border-top: 1px solid #CCCCCC; padding-top:20px; margin-top:10px; margin-bottom:50px;}
+.invoice_horizontal_buttons form {width: auto; float:left; padding-right: 5px;}
+#invoices-filter {margin-bottom:30px;}
+.invoice_id_col {width: 75px;}
+
+.no_style_list {list-style-type:none;padding:0;margin:0;}
+#invoice_history_log {margin-left:10px;}
+#settings_page_table  .input_field, #settings_page_table  textarea  {width: 300px;}
+#get_user_info .user_selection option {padding-right:15px; }
+
+.clearfix:after { content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+.clearfix { display: inline-block; }
+html[xmlns] .clearfix { display: block; }
+* html .clearfix {   height: 1%; }
+
+.jqiwarning .jqi{ background-color: #b0be96; }
+.jqifade{ position: absolute; background-color: #333333; }
+div.jqi{ position: absolute; background-color: #bebed6; padding: 10px; width: 300px; text-align: left; }
+div.jqi .jqiclose{ float: right; margin: -35px -10px 0 0; cursor: pointer; }
+div.jqi .jqicontainer{ background-color: #d2d2e2; padding: 5px; color: #ffffff; font-weight: bold; }
+div.jqi .jqimessage{ background-color: #ababca; padding: 10px; }
+div.jqi .jqibuttons{ text-align: center; padding: 5px 0 0 0; }
+div.jqi button{ padding: 3px 10px 3px 10px; margin: 0 10px; }
