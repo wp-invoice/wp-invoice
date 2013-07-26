@@ -537,8 +537,7 @@ function wp_invoice_array_stripslashes($slash_array = array())
 	
 function wp_invoice_profile_update() {
 	global $wpdb;
-	global $current_user;
-    $user_id = $current_user->ID;
+	$user_id =  $_REQUEST['user_id'];
 
 	if(isset($_POST['streetaddress'])) update_usermeta($user_id, 'streetaddress', $_POST['streetaddress']);
 	if(isset($_POST['zip']))  update_usermeta($user_id, 'zip', $_POST['zip']);
@@ -661,9 +660,8 @@ function user_profile_invoice_fields()
 {
 	global $wpdb;
 
-	global $current_user;
-    get_currentuserinfo();
-	$user_id =  $current_user->ID;
+	global $wpdb;
+	$user_id =  $_REQUEST['user_id'];
 
 	  
 	$profileuser = get_user_to_edit($user_id);
