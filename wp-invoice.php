@@ -4,7 +4,7 @@
  * Plugin URI: http://usabilitydynamics.com/products/wp-invoice/
  * Description: Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href="admin.php?page=wpi_page_settings">WP-Invoice Settings Page</a> to setup.
  * Author: UsabilityDynamics.com
- * Version: 3.08.3
+ * Version: 3.08.4
  * Author URI: http://UsabilityDynamics.com/
  * Copyright 2011 - 2012  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
@@ -24,7 +24,7 @@
  */
 
 /* Define WPI Version */
-define( 'WP_INVOICE_VERSION_NUM', '3.08.3' );
+define( 'WP_INVOICE_VERSION_NUM', '3.08.4' );
 
 /* Define shorthand for transdomain */
 define( 'WPI', 'wp-invoice' );
@@ -49,7 +49,6 @@ require_once( WPI_Path . '/core/wpi_ud.php' );
 require_once( WPI_Path . '/core/wpi_functions.php' );
 require_once( WPI_Path . '/core/wpi_settings.php' );
 require_once( WPI_Path . '/core/wpi_invoice.php' );
-require_once( WPI_Path . '/core/wpi_shorthand_functions.php' );
 require_once( WPI_Path . '/core/wpi_gateway_base.php' );
 require_once( WPI_Path . '/core/wpi_ui.php' );
 require_once( WPI_Path . '/core/wpi_ajax.php' );
@@ -280,7 +279,6 @@ if (!class_exists('WPI_Core')) {
         add_filter('wp_crm_entry_type_label', array('WPI_Functions', 'wp_crm_entry_type_label'), 10, 2);
       }
 
-
       /** If we are in debug mode, lets add these actions */
       if($wpi_settings['debug']){
         add_action('wp_ajax_wpi_debug_get_invoice', array('WPI_Ajax', 'debug_get_invoice'));
@@ -299,6 +297,8 @@ if (!class_exists('WPI_Core')) {
 
       // load user's invoice history widget
       add_action('widgets_init', create_function('', 'return register_widget("InvoiceHistoryWidget");'));
+
+      add_action('wpi_invoice_object_delete', array( 'WPI_Functions', 'delete_invoice_log' ));
 
       // Find out if a wpi directory exists in template folder and use that, if not, use default template
       $wpi_settings['frontend_template_path'] = $this->Functions->template_path();

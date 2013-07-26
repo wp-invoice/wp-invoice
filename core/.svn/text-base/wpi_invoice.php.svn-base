@@ -782,7 +782,7 @@ There can only be one, so deletes any other schedule.
     $data['post_content'] = !empty( $this->data['description'] )?$this->data['description']:$this->data['post_content'];
     $data['post_type'] = 'wpi_object';
 
-    /*
+    /**
      * Determine if Amount to pay (subtotal) is not 0 and Balance (net) <= 0,
      * We set status as 'Paid'.
      */
@@ -805,7 +805,7 @@ There can only be one, so deletes any other schedule.
       return false;
     }
 
-    // WP figures out if we're saving or updating
+    //** WP figures out if we're saving or updating */
     if(empty($data['ID'])) {
       $creator = '';
       if ( !empty( $this->data['created_by'] ) ) {
@@ -883,6 +883,14 @@ There can only be one, so deletes any other schedule.
     if( $ID ) {
       if( 'trash' == $this->data['post_status'] ) {
         if(wp_delete_post($ID)) {
+
+          /**
+           * Hook on delete
+           * @author korotkov@ud
+           * @since 3.08.4
+           */
+          do_action( 'wpi_invoice_object_delete', array( 'post_id' => $ID ) );
+
           return true;
         }
       } else {

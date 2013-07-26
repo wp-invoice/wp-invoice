@@ -114,16 +114,13 @@ class WPI_Functions {
   /**
    * Function for performing a wpi_object search
    *
-   *
-   * @todo This function is not ready at all, it doesn't do any searching, just returns all invoices for testing datatables
    * @since 3.0
-   *
    */
   static function query($search_vars = false) {
     global $wpdb;
 
     $sort_by = " ORDER BY post_modified DESC ";
-    /** Start our SQL */
+    //** Start our SQL */
     $sql = "SELECT * FROM {$wpdb->posts} AS p WHERE post_type = 'wpi_object' ";
 
     if (!empty($search_vars)) {
@@ -134,27 +131,21 @@ class WPI_Functions {
         $search_vars = $args;
       }
 
-      /*
-        $use_status_filter = false;
-        if ( !empty( $search_vars['status'] ) ) {
-        $use_status_filter = true;
-        }
-       */
       foreach ($search_vars as $primary_key => $key_terms) {
 
         //** Handle search_string differently, it applies to all meta values */
         if ($primary_key == 's') {
-          /* First, go through the posts table */
+          //** First, go through the posts table */
           $tofind = strtolower($key_terms);
           $sql .= " AND (";
           $sql .= " p.ID IN (SELECT ID FROM {$wpdb->posts} WHERE LOWER(post_title) LIKE '%$tofind%')";
-          /* Now go through the post meta table */
+          //** Now go through the post meta table */
           $sql .= " OR p.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE LOWER(meta_value) LIKE '%$tofind%')";
           $sql .= ")";
           continue;
         }
 
-        // Type
+        //** Type */
         if ($primary_key == 'type') {
           if (empty($key_terms)) {
             continue;
@@ -168,7 +159,7 @@ class WPI_Functions {
           continue;
         }
 
-        // Status
+        //** Status */
         if ($primary_key == 'status') {
           if (empty($key_terms)) {
             continue;
@@ -190,12 +181,8 @@ class WPI_Functions {
             $sql .= ")";
           }
         }
-        /*
-          if ( !$use_status_filter ) {
-          $sql .= " AND ( post_status = 'active' ) ";
-          }
-         */
-        // Recipient
+
+        //** Recipient */
         if ($primary_key == 'recipient') {
           if (empty($key_terms)) {
             continue;
@@ -209,12 +196,12 @@ class WPI_Functions {
           continue;
         }
 
-        // Sorting
+        //** Sorting */
         if ($primary_key == 'sorting') {
           $sort_by = " ORDER BY {$key_terms['order_by']} {$key_terms['sort_dir']} ";
         }
 
-        /* Date */
+        //** Date */
         if ($primary_key == 'm') {
           if (empty($key_terms) || (int) $key_terms == 0) {
             continue;
@@ -242,7 +229,6 @@ class WPI_Functions {
     }
 
     $sql = $sql . $sort_by;
-    //echo $sql;
     $results = $wpdb->get_results($sql);
 
     return $results;
@@ -1097,37 +1083,23 @@ class WPI_Functions {
   /**
    * Returns highest invoice ID
    *
+   * 3.08.4 - fix added to proper counting of max value
+   *
    * @global object $wpdb
    * @return longint
    * @author korotkov@ud
+   * @since 3.08.4
    */
   function get_highest_custom_id() {
     global $wpdb;
 
-    $invoices = get_posts(
-      array(
-        'post_type' => 'wpi_object',
-        'numberposts' => 0,
-        'post_status' => 'any'
-      )
-    );
+    $max_custom_id = $wpdb->get_results("
+      SELECT max( `meta_value` ) AS max
+      FROM `{$wpdb->postmeta}`
+      WHERE `meta_key` = 'custom_id'
+    ", ARRAY_A);
 
-    if (!count($invoices)) {
-      return false;
-    }
-
-    $id_array = array();
-
-    foreach ($invoices as $invoice) {
-      $id_array[] = get_post_meta($invoice->ID, 'invoice_id', true);
-      /** Get custom IDs too */
-      $custom_id = get_post_meta($invoice->ID, 'custom_id', true);
-      if ( $custom_id ) {
-        $id_array[] = $custom_id;
-      }
-    }
-
-    return @max($id_array);
+    return !empty( $max_custom_id[0]['max'] ) ? $max_custom_id[0]['max'] : false;
   }
 
   /**
@@ -1636,25 +1608,22 @@ class WPI_Functions {
 
     $ni->set("tax_method={$invoice['tax_method']}");
 
-    // It's bad idea to clear log, because all neccessary data such as payment information exist there
-    //$ni->admin("clear_log={$invoice['admin']['clear_log']}");
-
-    /* Manually set billing settings due to the complexity of the hierarchy */
+    //** Manually set billing settings due to the complexity of the hierarchy */
     $ni->data['billing'] = !empty($invoice['billing']) ? $invoice['billing'] : array();
 
-    /* Add line items */
+    //** Add line items */
     foreach ($invoice['itemized_list'] as $line_item) {
       $ni->line_item("name={$line_item['name']}&description={$line_item['description']}&quantity={$line_item['quantity']}&price={$line_item['price']}&tax_rate={$line_item['tax']}");
     }
 
-    /* Add line items for charges */
+    //** Add line items for charges */
     if (!empty($invoice['itemized_charges'])) {
       foreach ($invoice['itemized_charges'] as $charge_item) {
         $ni->line_charge("name={$charge_item['name']}&amount={$charge_item['amount']}&tax={$charge_item['tax']}");
       }
     }
 
-    /*
+    /**
      * Save Invoice Object to DB and update user
      * (trimming is a precaution because it could cause problems in inserted in DB w/ whitespace on end)
      */
@@ -2513,11 +2482,11 @@ class WPI_Functions {
 
       if ( $screen->id == 'invoice_page_wpi_page_settings' ) :
         ?>
-        <div class="updated <?php wpp_css( 'admin_notice::promotional_notice', 'wpi_promotional_notice' ) ?>">
-          <div class="<?php wpp_css( 'admin_notice::promotional_notice::top', 'wpi_promotional_notice_top_line' ) ?>">
+        <div class="updated wpi_promotional_notice">
+          <div class="wpi_promotional_notice_top_line">
             <?php echo sprintf( __('Find out how to <a target="_blank" href="%s">Extend</a> your <a target="_blank" href="%s">WP-Invoice</a> plugin', WPI), 'https://usabilitydynamics.com/products/wp-invoice/premium-features/', 'https://usabilitydynamics.com/products/wp-invoice/' ); ?>
           </div>
-          <div class="<?php wpp_css( 'admin_notice::promotional_notice::bottom', 'wpi_promotional_notice_bottom_line' ) ?>">
+          <div class="wpi_promotional_notice_bottom_line">
             <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/premium-features/"><?php _e( 'Premium Features', WPI ); ?></a>
             |
             <a target="_blank" href="https://usabilitydynamics.com/forums/"><?php _e( 'Support Forum', WPI ); ?></a>
@@ -2528,6 +2497,38 @@ class WPI_Functions {
         <?php
       endif;
     }
+  }
+
+  /**
+   * Delete invoice log by args
+   *
+   * @global object $wpdb
+   * @global type $blog_id
+   * @param type $args
+   * @author korotkov@ud
+   * @since 3.08.4
+   */
+  function delete_invoice_log( $args ) {
+
+    $defaults = array(
+        'post_id' => 0
+    );
+
+    extract( wp_parse_args( $args, $defaults ) );
+
+    if ( $post_id ) {
+      global $wpdb, $blog_id;
+
+      $wpdb->query("
+        DELETE
+        FROM `{$wpdb->prefix}wpi_object_log`
+        WHERE `object_id` = '{$post_id}'
+          AND `blog_id` = '{$blog_id}'
+      ");
+    }
+
+    return true;
+
   }
 }
 
@@ -2635,10 +2636,10 @@ function wp_invoice_mark_as_pending($invoice_id) {
   $post_id = wpi_invoice_id_to_post_id($invoice_id);
 
   wp_update_post(
-          array(
-              'ID' => $post_id,
-              'post_status' => 'pending'
-          )
+    array(
+      'ID' => $post_id,
+      'post_status' => 'pending'
+    )
   );
 
 	/** Mark invoice as processed by IPN (used for trashing abandoned SPC transactions) */
@@ -2983,6 +2984,130 @@ function wpi_multi_array_diff($array1, $array2) {
         }
     }
     return $ret;
+}
+
+/**
+ * Returns Invoice Permalink by invoice id
+ *
+ * @global array $wpi_settings
+ * @global object $wpdb
+ * @param type $identificator
+ * @return boolean
+ */
+function get_invoice_permalink($identificator) {
+  global $wpi_settings, $wpdb;
+
+  $hash = "";
+  //** Check Invoice by ID and get hash */
+  if (empty($identificator)) return false;
+
+  $id = get_invoice_id($identificator);
+
+  //** Get hash by post ID */
+  if(!empty($id)) {
+    $hash = $wpdb->get_var($wpdb->prepare("SELECT `meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'hash' AND `post_id` = '%d'",
+      $id
+    ));
+  }
+
+  if(empty($hash) || empty($wpi_settings['web_invoice_page'])) {
+    return false;
+  }
+
+  if(get_option("permalink_structure")) {
+      return get_permalink($wpi_settings['web_invoice_page']) . "?invoice_id=" . $hash;
+  } else {
+    //** check if page is on front-end */
+    if(get_option('page_on_front') == $wpi_settings['web_invoice_page']) {
+      return get_permalink($wpi_settings['web_invoice_page']) . "?invoice_id=" . $hash;
+    } else {
+      return get_permalink($wpi_settings['web_invoice_page']) . "&invoice_id=" . $hash;
+    }
+  }
+}
+
+/**
+ * This function can be used to get invoice id by several identifiers (hash, custom_id, invoice_id, post_id)
+ * @author odokienko@UD
+ * @return bool|int False or the invoice id
+ */
+function get_invoice_id($identificator){
+  global $wpdb;
+
+  $id = false;
+  if (strlen($identificator) == 32) {
+    //** Determine if $identificator is invoice HASH */
+    $id = $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key='invoice_id' and md5(meta_value)=%s",
+        $identificator
+    ));
+  }
+
+  //** Determine if $identificator is invoice_id */
+  if ( empty( $id ) ) {
+    $id = $wpdb->get_var($wpdb->prepare("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'invoice_id' AND meta_value = %s",
+      $identificator
+    ));
+  }
+
+  //** If empty id, determine if $identificator is post ID */
+  if ( empty( $id ) ) {
+    $id = $wpdb->get_var($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE post_type='wpi_object' and ID=%s",
+      $identificator
+    ));
+  }
+
+  return $id;
+}
+
+/**
+ * Checks Invoice Exists or not
+ * @return boolean
+ */
+function wpi_check_invoice($ID) {
+  global $wpdb;
+
+  if(empty($ID) || (int)$ID == 0) {
+    return false;
+  }
+  $result = $wpdb->get_var("SELECT post_status FROM {$wpdb->posts} WHERE ID = '$ID'");
+  if(empty($result)) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * This function converts an invoices invoice_id to a post_id or returns post_id if it was passed
+ * @param int $invoice_id The invoice ID
+ * @return bool|int False or the post id
+ * @since 3.0
+ */
+function wpi_invoice_id_to_post_id($invoice_id) {
+  global $wpdb;
+  $maybe_id = $wpdb->get_var("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'invoice_id' AND meta_value = '{$invoice_id}'");
+
+  return $maybe_id ? $maybe_id : $invoice_id;
+}
+
+/**
+ * This function converts a ARB subscription id subscription_id to a post_id
+ * @param int $subscription_id The subscription ID
+ * @return bool|int False or the post id
+ * @since 3.0
+ */
+function wpi_subscription_id_to_post_id($subscription_id) {
+  global $wpdb;
+  return $wpdb->get_var("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'subscription_id' AND meta_value = '{$subscription_id}'");
+}
+
+/**
+ * This function converts an invoices post_id to a invoice_id
+ * @param int $post_id The post ID
+ * @return bool|int False or the invoice id
+ * @since 3.0
+ */
+function wpi_post_id_to_invoice_id($post_id){
+  return get_metadata('post', $post_id, 'invoice_id', true);
 }
 
 /**

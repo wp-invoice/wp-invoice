@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/!svn/ver/667480/wp-invoice/tags/3.08.3/core/gateways/authorize.net
+/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/authorize.net
 END
 authnet.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/!svn/ver/667480/wp-invoice/tags/3.08.3/core/gateways/authorize.net/authnet.class.php
+/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/authorize.net/authnet.class.php
 END
 authnetARB.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 88
-/!svn/ver/667480/wp-invoice/tags/3.08.3/core/gateways/authorize.net/authnetARB.class.php
+/!svn/ver/670405/wp-invoice/tags/3.08.4/core/gateways/authorize.net/authnetARB.class.php
 END

@@ -174,7 +174,7 @@ class WPI_Object_List_Table extends WPI_List_Table {
           if(!empty($post->custom_id)) {
             $invoice_id = $post->custom_id;
           }
-          $r .= '<a href="' . get_invoice_permalink($post->{$column}) . '" target="_blank">'.apply_filters("wpi_attribute_{$column}", $invoice_id ,$post).'</a>';
+          $r .= '<a href="' . get_invoice_permalink($post->{$column}) . '" target="_blank">'.apply_filters("wpi_attribute_{$column}", $invoice_id, $post).'</a>';
         break;
 
         case 'post_status':
