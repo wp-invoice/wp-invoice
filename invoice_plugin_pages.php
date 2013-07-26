@@ -25,18 +25,12 @@
 function wp_invoice_default($message='')
 {
 	global $wpdb;
-	//Make sure tables exist
-	
-
 
 	// The error takes precedence over others being that nothing can be done w/o tables
 	if(!$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_MAIN."';") || !$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_LOG."';")) { $warning_message = ""; }
-	
 	if($warning_message) echo "<div id=\"message\" class='error' ><p>$warning_message</p></div>";
 	if($message) echo "<div id=\"message\" class='updated fade' ><p>$message</p></div>";
-	
 	$all_invoices = $wpdb->get_results("SELECT * FROM ".WP_INVOICE_TABLE_MAIN);
-
 ?>
 	
 	
@@ -44,7 +38,7 @@ function wp_invoice_default($message='')
 	<div class="wrap">
 	
 	<form id="invoices-filter" action="" method="post" >
-	<h2>Invoices Overview</h2>
+	<h2>Invoice Overview</h2>
 	<div class="tablenav clearfix">
 	
 	<div class="alignleft">
@@ -53,6 +47,7 @@ function wp_invoice_default($message='')
 		<option value="Send Invoice" name="sendit" >Send Invoice(s)</option>
 		<option value="Archive Invoice" name="archive" >Archive Invoice(s)</option>
 		<option value="Un-Archive Invoice" name="unarchive" >Un-Archive Invoice(s)</option>
+		<option value="Mark As Sent" name="mark_as_sent" >Mark as Sent</option>
 		<?php /*<option value="make_template" name="unarchive" >Make Template</option>
 		<option value="unmake_template" name="unarchive" >Unmake Template</option>*/ ?>
 		<option  value="Delete" name="deleteit" >Delete</option>
@@ -100,7 +95,7 @@ function wp_invoice_default($message='')
 		$profileuser = get_user_to_edit($invoice->user_id);
 		echo "<tr class='"; if(wp_invoice_meta($invoice->invoice_num,'paid_status')) {echo "alternate "; } if(wp_invoice_meta($invoice->invoice_num,'archive_status') == 'archived') { echo " wp_invoice_archived_invoices "; }  echo "'>
 		<th class=\"check-column\"><input type=\"checkbox\" name=\"multiple_invoices[]\" value=\"$invoice->invoice_num\"  /></th>
-		<td><a href=\"admin.php?page=new_invoice&tctiaction=editInvoice&invoice_id=".$invoice->invoice_num."\">". $invoice->invoice_num ."</a></td>
+		<td><a href=\"admin.php?page=new_invoice&tctiaction=editInvoice&invoice_id=".$invoice->invoice_num."\">"; if(wp_invoice_meta($invoice->invoice_num,'wp_invoice_custom_invoice_id')) {echo wp_invoice_meta($invoice->invoice_num,'wp_invoice_custom_invoice_id');} else { echo $invoice->invoice_num; } echo "</a></td>
 		<td><a href=\"admin.php?page=new_invoice&tctiaction=editInvoice&invoice_id=".$invoice->invoice_num."\">". $invoice->subject ."</a></td>
 		<td>$". $invoice->amount ."</td>
 		<td>";
@@ -154,7 +149,11 @@ function wp_invoice_options_saveandpreview()
 	$amount = $_REQUEST['amount'];
 	$user_id = $_REQUEST['user_id'];
 	$wp_invoice_tax = $_REQUEST['wp_invoice_tax'];
-	$itemized_array = $_REQUEST[itemized_list];
+	$itemized_array = $_REQUEST['itemized_list'];
+	$wp_invoice_custom_invoice_id = $_REQUEST['wp_invoice_custom_invoice_id'];
+	$wp_invoice_due_date_month = $_REQUEST['wp_invoice_due_date_month'];
+	$wp_invoice_due_date_day = $_REQUEST['wp_invoice_due_date_day'];
+	$wp_invoice_due_date_year = $_REQUEST['wp_invoice_due_date_year'];
 	
 	
 	//remove items from itemized list that are missing a title, they are most likely deleted
@@ -179,7 +178,11 @@ function wp_invoice_options_saveandpreview()
 		{ 
 			// update invoice
 			
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_day", $wp_invoice_due_date_day);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_month", $wp_invoice_due_date_month);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_year", $wp_invoice_due_date_year);
 			wp_invoice_update_invoice_meta($new_invoice_id, "tax_value", $wp_invoice_tax);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_custom_invoice_id", $wp_invoice_custom_invoice_id);
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'subject') != $subject) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET subject = '$subject' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Subject Updated '); $message .= "Subject updated. ";}
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'description') != $description) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET description = '$description' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Description Updated '); $message .= "Description updated. ";}
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'amount') != $amount) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET amount = '$amount' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Amount Updated '); $message .= "Amount updated.";}
@@ -189,6 +192,7 @@ function wp_invoice_options_saveandpreview()
 		else
 		{
 			// new invoice
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_custom_invoice_id", $wp_invoice_custom_invoice_id);			
 			wp_invoice_update_invoice_meta($new_invoice_id, "tax_value", $wp_invoice_tax);			
 			if($wpdb->query("INSERT INTO ".WP_INVOICE_TABLE_MAIN."
 			(amount,description,invoice_num,user_id,subject,itemized,status)
@@ -201,7 +205,7 @@ function wp_invoice_options_saveandpreview()
 	}
 	else
 	{
-	$message = "An error has occured. Did you tried refreshing the page? Tech note: new_invoice_id was not passed.";
+	$message = "An error has occured. Did you try refreshing the page? Tech note: new_invoice_id was not passed.";
 	}
 
 if($message) echo "<div id=\"message\" class='updated fade' ><p>$message</p></div>";	
@@ -267,7 +271,10 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$profileuser = get_user_to_edit($invoice_info->user_id);
 		$itemized_array = unserialize(urldecode($itemized)); 
 		$wp_invoice_tax = wp_invoice_meta($invoice_id,'tax_value');
-
+		$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
+		$wp_invoice_due_date_day = wp_invoice_meta($invoice_id,'wp_invoice_due_date_day');
+		$wp_invoice_due_date_month = wp_invoice_meta($invoice_id,'wp_invoice_due_date_month');
+		$wp_invoice_due_date_year = wp_invoice_meta($invoice_id,'wp_invoice_due_date_year');
 	}
 
 	// Crreae two blank arrays for itemized list if none is set
@@ -322,8 +329,48 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 ?>
 	</td>
 	
-	<tr><th>Invoice ID </th><td style="font-size: 1.1em; padding-top:7px;"><?php if(isset($invoice_id)) { echo $invoice_id; } else { echo rand(10000000, 90000000);}  ?></td></tr>
-	<tr class="invoice_main"><th>Subject</th><td><input  id="invoice_subject" class="subject"  name='subject' value='<?php echo $subject; ?>'></input></td></tr>
+	<tr>
+		<th>Invoice ID </th>
+		<td style="font-size: 1.1em; padding-top:7px;">
+		<input class="wp_invoice_custom_invoice_id<?php if(empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" name="wp_invoice_custom_invoice_id" value="<?php echo $wp_invoice_custom_invoice_id;?>">
+		<?php if(isset($invoice_id)) { echo $invoice_id; } else { echo rand(10000000, 90000000);}  ?> <a class="wp_invoice_custom_invoice_id wp_invoice_click_me <?php if(!empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" href="#">Custom Invoice ID</a>
+		
+		</td>
+	</tr>
+	
+	<tr class="invoice_main">
+		<th>Subject</th>
+		<td>
+			<input  id="invoice_subject" class="subject"  name='subject' value='<?php echo $subject; ?>'>
+		</td>
+	</tr>
+	
+	<tr class="invoice_main">
+		<th>Due Date</th>
+		<td>
+			<div id="timestampdiv">
+			<select id="mm" name="wp_invoice_due_date_month">
+			<option></option>
+			<option value="01" <?php if($wp_invoice_due_date_month == '01') echo " selected='selected'";?>>Jan</option>
+			<option value="02" <?php if($wp_invoice_due_date_month == '02') echo " selected='selected'";?>>Feb</option>
+			<option value="03" <?php if($wp_invoice_due_date_month == '03') echo " selected='selected'";?>>Mar</option>
+			<option value="04" <?php if($wp_invoice_due_date_month == '04') echo " selected='selected'";?>>Apr</option>
+			<option value="05" <?php if($wp_invoice_due_date_month == '05') echo " selected='selected'";?>>May</option>
+			<option value="06" <?php if($wp_invoice_due_date_month == '06') echo " selected='selected'";?>>Jun</option>
+			<option value="07" <?php if($wp_invoice_due_date_month == '07') echo " selected='selected'";?>>Jul</option>
+			<option value="08" <?php if($wp_invoice_due_date_month == '08') echo " selected='selected'";?>>Aug</option>
+			<option value="09" <?php if($wp_invoice_due_date_month == '09') echo " selected='selected'";?>>Sep</option>
+			<option value="10" <?php if($wp_invoice_due_date_month == '10') echo " selected='selected'";?>>Oct</option>
+			<option value="11" <?php if($wp_invoice_due_date_month == '11') echo " selected='selected'";?>>Nov</option>
+			<option value="12" <?php if($wp_invoice_due_date_month == '12') echo " selected='selected'";?>>Dec</option>
+			</select>
+			<input type="text" id="jj" name="wp_invoice_due_date_day" value="<?php echo $wp_invoice_due_date_day; ?>" size="2" maxlength="2" autocomplete="off" />, 
+			<input type="text" id="aa" name="wp_invoice_due_date_year" value="<?php echo $wp_invoice_due_date_year; ?>" size="4" maxlength="5" autocomplete="off" />
+			</div>
+		</td>
+	</tr>
+	
+	
 	<tr class="invoice_main"><th>Description / PO</th><td><textarea class="invoice_description_box" name='description' value=''><?php echo $description; ?></textarea></td></tr>
 	
 	<tr class="invoice_main">
@@ -835,7 +882,7 @@ if($show_title) { ?> 	<div id="wp_invoice_need_mm" style="border-top: 1px solid 
 
 <div class="wrap">
 	<div class="wp_invoice_credit_card_processors">
-		<div  style="line-height: 1.5em;width: 97%; margin: 0 auto; padding-bottom: 20px; font-size: 1.1em;">WP-Invoice users are eligible for below-market pricing from MerchantPlus and MerchantExpress. MerchantWarehouse was unable to offer us special rates due to their "unique" pricing sturcture.  They are on this list because of their solid reputation.</div>
+		<div  style="line-height: 1.5em;width: 97%; margin: 0 auto; padding-bottom: 20px; font-size: 1.1em;">WP-Invoice users are eligible for below-market pricing from MerchantPlus and MerchantExpress. MerchantWarehouse was unable to offer us special rates due to their unique pricing structure.  They are on this list because of their solid reputation.</div>
 
 <table id="merchant_table" style="width: 100%; margin: 0 auto;">
 <thead>

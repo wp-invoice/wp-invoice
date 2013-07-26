@@ -237,7 +237,7 @@ if(is_array($invoice_id))
 	$counter++;
 	wp_invoice_update_invoice_meta($single_invoice_id, "archive_status", "archived");
 	}
-	return $counter . " invoices archived.";
+	return $counter . " invoice(s) archived.";
 
 }
 else
@@ -258,13 +258,38 @@ if(is_array($invoice_id))
 	$counter++;
 	wp_invoice_delete_invoice_meta($single_invoice_id, "archive_status");
 	}
-	return $counter . " invoices unarchived.";
+	return $counter . " invoice(s) unarchived.";
 
 }
 else
 {
 	wp_invoice_delete_invoice_meta($invoice_id, "archive_status");
 	return "Invoice successfully unarchived.";
+}
+}
+
+function wp_invoice_mark_as_sent($invoice_id) {
+global $wpdb;
+
+// Check to see if array is passed or single.
+if(is_array($invoice_id))
+{
+	$counter=0;
+	foreach ($invoice_id as $single_invoice_id) {
+	$counter++;
+	wp_invoice_update_invoice_meta($single_invoice_id, "sent_date", date("Y-m-d", time()));
+	wp_invoice_update_log($single_invoice_id,'contact','Invoice Maked as eMailed'); //make sent entry
+	
+	}
+	return $counter . " invoice(s) marked as sent.";
+
+}
+else
+{
+	wp_invoice_update_invoice_meta($invoice_id, "sent_date", date("Y-m-d", time()));
+	wp_invoice_update_log($invoice_id,'contact','Invoice Maked as eMailed'); //make sent entry
+	
+	return "Invoice market as sent.";
 }
 }
 
@@ -429,8 +454,6 @@ function wp_invoice_build_invoice_link($invoice_id) {
 	
 	$link_to_page = get_permalink(get_option('wp_invoice_web_invoice_page'));
 
-	if(get_option('wp_invoice_protocol') == 'https') { $link_to_page = str_replace('http', 'https', $link_to_page);  }
-
 	$hashed_invoice_id = md5($invoice_id);
 	if(get_option("permalink_structure")) { $link = $link_to_page . "?invoice_id=" .$hashed_invoice_id; } 
 	else { $link =  $link_to_page . "&invoice_id=" . $hashed_invoice_id; } 
@@ -485,7 +508,7 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 		if(wp_invoice_meta($invoice_id,'tax_value')) {
 		$tax_percent = wp_invoice_meta($invoice_id,'tax_value');
 
-		$response .= "<tr><td>Included Tax</td><td style='text-align:right;' colspan='2'>". $tax_percent. "%</td></tr>";
+		$response .= "<tr><td>Included Tax</td><td style='text-align:right;' colspan='2'>". round($tax_percent,2). "%</td></tr>";
 		}
 		$response .="<tr>
 		<td colspan=\"3\"><br /></td>
@@ -628,6 +651,17 @@ function wp_invoice_activation() {
 		wp_invoice_update_invoice_meta($invoice->invoice_num,'paid_status','paid');
 		}
 	}
+	
+	// Fix old phone_number and street_address to be without the dash
+	$all_users_with_meta = $wpdb->get_col("SELECT DISTINCT user_id FROM $wpdb->usermeta");
+	if(!empty($all_users_with_meta)) {
+	foreach ($all_users_with_meta as $user) 
+		{
+		if(get_usermeta($user, 'street_address')) { update_usermeta($user, 'streetaddress',get_usermeta($user, 'street_address')); delete_usermeta($user, 'street_address',''); }
+		if(get_usermeta($user, 'phone_number')) { update_usermeta($user, 'phonenumber',get_usermeta($user, 'phone_number')); delete_usermeta($user, 'phone_number',''); }
+		}
+	}
+	
 	
 	
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -811,11 +845,11 @@ function wp_invoice_profile_update() {
 	$user_id =  $_REQUEST['user_id'];
 
 
-	if(isset($_POST['address'])) update_usermeta($user_id, 'streetaddress', $_POST['streetaddress']);
+	if(isset($_POST['streetaddress'])) update_usermeta($user_id, 'streetaddress', $_POST['streetaddress']);
 	if(isset($_POST['zip']))  update_usermeta($user_id, 'zip', $_POST['zip']);
 	if(isset($_POST['state'])) update_usermeta($user_id, 'state', $_POST['state']);
 	if(isset($_POST['city'])) update_usermeta($user_id, 'city', $_POST['city']);
-	if(isset($_POST['phone_number'])) update_usermeta($user_id, 'phonenumber', $_POST['phonenumber']);
+	if(isset($_POST['phonenumber'])) update_usermeta($user_id, 'phonenumber', $_POST['phonenumber']);
 
 }
 	
@@ -1148,7 +1182,13 @@ function wp_invoice_process_cc_transaction($cc_data) {
 $errors = array ();
 $errors_msg = null;
 $_POST["processing_problem"] = "";
-$invoice_id = preg_replace("/[^0-9]/","", $_POST['invoice_num']);  
+$invoice_id = preg_replace("/[^0-9]/","", $_POST['invoice_num']); /* this is the real invoice id */
+
+// Accomodate Custom Invoice IDs by changing the post value, this is passed to Authorize.net account
+$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
+// If there is a custom invoice id, we're setting the $_POST['invoice_num'] to the custom id, because that is what's getting passed to authorize.net
+if($wp_invoice_custom_invoice_id) { $_POST['invoice_num'] = $wp_invoice_custom_invoice_id; }
+ 
 $wp_users_id = get_invoice_user_id($invoice_id);
 
 if(empty($_POST['card_num'])) {	$errors [ 'card_num' ] []  = "Please enter your credit card number.\n";	$stop_transaction = true;} else { if (!wp_invoice_validate_cc_number($_POST['card_num'])){$errors [ 'card_num' ] [] = "Please enter a valid credit card number.\n"; $stop_transaction = true; } }
@@ -1179,8 +1219,8 @@ if(!$stop_transaction) {
 				update_usermeta($wp_users_id,'city',$_POST['city']);
 				update_usermeta($wp_users_id,'state',$_POST['state']);
 				update_usermeta($wp_users_id,'zip',$_POST['zip']);
-				update_usermeta($wp_users_id,'streetaddress',$_POST['street_address']);
-				update_usermeta($wp_users_id,'phonenumber',$_POST['phone_number']);
+				update_usermeta($wp_users_id,'streetaddress',$_POST['streetaddress']);
+				update_usermeta($wp_users_id,'phonenumber',$_POST['phonenumber']);
 
 				wp_invoice_paid($invoice_id);
 				if(get_option('wp_invoice_send_thank_you_email') == 'yes') wp_invoice_send_email_reciept($invoice_id);

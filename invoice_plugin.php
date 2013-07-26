@@ -4,7 +4,7 @@ Plugin Name:WP Web Invoice
 Plugin URI: http://twincitiestech.com/services/wp-invoice/
 Description: Send itemized web-invoices directly to your clients, and have they pay them pay using PayPal or their credit card from your blog. Visit <a href="admin.php?page=invoice_settings">WP-Invoice Settings Page</a> to setup.
 Author: TwinCitiesTech.com
-Version: 1.5
+Version: 1.6
 Author URI: http://twincitiestech.com/
 
 
@@ -36,7 +36,7 @@ Copyright 2008   TwinCitiesTech.com Inc.   (email : andy.potanin@twincitiestech.
 	global $wpdb;
 
 
-	define("WP_INVOICE_VERSION_NUM", "1.3");
+	define("WP_INVOICE_VERSION_NUM", "1.6");
 	define("WP_INVOICE_TABLE_MAIN", $wpdb->prefix . "invoice");
 	define("WP_INVOICE_TABLE_META", $wpdb->prefix . "invoice_meta");
 	define("WP_INVOICE_TABLE_LOG", $wpdb->prefix . "invoice_log");
@@ -99,7 +99,7 @@ global $wpdb;
 		wp_enqueue_script('jquery.calculation',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.calculation.min.js', array('jquery'));
 		wp_enqueue_script('jquery.tablesorter',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.tablesorter.min.js', array('jquery'));
 		wp_enqueue_script('jquery.autogrow-textarea',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.autogrow-textarea.js', array('jquery') );
-		wp_enqueue_script('wp-invoice',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/wp-invoice-1.3.js', array('jquery') );
+		wp_enqueue_script('wp-invoice',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/wp-invoice-1.6.js', array('jquery') );
 	} else {
 		
 		// Make sure proper MD5 is being passed (32 chars), and strip of everything but numbers and letters
@@ -114,8 +114,12 @@ global $wpdb;
 			$all_invoices = $wpdb->get_col("SELECT invoice_num FROM ".WP_INVOICE_TABLE_MAIN." ");
 			foreach ($all_invoices as $value) { if(md5($value) == $md5_invoice_id) {$invoice_id = $value;} }		
 		
+			
 			//Check if invoice exists, SSL enforcement is setp, and we are not currently browing HTTPS,  then reload page into HTTPS 
+			if(!function_exists('wp_https_redirect')) {
 			if(wp_invoice_does_invoice_exist($invoice_id) && get_option('wp_invoice_force_https') == 'true' && $_SERVER['HTTPS'] != "on") {  header("Location: https://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']); exit;}
+			}
+			
 		}
 		
 		if(isset($_POST['wp_invoice_id_hash'])) {
@@ -246,6 +250,16 @@ global $wpdb;
 				
 				$message .= wp_invoice_unarchive($inArr);
 			}
+							
+			if(is_array($_REQUEST['multiple_invoices']) && $_REQUEST['action'] == 'Mark As Sent')	
+			{
+				$inArr = array();
+				if (isset($_REQUEST['multiple_invoices'])){
+				$inArr = $_POST["multiple_invoices"];
+				}
+				
+				$message .= wp_invoice_mark_as_sent($inArr);
+			}
 					
 			// Create Template
 			if(is_array($_REQUEST['multiple_invoices']) && $_REQUEST['action'] == 'make_template')	
@@ -272,7 +286,11 @@ global $wpdb;
 			elseif(isset($_REQUEST['invoice_id']) && $_REQUEST['save'])	
 			{
 				// Already saved
-				$message =  "Invoice #" . $_REQUEST['invoice_id'] . " saved.";
+				$wp_invoice_custom_invoice_id = wp_invoice_meta($_REQUEST['invoice_id'], 'wp_invoice_custom_invoice_id');
+				
+				if($wp_invoice_custom_invoice_id) {$message =  "Invoice <b>$wp_invoice_custom_invoice_id</b> saved.";}
+				else { 	$message =  "Invoice <b>#" . $_REQUEST['invoice_id'] . "</b> saved.";	}
+				$message .= " <a href=".wp_invoice_build_invoice_link($_REQUEST['invoice_id']) .">View Web Invoice</a>";
 			}
 
 			elseif(isset($_REQUEST['invoice_id']) && $_REQUEST['send_now'])	
@@ -310,7 +328,7 @@ global $wpdb;
 
 function wp_invoice_head()
 {?>
-<link rel='stylesheet' href='<?php echo get_bloginfo('wpurl'); ?>/wp-content/plugins/wp-invoice/css/wp_admin-1.5.css' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_bloginfo('wpurl'); ?>/wp-content/plugins/wp-invoice/css/wp_admin-1.6.css' type='text/css' media='all' />
 
 <script>
 </script>

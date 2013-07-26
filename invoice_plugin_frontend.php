@@ -52,12 +52,16 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 	
 	$last_name = get_usermeta($invoice_info->user_id,'last_name');
 	$first_name = get_usermeta($invoice_info->user_id,'first_name');
-	$phone_number = get_usermeta($invoice_info->user_id,'phonenumber');
-	$street_address = get_usermeta($invoice_info->user_id,'streetaddress');
+	$phonenumber = get_usermeta($invoice_info->user_id,'phonenumber');
+	$streetaddress = get_usermeta($invoice_info->user_id,'streetaddress');
 	$state = get_usermeta($invoice_info->user_id,'state');
 	$city = get_usermeta($invoice_info->user_id,'city');
 	$zip = get_usermeta($invoice_info->user_id,'zip');
 	$tax = wp_invoice_meta($invoice_id,'tax_value');
+	$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
+
+	if(empty($wp_invoice_custom_invoice_id)) { $invoice_id_display = $invoice_id; }	else { $invoice_id_display = $wp_invoice_custom_invoice_id; }
+	
 	
 	$email_address = $wpdb->get_var("SELECT user_email FROM wp_users WHERE id=".$invoice_info->user_id."");
 	$ip=$_SERVER['REMOTE_ADDR'];
@@ -66,9 +70,10 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 
 	//Convert phone number into paypal format
 	//Remove 1 if exists in begining
-	list($day_phone_a, $day_phone_b, $day_phone_c) = split('[/.-]', $phone_number);
+	list($day_phone_a, $day_phone_b, $day_phone_c) = split('[/.-]', $phonenumber);
 	
 	if(isset($_REQUEST['receipt_id'])) {
+	// Invoice Paid, update database
 	
 	if(isset($_POST['first_name'])) update_usermeta($user_id, 'first_name', $_POST['first_name']);
 	if(isset($_POST['last_name'])) update_usermeta($user_id, 'last_name', $_POST['last_name']);
@@ -81,12 +86,12 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 <div id="invoice_page" class="clearfix">
 <div id="invoice_overview" clas="cleafix">
 	<h2 class="invoice_page_subheading"><?php echo $first_name . " " . $last_name; ?>, thank you for your payment!</h2>
-	<p><strong>Invoice #<?php echo $invoice_id; ?> with a total amount of $<?php echo $amount; ?> has been paid.</strong></p>
+	<p><strong>Invoice #<?php echo $invoice_id_display; ?> with a total amount of $<?php echo $amount; ?> has been paid.</strong></p>
 </div>
 </div>	
 <?php
 
- }
+	}
  
  else 
  
@@ -98,7 +103,7 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 <div id="invoice_overview" class="clearfix">
 	<?php if(isset($invoice_id)) { ?>
 	<h2 class="invoice_page_subheading">Welcome, <?php echo $first_name . " " . $last_name; ?>!</h2>
-	<p>We have sent you invoice #<?php echo $invoice_id; ?> with a total amount of $<?php echo $amount; ?>.  If you have any questions please feel free to contact us at any time.</p>
+	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of $<?php echo $amount; ?>.  If you have any questions please feel free to contact us at any time.</p>
 	<p><?php echo str_replace("\n", "<br />", $description);  ?></p>
 	<?php echo wp_invoice_draw_itemized_table($invoice_id); ?> 
 	<?php }
@@ -122,11 +127,11 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 	<input type="hidden" name="cmd" value="_ext-enter">
 	<input type="hidden" name="upload" value="1">
 	<input type="hidden" name="business" value="<?php echo get_option('wp_invoice_paypal_address'); ?>">
-	<input type="hidden" name="return" value="<?php echo wp_invoice_build_invoice_link($invoice_id); ?>&action=done">
+	<input type="hidden" name="return" value="<?php echo wp_invoice_build_invoice_link($invoice_id); ?>">
 	<input type="hidden" name="rm" value="2">
 <?php if(isset($invoice_id)) { ?>
 	<input name="amount" type="hidden" value="<?php echo $amount; ?>">
-	<input name="invoice_num" type="hidden" id="invoice_num"  value="<?php echo  $invoice_id; ?>">
+	<input name="invoice_num" type="hidden" id="invoice_num"  value="<?php echo  $invoice_id_display; ?>">
 
 <?php  }
 	
@@ -168,7 +173,9 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 		}
 
 		// Add tax onnly by using tax_free_sum (which is the sums of all the individual items * quantities. 
-		if(!empty($tax)) { $output .= "<input type='hidden' name='tax_cart' value='". $tax_free_sum * ($tax / 100) ."'>";	}
+		if(!empty($tax)) { 
+		$tax_cart = round($tax_free_sum * ($tax / 100),2);
+		$output .= "<input type='hidden' name='tax_cart' value='". $tax_cart ."'>";	}
 	echo $output;
 	}
 
@@ -201,7 +208,7 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 
 	<li>
 	<label for="address1">Address:</label>
-	<input name="address1" type="text"  size="20" maxlength="25" value="<?php echo $street_address; ?>">
+	<input name="address1" type="text"  size="20" maxlength="25" value="<?php echo $streetaddress; ?>">
 	</li>
 
 	<li>
@@ -499,15 +506,18 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	
 	$last_name = get_usermeta($invoice_info->user_id,'last_name');
 	$first_name = get_usermeta($invoice_info->user_id,'first_name');
-	$phone_number = get_usermeta($invoice_info->user_id,'phonenumber');
-	$street_address = get_usermeta($invoice_info->user_id,'streetaddress');
+	$phonenumber = get_usermeta($invoice_info->user_id,'phonenumber');
+	$streetaddress = get_usermeta($invoice_info->user_id,'streetaddress');
 	$state = get_usermeta($invoice_info->user_id,'state');
 	$city = get_usermeta($invoice_info->user_id,'city');
 	$zip = get_usermeta($invoice_info->user_id,'zip');
 	$email_address = $wpdb->get_var("SELECT user_email FROM wp_users WHERE id=".$invoice_info->user_id."");
 	$ip=$_SERVER['REMOTE_ADDR'];
+	$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
 
-	$phone_number = wp_invoice_format_phone($phone_number);
+	if(empty($wp_invoice_custom_invoice_id)) { $invoice_id_display = $invoice_id; }	else { $invoice_id_display = $wp_invoice_custom_invoice_id; }
+
+	$phonenumber = wp_invoice_format_phone($phonenumber);
 	if(!strpos($amount,'.')) $amount = $amount . ".00";
 	
  	wp_invoice_update_log($invoice_id,'visited',"Invoice viewed by $ip");
@@ -519,7 +529,7 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	<h2 id="welcome_message" class="invoice_page_subheading">Welcome, <?php echo $first_name . " " . $last_name; ?>!</h2>
 	
 	<?php if(!wp_invoice_paid_status($invoice_id)) { ?>
-	<p>We have sent you invoice #<?php echo $invoice_id; ?> with a total amount of <?php echo wp_invoice_currency_format($amount); ?>.</p>
+	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of <?php echo wp_invoice_currency_format($amount); ?>.</p>
 	<?php if(!empty($description)) { ?><p><?php echo str_replace("\n", "<br />", $description);  ?></p><?php  } ?>
 	<?php echo wp_invoice_draw_itemized_table($invoice_id); ?> 
 	<input name="amount" type="hidden" value="<?php echo $amount; ?>">
@@ -558,13 +568,13 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	</li>
 
 	<li>
-	<label class="inputLabel" for="phone_number">Phone Number:</label>
-	<input name="phone_number" class="input_field"  type="text" id="phone_number" size="40" maxlength="50" value="<?php print $phone_number; ?>">
+	<label class="inputLabel" for="phonenumber">Phone Number:</label>
+	<input name="phonenumber" class="input_field"  type="text" id="phonenumber" size="40" maxlength="50" value="<?php print $phonenumber; ?>">
 	</li>
 
 	<li>
-	<label class="inputLabel" for="address">Address: </label>
-	<input name="address" id="address" class="input_field"  type="text"  size="40" maxlength="60" value="<?php print $street_address; ?>"> 
+	<label class="inputLabel" for="streetaddress">Address: </label>
+	<input name="streetaddress" id="streetaddress" class="input_field"  type="text"  size="40" maxlength="60" value="<?php print $streetaddress; ?>"> 
 	</li>
 
 	<li>
@@ -599,7 +609,7 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	<input name="country" type="hidden" value="US">
 	</li>
 
-	<li class="hide_after_success" >
+	<li class="hide_after_success">
 	<label class="inputLabel" for="card_num">Credit Card Number:</label>
 	<input name="card_num" autocomplete="off" onkeyup="cc_card_pick();"  id="card_num" class="credit_card_number input_field"  type="text"  size="22"  maxlength="22">
 	</li>
@@ -671,11 +681,23 @@ jQuery(document).ready(function() {
 
 
 	});
-
+<?php
+function wp_invoice_curPageURL() {
+ $pageURL = 'http';
+ if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ $pageURL .= "://";
+ if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+ }
+ return $pageURL;
+}
+?>
 	
 function process_cc_checkout(){
 form = 'checkout_form';
-site_url = '<?php echo $_SERVER['PHP_SELF']; ?>';
+site_url = '<?php echo wp_invoice_curPageURL(); ?>';
 link_id = 'receiver';
 	var req = jQuery.post
 	( 

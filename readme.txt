@@ -4,7 +4,7 @@ Donate link: http://twincitiestech.com/services/wp-invoice/
 Tags: bill, paypal, invoice, pay, online payment
 Requires at least: 2.5
 Tested up to: 2.7
-Stable tag: 1.5
+Stable tag: 1.6
 
 WP-Invoice lets you send invoices to your clients.
 

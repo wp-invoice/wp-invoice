@@ -17,10 +17,13 @@
 	color:#000;
 	display:none;
 	}	
+
 	
 #get_user_info select option { padding-right: 10px; }
 .wp_invoice_copy_invoice {display:none;}
-.wp_invoice_click_me, .wp_invoice_click_me a{cursor: pointer; color:#FF7200; text-decoration:none;}
+
+.wp_invoice_hidden {display:none;}
+.wp_invoice_click_me, .wp_invoice_click_me a{cursor: pointer; color:#FF7200; text-decoration:none; font-size: 12px;}
 #wp_invoice_first_time_setup .paypal_info {display:none;}
 #wp_invoice_first_time_setup .gateway_info {display:none;}
 #wp_invoice_first_time_setup input {width: 300px;}
