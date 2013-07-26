@@ -4,7 +4,7 @@ Plugin Name:WP Web Invoice
 Plugin URI: http://twincitiestech.com/services/wp-invoice/
 Description: Send itemized web-invoices directly to your clients, and have they pay them pay using PayPal or their credit card from your blog. Visit <a href="admin.php?page=invoice_settings">WP-Invoice Settings Page</a> to setup.
 Author: TwinCitiesTech.com
-Version: 1.6
+Version: 1.7
 Author URI: http://twincitiestech.com/
 
 
@@ -36,7 +36,7 @@ Copyright 2008   TwinCitiesTech.com Inc.   (email : andy.potanin@twincitiestech.
 	global $wpdb;
 
 
-	define("WP_INVOICE_VERSION_NUM", "1.6");
+	define("WP_INVOICE_VERSION_NUM", "1.7");
 	define("WP_INVOICE_TABLE_MAIN", $wpdb->prefix . "invoice");
 	define("WP_INVOICE_TABLE_META", $wpdb->prefix . "invoice_meta");
 	define("WP_INVOICE_TABLE_LOG", $wpdb->prefix . "invoice_log");
@@ -99,7 +99,7 @@ global $wpdb;
 		wp_enqueue_script('jquery.calculation',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.calculation.min.js', array('jquery'));
 		wp_enqueue_script('jquery.tablesorter',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.tablesorter.min.js', array('jquery'));
 		wp_enqueue_script('jquery.autogrow-textarea',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/jquery.autogrow-textarea.js', array('jquery') );
-		wp_enqueue_script('wp-invoice',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/wp-invoice-1.6.js', array('jquery') );
+		wp_enqueue_script('wp-invoice',get_bloginfo('wpurl'). '/wp-content/plugins/wp-invoice/js/wp-invoice-1.7.js', array('jquery') );
 	} else {
 		
 		// Make sure proper MD5 is being passed (32 chars), and strip of everything but numbers and letters
@@ -239,6 +239,17 @@ global $wpdb;
 				
 				$message .= wp_invoice_archive($inArr);
 			}
+			
+			// Mark as Paid
+			if(is_array($_REQUEST['multiple_invoices']) && $_REQUEST['action'] == 'Mark As Paid')	
+			{
+				$inArr = array();
+				if (isset($_REQUEST['multiple_invoices'])){
+				$inArr = $_POST["multiple_invoices"];
+				}
+				
+				$message .= wp_invoice_mark_as_paid($inArr);
+			}
 
 			// Un Archive Invoices
 			if(is_array($_REQUEST['multiple_invoices']) && $_REQUEST['action'] == 'Un-Archive Invoice')	
@@ -328,7 +339,7 @@ global $wpdb;
 
 function wp_invoice_head()
 {?>
-<link rel='stylesheet' href='<?php echo get_bloginfo('wpurl'); ?>/wp-content/plugins/wp-invoice/css/wp_admin-1.6.css' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_bloginfo('wpurl'); ?>/wp-content/plugins/wp-invoice/css/wp_admin-1.7.css' type='text/css' media='all' />
 
 <script>
 </script>

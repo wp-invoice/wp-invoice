@@ -25,12 +25,18 @@
 function wp_invoice_default($message='')
 {
 	global $wpdb;
+	//Make sure tables exist
+	
+
 
 	// The error takes precedence over others being that nothing can be done w/o tables
 	if(!$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_MAIN."';") || !$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_LOG."';")) { $warning_message = ""; }
+	
 	if($warning_message) echo "<div id=\"message\" class='error' ><p>$warning_message</p></div>";
 	if($message) echo "<div id=\"message\" class='updated fade' ><p>$message</p></div>";
+	
 	$all_invoices = $wpdb->get_results("SELECT * FROM ".WP_INVOICE_TABLE_MAIN);
+
 ?>
 	
 	
@@ -48,6 +54,7 @@ function wp_invoice_default($message='')
 		<option value="Archive Invoice" name="archive" >Archive Invoice(s)</option>
 		<option value="Un-Archive Invoice" name="unarchive" >Un-Archive Invoice(s)</option>
 		<option value="Mark As Sent" name="mark_as_sent" >Mark as Sent</option>
+		<option value="Mark As Paid" name="mark_as_paid" >Mark as Paid</option>
 		<?php /*<option value="make_template" name="unarchive" >Make Template</option>
 		<option value="unmake_template" name="unarchive" >Unmake Template</option>*/ ?>
 		<option  value="Delete" name="deleteit" >Delete</option>
@@ -92,15 +99,24 @@ function wp_invoice_default($message='')
 	if(!empty($wp_invoice_payment_link)) { if(strpos('?',$wp_invoice_payment_link)) { $wp_invoice_payment_link = $wp_invoice_payment_link . "&";} else {$wp_invoice_payment_link = $wp_invoice_payment_link . "?";} }
 
 	foreach ($all_invoices as $invoice) {
+	
+	if(wp_invoice_meta($invoice->invoice_num,'tax_value') != '')
+	{ $currency_code = wp_invoice_meta($invoice->invoice_num,'wp_invoice_currency_code'); }
+	elseif(get_option('wp_invoice_default_currency_code') != '')
+	{ $currency_code = get_option('wp_invoice_default_currency_code'); }
+	else 
+	{ $currency_code = "USD"; }
+	
+	
 		$profileuser = get_user_to_edit($invoice->user_id);
-		echo "<tr class='"; if(wp_invoice_meta($invoice->invoice_num,'paid_status')) {echo "alternate "; } if(wp_invoice_meta($invoice->invoice_num,'archive_status') == 'archived') { echo " wp_invoice_archived_invoices "; }  echo "'>
+		echo "<tr class='"; if(wp_invoice_paid_status($invoice->invoice_num)) {echo "alternate "; } if(wp_invoice_meta($invoice->invoice_num,'archive_status') == 'archived') { echo " wp_invoice_archived_invoices "; }  echo "'>
 		<th class=\"check-column\"><input type=\"checkbox\" name=\"multiple_invoices[]\" value=\"$invoice->invoice_num\"  /></th>
 		<td><a href=\"admin.php?page=new_invoice&tctiaction=editInvoice&invoice_id=".$invoice->invoice_num."\">"; if(wp_invoice_meta($invoice->invoice_num,'wp_invoice_custom_invoice_id')) {echo wp_invoice_meta($invoice->invoice_num,'wp_invoice_custom_invoice_id');} else { echo $invoice->invoice_num; } echo "</a></td>
 		<td><a href=\"admin.php?page=new_invoice&tctiaction=editInvoice&invoice_id=".$invoice->invoice_num."\">". $invoice->subject ."</a></td>
-		<td>$". $invoice->amount ."</td>
+		<td> " . wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($invoice->amount) . "</td>
 		<td>";
 			// Days Since Sent
-			if(wp_invoice_meta($invoice->invoice_num,'paid_status')) {
+			if(wp_invoice_paid_status($invoice->invoice_num)) {
 			echo "<span style='display:none;'>-1</span> Paid"; }
 			else {
 			if(wp_invoice_meta($invoice->invoice_num,'sent_date')) {
@@ -154,8 +170,21 @@ function wp_invoice_options_saveandpreview()
 	$wp_invoice_due_date_month = $_REQUEST['wp_invoice_due_date_month'];
 	$wp_invoice_due_date_day = $_REQUEST['wp_invoice_due_date_day'];
 	$wp_invoice_due_date_year = $_REQUEST['wp_invoice_due_date_year'];
+
+	$wp_invoice_first_name = $_REQUEST['wp_invoice_first_name'];
+	$wp_invoice_last_name = $_REQUEST['wp_invoice_last_name'];
+	$wp_invoice_streetaddress = $_REQUEST['wp_invoice_streetaddress'];
+	$wp_invoice_city = $_REQUEST['wp_invoice_city'];
+	$wp_invoice_state = $_REQUEST['wp_invoice_state'];
+	$wp_invoice_zip = $_REQUEST['wp_invoice_zip'];
 	
+	$wp_invoice_currency_code = $_REQUEST['wp_invoice_currency_code'];
+
 	
+
+
+
+			
 	//remove items from itemized list that are missing a title, they are most likely deleted
 	if(is_array($itemized_array)) {
 		$counter = 1;
@@ -176,13 +205,7 @@ function wp_invoice_options_saveandpreview()
 		$invoice_exists = $wpdb->get_var("SELECT COUNT(*) FROM ".WP_INVOICE_TABLE_MAIN." WHERE invoice_num=".$_REQUEST['new_invoice_id'].";");
 		if($invoice_exists > 0)
 		{ 
-			// update invoice
-			
-			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_day", $wp_invoice_due_date_day);
-			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_month", $wp_invoice_due_date_month);
-			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_year", $wp_invoice_due_date_year);
-			wp_invoice_update_invoice_meta($new_invoice_id, "tax_value", $wp_invoice_tax);
-			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_custom_invoice_id", $wp_invoice_custom_invoice_id);
+			// Updating Old Invoice
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'subject') != $subject) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET subject = '$subject' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Subject Updated '); $message .= "Subject updated. ";}
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'description') != $description) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET description = '$description' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Description Updated '); $message .= "Description updated. ";}
 			if(wp_invoice_get_invoice_attrib($new_invoice_id,'amount') != $amount) { $wpdb->query("UPDATE ".WP_INVOICE_TABLE_MAIN." SET amount = '$amount' WHERE invoice_num = $new_invoice_id"); 			wp_invoice_update_log($new_invoice_id, 'updated', ' Amount Updated '); $message .= "Amount updated.";}
@@ -191,9 +214,7 @@ function wp_invoice_options_saveandpreview()
 		}
 		else
 		{
-			// new invoice
-			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_custom_invoice_id", $wp_invoice_custom_invoice_id);			
-			wp_invoice_update_invoice_meta($new_invoice_id, "tax_value", $wp_invoice_tax);			
+			// Create New Invoice
 			if($wpdb->query("INSERT INTO ".WP_INVOICE_TABLE_MAIN."
 			(amount,description,invoice_num,user_id,subject,itemized,status)
 			VALUES ('$amount','$description','$new_invoice_id','$user_id','$subject','$itemized','0')")) 
@@ -202,6 +223,23 @@ function wp_invoice_options_saveandpreview()
 			wp_invoice_update_log($new_invoice_id, 'created', ' Created ');
 			} else 	{ $message = "There was a problem saving invoice.  Try deactivating and reactivating plugin."; }
 		}
+		
+		// Update Invoice Meta
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_custom_invoice_id", $wp_invoice_custom_invoice_id);			
+			wp_invoice_update_invoice_meta($new_invoice_id, "tax_value", $wp_invoice_tax);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_currency_code", $wp_invoice_currency_code);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_day", $wp_invoice_due_date_day);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_month", $wp_invoice_due_date_month);
+			wp_invoice_update_invoice_meta($new_invoice_id, "wp_invoice_due_date_year", $wp_invoice_due_date_year);		
+		
+		//Update User Information
+			if(!empty($wp_invoice_first_name)) update_usermeta($user_id, 'first_name', $wp_invoice_first_name);
+			if(!empty($wp_invoice_last_name)) update_usermeta($user_id, 'last_name', $wp_invoice_last_name);
+			if(!empty($wp_invoice_streetaddress)) update_usermeta($user_id, 'streetaddress', $wp_invoice_streetaddress);
+			if(!empty($wp_invoice_city)) update_usermeta($user_id, 'city', $wp_invoice_city);
+			if(!empty($wp_invoice_state)) update_usermeta($user_id, 'state', $wp_invoice_state);
+			if(!empty($wp_invoice_zip)) update_usermeta($user_id, 'zip', $wp_invoice_zip);
+			
 	}
 	else
 	{
@@ -238,6 +276,11 @@ if($message) echo "<div id=\"message\" class='updated fade' ><p>$message</p></di
 function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 {
 	global $wpdb;
+
+	//Load Defaults
+	$currency = get_option("wp_invoice_default_currency_code");
+	
+
 	if(!empty($_REQUEST['user_id'])) $user_id = $_REQUEST['user_id'];
 
 	// Need to unset these values 
@@ -257,6 +300,10 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$profileuser = get_user_to_edit($_POST['user_id']);
 		$itemized_array = unserialize(urldecode($itemized)); 
 		$wp_invoice_tax = wp_invoice_meta($template_invoice_id,'tax_value');
+		$wp_invoice_currency_code = wp_invoice_meta($template_invoice_id,'wp_invoice_currency_code');
+		$wp_invoice_due_date_day = wp_invoice_meta($template_invoice_id,'wp_invoice_due_date_day');
+		$wp_invoice_due_date_month = wp_invoice_meta($template_invoice_id,'wp_invoice_due_date_month');
+		$wp_invoice_due_date_year = wp_invoice_meta($template_invoice_id,'wp_invoice_due_date_year');
 	}
 		
 	
@@ -275,8 +322,28 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		$wp_invoice_due_date_day = wp_invoice_meta($invoice_id,'wp_invoice_due_date_day');
 		$wp_invoice_due_date_month = wp_invoice_meta($invoice_id,'wp_invoice_due_date_month');
 		$wp_invoice_due_date_year = wp_invoice_meta($invoice_id,'wp_invoice_due_date_year');
+		$wp_invoice_currency_code = wp_invoice_meta($invoice_id,'wp_invoice_currency_code');
+		
 	}
-
+	
+	// Brand New Invoice
+	if(!isset($invoice_id) && isset($_REQUEST['user_id'])) {
+	$profileuser = get_user_to_edit($_REQUEST['user_id']);
+	}
+	
+	// Load Userdata
+	$user_email = $profileuser->user_email;
+	$first_name = $profileuser->first_name;
+	$last_name = $profileuser->last_name;
+	$streetaddress = $profileuser->streetaddress;
+	$city = $profileuser->city;
+	$state = $profileuser->state;
+	$zip = $profileuser->zip;
+	
+	//Load Invoice Specific Settings, and override default
+	if(!empty($wp_invoice_currency_code)) $currency = $wp_invoice_currency_code;
+	
+	
 	// Crreae two blank arrays for itemized list if none is set
 	if(count($itemized_array) == 0) {
 	$itemized_array[1] = "";
@@ -296,6 +363,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	?>
 	
 	<div class="wrap">
+<div id="poststuff" class="metabox-holder">
 
 	<?php if(!isset($invoice_id)) { ?> <h2>New Invoice</h2><?php  wp_invoice_draw_user_selection_form($user_id); } ?>
 	<?php if(isset($user_id) && isset($invoice_id)) { ?><h2>Edit Invoice</h2><?php } ?>
@@ -307,36 +375,49 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 	<input type="hidden" name="new_invoice_id" value="<?php if(isset($invoice_id)) { echo $invoice_id; } else { echo rand(10000000, 90000000);}  ?>">
 	<input type="hidden" name="amount" id="total_amount" value="<?php echo $amount; ?>">
 
-	<table class="form-table" id="add_new_invoice">
+
+<div class="postbox" id="wp_invoice_client_info_div">
+<h3><label for="link_name">Client Information</label></h3>
+<div class="inside">
+
+
+<table class="form-table" id="add_new_invoice">
 	
 	<?php
-	if(get_option('wp_invoice_business_name') == '') 		echo "<tr><th colspan=\"2\">Your business name isn't set, go to Settings page to set it.</a></th></tr>\n";
+	if(get_option('wp_invoice_business_name') == '') 		echo "<tr><th colspan=\"2\">Your business name isn't set, go to Settings page to set it.</a></th></tr>\n"; 	?> 
+	
+	<tr><th><?php _e("Email Address") ?></th><td><?php echo $user_email; ?> <a class="wp_invoice_click_me" href="user-edit.php?user_id=<?php echo $user_id; ?>#billing_info">Go to User Profile</a></td>
+	<tr style="height: 90px;"><th><?php _e("Billing Information") ?></th>
+	<td>
 
-	if(isset($_REQUEST['user_id'])) {							$profileuser = get_user_to_edit($_REQUEST['user_id']); }
-	
-	?> 
-	
-	<tr><th><?php _e("Email Address") ?></th><td><?php echo $profileuser->user_email; ?></td>
-	<tr><th><?php _e("Billing Information") ?></th>
-	<td><?php if(!empty($profileuser->first_name) || !empty($profileuser->last_name)) { echo "<a href=\"user-edit.php?user_id=" . $profileuser->ID . "#billing_info\">" . $profileuser->first_name . " " . $profileuser->last_name . "</a><br />"; }
-	if(isset($profileuser->streetaddress)) echo $profileuser->streetaddress . "<br />";
-	if(isset($profileuser->city)) echo $profileuser->city . "" ;
-	if(isset($profileuser->state)) echo " " . $profileuser->state;
-	if(isset($profileuser->zip)) echo " " . $profileuser->zip . "<br />";
-	if(empty($profileuser->first_name) || empty($profileuser->last_name) || empty($profileuser->streetaddress) || empty($profileuser->city) ||  empty($profileuser->state) ||  empty($profileuser->zip))  {
-	echo "<span class=\"error\"><a style='text-decoration:none;' href=\"user-edit.php?user_id=" . $profileuser->ID . "#billing_info\">Visit user's profile to prefill billing information.</a></span>";
-	}
-?>
+
+	<div id="wp_invoice_edit_user_from_invoice">
+      <span class="wp_invoice_make_editable<?php if(!$first_name) echo " wp_invoice_unset"; ?>" id="wp_invoice_first_name"><?php if($first_name) echo $first_name; else echo "Set First Name"; ?></span>
+      <span class="wp_invoice_make_editable<?php if(!$last_name) echo " wp_invoice_unset"; ?>" id="wp_invoice_last_name"><?php if($last_name) echo $last_name; else echo "Set Last Name"; ?></span><br /> 
+      <span class="wp_invoice_make_editable<?php if(!$streetaddress) echo " wp_invoice_unset"; ?>" id="wp_invoice_streetaddress"><?php if($streetaddress) echo $streetaddress; else echo "Set Street Address"; ?></span><br />
+      <span class="wp_invoice_make_editable<?php if(!$city) echo " wp_invoice_unset"; ?>" id="wp_invoice_city"><?php if($city) echo $city; else echo "Set City"; ?></span>
+      <span class="wp_invoice_make_editable<?php if(!$state) echo " wp_invoice_unset"; ?>" id="wp_invoice_state"><?php if($state) echo $state; else echo "Set State"; ?></span>
+      <span class="wp_invoice_make_editable<?php if(!$zip) echo " wp_invoice_unset"; ?>" id="wp_invoice_zip"><?php if($zip) echo $zip; else echo "Set Zip Code"; ?></span>
+
+	</div>
 	</td>
+
+	</table>
 	
-	<tr>
-		<th>Invoice ID </th>
-		<td style="font-size: 1.1em; padding-top:7px;">
-		<input class="wp_invoice_custom_invoice_id<?php if(empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" name="wp_invoice_custom_invoice_id" value="<?php echo $wp_invoice_custom_invoice_id;?>">
-		<?php if(isset($invoice_id)) { echo $invoice_id; } else { echo rand(10000000, 90000000);}  ?> <a class="wp_invoice_custom_invoice_id wp_invoice_click_me <?php if(!empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" href="#">Custom Invoice ID</a>
+</div>
+</div>
+
+<div id="wp_invoice_main_info" class="metabox-holder">
+<div id="submitdiv" class="postbox" style="">	
+<h3 class="hndle"><span>Invoice Details</span></h3>
+<div class="inside">
+                	
+
 		
-		</td>
-	</tr>
+<table class="form-table">
+
+
+	
 	
 	<tr class="invoice_main">
 		<th>Subject</th>
@@ -345,31 +426,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		</td>
 	</tr>
 	
-	<tr class="invoice_main">
-		<th>Due Date</th>
-		<td>
-			<div id="timestampdiv">
-			<select id="mm" name="wp_invoice_due_date_month">
-			<option></option>
-			<option value="01" <?php if($wp_invoice_due_date_month == '01') echo " selected='selected'";?>>Jan</option>
-			<option value="02" <?php if($wp_invoice_due_date_month == '02') echo " selected='selected'";?>>Feb</option>
-			<option value="03" <?php if($wp_invoice_due_date_month == '03') echo " selected='selected'";?>>Mar</option>
-			<option value="04" <?php if($wp_invoice_due_date_month == '04') echo " selected='selected'";?>>Apr</option>
-			<option value="05" <?php if($wp_invoice_due_date_month == '05') echo " selected='selected'";?>>May</option>
-			<option value="06" <?php if($wp_invoice_due_date_month == '06') echo " selected='selected'";?>>Jun</option>
-			<option value="07" <?php if($wp_invoice_due_date_month == '07') echo " selected='selected'";?>>Jul</option>
-			<option value="08" <?php if($wp_invoice_due_date_month == '08') echo " selected='selected'";?>>Aug</option>
-			<option value="09" <?php if($wp_invoice_due_date_month == '09') echo " selected='selected'";?>>Sep</option>
-			<option value="10" <?php if($wp_invoice_due_date_month == '10') echo " selected='selected'";?>>Oct</option>
-			<option value="11" <?php if($wp_invoice_due_date_month == '11') echo " selected='selected'";?>>Nov</option>
-			<option value="12" <?php if($wp_invoice_due_date_month == '12') echo " selected='selected'";?>>Dec</option>
-			</select>
-			<input type="text" id="jj" name="wp_invoice_due_date_day" value="<?php echo $wp_invoice_due_date_day; ?>" size="2" maxlength="2" autocomplete="off" />, 
-			<input type="text" id="aa" name="wp_invoice_due_date_year" value="<?php echo $wp_invoice_due_date_year; ?>" size="4" maxlength="5" autocomplete="off" />
-			</div>
-		</td>
-	</tr>
-	
+
 	
 	<tr class="invoice_main"><th>Description / PO</th><td><textarea class="invoice_description_box" name='description' value=''><?php echo $description; ?></textarea></td></tr>
 	
@@ -395,7 +452,7 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 			<td valign="top" class="name"><input class="item_name" name="itemized_list[<?php echo $counter; ?>][name]" value="<?php echo stripslashes($itemized_item[name]); ?>"></td>
 			<td valign="top" class="description"><textarea style="height: 25px;" name="itemized_list[<?php echo $counter; ?>][description]" class="item_description autogrow"><?php echo stripslashes($itemized_item[description]); ?></textarea></td>
 			<td valign="top" class="quantity"><input autocomplete="off"  value="<?php echo stripslashes($itemized_item[quantity]); ?>" name="itemized_list[<?php echo $counter; ?>][quantity]" id="qty_item_<?php echo $counter; ?>"  class="item_quantity"></td>
-			<td valign="top" class="price">$<input autocomplete="off" value="<?php echo stripslashes($itemized_item[price]); ?>"  name="itemized_list[<?php echo $counter; ?>][price]" id="price_item_<?php echo $counter; ?>"  class="item_price"></td>
+			<td valign="top" class="price"><input autocomplete="off" value="<?php echo stripslashes($itemized_item[price]); ?>"  name="itemized_list[<?php echo $counter; ?>][price]" id="price_item_<?php echo $counter; ?>"  class="item_price"></td>
 			<td valign="top" class="item_total" id="total_item_<?php echo $counter; ?>" ></td>
 		</tr>
 
@@ -409,48 +466,129 @@ function wp_invoice_options_manageInvoice($invoice_id = '',$message='')
 		<th style='vertical-align:bottom;text-align:right;'><p><a href="#" id="add_itemized_item">Add Another Item</a><br /><span class='light_text'></span></p></th>
 		<td>
 			<table class="itemized_list">
-			<tr>
-			<td colspan="2" align="right"> Tax <input style="width: 20px;"  name="wp_invoice_tax" id="wp_invoice_tax" autocomplete="off" value="<?php echo $wp_invoice_tax ?>">%</input></td>
-			</tr>
+
 			<tr>
 			<td align="right">Grand Total:</td>
-			<td class="item_total">$<span id='amount'></span></td>
+			<td class="item_total"><span id='amount'></span></td>
 			</tr>
 			</table>
 		</td>
 	</tr>
 
+</table>
+</div></div></div>
 
-	<tr>
-		<td colspan="2">
 
-			<p class="submit">
-				<input type="submit" value="Save and Preview"> 	
-				<?php $wp_invoice_web_invoice_page = get_option("wp_invoice_web_invoice_page"); if(empty($wp_invoice_web_invoice_page)) { ?><span class="error" style="padding: 5px; font-color: red;">Be advised - invoice link sent to customer will be incomplete since the <a href='admin.php?page=invoice_settings' alt="Settings Page">invoice page is not set</a>.</span> <?php } ?>
 
+
+<div id="submitdiv" class="postbox" style="">	
+<h3 class="hndle"><span>Publish</span></h3>
+<div class="inside">
+<div id="minor-publishing">
+
+<div id="misc-publishing-actions">
+<table class="form-table">
 
 	
-			</p>
+	<tr class="invoice_main">
+		<th>Invoice ID </th>
+		<td style="font-size: 1.1em; padding-top:7px;">
+		<input class="wp_invoice_custom_invoice_id<?php if(empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" name="wp_invoice_custom_invoice_id" value="<?php echo $wp_invoice_custom_invoice_id;?>">
+		<?php if(isset($invoice_id)) { echo $invoice_id; } else { echo rand(10000000, 90000000);}  ?> <a class="wp_invoice_custom_invoice_id wp_invoice_click_me <?php if(!empty($wp_invoice_custom_invoice_id)) { echo " wp_invoice_hidden"; } ?>" href="#">Custom Invoice ID</a>
+		
 		</td>
 	</tr>
 
-	<?php if(wp_invoice_get_invoice_status($invoice_id,'100')) { ?>		
-	<tr>
-		<td colspan="2">
-			<h3>This Invoice's History (<a href="admin.php?page=new_invoice&invoice_id=<?php echo $invoice_id; ?>&tctiaction=clear_log">Clear Log</a>)</h3>
-			<ul id="invoice_history_log">
-			<?php echo wp_invoice_get_invoice_status($invoice_id,'100'); ?>
-			</ul>
+	<tr class="invoice_main">
+		<th>Tax </th>
+		<td style="font-size: 1.1em; padding-top:7px;">
+			<input style="width: 35px;"  name="wp_invoice_tax" id="wp_invoice_tax" autocomplete="off" value="<?php echo $wp_invoice_tax ?>">%</input>
 		</td>
 	</tr>
-	<?php } ?>
-	</table>
-	<tr>
 
-	</form>
+		<tr class="">
+		<th>Currency</th>
+		<td>
+			<select name="wp_invoice_currency_code">
+				<?php foreach(wp_invoice_currency_array() as $value=>$currency_x) {
+				echo "<option value='$value'"; if($currency == $value) echo " SELECTED"; echo ">$value - $currency_x</option>\n";
+				}
+				?>
+			</select> 
+		</td>
+	</tr>
+	
+	<tr class="">
+		<th>Due Date</th>
+		<td>
+			<div id="timestampdiv" style="display:block;">
+			<select id="mm" name="wp_invoice_due_date_month">
+			<option></option>
+			<option value="1" <?php if($wp_invoice_due_date_month == '1') echo " selected='selected'";?>>Jan</option>
+			<option value="2" <?php if($wp_invoice_due_date_month == '2') echo " selected='selected'";?>>Feb</option>
+			<option value="3" <?php if($wp_invoice_due_date_month == '3') echo " selected='selected'";?>>Mar</option>
+			<option value="4" <?php if($wp_invoice_due_date_month == '4') echo " selected='selected'";?>>Apr</option>
+			<option value="5" <?php if($wp_invoice_due_date_month == '5') echo " selected='selected'";?>>May</option>
+			<option value="6" <?php if($wp_invoice_due_date_month == '6') echo " selected='selected'";?>>Jun</option>
+			<option value="7" <?php if($wp_invoice_due_date_month == '7') echo " selected='selected'";?>>Jul</option>
+			<option value="8" <?php if($wp_invoice_due_date_month == '8') echo " selected='selected'";?>>Aug</option>
+			<option value="9" <?php if($wp_invoice_due_date_month == '9') echo " selected='selected'";?>>Sep</option>
+			<option value="10" <?php if($wp_invoice_due_date_month == '10') echo " selected='selected'";?>>Oct</option>
+			<option value="11" <?php if($wp_invoice_due_date_month == '11') echo " selected='selected'";?>>Nov</option>
+			<option value="12" <?php if($wp_invoice_due_date_month == '12') echo " selected='selected'";?>>Dec</option>
+			</select>
+			<input type="text" id="jj" name="wp_invoice_due_date_day" value="<?php echo $wp_invoice_due_date_day; ?>" size="2" maxlength="2" autocomplete="off" />, 
+			<input type="text" id="aa" name="wp_invoice_due_date_year" value="<?php echo $wp_invoice_due_date_year; ?>" size="4" maxlength="5" autocomplete="off" />
+			<span onclick="wp_invoice_add_time(7);" class="wp_invoice_click_me">In One Week</span> | 
+			<span onclick="wp_invoice_add_time(30);" class="wp_invoice_click_me">In 30 Days</span> |
+			<span onclick="wp_invoice_add_time('clear');" class="wp_invoice_click_me">Clear</span>
+			</div> 
+		</td>
+	</tr>
+	
+
+</table>
+</div>
+<div class="clear"></div>
+</div>
+
+<div id="major-publishing-actions">
+<?php if(isset($invoice_id)) {?>
+<div id="delete-action">
+<a class="submitdelete deletion" href="admin.php?page=wp-invoice/invoice_plugin.php&action=Delete&amp;invoice_id=<?php echo $invoice_id; ?>" onclick="if ( confirm('You are about to delete this invoice. \n  \'Cancel\' to stop, \'OK\' to delete.') ) {return true;}return false;">Delete</a>
+</div><?php } ?>
+
+<div id="publishing-action">
+	<input type="submit"  name="save" class="button-primary" value="Save and Preview"> 	
+</div>
+<div class="clear"></div>
+</div>
+
+
+</div>
+</div>
+
+
+</div>
+
+
+<table>
+<?php if(wp_invoice_get_invoice_status($invoice_id,'100')) { ?>		
+<tr>
+	<td colspan="2">
+		<h3>This Invoice's History (<a href="admin.php?page=new_invoice&invoice_id=<?php echo $invoice_id; ?>&tctiaction=clear_log">Clear Log</a>)</h3>
+		<ul id="invoice_history_log">
+		<?php echo wp_invoice_get_invoice_status($invoice_id,'100'); ?>
+		</ul>
+	</td>
+</tr>
+<?php } ?>
+</table>
+
+</form>
 
 	<?php } ?>
-	</div>
+</div>
 <?php
 }
 
@@ -547,6 +685,7 @@ global $wpdb;
 echo $_POST['show_wp_invoiceshow_quantities'];
 echo $_POST['hide_wp_invoiceshow_quantities'];
 
+// Save General Settings
 if(isset($_POST['wp_invoice_business_name'])) { update_option('wp_invoice_business_name', $_POST['wp_invoice_business_name']); }
 if(isset($_POST['wp_invoice_business_phone'])) update_option('wp_invoice_business_phone', $_POST['wp_invoice_business_phone']);
 if(isset($_POST['wp_invoice_business_address'])) update_option('wp_invoice_business_address', $_POST['wp_invoice_business_address']);
@@ -556,6 +695,7 @@ if(isset($_POST['wp_invoice_web_invoice_page'])) update_option('wp_invoice_web_i
 if(isset($_POST['wp_invoice_payment_link'])) update_option('wp_invoice_payment_link', $_POST['wp_invoice_payment_link']);
 if(isset($_POST['wp_invoice_use_css'])) update_option('wp_invoice_use_css', $_POST['wp_invoice_use_css']);
 if(isset($_POST['wp_invoice_payment_method'])) update_option('wp_invoice_payment_method', $_POST['wp_invoice_payment_method']);
+if(isset($_POST['wp_invoice_default_currency_code'])) update_option('wp_invoice_default_currency_code', $_POST['wp_invoice_default_currency_code']);
 if(isset($_POST['wp_invoice_send_thank_you_email'])) update_option('wp_invoice_send_thank_you_email', $_POST['wp_invoice_send_thank_you_email']);
 if(isset($_POST['wp_invoice_show_quantities'])) update_option('wp_invoice_show_quantities', $_POST['wp_invoice_show_quantities']);
 if(isset($_POST['wp_invoice_protocol'])) update_option('wp_invoice_protocol', $_POST['wp_invoice_protocol']);
@@ -563,10 +703,7 @@ if(isset($_POST['wp_invoice_force_https'])) update_option('wp_invoice_force_http
 if(isset($_POST['wp_invoice_email_address'])) update_option('wp_invoice_email_address', $_POST['wp_invoice_email_address']);
 if(isset($_POST['wp_invoice_business_name']) || $_POST['wp_invoice_business_address']|| $_POST['wp_invoice_email_address'] || isset($_POST['wp_invoice_business_phone']) || isset($_POST['wp_invoice_payment_link'])) $message = "Information saved.";
 
-// Gateway Settings
-
-
-
+// Save Gateway Settings
 if(isset($_POST['wp_invoice_gateway_username'])) update_option('wp_invoice_gateway_username', $_POST['wp_invoice_gateway_username']);
 if(isset($_POST['wp_invoice_gateway_tran_key'])) update_option('wp_invoice_gateway_tran_key', $_POST['wp_invoice_gateway_tran_key']);
 if(isset($_POST['wp_invoice_gateway_merchant_email'])) update_option('wp_invoice_gateway_merchant_email', $_POST['wp_invoice_gateway_merchant_email']);
@@ -580,6 +717,9 @@ if(isset($_POST['wp_invoice_gateway_test_mode'])) update_option('wp_invoice_gate
 if(isset($_POST['wp_invoice_gateway_relay_response'])) update_option('wp_invoice_gateway_relay_response', $_POST['wp_invoice_gateway_relay_response']);
 if(isset($_POST['wp_invoice_gateway_email_customer'])) update_option('wp_invoice_gateway_email_customer', $_POST['wp_invoice_gateway_email_customer']);
 
+
+//Load Defaults 
+$wp_invoice_default_currency_code = get_option('wp_invoice_default_currency_code');
 
 
 if(isset($_POST['wp_invoice_billing_meta'])) {
@@ -608,7 +748,7 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_META."';") || !$wpdb->que
 <table class="form-table" id="settings_page_table" >
 
 <tr class="invoice_main">
-	<th class="wp_invoice_tooltip"><a class="wp_invoice_tooltip"  title="Select the page where your invoices will be displayed. Clients must follow their secured link, simply opening the page will not show any invoices.">Page to Display Invoices</a>:</th>
+	<th><a class="wp_invoice_tooltip"  title="Select the page where your invoices will be displayed. Clients must follow their secured link, simply opening the page will not show any invoices.">Page to Display Invoices</a>:</th>
 	<td>
 	<select name='wp_invoice_web_invoice_page'>
 	<option></option>
@@ -726,6 +866,18 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_META."';") || !$wpdb->que
 </tr>
 
 <tr>
+	<th>Default Currency:</th>
+	<td>
+	<select id="wp_invoice_default_currency_code" name="wp_invoice_default_currency_code">
+		<?php foreach(wp_invoice_currency_array() as $value=>$currency) {
+		echo "<option value='$value'"; if($wp_invoice_default_currency_code == $value) echo " SELECTED"; echo ">$value - $currency</option>\n";
+		}
+		?>
+	</select> 
+	</td>
+</tr>
+
+<tr>
 	<th>Payment Method:</th>
 	<td>
 	<select id="wp_invoice_payment_method" name="wp_invoice_payment_method">
@@ -734,6 +886,8 @@ if(!$wpdb->query("SHOW TABLES LIKE '".WP_INVOICE_TABLE_META."';") || !$wpdb->que
 	</select> 
 	</td>
 </tr>
+
+
 
 <tr class="paypal_info">
 	<th width="200">PayPal Username</th>

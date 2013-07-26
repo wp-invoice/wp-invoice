@@ -87,6 +87,9 @@ function wp_invoice_validate_cc_number($cc_number) {
 function wp_invoice_draw_user_selection_form($user_id) {
 	global $wpdb;
 ?>
+<div class="postbox" id="wp_new_invoice_div">
+<h3><label for="link_name">New Invoice</label></h3>
+<div class="inside">
 	<form action="admin.php?page=new_invoice" method='POST'>
 		<table class="form-table" id="get_user_info">
 			<tr class="invoice_main">
@@ -139,7 +142,9 @@ function wp_invoice_draw_user_selection_form($user_id) {
 			
 		</table>
 	</form>
-	
+</div>
+</div>
+
 
 	<?php
 	}
@@ -244,6 +249,30 @@ else
 {
 	wp_invoice_update_invoice_meta($invoice_id, "archive_status", "archived");
 	return "Invoice successfully archived.";
+}
+}
+
+function wp_invoice_mark_as_paid($invoice_id) {
+global $wpdb;
+
+// Check to see if array is passed or single.
+if(is_array($invoice_id))
+{
+	$counter=0;
+	foreach ($invoice_id as $single_invoice_id) {
+	$counter++;
+	wp_invoice_update_invoice_meta($single_invoice_id,'paid_status','paid');
+ 	wp_invoice_update_log($single_invoice_id,'paid',"Invoice marked as paid");
+
+	}
+	return $counter . " invoice(s) marked as paid.";
+
+}
+else
+{
+	wp_invoice_update_invoice_meta($invoice_id,'paid_status','paid');
+ 	wp_invoice_update_log($invoice_id,'paid',"Invoice marked as paid");
+	return "Invoice marked as paid.";
 }
 }
 
@@ -400,14 +429,22 @@ function wp_invoice_show_invoice($invoice_id) {
 function wp_invoice_show_email_invoice($invoice_id) {
 	global $wpdb;
 
+	// Determine currency. First we check invoice-specific, then default code, and then we settle on USD
+	if(wp_invoice_meta($invoice_id,'tax_value') != '')
+	{ $currency_code = wp_invoice_meta($invoice_id,'wp_invoice_currency_code'); }
+	elseif(get_option('wp_invoice_default_currency_code') != '')
+	{ $currency_code = get_option('wp_invoice_default_currency_code'); }
+	else 
+	{ $currency_code = "USD"; }
+	
 	$invoice_info = $wpdb->get_row("SELECT * FROM ".WP_INVOICE_TABLE_MAIN." WHERE invoice_num = $invoice_id");
 	$profileuser = get_user_to_edit($invoice_info->user_id);
 
 	if(empty($profileuser->first_name) && empty($profileuser->last_name)) { $client_name = $profileuser->user_nicename; } else {  $client_name = $profileuser->first_name . " " . $profileuser->last_name; }
 	
 	$message = "Dear ". $client_name . ", \n\n";
- 	if(empty($invoice_info->description)) { $message .= stripslashes(get_option("wp_invoice_business_name")) . " has sent you a web invoice totaling $". number_format($invoice_info->amount, 2, '.', ',') . ". \n\n"; } 
-	else { $message .= stripslashes(get_option("wp_invoice_business_name")) . " has sent you a web invoice totaling $".number_format($invoice_info->amount, 2, '.', ',') . ". \n\n$invoice_info->description \n\n"; }
+ 	if(empty($invoice_info->description)) { $message .= stripslashes(get_option("wp_invoice_business_name")) . " has sent you a web invoice totaling ".  wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($invoice_info->amount) . ". \n\n"; } 
+	else { $message .= stripslashes(get_option("wp_invoice_business_name")) . " has sent you a web invoice totaling ". wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($invoice_info->amount) . ". \n\n$invoice_info->description \n\n"; }
 
 	$message .= "You may pay, view and print the invoice online by visiting the following link: \n";
 	$message .= wp_invoice_build_invoice_link($invoice_id) . "\n\n";
@@ -418,17 +455,19 @@ function wp_invoice_show_email_invoice($invoice_id) {
 }
 
 function wp_invoice_currency_format($amount) {
-	return "$" . number_format($amount, 2, '.', ',');
+	return number_format($amount, 2, '.', ',');
 }
 
 function wp_invoice_paid($invoice_id) {
 	global $wpdb;
 	$wpdb->query("UPDATE  ".WP_INVOICE_TABLE_MAIN." SET status = 1 WHERE  invoice_num = '$invoice_id'");
+	wp_invoice_update_invoice_meta($invoice_id,'paid_status','paid');
+ 	wp_invoice_update_log($invoice_id,'paid',"Invoice marked as paid");	
 }
 
 function wp_invoice_paid_status($invoice_id) {
 	global $wpdb;
-	return $wpdb->get_var("SELECT status FROM  ".WP_INVOICE_TABLE_MAIN." WHERE invoice_num = '$invoice_id'");
+	if(wp_invoice_meta($invoice_id,'paid_status') || $wpdb->get_var("SELECT status FROM  ".WP_INVOICE_TABLE_MAIN." WHERE invoice_num = '$invoice_id'")) return true;
 }
 
 function wp_invoice_archive_status($invoice_id) {
@@ -454,6 +493,7 @@ function wp_invoice_build_invoice_link($invoice_id) {
 	
 	$link_to_page = get_permalink(get_option('wp_invoice_web_invoice_page'));
 
+
 	$hashed_invoice_id = md5($invoice_id);
 	if(get_option("permalink_structure")) { $link = $link_to_page . "?invoice_id=" .$hashed_invoice_id; } 
 	else { $link =  $link_to_page . "&invoice_id=" . $hashed_invoice_id; } 
@@ -469,16 +509,32 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 	$invoice_info = $wpdb->get_row("SELECT * FROM ".WP_INVOICE_TABLE_MAIN." WHERE invoice_num = '".$invoice_id."'");
 	$itemized = $invoice_info->itemized;
 	$amount = $invoice_info->amount;
+	$tax_percent = wp_invoice_meta($invoice_id,'tax_value');
+	
+	// Determine currency. First we check invoice-specific, then default code, and then we settle on USD
+	if(wp_invoice_meta($invoice_id,'tax_value') != '')
+	{ $currency_code = wp_invoice_meta($invoice_id,'wp_invoice_currency_code'); }
+	elseif(get_option('wp_invoice_default_currency_code') != '')
+	{ $currency_code = get_option('wp_invoice_default_currency_code'); }
+	else 
+	{ $currency_code = "USD"; }
+	
+	
+	if($tax_percent) {
+		$tax_free_amount = $amount*(100/(100+(100*($tax_percent/100))));
+		$tax_value = $amount - $tax_free_amount;
+		}
+	
+	
 	if(!strpos($amount,'.')) $amount = $amount . ".00";
 	$itemized_array = unserialize(urldecode($itemized)); 
 	
 
 	if(is_array($itemized_array)) {
 		$response .= "<table id=\"itemized_table\">
-		<tr>
-		<th>Item</th>";
-		if(get_option('wp_invoice_show_quantities') == "Show") { $response .= '<th style="width: 70px; text-align: right;">Quantity</th>'; }
-		$response .="<th style=\"width: 70px; text-align: right;\">Cost</th>
+		<tr>\n";
+		if(get_option('wp_invoice_show_quantities') == "Show") { $response .= '<th style="width: 40px; text-align: right;">Quantity</th>'; }
+		$response .="<th>Item</th><th style=\"width: 70px; text-align: right;\">Cost</th>
 		</tr> ";
 		$i = 1;
 		foreach($itemized_array as $itemized_item){
@@ -488,28 +544,32 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 		if($i % 2) { $response .= "<tr>"; } 
 		else { $response .= "<tr  class='alt_row'>"; } 
 		
+		//Quantities
+		if(get_option('wp_invoice_show_quantities') == "Show") {
+		$response .= "<td style=\"width: 70px; text-align: right;\">" . $itemized_item[quantity] . "</td>";	}
+		
+		//Item Name
 		$response .= "<td>" . stripslashes($itemized_item[name]) . " <br /><span class='description_text'>" . stripslashes($itemized_item[description]) . "</span></td>";
 
-		if(get_option('wp_invoice_show_quantities') == "Show") { 
-		$response .= "<td style=\"width: 70px; text-align: right;\">" . $itemized_item[quantity] . "</td>
-		<td style=\"width: 70px; text-align: right;\">$" . number_format($itemized_item[price], 2, '.', ',') . "</td>"; }
-		
-		else {
-		 $response .= "<td style=\"width: 70px; text-align: right;\">$" .  number_format($itemized_item[quantity] * $itemized_item[price], 2, '.', ',') . "</td>"; 
+		//Price		
+		if(!get_option('wp_invoice_show_quantities') == "Show") {
+		 $response .= "<td style=\"width: 70px; text-align: right;\">" . wp_invoice_currency_symbol($currency_code) .  wp_invoice_currency_format($itemized_item[quantity] * $itemized_item[price]) . "</td>"; 
+		 } else {
+		 $response .= "<td style=\"width: 70px; text-align: right;\">". wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($itemized_item[price]) . "</td>"; 
 		 }
-		
-		
+			
 		
 		$response .="</tr>";
 		$i++;
 		}
 		
 		}
-		if(wp_invoice_meta($invoice_id,'tax_value')) {
-		$tax_percent = wp_invoice_meta($invoice_id,'tax_value');
-
-		$response .= "<tr><td>Included Tax</td><td style='text-align:right;' colspan='2'>". round($tax_percent,2). "%</td></tr>";
+		if($tax_percent) {
+		$response .= "<tr>";
+		if(get_option('wp_invoice_show_quantities') == "Show") { $response .= "<td></td>"; }
+		$response .= "<td>Tax (". round($tax_percent,2). "%) </td><td style='text-align:right;' colspan='2'>" . wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($tax_value)."</td></tr>";
 		}
+		
 		$response .="<tr>
 		<td colspan=\"3\"><br /></td>
 		</tr>
@@ -518,7 +578,7 @@ function wp_invoice_draw_itemized_table($invoice_id) {
 		<td align=\"right\">Total Due:</td>
 		<td  colspan=\"2\" style=\"text-align: right;\" class=\"grand_total\">";
 
-		$response .= "$". number_format($amount, 2, '.', ',');
+		$response .= wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($amount);
 		$response .= "</td></table>";
 
 		return $response;
@@ -688,6 +748,7 @@ function wp_invoice_activation() {
 	add_option('wp_invoice_protocol','http');
 	add_option('wp_invoice_web_invoice_page','');
 	add_option('wp_invoice_paypal_address','');
+	add_option('wp_invoice_default_currency_code','USD');
 	add_option('wp_invoice_billing_meta',$wp_invoice_billing_meta);
 	add_option('wp_invoice_show_quantities','Hide');
 	add_option('wp_invoice_use_css','yes');
@@ -739,6 +800,7 @@ function wp_invoice_complete_removal()
 	delete_option('wp_invoice_business_address');
 	delete_option('wp_invoice_business_phone');
 	delete_option('wp_invoice_paypal_address');
+	delete_option('wp_invoice_default_currency_code');
 	delete_option('wp_invoice_web_invoice_page');
 	delete_option('wp_invoice_billing_meta');
 	delete_option('wp_invoice_show_quantities');
@@ -1201,7 +1263,9 @@ if(empty($_POST['zip'])){$errors [ 'zip' ] [] = "Please enter your ZIP code.\n";
 if(empty($_POST['exp_month'])){$errors [ 'exp_month' ] [] = "Please enter your credit card's expiration month.";$stop_transaction = true;}
 if(empty($_POST['exp_year'])){$errors [ 'exp_year' ] [] = "Please enter your credit card's expiration year.";$stop_transaction = true;}
 if(empty($_POST['card_code'])){$errors [ 'card_code' ] [] = "The <b>Security Code</b> is the code on the back of your card.";$stop_transaction = true;}
-$_REQUEST[trand_id] = rand(1000, 5000);
+$_REQUEST['trand_id'] = rand(1000, 5000);
+$_REQUEST['customer_ip'] = $_SERVER['REMOTE_ADDR']; 
+$_REQUEST['currency_code'] = $_SERVER['REMOTE_ADDR']; 
 
 if(!$stop_transaction) {
 
@@ -1260,5 +1324,47 @@ if ( is_array ( $_POST ) )
 echo $errors_msg;
 }
 
+function wp_invoice_currency_array() {
+	$currency_list = array(
+	"AUD"=> "Australian Dollars",
+	"CAD"=> "Canadian Dollars",
+	"EUR"=> "Euros",
+	"GBP"=> "Pounds Sterling",
+	"JPY"=> "Yen",
+	"USD"=> "U.S. Dollars",
+	"NZD"=> "New Zealand Dollar",
+	"CHF"=> "Swiss Franc",
+	"HKD"=> "Hong Kong Dollar",
+	"SGD"=> "Singapore Dollar",
+	"SEK"=> "Swedish Krona",
+	"DKK"=> "Danish Krone",
+	"PLN"=> "Polish Zloty",
+	"NOK"=> "Norwegian Krone",
+	"HUF"=> "Hungarian Forint",
+	"CZK"=> "Czech Koruna",
+	"ILS"=> "Israeli Shekel",
+	"MXN"=> "Mexican Peso");
+	
+	return $currency_list;
+}
 
+function wp_invoice_currency_symbol($currency = "USD" )
+{
+	$currency_list = array(
+	'CAD'=> '$',
+	'EUR'=> '&#8364;',
+	'GBP'=> '&pound;',
+	'JPY'=> '&yen;',
+	'USD'=> '$');
+
+
+foreach($currency_list as $value => $display)
+{
+    if($currency == $value) { return $display; $success = true; break;}
+}
+if(!$success) return $currency;
+	
+	
+	
+}
 ?>

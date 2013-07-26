@@ -59,7 +59,22 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 	$zip = get_usermeta($invoice_info->user_id,'zip');
 	$tax = wp_invoice_meta($invoice_id,'tax_value');
 	$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
+	
+	$wp_invoice_due_date_month = wp_invoice_meta($invoice_id,'wp_invoice_due_date_month');
+	$wp_invoice_due_date_year = wp_invoice_meta($invoice_id,'wp_invoice_due_date_year');
+	$wp_invoice_due_date_day = wp_invoice_meta($invoice_id,'wp_invoice_due_date_day');
+	
 
+
+	// Determine currency. First we check invoice-specific, then default code, and then we settle on USD
+	if(wp_invoice_meta($invoice_id,'tax_value') != '')
+	{ $currency_code = wp_invoice_meta($invoice_id,'wp_invoice_currency_code'); }
+	elseif(get_option('wp_invoice_default_currency_code') != '')
+	{ $currency_code = get_option('wp_invoice_default_currency_code'); }
+	else 
+	{ $currency_code = "USD"; }
+	
+	
 	if(empty($wp_invoice_custom_invoice_id)) { $invoice_id_display = $invoice_id; }	else { $invoice_id_display = $wp_invoice_custom_invoice_id; }
 	
 	
@@ -73,26 +88,26 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 	list($day_phone_a, $day_phone_b, $day_phone_c) = split('[/.-]', $phonenumber);
 	
 	if(isset($_REQUEST['receipt_id'])) {
-	// Invoice Paid, update database
-	
-	if(isset($_POST['first_name'])) update_usermeta($user_id, 'first_name', $_POST['first_name']);
-	if(isset($_POST['last_name'])) update_usermeta($user_id, 'last_name', $_POST['last_name']);
-	
-	if(get_option('wp_invoice_send_thank_you_email') == 'yes') wp_invoice_send_email_reciept($invoice_id);
-	wp_invoice_paid($invoice_id);
-	wp_invoice_update_invoice_meta($invoice_id,'paid_status','paid');
- 	wp_invoice_update_log($invoice_id,'paid',"Invoice paid by ($ip) | PayPal Reciept: (" . $_REQUEST['receipt_id']. ")");
-?>
-<div id="invoice_page" class="clearfix">
-<div id="invoice_overview" clas="cleafix">
-	<h2 class="invoice_page_subheading"><?php echo $first_name . " " . $last_name; ?>, thank you for your payment!</h2>
-	<p><strong>Invoice #<?php echo $invoice_id_display; ?> with a total amount of $<?php echo $amount; ?> has been paid.</strong></p>
-</div>
-</div>	
-<?php
+		// Invoice Paid, update database
 
+		if(isset($_POST['first_name'])) update_usermeta($user_id, 'first_name', $_POST['first_name']);
+		if(isset($_POST['last_name'])) update_usermeta($user_id, 'last_name', $_POST['last_name']);
+
+		if(get_option('wp_invoice_send_thank_you_email') == 'yes') wp_invoice_send_email_reciept($invoice_id);
+		wp_invoice_paid($invoice_id);
+		wp_invoice_update_invoice_meta($invoice_id,'paid_status','paid');
+		wp_invoice_update_log($invoice_id,'paid',"Invoice paid by ($ip) | PayPal Reciept: (" . $_REQUEST['receipt_id']. ")");
+
+		?>
+		<div id="invoice_page" class="clearfix">
+		<div id="invoice_overview" class="cleafix">
+		<h2 class="invoice_page_subheading"><?php echo $first_name . " " . $last_name; ?>, thank you for your payment!</h2>
+		<p><strong>Invoice #<?php echo $invoice_id_display; ?> with a total amount of $<?php echo wp_invoice_currency_symbol($currency_code) . $amount; ?> has been paid.</strong></p>
+		</div>
+		</div>	
+		<?php
 	}
- 
+
  else 
  
  {
@@ -103,7 +118,13 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 <div id="invoice_overview" class="clearfix">
 	<?php if(isset($invoice_id)) { ?>
 	<h2 class="invoice_page_subheading">Welcome, <?php echo $first_name . " " . $last_name; ?>!</h2>
-	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of $<?php echo $amount; ?>.  If you have any questions please feel free to contact us at any time.</p>
+	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of <?php echo wp_invoice_currency_symbol($currency_code) . $amount; ?>.  If you have any questions please feel free to contact us at any time.</p>
+	
+	<?php if(!empty($wp_invoice_due_date_year) && !empty($wp_invoice_due_date_month) && !empty($wp_invoice_due_date_day)) {
+	?>
+	<p>Due Date: <?php echo "$wp_invoice_due_date_year/$wp_invoice_due_date_month/$wp_invoice_due_date_day";
+	
+	} ?>
 	<p><?php echo str_replace("\n", "<br />", $description);  ?></p>
 	<?php echo wp_invoice_draw_itemized_table($invoice_id); ?> 
 	<?php }
@@ -122,19 +143,16 @@ if(!empty($wp_invoice_web_invoice_page) && is_page(get_option('wp_invoice_web_in
 
 <div id="billing_overview" class="clearfix">
 <form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-	<input type="hidden" name="currency_code" value="USD">
 	<input type="hidden" name="no_shipping" value="1">
 	<input type="hidden" name="cmd" value="_ext-enter">
 	<input type="hidden" name="upload" value="1">
 	<input type="hidden" name="business" value="<?php echo get_option('wp_invoice_paypal_address'); ?>">
 	<input type="hidden" name="return" value="<?php echo wp_invoice_build_invoice_link($invoice_id); ?>">
 	<input type="hidden" name="rm" value="2">
-<?php if(isset($invoice_id)) { ?>
+	<input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>">
 	<input name="amount" type="hidden" value="<?php echo $amount; ?>">
-	<input name="invoice_num" type="hidden" id="invoice_num"  value="<?php echo  $invoice_id_display; ?>">
-
-<?php  }
-	
+	<input name="invoice" type="hidden" id="invoice_num"  value="<?php echo  $invoice_id_display; ?>">
+<?php
 	// Convert Itemized List into PayPal Item List 
 	$itemized = $invoice_info->itemized;
 	$itemized_array = unserialize(urldecode($itemized)); 
@@ -515,8 +533,21 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	$ip=$_SERVER['REMOTE_ADDR'];
 	$wp_invoice_custom_invoice_id = wp_invoice_meta($invoice_id,'wp_invoice_custom_invoice_id');
 
+	$wp_invoice_due_date_month = wp_invoice_meta($invoice_id,'wp_invoice_due_date_month');
+	$wp_invoice_due_date_year = wp_invoice_meta($invoice_id,'wp_invoice_due_date_year');
+	$wp_invoice_due_date_day = wp_invoice_meta($invoice_id,'wp_invoice_due_date_day');
+	
 	if(empty($wp_invoice_custom_invoice_id)) { $invoice_id_display = $invoice_id; }	else { $invoice_id_display = $wp_invoice_custom_invoice_id; }
 
+	// Determine currency. First we check invoice-specific, then default code, and then we settle on USD
+	if(wp_invoice_meta($invoice_id,'tax_value') != '')
+	{ $currency_code = wp_invoice_meta($invoice_id,'wp_invoice_currency_code'); }
+	elseif(get_option('wp_invoice_default_currency_code') != '')
+	{ $currency_code = get_option('wp_invoice_default_currency_code'); }
+	else 
+	{ $currency_code = "USD"; }
+	
+	
 	$phonenumber = wp_invoice_format_phone($phonenumber);
 	if(!strpos($amount,'.')) $amount = $amount . ".00";
 	
@@ -529,7 +560,11 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	<h2 id="welcome_message" class="invoice_page_subheading">Welcome, <?php echo $first_name . " " . $last_name; ?>!</h2>
 	
 	<?php if(!wp_invoice_paid_status($invoice_id)) { ?>
-	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of <?php echo wp_invoice_currency_format($amount); ?>.</p>
+	<p>We have sent you invoice <b><?php echo $invoice_id_display; ?></b> with a total amount of <?php echo wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($amount); ?>.</p>
+	<?php if(!empty($wp_invoice_due_date_year) && !empty($wp_invoice_due_date_month) && !empty($wp_invoice_due_date_day)) {
+	?>
+	<p>Due Date: <?php echo "$wp_invoice_due_date_year/$wp_invoice_due_date_month/$wp_invoice_due_date_day";
+	} ?>	
 	<?php if(!empty($description)) { ?><p><?php echo str_replace("\n", "<br />", $description);  ?></p><?php  } ?>
 	<?php echo wp_invoice_draw_itemized_table($invoice_id); ?> 
 	<input name="amount" type="hidden" value="<?php echo $amount; ?>">
@@ -552,6 +587,7 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 
 <input name="amount" type="hidden" value="<?php echo $amount; ?>">
 <input name="invoice_num" type="hidden" id="invoice_num"  value="<?php echo  $invoice_id; ?>">
+<input name="currency_code" type="hidden" id="currency_code"  value="<?php echo  $currency_code; ?>">
 <input name="wp_invoice_id_hash" type="hidden" value="<?php echo $md5_invoice_id; ?>" />
 
 <fieldset id="credit_card_information">
@@ -633,7 +669,7 @@ if(is_page(get_option('wp_invoice_web_invoice_page'))) {
 	<li>
 	<label></label>
 	<button type="submit" id="cc_pay_button" class="hide_after_success submit_button">
-	Pay <?php echo wp_invoice_currency_format($amount); ?> Invoice</button>
+	Pay <?php echo  wp_invoice_currency_symbol($currency_code) . wp_invoice_currency_format($amount); ?></button>
 	</li>	
 	<br class="cb" />
 </ol>

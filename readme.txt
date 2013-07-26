@@ -1,10 +1,10 @@
 === WP-Invoice - Web Invoice and Billing ===
-Contributors: jbrw, andypotanin
+Contributors: jbrw, mattalland, andypotanin
 Donate link: http://twincitiestech.com/services/wp-invoice/
-Tags: bill, paypal, invoice, pay, online payment
+Tags: bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards
 Requires at least: 2.5
 Tested up to: 2.7
-Stable tag: 1.6
+Stable tag: 1.7
 
 WP-Invoice lets you send invoices to your clients.
 
@@ -16,10 +16,9 @@ Once an invoice is created from the WP admin section, an email with a brief desc
 == Installation ==
 
 1. Upload the full directory into your wp-content/plugins directory
-2. Create a page or post you plan to use to show all your invoices, (i.e. "http://yourblog.com/WebInvoice"). 
 2. Activate the plugin at the plugin administration page
-3. Open the plugin configuration page, which is located under Web Invoice -> Settings  enter in your information.  In the very least you need to specify the "Page to Display Invoices", and "PayPal Address".
-4. To create your first invoice navigate to Web Invoice -> New Invoice, and select the user who will be the recipient. (You may need to create a profile for your client first, they never have to log in, this is simply for tracking purposes)
+3. Follow set-up steps on main Web Invoice page
+4. To create your first invoice navigate to Web Invoice -> New Invoice, and select the user who will be the recipient.
 
 
 Please see the [wp-invoice plugin home page](http://twincitiestech.com/services/wp-invoice/) for details. 

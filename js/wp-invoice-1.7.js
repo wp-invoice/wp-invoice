@@ -1,9 +1,49 @@
+function wp_invoice_add_time(add_days) {
+	
+	if(add_days == 'clear') {
+	
+	jQuery("#mm").val('');
+	jQuery("#jj").val('');
+	jQuery("#aa").val('');
+	}
+	 else
+	 {
+
+	myDate = new Date();
+	var week_from_now = new Date(myDate.getTime() + add_days*24*60*60*1000);;
+	month = week_from_now.getMonth() + 1;
+
+	jQuery("#mm").val(month);
+	jQuery("#jj").val(week_from_now.getDate());
+	jQuery("#aa").val(week_from_now.getFullYear());
+		}
+		
+		
+	return false;
+		
+}
+		
+		
 jQuery(document).ready(function(){
 
+	
 	tooltip();
 	
 
-
+	jQuery(".wp_invoice_make_editable").click( function() {
+	var element_name = jQuery(this).attr('id');
+	var width = jQuery(this).width() * 2;
+	var original_content = jQuery(this).html();
+	var draw_input_field = "<input style='width: " + width +"px;' value='" + jQuery(this).html() +"' name='" + element_name +"' class='" + element_name +"'>";
+	
+	if(!jQuery("input." + element_name).length > 0) { jQuery("#" + element_name).html(draw_input_field);  jQuery("input." + element_name).focus(); }
+	
+	jQuery("input." + element_name).blur(function() {
+		if(jQuery("input." + element_name).val() == original_content || jQuery("input." + element_name).val() == '') jQuery("#" + element_name).html(original_content);
+	
+	}  );
+	})
+	  
 	jQuery("#invoices-filter").submit(function() {  if(jQuery("#invoices-filter select").val() == '-1') { return false;} })
 	jQuery("#wp_invoice_tax").keyup(function() { recalc(); }) 
 	jQuery("a.wp_invoice_custom_invoice_id").click(function() { jQuery("input.wp_invoice_custom_invoice_id").toggle(); return false;}) 
@@ -102,7 +142,7 @@ function recalc(){
 			// return the number as a dollar amount
 
 			
-			return "$" + s.toFixed(2);
+			return s.toFixed(2);
 		},
 		// define the finish callback, this runs after the calculation has been complete
 		function ($this){

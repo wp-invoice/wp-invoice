@@ -1,59 +1,59 @@
 K 25
 svn:wc:ra_dav:version-url
 V 38
-/!svn/ver/84205/wp-invoice/tags/1.6/js
+/!svn/ver/85046/wp-invoice/tags/1.7/js
 END
 jquery.tablesorter.min.js
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.tablesorter.min.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.tablesorter.min.js
 END
 jquery.delegate-1.1.min.js
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.delegate-1.1.min.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.delegate-1.1.min.js
 END
 jquery-impromptu.1.7.js
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery-impromptu.1.7.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery-impromptu.1.7.js
 END
 jquery.calculation.min.js
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.calculation.min.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.calculation.min.js
 END
 jquery.autogrow-textarea.js
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.autogrow-textarea.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.autogrow-textarea.js
 END
 jquery.form.js
 K 25
 svn:wc:ra_dav:version-url
 V 53
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.form.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.form.js
 END
 jquery.maskedinput.js
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.maskedinput.js
-END
-wp-invoice-1.6.js
-K 25
-svn:wc:ra_dav:version-url
-V 56
-/!svn/ver/84205/wp-invoice/tags/1.6/js/wp-invoice-1.6.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.maskedinput.js
 END
 jquery.field.min.js
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/!svn/ver/84205/wp-invoice/tags/1.6/js/jquery.field.min.js
+/!svn/ver/85046/wp-invoice/tags/1.7/js/jquery.field.min.js
+END
+wp-invoice-1.7.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/85046/wp-invoice/tags/1.7/js/wp-invoice-1.7.js
 END
