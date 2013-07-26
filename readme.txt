@@ -3,11 +3,11 @@ Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw
 Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 3.07.0
+Tested up to: 3.4
+Stable tag: 3.08.0
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
-== Description ==
+== Description == 
 
 This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.
 
@@ -19,7 +19,7 @@ WP-Invoice lets WordPress blog owners send itemized invoices to their clients. I
 
 Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog's special invoice page, view their invoice, and pay their bill using PayPal. The control panel is very user-friendly and intuitive.
 
-Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, or PayPal account.  For recurring billing we have integrated Authorize.net's ARB API that will allow you to setup payment schedules along with invoices.
+Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, PayPal or Google Checkout account. For recurring billing we have integrated Authorize.net's ARB API that will allow you to setup payment schedules along with invoices. Subscriptions implemented using PayPal Subscriptions and Google Checkout Subscriptions.
 
 = New Features =
 
@@ -101,6 +101,18 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 * Complete rewrite. Old invoice data is not deleted, please notify us if you have any upgrading issues.
 
 == Change Log ==
+
+= Version 3.08.0 =
+* Added Export/Import Invoices.
+* Added Internal refunds.
+* Added WP-Property plugin's FEPS integration.
+* Added new Google Checkout payment method.
+* Added the ability to force manual payment by unchecking all methods.
+* Fixed 'execution time limit' issue in high-load systems.
+* User search UI improved.
+* Contextual Help updates.
+* Localization files updated.
+* Visual/cosmetic UI fixes.
 
 = Version 3.07.0 =
 * Added Wordpress 3.4-RC1 compatibility.

@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/3.07.0/core/ui/metabox
+http://plugins.svn.wordpress.org/wp-invoice/tags/3.08.0/core/ui/metabox
 http://plugins.svn.wordpress.org
 
 
 
-2012-12-13T17:44:10.218794Z
-638728
+2012-12-13T17:38:26.869254Z
+638719
 andypotanin
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2013-07-25T23:21:30.000000Z
-cbf1389e11751bc1f4e1dee7a13c6031
-2012-12-13T17:44:10.218794Z
-638728
+2013-07-25T23:21:33.000000Z
+a35f7b317021e845f6b765e4a4c2c8e1
+2012-12-13T17:38:26.869254Z
+638719
 andypotanin
 
 
@@ -58,5 +58,5 @@ andypotanin
 
 
 
-34923
+35288
 

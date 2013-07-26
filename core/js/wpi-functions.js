@@ -69,21 +69,32 @@ function wpi_toggle_advanced_options(this_element) {
       var toggle_logic = jQuery(this_element).attr("toggle_logic");
 
       if(jQuery(this_element).is(":checked")) {
-        if(toggle_logic = 'reverse') {
-          jQuery(element_path).show();
-        } else {
+        if(toggle_logic == 'reverse') {
           jQuery(element_path).hide();
+        } else {
+          jQuery(element_path).show();
         }
       } else {
-        if(toggle_logic = 'reverse') {
-          jQuery(element_path).hide();
-        } else {
+        if(toggle_logic == 'reverse') {
           jQuery(element_path).show();
+        } else {
+          jQuery(element_path).hide();
         }
       }
 
       return;
 
+    } else if ( jQuery(this_element).is("select") ) {
+
+      jQuery(advanced_option_class + "[" + show_type_element_attribute + "]", wrapper).hide();
+
+      if ( jQuery(this_element).val() == show_type ) {
+        jQuery(element_path).show();
+      } else {
+        jQuery(element_path).hide();
+      }
+
+      return;
     }
 
     jQuery(element_path).toggle();

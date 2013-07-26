@@ -102,9 +102,9 @@ class toplevel_page_wpi_main {
       </div>
       <br class='clear' />
     </div>
-
-    <?php do_action( 'wpi_after_actions' ); ?>
-
+    <div class="wpi_other_actions">
+      <?php do_action( 'wpi_after_actions' ); ?>
+    </div>
     <?php
   }
 

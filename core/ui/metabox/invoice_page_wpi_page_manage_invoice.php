@@ -153,10 +153,12 @@ function postbox_publish($this_invoice) {
                   <?php echo WPI_UI::select("name=wpi_invoice[recurring][unit]&values=" . serialize(apply_filters('wpi_schedule_units', array( "days" => __("Day(s)", WPI), "weeks" => __("Week(s) [PayPal only]", WPI), "months" => __("Month(s)", WPI), "years" => __("Year(s) [PayPal only]", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['unit'] : '')); ?>
                 </td>
               </tr>
+              <?php do_action('wpi_recurring_after_bill_every', $this_invoice); ?>
               <tr>
                 <th><?php _e("Billing Cycles", WPI) ?></th>
                 <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][cycles]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['cycles'] : '') . "&class=wpi_small"); ?></td>
               </tr>
+              <?php do_action('wpi_recurring_after_bill_cycles', $this_invoice); ?>
               <tr>
                 <th>Send Invoice</th>
                 <td>
@@ -164,6 +166,7 @@ function postbox_publish($this_invoice) {
                   <?php echo WPI_UI::checkbox("name=wpi_invoice[recurring][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'); ?>
                 </td>
               </tr>
+              <?php do_action('wpi_recurring_after_send_invoice', $this_invoice); ?>
               <tr class="wpi_recurring_start_date" style="display:<?php echo!empty($this_invoice['recurring']) && $this_invoice['recurring']['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
                 <th>Date:</th>
                 <td>
@@ -173,9 +176,10 @@ function postbox_publish($this_invoice) {
                     <?php echo WPI_UI::input("id=r_start_date_aa&name=wpi_invoice[recurring][start_date][year]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['start_date']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
                     <span onclick="wp_invoice_add_time('r_start_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 'clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
                   </div>
-                  <small><?php _e('Applicable only to Authorize.net', WPI); ?></small>
+                  <small><?php _e('Applicable only for Authorize.net', WPI); ?></small>
                 </td>
               </tr>
+              <?php do_action('wpi_recurring_after_date', $this_invoice); ?>
             </table>
           </li>
         <?php } ?>
@@ -555,7 +559,7 @@ function status_meta_box($this_invoice) {
           <tr>
             <th><?php _e("Event Type", WPI) ?></th>
             <td>
-  <?php echo WPI_UI::select("name=event_type&values=" . serialize(array('add_payment' => __('Receive Payment', WPI), 'add_charge' => __('Add Charge', WPI), 'do_adjustment' => __('Administrative Adjustment', WPI)))); ?>
+  <?php echo WPI_UI::select("name=event_type&values=" . serialize(array('add_payment' => __('Receive Payment', WPI), 'add_charge' => __('Add Charge', WPI), 'do_adjustment' => __('Administrative Adjustment', WPI), 'refund' => __('Refund', WPI)))); ?>
               <span class="wpi_recurring_options"><?php _e('Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments.', WPI); ?></span>
             </td>
           </tr>

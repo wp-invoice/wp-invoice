@@ -111,9 +111,6 @@ class WPI_Functions {
     return $response['body'];
   }
 
-
-
-
   /**
    * Function for performing a wpi_object search
    *
@@ -381,7 +378,6 @@ class WPI_Functions {
     }
 
     $date_table = "
-       (
         select @maxDate - interval (a.a+(10*b.a)+(100*c.a)) day aDate from
         (select 0 as a union all select 1 union all select 2 union all select 3
         union all select 4 union all select 5 union all select 6 union all
@@ -392,41 +388,45 @@ class WPI_Functions {
         (select 0 as a union all select 1 union all select 2 union all select 3
         union all select 4 union all select 5 union all select 6 union all
         select 7 union all select 8 union all select 9) c, /*1000 day range*/
-        (select @minDate := date_format((select min(post_date) from {$wpdb->posts} where `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}),'%Y-%m-%d'), @maxDate := date_format((select max(post_date) from {$wpdb->posts} where `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}),'%Y-%m-%d')) e
-      )";
-
+        (select
+          @minDate := date_format(FROM_UNIXTIME((select min(time) from `{$wpdb->prefix}wpi_object_log` mn join {$wpdb->posts} on (mn.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d'),
+          @maxDate := date_format(FROM_UNIXTIME((select max(time) from `{$wpdb->prefix}wpi_object_log` mx join {$wpdb->posts} on (mx.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d')
+        ) e
+      ";
 
     $sql = "
       SELECT distinct
       YEAR(datetable.aDate) as int_year,
       {$interval_function}(datetable.aDate) int_erval,
-      COALESCE(sum(`{$wpdb->prefix}wpi_object_log`.value),0) as sum_interval
+      sum(COALESCE(if (payment.action='refund',payment.value*-1,payment.value),0)) as sum_interval
       FROM ($date_table) datetable
-      left join `{$wpdb->prefix}wpi_object_log` on (
-        datetable.aDate=date_format(FROM_UNIXTIME(`{$wpdb->prefix}wpi_object_log`.time),'%Y-%m-%d')
+      left join `{$wpdb->prefix}wpi_object_log` as payment on (
+        datetable.aDate=date_format(FROM_UNIXTIME(payment.time),'%Y-%m-%d')
         and (
-          `{$wpdb->prefix}wpi_object_log`.object_id in (
+          payment.object_id in (
             select `{$wpdb->posts}`.id from `{$wpdb->posts}` where `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}
           )
         )
-        AND ACTION = 'add_payment'
-        AND `{$wpdb->prefix}wpi_object_log`.attribute = 'balance'
+        AND (payment.action = 'add_payment' or payment.action = 'refund')
+        AND payment.attribute = 'balance'
       )
+
       WHERE datetable.aDate between @minDate and @maxDate
       GROUP BY 1,2
     ";
-
-    //die($sql);
 
     $results = $wpdb->get_results($sql);
 
     return $results;
   }
 
-  /*
+  /**
    * Get Search filter fields
+   *
+   * @global array $wpi_settings
+   * @global object $wpdb
+   * @return type
    */
-
   function get_search_filters() {
     global $wpi_settings, $wpdb;
 
@@ -488,8 +488,8 @@ class WPI_Functions {
   /**
    * Convert a string to a url-like slug
    *
-   *
-   * @since 3.0
+   * @param type $slug
+   * @return type
    */
   function slug_to_label($slug = false) {
 
@@ -504,8 +504,10 @@ class WPI_Functions {
   /**
    * Convert a string into a number. Allow invoice ID to be passed for currency symbol localization
    *
-   * @since 3.0
-   *
+   * @global array $wpi_settings
+   * @param type $amount
+   * @param type $invoice_id
+   * @return type
    */
   static function currency_format($amount, $invoice_id = false) {
     global $wpi_settings;
@@ -526,9 +528,9 @@ class WPI_Functions {
   /**
    * Run numbers for reporting purposes.
    *
-   *
-   * @since 3.0
-   *
+   * @global object $wpdb
+   * @global type $wpi_reports
+   * @return type
    */
   static function run_reports() {
     global $wpdb, $wpi_reports;
@@ -584,9 +586,6 @@ class WPI_Functions {
       arsort($r['collected_client_value']);
     }
 
-    //** Get highest grossing clients */
-
-
     if (isset($r['total_paid']) && is_array($r['total_paid'])) {
       $r['total_paid'] = array_sum($r['total_paid']);
     }
@@ -595,7 +594,6 @@ class WPI_Functions {
       $r['total_unpaid'] = array_sum($r['total_unpaid']);
     }
 
-    //echo "<pre>" . print_r($r, true) . "</pre>";
     $wpi_reports = $r;
     return $r;
   }
@@ -981,7 +979,9 @@ class WPI_Functions {
   /**
    * Checks if particular template exists in the template folder
    *
-   * @TODO: the method should be revised. Maxim Peshkov
+   * @global array $wpi_settings
+   * @param type $template
+   * @return type
    */
   function wpi_use_custom_template($template) {
     global $wpi_settings;
@@ -995,26 +995,28 @@ class WPI_Functions {
       return true;
     }
 
-    /* @TODO: So, what should the function return here? Check it. Maxim Peshkov. */
+    return false;
   }
 
   /**
-    Determine WPI front-end template path
+   * Determine WPI front-end template path
+   *
+   * @global array $wpi_settings
+   * @return type
    */
   function template_path() {
     global $wpi_settings;
     $use_custom_templates = false;
 
-    if (file_exists(TEMPLATEPATH . "/wpi/")) {
-      return TEMPLATEPATH . "/wpi/";
+    if (file_exists(STYLESHEETPATH . "/wpi/")) {
+      return STYLESHEETPATH . "/wpi/";
     }
-
-
-    // "/core/ui/frontend/"
   }
 
   /**
-    Display invoice status formatted for back-end
+   * Display invoice status formatted for back-end
+   *
+   * @param type $invoice_id
    */
   function get_status($invoice_id) {
 
@@ -1371,98 +1373,17 @@ class WPI_Functions {
     }
   }
 
-  function money_format($number, $format = '%!.2n') {
-    $regex = '/%((?:[\^!\-]|\+|\(|\=.)*)([0-9]+)?' .
-            '(?:#([0-9]+))?(?:\.([0-9]+))?([in%])/';
-
-    if (setlocale(LC_MONETARY, 0) == 'C') {
-      setlocale(LC_MONETARY, '');
-    }
-
-    $locale = localeconv();
-
-    /* Hack. Sometimes there is the issue of space coding view. */
-    $locale['mon_thousands_sep'] = ' ';
-
-    preg_match_all($regex, $format, $matches, PREG_SET_ORDER);
-
-    foreach ($matches as $fmatch) {
-      $value = floatval($number);
-      $flags = array(
-          'fillchar' => preg_match('/\=(.)/', $fmatch[1], $match) ?
-                  $match[1] : ' ',
-          'nogroup' => preg_match('/\^/', $fmatch[1]) > 0,
-          'usesignal' => preg_match('/\+|\(/', $fmatch[1], $match) ?
-                  $match[0] : '+',
-          'nosimbol' => preg_match('/\!/', $fmatch[1]) > 0,
-          'isleft' => preg_match('/\-/', $fmatch[1]) > 0
-      );
-
-      $width = trim($fmatch[2]) ? (int) $fmatch[2] : 0;
-      $left = trim($fmatch[3]) ? (int) $fmatch[3] : 0;
-      $right = trim($fmatch[4]) ? (int) $fmatch[4] : $locale['int_frac_digits'];
-      $conversion = $fmatch[5];
-
-      $positive = true;
-
-      if ($value < 0) {
-        $positive = false;
-        $value *= - 1;
-      }
-      $letter = $positive ? 'p' : 'n';
-
-      $prefix = $suffix = $cprefix = $csuffix = $signal = '';
-
-      $signal = $positive ? $locale['positive_sign'] : $locale['negative_sign'];
-      switch (true) {
-        case $locale["{$letter}_sign_posn"] == 1 && $flags['usesignal'] == '+':
-          $prefix = $signal;
-          break;
-        case $locale["{$letter}_sign_posn"] == 2 && $flags['usesignal'] == '+':
-          $suffix = $signal;
-          break;
-        case $locale["{$letter}_sign_posn"] == 3 && $flags['usesignal'] == '+':
-          $cprefix = $signal;
-          break;
-        case $locale["{$letter}_sign_posn"] == 4 && $flags['usesignal'] == '+':
-          $csuffix = $signal;
-          break;
-        case $flags['usesignal'] == '(':
-        case $locale["{$letter}_sign_posn"] == 0:
-          $prefix = '(';
-          $suffix = ')';
-          break;
-      }
-      if (!$flags['nosimbol']) {
-        $currency = $cprefix .
-                ($conversion == 'i' ? $locale['int_curr_symbol'] : $locale['currency_symbol']) .
-                $csuffix;
-      } else {
-        $currency = '';
-      }
-      $space = $locale["{$letter}_sep_by_space"] ? ' ' : '';
-
-      $value = number_format($value, $right, $locale['mon_decimal_point'], $flags['nogroup'] ? '' : $locale['mon_thousands_sep']);
-      $value = @explode($locale['mon_decimal_point'], $value);
-
-      $n = strlen($prefix) + strlen($currency) + strlen($value[0]);
-      if ($left > 0 && $left > $n) {
-        $value[0] = str_repeat($flags['fillchar'], $left - $n) . $value[0];
-      }
-      $value = is_array($value)?implode($locale['mon_decimal_point'], $value):$value;
-      if ($locale["{$letter}_cs_precedes"]) {
-        $value = $prefix . $currency . $space . $value . $suffix;
-      } else {
-        $value = $prefix . $value . $space . $currency . $suffix;
-      }
-      if ($width > 0) {
-        $value = str_pad($value, $width, $flags['fillchar'], $flags['isleft'] ?
-                        STR_PAD_RIGHT : STR_PAD_LEFT);
-      }
-
-      $format = str_replace($fmatch[0], $value, $format);
-    }
-    return $format;
+  /**
+   * Render money in format.
+   *
+   * @refactoring korotkov@ud
+   * @global array $wpi_settings
+   * @param type $number
+   * @return type
+   */
+  function money_format( $number ) {
+    global $wpi_settings;
+    return number_format( (float)$number, 2, '.', $wpi_settings['thousands_separator_symbol']?$wpi_settings['thousands_separator_symbol']:'' );
   }
 
   /**
@@ -1960,6 +1881,14 @@ class WPI_Functions {
         'label_count' => _n_noop('Pending  <span class="count">(%s)</span>', 'Pending <span class="count">(%s)</span>'),
     ));
     $wpi_settings['statuses'][] = 'pending';
+
+    register_post_status('refund', array(
+        'label' => _x('Refund', 'wpi_object'),
+        'public' => false,
+        '_builtin' => false,
+        'label_count' => _n_noop('Refund  <span class="count">(%s)</span>', 'Refund <span class="count">(%s)</span>'),
+    ));
+    $wpi_settings['statuses'][] = 'refund';
 
     do_action('wpi_register_object');
   }

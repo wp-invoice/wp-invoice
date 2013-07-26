@@ -168,11 +168,8 @@ class WPI_Payment_Api {
 					$this->response['payment_method'] = self::WPI_METHOD_PAYPAL;
 
 					break;
-				/**
-         * @TODO: Commented temporary. Need to finish related Premium Feature first. And maybe reimplement this using hooks.
-         * @author korotkov@ud
-         *
-				case self::WPI_METHOD_CHARGIFY:
+
+        case self::WPI_METHOD_CHARGIFY:
 
 				  $res = wpi_chargify::start_subscription( $args );
 				  $this->response = array(
@@ -184,8 +181,6 @@ class WPI_Payment_Api {
 				  if( !is_numeric( $res ) ){
 				    $this->response[ 'error_message' ] = $res;
 				  }
-         *
-         */
 
         default:
           break;

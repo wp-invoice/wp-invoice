@@ -276,9 +276,7 @@ class WPI_Invoice {
       'return' => false
     )), EXTR_SKIP);
 
-    if(strlen($id) == 8) {
-      $id = wpi_invoice_id_to_post_id($id);
-    }
+    $id = wpi_invoice_id_to_post_id($id);
 
     $new_invoice = is_numeric($id) ? false : true;
 
@@ -561,15 +559,19 @@ There can only be one, so deletes any other schedule.
       $this->data['recurring']['start_date']['month'] = (int)$start_date['month'];
       $this->data['recurring']['start_date']['day'] = (int)$start_date['day'];
       $this->data['recurring']['start_date']['year'] = (int)$start_date['year'];
+      $this->data['recurring'] = apply_filters('wpi_create_schedule_recurring', $this->data['recurring']);
     }
+
     /**
-    Calculated discounts, totals, taxes, etc.
-    May need to be udpated.
-    */
+     * Calculate amounts on each update
+     *
+     * @global type $wpdb
+     * @global type $blog_id
+     */
     function calculate_totals() {
       global $wpdb, $blog_id;
 
-      // Empty all sums
+      //** Flush vars */
       $taxable_subtotal             = 0;
       $non_taxable_subtotal         = 0;
       $tax_percents                 = array();
@@ -579,7 +581,7 @@ There can only be one, so deletes any other schedule.
       $this->data['total_tax']      = 0;
       $this->data['total_discount'] = 0;
 
-      // Services itemized list
+      //** Services itemized list */
       if(isset($this->data['itemized_list']) && is_array($this->data['itemized_list'])) {
         foreach ($this->data['itemized_list'] as $key => $value) {
           if ( $value['line_total_tax'] > 0 ) {
@@ -595,7 +597,7 @@ There can only be one, so deletes any other schedule.
         }
       }
 
-      // The same is for Charges itemized list
+      //** The same is for Charges itemized list */
       if(!empty($this->data['itemized_charges']) && is_array($this->data['itemized_charges'])) {
         foreach ($this->data['itemized_charges'] as $key => $value) {
           if ( !empty($value['tax_amount']) && $value['tax_amount'] > 0 ) {
@@ -611,6 +613,7 @@ There can only be one, so deletes any other schedule.
           }
         }
       }
+
       $avg_tax = 0;
 			$sum = 0;
       if ( !empty( $tax_percents ) ) {
@@ -622,28 +625,28 @@ There can only be one, so deletes any other schedule.
 
       $this->data['subtotal'] = $taxable_subtotal + $non_taxable_subtotal;
 
-      // Get discount
+      //** Get discount */
       if (!empty($this->data['discount']) && is_array($this->data['discount'])) {
         $highest_percent = 0;
         foreach ($this->data['discount'] as $key => $value) {
           if ($value['type'] == 'percent') {
-            // if a percentage is found, we make a note of it, and build a percentage array, which will later be used to calculate the highest
+            //** if a percentage is found, we make a note of it, and build a percentage array, which will later be used to calculate the highest */
             $percentage_found = true;
             if ((int) $highest_percent < (int) $value['amount']) {
               $highest_percent = $value['amount'];
             }
           } else {
-            // if non percentage, simply calculate the sum of all the discounts
+            //** if non percentage, simply calculate the sum of all the discounts */
             $this->data['total_discount'] = $this->data['total_discount'] + $value['amount'];
           }
         }
         if (isset($percentage_found) && $percentage_found == true) {
-          // Only do this if a percentage was found.  figure out highest percentage, and overwrite total_discount
+          //** Only do this if a percentage was found.  figure out highest percentage, and overwrite total_discount */
           $this->data['total_discount'] = $this->data['subtotal'] * ($highest_percent / 100);
         }
       }
 
-      // Handle Tax Method
+      //** Handle Tax Method */
       if ( !empty( $this->data['tax_method'] ) ) {
         switch ( $this->data['tax_method'] ) {
 
@@ -684,6 +687,7 @@ There can only be one, so deletes any other schedule.
 
       $total_payments = 0;
       $total_admin_adjustment = 0;
+      $refunds = 0;
 
       $invoice_id = $this->data['invoice_id'];
 
@@ -696,28 +700,43 @@ There can only be one, so deletes any other schedule.
 
       $this->data['log'] = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpi_object_log WHERE object_id = '".wpi_invoice_id_to_post_id($invoice_id)."' {$ms_blog_query}  ", ARRAY_A);
 
-      // Calculate adjustments
+      //** Calculate adjustments and refunds */
       if(is_array($this->data['log'])) {
+
+        //** Loop log items */
         foreach($this->data['log'] as $log_event) {
+
+          //** If log item is add_payment */
           if($log_event['action'] == 'add_payment') {
             $total_payments += $log_event['value'];
           }
+
+          //** If log item is do_adjustment */
           if($log_event['action'] == 'do_adjustment') {
             $total_admin_adjustment += $log_event['value'];
+          }
+
+          //** If log item is refund */
+          if($log_event['action'] == 'refund') {
+            $refunds += $log_event['value'];
           }
         }
       }
 
-      $this->data['total_payments'] = $total_payments;
-      $this->data['adjustments']    = - ($total_payments + $total_admin_adjustment);
+      $this->data['total_payments'] = $total_payments - $refunds;
+      $this->data['adjustments']    = - ($total_payments + $total_admin_adjustment - $refunds);
 
       $this->data['net'] = number_format( (float)($total + $this->data['adjustments']), 2, '.', '' );
 
-      // Fixes calculations for recurring invoices - should be last to overwrite incorrect values.
+      //** Fixes calculations for recurring invoices - should be last to overwrite incorrect values. */
       if( $this->data['type'] == 'recurring' ) {
         $this->data['total_tax'] = number_format( (float)($this->data['subtotal'] * $avg_tax / 100), 2, '.', '' );
         $this->data['net'] = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
         unset($this->data['adjustments']);
+      }
+
+      if ( $refunds > 0 && $this->data['total_payments'] <= 0 ) {
+        $this->data['post_status'] = 'refund';
       }
     }
 
@@ -766,7 +785,6 @@ There can only be one, so deletes any other schedule.
     /*
      * Determine if Amount to pay (subtotal) is not 0 and Balance (net) <= 0,
      * We set status as 'Paid'.
-     *
      */
     if (isset($this->data['net']) &&
         isset($this->data['subtotal']) &&
@@ -862,10 +880,15 @@ There can only be one, so deletes any other schedule.
    */
   function delete() {
     $ID = $this->data['ID'];
-    if( $ID && 'trash' == $this->data['post_status'] ) {
-      if(wp_delete_post($ID)) {
-        return true;
+    if( $ID ) {
+      if( 'trash' == $this->data['post_status'] ) {
+        if(wp_delete_post($ID)) {
+          return true;
+        }
+      } else {
+        return $this->trash();
       }
+
     }
     return false;
   }

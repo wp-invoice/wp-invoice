@@ -1,7 +1,7 @@
 <?php
 /**
  * Load all WP-Invoice settings from get_option( 'wpi_options' )
- * InitOptions are default settings, and loaded if wpi_options is not set. 
+ * InitOptions are default settings, and loaded if wpi_options is not set.
  * All these settings are also stored in a global variable ($wpi_settings) for easy access
  */
 
@@ -12,7 +12,7 @@ class WPI_Settings {
 
   /**
    * Cunstruct
-   * 
+   *
    * @param object $Core
    */
   function WPI_Settings(&$Core) {
@@ -22,54 +22,54 @@ class WPI_Settings {
 
   /**
    * Initialize options
-   * 
+   *
    * @global bool $wp_invoice_debug
    */
   function InitOptions() {
     global $wp_invoice_debug;
-    
-    if(isset($Core) && $Core) 
+
+    if(isset($Core) && $Core)
       $this->options['version'] = $this->Core->version;
-      
+
       /** Default Invoice Types */
       $this->options['types'] = array(
         'invoice' => array('label'   => __('Invoice', WPI)),
         'recurring' => array('label' => __('Recurring', WPI))
       );
-      
+
       $this->options['debug'] = $wp_invoice_debug;
-      
+
       if($wp_invoice_debug) {
         $this->options['developer_mode'] = 'true';
       }
-      
+
       /** Localization Labels */
       $this->options['custom_label_tax'] = __("Tax", WPI);
-      
+
       /** WP-Invoice Lookup */
       $this->options['lookup_text']   = __("Pay Your Invoice", WPI);
       $this->options['lookup_submit'] = __("Lookup", WPI);
-      
+
       /** Frontend Customization */
       $this->options['use_custom_templates'] = "false";
       $this->options['state_selection']      = __("Dropdown", WPI);
-      
+
       $this->options['email_address']    = get_bloginfo('admin_email');
       $this->options['business_name']    = get_bloginfo('blogname');
       $this->options['business_address'] = '';
       $this->options['business_phone']   = '';
-      
+
       $this->options['user_level'] = 8;
-      
+
       $this->options['web_invoice_page'] = '';
       $this->options['where_to_display'] = 'overwrite';
-      
+
       /** Advanced Settings */
       $this->options['allow_deposits'] = 'true';
-        
+
       /** Payment */
       $this->options['client_change_payment_method'] = 'false';
-        
+
       /** Basic Settings */
       $this->options['replace_page_title_with_subject']   = 'true';
       $this->options['using_godaddy']                     = 'no';
@@ -410,7 +410,7 @@ class WPI_Settings {
       foreach ($this->options['currency']['symbol'] as &$symbol){
         $symbol = base64_decode($symbol);
       }
-      
+
       $this->options['currency']['default_currency_code']       = 'USD';
       $this->options['currency']['symbols_updated']             = true;
       $this->options['globals']['client_change_payment_method'] = 'true';
@@ -429,13 +429,14 @@ class WPI_Settings {
       $this->options['notification'][3]['name']    = __('Send Receipt', WPI);
       $this->options['notification'][3]['subject'] = __("[Payment Received] %subject%", WPI);
       $this->options['notification'][3]['content'] = __("Dear %recipient%, \n\n%business_name% has received your payment for the %recurring% invoice in the amount of %amount%. \n\nThank you very much for your patronage. \n\nBest regards, \n%business_name% (%business_email%)", WPI);
+
     }
 
     /**
      * Saves passed settings
-     * 
+     *
      * @global array $wpi_settings
-     * @param array $new_settings 
+     * @param array $new_settings
      */
     function SaveSettings($new_settings) {
       global $wpi_settings;
@@ -477,11 +478,9 @@ class WPI_Settings {
       foreach($checkbox_array as $checkbox_name) {
         if(!isset($new_settings[$checkbox_name])) unset($this->options[$checkbox_name]);
       }
-      
-      
 
       $this->CommitUpdates();
-      
+
       //** Update global variable */
       $wpi_settings = WPI_Functions::array_merge_recursive_distinct($wpi_settings, $this->options);
       //** Fix Predefined Services */
@@ -498,7 +497,7 @@ class WPI_Settings {
       //** Options concept taken from Theme My Login (http://webdesign.jaedub.com) */
       $this->InitOptions();
       $storedoptions = get_option( 'wpi_options' );
-      
+
       $currency = $this->options['currency'];
       if ( $storedoptions && is_array( $storedoptions ) ) {
         foreach ( $storedoptions as $key => $value ) {
@@ -508,18 +507,18 @@ class WPI_Settings {
           $this->options['currency'] = $currency;
           $this->options['currency']['symbols_updated']=true;
         }
-        
+
       } else {
         update_option( 'wpi_options', $this->options);
       }
-      
+
     }
 
     /**
      * Get an option value from options array.
-     * 
+     *
      * @param string $key
-     * @return string|null 
+     * @return string|null
      */
     function GetOption( $key ) {
       if ( array_key_exists( $key, $this->options ) ) {
@@ -529,21 +528,21 @@ class WPI_Settings {
 
     /**
      * Set an option value into DB
-     * 
+     *
      * @global array $wpi_settings
      * @param string $key
      * @param string $value
      * @param bool $group
-     * @return bool 
+     * @return bool
      */
     function setOption( $key, $value, $group = false) {
       global $wpi_settings;
-      
+
       if(isset($this)) {
         $this->options[$key] = $value;
       } else {
         //** Handle option settings when not handled as object */
-        
+
         if(!$value) {
           if($group) {
             unset($wpi_settings[$group][$key]);
@@ -557,37 +556,37 @@ class WPI_Settings {
             $wpi_settings[$key] = $value;
           }
         }
-        
+
         $settings = $wpi_settings;
-        
+
         /* This element of array contain objects and should not be stored in DB */
         if(isset($settings['installed_gateways'])) {
           unset($settings['installed_gateways']);
         }
-        
+
         if(update_option( 'wpi_options', $settings)) {
           return true;
-        } 
+        }
       }
     }
 
     /**
      * Commits options.
-     * 
+     *
      * @return bool
      */
     function CommitUpdates() {
       $oldvalue = get_option( 'wpi_options' );
       if( $oldvalue == $this->options )
         return false;
-      else 
+      else
         return update_option( 'wpi_options', $this->options );
     }
 
     /**
      * Converts old options to new.
-     * 
-     * @global object $wpdb 
+     *
+     * @global object $wpdb
      */
     function ConvertPre20Options() {
       global $wpdb;

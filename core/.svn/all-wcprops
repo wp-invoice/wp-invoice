@@ -1,83 +1,95 @@
 K 25
 svn:wc:ra_dav:version-url
 V 44
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core
-END
-wpi_gateway_base.php
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_gateway_base.php
-END
-wpi_invoice.php
-K 25
-svn:wc:ra_dav:version-url
-V 60
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_invoice.php
-END
-template.php
-K 25
-svn:wc:ra_dav:version-url
-V 57
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template.php
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core
 END
 wpi_ui.php
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ui.php
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_ui.php
 END
-wpi_settings.php
+ud_api.php
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_settings.php
+V 55
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/ud_api.php
 END
 wpi_shorthand_functions.php
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_shorthand_functions.php
-END
-wpi_template_functions.php
-K 25
-svn:wc:ra_dav:version-url
-V 71
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_template_functions.php
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_shorthand_functions.php
 END
 wpi_ajax.php
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ajax.php
-END
-wpi_widgets.php
-K 25
-svn:wc:ra_dav:version-url
-V 60
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_widgets.php
-END
-wpi_payment_api.php
-K 25
-svn:wc:ra_dav:version-url
-V 64
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_payment_api.php
-END
-wpi_ud.php
-K 25
-svn:wc:ra_dav:version-url
-V 55
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ud.php
-END
-wpi_functions.php
-K 25
-svn:wc:ra_dav:version-url
-V 62
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_functions.php
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_ajax.php
 END
 class_list_table.php
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/!svn/ver/638728/wp-invoice/tags/3.07.0/core/class_list_table.php
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/class_list_table.php
+END
+wpi_gateway_base.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_gateway_base.php
+END
+wpi_invoice.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_invoice.php
+END
+wpi_chargify.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_chargify.php
+END
+template.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/template.php
+END
+wpi_settings.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_settings.php
+END
+wpi_template_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_template_functions.php
+END
+wpi_widgets.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_widgets.php
+END
+wpi_payment_api.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_payment_api.php
+END
+wpi_ud.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_ud.php
+END
+wpi_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/638719/wp-invoice/tags/3.08.0/core/wpi_functions.php
 END

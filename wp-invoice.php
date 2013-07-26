@@ -4,7 +4,7 @@
  * Plugin URI: http://usabilitydynamics.com/products/wp-invoice/
  * Description: Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href="admin.php?page=wpi_page_settings">WP-Invoice Settings Page</a> to setup.
  * Author: UsabilityDynamics.com
- * Version: 3.07.0
+ * Version: 3.08.0
  * Author URI: http://UsabilityDynamics.com/
  * Copyright 2011 - 2012  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
@@ -24,7 +24,7 @@
  */
 
 /* Define WPI Version */
-define( 'WP_INVOICE_VERSION_NUM', '3.07.0' );
+define( 'WP_INVOICE_VERSION_NUM', '3.08.0' );
 
 /* Define shorthand for transdomain */
 define( 'WPI', 'wp-invoice' );
@@ -55,12 +55,25 @@ require_once( WPI_Path . '/core/wpi_ui.php' );
 require_once( WPI_Path . '/core/wpi_ajax.php' );
 require_once( WPI_Path . '/core/wpi_widgets.php' );
 require_once( WPI_Path . '/core/template.php' );
+/** Chargify is not ready for production yet, leave commented out
+require_once( WPI_Path . '/core/wpi_chargify.php' ); */
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
 require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
 
 //** Need to do this before init. Temporary here. */
 add_filter("pre_update_option_wpi_options", array('WPI_Functions', 'pre_update_option_wpi_options'),10,3);
 add_filter("option_wpi_options", array('WPI_Functions', 'option_wpi_options'));
+add_action("plugins_loaded", "load_language");
+
+function load_language() {
+  global $wp_version;
+  if (version_compare($wp_version, '2.6', '<')) { // Using old WordPress
+    load_plugin_textdomain(WPI, PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/languages');
+  }
+  else {
+    load_plugin_textdomain(WPI, PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/languages', dirname(plugin_basename(__FILE__)) . '/languages');
+  }
+}
 
 //**  Set to true to display debugging messages throughout the UI */
 $wp_invoice_debug = false;
@@ -230,8 +243,6 @@ if (!class_exists('WPI_Core')) {
       add_action('wp_ajax_wpi_save_invoice', array('WPI_Ajax', 'save_invoice'));
       add_action('wp_ajax_wpi_get_status', array($this->Ajax, 'show_invoice_status'));
       add_action('wp_ajax_wpi_get_charges', array($this->Ajax, 'show_invoice_charges'));
-      add_action('wp_ajax_wpi_payment_select', array('WPI_Ajax', 'payment_select'));
-      add_action('wp_ajax_nopriv_wpi_payment_select', array('WPI_Ajax', 'payment_select'));
       add_action('wp_ajax_wpi_send_notification', array('WPI_Ajax', 'send_notification'));
 
       add_action('wp_ajax_wpi_import_legacy', array('WPI_Ajax', 'import_legacy_data'));
@@ -250,6 +261,8 @@ if (!class_exists('WPI_Core')) {
 
       //** Install custom templates to theme */
       add_action('wp_ajax_wpi_install_custom_templates', array('WPI_Ajax', 'install_templates'));
+      add_action('wp_ajax_wpi_user_autocomplete_handler', array('WPI_Ajax', 'user_autocomplete_handler'));
+      add_action('wp_ajax_wpi_template_autocomplete_handler', array('WPI_Ajax', 'template_autocomplete_handler'));
 
       //** WP-CRM integration */
       add_action('wpi_integrate_crm_user_panel', array('WPI_UI', 'crm_user_panel'));
@@ -293,13 +306,6 @@ if (!class_exists('WPI_Core')) {
       $this->user_preferences['manage_page'] = get_user_meta($user_ID, 'wp_invoice_ui_manage_page');
       $this->user_preferences['main'] = get_user_meta($user_ID, 'wp_invoice_ui_main');
 
-      if (version_compare($wp_version, '2.6', '<')) { // Using old WordPress
-        load_plugin_textdomain(WPI, PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/languages');
-      }
-      else {
-        load_plugin_textdomain(WPI, PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/languages', dirname(plugin_basename(__FILE__)) . '/languages');
-      }
-
       if (!get_user_option("screen_layout_admin_page_wpi_invoice_edit")) {
         update_user_option($user_ID, 'screen_layout_admin_page_wpi_invoice_edit', 2, true);
       }
@@ -325,14 +331,14 @@ if (!class_exists('WPI_Core')) {
       }
 
       wp_register_script('jquery.bind', WPI_URL . "/core/js/jquery.bind.js", array('jquery'));
-      wp_register_script('jquery.autocomplete', WPI_URL . "/core/js/jquery.autocomplete.pack.js", array('jquery'));
+
       wp_register_script('jquery.maskedinput', WPI_URL . "/core/js/jquery.maskedinput.js", array('jquery'));
       wp_register_script('jquery.form', WPI_URL . "/core/js/jquery.form.js", array('jquery'));
       wp_register_script('jquery.validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js', array('jquery'));
       wp_register_script('jquery.cookie', WPI_URL . "/core/js/jquery.cookie.js", array('jquery'));
       wp_register_script('jquery.formatCurrency', WPI_URL . "/core/js/jquery.formatCurrency.js", array('jquery'));
       wp_register_script('jquery.number.format', WPI_URL . "/core/js/jquery.number.format.js", array('jquery'));
-			wp_register_script('jquery.impromptu', WPI_URL . "/core/js/jquery-impromptu.1.7.js", array('jquery'));
+      wp_register_script('jquery.impromptu', WPI_URL . "/core/js/jquery-impromptu.1.7.js", array('jquery'));
       wp_register_script('jquery.delegate', WPI_URL . "/core/js/jquery.delegate-1.1.min.js", array('jquery'));
       wp_register_script('jquery.field', WPI_URL . "/core/js/jquery.field.min.js", array('jquery'));
       wp_register_script('wpi-gateways', WPI_Gateways_URL . '/js/wpi_gateways.js.php', array('jquery'));
@@ -487,7 +493,7 @@ if (!class_exists('WPI_Core')) {
      * @return array
      */
     function viewable_types() {
-      return array( 'paid', 'active', 'pending' );
+      return array( 'paid', 'active', 'pending', 'refund' );
     }
 
     /**

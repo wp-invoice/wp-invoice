@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/3.07.0/core/gateways
+http://plugins.svn.wordpress.org/wp-invoice/tags/3.08.0/core/gateways
 http://plugins.svn.wordpress.org
 
 
 
-2012-12-13T17:44:10.218794Z
-638728
+2012-12-13T17:38:26.869254Z
+638719
 andypotanin
 
 
@@ -35,10 +35,10 @@ file
 
 
 
-2013-07-25T23:21:30.000000Z
-74b4d38c795d59eddc3fce8662656448
-2012-12-13T17:44:10.218794Z
-638728
+2013-07-25T23:21:33.000000Z
+ec3f85284cde6d49dbcfbb8e2edfa8e3
+2012-12-13T17:38:26.869254Z
+638719
 andypotanin
 
 
@@ -61,7 +61,7 @@ andypotanin
 
 
 
-15565
+15360
 
 class_wpi_authorize.php
 file
@@ -69,10 +69,10 @@ file
 
 
 
-2013-07-25T23:21:30.000000Z
+2013-07-25T23:21:33.000000Z
 8bccaafba6ff55492f423dc26a8e192d
-2012-12-13T17:44:10.218794Z
-638728
+2012-12-13T17:38:26.869254Z
+638719
 andypotanin
 
 
@@ -99,6 +99,40 @@ andypotanin
 
 js
 dir
+
+class_wpi_googlecheckout.php
+file
+
+
+
+
+2013-07-25T23:21:33.000000Z
+f9c6301e3a392927fa52230a8f95da99
+2012-12-13T17:38:26.869254Z
+638719
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12713
 
 templates
 dir

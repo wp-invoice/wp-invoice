@@ -9,7 +9,7 @@ Description: Provides the PayPal for payment options
 */
 
 class wpi_paypal extends wpi_gateway_base {
-	
+
 	/**
    * Input types
    */
@@ -18,7 +18,7 @@ class wpi_paypal extends wpi_gateway_base {
 
 	/**
 	 * Payment settings
-	 * 
+	 *
 	 * @var array
 	 */
   var $options = array(
@@ -51,35 +51,35 @@ class wpi_paypal extends wpi_gateway_base {
       )
     )
   );
-	
+
 	/**
    * Fields list for frontend
    */
   var $front_end_fields = array(
-      
+
     'customer_information' => array(
-        
+
       'first_name'  => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'first_name',
         'label' => 'First Name'
       ),
-      
+
       'last_name'   => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'last_name',
         'label' => 'Last Name'
       ),
-      
+
       'user_email'  => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'email_address',
         'label' => 'Email Address'
       ),
-				
+
 			'phonenumber' => array(
 				array(
 					'type'  => 'text',
@@ -97,70 +97,70 @@ class wpi_paypal extends wpi_gateway_base {
 					'name'  => 'night_phone_c'
 				)
 			),
-      
+
       'streetaddress'     => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'address1',
         'label' => 'Address'
       ),
-      
+
       'city'        => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'city',
         'label' => 'City'
       ),
-      
+
       'state'       => array(
         'type'   => 'text',
         'class'  => 'text-input',
         'name'   => 'state',
         'label'  => 'State/Province'
       ),
-      
+
       'zip'         => array(
         'type'  => 'text',
         'class' => 'text-input',
         'name'  => 'zip',
         'label' => 'Zip/Postal Code'
       ),
-      
+
       'country'     => array(
         'type'   => 'text',
         'class'  => 'text-input',
         'name'   => 'country',
         'label'  => 'Country'
       )
-        
+
     )
-  
+
   );
-  
+
 	/**
 	 * Constructor
 	 */
   function __construct() {
     parent::__construct();
     $this->options['settings']['ipn']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_paypal');
-		
+
 		add_action( 'wpi_payment_fields_paypal', array( $this, 'wpi_payment_fields' ) );
 	}
-	
+
 	/**
 	 * Overrided payment process for paypal
-	 * 
+	 *
 	 * @global type $invoice
-	 * @global type $wpi_settings 
+	 * @global type $wpi_settings
 	 */
 	function process_payment() {
 		global $invoice, $wpi_settings;
-		
+
 		$crm_data    = $_REQUEST['crm_data'];
     $invoice_id  = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
     $post_id     = wpi_invoice_id_to_post_id($invoice_id);
-		
+
 		// update user data
 		update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
 		update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
@@ -170,24 +170,24 @@ class wpi_paypal extends wpi_gateway_base {
 		update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
 		update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'].'-'.$_REQUEST['night_phone_b'].'-'.$_REQUEST['night_phone_c']);
 		update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
-		
+
 		if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
-		
+
 		echo json_encode(
 		  array( 'success' => 1 )
 		);
-		
+
 	}
-	
+
 	/**
    * Render fields
-   * 
-   * @param array $invoice 
+   *
+   * @param array $invoice
    */
   function wpi_payment_fields( $invoice ) {
 
     $this->front_end_fields = apply_filters( 'wpi_crm_custom_fields', $this->front_end_fields, 'crm_data' );
-    
+
     if ( !empty( $this->front_end_fields ) ) {
       // For each section
       foreach( $this->front_end_fields as $key => $value ) {
@@ -195,7 +195,7 @@ class wpi_paypal extends wpi_gateway_base {
         if ( !empty( $this->front_end_fields[ $key ] ) ) {
 					$html = '';
 					ob_start();
-					
+
 					?>
 					<ul class="wpi_checkout_block">
 						<li class="section_title"><?php _e( ucwords( str_replace('_', ' ', $key) ), WPI); ?></li>
@@ -205,15 +205,15 @@ class wpi_paypal extends wpi_gateway_base {
 					echo $html;
           // For each field
           foreach( $value as $field_slug => $field_data ) {
-						
+
 						// If field is set of 3 fields for paypal phone number
 						if ( $field_slug == 'phonenumber' ) {
-							
+
 							echo '<li class="wpi_checkout_row"><div class="control-group"><label class="control-label">'.__('Phone Number', WPI).'</label><div class="controls">';
-							
+
 							$phonenumber = !empty($invoice['user_data']['phonenumber']) ? $invoice['user_data']['phonenumber'] : "---";
 							$phone_array = split('[/.-]', $phonenumber);
-							
+
 							foreach( $field_data as $field ) {
                 //** Change field properties if we need */
                 $field = apply_filters('wpi_payment_form_styles', $field, $field_slug, 'wpi_paypal');
@@ -225,9 +225,9 @@ class wpi_paypal extends wpi_gateway_base {
                 ob_end_clean();
 								echo $html;
 							}
-							
+
 							echo '</div></div></li>';
-							
+
 						}
             //** Change field properties if we need */
             $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_paypal');
@@ -284,11 +284,11 @@ class wpi_paypal extends wpi_gateway_base {
 					echo '</ul>';
         }
       }
-      
+
     }
-    
+
   }
-  
+
   /**
    * Handler for PayPal IPN queries
    * @author korotkov@ud
@@ -361,13 +361,13 @@ class wpi_paypal extends wpi_gateway_base {
         case 'web_accept':
           /** PayPal simple button */
           switch( $_POST['payment_status'] ) {
-          
+
             case 'Pending':
               /** Mark invoice as Pending */
               wp_invoice_mark_as_pending( $_POST['invoice'] );
               do_action( 'wpi_paypal_pending_ipn', $_POST );
               break;
-            
+
             case 'Completed':
               /** Add payment amount */
               $event_note = sprintf(__('%s paid via PayPal', WPI), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']));
@@ -389,7 +389,7 @@ class wpi_paypal extends wpi_gateway_base {
 
           }
           break;
-        
+
         case 'cart':
           /** PayPal Cart. Used for SPC */
           switch( $_POST['payment_status'] ) {
@@ -419,21 +419,21 @@ class wpi_paypal extends wpi_gateway_base {
 
           }
           break;
-        
+
         default:
           break;
       }
 
     }
-    
+
   }
-  
+
   /**
    * Verify IPN and returns TRUE or FALSE
    * @author korotkov@ud
    **/
   private function _ipn_verified( $invoice = false ) {
-		
+
 		if ( $invoice ) {
 			$request = $invoice->data['billing']['wpi_paypal']['settings']['test_mode']['value'].'?cmd=_notify-validate';
 		} else {
@@ -449,5 +449,5 @@ class wpi_paypal extends wpi_gateway_base {
     return strstr( file_get_contents( $request ), 'VERIFIED' ) ? TRUE : FALSE;
 
   }
-    
+
 }

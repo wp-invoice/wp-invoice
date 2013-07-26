@@ -1,28 +1,22 @@
 /**
-   * Styles specific to the invoice editing page.
-   *
-   * since 3.0
-   *
-   */
-
-   
+ * Styles specific to the invoice editing page.
+ *
+ * since 3.0
+ *
+ */
 jQuery(document).ready(function() {
 
+  if (jQuery('.wrap.wpi_invoice_status_paid').length ) {
+    jQuery('select,textarea,input', jQuery('.wpi_invoice_status_paid')).attr('disabled', true);
+    jQuery('select,textarea,input', jQuery('#wpi_enter_payments')).attr('disabled', false);
+    jQuery('.button.add-new-h2').attr('disabled', false);
+  }
 
-    if (jQuery('.wrap.wpi_invoice_status_paid').length ) {
-      console.log('paid');
-  
-      jQuery('select,textarea,input', jQuery('.wpi_invoice_status_paid')).each(function() {
-        jQuery(this).attr('disabled', true);
-      });
-      
-    }
-  
   jQuery(".wpi_user_email_selection").change(function() {
- 
-    /* Clear out current values just in case */
+
+    //** Clear out current values just in case */
     jQuery('.wp_invoice_new_user input').val('');
-    
+
     jQuery.post(ajaxurl, {
       action: 'wpi_get_user_date',
       user_email: jQuery(this).val()
@@ -36,7 +30,7 @@ jQuery(document).ready(function() {
         }
       }
     }, 'json');
-  
+
   });
 
   jQuery('.wpi_toggle_advanced_payment_options').click(function() {

@@ -104,3 +104,56 @@ td.wpi_premium_feature_image {
 .wpi_settings_list input[type="text"] {
   margin-right: 5px;
 }
+
+#wp_invoice_settings_page {
+  border: none;
+}
+
+#wp_invoice_settings_page ul.wp_invoice_settings_tabs {
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  float: left;
+  height: 33px;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#wp_invoice_settings_page ul.wp_invoice_settings_tabs li {
+  background: none repeat scroll 0 0 #F4F4F4;
+  border-color: #D0D0D0;
+  border-style: solid solid none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-width: 1px 1px 0;
+  float: left;
+  height: 25px;
+  line-height: 23px;
+  margin: 0 10px -1px 0;
+  overflow: hidden;
+  padding: 3px;
+  position: relative;
+}
+
+#wp_invoice_settings_page ul.wp_invoice_settings_tabs li.ui-tabs-selected {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  height: 26px;
+}
+
+#wp_invoice_settings_page ul.wp_invoice_settings_tabs li a {
+  color: #000000;
+  line-height: 25px;
+  outline: medium none;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.ui-tabs .ui-tabs-panel.wp_invoice_tab {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-color: #DEDEDE;
+  border-style: solid;
+  border-width: 1px;
+  clear: both;
+}

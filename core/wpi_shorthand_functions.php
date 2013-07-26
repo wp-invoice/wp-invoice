@@ -120,7 +120,7 @@ function wpi_invoice_id_to_post_id($invoice_id){
   global $wpdb;
   $maybe_id = $wpdb->get_var("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'invoice_id' AND meta_value = '{$invoice_id}'");
 
-  return ($maybe_id) ? $maybe_id : $invoice_id;
+  return $maybe_id ? $maybe_id : $invoice_id;
 
 }
 

@@ -477,11 +477,11 @@ jQuery('#wpi_revalidate').live('click', function(){
 */
   jQuery('.wpi_billing_section_show').live('click', function(event) {
 		// if it is set as default, we can't turn it off
-		if ( jQuery('#wp_invoice_payment_method option[value="'+jQuery(this).attr('id')+'"]').is(':selected') ) {
+		/*if ( jQuery('#wp_invoice_payment_method option[value="'+jQuery(this).attr('id')+'"]').is(':selected') ) {
 			if ( !jQuery(this).is(':checked') ) {
 				return false;
 			}
-		}
+		}*/
     wpi_select_payment_method(jQuery(this).attr('id'));
   });
 
