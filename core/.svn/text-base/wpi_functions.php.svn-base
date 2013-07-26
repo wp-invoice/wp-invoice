@@ -375,8 +375,8 @@ class WPI_Functions {
         union all select 4 union all select 5 union all select 6 union all
         select 7 union all select 8 union all select 9) c, /*1000 day range*/
         (select
-          @minDate := date_format(FROM_UNIXTIME((select min(time) from `{$wpdb->prefix}wpi_object_log` mn join {$wpdb->posts} on (mn.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d'),
-          @maxDate := date_format(FROM_UNIXTIME((select max(time) from `{$wpdb->prefix}wpi_object_log` mx join {$wpdb->posts} on (mx.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d')
+          @minDate := date_format(FROM_UNIXTIME((select min(time) from `{$wpdb->base_prefix}wpi_object_log` mn join {$wpdb->posts} on (mn.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d'),
+          @maxDate := date_format(FROM_UNIXTIME((select max(time) from `{$wpdb->base_prefix}wpi_object_log` mx join {$wpdb->posts} on (mx.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d')
         ) e
       ";
 
@@ -386,7 +386,7 @@ class WPI_Functions {
       {$interval_function}(datetable.aDate) int_erval,
       sum(COALESCE(if (payment.action='refund',payment.value*-1,payment.value),0)) as sum_interval
       FROM ($date_table) datetable
-      left join `{$wpdb->prefix}wpi_object_log` as payment on (
+      left join `{$wpdb->base_prefix}wpi_object_log` as payment on (
         datetable.aDate=date_format(FROM_UNIXTIME(payment.time),'%Y-%m-%d')
         and (
           payment.object_id in (
@@ -1018,7 +1018,7 @@ class WPI_Functions {
         ?>
         <tr class="wpi_event_<?php echo $event['action']; ?> <?php if ($event['action'] == 'add_charge' || $event['action'] == 'do_adjustment')
           echo "wpi_not_for_recurring"; ?>">
-          <th><?php echo date(get_option('time_format') . ' ' . get_option('date_format'), $event['time']); ?> </th>
+          <th><?php echo date(get_option('time_format') . ' ' . get_option('date_format'), $event['time']+get_option('gmt_offset')*60*60); ?> </th>
           <td><?php echo $event['text']; ?></td>
         </tr>
         <?php
@@ -2099,67 +2099,62 @@ class WPI_Functions {
   function check_for_premium_features($return = false) {
     global $wpi_settings;
 
-    $blogname = get_bloginfo('url');
-    $blogname = urlencode(str_replace(array('http://', 'https://'), '', $blogname));
-    $system = 'wpi';
-    $wpi_version = WP_INVOICE_VERSION_NUM;
+    $updates = array();
 
-    $api_key = WPI_Functions::get_api_key(array('force_check' => true, 'return' => true));
+    try {
 
-    if(empty($api_key) || strlen($api_key) != 40) {
-      if($return) {
-        if(empty($api_key)) {
-          $api_key = __("The API key could not be generated.", WPI);
-        }
-        return sprintf(__('An error occured during premium feature check: <b>%s</b>.',WPI), $api_key);
-      } else {
-        return;
-      }
-    }
+      $blogname = get_bloginfo('url');
+      $blogname = urlencode(str_replace(array('http://', 'https://'), '', $blogname));
+      $system = 'wpi';
+      $wpi_version = WP_INVOICE_VERSION_NUM;
 
-    $check_url = "http://updates.usabilitydynamics.com/?system={$system}&site={$blogname}&system_version={$wpi_version}&api_key={$api_key}";
+      $api_key = WPI_Functions::get_api_key(array('force_check' => true, 'return' => true));
 
-    $response = @wp_remote_get($check_url);
-
-    if (!$response) {
-      return;
-    }
-
-    // Check for errors
-    if (is_object($response) && !empty($response->errors)) {
-
-      foreach ($response->errors as $update_errrors) {
-        $error_string .= implode(",", $update_errrors);
-        WPI_Functions::log("Feature Update Error: " . $error_string);
+      if( empty( $api_key ) ) {
+        throw new Exception( __( 'The API key could not be generated.', WPI ) );
       }
 
-      if ($return) {
-        return sprintf(__('An error occured during premium feature check: <b> %s </b>.', WPI), $error_string);
+      if( strlen( $api_key ) != 40 ) {
+        throw new Exception( sprintf( __( 'An error occurred during premium feature check. API Key \'<b>%s</b>\' is incorrect.', WPI ), $api_key ) );
       }
 
-      return;
-    }
+      $check_url = "http://updates.usabilitydynamics.com/?system={$system}&site={$blogname}&system_version={$wpi_version}&api_key={$api_key}";
 
-    //** Quit if failure */
-    if ($response['response']['code'] != '200') {
-      return;
-    }
+      $response = @wp_remote_get( $check_url, array( 'timeout' => 30 ) );
 
-    $response = @json_decode($response['body']);
+      if( empty( $response ) ) {
+         throw new Exception( __( 'Could not do remote request.', WPI ) );
+      }
 
-    if (is_object($response->available_features)) {
+      if( is_wp_error( $response ) ) {
+        throw new Exception( $response->get_error_message() );
+      }
 
-      $response->available_features = WPI_Functions::objectToArray($response->available_features);
+      if( $response['response']['code'] != '200' ) {
+        throw new Exception( sprintf( __( 'Response code from requested server is %s.', WPI ), $response['response']['code'] ) );
+      }
 
-      //** Update the database */
-      $wpi_settings = get_option('wpi_options');
+      $response = @json_decode($response['body']);
 
-      $wpi_settings['available_features'] = WPI_Functions::objectToArray($response->available_features);
-      update_option('wpi_options', $wpi_settings);
-    } // available_features
+      if( empty( $response ) ) {
+        throw new Exception( __( 'Requested server returned empty result or timeout was exceeded. Please, try again later.', WPI ) );
+      }
 
+      if (is_object($response->available_features)) {
+        $response->available_features = WPI_Functions::objectToArray($response->available_features);
+        //** Update the database */
+        $wpi_settings = get_option('wpi_options');
+        $wpi_settings['available_features'] = WPI_Functions::objectToArray($response->available_features);
+        update_option('wpi_options', $wpi_settings);
+      }
 
-    if ($response->features == 'eligible' && $wpi_settings['disable_automatic_feature_update'] != 'true') {
+      if( $response->features != 'eligible' ) {
+        throw new Exception( __( 'There are no available premium features.', WPI ) );
+      }
+
+      if( $wpi_settings['disable_automatic_feature_update'] == 'true' ) {
+        throw new Exception( __( 'No premium features were downloaded because the setting is disabled. Enable in the "Main" tab.', WPI ) );
+      }
 
       // Try to create directory if it doesn't exist
       if (!is_dir(WPI_Premium)) {
@@ -2168,11 +2163,12 @@ class WPI_Functions {
 
       // If didn't work, we quit
       if (!is_dir(WPI_Premium)) {
-        return;
+        throw new Exception( __( 'Specific directory for uploading premium features can not be created.', WPI ) );
       }
 
       // Save code
       if (is_object($response->code)) {
+
         foreach ($response->code as $code) {
 
           $filename = $code->filename;
@@ -2180,45 +2176,61 @@ class WPI_Functions {
           $version = $code->version;
 
           //** Check version */
-
           $default_headers = array(
-              'Name' => __('Feature Name', WPI),
-              'Version' => __('Version', WPI),
-              'Description' => __('Description', WPI)
+            'Name' => 'Name',
+            'Version' => 'Version',
+            'Description' => 'Description'
           );
 
           $current_file = @get_file_data(WPI_Premium . "/" . $filename, $default_headers, 'plugin');
 
-          if (@version_compare($current_file[Version], $version) == '-1') {
+          if (@version_compare($current_file['Version'], $version) == '-1') {
             $this_file = WPI_Premium . "/" . $filename;
             $fh = @fopen($this_file, 'w');
             if ($fh) {
               fwrite($fh, $php_code);
               fclose($fh);
-
-              if ($current_file[Version]) {
-                //UD_F::log(sprintf(__('WP-Invoice Premium Feature: %s updated to version %s from %s.', WPI), $code->name, $version, $current_file[Version]));
+              $res = '';
+              if ( $current_file['Version'] ) {
+                $res = sprintf( __( '<b>%s</b> updated from version %s to %s .', WPI ), $code->name, $current_file['Version'], $version );
               } else {
-                //UD_F::log(sprintf(__('WP-Invoice Premium Feature: %s updated to version %s.', WPI), $code->name, $version));
+                $res = sprintf( __( '<b>%s</b> %s has been installed.', WPI ), $code->name, $version );
               }
-
-              $updated_features[] = $code->name;
+              if( !empty( $res ) ) {
+                WPI_Functions::log( sprintf( __( 'WP-Invoice Premium Feature: %s','wpp' ), $res ) );
+                $updates[] = $res;
+              }
+            } else {
+              throw new Exception( __( 'There are no file permissions to upload or update premium features.', WPI ) );
             }
-          } else {
-
           }
         }
+      } else {
+        throw new Exception( __( 'There are no available premium features. Check your licenses for the current domain', WPI ) );
       }
+
+    } catch (Exception $e) {
+
+      WPI_Functions::log( "Feature Update Error: " . $e->getMessage() );
+
+      return new WP_Error( 'error', $e->getMessage() );
+
     }
 
-    // Update settings
-    //WPI_Functions::settings_action(true);
-
-    if ($return && $wpi_settings['disable_automatic_feature_update'] == 'true') {
-      return __('Update ran successfully but no features were downloaded because the setting is disabled. Enable it in the "Main" tab.', WPI);
-    } elseif ($return) {
-      return __('Update ran successfully.', WPI);
+    $result = __( 'Update ran successfully.','wpp' );
+    if( !empty( $updates ) ) {
+      $result .= '<ul>';
+      foreach( $updates as $update ) {
+        $result .= "<li>{$update}</li>";
+      }
+      $result .= '</ul>';
+    } else {
+      $result .= '<br/>' . __( 'You have the latest premium features versions.', 'wpp' );
     }
+
+    $result = apply_filters( 'wpi::feature_check::result', $result, $updates );
+
+    return $result;
   }
 
   /**
@@ -2236,9 +2248,9 @@ class WPI_Functions {
     $file = WPI_Premium . "/" . $slug . ".php";
 
     $default_headers = array(
-      'Name' => __('Name',WPI),
-      'Version' => __('Version',WPI),
-      'Description' => __('Description',WPI)
+      'Name' => 'Name',
+      'Version' => 'Version',
+      'Description' => 'Description',
     );
 
     $plugin_data = @get_file_data( $file , $default_headers, 'plugin' );
@@ -2262,7 +2274,7 @@ class WPI_Functions {
       $time = time();
     }
 
-     $wpdb->show_errors();
+    $wpdb->show_errors();
 
     $wpdb->insert($wpdb->base_prefix . 'wpi_object_log', array(
       'object_id' => $object_id,
@@ -2550,7 +2562,7 @@ class WPI_Functions {
 
       $wpdb->query("
         DELETE
-        FROM `{$wpdb->prefix}wpi_object_log`
+        FROM `{$wpdb->base_prefix}wpi_object_log`
         WHERE `object_id` = '{$post_id}'
           AND `blog_id` = '{$blog_id}'
       ");

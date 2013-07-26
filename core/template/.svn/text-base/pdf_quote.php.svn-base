@@ -78,7 +78,7 @@ $content = '
         </tr>
       </table>
     </td>
-  </tr>  
+  </tr>
 ';
 
 $description_table = '
@@ -117,7 +117,7 @@ $html = '
       <table border="0" cellspacing="3" cellpadding="3" width="600">
         <tr>
             %logo%
-            <td style="border-bottom: 1px solid #cdcdcd; font-size: 26px;" align="center" %header_width%><strong>%business_address% %business_phone%<br />%email_address% * %url%</strong></td>
+            <td style="border-bottom: 1px solid #cdcdcd; font-size: 26px;" align="center" %header_width%><strong>%business_name% %business_address% %business_phone%<br />%email_address% * %url%</strong></td>
         </tr>
         <tr>
             <td align="center"><strong>%is_quote% <span style="color: #5f80a2">#%id%</span> * %post_date%</strong></td>

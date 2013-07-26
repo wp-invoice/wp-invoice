@@ -40,10 +40,6 @@ class wpi_paypal extends wpi_gateway_base {
           'https://www.sandbox.paypal.com/cgi-bin/webscr' => "Yes"
         )
       ),
-      'button_url' => array(
-        'label' => "PayPal Button URL",
-        'value' => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"
-      ),
       'ipn' => array(
         'label' => "PayPal IPN URL",
         'type' => "readonly",

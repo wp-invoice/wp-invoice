@@ -110,7 +110,10 @@ class InvoiceHistoryWidget extends WP_Widget {
         }
       }
 
+      $invoices_found = false;
+
       if (!empty($invoice_array) && is_array($invoice_array)) {
+        $invoices_found = true;
         ?>
         <b class="wpi_sidebar_title"><?php _e("Active Invoice(s)"); ?></b>
         <ul class="wpi_invoice_history_list wpi_active_invoices">
@@ -135,6 +138,7 @@ class InvoiceHistoryWidget extends WP_Widget {
       }
 
       if (!empty($invoice_array) && is_array($invoice_array)) {
+        $invoices_found = true;
         ?>
         <b class="wpi_sidebar_title"><?php _e("Paid Invoice(s)"); ?></b>
         <ul class="wpi_invoice_history_list wpi_active_invoices">
@@ -146,6 +150,12 @@ class InvoiceHistoryWidget extends WP_Widget {
           }
           ?>
         </ul>
+        <?php
+      }
+
+      if ( !$invoices_found ) {
+        ?>
+        <p><?php _e('You currently do not have any invoices', WPI); ?></p>
         <?php
       }
       ?>

@@ -106,7 +106,7 @@ $content = '
         </tr>
       </table>
     </td>
-  </tr>  
+  </tr>
 ';
 
 $html = '
@@ -116,7 +116,7 @@ $html = '
         <table border="0" cellspacing="0" cellpadding="3" width="100%">
           <tr>
             %logo%
-            <td style="border-bottom: 1px solid #cdcdcd; font-size: 30px;" align="center" %header_width%><span style="color: #7a7a7a">%business_address%</span> %business_phone%<br />%email_address% <span style="color: #7a7a7a">*</span> %url%</td>
+            <td style="border-bottom: 1px solid #cdcdcd; font-size: 30px;" align="center" %header_width%>%business_name% <span style="color: #7a7a7a">%business_address%</span> %business_phone%<br />%email_address% <span style="color: #7a7a7a">*</span> %url%</td>
           </tr>
           <tr>
             <td align="center"><strong>%is_quote%</strong> <span style="color: #3e8eaf">#%id%</span> * <i>%post_date%</i></td>

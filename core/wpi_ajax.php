@@ -14,7 +14,15 @@ class WPI_Ajax {
    *
    */
   function check_plugin_updates() {
-    echo WPI_Functions::check_for_premium_features(true);
+
+    $result = WPI_Functions::check_for_premium_features(true);
+
+    if( is_wp_error( $result ) ) {
+      printf( __( 'An error occurred during premium feature check: <b> %s </b>.','wpp'), $result->get_error_message() );
+    } else {
+      echo $result;
+    }
+    
   }
 
   /**
@@ -165,7 +173,7 @@ class WPI_Ajax {
     $event_date = $_REQUEST['event_date'];
     $event_time = $_REQUEST['event_time'];
     $event_tax = $_REQUEST['event_tax'];
-    $timestamp = strtotime($event_date . ' ' . $event_time);
+    $timestamp = strtotime($event_date . ' ' . $event_time) - get_option('gmt_offset')*60*60;
 
     if (empty($event_note) || empty($event_amount) || !is_numeric($event_amount)) {
       die(json_encode(array('success' => 'false', 'message' => __('Please enter a note and numeric amount.', WPI))));

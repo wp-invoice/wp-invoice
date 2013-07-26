@@ -1,35 +1,35 @@
 K 25
 svn:wc:ra_dav:version-url
 V 51
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer
 END
 class.smtp.inc
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer/class.smtp.inc
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer/class.smtp.inc
 END
 phpmailer.inc
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer/phpmailer.inc
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer/phpmailer.inc
 END
 phpmailer.lang-en.inc
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer/phpmailer.lang-en.inc
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer/phpmailer.lang-en.inc
 END
 class.phpmailer.inc
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer/class.phpmailer.inc
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer/class.phpmailer.inc
 END
 class.pop3.inc
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/!svn/ver/674071/wp-invoice/tags/3.08.5/core/mailer/class.pop3.inc
+/!svn/ver/725332/wp-invoice/tags/3.08.6/core/mailer/class.pop3.inc
 END

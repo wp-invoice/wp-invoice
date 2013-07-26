@@ -95,7 +95,7 @@ $content = '
         </tr>
       </table>
     </td>
-  </tr>  
+  </tr>
 ';
 
 $html = '<table border="0" cellspacing="5" cellpadding="5" width="600">
@@ -103,7 +103,7 @@ $html = '<table border="0" cellspacing="5" cellpadding="5" width="600">
       <td style="border-bottom: 1px solid #cdcdcd;"><table border="0" cellspacing="3" cellpadding="3" width="100%">
           <tr>
             %logo%
-            <td align="center" %header_width%><small><strong><span style="color: #7a7a7a">%business_address%</span> %business_phone%<br />%email_address% * %url%</strong></small></td>
+            <td align="center" %header_width%><small><strong>%business_name% <span style="color: #7a7a7a">%business_address%</span> %business_phone%<br />%email_address% * %url%</strong></small></td>
           </tr>
         </table>
       </td>

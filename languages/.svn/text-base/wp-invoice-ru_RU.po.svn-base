@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-06 16:26+0200\n"
-"PO-Revision-Date: 2013-02-06 16:37+0200\n"
+"POT-Creation-Date: 2013-04-12 19:05+0200\n"
+"PO-Revision-Date: 2013-04-12 19:10+0200\n"
 "Last-Translator: rotcod <denys.kostin@usabilitydynamics.com>\n"
 "Language-Team: dvzzz <dvzzz.kg@gmail.com>\n"
 "Language: ru_RU\n"
@@ -91,7 +91,7 @@ msgstr "Записи импортированы из Web Invoice"
 msgid "Display"
 msgstr "Показать"
 
-#: ../core/class_list_table.php:120 ../core/wpi_functions.php:437
+#: ../core/class_list_table.php:120 ../core/wpi_functions.php:423
 msgid "All"
 msgstr "все"
 
@@ -200,15 +200,15 @@ msgstr "Невозможно сохранить запись в лог. %1s"
 msgid "Due date is not set"
 msgstr "Не указана дата срока платежа"
 
-#: ../core/wpi_ajax.php:263
+#: ../core/wpi_ajax.php:252 ../core/wpi_ajax.php:253
+msgid "invoice"
+msgstr "счет"
+
+#: ../core/wpi_ajax.php:267
 msgid "No description given."
 msgstr "Без описания"
 
-#: ../core/wpi_ajax.php:294
-msgid "recurring"
-msgstr "повторяющийся"
-
-#: ../core/wpi_ajax.php:340
+#: ../core/wpi_ajax.php:344
 msgid ""
 "The fields should not be empty. Please, check the fields data and try to "
 "send notification again."
@@ -216,36 +216,36 @@ msgstr ""
 "Все поля должны быть заполнены. Проверьте поля данных и отправьте "
 "уведомление еще раз."
 
-#: ../core/wpi_ajax.php:351
+#: ../core/wpi_ajax.php:355
 msgid "Notification Sent"
 msgstr "Уведомление послано"
 
-#: ../core/wpi_ajax.php:351
+#: ../core/wpi_ajax.php:355
 msgid "to"
 msgstr "по адресу"
 
-#: ../core/wpi_ajax.php:351
+#: ../core/wpi_ajax.php:355
 msgid "at"
 msgstr "в"
 
-#: ../core/wpi_ajax.php:354
+#: ../core/wpi_ajax.php:358
 msgid "Successfully sent the invoice notification!"
 msgstr "Уведомление о счете послано успешно!"
 
-#: ../core/wpi_ajax.php:357
+#: ../core/wpi_ajax.php:361
 msgid "Unable to send the e-mail. Please, try again later."
 msgstr "Невозможно отправить e-mail. Повторите попытку позже."
 
-#: ../core/wpi_ajax.php:366
+#: ../core/wpi_ajax.php:370
 #, php-format
 msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
 msgstr "Сохранено <a target='_blank' href='%s'>Смотреть счет</a>"
 
-#: ../core/wpi_ajax.php:366
+#: ../core/wpi_ajax.php:370
 msgid "Invoice id #"
 msgstr "Номер счета"
 
-#: ../core/wpi_ajax.php:368
+#: ../core/wpi_ajax.php:372
 msgid ""
 "There was a problem with saving the invoice. Reference the log for "
 "troubleshooting."
@@ -253,24 +253,24 @@ msgstr ""
 "При сохранении счета возникла проблема. Чтобы ее устранить, просмотрите "
 "записи журнала."
 
-#: ../core/wpi_ajax.php:413
+#: ../core/wpi_ajax.php:417
 msgid "Please enter an invoice id."
 msgstr "Введите номер счета"
 
-#: ../core/wpi_ajax.php:441
+#: ../core/wpi_ajax.php:445
 msgid "Unable to create 'wpi' folder in template folder. "
 msgstr "Невозможно создать папку wpi в папке шаблонов"
 
-#: ../core/wpi_ajax.php:458
+#: ../core/wpi_ajax.php:462
 msgid "Unable to open 'wpi' folder in template folder."
 msgstr "Невозможно открыть папку wpi в папке шаблонов"
 
-#: ../core/wpi_ajax.php:463
+#: ../core/wpi_ajax.php:467
 #, php-format
 msgid "Success, (%s) template file(s) copied."
 msgstr "Получилось! (%s) файлов шаблонов скопировано."
 
-#: ../core/wpi_ajax.php:466
+#: ../core/wpi_ajax.php:470
 msgid "No template files copied."
 msgstr "Файлы шаблонов не скопированы."
 
@@ -351,12 +351,12 @@ msgstr "Продукты"
 
 #: ../core/wpi_chargify.php:160 ../core/wpi_chargify.php:167
 #: ../core/wpi_chargify.php:201 ../core/wpi_chargify.php:208
-#: ../core/wpi_functions.php:1926 ../core/wpi_functions.php:1990
-#: ../core/wpi_functions.php:2237 ../core/premium/wpi_quotes.php:433
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:189
+#: ../core/wpi_functions.php:1924 ../core/wpi_functions.php:1988
+#: ../core/wpi_functions.php:2239 ../core/premium/wpi_quotes.php:433
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:216
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:342
-#: ../core/ui/invoice_page_wpi_page_settings.php:428
-#: ../core/ui/invoice_page_wpi_page_settings.php:570
+#: ../core/ui/invoice_page_wpi_page_settings.php:425
+#: ../core/ui/invoice_page_wpi_page_settings.php:567
 msgid "Name"
 msgstr "Имя"
 
@@ -367,9 +367,9 @@ msgstr "Триал"
 
 #: ../core/wpi_chargify.php:162 ../core/wpi_chargify.php:169
 #: ../core/wpi_chargify.php:203 ../core/wpi_chargify.php:210
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:193
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:220
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:350
-#: ../core/ui/invoice_page_wpi_page_settings.php:666
+#: ../core/ui/invoice_page_wpi_page_settings.php:663
 msgid "Price"
 msgstr "Цена"
 
@@ -378,7 +378,7 @@ msgid "Components"
 msgstr "Компоненты"
 
 #: ../core/wpi_chargify.php:202 ../core/wpi_chargify.php:209
-#: ../core/wpi_ui.php:606
+#: ../core/wpi_ui.php:607
 msgid "Type"
 msgstr "Тип"
 
@@ -542,7 +542,7 @@ msgstr "Карта"
 msgid "Cost"
 msgstr "Цена"
 
-#: ../core/wpi_chargify.php:791 ../core/wpi_ui.php:605
+#: ../core/wpi_chargify.php:791 ../core/wpi_ui.php:606
 #: ../core/ui/wpi_metaboxes.php:58
 msgid "Status"
 msgstr "Статус"
@@ -553,7 +553,7 @@ msgstr "Обновить"
 
 #: ../core/wpi_chargify.php:802 ../core/premium/wpi_quotes.php:452
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:60
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:594
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:602
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -585,49 +585,49 @@ msgstr "Подписаться на"
 msgid "N/A"
 msgstr "Нет"
 
-#: ../core/wpi_functions.php:1166
+#: ../core/wpi_functions.php:1138
 msgid "Schedule created with plugin activation."
 msgstr "Создан график активации модулей"
 
-#: ../core/wpi_functions.php:1176
+#: ../core/wpi_functions.php:1148
 msgid "Plugin activated. No older versions found, installing version "
 msgstr ""
 "Модуль активирован. Старых версий не обнаружено, версия устанавливается."
 
-#: ../core/wpi_functions.php:1180
+#: ../core/wpi_functions.php:1152
 msgid "Plugin activated."
 msgstr "Модуль активирован."
 
-#: ../core/wpi_functions.php:1194
+#: ../core/wpi_functions.php:1166
 msgid "Plugin deactivated."
 msgstr "Модуль отключен."
 
-#: ../core/wpi_functions.php:1256
+#: ../core/wpi_functions.php:1228
 msgid "user_email changed."
 msgstr "user_email изменен."
 
-#: ../core/wpi_functions.php:1367
+#: ../core/wpi_functions.php:1339
 msgid "Today"
 msgstr "Сегодня"
 
-#: ../core/wpi_functions.php:1369
+#: ../core/wpi_functions.php:1341
 msgid " Tomorrow "
 msgstr "Завтра"
 
-#: ../core/wpi_functions.php:1369
+#: ../core/wpi_functions.php:1341
 msgid " Yesterday "
 msgstr "Вчера"
 
-#: ../core/wpi_functions.php:1371
+#: ../core/wpi_functions.php:1343
 #, php-format
 msgid " in %s days "
 msgstr "Через %s дней"
 
-#: ../core/wpi_functions.php:1371
+#: ../core/wpi_functions.php:1343
 msgid "days ago"
 msgstr "дней назад"
 
-#: ../core/wpi_functions.php:1425
+#: ../core/wpi_functions.php:1397
 msgid ""
 "The plugin database tables are gone, deactivate and reactivate plugin to re-"
 "create them."
@@ -635,11 +635,11 @@ msgstr ""
 "Таблицы баз данных модуля потеряны. Активируйте и затем отключите, чтобы "
 "создать их снова."
 
-#: ../core/wpi_functions.php:1737
+#: ../core/wpi_functions.php:1735
 msgid "Invoice #[invoice_id] has been paid"
 msgstr "Счет #%s оплачен"
 
-#: ../core/wpi_functions.php:1740
+#: ../core/wpi_functions.php:1738
 msgid ""
 "Dear [user_name],\n"
 "[business_name] has received your payment for the invoice.\n"
@@ -662,11 +662,11 @@ msgstr ""
 "С уважением, \n"
 "%business_name% (%business_email%)"
 
-#: ../core/wpi_functions.php:1745 ../core/wpi_functions.php:1753
+#: ../core/wpi_functions.php:1743 ../core/wpi_functions.php:1751
 msgid "Invoice #[invoice_id] has been paid by [user_name]"
 msgstr "Счет #%s оплачен"
 
-#: ../core/wpi_functions.php:1748
+#: ../core/wpi_functions.php:1746
 msgid ""
 "[user_name] has paid invoice #[invoice_id].\n"
 "[invoice_title]\n"
@@ -703,7 +703,7 @@ msgstr ""
 "--------------------\n"
 "%12s"
 
-#: ../core/wpi_functions.php:1756
+#: ../core/wpi_functions.php:1754
 msgid ""
 "Dear [creator_name],\n"
 "[user_name] has paid invoice #[invoice_id].\n"
@@ -742,81 +742,81 @@ msgstr ""
 "--------------------\n"
 "%12s"
 
-#: ../core/wpi_functions.php:1803
+#: ../core/wpi_functions.php:1801
 msgid "Invoices"
 msgstr "Счета"
 
-#: ../core/wpi_functions.php:1804 ../core/wpi_functions.php:1820
+#: ../core/wpi_functions.php:1802 ../core/wpi_functions.php:1818
 #: ../core/wpi_settings.php:36 ../core/wpi_ui.php:22
 msgid "Invoice"
 msgstr "Счет"
 
-#: ../core/wpi_functions.php:1805 ../core/wpi_ui.php:24
+#: ../core/wpi_functions.php:1803 ../core/wpi_ui.php:24
 #: ../core/ui/toplevel_page_wpi_main.php:19
 msgid "Add New"
 msgstr "Добавить новый"
 
-#: ../core/wpi_functions.php:1806
+#: ../core/wpi_functions.php:1804
 msgid "Add New Invoice"
 msgstr "Добавить новый счет"
 
-#: ../core/wpi_functions.php:1807
+#: ../core/wpi_functions.php:1805
 msgid "Edit Invoice"
 msgstr "Редактировать счет"
 
-#: ../core/wpi_functions.php:1808 ../core/wpi_settings.php:421
+#: ../core/wpi_functions.php:1806 ../core/wpi_settings.php:421
 msgid "New Invoice"
 msgstr "Новый счет"
 
-#: ../core/wpi_functions.php:1809
+#: ../core/wpi_functions.php:1807
 msgid "View Invoice"
 msgstr "Просмотреть счет"
 
-#: ../core/wpi_functions.php:1810
+#: ../core/wpi_functions.php:1808
 msgid "Search Invoices"
 msgstr "Искать счет"
 
-#: ../core/wpi_functions.php:1811
+#: ../core/wpi_functions.php:1809
 msgid "No invoices found"
 msgstr "Счета не обнаружены"
 
-#: ../core/wpi_functions.php:1812
+#: ../core/wpi_functions.php:1810
 msgid "No invoices found in Trash"
 msgstr "В Корзине счета не обнаружены"
 
-#: ../core/wpi_functions.php:1927 ../core/wpi_functions.php:1991
-#: ../core/wpi_functions.php:2184 ../core/wpi_functions.php:2238
+#: ../core/wpi_functions.php:1925 ../core/wpi_functions.php:1989
+#: ../core/wpi_functions.php:2186 ../core/wpi_functions.php:2240
 msgid "Version"
 msgstr "Версия"
 
-#: ../core/wpi_functions.php:1928 ../core/wpi_functions.php:1992
-#: ../core/wpi_functions.php:2185 ../core/wpi_functions.php:2239
+#: ../core/wpi_functions.php:1926 ../core/wpi_functions.php:1990
+#: ../core/wpi_functions.php:2187 ../core/wpi_functions.php:2241
 msgid "Description"
 msgstr "Описание"
 
-#: ../core/wpi_functions.php:1993
+#: ../core/wpi_functions.php:1991
 msgid "Minimum Core Version"
 msgstr "Минимальная версия"
 
-#: ../core/wpi_functions.php:2110
+#: ../core/wpi_functions.php:2112
 msgid "The API key could not be generated."
 msgstr "Ключ API не может быть создан."
 
-#: ../core/wpi_functions.php:2112
+#: ../core/wpi_functions.php:2114
 #, php-format
 msgid "An error occured during premium feature check: <b>%s</b>."
 msgstr "Во время проверки премии произошла ошибка: <b>%s</b>."
 
-#: ../core/wpi_functions.php:2135
+#: ../core/wpi_functions.php:2137
 #, php-format
 msgid "An error occured during premium feature check: <b> %s </b>."
 msgstr "Во время проверки премии произошла ошибка: <b>%s</b>."
 
-#: ../core/wpi_functions.php:2183
+#: ../core/wpi_functions.php:2185
 msgid "Feature Name"
 msgstr "Название операции"
 
-#: ../core/wpi_functions.php:2216
+#: ../core/wpi_functions.php:2218
 msgid ""
 "Update ran successfully but no features were downloaded because the setting "
 "is disabled. Enable it in the \"Main\" tab."
@@ -824,15 +824,15 @@ msgstr ""
 "Обновление запущено, но Аддоны не были загружены, так как эта функция "
 "отключена в настойках. Включите её на вкладке \"Основная\"."
 
-#: ../core/wpi_functions.php:2218
+#: ../core/wpi_functions.php:2220
 msgid "Update ran successfully."
 msgstr "Обновление установлено успешно"
 
-#: ../core/wpi_functions.php:2435
+#: ../core/wpi_functions.php:2437
 msgid "WP-Invoice Notification"
 msgstr "Уведомление о счете"
 
-#: ../core/wpi_functions.php:2514
+#: ../core/wpi_functions.php:2516
 #, php-format
 msgid ""
 "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target="
@@ -841,38 +841,38 @@ msgstr ""
 "Узнайте, как <a target=\"_blank\" href=\"%s\">расширить возможности</a> "
 "Вашего плагина <a target=\"_blank\" href=\"%s\">WP-Invoice</a>"
 
-#: ../core/wpi_functions.php:2517 ../core/wpi_ui.php:429
+#: ../core/wpi_functions.php:2519 ../core/wpi_ui.php:430
 #: ../core/ui/invoice_page_wpi_page_settings.php:31
 msgid "Premium Features"
 msgstr "Премиум Дополнения"
 
-#: ../core/wpi_functions.php:2519
+#: ../core/wpi_functions.php:2521
 msgid "Support Forum"
 msgstr "Форум поддержки"
 
-#: ../core/wpi_functions.php:2521
+#: ../core/wpi_functions.php:2523
 msgid "User Guide"
 msgstr "Руководство пользователя"
 
-#: ../core/wpi_functions.php:2573
+#: ../core/wpi_functions.php:2607
 msgid "Show all users"
 msgstr "Показать всех пользователей"
 
-#: ../core/wpi_functions.php:2599 ../core/wpi_functions.php:2619
+#: ../core/wpi_functions.php:2633 ../core/wpi_functions.php:2653
 msgid "Payment status: Complete"
 msgstr "Статус платежа: Выполнен"
 
-#: ../core/wpi_functions.php:2642
+#: ../core/wpi_functions.php:2676
 msgid "Pending"
 msgstr "Ожидает подтверждения"
 
-#: ../core/wpi_functions.php:2698 ../core/wpi_functions.php:2746
-#: ../core/wpi_functions.php:2794
+#: ../core/wpi_functions.php:2732 ../core/wpi_functions.php:2780
+#: ../core/wpi_functions.php:2828
 #, php-format
 msgid "Invoice #%s has been paid"
 msgstr "Счет #%s оплачен"
 
-#: ../core/wpi_functions.php:2704
+#: ../core/wpi_functions.php:2738
 #, php-format
 msgid ""
 "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can "
@@ -884,17 +884,17 @@ msgstr ""
 "состояние счета и истории платежей, нажав на эту ссылку. <br>%3s<br><br> "
 "Спасибо за ваш патронаж. <br><br> С уважением, <br>%4s (%5s)"
 
-#: ../core/wpi_functions.php:2717 ../core/wpi_functions.php:2767
-#: ../core/wpi_functions.php:2814
+#: ../core/wpi_functions.php:2751 ../core/wpi_functions.php:2801
+#: ../core/wpi_functions.php:2848
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
 msgstr "WP-Invoice: Сообщение с  '%1s было направлено"
 
-#: ../core/wpi_functions.php:2724
+#: ../core/wpi_functions.php:2758
 msgid "Receipt eMailed"
 msgstr "Квитанция отправлена"
 
-#: ../core/wpi_functions.php:2749
+#: ../core/wpi_functions.php:2783
 #, php-format
 msgid ""
 "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s."
@@ -919,7 +919,7 @@ msgstr ""
 "--------------------\n"
 "%12s"
 
-#: ../core/wpi_functions.php:2796
+#: ../core/wpi_functions.php:2830
 #, php-format
 msgid ""
 "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: "
@@ -954,39 +954,39 @@ msgstr "Функция выполнена. Номер счетаа не обна
 msgid "function executed, invoice_id: "
 msgstr "Функциф выполнена. Номер счета:"
 
-#: ../core/wpi_invoice.php:334
+#: ../core/wpi_invoice.php:333
 msgid "Warning: no user information loaded for this invoice."
 msgstr "Предупреждение: для этого счета нет информации о пользователе."
 
-#: ../core/wpi_invoice.php:794
+#: ../core/wpi_invoice.php:808
 msgid "Status of invoice was changed to 'Paid'."
 msgstr "Статус счета изменен на 'Оплачено'."
 
-#: ../core/wpi_invoice.php:804
+#: ../core/wpi_invoice.php:818
 msgid "Error saving invoice. Subject (Title) cannot be empty."
 msgstr "Ошибка при сохранении счета. Заполните поле Заголовка."
 
-#: ../core/wpi_invoice.php:812
+#: ../core/wpi_invoice.php:826
 msgid "Created from "
 msgstr "Создано"
 
-#: ../core/wpi_invoice.php:815
+#: ../core/wpi_invoice.php:829
 msgid "Created by "
 msgstr "Создано"
 
-#: ../core/wpi_invoice.php:822
+#: ../core/wpi_invoice.php:836
 msgid "Recurring invoice updated."
 msgstr "Обновлен повторяющийся счет."
 
-#: ../core/wpi_invoice.php:824
+#: ../core/wpi_invoice.php:838
 msgid "Quote updated."
 msgstr "Цена предложения обновлена."
 
-#: ../core/wpi_invoice.php:829
+#: ../core/wpi_invoice.php:843
 msgid "Updated."
 msgstr "Обновлено."
 
-#: ../core/wpi_invoice.php:835
+#: ../core/wpi_invoice.php:849
 msgid "Error saving invoice. Query used: "
 msgstr "Ошибка при попытке сохранения счета. Использован запрос:"
 
@@ -996,11 +996,11 @@ msgstr "Повторно"
 
 #: ../core/wpi_settings.php:47
 #: ../core/gateways/templates/wpi_googlecheckout-frontend.tpl.php:45
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:159
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:194
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:186
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:221
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:276
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:352
-#: ../core/ui/invoice_page_wpi_page_settings.php:667
+#: ../core/ui/invoice_page_wpi_page_settings.php:664
 msgid "Tax"
 msgstr "Налог"
 
@@ -2193,8 +2193,7 @@ msgstr "[Новый счет] %тема%"
 msgid ""
 "Dear %recipient%, \n"
 "\n"
-"%business_name% has sent you %recurring% invoice in the amount of %amount"
-"%. \n"
+"%business_name% has sent you the %type% in the amount of %amount%. \n"
 "\n"
 "%description% \n"
 "\n"
@@ -2207,8 +2206,7 @@ msgid ""
 msgstr ""
 "Уважаемый %recipient%, \n"
 "\n"
-" компания %business_name% отправила Вам %recurring% счет на сумму %amount"
-"%. \n"
+" компания %business_name% отправила Вам %type% счет на сумму %amount%. \n"
 "\n"
 "%description% \n"
 "\n"
@@ -2227,8 +2225,8 @@ msgstr "[Напоминание] %тема%"
 msgid ""
 "Dear %recipient%, \n"
 "\n"
-"%business_name% has sent you a reminder for the %recurring% invoice in the "
-"amount of %amount%. \n"
+"%business_name% has sent you a reminder for the %type% in the amount of "
+"%amount%. \n"
 "\n"
 "%description% \n"
 "\n"
@@ -2242,7 +2240,7 @@ msgstr ""
 "Уважаемый %recipient%, \n"
 "\n"
 " компания %business_name% отправила Вам напоминание о необходимости оплатить "
-"%recurring% счет на сумму %amount%. \n"
+"%type% счет на сумму %amount%. \n"
 "\n"
 "%description% \n"
 "\n"
@@ -2265,8 +2263,8 @@ msgstr "[Платеж получен] %тема%"
 msgid ""
 "Dear %recipient%, \n"
 "\n"
-"%business_name% has received your payment for the %recurring% invoice in the "
-"amount of %amount%. \n"
+"%business_name% has received your payment for the %type% in the amount of "
+"%amount%. \n"
 "\n"
 "Thank you very much for your patronage. \n"
 "\n"
@@ -2275,7 +2273,7 @@ msgid ""
 msgstr ""
 "Уважаемый %recipient%, \n"
 "\n"
-" компания %business_name% получила Ваш платеж %recurring% по счету на сумму "
+" компания %business_name% получила Ваш платеж %type% по счету на сумму "
 "%amount%. \n"
 "\n"
 "Спасибо за сотрудничество. \n"
@@ -2327,55 +2325,55 @@ msgstr "Налог"
 msgid "Discounts:"
 msgstr "Скидки"
 
-#: ../core/wpi_template_functions.php:213
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:263
+#: ../core/wpi_template_functions.php:218
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:312
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:490
 msgid "Adjustments:"
 msgstr "Корректировка"
 
-#: ../core/wpi_template_functions.php:219
+#: ../core/wpi_template_functions.php:224
 msgid "Received Payment:"
 msgstr "Полученный платеж:"
 
-#: ../core/wpi_template_functions.php:225
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:269
+#: ../core/wpi_template_functions.php:230
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:318
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:502
 msgid "Balance:"
 msgstr "Баланс"
 
-#: ../core/wpi_template_functions.php:257
-#: ../core/ui/invoice_page_wpi_page_settings.php:617
-#: ../core/ui/invoice_page_wpi_page_settings.php:631
+#: ../core/wpi_template_functions.php:262
+#: ../core/ui/invoice_page_wpi_page_settings.php:614
+#: ../core/ui/invoice_page_wpi_page_settings.php:628
 msgid "Time"
 msgstr "Время"
 
-#: ../core/wpi_template_functions.php:258
-#: ../core/ui/invoice_page_wpi_page_settings.php:618
-#: ../core/ui/invoice_page_wpi_page_settings.php:632
+#: ../core/wpi_template_functions.php:263
+#: ../core/ui/invoice_page_wpi_page_settings.php:615
+#: ../core/ui/invoice_page_wpi_page_settings.php:629
 msgid "Event"
 msgstr "Действие"
 
-#: ../core/wpi_template_functions.php:300
+#: ../core/wpi_template_functions.php:305
 msgid "There are no any actions"
 msgstr "Действия не произведены"
 
-#: ../core/wpi_template_functions.php:339
+#: ../core/wpi_template_functions.php:344
 msgid "Payment Amount"
 msgstr "Сумма платежа"
 
-#: ../core/wpi_template_functions.php:342
+#: ../core/wpi_template_functions.php:347
 msgid "Min. Payment Due:"
 msgstr "Минимальный платеж:"
 
-#: ../core/wpi_template_functions.php:348
+#: ../core/wpi_template_functions.php:353
 msgid "Statement Balance:"
 msgstr "Отчет о балансе"
 
-#: ../core/wpi_template_functions.php:354
+#: ../core/wpi_template_functions.php:359
 msgid "Other"
 msgstr "Другое"
 
-#: ../core/wpi_template_functions.php:363
+#: ../core/wpi_template_functions.php:368
 msgid ""
 "This invoice allows partial payments, please select the amount you would "
 "like to pay."
@@ -2383,12 +2381,12 @@ msgstr ""
 "Данный счет позволяет вносить платежи частями. Выберите сумму, которую вы "
 "хотели бы внести."
 
-#: ../core/wpi_template_functions.php:382 ../core/premium/wpi_spc.php:1371
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:521
+#: ../core/wpi_template_functions.php:387 ../core/premium/wpi_spc.php:1371
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:529
 msgid "Payment Method"
 msgstr "Метод внесения платежа"
 
-#: ../core/wpi_template_functions.php:727
+#: ../core/wpi_template_functions.php:732
 msgid "Due Date: "
 msgstr "Дата окончания:"
 
@@ -2772,7 +2770,7 @@ msgstr ""
 "будут отправляться со страницы счетов. В качестве темы или содержания "
 "шаблонов писем можно использовать следующие элементы:"
 
-#: ../core/wpi_ui.php:402 ../core/wpi_ui.php:607
+#: ../core/wpi_ui.php:402 ../core/wpi_ui.php:608
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:80
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:208
 msgid "Invoice ID"
@@ -2818,15 +2816,19 @@ msgstr "Счет отправлен (адрес отправителя)"
 msgid "Invoice due date (if presented)"
 msgstr "Дата оплаты счета (если указана)"
 
-#: ../core/wpi_ui.php:424
+#: ../core/wpi_ui.php:413
+msgid "Replaced by Invoice Type. (invoice, recurring invoice, quote)"
+msgstr "Замененен типом счета. (счет, счет-фактура, назначенная цена)"
+
+#: ../core/wpi_ui.php:425
 msgid "More..."
 msgstr "Еще..."
 
-#: ../core/wpi_ui.php:426 ../core/ui/invoice_page_wpi_page_settings.php:26
+#: ../core/wpi_ui.php:427 ../core/ui/invoice_page_wpi_page_settings.php:26
 msgid "Line Items"
 msgstr "Элементы"
 
-#: ../core/wpi_ui.php:427
+#: ../core/wpi_ui.php:428
 msgid ""
 "Predefined Line Items are common services and/or products that you can "
 "create once and use in your invoices. For example, if you are a Web "
@@ -2849,7 +2851,7 @@ msgstr ""
 "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
 "invoice-settings-predefined-line-items/\">More...</a>"
 
-#: ../core/wpi_ui.php:430
+#: ../core/wpi_ui.php:431
 msgid ""
 "This tab show a list of the premium features which are available for "
 "purchase and those which you have purchased for WP-Invoice. You can see a "
@@ -2864,11 +2866,11 @@ msgstr ""
 "вашего сайта. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-premium-features/\">Подробнее...</a>"
 
-#: ../core/wpi_ui.php:432 ../core/ui/invoice_page_wpi_page_settings.php:36
+#: ../core/wpi_ui.php:433 ../core/ui/invoice_page_wpi_page_settings.php:36
 msgid "Help"
 msgstr "Помощь"
 
-#: ../core/wpi_ui.php:433
+#: ../core/wpi_ui.php:434
 msgid ""
 "This tab will help you troubleshoot your plugin and check for updates for "
 "Premium Features"
@@ -2876,19 +2878,19 @@ msgstr ""
 "Эта вкладка поможет Вам устранить проблемы и проверить наличие обновлений "
 "для премиальных дополнений"
 
-#: ../core/wpi_ui.php:435
+#: ../core/wpi_ui.php:436
 msgid "Shortcodes"
 msgstr "Шорткоды"
 
-#: ../core/wpi_ui.php:436 ../core/wpi_widgets.php:78
+#: ../core/wpi_ui.php:437 ../core/wpi_widgets.php:78
 msgid "Invoice History"
 msgstr "История счетов"
 
-#: ../core/wpi_ui.php:437 ../core/wpi_ui.php:441
+#: ../core/wpi_ui.php:438 ../core/wpi_ui.php:442
 msgid "Shortcode:"
 msgstr "Шорткод:"
 
-#: ../core/wpi_ui.php:438
+#: ../core/wpi_ui.php:439
 msgid ""
 "Works the same way as 'Invoice History' widget. Shows invoice list for "
 "currently logged in users."
@@ -2896,56 +2898,56 @@ msgstr ""
 "Работает так же, как виджет истории счетов. Показывает список счетов, "
 "залогиненым пользователям."
 
-#: ../core/wpi_ui.php:440
+#: ../core/wpi_ui.php:441
 msgid "Invoice Lookup"
 msgstr "Поиск Счета"
 
-#: ../core/wpi_ui.php:442
+#: ../core/wpi_ui.php:443
 msgid ""
 "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
 "invoices by invoice numbers."
 msgstr ""
 "Работает так же, как виджет поиск счета. Позволяет искать счет по номеру."
 
-#: ../core/wpi_ui.php:601
+#: ../core/wpi_ui.php:602
 msgid "Title"
 msgstr "Название"
 
-#: ../core/wpi_ui.php:602
+#: ../core/wpi_ui.php:603
 msgid "Total Collected"
 msgstr "Всего выбрано"
 
-#: ../core/wpi_ui.php:603 ../core/ui/wpi_metaboxes.php:75
+#: ../core/wpi_ui.php:604 ../core/ui/wpi_metaboxes.php:75
 msgid "Recipient"
 msgstr "Получатель"
 
-#: ../core/wpi_ui.php:604 ../core/premium/wpi_power_tools.php:288
+#: ../core/wpi_ui.php:605 ../core/premium/wpi_power_tools.php:288
 #: ../core/premium/wpi_power_tools.php:373 ../core/ui/wpi_metaboxes.php:87
 msgid "Date"
 msgstr "Дата"
 
-#: ../core/wpi_ui.php:711
+#: ../core/wpi_ui.php:712
 msgid "Payment Settings"
 msgstr "Детали платежа"
 
-#: ../core/wpi_ui.php:715 ../core/ui/invoice_page_wpi_page_reports.php:10
+#: ../core/wpi_ui.php:716 ../core/ui/invoice_page_wpi_page_reports.php:10
 #: ../core/ui/toplevel_page_wpi_main.php:19
 msgid "Overview"
 msgstr "Посмотреть"
 
-#: ../core/wpi_ui.php:717
+#: ../core/wpi_ui.php:718
 msgid "Publish"
 msgstr "Опубликовать"
 
-#: ../core/wpi_ui.php:720
+#: ../core/wpi_ui.php:721
 msgid "User Information"
 msgstr "Информация о пользователе"
 
-#: ../core/wpi_ui.php:797
+#: ../core/wpi_ui.php:798
 msgid "For more information:"
 msgstr "Больше информации:"
 
-#: ../core/wpi_ui.php:798
+#: ../core/wpi_ui.php:799
 msgid ""
 "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
 "\"_blank\">WP-Invoice Product Page</a>"
@@ -2953,7 +2955,7 @@ msgstr ""
 "<a href=\"http://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank"
 "\">Страница продукта WP-Invoice</a>"
 
-#: ../core/wpi_ui.php:799
+#: ../core/wpi_ui.php:800
 msgid ""
 "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target="
 "\"_blank\">WP-Invoice Forums</a>"
@@ -2961,12 +2963,12 @@ msgstr ""
 "<a href=\"http://usabilitydynamics.com/products/wp-invoice/forum/\" target="
 "\"_blank\">WP-Invoice Форум</a>"
 
-#: ../core/wpi_ui.php:805
+#: ../core/wpi_ui.php:806
 msgid "Please upgrade Wordpress to the latest version for detailed help."
 msgstr ""
 "Обновите Wordpress до последней версии, для получения подробной справки."
 
-#: ../core/wpi_ui.php:805
+#: ../core/wpi_ui.php:806
 msgid ""
 "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
 "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
@@ -2974,90 +2976,90 @@ msgstr ""
 "Посетите <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
 "target=\"_blank\">Страницу помощи WP-Invoice</a> на UsabilityDynamics.com"
 
-#: ../core/wpi_ui.php:1100 ../core/gateways/class_wpi_googlecheckout.php:49
+#: ../core/wpi_ui.php:1101 ../core/gateways/class_wpi_googlecheckout.php:49
 #: ../core/ui/first_time_setup.php:77 ../core/ui/payment_processing.php:60
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:344
 msgid "Yes"
 msgstr "Да"
 
-#: ../core/wpi_ui.php:1100 ../core/gateways/class_wpi_googlecheckout.php:48
+#: ../core/wpi_ui.php:1101 ../core/gateways/class_wpi_googlecheckout.php:48
 #: ../core/ui/payment_processing.php:60
 msgid "No"
 msgstr "Нет"
 
-#: ../core/wpi_ui.php:1103
+#: ../core/wpi_ui.php:1104
 msgid "Select"
 msgstr "Выбрать"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1284
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1285
 msgid "Jan"
 msgstr "Январь"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1285
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1286
 msgid "Feb"
 msgstr "Февраль"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1286
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1287
 msgid "Mar"
 msgstr "Март"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1287
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1288
 msgid "Apr"
 msgstr "Апрель"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1288
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1289
 msgid "May"
 msgstr "Май"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1289
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1290
 msgid "Jun"
 msgstr "Июнь"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1290
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1291
 msgid "Jul"
 msgstr "Июль"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1291
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1292
 msgid "Aug"
 msgstr "Август"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1292
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1293
 msgid "Sep"
 msgstr "Сентябрь"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1293
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1294
 msgid "Oct"
 msgstr "Октябрь"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1294
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1295
 msgid "Nov"
 msgstr "Ноябрь"
 
-#: ../core/wpi_ui.php:1121 ../core/wpi_ui.php:1295
+#: ../core/wpi_ui.php:1122 ../core/wpi_ui.php:1296
 msgid "Dec"
 msgstr "Декабрь"
 
-#: ../core/wpi_ui.php:1133
+#: ../core/wpi_ui.php:1134
 msgid "Values are empty"
 msgstr "Значение не присвоено"
 
-#: ../core/wpi_ui.php:1154
+#: ../core/wpi_ui.php:1155
 msgid "View Profile"
 msgstr "Просмотреть счет"
 
-#: ../core/wpi_ui.php:1157
+#: ../core/wpi_ui.php:1158
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "Получить модуль WP-CRM для улучшения управления пользователями."
 
-#: ../core/wpi_ui.php:1184
+#: ../core/wpi_ui.php:1185
 msgid "WP-Invoice custom field"
 msgstr "Настраиваемое поле WP-Invoice"
 
-#: ../core/wpi_ui.php:1199
+#: ../core/wpi_ui.php:1200
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
-#: ../core/wpi_ui.php:1200
+#: ../core/wpi_ui.php:1201
 msgid ""
 "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
 "custom user data fields for payments forms.</p>"
@@ -3066,16 +3068,16 @@ msgstr ""
 "использоваться для добавления пользователем настраиваемых полей со своими "
 "данными в платежные поручения.</p>"
 
-#: ../core/wpi_ui.php:1201
+#: ../core/wpi_ui.php:1202
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr ""
 "<p>Действительно для авторизованного сетевого платежа в настоящий момент.</p>"
 
-#: ../core/wpi_ui.php:1202
+#: ../core/wpi_ui.php:1203
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "Уведомление о счете"
 
-#: ../core/wpi_ui.php:1203
+#: ../core/wpi_ui.php:1204
 msgid ""
 "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
 "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
@@ -3141,10 +3143,8 @@ msgid "Subscription completely paid"
 msgstr "Подписка оплачена полностью"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:34
-#: ../core/gateways/templates/legacy/google_checkout.php:9
-#: ../core/gateways/templates/legacy/google_checkout.php:47
-msgid "Google Checkout"
-msgstr "Оформление заказа через Google"
+msgid "Google Wallet"
+msgstr "Google Wallet"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:39
 msgid "Merchant ID"
@@ -3221,20 +3221,20 @@ msgid "No Charge After"
 msgstr "Не взымать после"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:166
-msgid "Applicable only for Google Checkout"
-msgstr "Применимо только к Google Checkout"
+msgid "Applicable only for Google Wallet"
+msgstr "Применимо только к Google Wallet"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:180
 msgid ""
-"If you use Google Checkout for subscriptions then these options will be used "
+"If you use Google Wallet for subscriptions then these options will be used "
 "to determine billing period."
 msgstr ""
-"Если вы используете Google Checkout для подпискок, эти опции будут "
+"Если вы используете Google Wallet для подпискок, эти опции будут "
 "использоваться для определения расчетного периода."
 
 #: ../core/gateways/class_wpi_googlecheckout.php:180
-msgid "Google Checkout Billing Period"
-msgstr "Расчетный период Google Checkout"
+msgid "Google Wallet Billing Period"
+msgstr "Расчетный период Google Wallet "
 
 #: ../core/gateways/class_wpi_googlecheckout.php:182
 #: ../core/premium/wpi_power_tools.php:393
@@ -3274,8 +3274,8 @@ msgstr "В прямом доступе отказано"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:320
 #, php-format
-msgid "%s paid via Google Checkout"
-msgstr "%s оплачено через Google Checkout"
+msgid "%s paid via Google Wallet"
+msgstr "%s оплачено через Google Wallet "
 
 #: ../core/gateways/class_wpi_googlecheckout.php:326
 #, php-format
@@ -3360,6 +3360,11 @@ msgstr "Год"
 #: ../core/gateways/templates/legacy/authorize.php:89
 msgid "Security Code"
 msgstr "Код безопасности карты"
+
+#: ../core/gateways/templates/legacy/google_checkout.php:9
+#: ../core/gateways/templates/legacy/google_checkout.php:47
+msgid "Google Checkout"
+msgstr "Оформление заказа через Google"
 
 #: ../core/gateways/templates/legacy/google_checkout.php:14
 msgid "Payment Address"
@@ -3618,27 +3623,27 @@ msgid "User Role:"
 msgstr "Пользовательская роль:"
 
 #: ../core/premium/wpi_power_tools.php:717
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Administrator"
 msgstr "Администратор"
 
 #: ../core/premium/wpi_power_tools.php:718
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Subscriber"
 msgstr "Подписчик"
 
 #: ../core/premium/wpi_power_tools.php:719
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Editor"
 msgstr "Редактор"
 
 #: ../core/premium/wpi_power_tools.php:720 ../core/premium/wpi_quotes.php:313
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Author"
 msgstr "Автор"
 
 #: ../core/premium/wpi_power_tools.php:721
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Contributor"
 msgstr "Постоянный участник"
 
@@ -3908,7 +3913,7 @@ msgstr "Комментарий"
 
 #: ../core/premium/wpi_quotes.php:331
 msgid "There are no comments for this quote."
-msgstr "Комментариев к этой цитате нет."
+msgstr "Комментариев к этой назначенной цене нет."
 
 #: ../core/premium/wpi_quotes.php:429
 msgid "Reply to Comment"
@@ -4102,7 +4107,7 @@ msgid "Default Checkout Form"
 msgstr "Форма оформления заказа по умолчанию"
 
 #: ../core/premium/wpi_spc.php:825 ../core/premium/wpi_spc.php:1042
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:158
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:185
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:274
 msgid "Amount"
 msgstr "Количество"
@@ -4434,7 +4439,7 @@ msgid "Select a page to display invoices:"
 msgstr "Выберите страницу для показа счетов:"
 
 #: ../core/ui/first_time_setup.php:42
-#: ../core/ui/invoice_page_wpi_page_settings.php:299
+#: ../core/ui/invoice_page_wpi_page_settings.php:296
 msgid ""
 "Select whether to overwrite all page content, insert at the bottom of the "
 "content, or to look for the [wp-invoice] tag."
@@ -4447,27 +4452,27 @@ msgid "How to Insert Invoice:"
 msgstr "Как вставить счет"
 
 #: ../core/ui/first_time_setup.php:44
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Overwrite All Page Content"
 msgstr "Переписать все содержание страницы"
 
 #: ../core/ui/first_time_setup.php:44
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Place Below Content"
 msgstr "Вставить после основного текста"
 
 #: ../core/ui/first_time_setup.php:44
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Above Content"
 msgstr "Поверх текста"
 
 #: ../core/ui/first_time_setup.php:44
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Replace [wp-invoice] Tag"
 msgstr "Заменить ярлык [wp-invoice]"
 
 #: ../core/ui/first_time_setup.php:45
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid ""
 "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</"
 "span> somewhere within your page content."
@@ -4514,80 +4519,78 @@ msgstr "Добавить Платеж/Сумма"
 msgid "Invoice paid in full."
 msgstr "Счет оплачен полностью"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:126
-#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:220
-msgid "Click to view full link"
-msgstr "Нажмите один раз,чтобы увидеть ссылку полностью"
-
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:127
-#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:220
-msgid "Invoice Link"
-msgstr "Ссылка на счет"
-
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:155
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:182
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:268
 msgid "Charge Name"
 msgstr "Имя клиента"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:160
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:195
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:187
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:222
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: ../core/ui/invoice_page_wpi_page_settings.php:668
+#: ../core/ui/invoice_page_wpi_page_settings.php:665
 msgid "Total"
 msgstr "Итого"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:192
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:219
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: ../core/ui/invoice_page_wpi_page_settings.php:665
+#: ../core/ui/invoice_page_wpi_page_settings.php:662
 msgid "Qty."
 msgstr "Количество"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:216
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:243
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: ../core/ui/invoice_page_wpi_page_settings.php:678
+#: ../core/ui/invoice_page_wpi_page_settings.php:675
 msgid "Toggle Description"
 msgstr "Переключиться на Описание продукта"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:238
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:265
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:442
 msgid "Amount Discount"
 msgstr "Скидка от количества"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:238
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:265
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:442
 msgid "Percent Discount"
 msgstr "Процент скидки"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:261
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:310
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:486
 msgid "Subtotal Excluding Tax:"
 msgstr "Промежуточный итог без налога"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:265
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:314
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:494
 msgid "Discount:"
 msgstr "Скидка"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:267
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:316
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:498
 msgid "Sales Tax:"
 msgstr "Налог на продажу"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:274
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:323
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:512
 msgid "Add Line"
 msgstr "Добавить строку"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:279
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:328
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:518
 msgid "Insert a predefined line item"
 msgstr "Введите выбранный элемент"
 
-#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:300
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:349
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:552
 msgid "Add Discount"
 msgstr "Добавьте скидку"
+
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:220
+msgid "Click to view full link"
+msgstr "Нажмите один раз,чтобы увидеть ссылку полностью"
+
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:220
+msgid "Invoice Link"
+msgstr "Ссылка на счет"
 
 #: ../core/ui/invoice_page_wpi_page_reports.php:72
 msgid "Collected and Uncollected Funds"
@@ -4687,26 +4690,22 @@ msgid "Allow partial payments."
 msgstr "Разрешить частичную оплату"
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:188
-msgid "Show checkbox for mandatory terms acceptance."
-msgstr "Показывать флаговую кнопку для подтверждения обязательных условий."
-
-#: ../core/ui/invoice_page_wpi_page_settings.php:189
 msgid "Show recurring billing options."
 msgstr "Показать возможность регулярного выставления счетов."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:190
+#: ../core/ui/invoice_page_wpi_page_settings.php:189
 msgid "Enforce HTTPS on invoice pages, if available on this server."
 msgstr "Включить HTTPS на страницах счетов, если возможно на данном сервере."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:193
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Minimum user level to manage WP-Invoice"
 msgstr "Минимальный уровень пользователя для управления  WP-Invoice"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:196
+#: ../core/ui/invoice_page_wpi_page_settings.php:195
 msgid "Using Godaddy Hosting:"
 msgstr "При использовании хостинга Godaddy"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:197
+#: ../core/ui/invoice_page_wpi_page_settings.php:196
 msgid ""
 "Special proxy must be used to process credit card transactions on GoDaddy "
 "servers."
@@ -4714,7 +4713,7 @@ msgstr ""
 "Для обработки транзакций по кредитным картам на серверах Godaddy необходимо "
 "использовать специальный proxy-сервер."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:205
+#: ../core/ui/invoice_page_wpi_page_settings.php:204
 msgid ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
@@ -4722,7 +4721,7 @@ msgstr ""
 "Используйте редактируемые шаблоны. Если вы их отметите, WP-Invoice будет "
 "использовать шаблоны из папки wpi в папке вашей активной темы."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:210
+#: ../core/ui/invoice_page_wpi_page_settings.php:209
 msgid ""
 "Note: Currently there is no \"wpi\" folder in your active template's folder, "
 "WP-Invoice will attempt to create it after saving."
@@ -4730,7 +4729,7 @@ msgstr ""
 "Обратите внимание: В настоящий момент в активной папке вашего шаблона нет "
 "папки \"wpi\". WP-Invoice постарается создать ее после сохранения."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:212
+#: ../core/ui/invoice_page_wpi_page_settings.php:211
 msgid ""
 "A \"wpi\" folder has been found, any files with the proper file names will "
 "be used instead of the default template files."
@@ -4738,53 +4737,53 @@ msgstr ""
 "Папка\"wpi\" обнаружена, вместо шаблонов по умолчанию будут использоваться "
 "любые файлы с соответствющими названиями."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:215
+#: ../core/ui/invoice_page_wpi_page_settings.php:214
 msgid "Install"
 msgstr "Установить"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:215
+#: ../core/ui/invoice_page_wpi_page_settings.php:214
 msgid ""
 "the custom templates inside the <b>wpi</b> folder in your active theme's "
 "folder."
 msgstr "пользовательские шаблоны внутри папки <b>wpi</b> в папке активной темы"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:218
+#: ../core/ui/invoice_page_wpi_page_settings.php:216
 msgid "Disable automatic Premium Feature updates."
 msgstr "Оключить автоматическое обновление Примиум Дополнений."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:222
+#: ../core/ui/invoice_page_wpi_page_settings.php:219
 msgid "Thousands Separator Symbol"
 msgstr "Символ разделения тысяч"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:228
+#: ../core/ui/invoice_page_wpi_page_settings.php:225
 msgid "None"
 msgstr "Нет"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:262
+#: ../core/ui/invoice_page_wpi_page_settings.php:259
 msgid "When creating an invoice"
 msgstr "При создании инвойса"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:265
+#: ../core/ui/invoice_page_wpi_page_settings.php:262
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr "автоматически увеличивать номер инвойса на единицу."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:271
+#: ../core/ui/invoice_page_wpi_page_settings.php:268
 msgid "When viewing an invoice"
 msgstr "При просмотре инвойса"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:274
+#: ../core/ui/invoice_page_wpi_page_settings.php:271
 msgid "Display invoices on the"
 msgstr "размещайте инвойсы на"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:288
+#: ../core/ui/invoice_page_wpi_page_settings.php:285
 msgid "page."
 msgstr "странице."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:290
+#: ../core/ui/invoice_page_wpi_page_settings.php:287
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr "Заменить заголовок HTML названием инвойса при его просмотре."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:291
+#: ../core/ui/invoice_page_wpi_page_settings.php:288
 msgid ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
@@ -4792,31 +4791,31 @@ msgstr ""
 "Заменить заголовок на странице и ссылку навигации на название инвойса при "
 "его просмотре."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:292
+#: ../core/ui/invoice_page_wpi_page_settings.php:289
 msgid "Hide page heading and navigation link completely."
 msgstr "Скрыть заголовок страницы и ссылку навигации полностью."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:294
+#: ../core/ui/invoice_page_wpi_page_settings.php:291
 msgid "Show my business name and address."
 msgstr "Показывать название и адрес моей компании."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:295
+#: ../core/ui/invoice_page_wpi_page_settings.php:292
 msgid "Show quantity breakdowns in the itemized list."
 msgstr "Показывать нехватку количества товара всписке элементов заказа."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:300
+#: ../core/ui/invoice_page_wpi_page_settings.php:297
 msgid "How to Insert Invoice"
 msgstr "Как вставить инвойс"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:305
+#: ../core/ui/invoice_page_wpi_page_settings.php:302
 msgid "After a payment has been completed"
 msgstr "После получения платежа"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:308
+#: ../core/ui/invoice_page_wpi_page_settings.php:305
 msgid "Send email confirmation to the client."
 msgstr "Отправить клиенту подтверждение."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:309
+#: ../core/ui/invoice_page_wpi_page_settings.php:306
 #, php-format
 msgid ""
 "Send email notification to the address set for administrative purposes from "
@@ -4825,15 +4824,15 @@ msgstr ""
 "Отправить уведомление на адрес Администратора сайта указанный на странице <a "
 "href=\"%s\">Общие Настройки</a>"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:310
+#: ../core/ui/invoice_page_wpi_page_settings.php:307
 msgid "Send email notification to invoice creator."
 msgstr "Отправить письмо создателю счета"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:311
+#: ../core/ui/invoice_page_wpi_page_settings.php:308
 msgid "Use CRM to send notifications"
 msgstr "Отправить Уведомление о счете "
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:311
+#: ../core/ui/invoice_page_wpi_page_settings.php:308
 #, php-format
 msgid ""
 "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
@@ -4842,7 +4841,7 @@ msgstr ""
 "Установите <a class=\"small\" href=\"%s\">WP-CRM plugin</a> для более "
 "продвинутой настройки уведомлений."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:317
+#: ../core/ui/invoice_page_wpi_page_settings.php:314
 msgid ""
 "This options allow you to change the default email address that WordPress "
 "sends it's mail from, and the name of the sender that the email is from."
@@ -4850,31 +4849,31 @@ msgstr ""
 "Эта опция позволяет изменить адрес электронной почты по умолчанию, с "
 "которого WordPress отправляет почту, и имя отправителя."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:318
+#: ../core/ui/invoice_page_wpi_page_settings.php:315
 msgid "Mail From options"
 msgstr "Параметры почты отправителя"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:326
+#: ../core/ui/invoice_page_wpi_page_settings.php:323
 msgid "Sender Name"
 msgstr "Имя отправителя"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:333
+#: ../core/ui/invoice_page_wpi_page_settings.php:330
 msgid "The sender name that the email is from"
 msgstr "Имя отправителя письма в поле From"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:338
+#: ../core/ui/invoice_page_wpi_page_settings.php:335
 msgid "User E-mail"
 msgstr "E-mail пользователя"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:345
+#: ../core/ui/invoice_page_wpi_page_settings.php:342
 msgid "Email address e.g. username@example.com"
 msgstr "Email адрес, например username@example.com"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:350
+#: ../core/ui/invoice_page_wpi_page_settings.php:347
 msgid "Apply 'Mail From' settings."
 msgstr "Применить настройки отправителя почты."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:362
+#: ../core/ui/invoice_page_wpi_page_settings.php:359
 msgid ""
 "If you are using <b>Google Analytics Site Tracking</b> code on your site "
 "then you can track WP-Invoice events."
@@ -4882,64 +4881,64 @@ msgstr ""
 "Если вы используете <b>код отслеживание Google Analytics</b> сайта "
 "отслеживания на вашем сайте, вы можете отслеживать события WP-Invoice."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:363
+#: ../core/ui/invoice_page_wpi_page_settings.php:360
 msgid "Google Analytics Events Tracking"
 msgstr "Отслеживание событий Google Analytics"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:370
+#: ../core/ui/invoice_page_wpi_page_settings.php:367
 msgid "I want to track events."
 msgstr "Я хочу отслеживать события."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:375
+#: ../core/ui/invoice_page_wpi_page_settings.php:372
 msgid "Track Invoices events:"
 msgstr "Отслеживание событий счета:"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:378
+#: ../core/ui/invoice_page_wpi_page_settings.php:375
 msgid "Attempting to pay Invoices"
 msgstr "Попытка оплаты счета"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:381
+#: ../core/ui/invoice_page_wpi_page_settings.php:378
 msgid "View Invoices"
 msgstr "Просмотреть счет"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:411
+#: ../core/ui/invoice_page_wpi_page_settings.php:408
 msgid "Default Currency"
 msgstr "Валюта по умолчанию"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:421
+#: ../core/ui/invoice_page_wpi_page_settings.php:418
 msgid "Currency list"
 msgstr "Список валют"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:426
+#: ../core/ui/invoice_page_wpi_page_settings.php:423
 msgid "Code"
 msgstr "Код валюты"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:427
+#: ../core/ui/invoice_page_wpi_page_settings.php:424
 msgid "Symbol"
 msgstr "Символ"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:451
+#: ../core/ui/invoice_page_wpi_page_settings.php:448
 msgid "Add Currency"
 msgstr "Добавить валюту"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:462
+#: ../core/ui/invoice_page_wpi_page_settings.php:459
 msgid "Default Payment Method"
 msgstr "Способ платежа по умолчанию"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:469
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:424
+#: ../core/ui/invoice_page_wpi_page_settings.php:466
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:432
 msgid "Client can change payment option."
 msgstr "Клиент может изменить способ платежа."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:474
+#: ../core/ui/invoice_page_wpi_page_settings.php:471
 msgid "Payment Gateways"
 msgstr "Переход к платежным системам"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:533
+#: ../core/ui/invoice_page_wpi_page_settings.php:530
 msgid "Manual Payment information"
 msgstr "Информация о проведении платежа"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:538
+#: ../core/ui/invoice_page_wpi_page_settings.php:535
 msgid ""
 "If an invoice has no payment gateways, this message will be displayed "
 "offering the customer guidance on their course of action."
@@ -4947,23 +4946,23 @@ msgstr ""
 "Если в инвойсе нет перехода к платежным системам, появится это сообщение, "
 "предлагающее клиенту возможные варианты действий."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:546
+#: ../core/ui/invoice_page_wpi_page_settings.php:543
 msgid "Subscription Payments"
 msgstr "Платежи подписки"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:571
+#: ../core/ui/invoice_page_wpi_page_settings.php:568
 msgid "Subject"
 msgstr "Тема"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:572
+#: ../core/ui/invoice_page_wpi_page_settings.php:569
 msgid "Content"
 msgstr "Содержание"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:596
+#: ../core/ui/invoice_page_wpi_page_settings.php:593
 msgid "Add Template"
 msgstr "Добавить Шаблон"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:647
+#: ../core/ui/invoice_page_wpi_page_settings.php:644
 msgid ""
 "Setup your common services and products in here to streamline invoice "
 "creation."
@@ -4971,49 +4970,49 @@ msgstr ""
 "Перечислите ваши основные услуги и продукты здесь, чтобы облегчить создание "
 "инвойсов."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:664
+#: ../core/ui/invoice_page_wpi_page_settings.php:661
 msgid "Name & Description"
 msgstr "Название и описание"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:705
+#: ../core/ui/invoice_page_wpi_page_settings.php:702
 msgid "Add Line Item"
 msgstr "Добавьте линейку продуктов"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:732
+#: ../core/ui/invoice_page_wpi_page_settings.php:729
 msgid "Look up the $wpi_settings global settings array:"
 msgstr "Просмотреть блок глобальных настроек $wpi_settings:"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:732
+#: ../core/ui/invoice_page_wpi_page_settings.php:729
 msgid "Toggle $wpi_settings"
 msgstr "Триггер $wpi_settings"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:739
+#: ../core/ui/invoice_page_wpi_page_settings.php:736
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr "Восстановление резервной копии конфигурации WP-Invoice"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:740
+#: ../core/ui/invoice_page_wpi_page_settings.php:737
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr "Скачать резервную копию конфигурации WP-Invoice"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:774
+#: ../core/ui/invoice_page_wpi_page_settings.php:771
 msgid "Check for Updates"
 msgstr "Проверить обновления"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:776
+#: ../core/ui/invoice_page_wpi_page_settings.php:773
 msgid ""
 "Check for any premium feature updates from the Usability Dynamics Update "
 "server:"
 msgstr "Проверить обновления Премиум Дополнений с сервера Usability Dynamics:"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:777
+#: ../core/ui/invoice_page_wpi_page_settings.php:774
 msgid "Check Updates"
 msgstr "Проверьте обновления"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:781
+#: ../core/ui/invoice_page_wpi_page_settings.php:778
 msgid "Your Domain"
 msgstr "Ваш домен"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:783
+#: ../core/ui/invoice_page_wpi_page_settings.php:780
 msgid ""
 "When purchasing the premium features you will need to specify your domain to "
 "add the license correctly.  This is your domain:"
@@ -5021,11 +5020,11 @@ msgstr ""
 "При покупке Премиум Дополнений необходимо указать Ваш домен, чтобы правильно "
 "добавить лицензию. Ваш домен:"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:789
+#: ../core/ui/invoice_page_wpi_page_settings.php:786
 msgid "WP-Invoice API Key"
 msgstr "WP-Invoice API ключ"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:793
+#: ../core/ui/invoice_page_wpi_page_settings.php:790
 msgid ""
 "Some subscription based premium features require an API key that is specific "
 "to this domain and WP-Invoice. You can get this from your account on <a href="
@@ -5035,24 +5034,24 @@ msgstr ""
 "и WP-Invoice. Вы можете найти его в своем аккаунте <a href=\"#\" target="
 "\"_blank\">UsabilityDynamics.com</a>."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:832
+#: ../core/ui/invoice_page_wpi_page_settings.php:829
 msgid "[purchase feature]"
 msgstr "[купить продукт]"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:845
+#: ../core/ui/invoice_page_wpi_page_settings.php:839
 #, php-format
 msgid "This feature is disabled because it requires WP-Invoice %1$s or higher."
 msgstr "Этот продукт заблокирован, так как требует WP-Invoice не менее %1$s."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:847
+#: ../core/ui/invoice_page_wpi_page_settings.php:841
 msgid "Disable premium feature."
 msgstr "Оключить Премиум Дополнение."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:850
+#: ../core/ui/invoice_page_wpi_page_settings.php:844
 msgid "Feature installed, using version"
 msgstr "Характеристика установлена с использованием версии"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:855
+#: ../core/ui/invoice_page_wpi_page_settings.php:848
 #, php-format
 msgid ""
 "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this "
@@ -5061,7 +5060,7 @@ msgstr ""
 "Посетите сайт <a href=\"%s\">UsabilityDynamics.com</a> , чтобы купить этот "
 "продукт."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:865
+#: ../core/ui/invoice_page_wpi_page_settings.php:858
 msgid "There are no available premium features."
 msgstr "Продукты с улучшенными характеристиками отсутствуют."
 
@@ -5202,7 +5201,7 @@ msgstr "Ложно"
 msgid "Toggle Advanced Options"
 msgstr "Переключиться в режим усовершенствованных вариантов"
 
-#: ../core/ui/profile_page_content.php:10
+#: ../core/ui/profile_page_content.php:7
 msgid "Billing / Invoicing Info"
 msgstr "Информация о выставлении инвойса"
 
@@ -5438,25 +5437,25 @@ msgstr "Создать запись о пользователе в wordpress?"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:413
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:421
 msgid "Default Payment Option"
 msgstr "Способ платежа по умолчанию"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:431
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:439
 msgid "Accepted Payments"
 msgstr "Принятые платежи"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:448
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:529
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:456
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:537
 msgid "Currency"
 msgstr "Валюта"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:514
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:540
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:522
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:548
 msgid "Toggle Advanced Payment Options"
 msgstr "Переключиться на усовершенствованные системы платежей"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:524
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:532
 #, php-format
 msgid ""
 "To manage payment settings you should accept at least one payment method. "
@@ -5466,7 +5465,7 @@ msgstr ""
 "способ платежа. Перейдите на страницу <a href=\"%s\">Система настроей "
 "пдатежей</a> для установки режима."
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:525
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:533
 #, php-format
 msgid ""
 "If you do not want to use any payment venue then <a href=\"%s\">setup Manual "
@@ -5475,31 +5474,31 @@ msgstr ""
 "Если вы не желаете использовать предложенные способы платежа, перейдите к "
 "странице <a href=\"%s\">Настройка информации о платеже вручную</a>."
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:557
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:565
 msgid "Invoice Status and History"
 msgstr "Статус инвойса и история"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:562
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:570
 msgid "Event Type"
 msgstr "Тип действия"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:564
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:572
 msgid "Receive Payment"
 msgstr "Получить платеж"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:564
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:572
 msgid "Add Charge"
 msgstr "Добавить сумму оплаты"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:564
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:572
 msgid "Administrative Adjustment"
 msgstr "Административные изменения"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:564
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:572
 msgid "Refund"
 msgstr "Возмещение"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:565
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:573
 msgid ""
 "Note: Recurring bills cannot have administrative adjustments or additional "
 "charges, only received payments."
@@ -5508,29 +5507,35 @@ msgstr ""
 "изменениям или дополнительным начислениям; это относится только к полученным "
 "платежам."
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:569
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:577
 msgid "Event Amount"
 msgstr "Количество действий"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:573
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:581
 msgid "Charge Tax"
 msgstr "Применить налог"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:578
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:586
 msgid "Event Date & Time"
 msgstr "Дата и время действия"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:585
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:593
 msgid "Event Note"
 msgstr "Дополнительная информация о действии"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:593
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:601
 msgid "Process Charge / Payment"
 msgstr "Обработать Выставление суммы/Платеж"
 
-#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:613
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:621
 msgid "Toggle History Detail"
 msgstr "Переключиться на страницу Подробная История"
+
+#~ msgid "recurring"
+#~ msgstr "повторяющийся"
+
+#~ msgid "Show checkbox for mandatory terms acceptance."
+#~ msgstr "Показывать флаговую кнопку для подтверждения обязательных условий."
 
 #~ msgid "Invoice page not selected. "
 #~ msgstr "Не выбрана страница счетов."

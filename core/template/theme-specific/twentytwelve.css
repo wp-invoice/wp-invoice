@@ -1,0 +1,15 @@
+/*
+  Styles Specifically for TwentyTwelve Based Themes
+*/
+
+#content form.wpi_checkout input.wpi_checkout_process_payment {
+    background: none repeat scroll 0 0 #5C5556;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 13px #A3A1A1;
+    clear: both;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 14px 8px 9px 132px;
+    padding: 5px 16px;
+}

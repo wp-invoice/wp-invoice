@@ -29,8 +29,10 @@ class WPI_Invoice {
   }
 
   /**
-      Determine if new or old invoice
-  */
+   * Determine if new or old invoice
+   * @global type $wpdb
+   * @return boolean
+   */
   function existing_invoice() {
     global $wpdb;
     $ID = $this->data['ID'];
@@ -49,8 +51,10 @@ class WPI_Invoice {
   }
 
   /**
-      Performs certain administrative functions
-  */
+   * Performs certain administrative functions
+   * @global type $wpdb
+   * @param type $args
+   */
   function admin($args) {
     global $wpdb;
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
@@ -61,8 +65,9 @@ class WPI_Invoice {
   }
 
   /**
-      Loads defaults from global settings
-  */
+   * Loads defaults from global settings
+   * @global type $wpi_settings
+   */
   function load_defaults() {
     global $wpi_settings;
     // load globals
@@ -75,9 +80,11 @@ class WPI_Invoice {
 
   /**
    * Load user information from DB into invoice class
-   *
    * Fixed to conditionally check for most appropriate name to display and override the 'display_name'
-   *
+   * @global type $wpi_settings
+   * @global type $wp_version
+   * @param type $args
+   * @return type
    */
   function load_user($args = '') {
     global $wpi_settings, $wp_version;
@@ -195,12 +202,14 @@ class WPI_Invoice {
   /**
    * Can be used to setup invoives.
    * Otherwise, set() function can also be used to set this information
+   * @global type $wpi_settings
+   * @param type $args
    */
   function create_new_invoice($args = '') {
     global $wpi_settings;
     $this->data['new_invoice'] = true;
 
-    // Include global tax if option turned on
+    //** Include global tax if option turned on */
     if ( !empty( $wpi_settings['use_global_tax'] ) && $wpi_settings['use_global_tax'] == 'true' && !empty( $wpi_settings['global_tax'] ) ) {
       $this->data['tax'] = (float)$wpi_settings['global_tax'];
     }
@@ -213,7 +222,7 @@ class WPI_Invoice {
     );
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
-    // Set Random Invoice Id
+    //** Set Random Invoice Id */
     $this->data['invoice_id'] = ($invoice_id ? $invoice_id : rand(10000000, 99999999));
 
     if (!empty ($subject)) {
@@ -226,11 +235,11 @@ class WPI_Invoice {
       $this->data['meta']['custom_id'] = $custom_id;
     }
 
-    // Load Globals
+    //** Load Globals */
     $this->data = array_merge($this->data, $wpi_settings['globals']);
-    // Default Currency
+    //** Default Currency */
     $this->data['default_currency_code'] = $wpi_settings['currency']['default_currency_code'];
-    // Default payment method
+    //** Default payment method */
 		$dpm = '';
     foreach ( $wpi_settings['billing'] as $key => $value) {
       if ( WPI_Functions::is_true( $value['allow'] ) && $value['default_option'] == 'true' ) {
@@ -238,35 +247,40 @@ class WPI_Invoice {
       }
     }
 		$this->data['default_payment_method'] = $dpm;
-    // Default Billings
-    // Merge billings to get available billings - A.K.
+    //** Default Billings */
+    //** Merge billings to get available billings - A.K. */
     WPI_Functions::merge_billings( $wpi_settings['billing'], $this->data['billing'] );
-    //$this->data['billing'] = $wpi_settings['billing'];
+    //** $this->data['billing'] = $wpi_settings['billing']; */
   }
 
+  /**
+   * Much like load_invoice, but only loads information that should be copied to a new invoice
+   * For example, user-specific informaiton is excluded
+   * @param type $args
+   */
+  function load_template($args = '') {
+    $defaults = array (
+        'id' => ''
+    );
+    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
-    /**
-    Much like load_invoice, but only loads information that should be copied to a new invoice
-    For example, user-specific informaiton is excluded
-    */
-    function load_template($args = '') {
-      $defaults = array (
-          'id' => ''
-      );
-      extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    $this->load_invoice("id=".$id);
 
-      $this->load_invoice("id=".$id);
-
-      $this->data['invoice_id'] = (!empty($invoice_id) ? $invoice_id : rand(10000000, 99999999));
-      $this->data['post_status'] = 'active';
-      $this->data['adjustments'] = 0;
-      $this->data['total_payments'] = 0;
-      unset($this->data['ID']);
-    }
+    $this->data['invoice_id'] = (!empty($invoice_id) ? $invoice_id : rand(10000000, 99999999));
+    $this->data['post_status'] = 'active';
+    $this->data['adjustments'] = 0;
+    $this->data['total_payments'] = 0;
+    unset($this->data['ID']);
+  }
 
   /**
    * Loads invoice information
    * Overwrites globals
+   * @global type $wpdb
+   * @global type $wpi_settings
+   * @global type $blog_id
+   * @param type $args
+   * @return type
    */
   function load_invoice($args = '') {
     global $wpdb, $wpi_settings, $blog_id;
@@ -314,10 +328,10 @@ class WPI_Invoice {
     if($blog_id == 1) {
       $ms_blog_query = " AND ( blog_id = {$blog_id} OR blog_id = 0) ";
     } else {
-      $ms_blog_query = " AND blog_id = {$blog_id} ";
+      $ms_blog_query = " AND blog_id = '{$blog_id}' ";
     }
 
-    $object_log = $wpdb->get_results("SELECT * FROM {$wpdb->base_prefix}wpi_object_log WHERE object_id = '{$id}' $ms_blog_query", ARRAY_A);
+    $object_log = $wpdb->get_results("SELECT * FROM {$wpdb->base_prefix}wpi_object_log WHERE object_id = '{$id}' $ms_blog_query ORDER BY ID", ARRAY_A);
 
     if(!empty($object_log)) {
       $invoice_data['log'] = $object_log;
@@ -342,43 +356,6 @@ class WPI_Invoice {
     if( $return ) {
       return $this->data;
     }
-  }
-
-  /**
-   * Figure out status of invoice
-   *
-   * @TODO: Update it
-   * @return type
-   */
-  function run_reports() {
-      if($this->data['amount'] == '0')
-          $reports['status'] = 'paid';
-      if($this->data['amount'] > '0')
-          $reports['status'] =  'balance_due';
-      if($this->data['amount'] < '0')
-          $reports['status'] =  'negative_balance';
-      if($this->data['is_recurring']) {
-          // How many cycles have we passed since start?
-          $start_date = $this->data['meta']['invoice_date'];
-          $current_date['year']     = date('Y');
-          $current_date['month']     = date('n');
-          $current_date['day']         = date('d');
-          switch ($this->data['meta']['recurring']['unit']) {
-              case '1-month':
-                  // How many month cycles.  The last part figures out if we need add another cycle based on the dates.
-                  $reports['cycles'] = (($current_date['year'] - $start_date['year']) * 12) - $start_date['month'] + $current_date['month'] + (($current_date['day'] - $start_date['day'] > 0) ? 1 : 0);
-              break;
-              case '1-week':
-                  $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 7));
-              break;
-              case '2-week':
-                  $reports['cycles'] = round((WPI_Functions::days_since($start_date['year'] . $start_date['month'] . $start_date['day'], true) / 14));
-              break;
-          }
-          $reports['lifetime_total'] = $reports['cycles'] * $this->data['amount'];
-          $reports['total_paid_in'] = $this->query_log("paid_in=true");
-      }
-      return $reports;
   }
 
   /**
@@ -712,7 +689,7 @@ class WPI_Invoice {
       $ms_blog_query = " AND blog_id = {$blog_id} ";
     }
 
-    $this->data['log'] = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}wpi_object_log WHERE object_id = '".wpi_invoice_id_to_post_id($invoice_id)."' {$ms_blog_query}  ", ARRAY_A);
+    $this->data['log'] = $wpdb->get_results("SELECT * FROM {$wpdb->base_prefix}wpi_object_log WHERE object_id = '".wpi_invoice_id_to_post_id($invoice_id)."' {$ms_blog_query}  ", ARRAY_A);
 
     //** Calculate adjustments and refunds */
     if(is_array($this->data['log'])) {

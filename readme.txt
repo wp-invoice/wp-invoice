@@ -4,7 +4,7 @@ Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 3.08.5
+Stable tag: 3.08.6
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description ==
@@ -81,6 +81,9 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 == Upgrade Notice ==
 
+= Version 3.08.6 =
+* Fixed conflicts with Simple Facebook Connect and SEO by Yoast plugins.
+
 = Version 3.08.4 =
 * Strongly recommended upgrade.
 * Fixes blank settings page.
@@ -95,6 +98,20 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 * New features.
 
 == Change Log ==
+
+= Version 3.08.6 =
+* Fixed issue with Invoice History widget.
+* Fixed specific invoice page for some cases when it doesn't appear.
+* Updated Single Page Checkout feature.
+* Updated PDF Premium Feature.
+* Fixed paid amount for invoices list.
+* Fixed invoice time in order to GMT offset.
+* Improved Premium Features Updater.
+* Removed PayPal button URL option. Was not used.
+* Fixed conflicts with Simple Facebook Connect and SEO by Yoast plugins.
+* Fixed issues with MS instalations.
+* Localization Updates.
+* UI improvements.
 
 = Version 3.08.5 =
 * Fixed Premium Feature update issue.

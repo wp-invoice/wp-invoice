@@ -661,7 +661,7 @@ class WPI_Settings_page {
             <th style="width:400px;"><?php _e("Name & Description", WPI) ?></th>
             <th style="width:40px;"><?php _e("Qty.", WPI) ?></th>
             <th style="width:40px;"><?php _e("Price", WPI) ?></th>
-            <th style="width:40px;"><?php _e("Tax", WPI) ?></th>
+            <th style="width:40px;"><?php _e("Tax %", WPI) ?></th>
             <th style="width:40px;"><?php _e("Total", WPI) ?></th>
           </tr>
         </thead>
@@ -855,7 +855,7 @@ class WPI_Settings_page {
       <?php endforeach;
     else: ?>
         <tr>
-          <td class="wpi_features_not_found"><?php _e('There are no available premium features.', WPI); ?></td><td></td>
+          <td class="wpi_features_not_found"><?php _e('There are no available premium features. Try clicking Check Updates button above.', WPI); ?></td><td></td>
         </tr>
     <?php endif; ?>
     </table> <?php

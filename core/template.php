@@ -115,7 +115,9 @@ function wpi_invoice_lookup($args = '') {
  * @param array $args
  */
 function wp_invoice_history($args = '') {
+  ob_start();
   echo the_widget('InvoiceHistoryWidget', $args);
+  return ob_get_clean();
 }
 
 ?>
