@@ -1,59 +1,83 @@
 K 25
 svn:wc:ra_dav:version-url
-V 43
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js
+V 44
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js
 END
-wp-invoice-1.8.js
+jquery.idTabs.min.js
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/wp-invoice-1.8.js
+V 65
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.idTabs.min.js
 END
 jquery.tablesorter.min.js
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.tablesorter.min.js
+V 70
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.tablesorter.min.js
+END
+wp-invoice-1.8.4.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/wp-invoice-1.8.4.js
+END
+jquery-ui-1.7.1.custom.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery-ui-1.7.1.custom.min.js
+END
+jquery.cookie.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.cookie.js
 END
 jquery.delegate-1.1.min.js
 K 25
 svn:wc:ra_dav:version-url
-V 70
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.delegate-1.1.min.js
+V 71
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.delegate-1.1.min.js
 END
 jquery-impromptu.1.7.js
 K 25
 svn:wc:ra_dav:version-url
-V 67
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery-impromptu.1.7.js
+V 68
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery-impromptu.1.7.js
 END
 jquery.calculation.min.js
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.calculation.min.js
+V 70
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.calculation.min.js
 END
 jquery.autogrow-textarea.js
 K 25
 svn:wc:ra_dav:version-url
-V 71
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.autogrow-textarea.js
+V 72
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.autogrow-textarea.js
 END
 jquery.form.js
 K 25
 svn:wc:ra_dav:version-url
-V 58
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.form.js
+V 59
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.form.js
+END
+jquery.formatCurrency.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.formatCurrency.js
 END
 jquery.maskedinput.js
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.maskedinput.js
+V 66
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.maskedinput.js
 END
 jquery.field.min.js
 K 25
 svn:wc:ra_dav:version-url
-V 63
-/!svn/ver/88423/wp-invoice/tags/1.8/core/js/jquery.field.min.js
+V 64
+/!svn/ver/110359/wp-invoice/tags/1.9/core/js/jquery.field.min.js
 END

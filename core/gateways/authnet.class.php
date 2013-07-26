@@ -169,4 +169,3 @@ class WP_Invoice_Authnet
     }
 }
 
-?>

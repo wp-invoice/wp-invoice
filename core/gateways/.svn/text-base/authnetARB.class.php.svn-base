@@ -238,5 +238,3 @@ class WP_Invoice_AuthnetARB
         return $this->subscrId;
     }
 }
-
-?>

@@ -1,0 +1,1200 @@
+# Copyright (C) YEAR S H Mohanjith
+# This file is distributed under the same license as the PACKAGE package.
+#
+# , 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: web-invoice\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/web-invoice\n"
+"POT-Creation-Date: 2009-03-24 15:07+0000\n"
+"PO-Revision-Date: 2009-03-24 20:56+0530\n"
+"Last-Translator: S H Mohanjith <moha@mohanjith.net>\n"
+"Language-Team: American English <kde-i18n-doc@lists.kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: Display.php:41
+msgid "Invoice Overview"
+msgstr ""
+
+#: Display.php:46
+#: Display.php:200
+msgid "-- Actions --"
+msgstr ""
+
+#: Display.php:47
+#: Display.php:201
+msgid "Send Invoice(s)"
+msgstr ""
+
+#: Display.php:48
+msgid "Send Reminder(s)"
+msgstr ""
+
+#: Display.php:49
+#: Display.php:202
+msgid "Archive Invoice(s)"
+msgstr ""
+
+#: Display.php:50
+#: Display.php:203
+msgid "Un-Archive Invoice(s)"
+msgstr ""
+
+#: Display.php:51
+msgid "Mark as Sent"
+msgstr ""
+
+#: Display.php:52
+msgid "Mark as Paid"
+msgstr ""
+
+#: Display.php:53
+#: Display.php:205
+msgid "Delete"
+msgstr ""
+
+#: Display.php:60
+msgid "Filter:"
+msgstr ""
+
+#: Display.php:61
+msgid "All Invoices"
+msgstr ""
+
+#: Display.php:62
+msgid "Paid"
+msgstr ""
+
+#: Display.php:63
+msgid "Unpaid"
+msgstr ""
+
+#: Display.php:64
+msgid "Custom: "
+msgstr ""
+
+#: Display.php:74
+#: Display.php:224
+msgid "Invoice Id"
+msgstr ""
+
+#: Display.php:75
+#: Display.php:225
+#: Display.php:606
+msgid "Subject"
+msgstr ""
+
+#: Display.php:76
+#: Display.php:226
+msgid "Amount"
+msgstr ""
+
+#: Display.php:77
+#: Display.php:227
+msgid "Status"
+msgstr ""
+
+#: Display.php:78
+#: Display.php:228
+msgid "User"
+msgstr ""
+
+#: Display.php:121
+#: Display.php:272
+msgid " Paid"
+msgstr ""
+
+#: Display.php:129
+#: Display.php:280
+msgid "Sent Today. "
+msgstr ""
+
+#: Display.php:130
+#: Display.php:281
+msgid "Sent Yesterday. "
+msgstr ""
+
+#: Display.php:131
+#: Display.php:282
+#, php-format
+msgid "Sent %s days ago. "
+msgstr ""
+
+#: Display.php:134
+#: Display.php:285
+msgid "Not Sent"
+msgstr ""
+
+#: Display.php:145
+#: Display.php:299
+msgid "View Web Invoice"
+msgstr ""
+
+#: Display.php:154
+msgid "You have not created any invoices yet, "
+msgstr ""
+
+#: Display.php:154
+#: Display.php:308
+msgid "create one now."
+msgstr ""
+
+#: Display.php:161
+#: Display.php:315
+msgid "Show / Hide Archived"
+msgstr ""
+
+#: Display.php:184
+msgid "Recurring Billing Overview"
+msgstr ""
+
+#: Display.php:188
+#, php-format
+msgid ""
+"You need a credit card processing account to use recurring billing. </b>\r\n"
+"\t\t\tYou may get an ARB (Automated Recurring Billing) account from %1$s (800-546-1997),\r\n"
+"\t\t\t%2$s (888-845-9457) or\r\n"
+"\t\t\t%3$s (866-400-9706)."
+msgstr ""
+
+#: Display.php:192
+msgid "Once you have an account, enter in your username and transaction key into the "
+msgstr ""
+
+#: Display.php:192
+msgid "settings page"
+msgstr ""
+
+#: Display.php:204
+msgid "Stop Recurring Billing"
+msgstr ""
+
+#: Display.php:205
+msgid "If you delete a recurring invoice, the subscription will be cancelled."
+msgstr ""
+
+#: Display.php:207
+msgid "Apply"
+msgstr ""
+
+#: Display.php:212
+msgid "Filter: "
+msgstr ""
+
+#: Display.php:288
+msgid "Active Recurring"
+msgstr ""
+
+#: Display.php:308
+msgid "You have not created any recurring invoices yet, "
+msgstr ""
+
+#: Display.php:325
+msgid "Save and Preview"
+msgstr ""
+
+#: Display.php:327
+msgid "This is what your invoice will appear like in the email message. The recipient will see the itemized list after following their link to your website."
+msgstr ""
+
+#: Display.php:353
+msgid "Do not use the back button or you could have duplicates."
+msgstr ""
+
+#: Display.php:453
+msgid "Invoice page not selected. "
+msgstr ""
+
+#: Display.php:454
+msgid "Payment method not set. "
+msgstr ""
+
+#: Display.php:456
+msgid "Visit "
+msgstr ""
+
+#: Display.php:456
+msgid " to configure."
+msgstr ""
+
+#: Display.php:460
+msgid "The plugin database tables are gone, deactivate and reactivate plugin to re-create them."
+msgstr ""
+
+#: Display.php:467
+msgid "New Web Invoice"
+msgstr ""
+
+#: Display.php:468
+msgid "Manage Invoice"
+msgstr ""
+
+#: Display.php:473
+msgid "Invoice Paid"
+msgstr ""
+
+#: Display.php:475
+#: Display.php:482
+#: Display.php:492
+#, php-format
+msgid "%s on "
+msgstr ""
+
+#: Display.php:480
+msgid "Recurring Billing Initiated"
+msgstr ""
+
+#: Display.php:488
+msgid "Recurring Billing Problems"
+msgstr ""
+
+#: Display.php:509
+msgid "Client Information"
+msgstr ""
+
+#: Display.php:516
+msgid "Your business name isn't set, go to Settings page to set it."
+msgstr ""
+
+#: Display.php:518
+#: Display.php:1640
+#: Display.php:1716
+#: Display.php:1791
+msgid "Email Address"
+msgstr ""
+
+#: Display.php:518
+msgid "Go to User Profile"
+msgstr ""
+
+#: Display.php:519
+#: Display.php:1613
+#: Display.php:1689
+#: Display.php:1770
+msgid "Billing Information"
+msgstr ""
+
+#: Display.php:524
+msgid "Set First Name"
+msgstr ""
+
+#: Display.php:525
+msgid "Set Last Name"
+msgstr ""
+
+#: Display.php:526
+msgid "Set Street Address"
+msgstr ""
+
+#: Display.php:527
+msgid "Set City"
+msgstr ""
+
+#: Display.php:528
+msgid "Set State"
+msgstr "Set State/Province/County"
+
+#: Display.php:529
+msgid "Set Zip Code"
+msgstr "Set Zip/Postal Code"
+
+#: Display.php:530
+msgid "Set Country"
+msgstr ""
+
+#: Display.php:541
+msgid "Recurring Billing"
+msgstr ""
+
+#: Display.php:544
+msgid "Create a recurring billing schedule for this invoice."
+msgstr ""
+
+#: Display.php:551
+msgid "A name to identify this subscription by in addition to the invoice id. (ex: 'standard hosting')"
+msgstr ""
+
+#: Display.php:551
+msgid "Subscription Name"
+msgstr ""
+
+#: Display.php:556
+msgid "Start Date"
+msgstr ""
+
+#: Display.php:560
+msgid "Start automatically as soon as the customer enters their billing information. "
+msgstr ""
+
+#: Display.php:560
+msgid "Specify Start Date"
+msgstr ""
+
+#: Display.php:565
+#: Display.php:716
+msgid "In One Week"
+msgstr ""
+
+#: Display.php:566
+#: Display.php:717
+msgid "In 30 Days"
+msgstr ""
+
+#: Display.php:567
+msgid "Start automatically"
+msgstr ""
+
+#: Display.php:573
+msgid "This will be the number of times the client will be billed. (ex: 12)"
+msgstr ""
+
+#: Display.php:573
+msgid "Bill Every"
+msgstr ""
+
+#: Display.php:575
+msgid "month(s)"
+msgstr ""
+
+#: Display.php:575
+msgid "days"
+msgstr ""
+
+#: Display.php:579
+msgid "Keep it under the maximum of 9999."
+msgstr ""
+
+#: Display.php:579
+msgid "Total Billing Cycles"
+msgstr ""
+
+#: Display.php:585
+msgid "All <b>recurring billing</b> fields must be filled out to activate recurring billing. "
+msgstr ""
+
+#: Display.php:585
+msgid "Cancel Recurring Billing"
+msgstr ""
+
+#: Display.php:595
+msgid "Invoice Details"
+msgstr ""
+
+#: Display.php:614
+msgid "Description / PO"
+msgstr ""
+
+#: Display.php:617
+msgid "Itemized List"
+msgstr ""
+
+#: Display.php:621
+msgid "ID"
+msgstr ""
+
+#: Display.php:622
+msgid "Name"
+msgstr ""
+
+#: Display.php:623
+msgid "Description"
+msgstr ""
+
+#: Display.php:624
+msgid "Quantity"
+msgstr ""
+
+#: Display.php:625
+msgid "Unit Price"
+msgstr ""
+
+#: Display.php:626
+msgid "Total"
+msgstr ""
+
+#: Display.php:649
+msgid "Add Another Item"
+msgstr ""
+
+#: Display.php:654
+msgid "Invoice Total:"
+msgstr ""
+
+#: Display.php:659
+msgid "Recurring Invoice Total:"
+msgstr ""
+
+#: Display.php:673
+msgid "Publish"
+msgstr ""
+
+#: Display.php:682
+msgid "Invoice ID "
+msgstr ""
+
+#: Display.php:685
+msgid "Custom Invoice ID"
+msgstr ""
+
+#: Display.php:691
+msgid "Tax "
+msgstr ""
+
+#: Display.php:698
+msgid "Currency"
+msgstr ""
+
+#: Display.php:710
+msgid "Due Date"
+msgstr ""
+
+#: Display.php:718
+msgid "Clear"
+msgstr ""
+
+#: Display.php:749
+msgid "This Invoice's History "
+msgstr ""
+
+#: Display.php:749
+msgid "Clear Log"
+msgstr ""
+
+#: Display.php:769
+msgid "Web Invoice Setup Steps"
+msgstr ""
+
+#: Display.php:784
+msgid "Your clients will have to follow their secure link to this page to see their invoice. Opening this page without following a link will result in the standard page content begin shown."
+msgstr ""
+
+#: Display.php:784
+msgid "Select a page to display your web invoices"
+msgstr ""
+
+#: Display.php:799
+msgid "Select how you want to accept money:"
+msgstr ""
+
+#: Display.php:802
+#: Display.php:1067
+#: Display.php:1567
+msgid "PayPal"
+msgstr ""
+
+#: Display.php:803
+#: Display.php:1068
+#: Display.php:1564
+msgid "Moneybookers"
+msgstr ""
+
+#: Display.php:804
+#: Display.php:1069
+#: Display.php:1561
+msgid "AlertPay"
+msgstr ""
+
+#: Display.php:805
+#: Display.php:1070
+msgid "Credit Card"
+msgstr ""
+
+#: Display.php:808
+msgid "Your PayPal username: "
+msgstr ""
+
+#: Display.php:811
+msgid "Your Moneybookers username: "
+msgstr ""
+
+#: Display.php:812
+#: Display.php:1085
+msgid "Do you need a Moneybookers account?"
+msgstr ""
+
+#: Display.php:815
+msgid "Enable Moneybookers payment notifications: "
+msgstr ""
+
+#: Display.php:817
+#: Display.php:838
+#: Display.php:986
+#: Display.php:997
+#: Display.php:1018
+#: Display.php:1029
+#: Display.php:1092
+#: Display.php:1116
+msgid "yes"
+msgstr ""
+
+#: Display.php:818
+#: Display.php:839
+#: Display.php:987
+#: Display.php:998
+#: Display.php:1019
+#: Display.php:1030
+#: Display.php:1093
+#: Display.php:1117
+msgid "no"
+msgstr ""
+
+#: Display.php:822
+msgid "Moneybookers payment notification secret: "
+msgstr ""
+
+#: Display.php:826
+msgid "Moneybookers payment notification IP: "
+msgstr ""
+
+#: Display.php:831
+msgid "Your AlertPay username: "
+msgstr ""
+
+#: Display.php:833
+#: Display.php:1110
+msgid "Do you need an AlertPay account?"
+msgstr ""
+
+#: Display.php:836
+#: Display.php:1114
+msgid "Enable AlertPay IPN:"
+msgstr ""
+
+#: Display.php:841
+#: Display.php:1119
+msgid "Your alert URL is"
+msgstr ""
+
+#: Display.php:842
+msgid "Copy this link"
+msgstr ""
+
+#: Display.php:843
+#: Display.php:1121
+msgid "Please note that AlertPay has issues with some SSL certificates. (Your milage may vary)."
+msgstr ""
+
+#: Display.php:847
+msgid "AlertPay IPN security code: "
+msgstr ""
+
+#: Display.php:851
+#: Display.php:1145
+msgid "Your credit card processor will provide you with a gateway username."
+msgstr ""
+
+#: Display.php:851
+#: Display.php:1145
+msgid "Gateway Username"
+msgstr ""
+
+#: Display.php:856
+msgid "You will be able to generate this in our credit card processor's control panel."
+msgstr ""
+
+#: Display.php:856
+#: Display.php:1152
+msgid "Gateway Transaction Key"
+msgstr ""
+
+#: Display.php:861
+#: Display.php:1160
+msgid "Gateway URL"
+msgstr ""
+
+#: Display.php:867
+msgid "Send an invoice:"
+msgstr ""
+
+#: Display.php:888
+#: Display.php:944
+#: Display.php:1120
+msgid "Save Settings and Create Invoice"
+msgstr ""
+
+#: Display.php:911
+msgid "Invoice Settings"
+msgstr ""
+
+#: Display.php:917
+msgid "Select the page where your invoices will be displayed. Clients must follow their secured link, simply opening the page will not show any invoices."
+msgstr ""
+
+#: Display.php:917
+msgid "Page to Display Invoices"
+msgstr ""
+
+#: Display.php:934
+msgid "If your website has an SSL certificate and you want to use it, the link to the invoice will be formatted for https."
+msgstr ""
+
+#: Display.php:934
+msgid "Protocol to Use for Invoice URLs"
+msgstr ""
+
+#: Display.php:948
+#: Display.php:1059
+msgid "Yes"
+msgstr ""
+
+#: Display.php:949
+#: Display.php:1059
+msgid "No"
+msgstr ""
+
+#: Display.php:950
+msgid "Do you need an SSL Certificate?"
+msgstr ""
+
+#: Display.php:955
+msgid "Business Name:"
+msgstr ""
+
+#: Display.php:961
+msgid "This will display on the invoice page when printed for clients' records."
+msgstr ""
+
+#: Display.php:961
+msgid "Business Address"
+msgstr ""
+
+#: Display.php:968
+msgid "Business Phone"
+msgstr ""
+
+#: Display.php:975
+msgid "Address used to send out e-mail to client with web invoice link."
+msgstr ""
+
+#: Display.php:975
+msgid "Return eMail Address"
+msgstr ""
+
+#: Display.php:982
+msgid "An email will be sent automatically to client thanking them for their payment."
+msgstr ""
+
+#: Display.php:982
+msgid "Send Payment Confirmation"
+msgstr ""
+
+#: Display.php:993
+msgid "Send a copy of email sent to client thanking them to you."
+msgstr ""
+
+#: Display.php:993
+msgid "CC Payment Confirmation"
+msgstr ""
+
+#: Display.php:1004
+msgid "Minimum User Level to Manage web-invoice"
+msgstr ""
+
+#: Display.php:1006
+msgid "Subscriber"
+msgstr ""
+
+#: Display.php:1006
+msgid "Contributor"
+msgstr ""
+
+#: Display.php:1006
+msgid "Author"
+msgstr ""
+
+#: Display.php:1006
+msgid "Editor"
+msgstr ""
+
+#: Display.php:1006
+msgid "Administrator"
+msgstr ""
+
+#: Display.php:1011
+msgid "Invoice Page Display Settings"
+msgstr ""
+
+#: Display.php:1014
+msgid "Disable this if you want to use your own stylesheet."
+msgstr ""
+
+#: Display.php:1014
+msgid "Use CSS"
+msgstr ""
+
+#: Display.php:1025
+msgid "Show your business name and address on invoice."
+msgstr ""
+
+#: Display.php:1025
+msgid "Show Address on Invoice"
+msgstr ""
+
+#: Display.php:1037
+msgid "Show quantity breakdowns in the itemized list on the front-end."
+msgstr ""
+
+#: Display.php:1037
+msgid "Quantities on Front End"
+msgstr ""
+
+#: Display.php:1039
+msgid "Show"
+msgstr ""
+
+#: Display.php:1040
+msgid "Hide"
+msgstr ""
+
+#: Display.php:1046
+msgid "Payment Settings"
+msgstr ""
+
+#: Display.php:1050
+msgid "Default Currency:"
+msgstr ""
+
+#: Display.php:1057
+msgid "Special proxy must be used to process credit card transactions on GoDaddy servers."
+msgstr ""
+
+#: Display.php:1057
+msgid "Using Godaddy Hosting"
+msgstr ""
+
+#: Display.php:1064
+msgid "Payment Method:"
+msgstr ""
+
+#: Display.php:1076
+msgid "PayPal Username"
+msgstr ""
+
+#: Display.php:1082
+msgid "Moneybookers Username"
+msgstr ""
+
+#: Display.php:1090
+msgid "Enable Moneybookers payment notifications:"
+msgstr ""
+
+#: Display.php:1098
+msgid "Moneybookers payment notification secret:"
+msgstr ""
+
+#: Display.php:1102
+msgid "Moneybookers payment notification IP:"
+msgstr ""
+
+#: Display.php:1107
+msgid "Your AlertPay username:"
+msgstr ""
+
+#: Display.php:1125
+msgid "AlertPay IPN security code:"
+msgstr ""
+
+#: Display.php:1129
+#: Display.php:1179
+msgid "Test / Live Mode:"
+msgstr ""
+
+#: Display.php:1132
+#: Display.php:1182
+msgid "Test - Do Not Process Transactions"
+msgstr ""
+
+#: Display.php:1133
+#: Display.php:1183
+msgid "Live - Process Transactions"
+msgstr ""
+
+#: Display.php:1152
+msgid "You will be able to generate this in your credit card processor's control panel."
+msgstr ""
+
+#: Display.php:1160
+msgid "This is the URL provided to you by your credit card processing company."
+msgstr ""
+
+#: Display.php:1163
+msgid "MerchantPlus"
+msgstr ""
+
+#: Display.php:1164
+msgid "Authorize.Net"
+msgstr ""
+
+#: Display.php:1165
+msgid "Authorize.Net Developer"
+msgstr ""
+
+#: Display.php:1170
+msgid "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode."
+msgstr ""
+
+#: Display.php:1170
+msgid "Recurring Billing Gateway URL"
+msgstr ""
+
+#: Display.php:1173
+msgid "Authorize.net ARB"
+msgstr ""
+
+#: Display.php:1174
+msgid "Authorize.Net ARB Testing"
+msgstr ""
+
+#: Display.php:1189
+msgid "Advanced Gateway Settings"
+msgstr ""
+
+#: Display.php:1193
+msgid "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong."
+msgstr ""
+
+#: Display.php:1193
+msgid "Delimiter Character"
+msgstr ""
+
+#: Display.php:1200
+msgid "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong."
+msgstr ""
+
+#: Display.php:1200
+msgid "Encapsulation Character"
+msgstr ""
+
+#: Display.php:1207
+msgid "Merchant Email"
+msgstr ""
+
+#: Display.php:1216
+msgid "Email Customer (on success):"
+msgstr ""
+
+#: Display.php:1219
+#: Display.php:1244
+msgid "True"
+msgstr ""
+
+#: Display.php:1220
+#: Display.php:1245
+msgid "False"
+msgstr ""
+
+#: Display.php:1226
+msgid "Customer Receipt Email Header"
+msgstr ""
+
+#: Display.php:1234
+msgid "Security: MD5 Hash"
+msgstr ""
+
+#: Display.php:1241
+msgid "Delim Data:"
+msgstr ""
+
+#: Display.php:1252
+msgid "Update"
+msgstr ""
+
+#: Display.php:1259
+msgid "Remove All Web Invoice Databases"
+msgstr ""
+
+#: Display.php:1259
+msgid "Only do this if you want to completely remove the plugin.  All invoices and logs will be gone... forever."
+msgstr ""
+
+#: Display.php:1268
+msgid "Do you need to accept credit cards?"
+msgstr ""
+
+#: Display.php:1350
+msgid "Item"
+msgstr ""
+
+#: Display.php:1350
+msgid "Cost"
+msgstr ""
+
+#: Display.php:1444
+msgid "Billing / Invoicing Info"
+msgstr ""
+
+#: Display.php:1449
+msgid "Street Address"
+msgstr ""
+
+#: Display.php:1454
+#: Display.php:1655
+#: Display.php:1736
+#: Display.php:1806
+msgid "City"
+msgstr ""
+
+#: Display.php:1459
+#: Display.php:1660
+#: Display.php:1741
+#: Display.php:1811
+msgid "State"
+msgstr "State/Province/County"
+
+#: Display.php:1461
+msgid "Use two-letter state codes for safe credit card processing."
+msgstr ""
+
+#: Display.php:1465
+msgid "ZIP Code"
+msgstr "Zip/Postal Code"
+
+#: Display.php:1470
+#: Display.php:1645
+#: Display.php:1724
+#: Display.php:1796
+msgid "Phone Number"
+msgstr ""
+
+#: Display.php:1472
+msgid "Enforce 555-555-5555 format if you are using PayPal."
+msgstr ""
+
+#: Display.php:1476
+#: Display.php:1670
+#: Display.php:1751
+#: Display.php:1821
+msgid "Country"
+msgstr ""
+
+#: Display.php:1483
+msgid "Create New Invoice For This User"
+msgstr ""
+
+#: Display.php:1506
+#, php-format
+msgid "%s, thank you for your payment!"
+msgstr ""
+
+#: Display.php:1507
+#, php-format
+msgid "Invoice %s has been paid."
+msgstr ""
+
+#: Display.php:1514
+#, php-format
+msgid "This invoice was paid on %s."
+msgstr ""
+
+#: Display.php:1521
+#, php-format
+msgid "Welcome, %s"
+msgstr ""
+
+#: Display.php:1522
+#, php-format
+msgid "We have sent you invoice <b>%1$s</b> with a total amount of %2$s"
+msgstr ""
+
+#: Display.php:1523
+#: Display.php:1861
+#, php-format
+msgid "Due Date: %s"
+msgstr ""
+
+#: Display.php:1533
+msgid "Bill From:"
+msgstr ""
+
+#: Display.php:1556
+msgid "Pay with:"
+msgstr ""
+
+#: Display.php:1558
+msgid "Visa Master American Express"
+msgstr ""
+
+#: Display.php:1630
+#: Display.php:1706
+#: Display.php:1781
+msgid "First Name"
+msgstr ""
+
+#: Display.php:1635
+#: Display.php:1711
+#: Display.php:1786
+msgid "Last Name"
+msgstr ""
+
+#: Display.php:1650
+#: Display.php:1731
+#: Display.php:1801
+msgid "Address"
+msgstr ""
+
+#: Display.php:1665
+#: Display.php:1746
+#: Display.php:1816
+msgid "Zip Code"
+msgstr "Zip/Postal Code"
+
+#: Display.php:1826
+msgid "Credit Card Number"
+msgstr ""
+
+#: Display.php:1834
+msgid "Expiration Date"
+msgstr ""
+
+#: Display.php:1835
+msgid "Month"
+msgstr ""
+
+#: Display.php:1836
+msgid "Year"
+msgstr ""
+
+#: Display.php:1840
+msgid "Security Code"
+msgstr ""
+
+#: Display.php:1846
+#, php-format
+msgid "Pay %s"
+msgstr ""
+
+#: Display.php:1862
+#, php-format
+msgid "Welcome, %s!"
+msgstr ""
+
+#: Display.php:1865
+#, php-format
+msgid "This is a recurring bill, id: <b>%s</b>."
+msgstr ""
+
+#: Display.php:1866
+#, php-format
+msgid "You will be billed %1$s in the amount of %2$s "
+msgstr ""
+
+#: Display.php:1886
+msgid "Start New Invoice For: "
+msgstr ""
+
+#: Display.php:1886
+msgid "Create New Invoice For: "
+msgstr ""
+
+#: Display.php:1905
+msgid "Create New Invoice"
+msgstr ""
+
+#: Display.php:1908
+msgid "copy from another"
+msgstr ""
+
+#: Display.php:1919
+msgid "(recurring)"
+msgstr ""
+
+#: Display.php:1923
+msgid "New Invoice from Template"
+msgstr ""
+
+#: Display.php:1923
+msgid "cancel"
+msgstr ""
+
+#: Display.php:1927
+msgid "User must have a profile to receive invoices."
+msgstr ""
+
+#: Display.php:1929
+#: Display.php:1931
+msgid "Create a new user account."
+msgstr ""
+
+#: Frontend.php:94
+msgid "<b>There are problems with your transaction:</b>"
+msgstr ""
+
+#: Frontend.php:121
+msgid "Thank you! <br />Payment processed successfully!"
+msgstr ""
+
+#: Functions.php:809
+msgid "Jan"
+msgstr ""
+
+#: Functions.php:810
+msgid "Feb"
+msgstr ""
+
+#: Functions.php:811
+msgid "Mar"
+msgstr ""
+
+#: Functions.php:812
+msgid "Apr"
+msgstr ""
+
+#: Functions.php:813
+msgid "May"
+msgstr ""
+
+#: Functions.php:814
+msgid "Jun"
+msgstr ""
+
+#: Functions.php:815
+msgid "Jul"
+msgstr ""
+
+#: Functions.php:816
+msgid "Aug"
+msgstr ""
+
+#: Functions.php:817
+msgid "Sep"
+msgstr ""
+
+#: Functions.php:818
+msgid "Oct"
+msgstr ""
+
+#: Functions.php:819
+msgid "Nov"
+msgstr ""
+
+#: Functions.php:820
+msgid "Dec"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "Web Invoice"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://mohanjith.com/wordpress/web-invoice.html"
+msgstr ""
+
+#. Description of an extension
+msgid "Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, Moneybookers, AlertPay or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href=\"admin.php?page=web_invoice_settings\">Web Invoice Settings Page</a> to setup."
+msgstr ""
+
+#. Author of an extension
+msgid "S H Mohanjith"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://mohanjith.com/"
+msgstr ""
+

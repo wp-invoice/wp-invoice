@@ -1,3 +1,96 @@
+.wp_invoice_tabbed_content  ul {
+	margin-left:10px;
+	position:relative;
+	top:1px;
+	z-index:100;
+}
+
+.wp_invoice_email_templates textarea {height: 150px;  }
+
+
+
+.wp_invoice_explanation{background: #F1F1F1;}
+
+
+.wp_invoice_tabbed_content li { list-style:none; float:left; margin-bottom:0;}
+.wp_invoice_tabbed_content ul a {
+text-decoration:none;
+  -moz-border-radius-bottomleft:0;
+-moz-border-radius-bottomright:0;
+-moz-border-radius-topleft:3px;
+-moz-border-radius-topright:3px;
+border-style:solid;
+border-width:1px;
+cursor:pointer;
+display:block;
+height:18px;
+margin:5px 5px 0 0;
+padding:4px 5px 2px;
+background-color:#F1F1F1;
+border-color:#DFDFDF;
+color:#999999;
+
+}
+
+.wp_settings_toolbar {
+background-image:url(images/ed-bg.gif);
+background-position:left top;
+background-repeat:repeat-x;
+border-style:none none solid;
+border-width:0 0 1px;
+background-color:#DFDFDF;
+border-color:#DFDFDF;
+padding:2px;
+}
+
+.wp_invoice_tab {
+-moz-border-radius-bottomleft:0;
+-moz-border-radius-bottomright:0;
+-moz-border-radius-topleft:6px;
+-moz-border-radius-topright:6px;
+background: #FFF;
+border-collapse:separate;
+border-style:solid;
+border-width:1px;
+border-color:#DFDFDF;
+padding-bottom: 15px;
+}
+
+
+.wp_invoice_tabbed_content ul a:hover {
+  }
+
+.wp_invoice_tabbed_content ul a.selected {
+	background-color:#FFFFFF;
+	border-bottom:0 none;
+	color:#333333;
+	cursor:default;
+	padding-bottom:3px;
+}
+
+.wp_invoice_tabbed_content div {
+  padding:10px 10px 20px 10px;
+  *padding-top:3px;
+  *margin-top:-15px;
+  clear:left;
+}
+.wp_invoice_tabbed_content .wrap {
+	padding:0;
+}
+
+
+
+
+
+
+
+#wp_invoice_email_message_content {
+border:1px dotted #000000;
+height:300px;
+padding:10px;
+width:100%;
+}
+
 .light_text {font-size: .8em; }
 .form-table .invoice_main {background: #FFF;}
 .invoice_main .invoice_description_box{width: 90%;  height: 130px; padding: 4px;}
@@ -7,7 +100,7 @@
 .itemized_list td {padding: 3px;}
 .itemized_list th {padding: 3px;}
 .itemized_list .id {display:none; visibility:hidden;}
-
+.wp_invoice_tamp_stamp {color: #B4BFA7;}
 #wp_invoice_tooltip{
 	position:absolute;
 	border:1px solid #E6DB55;
@@ -30,15 +123,13 @@
 	padding:1px;
 }
 
-.wp_invoice_paid {background: #F0FFDF !important; border: 1px solid #DBEFC2 !important; padding-bottom: 15px;}
+.wp_invoice_status {background: #F0FFDF !important; border: 1px solid #DBEFC2 !important; padding-bottom: 15px;}
 #get_user_info select option { padding-right: 10px; }
 .wp_invoice_copy_invoice {display:none; margin-top:5px;}
 .wp_invoice_hidden {display:none;}
 .wp_invoice_make_editable:hover {cursor: pointer; color:#FF7200;}
 .wp_invoice_unset {color: #8F8F8F;}
 .wp_invoice_click_me, .wp_invoice_click_me a{cursor: pointer; color:#FF7200; text-decoration:none; font-size: 11px;}
-#wp_invoice_first_time_setup .paypal_info {display:none;}
-#wp_invoice_first_time_setup .gateway_info {display:none;}
 #wp_invoice_first_time_setup input {width: 300px;}
 #wp_invoice_first_time_setup select{margin-left: 10px; }
 #wp_invoice_first_time_setup select option{padding-right: 10px;}
@@ -85,9 +176,7 @@
 
 .no_style_list {list-style-type:none;padding:0;margin:0;}
 #invoice_history_log {margin-left:10px;}
-#settings_page_table  .gateway_info  {display:none;}
-#settings_page_table  .paypal_info  {display:none;}
-#settings_page_table  .input_field, #settings_page_table  textarea  {width: 340px;}
+#wp_invoice_settings_page  .input_field, #wp_invoice_billing_information   .input_field, #wp_invoice_settings_page  textarea  {width: 400px;}
 #wp_invoice_enable_recurring_billing {padding: 20px;}
 .clearfix:after { content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
 .clearfix { display: inline-block; }
@@ -101,3 +190,6 @@ div.jqi .jqicontainer{ background-color: #d2d2e2; padding: 5px; color: #ffffff; 
 div.jqi .jqimessage{ background-color: #ababca; padding: 10px; }
 div.jqi .jqibuttons{ text-align: center; padding: 5px 0 0 0; }
 div.jqi button{ padding: 3px 10px 3px 10px; margin: 0 10px; }
+
+.wp_invoice_stats {color: #9F9F9F; padding-bottom: 10px;}
+#wp_invoice_total_owed {font-weight: bold;}

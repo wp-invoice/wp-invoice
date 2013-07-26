@@ -5,10 +5,7 @@
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; version 3 of the License, with the
-    exception of the JQuery JavaScript framework which is released
-    under it's own license.  You may view the details of that license in
-    the prototype.js file.
+    the Free Software Foundation; version 3 of the License.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,39 +19,52 @@
 
 	
 function wp_invoice_the_content($content) {
-
+	$ip=$_SERVER['REMOTE_ADDR']; 
 	// check if wp_invoice_web_invoice_page is set, and that this it matches the current page, and the invoice_id is valid
 	if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_invoice_web_invoice_page'))) {
 
 	// Check to see a proper invoice id is used, or show regular content
-	if(!wp_invoice_md5_to_invoice($_GET['invoice_id'])) return $content; else $invoice_id = wp_invoice_md5_to_invoice($_GET['invoice_id']);
+	if(!wp_invoice_md5_to_invoice($_GET['invoice_id'])) return  $content; else $invoice_id = wp_invoice_md5_to_invoice($_GET['invoice_id']);
 
-	//If already paid, show thank you message
-	//if(wp_invoice_paid_status($invoice_id)) return wp_invoice_show_already_paid($invoice_id).$content;
+	$result .= "<div id=\"invoice_page\" class=\"clearfix\">";
 
-	// Show reciept if coming back from PayPal
-	if(isset($_REQUEST['receipt_id'])) return wp_invoice_show_reciept($invoice_id) ;
-
-	// Invoice viewed, update log
-	wp_invoice_update_log($invoice_id,'visited',"Viewed by $ip");
-
-	?><div id="invoice_page" class="clearfix"><?php
-
-	//If this is not recurring invoice, show regular message
-	if(!wp_invoice_recurring($invoice_id))  wp_invoice_show_invoice_overview($invoice_id);
-
-	// Show this if recurring
-	if(wp_invoice_recurring($invoice_id))  wp_invoice_show_recurring_info($invoice_id);
-
-	//Billing Business Address
-	if(get_option('wp_invoice_show_business_address') == 'yes') wp_invoice_show_business_address();
-
-	//Show Billing Information
-	wp_invoice_show_billing_information($invoice_id);
-
-
-	?></div><?php	
 		
+		//If already paid, show thank you message
+		if(wp_invoice_paid_status($invoice_id)) { $result .= wp_invoice_show_already_paid($invoice_id); $stop = true; }
+
+		// Show reciept if coming back from PayPal
+		if(isset($_REQUEST['receipt_id'])) { $result .= wp_invoice_show_paypal_reciept($invoice_id) ;  $stop = true; }
+
+		if(!$stop) { // The following is only displayed if the invoice has not been paid
+		
+		
+			ob_start();	
+
+			// Invoice viewed, update log
+			wp_invoice_update_log($invoice_id,'visited',"Viewed by $ip");
+
+
+			//If this is not recurring invoice, show regular message
+			if(!wp_invoice_recurring($invoice_id))  wp_invoice_show_invoice_overview($invoice_id);
+
+			// Show this if recurring
+			if(wp_invoice_recurring($invoice_id))  wp_invoice_show_recurring_info($invoice_id);
+
+			//Billing Business Address
+			if(get_option('wp_invoice_show_business_address') == 'yes') wp_invoice_show_business_address();
+
+			//Show Billing Information
+			wp_invoice_show_billing_information($invoice_id);
+
+			$result .= ob_get_contents();
+			ob_end_clean();
+
+		} 
+	$result .= "</div>";
+	
+	if(get_option('wp_invoice_where_to_display') == 'overwrite' || get_option('wp_invoice_where_to_display') == '' || get_option('wp_invoice_where_to_display') == 'replace_tag') return $result;
+	if(get_option('wp_invoice_where_to_display') == 'bellow_content') return $content . $result;
+	if(get_option('wp_invoice_where_to_display') == 'above_content') return $result . $content;
 
 	} else return $content;
 
@@ -62,10 +72,34 @@ function wp_invoice_the_content($content) {
 	
 	
 
-function wp_invoice_frontend_js() {
-if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_invoice_web_invoice_page')))  {
+function wp_invoice_frontend_header() {
+if(wp_invoice_md5_to_invoice($_GET['invoice_id']) && get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_invoice_web_invoice_page')))  {
+
+$invoice_id = wp_invoice_md5_to_invoice($_GET['invoice_id']);
 ?>
+
+			
 <script type="text/javascript"> 
+
+
+	function changePaymentOption(){
+		var dropdown = document.getElementById("wp_invoice_select_payment_method_selector");
+		var index = dropdown.selectedIndex;
+		var ddVal = dropdown.options[index].value;
+		var ddText = dropdown.options[index].text;
+
+		if(ddVal == 'PayPal') {
+			jQuery(".payment_info").hide();
+			jQuery(".paypal_ui").show();
+		}		
+		
+		if(ddVal == 'Credit Card') {
+			jQuery(".payment_info").hide();
+			jQuery(".cc_ui").show();
+		}
+		
+	}
+	
 
 function cc_card_pick(){
 	numLength = jQuery('#card_num').val().length;
@@ -102,12 +136,15 @@ jQuery('#wp_invoice_process_wait span').html('<img src="<?php echo WP_Invoice::f
 site_url = '<?php echo wp_invoice_curPageURL(); ?>';
 link_id = 'wp_cc_response';
 	var req = jQuery.post ( site_url, jQuery('#checkout_form').serialize(), function(html){
-			var explode = html.split("\n");
+			
+			var explode = html.toString().split('\n');
 			var shown = false;
-			var msg = '<b>There are problems with your transaction:</b><ol>';
+			var msg = '<b><?php _e('There are problems with your transaction:', WP_INVOICE_TRANS_DOMAIN); ?></b><ol>';
+			
+
 			for ( var i in explode )
 			{
-				var explode_again = explode[i].split("|");
+				var explode_again = explode[i].toString().split('|');
 				if (explode_again[0]=='error')
 				{
 					if ( ! shown ) {
@@ -128,11 +165,12 @@ link_id = 'wp_cc_response';
 			{
 			if(html == 'Transaction okay.') {
 				
+				jQuery('.online_payment_form').fadeOut("slow");
 				jQuery('#wp_cc_response').fadeIn("slow");
-				jQuery('#wp_cc_response').html("Thank you! <br />Payment processed successfully!");
+				jQuery('#wp_cc_response').html("<?php _e('Thank you! <br />Payment processed successfully!', WP_INVOICE_TRANS_DOMAIN); ?>");
 				jQuery("#credit_card_information").hide(); 
 				
-				jQuery("#welcome_message").html('Invoice Paid!');
+				jQuery("#welcome_message").html('<?php _e('Invoice Paid!', WP_INVOICE_TRANS_DOMAIN); ?>');
 				jQuery('#' + link_id).show();
 				}
 			}
@@ -156,23 +194,28 @@ function add_remove_class(search,replace,element_id)
 
 </script> 
 
-<?php } 
-
-}
-
-
-
-function wp_invoice_frontend_css() {
-if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_invoice_web_invoice_page')))  { ?>
 <meta name="robots" content="noindex, nofollow" />
 
-<?php if(get_option('wp_invoice_use_css') == 'yes') { ?>
 <style type="text/css" media="print">
 .noprint {display:none; visibility: hidden; }
 #invoice_page #invoice_overview {width: 100% !important;}
 </style>
 <style type="text/css" media="screen">
+
+.payment_info {display:none;}
+
+<?php // Cycle through payment array and display only the default payment
+$payment_array = wp_invoice_accepted_payment($invoice_id);
+foreach ($payment_array as $payment_option) { ?>
+	<?php if($payment_option['default']) { ?> #billing_overview .<?php echo $payment_option['name']; ?>_ui {display: block;} <?php  } ?>
+<?php } ?>
+
+
+
+
+<?php if(get_option('wp_invoice_use_css') == 'yes') { ?>
 #invoice_page {text-align: left; clear:both;}
+#invoice_page #billing_overview #wp_invoice_select_payment_method {padding-bottom: 20px;}
 #invoice_page #wp_cc_response{background:#FFFAE4 none repeat scroll 0 0;border-bottom:3px solid #FFE787;margin-bottom:10px;padding:6px;display:none; }
 #invoice_page #wp_cc_response .wait{text-align: center; padding: 10px 0;}
 #invoice_page #wp_cc_response ol{list-style: decimal inside;}
@@ -182,13 +225,14 @@ if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_inv
 #invoice_page input {width: 230px; border:0; background: #EFEFEF; padding: 5px;  -moz-border-radius:9px;  border-radius: 9px; }
 #invoice_page select option {padding-left: 4px;}
 #invoice_page #country {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
+#invoice_page #wp_invoice_select_payment_method select {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #cc_pay_button {width: 230px; font-size: 1.1em; color: #FFF; border:#CF7319 1px solid; background: #FFAA28; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #state {width: 235px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page #exp_month, #invoice_page #exp_year {width: 70px; border:0; background: #EFEFEF; padding: 7px;  -moz-border-radius: 5px;  border-radius: 5px; }
 #invoice_page .invoice_page_subheading {text-align:left; margin:0;}
 #invoice_page .invoice_page_subheading_gray {text-align:left; color: #ebebeb}
 #invoice_page #wp_invoice_process_wait {height: 32px;}
-#invoice_page #invoice_overview {width: 400px; float:left; padding-right: 10px; margin-right: 15px; }
+#invoice_page #invoice_overview {width: 400px; float:left; padding-right: 10px; margin-right: 15px; position: relative;}
 #invoice_page #wp_invoice_itemized_table {width: 100%; margin-bottom:10px;}
 #invoice_page #wp_invoice_itemized_table .alt_row {background: #EFEFEF}
 #invoice_page #wp_invoice_itemized_table .grand_total {font-weight:bold;}
@@ -223,9 +267,10 @@ if(get_option('wp_invoice_web_invoice_page') != '' && is_page(get_option('wp_inv
 #invoice_page.clearfix {display: inline-block;}
 html[xmlns] #invoice_page .clearfix {display: block;}
 * html #invoice_page .clearfix {height: 1%;}
+<?php } ?>
 </style>
-<?php }
-}
+
+<?php } 
+
 }
 
-?>
