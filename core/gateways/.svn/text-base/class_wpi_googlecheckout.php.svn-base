@@ -1,6 +1,6 @@
 <?php
 /**
-Name: Google Checkout
+Name: Google Wallet
 Class: wpi_googlecheckout
 Internal Slug: wpi_googlecheckout
 JS Slug: wpi_googlecheckout
@@ -31,7 +31,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
 
     //** Options if current payment venue */
     $this->options = array(
-      'name' => __('Google Checkout', WPI),
+      'name' => __('Google Wallet', WPI),
       'allow' => '',
       'default_option' => '',
       'settings' => array(
@@ -163,7 +163,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
           <?php echo WPI_UI::input("id=r_no_charge_after_jj&name=wpi_invoice[recurring][google_no_charge_after][day]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['google_no_charge_after']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
           <?php echo WPI_UI::input("id=r_no_charge_after_aa&name=wpi_invoice[recurring][google_no_charge_after][year]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['google_no_charge_after']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?>
         </div>
-        <small><?php _e('Applicable only for Google Checkout', WPI); ?></small>
+        <small><?php _e('Applicable only for Google Wallet', WPI); ?></small>
       </td>
     </tr>
     <?php
@@ -177,7 +177,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
   function billing_periods( $invoice ) {
     ?>
       <tr>
-        <th style="cursor:help;font-weight:bold;" title="<?php _e('If you use Google Checkout for subscriptions then these options will be used to determine billing period.', WPI); ?>"><?php _e('Google Checkout Billing Period', WPI); ?></th>
+        <th style="cursor:help;font-weight:bold;" title="<?php _e('If you use Google Wallet for subscriptions then these options will be used to determine billing period.', WPI); ?>"><?php _e('Google Wallet Billing Period', WPI); ?></th>
         <td>
            <?php echo WPI_UI::select("name=wpi_invoice[recurring][google_billing_period]&values=" . serialize(apply_filters('wpi_google_billing_period', array( "DAILY" => __("Daily", WPI), "WEEKLY" => __("Weekly", WPI), "SEMI_MONTHLY" => __("Semi Monthly", WPI), "MONTHLY" => __("Monthly", WPI), "EVERY_TWO_MONTHS" => __("Every Two Months", WPI), "QUARTERLY" => __("Quarterly", WPI), "YEARLY" => __("Yearly", WPI)))) . "&current_value=" . (!empty($invoice['recurring']) ? $invoice['recurring']['google_billing_period'] : '')); ?>
         </td>
@@ -317,7 +317,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
       //** Change state */
       case 'charge-amount-notification':
           /** Add payment amount */
-          $event_note = sprintf(__('%s paid via Google Checkout', WPI), WPI_Functions::currency_format(abs($_POST['total-charge-amount']), $invoice_id));
+          $event_note = sprintf(__('%s paid via Google Wallet', WPI), WPI_Functions::currency_format(abs($_POST['total-charge-amount']), $invoice_id));
           $event_amount = (float)$_POST['total-charge-amount'];
           $event_type   = 'add_payment';
           /** Log balance changes */

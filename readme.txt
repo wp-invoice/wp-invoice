@@ -4,7 +4,7 @@ Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 3.08.2
+Stable tag: 3.08.3
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description ==
@@ -52,6 +52,8 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Customize billing settings per invoice
 * Customize invoice notification email per invoice
 * Invoice notification, reminder and receipt templates
+* Export/Import Invoices [Power Tools]
+* Sales Visualization [Power Tools]
 
 == Installation ==
 
@@ -79,28 +81,20 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 == Upgrade Notice ==
 
+= Version 3.08.3 =
+* Strongly recommended upgrade.
+
 = Version 3.06.1 =
 * Critical bug fixes.
 
 = Version 3.06.0 =
 * New features.
 
-= Version 3.04.3 =
-* Total improvements.
-
-= Version 3.04.1 =
-* Critical bugs fixed.
-
-= Version 3.04.0 =
-* Core plugin filename changed, plugin may require manual re-activation after upgrade.
-
-= Version 3.01 =
-* Major fixes.
-
-= Version 3.00 =
-* Complete rewrite. Old invoice data is not deleted, please notify us if you have any upgrading issues.
-
 == Change Log ==
+
+= Version 3.08.3 =
+* Fixed critical bugs with checkboxes on settings page.
+* Fixed the ability to disable Premium Features.
 
 = Version 3.08.2 =
 * Wordpress 3.5 compatibility fixes.

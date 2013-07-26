@@ -171,7 +171,7 @@ class WPI_Settings_page {
         <td>
           <ul class="wpi_something_advanced_wrapper">
             <li><label for="wpi_tax_method"><?php _e('Calculate Taxable Subtotal', WPI) ?> <?php echo WPI_UI::select("name=tax_method&group=wpi_settings&values=" . serialize(array("after_discount" => __("After Discount", WPI), "before_discount" => __("Before Discount", WPI))) . "&current_value=" . (!empty($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : "")); ?> </label></li>
-            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), !empty($wpi_settings['use_global_tax'])?true:false); ?></li>
+            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), WPI_Functions::is_true($wpi_settings['use_global_tax'])); ?></li>
             <li class="wpi_advanced_option">
               Tax value: <?php echo WPI_UI::input("type=text&style=width:50px;&name=global_tax&group=wpi_settings&value={$wpi_settings['global_tax']}") ?>%
               <div class="description wpi_advanced_option"><?php _e("This will make all new invoices have default Tax value which can be changed for different invoice.", WPI) ?></div>
@@ -185,7 +185,6 @@ class WPI_Settings_page {
         <td>
           <ul class="wpi_settings_list">
             <li><?php echo WPI_UI::checkbox("name=allow_deposits&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
-            <!--<li><?php echo WPI_UI::checkbox("name=terms_acceptance_required&group=wpi_settings&value=true&label=" . __('Show checkbox for mandatory terms acceptance.', WPI), $wpi_settings['terms_acceptance_required']); ?></li>-->
             <li><?php echo WPI_UI::checkbox("name=show_recurring_billing&group=wpi_settings&value=true&label=" . __('Show recurring billing options.', WPI), $wpi_settings['show_recurring_billing']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=force_https&group=wpi_settings&value=true&label=" . __('Enforce HTTPS on invoice pages, if available on this server.', WPI), $wpi_settings['force_https']); ?> </li>
 
@@ -215,7 +214,7 @@ class WPI_Settings_page {
             <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", WPI); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", WPI); ?></li>
             <li class="wpi_install_custom_templates_result" style="display:none;"></li>
             <?php if (WPI_Functions::has_installed_premium_features()): ?>
-              <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), !empty($wpi_settings['disable_automatic_feature_update'])?true:false); ?></li>
+              <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true($wpi_settings['disable_automatic_feature_update'])); ?></li>
                 <?php endif; ?>
             <li>
               <label for="wpi_thousands_separator_symbol">
@@ -811,54 +810,50 @@ class WPI_Settings_page {
         <?php $active = (@$wpi_settings['installed_features'][$plugin_slug]['disabled'] != 'false' ? true : false); ?>
 
         <?php if ($installed): ?>
-                    <?php /* Do this to preserve settings after page save. */ ?>
-            <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][disabled]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['disabled'])); ?>" />
-            <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][name]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['name'])); ?>" />
-            <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][version]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['version'])); ?>" />
-            <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][description]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['description'])); ?>" />
-                    <?php endif; ?>
-          <tr class="wpi_premium_feature_block">
+          <?php /* Do this to preserve settings after page save. */ ?>
+          <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][disabled]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['disabled'])); ?>" />
+          <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][name]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['name'])); ?>" />
+          <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][version]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['version'])); ?>" />
+          <input type="hidden" name="wpi_settings[installed_features][<?php echo $plugin_slug; ?>][description]" value="<?php echo esc_attr(stripslashes($wpi_settings['installed_features'][$plugin_slug]['description'])); ?>" />
+        <?php endif; ?>
+        <tr class="wpi_premium_feature_block">
 
-            <td valign="top" class="wpi_premium_feature_image">
-                    <?php if (!empty($plugin_data['image'])) { ?>
-                <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/"><img src="<?php echo $plugin_data['image']; ?>" /></a>
-                    <?php } ?>
-            </td>
+          <td valign="top" class="wpi_premium_feature_image">
+            <?php if (!empty($plugin_data['image'])) { ?>
+              <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/"><img src="<?php echo $plugin_data['image']; ?>" /></a>
+            <?php } ?>
+          </td>
 
-            <td valign="top">
-              <div class="wpi_box">
-                <div class="wpi_box_header">
-                  <strong><?php echo $plugin_data['title']; ?></strong>
-                  <p><?php echo $plugin_data['tagline']; ?> <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/premium-features/"><?php _e('[purchase feature]', WPI) ?></a>
-                  </p>
-                </div>
-                <div class="wpi_box_content">
-                  <p><?php echo stripslashes($plugin_data['description']); ?></p>
-                </div>
-
-                <div class="wpi_box_footer clearfix">
-          <?php if ($installed) { ?>
-
-                    <div class="alignleft">
-          <?php
-          if ($wpi_settings['installed_features'][$plugin_slug]['needs_higher_wpi_version'] == 'true') {
-            printf(__('This feature is disabled because it requires WP-Invoice %1$s or higher.'), $wpi_settings['installed_features'][$plugin_slug]['minimum_wpi_version']);
-          } else {
-            echo WPI_UI::checkbox("value=true&name=wpi_settings[installed_features][$plugin_slug][disabled]&label=" . __('Disable premium feature.', WPI), $wpi_settings['installed_features'][$plugin_slug]['disabled']);
-            ?>
-                      </div>
-                      <div class="alignright"><?php _e('Feature installed, using version', WPI) ?> <?php echo $wpi_settings['installed_features'][$plugin_slug]['version']; ?>.</div>
-          <?php
-          }
-        } else {
-          $pr_link = 'https://usabilitydynamics.com/products/wp-invoice/premium/';
-          echo sprintf(__('Please visit <a href="%s">UsabilityDynamics.com</a> to purchase this feature.', WPI), $pr_link);
-        }
-        ?>
-                </div>
+          <td valign="top">
+            <div class="wpi_box">
+              <div class="wpi_box_header">
+                <strong><?php echo $plugin_data['title']; ?></strong>
+                <p><?php echo $plugin_data['tagline']; ?> <a target="_blank" href="https://usabilitydynamics.com/products/wp-invoice/premium-features/"><?php _e('[purchase feature]', WPI) ?></a></p>
               </div>
-            </td>
-          </tr>
+              <div class="wpi_box_content">
+                <p><?php echo stripslashes($plugin_data['description']); ?></p>
+              </div>
+              <div class="wpi_box_footer clearfix">
+              <?php if ($installed) { ?>
+                <div class="alignleft">
+                  <?php
+                    if ( $wpi_settings['installed_features'][$plugin_slug]['needs_higher_wpi_version'] == 'true' ) {
+                      printf(__('This feature is disabled because it requires WP-Invoice %1$s or higher.'), $wpi_settings['installed_features'][$plugin_slug]['minimum_wpi_version']);
+                    } else {
+                      echo WPI_UI::checkbox("value=true&name=wpi_settings[installed_features][$plugin_slug][disabled]&label=" . __('Disable premium feature.', WPI), $wpi_settings['installed_features'][$plugin_slug]['disabled']);
+                  ?>
+                </div>
+                <div class="alignright"><?php _e('Feature installed, using version', WPI) ?> <?php echo $wpi_settings['installed_features'][$plugin_slug]['version']; ?>.</div>
+              <?php }
+                } else {
+                  $pr_link = 'https://usabilitydynamics.com/products/wp-invoice/premium/';
+                  echo sprintf(__('Please visit <a href="%s">UsabilityDynamics.com</a> to purchase this feature.', WPI), $pr_link);
+                }
+              ?>
+              </div>
+            </div>
+          </td>
+        </tr>
       <?php endforeach;
     else: ?>
         <tr>

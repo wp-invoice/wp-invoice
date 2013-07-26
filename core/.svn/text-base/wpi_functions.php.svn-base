@@ -1993,6 +1993,8 @@ class WPI_Functions {
         'Minimum Core Version' => __('Minimum Core Version', WPI)
     );
 
+    $previos_data = $wpi_settings['installed_features'];
+
     $wpi_settings['installed_features'] = array();
 
     if (!is_dir(WPI_Premium))
@@ -2037,8 +2039,10 @@ class WPI_Functions {
           }
 
           // Check if the plugin is disabled
-          if (empty($wpi_settings['installed_features'][$plugin_slug]['disabled'])) {
+          if (empty($previos_data[$plugin_slug]['disabled'])) {
             $wpi_settings['installed_features'][$plugin_slug]['disabled'] = 'false';
+          } else {
+            $wpi_settings['installed_features'][$plugin_slug]['disabled'] = $previos_data[$plugin_slug]['disabled'];
           }
           if ($wpi_settings['installed_features'][$plugin_slug]['disabled'] != 'true') {
 
