@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/1.95/core
+http://plugins.svn.wordpress.org/wp-invoice/tags/3.07.0/core
 http://plugins.svn.wordpress.org
 
 
 
-2010-04-24T20:56:55.253378Z
-233230
+2012-12-13T17:44:10.218794Z
+638728
 andypotanin
 
 
@@ -26,22 +26,16 @@ andypotanin
 
 b8457f37-d9ea-0310-8a92-e5e31aec5664
 
-gateways
-dir
-
-images
-dir
-
-Frontend.php
+wpi_ui.php
 file
 
 
 
 
-2013-07-25T23:21:47.000000Z
-cb725741ac97d727a57ffff49e15fc5f
-2010-04-24T20:56:55.253378Z
-233230
+2013-07-25T23:21:31.000000Z
+60ba2f40ca56ed843f4b75da775ce771
+2012-12-13T17:44:10.218794Z
+638728
 andypotanin
 
 
@@ -64,24 +58,58 @@ andypotanin
 
 
 
-12388
+59683
 
-languages
+gateways
 dir
+
+wpi_shorthand_functions.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+3f664200017f17de31c5e71142569bf4
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4590
 
 css
 dir
 
-Display.php
+wpi_ajax.php
 file
 
 
 
 
-2013-07-25T23:21:47.000000Z
-db34dc2ac3b955d7efee8ba371586760
-2010-04-24T20:56:55.253378Z
-233230
+2013-07-25T23:21:31.000000Z
+68d991a16122ed80495e65eee3ae0947
+2012-12-13T17:44:10.218794Z
+638728
 andypotanin
 
 
@@ -104,79 +132,360 @@ andypotanin
 
 
 
-88718
+17051
+
+class_list_table.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+61be4116908bca9879fa4e9813b09fb4
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15592
+
+wpi_gateway_base.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+b59c86ac5e7ef11153e921c6a9c64f7a
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6735
+
+wpi_invoice.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+adcdd9aa4fadeaf9086bf7a206f2ee22
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32108
+
+template.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+b2b2acb768a6aa0daf35034ba6ac2d1f
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2952
+
+wpi_settings.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+0f20fe65a195937c71be9798897459d3
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32181
+
+wpi_template_functions.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+5fc6d5ad5c9f1b7ac395a8dd1bb0a4fa
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28247
+
+mailer
+dir
+
+wpi_payment_api.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+b7c1374863ab6dda48700555c9309553
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7920
+
+wpi_widgets.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+710efc2ca7b01c5c99ed69c33f1c9538
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5809
+
+template
+dir
 
 js
 dir
 
+wpi_functions.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+af91a70e4ce044906be1ab33ccf819cd
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100785
+
+wpi_ud.php
+file
+
+
+
+
+2013-07-25T23:21:31.000000Z
+f14850229201fc324b4948a72fd2e09a
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1195
+
 ui
 dir
 
-Flow.php
-file
-
-
-
-
-2013-07-25T23:21:47.000000Z
-24fde01092e56a85093695e9c5a7aba9
-2010-04-24T20:56:55.253378Z
-233230
-andypotanin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8259
-
-Functions.php
-file
-
-
-
-
-2013-07-25T23:21:47.000000Z
-f3e6d48ec6add116b83d83704f5077ac
-2010-04-24T20:56:55.253378Z
-233230
-andypotanin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-62074
+premium
+dir
 

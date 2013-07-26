@@ -1,0 +1,3734 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-invoice\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-30 19:51+0300\n"
+"PO-Revision-Date: 2011-11-30 20:00+0300\n"
+"Last-Translator: dvzzz <dvzzz.kg@gmail.com>\n"
+"Language-Team: dvzzz <dvzzz.kg@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: C:\\Users\\dvzzz\\Desktop\\wp-invoice\\wp-invoice\n"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:103
+msgid "Global WP-Invoice Settings were successfully migrated to the new version."
+msgstr "Глобальные настройки модуля Wordpress инвойсов перемещены в новую версию успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:143
+msgid "Automatically created using legacy data"
+msgstr "Создано автоматически с использованием имеющихся данных"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:156
+msgid "Invoices were migrated to the new version with errors."
+msgstr "Инвойсы перемещены в новую версию с ошибками"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:158
+msgid "Invoices were successfully migrated to the new version."
+msgstr "Инвойсы перемещены в новую версию успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:166
+msgid "Log data were successfully migrated to the new version."
+msgstr "Данные журнала событий перемещены в новую версию успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:168
+msgid "Log data were migrated to the new version with errors."
+msgstr "Данные журнала событий перемещены в новую версию с ошибками"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:187
+#, php-format
+msgid "Old WP-Invoice version %s was found."
+msgstr "Найдена старая версия модуля Wordpress инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:393
+msgid "Invoice Notification"
+msgstr "Уведомление об инвойсе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:400
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:406
+msgid "Reminder"
+msgstr "Напоминание"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:407
+msgid "Receipt"
+msgstr "Квитанция об оплате"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:678
+msgid "Imported Log from old WPI Version"
+msgstr "Журнал событий импортирован из прежней версии модуля Wordpress инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1021
+msgid "Web Invoice setting options were successfully imported."
+msgstr "Дополнительные настройки сетевых инвойсов импортированы успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1071
+msgid "Invoices from Web Invoice plugin were migrated with errors."
+msgstr "Инвойсы из модуля сетевых инвойсов перемещены с ошибками"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1073
+msgid "Invoices from Web Invoice plugin were successfully migrated."
+msgstr "Инвойсы из модуля сетевых инвойсов перемещены успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1079
+msgid "Log data from Web Invoice plugin were successfully migrated."
+msgstr "Данные журнала событий из модуля сетевых инвойсов перемещены успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1081
+msgid "Log data from Web Invoice plugin were migrated with errors."
+msgstr "Данные журнала событий из модуля сетевых инвойсов перемещены с ошибками"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/wpi_legacy.php:1596
+msgid "Imported Log from Web Invoice plugin"
+msgstr "Записи импортированы из модуля сетевых инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/class_list_table.php:120
+msgid "Display"
+msgstr "Показать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/class_list_table.php:120
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:265
+msgid "All"
+msgstr "все"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/class_list_table.php:120
+msgid "records"
+msgstr "записи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/class_list_table.php:298
+msgid "Show all dates"
+msgstr "Показать все даты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/class_list_table.php:440
+msgid "Nothing found."
+msgstr "Записей не обнаружено"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:19
+#, php-format
+msgid "Invoice %s not found."
+msgstr "Инвойс не найден"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:47
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:56
+msgid "Archived."
+msgstr "Заархивировано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:58
+msgid "Successfully archived."
+msgstr "Заархировано успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:69
+msgid "Enter Invoice ID"
+msgstr "Введите номер инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template.php:70
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:46
+msgid "Lookup"
+msgstr "Просмотр"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:170
+msgid "Please enter a note and numeric amount."
+msgstr "Введите сумму прописью и цифрами"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:175
+msgid "paid in"
+msgstr "Уплачено"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:180
+msgid "charge added"
+msgstr "Добавлена сумма оплаты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:186
+msgid "adjusted"
+msgstr "изменено"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:194
+#, php-format
+msgid "Event Added: %1s."
+msgstr "Добавлено действие:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:196
+#, php-format
+msgid "Could not save entry in invoice log. %1s"
+msgstr "Невозможно сохранить запись в журнале инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:229
+msgid "Due date is not set"
+msgstr "Не указана дата срока платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:315
+msgid "The fields should not be empty. Please, check the fields data and try to send notification again."
+msgstr "Все поля должны быть заполнены. Проверьте поля данных и отправьте уведомление еще раз."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:320
+msgid "Notification Sent"
+msgstr "Уведомление послано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:320
+msgid "to"
+msgstr "по адресу"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:320
+msgid "at"
+msgstr "в"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:322
+msgid "Successfully sent the invoice notification!"
+msgstr "Уведомление об инвойсе послано успешно!"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:324
+msgid "Unable to send the e-mail. Please, try again later."
+msgstr "Невозможно отправить e-mail. Повторите попытку позже."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:333
+#, php-format
+msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
+msgstr "Сохранено <a target='_blank' href='%s'>Смотреть инвойс</a>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:333
+msgid "Invoice id #"
+msgstr "Номер инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:335
+msgid "There was a problem with saving the invoice. Reference the log for troubleshooting."
+msgstr "При сохранении инвойса возникла проблема. Чтобы ее устранить, просмотрите записи журнала."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ajax.php:398
+msgid "Please enter an invoice id."
+msgstr "Введите номер инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:818
+msgid "Unable to create 'wpi' folder in template folder. "
+msgstr "Невозможно создать папку Wordpress инвойсов в папке шаблонов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:834
+msgid "Unable to open 'wpi' folder in template folder."
+msgstr "Невозможно открыть папку Wordpress инвойсов в папке шаблонов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:839
+#, php-format
+msgid "Success, (%s) template file(s) copied."
+msgstr "Получилось! (%s) файлов шаблонов скопировано."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:842
+msgid "No template files copied."
+msgstr "Файлы шаблонов не скопированы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1027
+msgid "Schedule created with plugin activation."
+msgstr "Создан график активации модулей"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1037
+msgid "Plugin activated. No older versions found, installing version "
+msgstr "Модуль активирован. Старых версий не обнаружено, версия устанавливается."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1041
+msgid "Plugin activated."
+msgstr "Модуль активирован."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1053
+msgid "Plugin deactivated."
+msgstr "Модуль отключен."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1192
+msgid "Today"
+msgstr "Сегодня"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1194
+msgid " Tomorrow "
+msgstr "Завтра"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1194
+msgid " Yesterday "
+msgstr "Вчера"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1196
+#, php-format
+msgid " in %s days "
+msgstr "Через %s дней"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1196
+msgid "days ago"
+msgstr "дней назад"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1331
+msgid "The plugin database tables are gone, deactivate and reactivate plugin to re-create them."
+msgstr "Таблицы баз данных модуля потеряны. Активируйте и затем отключите, чтобы создать их снова."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1425
+msgid "Invoice page not selected. "
+msgstr "Не выбрана страница инвойсов."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1426
+msgid "Visit "
+msgstr "Перейдите"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1426
+msgid "settings page"
+msgstr "на страницы установок"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1426
+msgid " to configure."
+msgstr "для их настройки."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1430
+msgid "cURL is not turned on on your server, credit card processing will not work. If you have access to your php.ini file, activate <b>extension=php_curl.dll</b>."
+msgstr "На вашем сервере отключен cURL, поэтому обработка кредитной карточки не действует. Если у вас есть доступ к файлу php.ini, активируйте <b>extension=php_curl.dll</b>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1614
+msgid "Invoices"
+msgstr "Инвойсы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1615
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1631
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:31
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:23
+msgid "Invoice"
+msgstr "Инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1616
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:25
+msgid "Add New"
+msgstr "Добавить новый"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1617
+msgid "Add New Invoice"
+msgstr "Добавить новый инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1618
+msgid "Edit Invoice"
+msgstr "Редактировать инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1619
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:402
+msgid "New Invoice"
+msgstr "Новый инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1620
+msgid "View Invoice"
+msgstr "Просмотреть инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1621
+msgid "Search Invoices"
+msgstr "Искать инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1622
+msgid "No invoices found"
+msgstr "Инвойсы не обнаружены"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1623
+msgid "No invoices found in Trash"
+msgstr "В Корзине инвойсы не обнаружены"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1729
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1793
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2038
+msgid "Name"
+msgstr "Имя"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1730
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1794
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1985
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2039
+msgid "Version"
+msgstr "Версия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1731
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1795
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1986
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2040
+msgid "Description"
+msgstr "Описание"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1796
+msgid "Minimum Core Version"
+msgstr "Минимальная версия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1911
+msgid "The API key could not be generated."
+msgstr "Ключ API не может быть создан."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1913
+#, php-format
+msgid "An error occured during premium feature check: <b>%s</b>."
+msgstr "Во время проверки премии произошла ошибка: <b>%s</b>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1936
+#, php-format
+msgid "An error occured during premium feature check: <b> %s </b>."
+msgstr "Во время проверки премии произошла ошибка: <b>%s</b>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:1984
+msgid "Feature Name"
+msgstr "Название операции"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2017
+msgid "Update ran successfully but no features were downloaded because the setting is disabled. Enable in the \"Developer\" tab."
+msgstr "Обновление установлено успешно, но операции не загружежны, т.к. настройки отключены. Включите их в поле \"Developer\"."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2019
+msgid "Update ran successfully."
+msgstr "Обновление установлено успешно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2242
+msgid "Show all users"
+msgstr "Показать всех пользователей"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2312
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2332
+msgid "Payment status: Complete"
+msgstr "Статус платежа: Выполнен"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2351
+msgid "Pending"
+msgstr "Ожидает подтверждения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2403
+#, php-format
+msgid "Dear %1s,\n%2s has received your payment for the invoice.\n\nYou can overview invoice status and payment history by clicking this link:\n%3s\n\nThank you very much for your patronage.\n\nBest regards,\n%4s (%5s)"
+msgstr ""
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2414
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2460
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2504
+#, php-format
+msgid "Invoice #%s has been paid"
+msgstr "Инвойс #%s оплачен"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2420
+msgid "Receipt eMailed"
+msgstr "Квитанция отправлена"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2443
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2487
+#, php-format
+msgid "%1s has paid invoice #%2s.\n\n%3s\nTotal payments: %4s %5s of %6s %7s.\n\nYou can overview invoice status and payment history by clicking this link:\n%8s\n\nUser information:\n\nID: %9s\nName: %10s\nEmail: %11s\n\n--------------------\n%12s"
+msgstr "%1s оплатил инвойс #%2s.\n\n%3s\nПоступившие платежи: %4s %5s из %6s %7s.\n\nВы можете увидеть статус инвойсов и историю платежей по следующей ссылке:\n%8s\n\nИнформация о пользователе:\n\nID: %9s\nИмя: %10s\nEmail адрес: %11s\n\n--------------------\n%12s"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2639
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1313
+msgid "Jan"
+msgstr "Январь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2640
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1314
+msgid "Feb"
+msgstr "Февраль"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2641
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1315
+msgid "Mar"
+msgstr "Март"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2642
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1316
+msgid "Apr"
+msgstr "Апрель"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2643
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1317
+msgid "May"
+msgstr "Май"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2644
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1318
+msgid "Jun"
+msgstr "Июнь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2645
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1319
+msgid "Jul"
+msgstr "Июль"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2646
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1320
+msgid "Aug"
+msgstr "Август"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2647
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1321
+msgid "Sep"
+msgstr "Сентябрь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2648
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1322
+msgid "Oct"
+msgstr "Октябрь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2649
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1323
+msgid "Nov"
+msgstr "Ноябрь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_functions.php:2650
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1324
+msgid "Dec"
+msgstr "Декабрь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:100
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:125
+msgid "Loaded user from passed ID."
+msgstr "Пользователь ввел ID"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:104
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:129
+msgid "Loaded user from e-mail."
+msgstr "Пользователь ввел почтовый адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:108
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:133
+msgid "User info not, found - assuming new user."
+msgstr "Информация о пользователе не обнаружена. Возможно, пользователь зашел впервые."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:290
+msgid "function executed, no invoice ID found, assuming new invoice."
+msgstr "Функция выполнена. Номер инвойса не обнаружен. Возможно, инвойс новый."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:294
+msgid "function executed, invoice_id: "
+msgstr "Функциф выполнена. Номер инвойса:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:336
+msgid "Warning: no user information loaded for this invoice."
+msgstr "Предупреждение: для этого инвойса нет информации о пользователе."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:776
+msgid "Status of invoice was changed to 'Paid'."
+msgstr "Статус инвойса изменен на 'Оплачено'."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:786
+msgid "Error saving invoice. Subject (Title) can not be empty."
+msgstr "Ошибка при сохранении инвойса. Заполните поле Заголовка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:794
+msgid "Created from "
+msgstr "Создано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:797
+msgid "Created by "
+msgstr "Создано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:804
+msgid "Recurring invoice updated."
+msgstr "Обновлен повторный инвойс."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:806
+msgid "Quote updated."
+msgstr "Цена предложения обновлена."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:811
+msgid "Updated."
+msgstr "Обновлено."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_invoice.php:817
+msgid "Error saving invoice. Query used: "
+msgstr "Ошибка при попытке сохранения инвойса. Использован запрос:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:32
+msgid "Recurring"
+msgstr "Повторно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:42
+msgid "Tax"
+msgstr "Налог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:45
+msgid "Pay Your Invoice"
+msgstr "Оплатите инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:50
+msgid "Dropdown"
+msgstr "Выпадающее меню"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:87
+msgid "First Name"
+msgstr "Имя"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:88
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:89
+msgid "Company Name"
+msgstr "Название компании"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:90
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_paypal.php:212
+msgid "Phone Number"
+msgstr "Телефон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:91
+msgid "Street Address"
+msgstr "Улица"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:92
+msgid "City"
+msgstr "Город"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:93
+msgid "State"
+msgstr "Страна"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:94
+msgid "ZIP"
+msgstr "Индекс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:97
+msgid "Active"
+msgstr "Активный"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:98
+msgid "Archived"
+msgstr "Заархивирован"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:99
+msgid "Trashed"
+msgstr "Помещен в корзину"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:100
+msgid "Paid"
+msgstr "Оплачен"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:102
+msgid "United States"
+msgstr "США"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:103
+msgid "Albania"
+msgstr "Албания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:104
+msgid "Algeria"
+msgstr "Алжир"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:105
+msgid "Andorra"
+msgstr "Андорра"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:106
+msgid "Angola"
+msgstr "Ангола"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:107
+msgid "Anguilla"
+msgstr "Ангвилла (Малые Антильские острова)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:108
+msgid "Antigua and Barbuda"
+msgstr "Антигуа и Барбуда"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:109
+msgid "Argentina"
+msgstr "Аргентина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:110
+msgid "Armenia"
+msgstr "Армения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:111
+msgid "Aruba"
+msgstr "Аруба (Малые Антильские острова)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:112
+msgid "Australia"
+msgstr "Австралия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:113
+msgid "Austria"
+msgstr "Австрия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:114
+msgid "Azerbaijan Republic"
+msgstr "Азербайджан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:115
+msgid "Bahamas"
+msgstr "Багамские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:116
+msgid "Bahrain"
+msgstr "Бахрейн"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:117
+msgid "Barbados"
+msgstr "Барбадос"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:118
+msgid "Belgium"
+msgstr "Бельгия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:119
+msgid "Belize"
+msgstr "Белиз"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:120
+msgid "Benin"
+msgstr "Бенин"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:121
+msgid "Bermuda"
+msgstr "Бермудские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:122
+msgid "Bhutan"
+msgstr "Бутан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:123
+msgid "Bolivia"
+msgstr "Боливия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:124
+msgid "Bosnia and Herzegovina"
+msgstr "Босния и Герцеговина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:125
+msgid "Botswana"
+msgstr "Ботсвана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:126
+msgid "Brazil"
+msgstr "Бразилия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:127
+msgid "British Virgin Islands"
+msgstr "Британские Виргинские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:128
+msgid "Brunei"
+msgstr "Бруней"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:129
+msgid "Bulgaria"
+msgstr "Болгария"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:130
+msgid "Burkina Faso"
+msgstr "Буркина-Фасо"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:131
+msgid "Burundi"
+msgstr "Бурунди"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:132
+msgid "Cambodia"
+msgstr "Камбоджа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:133
+msgid "Canada"
+msgstr "Канада"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:134
+msgid "Cape Verde"
+msgstr "Кабо-Верде"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:135
+msgid "Cayman Islands"
+msgstr "каймановы острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:136
+msgid "Chad"
+msgstr "Чад"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:137
+msgid "Chile"
+msgstr "Чили"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:138
+msgid "China"
+msgstr "Китай"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:139
+msgid "Colombia"
+msgstr "Колумбия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:140
+msgid "Comoros"
+msgstr "Коморские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:141
+msgid "Cook Islands"
+msgstr "Острова Кука"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:142
+msgid "Costa Rica"
+msgstr "Коста-Рика"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:143
+msgid "Croatia"
+msgstr "Хорватия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:144
+msgid "Cyprus"
+msgstr "Кипр"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:145
+msgid "Czech Republic"
+msgstr "Чешская Республика"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:146
+msgid "Democratic Republic of the Congo"
+msgstr "Демократическая Республика Конго"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:147
+msgid "Denmark"
+msgstr "Дания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:148
+msgid "Djibouti"
+msgstr "Джибути"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:149
+msgid "Dominica"
+msgstr "Доминика"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:150
+msgid "Dominican Republic"
+msgstr "Доминиканская Республика"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:151
+msgid "Ecuador"
+msgstr "Эквадор"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:152
+msgid "El Salvador"
+msgstr "Сальвадор"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:153
+msgid "Eritrea"
+msgstr "Эритрея"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:154
+msgid "Estonia"
+msgstr "Эстония"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:155
+msgid "Ethiopia"
+msgstr "Эфиопия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:156
+msgid "Falkland Islands"
+msgstr "Фолклендские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:157
+msgid "Faroe Islands"
+msgstr "Фарерские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:158
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:303
+msgid "Federated States of Micronesia"
+msgstr "Федеративные Штаты Микронезии"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:159
+msgid "Fiji"
+msgstr "Фиджи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:160
+msgid "Finland"
+msgstr "Финляндия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:161
+msgid "France"
+msgstr "Франция"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:162
+msgid "French Guiana"
+msgstr "Французская Гвиана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:163
+msgid "French Polynesia"
+msgstr "Французская Полинезия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:164
+msgid "Gabon Republic"
+msgstr "Габон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:165
+msgid "Gambia"
+msgstr "Гамбия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:166
+msgid "Germany"
+msgstr "Германия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:167
+msgid "Gibraltar"
+msgstr "Гибралтар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:168
+msgid "Greece"
+msgstr "Греция"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:169
+msgid "Greenland"
+msgstr "Гренландия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:170
+msgid "Grenada"
+msgstr "Гренада"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:171
+msgid "Guadeloupe"
+msgstr "Гваделупа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:172
+msgid "Guatemala"
+msgstr "Гватемала"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:173
+msgid "Guinea"
+msgstr "Гвинея"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:174
+msgid "Guinea Bissau"
+msgstr "Гвинея Бисау"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:175
+msgid "Guyana"
+msgstr "Гайана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:176
+msgid "Honduras"
+msgstr "Гондурас"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:177
+msgid "Hong Kong"
+msgstr "Гонконг"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:178
+msgid "Hungary"
+msgstr "Венгрия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:179
+msgid "Iceland"
+msgstr "Исландия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:180
+msgid "India"
+msgstr "Индия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:181
+msgid "Indonesia"
+msgstr "Индонезия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:182
+msgid "Ireland"
+msgstr "Ирландия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:183
+msgid "Israel"
+msgstr "Израиль"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:184
+msgid "Italy"
+msgstr "Италия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:185
+msgid "Jamaica"
+msgstr "Ямайка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:186
+msgid "Japan"
+msgstr "Япония"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:187
+msgid "Jordan"
+msgstr "Иордания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:188
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:189
+msgid "Kenya"
+msgstr "Кения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:190
+msgid "Kiribati"
+msgstr "Кирибати"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:191
+msgid "Kuwait"
+msgstr "Кувейт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:192
+msgid "Kyrgyzstan"
+msgstr "Кыргызстан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:193
+msgid "Laos"
+msgstr "Лаос"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:194
+msgid "Latvia"
+msgstr "Латвия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:195
+msgid "Lesotho"
+msgstr "Лесото"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:196
+msgid "Liechtenstein"
+msgstr "Лихтенштейн"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:197
+msgid "Lithuania"
+msgstr "Литва"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:198
+msgid "Luxembourg"
+msgstr "Люксембург"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:199
+msgid "Madagascar"
+msgstr "Мадагаскар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:200
+msgid "Malawi"
+msgstr "Малави"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:201
+msgid "Malaysia"
+msgstr "Малайзия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:202
+msgid "Maldives"
+msgstr "Мальдивы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:203
+msgid "Mali"
+msgstr "Мали"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:204
+msgid "Malta"
+msgstr "Мальта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:205
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:316
+msgid "Marshall Islands"
+msgstr "Маршалловы острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:206
+msgid "Martinique"
+msgstr "Мартиника"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:207
+msgid "Mauritania"
+msgstr "Мавритания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:208
+msgid "Mauritius"
+msgstr "Маврикий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:209
+msgid "Mayotte"
+msgstr "Майотта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:210
+msgid "Mexico"
+msgstr "Мексика"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:211
+msgid "Mongolia"
+msgstr "Монголия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:212
+msgid "Montserrat"
+msgstr "Монтсеррат"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:213
+msgid "Morocco"
+msgstr "Марокко"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:214
+msgid "Mozambique"
+msgstr "Мозамбик"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:215
+msgid "Namibia"
+msgstr "Намибия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:216
+msgid "Nauru"
+msgstr "Науру"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:217
+msgid "Nepal"
+msgstr "Непал"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:218
+msgid "Netherlands"
+msgstr "Нидерланды"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:219
+msgid "Netherlands Antilles"
+msgstr "Нидерландские Антильские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:220
+msgid "New Caledonia"
+msgstr "Новая Каледония"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:221
+msgid "New Zealand"
+msgstr "Новая Зеландия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:222
+msgid "Nicaragua"
+msgstr "Никарагуа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:223
+msgid "Niger"
+msgstr "Нигер"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:224
+msgid "Niue"
+msgstr "Ниуэ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:225
+msgid "Norfolk Island"
+msgstr "о.Норфолк (остров)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:226
+msgid "Norway"
+msgstr "Норвегия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:227
+msgid "Oman"
+msgstr "Оман"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:228
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:336
+msgid "Palau"
+msgstr "Палау"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:229
+msgid "Panama"
+msgstr "Панама"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:230
+msgid "Papua New Guinea"
+msgstr "Папуа Новая Гвинея"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:231
+msgid "Peru"
+msgstr "перу"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:232
+msgid "Philippines"
+msgstr "Филиппины"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:233
+msgid "Pitcairn Islands"
+msgstr "о.Питкэрн"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:234
+msgid "Poland"
+msgstr "Польша"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:235
+msgid "Portugal"
+msgstr "Португалия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:236
+msgid "Qatar"
+msgstr "Катар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:237
+msgid "Republic of the Congo"
+msgstr "Республика Конго"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:238
+msgid "Reunion"
+msgstr "о.Реюньон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:239
+msgid "Romania"
+msgstr "Румыния"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:240
+msgid "Russia"
+msgstr "Россия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:241
+msgid "Rwanda"
+msgstr "Руанда"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:242
+msgid "Saint Vincent and the Grenadines"
+msgstr "Сент-Винсент и Гренадины"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:243
+msgid "Samoa"
+msgstr "Самоа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:244
+msgid "San Marino"
+msgstr "Сан-Марино"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:245
+msgid "Sao Tome and Principe"
+msgstr "Сан-Томе и Принсипи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:246
+msgid "Saudi Arabia"
+msgstr "Саудовская Аравия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:247
+msgid "Senegal"
+msgstr "Сенегал"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:248
+msgid "Seychelles"
+msgstr "Сейшеллы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:249
+msgid "Sierra Leone"
+msgstr "Сьерра-Леоне"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:250
+msgid "Singapore"
+msgstr "Сингапур"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:251
+msgid "Slovakia"
+msgstr "Словакия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:252
+msgid "Slovenia"
+msgstr "Словения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:253
+msgid "Solomon Islands"
+msgstr "Соломоновы Острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:254
+msgid "Somalia"
+msgstr "Сомали"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:255
+msgid "South Africa"
+msgstr "ЮАР"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:256
+msgid "South Korea"
+msgstr "Южная Корея"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:257
+msgid "Spain"
+msgstr "Испания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:258
+msgid "Sri Lanka"
+msgstr "Шри-Ланка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:259
+msgid "St. Helena"
+msgstr "Остров Св. Елены"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:260
+msgid "St. Kitts and Nevis"
+msgstr "Сент-Китс и Невис"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:261
+msgid "St. Lucia"
+msgstr "Сент-Люсия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:262
+msgid "St. Pierre and Miquelon"
+msgstr "Сен-Пьер и Микелон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:263
+msgid "Suriname"
+msgstr "Суринам"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:264
+msgid "Svalbard and Jan Mayen Islands"
+msgstr "Шпицберген"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:265
+msgid "Swaziland"
+msgstr "Свазиленд"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:266
+msgid "Sweden"
+msgstr "Швеция"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:267
+msgid "Switzerland"
+msgstr "Швейцария"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:268
+msgid "Taiwan"
+msgstr "Тайвань"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:269
+msgid "Tajikistan"
+msgstr "Таджикистан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:270
+msgid "Tanzania"
+msgstr "Танзания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:271
+msgid "Thailand"
+msgstr "Таиланд"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:272
+msgid "Togo"
+msgstr "Того"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:273
+msgid "Tonga"
+msgstr "Тонга"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:274
+msgid "Trinidad and Tobago"
+msgstr "Тринидад и Тобаго"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:275
+msgid "Tunisia"
+msgstr "Тунис"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:276
+msgid "Turkey"
+msgstr "Турция"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:277
+msgid "Turkmenistan"
+msgstr "Туркменистан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:278
+msgid "Turks and Caicos Islands"
+msgstr "о-ва Теркс и Кайкос"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:279
+msgid "Tuvalu"
+msgstr "о-ва Тувалу"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:280
+msgid "Uganda"
+msgstr "Уганда"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:281
+msgid "Ukraine"
+msgstr "Украина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:282
+msgid "United Arab Emirates"
+msgstr "ОАЕ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:283
+msgid "United Kingdom"
+msgstr "Великобритания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:284
+msgid "Uruguay"
+msgstr "Уругвай"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:285
+msgid "Vanuatu"
+msgstr "Вануату"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:286
+msgid "Vatican City State"
+msgstr "Ватикан"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:287
+msgid "Venezuela"
+msgstr "Венесуэлла"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:288
+msgid "Vietnam"
+msgstr "Вьетнам"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:289
+msgid "Wallis and Futuna Islands"
+msgstr "о-ва Уоллис и Футуна"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:290
+msgid "Yemen"
+msgstr "Йемен"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:291
+msgid "Zambia"
+msgstr "Замбия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:293
+msgid "Alabama"
+msgstr "Алабама"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:294
+msgid "Alaska"
+msgstr "Аляска"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:295
+msgid "American Samoa"
+msgstr "Восточное Самоа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:296
+msgid "Arizona"
+msgstr "Аризона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:297
+msgid "Arkansas"
+msgstr "Арканзас"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:298
+msgid "California"
+msgstr "Калифорния"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:299
+msgid "Colorado"
+msgstr "Колорадо"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:300
+msgid "Connecticut"
+msgstr "Коннектикут"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:301
+msgid "Delaware"
+msgstr "Делавэр"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:302
+msgid "District of Columbia"
+msgstr "Округ Колумбия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:304
+msgid "Florida"
+msgstr "Флорида"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:305
+msgid "Georgia"
+msgstr "Джорджия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:306
+msgid "Guam"
+msgstr "о.Гуам"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:307
+msgid "Hawaii"
+msgstr "Гавайи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:308
+msgid "Idaho"
+msgstr "Айдахо"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:309
+msgid "Illinois"
+msgstr "Иллинойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:310
+msgid "Indiana"
+msgstr "Индиана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:311
+msgid "Iowa"
+msgstr "Айова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:312
+msgid "Kansas"
+msgstr "Канзас"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:313
+msgid "Kentucky"
+msgstr "Кентуки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:314
+msgid "Louisiana"
+msgstr "Луизиана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:315
+msgid "Maine"
+msgstr "Мэн"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:317
+msgid "Maryland"
+msgstr "Мэриленд"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:318
+msgid "Massachusetts"
+msgstr "Массачусетс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:319
+msgid "Michigan"
+msgstr "Мичиган"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:320
+msgid "Minnesota"
+msgstr "Миннесота"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:321
+msgid "Mississippi"
+msgstr "Миссисипи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:322
+msgid "Missouri"
+msgstr "Миссури"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:323
+msgid "Montana"
+msgstr "Монтана"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:324
+msgid "Nebraska"
+msgstr "Небраска"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:325
+msgid "Nevada"
+msgstr "Невада"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:326
+msgid "New Hampshire"
+msgstr "Нью-Гемпшир"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:327
+msgid "New Jersey"
+msgstr "Нью-Джерси"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:328
+msgid "New Mexico"
+msgstr "Нью-Мексико"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:329
+msgid "New York"
+msgstr "Нью-Йорк"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:330
+msgid "North Carolina"
+msgstr "Северная Каролина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:331
+msgid "North Dakota"
+msgstr "Северная Дакота"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:332
+msgid "Northern Mariana Islands"
+msgstr "Северные Марианские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:333
+msgid "Ohio"
+msgstr "Огайо"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:334
+msgid "Oklahoma"
+msgstr "Оклахома"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:335
+msgid "Oregon"
+msgstr "Орегон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:337
+msgid "Pennsylvania"
+msgstr "Пенсильвания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:338
+msgid "Puerto Rico"
+msgstr "Пуэрто-Рико"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:339
+msgid "Rhode Island"
+msgstr "Род-Айленд"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:340
+msgid "South Carolina"
+msgstr "Южная Каролина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:341
+msgid "South Dakota"
+msgstr "Южная Дакота"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:342
+msgid "Tennessee"
+msgstr "Теннесси"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:343
+msgid "Texas"
+msgstr "Техас"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:344
+msgid "Utah"
+msgstr "Юта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:345
+msgid "Vermont"
+msgstr "Вермонт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:346
+msgid "Virgin Islands"
+msgstr "Виргинские острова"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:347
+msgid "Virginia"
+msgstr "Виргиния"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:348
+msgid "Washington"
+msgstr "Вашингтон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:349
+msgid "West Virginia"
+msgstr "Западная Виргиния"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:350
+msgid "Wisconsin"
+msgstr "Висконсин"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:351
+msgid "Wyoming"
+msgstr "Вайоминг"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:352
+msgid "Alberta"
+msgstr "Альберта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:353
+msgid "British Columbia"
+msgstr "Британская Колумбия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:354
+msgid "Manitoba"
+msgstr "Манитоба"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:355
+msgid "New Brunswick"
+msgstr "Нью-Брансуик"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:356
+msgid "Newfoundland"
+msgstr "Ньюфаундленд"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:357
+msgid "Northwest Territory"
+msgstr "Северо-Западная Территория"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:358
+msgid "Nova Scotia"
+msgstr "Новая Шотландия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:359
+msgid "Ontario"
+msgstr "Онтарио"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:360
+msgid "Prince Edward Island"
+msgstr "Щстров Принца Эдуарда"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:361
+msgid "Quebec"
+msgstr "Квебек"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:362
+msgid "Saskatchewan"
+msgstr "Саскачеван"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:363
+msgid "Yukon Territory"
+msgstr "терр. Юкон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:365
+msgid "Australian Dollars"
+msgstr "Австралийские доллары"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:366
+msgid "Canadian Dollars"
+msgstr "Канадские доллары"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:367
+msgid "Euros"
+msgstr "Евро"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:368
+msgid "Pounds Sterling"
+msgstr "Фунт Стерлинга"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:369
+msgid "Yen"
+msgstr "Йена"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:370
+msgid "U.S. Dollars"
+msgstr "Американские доллары"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:371
+msgid "New Zealand Dollar"
+msgstr "Новозеландский доллар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:372
+msgid "Swiss Franc"
+msgstr "Швейцарский франк"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:373
+msgid "Hong Kong Dollar"
+msgstr "Гонконгский доллар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:374
+msgid "Singapore Dollar"
+msgstr "Сингапурский доллар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:375
+msgid "Swedish Krona"
+msgstr "Шведская крона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:376
+msgid "Danish Krone"
+msgstr "Датская крона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:377
+msgid "Polish Zloty"
+msgstr "пролький злотый"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:378
+msgid "Norwegian Krone"
+msgstr "Норвежская крона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:379
+msgid "Hungarian Forint"
+msgstr "Венгерский форинт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:380
+msgid "Czech Koruna"
+msgstr "Чешская крона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:381
+msgid "Israeli Shekel"
+msgstr "Израильский шекель"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:382
+msgid "Mexican Peso"
+msgstr "Мексиканский песо"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:383
+msgid "South African Rand"
+msgstr "ранд Южно-Африканской Республики"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:403
+msgid "[New Invoice] %subject%"
+msgstr "[Новый инвойс] %тема%"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:404
+msgid "Dear %recipient%, \n\n%business_name% has sent you %recurring% invoice in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link% \n\nBest regards, \n%business_name% (%business_email%)"
+msgstr "Уважаемый %recipient%, \n\n компания %business_name% отправила Вам %recurring% инвойс на сумму %amount%. \n\n%description% \n\n Вы можете оплатить, просмотреть и распечатать инвойс на сайте, пройдя по следующей ссылке:\n%link% \n\n С уважением, \n%business_name% (%business_email%)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:407
+msgid "[Reminder] %subject%"
+msgstr "[Напоминание] %тема%"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:408
+msgid "Dear %recipient%, \n\n%business_name% has sent you a reminder for the %recurring% invoice in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link%. \n\nBest regards, \n%business_name% (%business_email%)"
+msgstr "Уважаемый %recipient%, \n\n компания %business_name% отправила Вам напоминание о необходимости оплатить %recurring% инвойс на сумму %amount%. \n\n%description% \n\n Вы можете оплатить, просмотреть и распечатать инвойс на сайте, пройдя по следующей ссылке: \n%link%. \n\nС уважением,\n%business_name% (%business_email%)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:410
+msgid "Send Receipt"
+msgstr "Послать уведомление"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:411
+msgid "[Payment Received] %subject%"
+msgstr "[Платеж получен] %тема%"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:412
+msgid "Dear %recipient%, \n\n%business_name% has received your payment for the %recurring% invoice in the amount of %amount%. \n\nThank you very much for your patronage. \n\nBest regards, \n%business_name% (%business_email%)"
+msgstr "Уважаемый %recipient%, \n\n компания %business_name% получила Ваш платеж %recurring% по инвойсу на сумму %amount%. \n\nСпасибо за сотрудничество. \n\nС уважением, \n%business_name% (%business_email%)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:434
+msgid "Web Design Services"
+msgstr "Услуги веб-дизайна"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:437
+msgid "Web Development Services"
+msgstr "Услуги веб-разработки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_settings.php:550
+msgid "old options found, converted into new format, and deleted."
+msgstr "обнаружены старые записи; они преобразованы в новый формат и удалены."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:68
+msgid "Item"
+msgstr "Товар"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:68
+msgid "Cost"
+msgstr "Цена"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:68
+msgid "Quantity"
+msgstr "Количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:157
+msgid ""
+"Partial payment is not available because of an error.\\n"
+"Contact Administirator for more information."
+msgstr "Частичный платеж внести нельзя из-за возникшей ошибки. Обратитесь к Администратору за более подробной информацией."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:194
+msgid "Charges"
+msgstr "Начисления"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:225
+msgid "Subtotal:"
+msgstr "Промежуточный итог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:233
+msgid "Tax:"
+msgstr "Налог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:239
+msgid "Discounts:"
+msgstr "Скидки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:245
+msgid "Adjustments:"
+msgstr "Корректировка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:251
+msgid "Recieved Payment:"
+msgstr "Полученный платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:257
+msgid "Balance:"
+msgstr "Баланс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:283
+msgid "Time"
+msgstr "Время"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:284
+msgid "Event"
+msgstr "Действие"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:320
+msgid "There are no any actions"
+msgstr "Действия не произведены"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:358
+msgid "Payment Amount"
+msgstr "Сумма платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:361
+msgid "Min. Payment Due:"
+msgstr "Минимальный платеж:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:367
+msgid "Statement Balance:"
+msgstr "Отчет о балансе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:373
+msgid "Other"
+msgstr "Другое"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:382
+msgid "This invoice allows partial payments, please select the amount you would like to pay."
+msgstr "Данный инвойс позволяет вносить платежи частями. Выберите сумму, которую вы хотели бы внести."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:397
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:430
+msgid "Payment Method"
+msgstr "Метод внесения платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:459
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_template_functions.php:480
+msgid "loading"
+msgstr "загружается"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:24
+msgid "View All"
+msgstr "Посмотреть все"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:26
+msgid "Reports"
+msgstr "Отчеты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:30
+msgid "Settings"
+msgstr "Настройки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:270
+#, php-format
+msgid "Invoice page not selected. Visit <a href=\"%s\">settings page</a> to configure."
+msgstr "Страница инвойсов не выбрана. Перейдите на страницу настроек <a href=\"%s\">settings page</a>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:273
+#, php-format
+msgid "Selected invoice page does not exist. Visit <a href=\"%s\">settings page</a> to configure."
+msgstr "Выбранная страница инвойсов не существует. Перейдите на страницу настроек <a href=\"%s\">settings page</a>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:282
+msgid "Error"
+msgstr "Ошибка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:282
+msgid "Template not found:"
+msgstr "Шаблон не найден:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:360
+#, php-format
+msgid "\"Invoice(s) %s trashed.\""
+msgstr "Инвойс(ы) %s перемещены в корзину."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:362
+#, php-format
+msgid "\"Invoice(s) %s untrashed.\""
+msgstr "Инвойс(ы) %s извлечены из корзины."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:364
+#, php-format
+msgid "\"Invoice(s) %s deleted.\""
+msgstr "Инвойс(ы) удалены."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:366
+#, php-format
+msgid "\"Invoice(s) %s unarchived.\""
+msgstr "Инвойс(ы) разархивированы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:368
+#, php-format
+msgid "\"Invoice(s) %s archived.\""
+msgstr "Инвойс(ы) заархивированы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:525
+msgid "Title"
+msgstr "Название"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:526
+msgid "Total Collected"
+msgstr "Всего выбрано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:527
+msgid "Recipient"
+msgstr "Получатель"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:528
+msgid "Date"
+msgstr "Дата"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:529
+msgid "Status"
+msgstr "Статус"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:530
+msgid "Type"
+msgstr "Тип"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:531
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:771
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:870
+msgid "Invoice ID"
+msgstr "Номер инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:666
+msgid "Payment Settings"
+msgstr "Детали платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:670
+msgid "Overview"
+msgstr "Посмотреть"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:672
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:675
+msgid "User Information"
+msgstr "Информация о пользователе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:746
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:835
+msgid "Creating New Invoice"
+msgstr "Создать новый инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:748
+msgid "Begin typing the recipient's email into the input box, or double-click to view list of possible options.  For new prospects, type in a new email address."
+msgstr "Начните печатать сообщение получателя в папке Входящие, или дважды нажмите кнопку, чтобы увидеть список возможных действий. Для новых контактов: введите новый адрес email."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:756
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:850
+msgid "Support"
+msgstr "Помощь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:757
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:843
+msgid "Please visit <a href=\"http://usabilitydynamics.com/products/wp-invoice/forum/\">WP-Invoice Support Forum</a> to ask questions regarding the plugin."
+msgstr "Перейдите на форум подержки <a href=\"http://usabilitydynamics.com/products/wp-invoice/forum/\">WP-Invoice Support Forum</a>, чтоббы задать вопросы о модуле."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:758
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:844
+msgid "To suggest ideas please visit the <a href=\"http://feedback.twincitiestech.com/forums/9692-wp-invoice\">WP-Invoice Feedback site</a>."
+msgstr "Оставьте ваши отклики на странице <a href=\"http://feedback.twincitiestech.com/forums/9692-wp-invoice\">WP-Invoice Feedback site</a>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:765
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:863
+msgid "Main & Business Process"
+msgstr "Основной род деятельности"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:766
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:859
+msgid "<b>Business Address</b> - This will display on the invoice page when printed for clients' records."
+msgstr "Надпись <b>Рабочий адрес</b> появится на странице инвойса, когда клиент будет ее распечатывать."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:768
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:896
+msgid "E-Mail Templates"
+msgstr "Шаблоны писем"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:769
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:868
+msgid "You can create as many e-mailed templates as needed, they can later be used to quickly create invoice notifications and reminders, and being sent directly from an invoice page. The following variables can be used within the Subject or the Content of the e-mail templates:"
+msgstr "Вы можете создать любое количество шаблонов писем. Затем они будут использоваться для быстрого создания уведомлений и напоминаний об инвойсах. Они будут отправляться со страницы инвойсов. В качестве темы или содержания шаблонов писем можно использовать следующие элементы:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:772
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:871
+msgid "URL of invoice"
+msgstr "URL-адрес инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:773
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:872
+msgid "Name or business name of receipient"
+msgstr "Имя или название компании получателя"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:774
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:873
+msgid "Due BalanceID"
+msgstr "Номер текущего баланса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:775
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:874
+msgid "Invoice title"
+msgstr "Название инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:776
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:875
+msgid "Description of Invoice"
+msgstr "Описание инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:777
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:876
+msgid "Business Name"
+msgstr "Названии компании"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:778
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:877
+msgid "Business Email Address"
+msgstr "Рабочий адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:779
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:878
+msgid "Name of user who has created invoice"
+msgstr "Инвойс создан (имя)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:780
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:879
+msgid "Email of user who has created invoice"
+msgstr "Инвойс отправлен (адрес отправителя)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:781
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:880
+msgid "Invoice due date (if presented)"
+msgstr "Дата оплаты инвойса (если указана)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:785
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:884
+msgid "You can create as many e-mailed templates as needed, they can later be used to quickly create invoice notifications and reminders, and being sent directly from an invoice page.."
+msgstr "Вы можете создать любое количество шаблонов писем. Затем они будут использоваться для быстрого создания уведомлений и напоминаний об инвойсах. Они будут отправляться со страницы инвойсов."
+
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:830
+msgid "Begin typing the recipient's email into the input box, or double-click to view list of possible options."
+msgstr "Начните печатать сообщение получателя в папке Входящие, или дважды нажмите кнопку, чтобы увидеть список возможных действий."
+
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:831
+msgid "For new prospects, type in a new email address."
+msgstr "Для новых контактов: введите новый адрес email."
+
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1184
+msgid "Yes"
+msgstr "Да"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1184
+msgid "No"
+msgstr "Нет"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1187
+msgid "Select"
+msgstr "Выбрать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1217
+msgid "Values are empty"
+msgstr "Значение не присвоено"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1239
+msgid "Go to user's profile"
+msgstr "Перейти в профиль пользователя"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1243
+msgid "Get WP-CRM plugin to enhance user management."
+msgstr "Получить модуль WP-CRM для улучшения управления пользователями."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1273
+msgid "WP-Invoice custom field"
+msgstr "Настраиваемое поле wordpress инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1290
+msgid "<h3>WP-Invoice</h3>"
+msgstr "<h3>Wordpress инвойс</h3>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1291
+msgid "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>"
+msgstr "<p>Дополнительный параметр <b>Настраиваемое поле wordpress инвойсов</b> может использоваться для добавления пользователем настраиваемых полей со своими данными в платежные поручения.</p>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_ui.php:1292
+msgid "<p>Works for Authorize.net payment method only for now.</p>"
+msgstr "<p>Действительно для авторизованного сетевого платежа в настоящий момент.</p>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:39
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:162
+msgid "Title:"
+msgstr "Заголовок"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:40
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:163
+msgid "Message:"
+msgstr "Сообщение"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:41
+msgid "Button Text:"
+msgstr "Текст кнопки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:56
+msgid "User&#8217;s Paid and Pending Invoices"
+msgstr "Оплаченные и выставленные инвойсы пользователя &#8217;"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:57
+msgid "Invoice History"
+msgstr "История инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:70
+msgid "Submit"
+msgstr "Выставить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:113
+msgid "Active Invoice(s)"
+msgstr "Активный инвойс(ы)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/wpi_widgets.php:131
+msgid "Paid Invoice(s)"
+msgstr "Оплаченный инвойс(ы)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_authorize.php:481
+msgid "Subscription initiated, Subcription ID"
+msgstr "Оформлена подписка. Номер подписки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_authorize.php:488
+msgid "One-time credit card payment is processed successfully. However, recurring billing setup failed. "
+msgstr "Разовый платеж с помощью кредитной карты осуществлен успешно, однако установить систему многократных платежей не удалось."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_authorize.php:491
+msgid "Response Code: "
+msgstr "Код ответа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_authorize.php:491
+msgid "Subscription error"
+msgstr "Ошибка подписки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_authorize.php:549
+msgid "Subscription completely paid"
+msgstr "Подписка оплачена полностью"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_paypal.php:294
+msgid "Direct access not allowed"
+msgstr "В прямом доступе отказано"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_paypal.php:313
+#, php-format
+msgid "%s paid via PayPal"
+msgstr "%s оплачено через PayPal"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/class_wpi_paypal.php:319
+#, php-format
+msgid "PayPal Payer email: %s"
+msgstr "Email адрес плательщика через Paypal: %s"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/wpi_authorize-frontend.tpl.php:18
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/wpi_paypal-frontend.tpl.php:26
+msgid "Process Payment of %s"
+msgstr "Обработать платеж %s"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:43
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/paypal.php:40
+msgid "Email Address"
+msgstr "Email адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:63
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/paypal.php:51
+msgid "Address"
+msgstr "Адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:127
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:40
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/paypal.php:75
+msgid "Zip Code"
+msgstr "Индекс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:137
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:44
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/paypal.php:79
+msgid "Country"
+msgstr "Страна"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:147
+msgid "Credit Card Number"
+msgstr "Номер кредитной карточки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:163
+msgid "Expiration Date"
+msgstr "Срок окончания действия карточки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:165
+msgid "Month"
+msgstr "месяц"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:167
+msgid "Year"
+msgstr "Год"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/authorize.php:177
+msgid "Security Code"
+msgstr "Код безопасности карты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/google_checkout.php:9
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/google_checkout.php:47
+msgid "Google Checkout"
+msgstr "Оформление заказа через Google"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/google_checkout.php:14
+msgid "Payment Address"
+msgstr "Адрес платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/google_checkout.php:47
+msgid "Fast checkout through Google"
+msgstr "Быстрое оформление заказа через Google"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:12
+msgid "Billing Name"
+msgstr "Имя владельца карты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:16
+msgid "Billing Address"
+msgstr "Адрес владельца карты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:49
+msgid "Your email"
+msgstr "Ваш email"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:54
+msgid "The form of payment"
+msgstr "способ платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:56
+msgid "Credit Card"
+msgstr "Кредитная карта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/payflow.php:62
+msgid "Pay with Payflow"
+msgstr "Оплатить с помощью Payflow"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/gateways/templates/legacy/paypal.php:90
+msgid "Pay with PayPal"
+msgstr "Оплатить с помощью PayPal"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:75
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:119
+msgid "View PDF"
+msgstr "Просмотреть файл PDF"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:89
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:138
+msgid "Download PDF"
+msgstr "Скачать файл PDF"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:138
+msgid "PDF"
+msgstr "PDF"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:173
+msgid "Template Name"
+msgstr "Название шаблона"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:183
+msgid "Do not automatically insert PDF link on bottom of invoices."
+msgstr "Не вставлять автоматическую ссылку PDF после инвойса."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:189
+msgid "PDF Logo"
+msgstr "Логотип в PDF"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:192
+msgid "Display logo in the PDF."
+msgstr "Показать логотип в PDF "
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:195
+msgid "Enter a valid URL of an image you would like to use in the PDF as a logo."
+msgstr "Введите URL-адрес изображения, которое вы хотите использовать в PDF в качестве логотипа."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:201
+msgid "Header Settings"
+msgstr "Настройки заголовка (верхнего колонтитула)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:210
+msgid "Select template"
+msgstr "Выбрать шаблон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:214
+msgid "Terms &amp; Conditions:"
+msgstr "Условия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:220
+msgid "Text of Term and Conditions for the Invoice/Quote"
+msgstr "Текст Условий для Инвойса/Предложения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:226
+msgid "Notes"
+msgstr "Примечания"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:232
+msgid "Notes will be displayed towards the bottom of the Invoice/Quote, depending on the template."
+msgstr "Примечания будут размещены после текста Инвойса/Предложения в зависимости от шаблона."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:248
+msgid "PDF Invoice"
+msgstr "Инвойс в PDF"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:486
+msgid "RECEIPT"
+msgstr "КВИТАНЦИЯ ОБ ОПЛАТЕ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:489
+msgid "QUOTE"
+msgstr "ПРЕДЛОЖЕНИЕ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_pdf.php:492
+msgid "INVOICE"
+msgstr "ИНВОЙС"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_power_tools.php:83
+msgid "There is not enough quantifiable data to generate any graphs."
+msgstr "Недостаточно числовых данных для построения графика."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_power_tools.php:126
+msgid "Daily Sales"
+msgstr "Ежедневные продажи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_power_tools.php:184
+msgid "Show Actions"
+msgstr "ПОказать действия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_power_tools.php:208
+msgid "Visualize Sales"
+msgstr "Показать график продаж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:79
+msgid "Response:"
+msgstr "Ответ:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:80
+msgid "Send Response"
+msgstr "Отправить ответ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:82
+msgid "Have a question?"
+msgstr "Хотите задать вопрос?"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:83
+msgid "Send Question"
+msgstr "Отправить вопрос"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:251
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Author"
+msgstr "Автор"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:252
+msgid "Comment"
+msgstr "Комментарий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:270
+msgid "Y/m/d \\a\\t g:i A"
+msgstr "Год/месяц/дата \\a\\t g:i A"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:274
+msgid "In reply to"
+msgstr "В ответ на"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:284
+msgid "Reply to this comment"
+msgstr "Ответить на этот комментарий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:284
+msgid "Reply"
+msgstr "Ответить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:288
+msgid "Delete"
+msgstr "Удалить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:382
+msgid "Reply to Comment"
+msgstr "Ответить на комментарий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:389
+msgid "E-mail"
+msgstr "email адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:393
+msgid "URL"
+msgstr "URL-адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:400
+msgid "Cancel"
+msgstr "Отменить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:402
+msgid "Update Comment"
+msgstr "Обновить комментарий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:403
+msgid "Submit Reply"
+msgstr "Вставить отзыв"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_quotes.php:433
+msgid "Comments"
+msgstr "Комментарии"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:60
+msgid "Phone"
+msgstr "Телефон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:64
+msgid "Email"
+msgstr "Email"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:79
+msgid "Card Code"
+msgstr "Код карты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:94
+msgid "State/Province"
+msgstr "Штат/Провинция"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:98
+msgid "Zip/Postal Code"
+msgstr "Индекс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:192
+msgid "Every 10 Minutes"
+msgstr "Каждые 10 минут"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:223
+msgid "Transaction complete."
+msgstr "Транзакция завершена"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:235
+msgid "Create single page checkout forms that are then visible in the \"Invoice\" overview."
+msgstr "Создать одностраничные формы заполнения заказов, которые затем можно просмотреть в разделе \"Инвойс\""
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:236
+msgid "You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</b>. Options:"
+msgstr "Можно создать одностраничную форму заполнения заказа, используя короткий адрес <b>[wpi_checkout]</b>. Варианты:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:238
+msgid "The title that will be displayed in control panel overview."
+msgstr "Заголовок, который появится на контрольной панели."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:239
+msgid "ID of page that has sales terms, inserts a link into SPC to the page."
+msgstr "Код страницы с условиями продажи; вставляет на страницу ссылку на SPC."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:240
+msgid "A comma separated list of items that the SPC is for."
+msgstr "Список элеменов, разделенных запятыми, для которых предназначен SPC"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:241
+msgid "PHP function to be executed when transaction is complete."
+msgstr "Функция ПХП, которая должна выполняться, когда транзакция завершена."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:242
+msgid "A CSV list of Title of any custom attributes for the checkout."
+msgstr "Список названий редактируемых характеристик заказа (элементы разделены запятыми)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:243
+msgid "`true/false` value. If true then custom amount field will appear on SPC. Do not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+msgstr "Значение 'истинно/ложно'. Если выбрано истинно, в CPS появится редактируемое поле количества. Не используйте <u>плата</u> и <u>элементы</u> если редактируемое_количество истинно."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:244
+msgid "Disabled the checkout items, only use this if you are using some sort of JS script to enable them back on."
+msgstr "Блокировать пункты заказа. Используйте только в случае применения Java Script для возвращения этих пунктов в заказ."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:245
+msgid "Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
+msgstr "Плата в процентах, применяемая в зависимости от количества заказанного (например, плата=2 или плата=\"2%\" )"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:246
+msgid "CSV list of gateways available for payment."
+msgstr "Список вариантов маршрутов платежей (элементы разделены запятыми)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:246
+msgid " Available values: "
+msgstr "Имеющиеся значения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:255
+msgid "Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount=\"true\" fee=\"5%\"]</b>"
+msgstr "Пример: <b>[Название пункта заказа=\"Платеж с помощью Water Bill\" редактируемая сумма=\"истинно\" до.плата=\"5%\"]</b>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:261
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1674
+msgid "Single Page Checkout"
+msgstr "Оформление заказа на одной странице"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:276
+msgid "Checkout"
+msgstr "Оформление заказа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:428
+msgid "Terms must be accepted."
+msgstr "Примите условия соглашения."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:433
+msgid "An e-mail address is required."
+msgstr "Обязательно введите email адрес."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:437
+msgid "You must enter a name."
+msgstr "Обязательно введите имя."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:441
+msgid "You must enter a valid credit card number."
+msgstr "Обязательно введите действующий номер кредитной карточки."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:445
+msgid "You must enter an expiration date."
+msgstr "Обязательно введите срок окончания действия карты."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:461
+msgid "No items"
+msgstr "Элементы не выбраны."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:594
+msgid "Thank you. Your payment has been processed."
+msgstr "Спасибо. Ваш платеж обработан."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:605
+msgid "Transaction Error: "
+msgstr "Ошибка транзакции."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:630
+msgid "Custom Amount: "
+msgstr "Редактируемое количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:632
+msgid "Items: "
+msgstr "Элементы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:635
+msgid " of fee."
+msgstr "облагаемые дополнительной платой"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:638
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:640
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:747
+msgid "Transaction #"
+msgstr "Транзакция №"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:661
+msgid "Default Checkout Form"
+msgstr "Форма оформления заказа по умолчанию"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:688
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:887
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:269
+msgid "Amount"
+msgstr "Количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:689
+msgid "Custom amount from SPC"
+msgstr "Редактируемое количество из списка элементов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:728
+#, php-format
+msgid "Transaction #%s was successfully completed."
+msgstr "Транзакция №%s успешно завершена."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:748
+msgid " was successfully completed, but invoice of the current transaction could not be saved. We advise You to add transaction's invoice manually."
+msgstr "успешно завершена, но инвойс текущей транзакции сохранить невозможно. Добавьте инвойс транзакции вручную."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:749
+msgid " Charge Amount: "
+msgstr "Сумма оплаты:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:749
+msgid "Items of Transaction:"
+msgstr "Элементы траназкции:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:797
+#, php-format
+msgid "I accept the <a href=\"%s\" target=\"_blank\">terms and conditions</a>."
+msgstr "Я принимаю <a href=\"%s\" target=\"_blank\">Условия соглашения</a>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1215
+msgid "Method"
+msgstr "Способ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1311
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1497
+msgid "Processing..."
+msgstr "Обрабатывается"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1322
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1341
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1393
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1521
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1526
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1623
+msgid "Process Payment"
+msgstr "Обработать платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1343
+msgid "Hacking?"
+msgstr "Взломано?"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1530
+msgid "Redirecting to PayPal. Wait please..."
+msgstr "Переход в систему PayPal. Подождите..."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1605
+msgid "Your Amount"
+msgstr "Ваше количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1607
+msgid "Enter Amount"
+msgstr "Введите количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1633
+msgid "Specified gateways are not available"
+msgstr "Выбранные платежные системы недоступны"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1648
+msgid "Single Payment"
+msgstr "Одиночный платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1661
+msgid "Sales Report Data"
+msgstr "Данные отчета продаж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1678
+msgid "Enforce SSL on checkout pages."
+msgstr "Ввести SSL на страницы оформления заказов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/premium/wpi_spc.php:1679
+msgid "As for regular invoice pages, HTTPS should be enforced on pages that have a checkout form."
+msgstr "Для платежей по обычным инвойсам на страницах с формой оформления заказа должен быть включен HTTPS"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:3
+msgid "Welcome, %s!"
+msgstr "Приветствуем, %s!"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:8
+msgid "We have sent you a quote in the amount of %s."
+msgstr "Мы выслали вам документ об оплате на сумму %s."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:12
+msgid "We have sent you invoice %1s with a balance of %2s."
+msgstr "Мы выслали вам инвойс %1s с балансом %2s."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:16
+msgid "This is a recurring bill."
+msgstr "Это регулярно выставляемый счет."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:25
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/receipt_page.php:18
+msgid "You've made payments, but still owe:"
+msgstr "Вы внесли платеж, однако сумма вашего долга:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:48
+msgid "Select your favorite way of paying"
+msgstr "Выберите способб платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:54
+msgid "Manual Payment Information"
+msgstr "Информация о совершении платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/invoice_page.php:55
+msgid "Contact site Administrator for payment information please."
+msgstr "Свяжитесь с Администратором сайта, чтобы узнать дополнительную информацию о совершении платежей"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:10
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:10
+msgid "DUE DATE"
+msgstr "СРОК ПЛАТЕЖА"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:11
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:89
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:47
+msgid "AMOUNT"
+msgstr "КОЛИЧЕСТВО"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:12
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:13
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:12
+msgid "ATTN"
+msgstr "ДЛЯ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:13
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:13
+msgid "BILL TO"
+msgstr "ВЫСТАВЛЕН СЧЕТ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:14
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:14
+msgid "ADDRESS"
+msgstr "АДРЕС"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:15
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:15
+msgid "TELEPHONE"
+msgstr "ТЕЛЕФОН"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:18
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:21
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:18
+msgid "TOTAL"
+msgstr "ИТОГО"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:21
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:29
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:24
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:32
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:21
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:29
+msgid "TAX"
+msgstr "НАЛОГ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:24
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:27
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:24
+msgid "DISCOUNT"
+msgstr "СКИДКА"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:27
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:30
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:27
+msgid "BALANCE"
+msgstr "БАЛАНС"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:47
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:66
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:75
+msgid "TERMS &amp; CONDITIONS"
+msgstr "УСЛОВИЯ СОГЛАШЕНИЯ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:62
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:80
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:90
+msgid "NOTES"
+msgstr "ПРИМЕЧАНИЯ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:87
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:37
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:45
+msgid "DESCRIPTION"
+msgstr "ОПИСАНИЕ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote.php:88
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:46
+msgid "QUANTITY"
+msgstr "КОЛИЧЕСТВО"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:12
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_modern.php:11
+msgid "AMOUNT DUE"
+msgstr "СУММА"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:38
+msgid "QTY"
+msgstr "КОЛИЧЕСТВО"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/pdf_quote_bold.php:39
+msgid "SUM"
+msgstr "СУММА"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/receipt_page.php:3
+msgid "Payment Receipt"
+msgstr "Квитанция об оплате"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/receipt_page.php:9
+msgid "We have sent you invoice"
+msgstr "Мы выслали вам инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/template/receipt_page.php:9
+msgid "was paid."
+msgstr "оплачен"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:64
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:141
+msgid "Restore"
+msgstr "Восстановить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:65
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:136
+msgid "Archive"
+msgstr "Архив"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:66
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:147
+msgid "Delete Permanently"
+msgstr "Удалить без восстановления"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:67
+msgid "Move to Trash"
+msgstr "Переместить в Корзину"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:68
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:134
+msgid "Un-Archive"
+msgstr "Разархивировать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:122
+#, php-format
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Редактировать &#8220;%s&#8221;"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:130
+msgid "Edit this item"
+msgstr "Редактировать этот пункт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:130
+msgid "Edit"
+msgstr "Редактировать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:134
+msgid "Un-Archive this item"
+msgstr "Разархивировать этот пункт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:136
+msgid "Archive this item"
+msgstr "Заархивировать этот пункт"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:141
+msgid "Restore this item from the Trash"
+msgstr "Восстановить этот элемент из Корзины"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:143
+msgid "Move this item to the Trash"
+msgstr "Переместить этот элемент в Корзину"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:143
+msgid "Trash"
+msgstr "Корзина"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:147
+msgid "Delete this item permanently"
+msgstr "Удалить этот элемент без возможности восстановления"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:152
+#, php-format
+msgid "View &#8220;%s&#8221;"
+msgstr "Просмотреть &#8220;%s&#8221;"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:152
+msgid "View"
+msgstr "Просмотреть"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/class_wpi_object_list_table.php:207
+msgid "of"
+msgstr "из"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:7
+msgid "WP-Invoice First-Use Setup"
+msgstr "Настройки первого wordpress инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:10
+msgid "Thank you for installing WP-Invoice.  Please provide the necessary information to complete the first-time setup."
+msgstr "Спасибо, что установили wordpress инвойс. Предоставьте, пожалуйста, необходимую информацию для настройки первого инвойса."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:13
+msgid "Basic Setup"
+msgstr "Базовая настройка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:17
+msgid "Business Name:"
+msgstr "Название компании"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:25
+msgid "Your clients will have to follow their secure link to this page to see their invoice. Opening this page without following a link will result in the standard page content begin shown."
+msgstr "Ваши клиенты перейдут по безопасной ссылке на эту страницу, чтобы увидеть свой инвойс. Если открыть страницу без ссылки, загрузится стандартное содержание страницы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:25
+msgid "Select a page to display invoices:"
+msgstr "Выберите страницу для показа инвойсов:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:42
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:254
+msgid "Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag."
+msgstr "Выберите из вариантов: переписать все содержание страницы; вставить после основного текста; или искать ярлык [wordpress инвойс]."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:42
+msgid "How to Insert Invoice:"
+msgstr "Как вставить инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:44
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:257
+msgid "Overwrite All Page Content"
+msgstr "Переписать все содержание страницы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:44
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:257
+msgid "Place Below Content"
+msgstr "Вставить после основного текста"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:44
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:257
+msgid "Above Content"
+msgstr "Поверх текста"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:44
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:257
+msgid "Replace [wp-invoice] Tag"
+msgstr "Заменить ярлык[wordpress инвойс]"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:45
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:257
+msgid "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</span> somewhere within your page content."
+msgstr "Если вы используете ярлык, разместите в любом месте на странице <span class=\"wp_invoice_explanation\">[wordpress инвойс]</span>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:56
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:285
+msgid "Default Payment Method:"
+msgstr "Способ платежа по умолчанию:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:67
+msgid "Client can change payment method:"
+msgstr "Клиент может изменить способ платежа:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:75
+msgid "Accept "
+msgstr "Принять"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:78
+msgid "Notice the "
+msgstr "Обратите внимание!"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:78
+msgid " Tab "
+msgstr "Таблица"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:78
+msgid " below. "
+msgstr "ниже"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/first_time_setup.php:145
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:105
+msgid "Save All Settings"
+msgstr "Сохранить все настройки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:127
+msgid "Add Payment / Charge"
+msgstr "Добавить Платеж/Сумма"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:135
+msgid "Invoice paid in full."
+msgstr "Инвойс оплачен полностью"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:215
+msgid "Click to view full link"
+msgstr "Нажмите один раз,чтобы увидеть ссылку полностью"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:215
+msgid "Invoice Link"
+msgstr "Ссылка на Инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:263
+msgid "Charge Name"
+msgstr "Имя клиента"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:273
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:349
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:461
+msgid "Total"
+msgstr "Итого"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:343
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:458
+msgid "Qty."
+msgstr "Количество"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:345
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:459
+msgid "Price"
+msgstr "Цена"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:387
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:471
+msgid "Toggle Description"
+msgstr "Переключиться на Описание продукта"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:437
+msgid "Amount Discount"
+msgstr "Скидка от количества"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:437
+msgid "Percent Discount"
+msgstr "Процент скидки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:481
+msgid "Subtotal Excluding Tax:"
+msgstr "Промежуточный итог без налога"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:489
+msgid "Discount:"
+msgstr "Скидка"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:493
+msgid "Sales Tax:"
+msgstr "Налог на продажу"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:507
+msgid "Add Line"
+msgstr "Добавить строку"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:513
+msgid "Insert a predefined line item"
+msgstr "Введите выбранный элемент"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_manage_invoice.php:541
+msgid "Add Discount"
+msgstr "Добавьте скидку"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:72
+msgid "Collected and Uncollected Funds"
+msgstr "Полученные и Неполученные суммы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:110
+msgid "Top 10 Most Valuable Clients"
+msgstr "10 наиболее важных клиентов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:158
+msgid "Top Grossing Line Items"
+msgstr "Товары, приносящие наибольшую прибыль"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:175
+msgid "Invoice Statistics"
+msgstr "Статистика Инвойсов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:207
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:93
+msgid "Warning:"
+msgstr "Осторожно!"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_reports.php:207
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:93
+msgid "not found"
+msgstr "не найдено"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:6
+msgid "Main"
+msgstr "Основная"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:11
+msgid "Business Process"
+msgstr "деятельность"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:16
+msgid "Payment"
+msgstr "Платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:26
+msgid "Line Items"
+msgstr "Элементы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:31
+msgid "Premium Features"
+msgstr "Улучшенные характеристики"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:36
+msgid "Help"
+msgstr "Помощь"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:51
+msgid "Settings updated."
+msgstr "Настройки обновлены"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:76
+msgid "WP-Invoice Global Settings"
+msgstr "Глобальные настройки wordpress инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:130
+msgid "Business Address"
+msgstr "Адрес компании"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:134
+msgid "Business Phone"
+msgstr "Служебный телефон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:143
+msgid "Display Styles"
+msgstr "Показатьь Стили"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:146
+msgid "Do <b>not</b> load theme specific styles."
+msgstr "<b>НЕ</b> загружать тематические стили"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:147
+msgid "Load default CSS styles on the front-end"
+msgstr "Загрузить стили CSS по умолчанию на внешний интерфейс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:153
+msgid "Tax Handling"
+msgstr "Добавление налога"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:156
+msgid "Calculate Taxable Subtotal"
+msgstr "Подсчитать промежуточный итог, подлежащий налогообложению"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:156
+msgid "After Discount"
+msgstr "Сумма со скидкой"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:156
+msgid "Before Discount"
+msgstr "Сумма до скидки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:157
+msgid "Use global tax."
+msgstr "Применить глобальный налог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:160
+msgid "This will make all new invoices have default Tax value which can be changed for different invoice."
+msgstr "Во всех новых инвойсах будет использоваться ставка налога по умолчанию; для разных инвойсов ее можно менять. "
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:167
+msgid "Advanced Settings"
+msgstr "Усовершенствованные настройки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:170
+msgid "Allow partial payments."
+msgstr "Разрешить частичную оплату"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:171
+msgid "Show checkbox for mandatory terms acceptance."
+msgstr "Показывать флаговую кнопку для подтверждения обязательных условий."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:172
+msgid "Show recurring billing options."
+msgstr "Показать возможность регулярного выставления счетов."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:173
+msgid "Enforce HTTPS on invoice pages, if available on this server."
+msgstr "Включить HTTPS на страницах инвойсов, если возможно на данном сервере."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Minimum user level to manage WP-Invoice"
+msgstr "Минимальный уровень пользователя для управления wordpress инвойсами"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Subscriber"
+msgstr "Подписчик"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Contributor"
+msgstr "Постоянный участник"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Editor"
+msgstr "Редактор"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:176
+msgid "Administrator"
+msgstr "Администратор"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:179
+msgid "Using Godaddy Hosting:"
+msgstr "При использовании хостинга Godaddy"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:180
+msgid "Special proxy must be used to process credit card transactions on GoDaddy servers."
+msgstr "Для обработки транзакций по кредитным картам на серверах Godaddy необходимо использовать специальный proxy-сервер."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:186
+msgid "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' folder in your active theme's folder."
+msgstr "Используйте редактируемые шаблоны. Если вы их отметите, wordpress инвойс будет использовать шаблоны из папки wpi в папке вашей активной темы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:191
+msgid "Note: Currently there is no \"wpi\" folder in your active template's folder, WP-Invoice will attempt to create it after saving."
+msgstr "Обратите внимание: В настоящий момент в активной папке вашего шаблона нет папки \"wpi\". Wordpress инвойс постарается создать ее после сохранения."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:193
+msgid "A \"wpi\" folder has been found, any files with the proper file names will be used instead of the default template files."
+msgstr "Папка\"wpi\" обнаружена, вместо шаблонов по умолчанию будут использоваться любые файлы с соответствющими названиями."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:197
+msgid "Install/re-install templates. If checked, WP-Invoice will attempt to install the templates inside the <b>wpi</b> folder in your active theme's folder."
+msgstr "Установить/переустановить шаблоны. Если вы их отметите, wordpress инвойс будет пытаться установить шаблоны в папку <b>wpi</b> в папке вашей активной темы."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:219
+msgid "When creating an invoice"
+msgstr "При создании инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:222
+msgid "Automatically increment the invoice's custom ID by one."
+msgstr "автоматически увеличивать номер инвойса на единицу."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:228
+msgid "When viewing an invoice"
+msgstr "При просмотре инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:231
+msgid "Display invoices on the"
+msgstr "размещайте инвойсы на"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:243
+msgid "page."
+msgstr "странице."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:245
+msgid "Replace HTML title with invoice subject when viewing invoice."
+msgstr "Заменить заголовок HTML названием инвойса при его просмотре."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:246
+msgid "Replace page heading and navigation link title with invoice subject when viewing invoice."
+msgstr "Заменить заголовок на странице и ссылку навигации на название инвойса при его просмотре."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:247
+msgid "Hide page heading and navigation link completely."
+msgstr "Скрыть заголовок страницы и ссылку навигации полностью."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:249
+msgid "Show my business name and address."
+msgstr "Показывать название и адрес моей компании."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:250
+msgid "Show quantity breakdowns in the itemized list."
+msgstr "Показывать нехватку количества товара всписке элементов заказа."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:255
+msgid "How to Insert Invoice"
+msgstr "Как вставить инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:260
+msgid "After a payment has been completed"
+msgstr "После получения платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:263
+msgid "Email a confirmation to client"
+msgstr "отправить клиенту подтверждение о получении."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:264
+#, php-format
+msgid "Email address set for administrative puproses from <a href=\"%s\">General Settings</a>"
+msgstr "Отправить информацию об адресе Администратору со страницы <a href=\"%s\">Общие Настройки</a>"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:265
+msgid "Email invoice creator"
+msgstr "Отправить письмо создателю инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:280
+msgid "Default Currency"
+msgstr "Валюта по умолчанию"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:291
+msgid "Client can change payment option."
+msgstr "Клиент может изменить способ платежа."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:297
+msgid "Payment Gateways"
+msgstr "Переход к платежным системам"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:355
+msgid "Manual Payment information"
+msgstr "Информация о проведении платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:360
+msgid "If an invoice has no payment gateways, this message will be displayed offering the customer guidance on their course of action."
+msgstr "Если в инвойсе нет перехода к платежным системам, появится это сообщение, предлагающее клиенту возможные варианты действий."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:377
+msgid "Subject"
+msgstr "Тема"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:378
+msgid "Content"
+msgstr "Содержание"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:402
+msgid "Add Template"
+msgstr "Добавить Шаблон"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:440
+msgid "Setup your common services and products in here to streamline invoice creation."
+msgstr "Перечислите ваши основные услуги и продукты здесь, чтобы облегчить создание инвойсов."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:457
+msgid "Name & Description"
+msgstr "Название и описание"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:498
+msgid "Add Line Item"
+msgstr "Добавьте линейку продуктов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:559
+msgid "Check for any premium feature updates from the Usability Dynamics Update server:"
+msgstr "Проверьте обновление улучшенных характеристик с сервера Usability Dynamics Update"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:561
+msgid "Check Updates"
+msgstr "Проверьте обновления"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:569
+msgid "Look up the $wpi_settings global settings array:"
+msgstr "Взгляните на блок глобальных настроек wordpress инвойс:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:569
+msgid "Toggle $wpi_settings"
+msgstr "Переключиться на настройки wordpress инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:595
+msgid "WP-Invoice Premium Features"
+msgstr "Улучшенные характеристики wordpress инвойс"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:596
+msgid "When purchasing the premium features you will need to specify your domain to add the license correctly.  This is your domain:"
+msgstr "При покупке товаров с улучшенными характеристиками укажите область ваших интересов, чтобы добавить необходимую лицензию. Ваша область:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:630
+msgid "[purchase feature]"
+msgstr "[купить продукт]"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:644
+#, php-format
+msgid "This feature is disabled because it requires WP-Invoice %1$s or higher."
+msgstr "Этот продукт заблокирован, так как требует wordpress инвойс не менее %1$s."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:646
+msgid "Disable premium feature."
+msgstr "Оключить улучшенные характеристики"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:650
+msgid "Feature installed, using version"
+msgstr "Характеристика установлена с использованием версии"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:653
+#, php-format
+msgid "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this feature."
+msgstr "Посетите сайт <a href=\"%s\">UsabilityDynamics.com</a> , чтобы купить этот продукт."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_page_settings.php:661
+msgid "There are no available premium features."
+msgstr "Продукты с улучшенными характеристиками отсутствуют."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_spc.php:17
+msgid "Cheatin&#8217; uh?"
+msgstr "Обман?"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/invoice_page_wpi_spc.php:41
+msgid "Sales Log"
+msgstr "Запись о продажах"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:4
+msgid "PayPal Setup"
+msgstr "Установки системы PayPal"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:8
+msgid "PayPal Username"
+msgstr "Имя пользователя в системе Paypal"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:12
+msgid "PayPal Pay Button URL"
+msgstr "URL-адрес кнопки Заплатить с помощью PayPal "
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:21
+msgid "Credit Card Setup"
+msgstr "Данные кредитной карты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:25
+msgid "Merchant Email"
+msgstr "Email-адрес продавца"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:29
+msgid "Your credit card processor will provide you with a gateway username."
+msgstr "Система обработки кредитной карты сообщит вам имя пользователя в платежной системе."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:29
+msgid "Gateway Username"
+msgstr "Имя пользователя в платежной системе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:34
+msgid "You will be able to generate this in your credit card processor's control panel."
+msgstr "Вы сможете создать его на контрольной панели системы обработки кредитной карты."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:34
+msgid "Gateway Transaction Key"
+msgstr "Ключ к транзакциям  помощью платежных систем"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:38
+msgid "This is the URL provided to you by your credit card processing company."
+msgstr "Этот URL-адрес предоставлен вам компанией, работающей с вашей кредитной картой."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:38
+msgid "Gateway URL"
+msgstr "URL-адрес платежной системы"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:46
+msgid "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode."
+msgstr "URL-адрес для регулярного выставления счетов будет отличаться от обычного URL-адреса платежных систем. Чаще всего, он будет содержать Authorize.net. Обратите внимание: тестовые номера кредитных карт будут отклонены даже в тестовом режиме."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_accordion.php:46
+msgid "Recurring Billing Gateway URL"
+msgstr "URL-адрес для регулярного выставления счетов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:2
+msgid "PayPal"
+msgstr "PayPal"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:43
+msgid "Test / Live Mode:"
+msgstr "Проверочный режим/ Рабочий режим:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:47
+msgid "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong."
+msgstr "Получите этот номер от системы обработки вашей кредитной карты. Если транзакция не проходит, скорее всего, ошибка в этом номере."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:47
+msgid "Delimiter Character"
+msgstr "Символ-разделитель"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:51
+msgid "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong."
+msgstr "По умолчанию номер от Authorize.net не существует. Получите этот номер от системы обработки вашей кредитной карты. Если транзакция совершается. но выполучаете странные ответы, скорее всего, ошибка в номере."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:51
+msgid "Encapsulation Character"
+msgstr "Закрытый символ"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:59
+msgid "Email Customer (on success):"
+msgstr "Оправьте письмо клиенту (при успехе операции):"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:63
+msgid "Customer Receipt Email Header"
+msgstr "Заголовок письма клиенту с квитанцией платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:67
+msgid "Security: MD5 Hash"
+msgstr "Безовасность: MD5 Hash"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:71
+msgid "Delim Data:"
+msgstr "Разграниченные данные:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:72
+msgid "True"
+msgstr "Истинно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:72
+msgid "False"
+msgstr "Ложно"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/payment_processing.php:76
+msgid "Toggle Advanced Options"
+msgstr "Переключиться в режим усовершенствованных вариантов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/profile_page_content.php:10
+msgid "Billing / Invoicing Info"
+msgstr "Информация о выставлении инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/user_selection_form.php:15
+msgid "E-mail Address:"
+msgstr "email адрес"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/user_selection_form.php:18
+msgid "Create New"
+msgstr "Создать новый"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/user_selection_form.php:24
+msgid "-- Select Invoice --"
+msgstr "--Выбрать инвойс--"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/user_selection_form.php:36
+msgid "[Recurring]"
+msgstr "[Регулярный]"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/user_selection_form.php:49
+msgid "New Invoice from Template"
+msgstr "Новый инвойс по шаблону"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/wpi_metaboxes.php:69
+msgid "Hide"
+msgstr "Скрыть"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/wpi_metaboxes.php:86
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/wpi_metaboxes.php:98
+msgid "Show"
+msgstr "Показать"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/wpi_metaboxes.php:112
+msgid "Filter Results"
+msgstr "Отфильтровать результаты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:16
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:61
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:126
+msgid "Send Notification"
+msgstr "Отправить Уведомление об инвойсе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:24
+msgid "To:"
+msgstr "Кому:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:28
+msgid "Template:"
+msgstr "Шаблон:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:42
+msgid "Subject:"
+msgstr "Тема:"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:121
+msgid "View Online"
+msgstr "Смотреть в сети (онлайн):"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:125
+msgid "Enter Payment"
+msgstr "Ввести платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:130
+msgid "Allow Partial Payment"
+msgstr "Позволить частичный платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:135
+msgid "Minimum Payment"
+msgstr "Мнимальная сумма платежа"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:149
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:282
+msgid "Bill Every"
+msgstr "Выставлять счет каждый"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:152
+msgid "Month(s)"
+msgstr "месяц(ы)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:152
+msgid "Day(s)"
+msgstr "день"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:156
+msgid "Billing Cycles"
+msgstr "Циклы выставления платежей"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:163
+msgid "Automatically."
+msgstr "Автоматически"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:173
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:195
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:273
+msgid "In One Week"
+msgstr "Через неделю"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:173
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:195
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:275
+msgid "In 30 Days"
+msgstr "Через 30 дней"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:173
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:195
+msgid "Clear"
+msgstr "Нулевой"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:184
+msgid "Toggle Advanced"
+msgstr "Переключиться в усовершенствованный режим"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:214
+msgid "Custom Invoice ID"
+msgstr "Номер инвойса клиента"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:219
+msgid "Global Tax"
+msgstr "Глобальный налог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:225
+msgid "Tax Method"
+msgstr "способ взимания налога"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:236
+msgid "Trash Invoice"
+msgstr "Отправить инвойс в Корзину"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:239
+msgid "Save"
+msgstr "Сохранить"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:251
+msgid "Recurring Billing"
+msgstr "Регулярное выставление счетов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:255
+msgid "Create a recurring billing schedule for this invoice."
+msgstr "Создать график регулярного выставления счетов для данного инвойса"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:260
+msgid "A name to identify this subscription by in addition to the invoice id. (ex: 'standard hosting')"
+msgstr "Название подписки в дополнение к номеру инвойса (например: 'стандартный хостинг')"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:261
+msgid "Subscription Name"
+msgstr "Название подписки"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:266
+msgid "Start Date"
+msgstr "Дата начала"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:268
+msgid "Start automatically as soon as the customer enters their billing information. "
+msgstr "Начинать автоматически, как только клиент вводит информацию о кредитной карте."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:270
+msgid "Specify Start Date"
+msgstr "Определить дату начала"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:277
+msgid "Start automatically"
+msgstr "Начинать автоматически"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:281
+msgid "This will be the number of times the client will be billed. (ex: 12)"
+msgstr "Количество счетов, выставляемых клиенту (например:12)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:284
+msgid "month(s)"
+msgstr "месяц(ы)"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:284
+msgid "days"
+msgstr "дни"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:287
+msgid "Keep it under the maximum of 9999."
+msgstr "Не должно превышать 9999."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:288
+msgid "Total Billing Cycles"
+msgstr "Общее количество циклов выставления счетов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:294
+msgid "All <b>recurring billing</b> fields must be filled out to activate recurring billing. "
+msgstr "Все поля <b>регулярного выставления счетов</b> должны быть заполне для включения данного режима."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:296
+msgid "Cancel Recurring Billing"
+msgstr "Отменить Регулярное выставление счетов"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:309
+msgid "New User Information"
+msgstr "Информация о новом пользователе"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:330
+msgid "If checked a WordPress user account will be created, otherwise the new user will only be visible within WP-Invoice."
+msgstr "Если поставить отметку, будет создана запись в wordpress; в противном случае нового пользователя можно увидеть только в режиме wordpress инвойс."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:331
+msgid "Create WordPress User Account?"
+msgstr "Создать запись о пользователе в wordpress?"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:340
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:405
+msgid "Default Payment Option"
+msgstr "Способ платежа по умолчанию"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:423
+msgid "Accepted Payments"
+msgstr "Принятые платежи"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:506
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:532
+msgid "Toggle Advanced Payment Options"
+msgstr "Переключиться на усовершенствованные системы платежей"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:516
+#, php-format
+msgid "To manage payment settings you should accept at least one payment method. Visit <a href=\"%s\">Payment Settings page</a> to setup."
+msgstr "Чтобы управлять настройками платежей, следует выбрать по крайней мере один способ платежа. Перейдите на страницу <a href=\"%s\">Система настроей пдатежей</a> для установки режима."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:517
+#, php-format
+msgid "If you do not want to use any payment venue then <a href=\"%s\">setup Manual Payment information</a>."
+msgstr "Если вы не желаете использовать предложенные способы платежа, перейдите к странице <a href=\"%s\">Настройка информации о платеже вручную</a>."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:549
+msgid "Invoice Status and History"
+msgstr "Статус инвойса и история"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:554
+msgid "Event Type"
+msgstr "Тип действия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:556
+msgid "Receive Payment"
+msgstr "Получить платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:556
+msgid "Add Charge"
+msgstr "Добавить сумму оплаты"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:556
+msgid "Administrative Adjustment"
+msgstr "Административные изменения"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:557
+msgid "Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments."
+msgstr "Обратите внимание: Регулярные платежи не могут подвергаться административным изменениям или дополнительным начислениям; это относится только к полученным платежам."
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:561
+msgid "Event Amount"
+msgstr "Количество действий"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:565
+msgid "Charge Tax"
+msgstr "Применить налог"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:570
+msgid "Event Date & Time"
+msgstr "Дата и время действия"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:577
+msgid "Event Note"
+msgstr "Дополнительная информация о действии"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:585
+msgid "Process Charge / Payment"
+msgstr "Обработать Выставление суммы/Платеж"
+
+#: C:\Users\dvzzz\Desktop\wp-invoice\wp-invoice/core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:605
+msgid "Toggle History Detail"
+msgstr "Переключиться на страницу Подробная История"
+
+

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template
+END
+pdf_quote_modern.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/pdf_quote_modern.php
+END
+wpi-default-style.css
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/wpi-default-style.css
+END
+invoice_lookup.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/invoice_lookup.php
+END
+pdf_quote.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/pdf_quote.php
+END
+pdf_quote_bold.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/pdf_quote_bold.php
+END
+receipt_page.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/receipt_page.php
+END
+invoice_page.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template/invoice_page.php
+END

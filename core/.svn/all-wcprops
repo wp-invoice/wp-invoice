@@ -1,29 +1,83 @@
 K 25
 svn:wc:ra_dav:version-url
-V 42
-/!svn/ver/233230/wp-invoice/tags/1.95/core
+V 44
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core
 END
-Frontend.php
+wpi_gateway_base.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_gateway_base.php
+END
+wpi_invoice.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_invoice.php
+END
+template.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/template.php
+END
+wpi_ui.php
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/!svn/ver/233230/wp-invoice/tags/1.95/core/Frontend.php
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ui.php
 END
-Display.php
+wpi_settings.php
 K 25
 svn:wc:ra_dav:version-url
-V 54
-/!svn/ver/233230/wp-invoice/tags/1.95/core/Display.php
+V 61
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_settings.php
 END
-Flow.php
+wpi_shorthand_functions.php
 K 25
 svn:wc:ra_dav:version-url
-V 51
-/!svn/ver/233230/wp-invoice/tags/1.95/core/Flow.php
+V 72
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_shorthand_functions.php
 END
-Functions.php
+wpi_template_functions.php
 K 25
 svn:wc:ra_dav:version-url
-V 56
-/!svn/ver/233230/wp-invoice/tags/1.95/core/Functions.php
+V 71
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_template_functions.php
+END
+wpi_ajax.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ajax.php
+END
+wpi_widgets.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_widgets.php
+END
+wpi_payment_api.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_payment_api.php
+END
+wpi_ud.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_ud.php
+END
+wpi_functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/wpi_functions.php
+END
+class_list_table.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/class_list_table.php
 END

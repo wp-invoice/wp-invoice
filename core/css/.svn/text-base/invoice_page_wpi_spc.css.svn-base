@@ -1,0 +1,13 @@
+#wpi_spc_manual_transaction {
+  margin-top: 15px;
+  background: #F9F9F9;
+}
+#wpi_spc_manual_transaction ul.wpi_scp_input_fields li label {
+  color: #6F6F6F;
+  float: left;
+  padding-right: 12px;
+  position: relative;
+  text-align: right;
+  top: 4px;
+  width: 100px;
+}

@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
-V 51
-/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways
+V 53
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/gateways
 END
-authnet.class.php
+class_wpi_paypal.php
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways/authnet.class.php
+V 74
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/gateways/class_wpi_paypal.php
 END
-authnetARB.class.php
+class_wpi_authorize.php
 K 25
 svn:wc:ra_dav:version-url
-V 72
-/!svn/ver/233230/wp-invoice/tags/1.95/core/gateways/authnetARB.class.php
+V 77
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/gateways/class_wpi_authorize.php
 END

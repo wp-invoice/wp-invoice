@@ -1,11 +1,53 @@
 K 25
 svn:wc:ra_dav:version-url
-V 46
-/!svn/ver/233230/wp-invoice/tags/1.95/core/css
+V 48
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css
 END
-wp_admin-1.9.css
+toplevel_page_wpi_main.css
 K 25
 svn:wc:ra_dav:version-url
-V 63
-/!svn/ver/233230/wp-invoice/tags/1.95/core/css/wp_admin-1.9.css
+V 75
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/toplevel_page_wpi_main.css
+END
+invoice_page_wpi_spc.css
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/invoice_page_wpi_spc.css
+END
+wpi-data-tables.css
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/wpi-data-tables.css
+END
+invoice_page_wpi_page_settings.css
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/invoice_page_wpi_page_settings.css
+END
+ie7.css
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/ie7.css
+END
+jquery-ui-1.7.1.custom.css
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/jquery-ui-1.7.1.custom.css
+END
+wpi-admin.css
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/wpi-admin.css
+END
+invoice_page_wpi_page_manage_invoice.css
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/638728/wp-invoice/tags/3.07.0/core/css/invoice_page_wpi_page_manage_invoice.css
 END

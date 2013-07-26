@@ -1,0 +1,16 @@
+.flexible_width_holder_content {
+  position: static !important;
+}
+li.wpi_invoice_totals {
+  width: 270px !important;
+}
+#wpi_predefined_services_select.button {
+  width: 83px !important;
+}
+#wpi_add_discount.button {
+  width: 105px !important;
+}
+.dataTables_wrapper {
+  /*padding-top: 36px;*/
+}
+

@@ -2,13 +2,13 @@
 
 dir
 746529
-http://plugins.svn.wordpress.org/wp-invoice/tags/1.95/core/css
+http://plugins.svn.wordpress.org/wp-invoice/tags/3.07.0/core/css
 http://plugins.svn.wordpress.org
 
 
 
-2010-04-24T20:56:55.253378Z
-233230
+2012-12-13T17:44:10.218794Z
+638728
 andypotanin
 
 
@@ -26,16 +26,16 @@ andypotanin
 
 b8457f37-d9ea-0310-8a92-e5e31aec5664
 
-wp_admin-1.9.css
+toplevel_page_wpi_main.css
 file
 
 
 
 
-2013-07-25T23:21:47.000000Z
-d584da256be5f5d9a0e38634c042c656
-2010-04-24T20:56:55.253378Z
-233230
+2013-07-25T23:21:30.000000Z
+9afe8c81fb6f3cf49620584c8ed83b4f
+2012-12-13T17:44:10.218794Z
+638728
 andypotanin
 
 
@@ -58,5 +58,246 @@ andypotanin
 
 
 
-7012
+2292
+
+invoice_page_wpi_spc.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+0447f365c837e53423fe849f249f371a
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+278
+
+images
+dir
+
+wpi-data-tables.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+bafa2ebb686fb4c4a1367c8cd25936f8
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10226
+
+invoice_page_wpi_page_settings.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+16ec5542a2f9f94f8dc8ae3c9a129caf
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1958
+
+ie7.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+da85b016fd1d42c1f1451314951338e6
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+310
+
+jquery-ui-1.7.1.custom.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+0dbe149fcbfffda0e4ec124095c1cdc0
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28105
+
+wpi-admin.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+81780115edd602497091d4e4a6c6e007
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28782
+
+invoice_page_wpi_page_manage_invoice.css
+file
+
+
+
+
+2013-07-25T23:21:30.000000Z
+fbfeda76b5215ff58e5e0cc6911b285f
+2012-12-13T17:44:10.218794Z
+638728
+andypotanin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2174
 
