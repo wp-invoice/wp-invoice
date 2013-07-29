@@ -725,6 +725,10 @@ class WPI_Settings_page {
       });
     </script>
 
+    <?php
+    do_action('wpi_settings_before_help');
+    ?>
+
     <div class="wpi_settings_block">
     <?php _e('Look up the $wpi_settings global settings array:', WPI); ?> <input type="button" id="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', WPI)); ?>">
       <div class="wpi_settings_row hidden">
@@ -736,6 +740,10 @@ class WPI_Settings_page {
     <?php _e("Restore Backup of WP-Invoice Configuration", WPI); ?>: <input name="wpi_settings[settings_from_backup]" type="file" />
       <a href="<?php echo wp_nonce_url("admin.php?page=wpi_page_settings&wpi_action=download-wpi-backup", 'download-wpi-backup'); ?>"><?php _e('Download Backup of Current WP-Invoice Configuration.', WPI); ?></a>
     </div>
+
+    <?php
+    do_action('wpi_settings_after_help');
+    ?>
 
   <?php
   }
