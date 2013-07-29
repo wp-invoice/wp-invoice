@@ -471,7 +471,7 @@ if ( !function_exists('wpi_help_api_reference') ) {
     global $wpi_xml_rpc_api_reference;
     ?>
       <div class="wpi_settings_block">
-        <?php _e('WP-Invoice XML-RPC API Reference', WPI); ?> <input type="button" id="wpi_settings_view" value="<?php esc_attr(_e('Toggle', WPI)); ?>">
+        <?php _e('WP-Invoice XML-RPC API Reference', WPI); ?> <input type="button" class="wpi_settings_view" value="<?php esc_attr(_e('Toggle', WPI)); ?>">
         <div class="wpi_settings_row hidden">
           <div class="wpi_scrollable_content">
             <h2>
@@ -479,6 +479,12 @@ if ( !function_exists('wpi_help_api_reference') ) {
             </h2>
             <p>
               <?php echo $wpi_xml_rpc_api_reference['namespace']->description; ?>
+            </p>
+            <h2>
+              <?php _e( 'Examples', WPI ); ?>
+            </h2>
+            <p>
+              <a target="_blank" href="https://github.com/UsabilityDynamics/wp-invoice/wiki/API#examples">https://github.com/UsabilityDynamics/wp-invoice/wiki/API</a>
             </p>
             <p>
               <?php _e( 'Below is a list of available functions that current API supports.', WPI ); ?>
