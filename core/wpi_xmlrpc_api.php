@@ -15,6 +15,7 @@ $wpi_xml_rpc_api_reference = array(
 
         //** Create Invoice */
         'create_invoice' => array(
+            'description' => 'Create new invoice based on information passed.',
             'args' => array(
                 'custom_id' => array(
                     'description' => 'Previously generated Custom Invoice ID.',
@@ -97,6 +98,7 @@ $wpi_xml_rpc_api_reference = array(
 
         //** Delete Invoice */
         'delete_invoice' => array(
+            'description' => 'Delete invoice by ID.',
             'args' => array(
                 'ID' => array(
                     'description' => 'Invoice ID.',
@@ -109,6 +111,7 @@ $wpi_xml_rpc_api_reference = array(
 
         //** Get Invoice */
         'get_invoice' => array(
+            'description' => 'Get invoice by ID',
             'args' => array(
                 'ID' => array(
                     'description' => 'Invoice ID.',
@@ -146,6 +149,7 @@ class WPI_XMLRPC_API {
   function __construct() {
     //** Extend standard XML-RPC */
     add_filter( 'xmlrpc_methods', array( __CLASS__, '__register' ) );
+    add_action( 'wpi_settings_before_help', 'wpi_help_api_reference' );
   }
 
   /**
@@ -377,7 +381,7 @@ class WPI_XMLRPC_API {
   }
 
   function update_invoice() {
-    return 2;
+    return;
   }
 
   /**
@@ -436,26 +440,68 @@ class WPI_XMLRPC_API {
  * Fires API methods in order to arguments passed
  * @param array $args
  */
-function wpi_xmlrpc_request( $args ) {
-  global $wp_xmlrpc_server, $wpi_xml_rpc_api_reference;
+if ( !function_exists('wpi_xmlrpc_request') ) {
+  function wpi_xmlrpc_request( $args ) {
+    global $wp_xmlrpc_server, $wpi_xml_rpc_api_reference;
 
-  //** Escape args */
-  $wp_xmlrpc_server->escape( $args );
+    //** Escape args */
+    $wp_xmlrpc_server->escape( $args );
 
-  //** Sort args */
-  $method      = $args[0];
-  $credentials = $args[1];
-  $args        = $args[2];
+    //** Sort args */
+    $method      = $args[0];
+    $credentials = $args[1];
+    $args        = $args[2];
 
-  //** Check credentials */
-  if ( !$user = $wp_xmlrpc_server->login( $credentials[0], $credentials[1] ) )
-    return $wp_xmlrpc_server->error;
+    //** Check credentials */
+    if ( !$user = $wp_xmlrpc_server->login( $credentials[0], $credentials[1] ) )
+      return $wp_xmlrpc_server->error;
 
-  //** Check for reference */
-  if ( !array_key_exists( $method, $wpi_xml_rpc_api_reference['methods'] ) ) return new WP_Error( 'wp.invoice', __('Requested method is absent in API Reference', WPI), $args );
+    //** Check for reference */
+    if ( !array_key_exists( $method, $wpi_xml_rpc_api_reference['methods'] ) ) return new WP_Error( 'wp.invoice', __('Requested method is absent in API Reference', WPI), $args );
 
-  //** Return result of calling requested method */
-  return is_callable( array( $wpi_xml_rpc_api_reference['namespace'], $method ) )
-         ? call_user_func( array( $wpi_xml_rpc_api_reference['namespace'], $method ), $args )
-         : new WP_Error( 'wp.invoice', __( 'Unknown method', WPI ), $method );
+    //** Return result of calling requested method */
+    return is_callable( array( $wpi_xml_rpc_api_reference['namespace'], $method ) )
+           ? call_user_func( array( $wpi_xml_rpc_api_reference['namespace'], $method ), $args )
+           : new WP_Error( 'wp.invoice', __( 'Unknown method', WPI ), $method );
+  }
+}
+
+if ( !function_exists('wpi_help_api_reference') ) {
+  function wpi_help_api_reference() {
+    global $wpi_xml_rpc_api_reference;
+    ?>
+      <div class="wpi_settings_block">
+        <?php _e('WP-Invoice XML-RPC API Reference', WPI); ?> <input type="button" id="wpi_settings_view" value="<?php esc_attr(_e('Toggle', WPI)); ?>">
+        <div class="wpi_settings_row hidden">
+          <div class="wpi_scrollable_content">
+            <h2>
+              <?php _e( 'WP-Invoice XML-RPC API Reference', WPI ); ?>
+            </h2>
+            <p>
+              <?php echo $wpi_xml_rpc_api_reference['namespace']->description; ?>
+            </p>
+            <p>
+              <?php _e( 'Below is a list of available functions that current API supports.', WPI ); ?>
+            </p>
+
+            <ul>
+            <?php foreach( $wpi_xml_rpc_api_reference['methods'] as $method => $info ): ?>
+              <li class="wpi_api_method_wrapper">
+                <code><?php echo $method; ?></code>
+                <p><?php echo $info['description']; ?></p>
+                <h4><?php _e('Arguments:', WPI); ?></h4>
+                <ol>
+                  <?php foreach( $info['args'] as $arg => $arg_info ): ?>
+                    <li><b><?php echo $arg; ?></b>:<?php echo $arg_info['type']; ?><?php echo $arg_info['required']?'<sup>*</sup>':''; ?> - <?php echo $arg_info['description'] ?></li>
+                  <?php endforeach; ?>
+                </ol>
+              </li>
+            <?php endforeach; ?>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    <?php
+  }
 }
