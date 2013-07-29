@@ -718,9 +718,9 @@ class WPI_Settings_page {
     <script type='text/javascript'>
       jQuery(document).ready(function() {
         //** Do the JS for our view link */
-        jQuery('#wpi_settings_view').click(function(e){
+        jQuery('.wpi_settings_view').click(function(e){
           e.preventDefault();
-          jQuery('.wpi_settings_row').toggle();
+          jQuery(this).parent().find('.wpi_settings_row').toggle();
         });
       });
     </script>
@@ -730,7 +730,7 @@ class WPI_Settings_page {
     ?>
 
     <div class="wpi_settings_block">
-    <?php _e('Look up the $wpi_settings global settings array:', WPI); ?> <input type="button" id="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', WPI)); ?>">
+    <?php _e('Look up the $wpi_settings global settings array:', WPI); ?> <input type="button" class="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', WPI)); ?>">
       <div class="wpi_settings_row hidden">
     <?php echo WPI_Functions::pretty_print_r($wpi_settings); ?>
       </div>
