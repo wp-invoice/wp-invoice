@@ -120,7 +120,25 @@ $wpi_xml_rpc_api_reference = array(
                 )
             ),
             'return' => 'WPI_Invoice|WP_Error'
-        )
+        ),
+
+        //** Pay invoice by ID */
+        'pay_invoice' => array(
+            'description' => 'Pay invoice by ID',
+            'args' => array(
+                'ID' => array(
+                    'description' => 'Invoice ID.',
+                    'required'    => true,
+                    'type'        => 'Number'
+                ),
+                'amount' => array(
+                    'description' => 'Amount to be paid.',
+                    'required'    => true,
+                    'type'        => 'Number'
+                )
+            ),
+            'return' => 'WPI_Invoice|WP_Error'
+        ),
     )
 );
 
@@ -380,16 +398,60 @@ class WPI_XMLRPC_API {
     return $invoice;
   }
 
+
+  function archive_invoice() {
+    return true;
+  }
+
   function update_invoice() {
     return true;
   }
 
-  function pay_invoice() {
-    return true;
-  }
+  /**
+   * Pay invoice by ID
+   * @param type $args
+   * @return WP_Error|WPI_Invoice
+   */
+  function pay_invoice( $args=array() ) {
+    //** Default arguments */
+    $defaults = array(
+      'ID' => false,
+      'amount' => false
+    );
 
-  function archive_invoice() {
-    return true;
+    //** Parse arguments */
+    extract( wp_parse_args( $args , $defaults ) );
+
+    //** Check */
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+    if ( !$amount ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is required.', WPI ), $args );
+    if ( !is_numeric( $amount ) ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is malformed.', WPI ), $args );
+
+    //** New Invoice object */
+    $invoice = new WPI_Invoice();
+
+    //** Load invoice by ID */
+    $invoice->load_invoice(array('id'=>$ID));
+
+    //** Check */
+    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+
+    //** Add payment item */
+    $invoice->add_entry(array(
+        'attribute' => 'balance',
+        'note'      => 'Paid '.((float)$amount).' '.$invoice->data['default_currency_code'].' via XML-RPC API',
+        'amount'    => (float)$amount,
+        'type'      => 'add_payment'
+    ));
+
+    //** Save to be sure totals recalculated */
+    $invoice->save_invoice();
+
+    //** Load again to get changes */
+    $invoice = new WPI_Invoice();
+    $invoice->load_invoice(array('id'=>$ID));
+
+    return $invoice;
   }
 
   /**
@@ -459,10 +521,13 @@ if ( !function_exists('wpi_xmlrpc_request') ) {
     $method      = $args[0];
     $credentials = $args[1];
     $args        = $args[2];
+    $blog        = isset($args[3])?$args[3]:0;
 
     //** Check credentials */
     if ( !$user = $wp_xmlrpc_server->login( $credentials[0], $credentials[1] ) )
       return $wp_xmlrpc_server->error;
+
+    if ( !current_user_can_for_blog( $blog, 'manage_options' ) ) return new WP_Error( 'wp.invoice', __('Access denied. Do not have rights.', WPI), $args );
 
     //** Check for reference */
     if ( !array_key_exists( $method, $wpi_xml_rpc_api_reference['methods'] ) ) return new WP_Error( 'wp.invoice', __('Requested method is absent in API Reference', WPI), $args );
