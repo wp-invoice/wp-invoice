@@ -6,8 +6,9 @@
 class WPI_Payment_Api {
 
   const WPI_METHOD_AUTHORIZE_NET   = 'wpi_authorize';
-	const WPI_METHOD_PAYPAL   = 'wpi_paypal';
-	const WPI_METHOD_CHARGIFY = 'wpi_chargify';
+  const WPI_METHOD_PAYPAL   = 'wpi_paypal';
+  const WPI_METHOD_CHARGIFY = 'wpi_chargify';
+  const WPI_METHOD_TWOCHECKOUT = 'wpi_twocheckout';
 
   const WPI_METHOD_STATUS_COMPLETE = 'Complete';
   const WPI_METHOD_STATUS_ERROR    = 'Error';
@@ -51,8 +52,9 @@ class WPI_Payment_Api {
       'x_phone'       => '',
       'x_fax'         => ''
     ),
-		'wpi_paypal' => array(true),
-		'wpi_chargify' => array(true),
+    'wpi_paypal' => array(true),
+    'wpi_chargify' => array(true),
+    'wpi_twocheckout' => array(true),
   );
 
   // Default response object
@@ -161,13 +163,21 @@ class WPI_Payment_Api {
 
           break;
 
-				case self::WPI_METHOD_PAYPAL:
+        case self::WPI_METHOD_PAYPAL:
 
-					$this->response['payment_status'] = self::WPI_METHOD_STATUS_COMPLETE;
-					$this->response['receiver_email'] = !empty( $args['payer_email'] ) ? $args['payer_email'] : '';
-					$this->response['payment_method'] = self::WPI_METHOD_PAYPAL;
+                $this->response['payment_status'] = self::WPI_METHOD_STATUS_COMPLETE;
+                $this->response['receiver_email'] = !empty( $args['payer_email'] ) ? $args['payer_email'] : '';
+                $this->response['payment_method'] = self::WPI_METHOD_PAYPAL;
 
-					break;
+                break;
+
+        case self::WPI_METHOD_TWOCHECKOUT:
+
+                $this->response['payment_status'] = self::WPI_METHOD_STATUS_COMPLETE;
+                $this->response['receiver_email'] = !empty( $args['payer_email'] ) ? $args['payer_email'] : '';
+                $this->response['payment_method'] = self::WPI_METHOD_TWOCHECKOUT;
+
+                break;
 
         case self::WPI_METHOD_CHARGIFY:
 
