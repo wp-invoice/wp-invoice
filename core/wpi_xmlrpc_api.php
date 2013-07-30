@@ -381,7 +381,15 @@ class WPI_XMLRPC_API {
   }
 
   function update_invoice() {
-    return;
+    return true;
+  }
+
+  function pay_invoice() {
+    return true;
+  }
+
+  function archive_invoice() {
+    return true;
   }
 
   /**
@@ -466,6 +474,9 @@ if ( !function_exists('wpi_xmlrpc_request') ) {
   }
 }
 
+/**
+ * Render API help
+ */
 if ( !function_exists('wpi_help_api_reference') ) {
   function wpi_help_api_reference() {
     global $wpi_xml_rpc_api_reference;
