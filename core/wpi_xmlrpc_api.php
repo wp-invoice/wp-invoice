@@ -436,6 +436,20 @@ class WPI_XMLRPC_API {
     //** Check */
     if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
 
+    //** Pay only if status if not paid */
+    if ( $invoice->data['post_status'] == 'paid' ) return new WP_Error( 'wp.invoice', __( 'Invoice is completely paid. Payments are not acceptable anymore.', WPI ), $args );
+
+    //** Check amount */
+    if ( (float)$invoice->data['net'] < (float)$amount ) return new WP_Error( 'wp.invoice', __( 'Cannot pay more that the balance is. Maximum is '.$invoice->data['net'], WPI ), $args );
+
+    //** Handle partial */
+    if ( (float)$invoice->data['net'] > (float)$amount ) {
+      if ( empty( $invoice->data['deposit_amount'] ) ) return new WP_Error( 'wp.invoice', __( 'Partial payments are not allowed. Pay minimum is '.$invoice->data['net'], WPI ), $args );
+      if ( (float)$amount < (float)$invoice->data['deposit_amount'] ) {
+        return new WP_Error( 'wp.invoice', __( 'Minimum allowed payment is '.$invoice->data['deposit_amount'], WPI ), $args );
+      }
+    }
+
     //** Add payment item */
     $invoice->add_entry(array(
         'attribute' => 'balance',
