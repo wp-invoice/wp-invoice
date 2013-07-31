@@ -152,6 +152,73 @@ $wpi_xml_rpc_api_reference = array(
             ),
             'return' => 'WPI_Invoice|WP_Error'
         ),
+
+        //** Update invoice */
+        'update_invoice' => array(
+            'description' => 'Update some of the invoice attributes.',
+            'args' => array(
+                'ID' => array(
+                    'description' => 'Invoice ID.',
+                    'required'    => true,
+                    'type'        => 'Number'
+                ),
+                'subject'   => array(
+                    'description' => 'The title of invoice post object.',
+                    'required'    => true,
+                    'type'        => 'String'
+                ),
+                'description' => array(
+                    'description' => 'The content of invoice post object.',
+                    'required'    => false,
+                    'type'        => 'String'
+                ),
+                'type'      => array(
+                    'description' => 'The type of invoice object. One of allowed types can be used. (invoice, quote, single_payment, recurring).',
+                    'required'    => true,
+                    'type'        => 'String'
+                ),
+                'deposit'   => array(
+                    'description' => 'Minimum amount of Partial Payment allowed. Partial Payments disabled if empty.',
+                    'required'    => false,
+                    'type'        => 'Number'
+                ),
+                'due_date'  => array(
+                    'description' => 'Invoice Due Date. Associative array of 3 permanent elements: month, year, day (mm, yyyy, dd).',
+                    'required'    => false,
+                    'type'        => 'Array'
+                ),
+                'tax'       => array(
+                    'description' => 'Global tax value in percents. Will be applied to every item and charge.',
+                    'required'    => false,
+                    'type'        => 'Number'
+                ),
+                'tax_method' => array(
+                    'description' => 'Method of tax counting. After or Before discount. (before_discount, after_discount).',
+                    'required'    => false,
+                    'type'        => 'String'
+                ),
+                'recurring'  => array(
+                    'description' => 'Recurring billing cycles options.',
+                    'required'    => false,
+                    'type'        => 'String'
+                ),
+                'discount'    => array(
+                    'description' => 'Discount for current invoice. Associative array should contain 3 fields: name, type, amount.',
+                    'required'    => false,
+                    'type'        => 'Array'
+                ),
+                'items'       => array(
+                    'description' => 'Line items of current invoice. Set of associative arrays. Conditionaly required.',
+                    'required'    => true,
+                    'type'        => 'Array'
+                ),
+                'charges'     => array(
+                    'description' => 'Charges of current invoice. Set of associative arrays. Conditionaly required.',
+                    'required'    => true,
+                    'type'        => 'Array'
+                )
+            )
+        )
     )
 );
 
@@ -411,11 +478,6 @@ class WPI_XMLRPC_API {
     return $invoice;
   }
 
-
-  function archive_invoice() {
-    return true;
-  }
-
   /**
    * Refund invoice by ID
    * @param type $args
@@ -460,10 +522,6 @@ class WPI_XMLRPC_API {
     $invoice->load_invoice(array('id'=>$ID));
 
     return $invoice;
-  }
-
-  function update_invoice() {
-    return true;
   }
 
   /**
@@ -575,6 +633,189 @@ class WPI_XMLRPC_API {
 
     //** Return ready object */
     return empty($invoice->error) ? $invoice : new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+  }
+
+  /**
+   * Update invoice by ID
+   * @global Array $wpi_settings
+   * @param Array $args
+   * @return WP_Error|WPI_Invoice
+   */
+  function update_invoice( $args=array() ) {
+    global $wpi_settings;
+
+    //** Default arguments */
+    $defaults = array(
+        'ID'          => false,
+        'subject'     => false,
+        'description' => false,
+        'type'        => false,
+        'deposit'     => false,
+        'due_date'    => false,
+        'tax'         => false,
+        'tax_method'  => false,
+        'recurring'   => false,
+        'discount'    => false,
+        'items'       => array(),
+        'charges'     => array()
+    );
+
+    //** Parse arguments */
+    extract( $args = wp_parse_args( $args , $defaults ) );
+
+    //** Check */
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+
+    //** New Invoice object */
+    $invoice = new WPI_Invoice();
+
+    //** Load invoice by ID */
+    $invoice->load_invoice(array('id'=>$ID));
+
+    $set = array();
+
+    //** Subject */
+    if ( $subject ) {
+      $subject = trim($subject);
+      if ( !empty( $subject ) ) {
+        $set['subject'] = $subject;
+        $set['post_title'] = $subject;
+      }
+    }
+
+    //** Description */
+    if ( $description ) {
+      $description = trim($description);
+      if ( !empty( $description ) ) {
+        $set['description'] = $description;
+      }
+    }
+
+    if ( $type ) {
+      //** If type is registered */
+      if ( !array_key_exists( $type, $wpi_settings['types'] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice type.', WPI ), $args );
+
+      //** If recurring */
+      if ( $type == 'recurring' ) {
+        $recurring = array_filter($recurring);
+        if ( empty( $recurring['unit'] ) || empty( $recurring['cycles'] ) ) return new WP_Error( 'wp.invoice', __( 'Method requires correct "recurring" argument if "type" is recurring.', WPI ), $args );
+        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "recurring" type.', WPI ), $args );
+      }
+
+      //** If quote */
+      if ( $type == 'quote' ) {
+        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "quote" type.', WPI ), $args );
+      }
+
+      $set['type'] = $type;
+
+      //** If quote */
+      if ( $type == 'quote' ) {
+        $set['status'] = $type;
+        $set['is_quote'] = 'true';
+      }
+
+      //** Recurring */
+      if ( $type == 'recurring' ) {
+        $invoice->create_schedule( $recurring );
+      }
+    }
+
+    //** Partial payments */
+    if ( $deposit ) {
+      $set['deposit_amount'] = (float)$deposit;
+    }
+
+    if ( $due_date ) {
+      $set['due_date_year']  = $due_date['year'];
+      $set['due_date_month'] = $due_date['month'];
+      $set['due_date_day']   = $due_date['day'];
+    }
+
+    if ( $tax ) {
+      $set['tax'] = $tax;
+    }
+
+    if ( $tax_method ) {
+      if ( $tax_method != 'before_discount' && $tax_method != 'after_discount' ) {
+        return new WP_Error( 'wp.invoice', __( 'Unknown "tax_method".', WPI ), $args );
+      }
+      $set['tax_method'] = $tax_method;
+    }
+
+    if ( $discount ) {
+      if ( empty( $discount['name'] ) ) return new WP_Error( 'wp.invoice', __( 'Discount name is required.', WPI ), $args );
+      if ( empty( $discount['type'] ) ) return new WP_Error( 'wp.invoice', __( 'Discount type is required. ("amount" or "percent").', WPI ), $args );
+      if ( empty( $discount['amount'] ) ) return new WP_Error( 'wp.invoice', __( 'Discount amount is required.', WPI ), $args );
+      $invoice->data['discount'] = array();
+      $invoice->add_discount( $discount );
+    }
+
+    if ( $items ) {
+      //** Items */
+      foreach( $items as $item ) {
+        //** Do not allow to save melformed items */
+        if ( empty( $item['name'] ) ||
+             empty( $item['quantity'] ) ||
+             empty( $item['price'] ) ) {
+          return new WP_Error( 'wp.invoice', __( 'One or more "items" have malformed structure. Cannot create Invoice.', WPI ), $args );
+        }
+
+        //** Global tax has higher priority */
+        if ( !empty( $tax ) ) $item['tax_rate'] = $tax;
+
+        //** Check types */
+        if ( !is_numeric( $item['quantity'] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "quantity" value. Cannot create Invoice.', WPI ), $args );
+        if ( !is_numeric( $item['price'] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "price" value. Cannot create Invoice.', WPI ), $args );
+        if ( !empty( $item['tax_rate'] ) ) {
+          if ( !is_numeric( $item['tax_rate'] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "tax_rate" value. Cannot create Invoice.', WPI ), $args );
+        }
+      }
+    }
+
+    if ( $charges ) {
+      //** Charges */
+      foreach( $charges as $charge ) {
+        //** Do not allow to save melformed items */
+        if ( empty( $charge['name'] ) ||
+             empty( $charge['amount'] ) ) {
+          return new WP_Error( 'wp.invoice', __( 'One or more "charges" have malformed structure. Cannot create Invoice.', WPI ), $args );
+        }
+
+        //** Global tax has higher priority */
+        if ( !empty( $tax ) ) $charge['tax'] = $tax;
+
+        //** Check types */
+        if ( !is_numeric( $charge['amount'] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "amount" value. Cannot create Invoice.', WPI ), $args );
+        if ( !empty( $charge['tax'] ) ) {
+          if ( !is_numeric( $charge['tax'] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "tax" value. Cannot create Invoice.', WPI ), $args );
+        }
+      }
+    }
+
+    //** If passed validation - save item */
+    if ( $charges ) {
+      $invoice->data['itemized_charges'] = array();
+      foreach( $charges as $charge ) {
+        $invoice->line_charge( $charge );
+      }
+    }
+    if ( $items ) {
+      $invoice->data['itemized_list'] = array();
+      foreach( $items as $item ) {
+        $invoice->line_item( $item );
+      }
+    }
+
+    $invoice->set( $set );
+
+    $invoice->save_invoice();
+
+    $invoice = new WPI_Invoice();
+    //** Load invoice by ID */
+    $invoice->load_invoice(array('id'=>$ID));
+
+    return $invoice;
   }
 
 }
