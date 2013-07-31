@@ -122,6 +122,19 @@ $wpi_xml_rpc_api_reference = array(
             'return' => 'WPI_Invoice|WP_Error'
         ),
 
+        //** Refund invoice */
+        'refund_invoice' => array(
+            'description' => 'Refund invoice by ID. Note that it does not do refund on merchant side.',
+            'args' => array(
+                'ID' => array(
+                    'description' => 'Invoice ID.',
+                    'required'    => true,
+                    'type'        => 'Number'
+                )
+            ),
+            'return' => 'WPI_Invoice|WP_Error'
+        ),
+
         //** Pay invoice by ID */
         'pay_invoice' => array(
             'description' => 'Pay invoice by ID',
@@ -401,6 +414,52 @@ class WPI_XMLRPC_API {
 
   function archive_invoice() {
     return true;
+  }
+
+  /**
+   * Refund invoice by ID
+   * @param type $args
+   * @return WP_Error|WPI_Invoice
+   */
+  function refund_invoice( $args=array() ) {
+    //** Defaults  */
+    $defaults = array(
+      'ID' => false
+    );
+
+    //** Parse arguments */
+    extract( wp_parse_args( $args , $defaults ) );
+
+    //** Check */
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+
+    //** New Invoice object */
+    $invoice = new WPI_Invoice();
+
+    //** Load invoice by ID */
+    $invoice->load_invoice(array('id'=>$ID));
+
+    //** Check */
+    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+
+    //** Do refund if it has payments */
+    if ( empty( $invoice->data['total_payments'] ) ) return new WP_Error( 'wp.invoice', __( 'Cannot be refunded. No payments found.', WPI ), $args );
+
+    $insert_id = $invoice->add_entry(array(
+        'attribute' => 'balance',
+        'note'      => 'Refunded via XML-RPC',
+        'amount'    => (float)$invoice->data['total_payments'],
+        'type'      => 'refund'
+    ));
+    if ( !$insert_id ) return new WP_Error( 'wp.invoice', __( 'Could not refund due to unknown error.', WPI ), $args );
+
+    $invoice->save_invoice();
+
+    //** Load again to get changes */
+    $invoice = new WPI_Invoice();
+    $invoice->load_invoice(array('id'=>$ID));
+
+    return $invoice;
   }
 
   function update_invoice() {
