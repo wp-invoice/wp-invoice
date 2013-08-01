@@ -4,7 +4,7 @@ Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB
 Requires at least: 3.1
 Tested up to: 3.5.2
-Stable tag: 3.09.0
+Stable tag: 3.08.8
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description ==
@@ -102,8 +102,10 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 == Change Log ==
 
-= Version 3.09.0 =
-* Development version. (WIP)
+= Version 3.08.8 =
+* Improved Single Page Checkout feature.
+* Fixed font issue in PDF feature.
+* Added WP-Invoice XML-RPC API.
 
 = Version 3.08.7 =
 * Fixed critical issue with the way invoices appear on the invoice page. 'How to Insert Invoice' option works correctly now.
