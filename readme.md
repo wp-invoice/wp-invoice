@@ -10,7 +10,7 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 
 ### Features
 
-* Automatically import invoices from Web Invoice plugin.
+* Automatically import invoices from Web Invoice plugin
 * WP-CRM Integration
 * Brand new user interface for much improved invoicing filtering and searching
 * Minimum and Split / Partial Payments
