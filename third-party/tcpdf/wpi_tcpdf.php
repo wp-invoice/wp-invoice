@@ -75,10 +75,20 @@ class WPI_TCPDF extends TCPDF {
 
     $cdn_fonts_url = $this->cdn_url . 'assets/tcpdf/5.9.047/fonts/';
 
-    if (file_exists( $this->_getfontpath() . $font . '.ctg.z') ) return;
+    if ( file_exists( $this->_getfontpath() . $font . '.ctg.z') ) return;
+
+    $font_file  = $this->_getfontpath() . $font . '.php' ;
+    if ( file_exists( $font_file ) ){
+      include($font_file);
+      if (!(isset($type) && $type=='TrueTypeUnicode')){
+        return;
+      }
+    }else{
+      return;
+    }
 
     foreach ($this->font_extentions as $ext){
-      $cdn_fonts_file = $cdn_fonts_url . $font . $ext;
+      $cdn_fonts_file = $cdn_fonts_url . strtolower($font) . $ext;
 
       $font_request = wp_remote_get( preg_replace('~\s~','%20', $cdn_fonts_file), array( 'timeout' => apply_filters('wpp_pf_wp_remote_timeout',300 ) ) );
 
@@ -107,7 +117,9 @@ class WPI_TCPDF extends TCPDF {
 		} elseif (isset($this->fonts[$font])) {
 			return $this->fonts[$font];
 		}else{
-      $this->retrieve_cdn_font($font);
+      if (!empty($font)){
+        $this->retrieve_cdn_font($font);
+      }
     }
 
 		return false;

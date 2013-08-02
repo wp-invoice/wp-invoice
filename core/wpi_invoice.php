@@ -71,11 +71,11 @@ class WPI_Invoice {
   function load_defaults() {
     global $wpi_settings;
     // load globals
-    $this->data['meta'] = $wpi_settings[globals];
+    $this->data['meta'] = $wpi_settings['globals'];
     // currencies
-    $this->data['currencies'] = $wpi_settings[currency][types];
+    $this->data['currencies'] = $wpi_settings['currency']['types'];
     // load billing
-    $this->data['billing'] = $wpi_settings[billing];
+    $this->data['billing'] = $wpi_settings['billing'];
   }
 
   /**

@@ -229,6 +229,7 @@ class wpi_authorize extends wpi_gateway_base {
     add_action( 'wpi_authorize_user_meta_updated', array( $this, 'user_meta_updated' ) );
   }
 
+
   /**
    * Render fields
    *
