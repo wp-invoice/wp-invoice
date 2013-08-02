@@ -1023,3 +1023,13 @@ ul.wpi_sublist {
 .wpi_premium_feature_intro tr:last-child td{
   padding-bottom: 15px;
 }
+
+.wpi_scrollable_content {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.wpi_api_method_wrapper {
+  background: none repeat scroll 0 0 #FEFEFE;
+  padding: 20px;
+}
