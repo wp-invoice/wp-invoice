@@ -269,6 +269,8 @@ if (!class_exists('WPI_Core')) {
       add_action('wp_ajax_wpi_user_autocomplete_handler', array('WPI_Ajax', 'user_autocomplete_handler'));
       add_action('wp_ajax_wpi_template_autocomplete_handler', array('WPI_Ajax', 'template_autocomplete_handler'));
 
+      add_action('wp_ajax_wpi_search_email', array('WPI_Ajax', 'search_email'));
+
       //** WP-CRM integration */
       add_action('wpi_integrate_crm_user_panel', array('WPI_UI', 'crm_user_panel'));
       if ( class_exists('WP_CRM_Core') ) {
@@ -352,8 +354,10 @@ if (!class_exists('WPI_Core')) {
       wp_register_script('jsapi', 'https://www.google.com/jsapi');
       wp_register_script('jquery-data-tables', WPI_URL . "/third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
       wp_register_script('wpi.checkout', WPI_URL . "/core/js/wpi-checkout.js", array('jquery'));
+      wp_register_script('wpi_select2_js', WPI_URL . '/third-party/select2/select2.js', array('jquery'), WPB_VERSION );
 
       wp_register_style('wpi-jquery-data-tables', WPI_URL . "/core/css/wpi-data-tables.css");
+      wp_register_style('wpi_select2_css',  WPI_URL . '/third-party/select2/select2.css', array(), WPB_VERSION );
 
       //** Masure dependancies are identified in case this script is included in other pages */
       wp_register_script('wp-invoice-events', WPI_URL . "/core/js/wpi-events.js", array(
