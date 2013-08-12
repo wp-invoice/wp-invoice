@@ -360,7 +360,7 @@ function postbox_user_existing($this_invoice) {
   $user_email = $this_invoice['user_data']['user_email'];
 
   //** Get array of all user emails, excluding any empty ones (no provision as of now for creating invoices for users w/o emails */
-  $user_emails = $wpdb->get_col("SELECT user_email FROM {$wpdb->users} WHERE user_email != '' ");
+  /*$user_emails = $wpdb->get_col("SELECT user_email FROM {$wpdb->users} WHERE user_email != '' ");*/
 
   //** Get required user fields */
   $required_fields = $wpi_settings['user_meta']['required'];
@@ -374,19 +374,48 @@ function postbox_user_existing($this_invoice) {
   //** Determine if the user for this invoice already exists */
   $new_user = get_user_by('email', $user_email) ? false : true;
 
+  wp_enqueue_script('wpi_select2_js');
+  wp_enqueue_style('wpi_select2_css');
+
   ?>
 
+  <script type="text/javascript">
+    jQuery( document ).ready(function(){
+      jQuery(".wpi_user_email_selection").select2({
+        placeholder: 'Select User',
+        multiple: false,
+        width: '100%',
+        minimumInputLength: 3,
+        ajax: {
+          url: ajaxurl,
+          dataType: 'json',
+          type: 'POST',
+          data: function (term, page) {
+            return {
+              action: 'wpi_search_email',
+              s: term
+            };
+          },
+          results: function (data, page) {
+            return {results: data};
+          }
+        },
+        initSelection: function(element, callback) {
+          callback(<?php echo json_encode(array('id'=>$user_email, 'title'=>$user_email)); ?>);
+        },
+        formatResult: function(o) {
+          return o.title;
+        },
+        formatSelection: function(o) {
+          return o.title;
+        },
+        escapeMarkup: function (m) { return m; }
+      });
+    });
+  </script>
+
   <div class="wpi_user_email_selection_wrapper">
-    <select class="wpi_user_email_selection" name="wpi_invoice[user_data][user_email]">
-    <?php if ($new_user) { ?>
-      <option selected="selected" value="<?php echo esc_attr($user_email); ?>"><?php echo esc_attr($user_email); ?></option>
-      <?php } else {  ?>
-      <option></option>
-    <?php } ?>
-    <?php foreach ($user_emails as $this_email) {  ?>
-      <option <?php selected($this_email, $user_email); ?> value="<?php echo esc_attr($this_email); ?>"><?php echo esc_attr($this_email); ?></option>
-    <?php } ?>
-    </select>
+    <input type="text" value="<?php echo esc_attr($user_email); ?>" name="wpi_invoice[user_data][user_email]" class="wpi_user_email_selection" />
   </div>
 
   <table class="form-table wp_invoice_new_user">
