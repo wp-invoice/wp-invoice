@@ -22,7 +22,23 @@ class WPI_Ajax {
     } else {
       echo $result;
     }
-    
+
+  }
+
+  function search_email() {
+    global $wpdb;
+
+    $user_emails = $wpdb->get_col("SELECT user_email FROM {$wpdb->users} WHERE user_email LIKE '%{$_POST['s']}%' ");
+
+    $return = array();
+    $i = 0;
+    foreach( $user_emails as $email ) {
+      $return[] = array(
+          'id' => $email,
+          'title' => $email
+          );
+    }
+    die( json_encode( $return ) );
   }
 
   /**
