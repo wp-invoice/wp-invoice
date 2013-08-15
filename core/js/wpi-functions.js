@@ -1016,7 +1016,7 @@ function wpi_select_payment_method(method, force, init) {
     jQuery("div."+ method + "-setup-section").show();
     // activate accordion section unless this function was ran at initilization
     if(!init) {
-       jQuery('.wp_invoice_accordion').accordion('activate' , '#' + method + '-setup-section-header');
+       jQuery('.wp_invoice_accordion').accordion('option', 'active' , '#' + method + '-setup-section-header');
     }
     jQuery("#" + method + ".wpi_billing_section_show").parent().parent().find('.wpi_notice').show();
     jQuery("#" + method + ".wpi_billing_section_show").parent().parent().find('.wpi_notice').animate({backgroundColor: 'lightyellow'}, 1000);
@@ -1027,13 +1027,13 @@ function wpi_select_payment_method(method, force, init) {
     // display accordion secttion if its not displayed
     jQuery("div."+ method + "-setup-section").hide();
     // this is being hidden, so we activate the default
-    if(!init) jQuery('.wp_invoice_accordion').accordion('activate' , '#' + jQuery('#wp_invoice_payment_method option:selected').val() + '-setup-section-header');
+    if(!init) jQuery('.wp_invoice_accordion').accordion('option', 'active' , '#' + jQuery('#wp_invoice_payment_method option:selected').val() + '-setup-section-header');
     jQuery("#" + method + ".wpi_billing_section_show").parent().parent().find('.wpi_notice').hide();
   }
 }
 
 function wpi_focus_payment_method(method) {
-  jQuery('.ui-accordion').accordion('activate' , '#' + method + '-setup-section-header');
+  jQuery('.ui-accordion').accordion('option', 'active' , '#' + method + '-setup-section-header');
 }
 // initlizes delegate function
 jQuery.delegate = function(rules) {
