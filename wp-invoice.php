@@ -347,10 +347,8 @@ if (!class_exists('WPI_Core')) {
       wp_register_script('jquery.formatCurrency', WPI_URL . "/core/js/jquery.formatCurrency.js", array('jquery'));
       wp_register_script('jquery.number.format', WPI_URL . "/core/js/jquery.number.format.js", array('jquery'));
       wp_register_script('jquery.impromptu', WPI_URL . "/core/js/jquery-impromptu.1.7.js", array('jquery'));
-      wp_register_script('jquery.delegate', WPI_URL . "/core/js/jquery.delegate-1.1.min.js", array('jquery'));
       wp_register_script('jquery.field', WPI_URL . "/core/js/jquery.field.min.js", array('jquery'));
       wp_register_script('wpi-gateways', WPI_Gateways_URL . '/js/wpi_gateways.js.php', array('jquery'));
-      wp_register_script('jquery.field', WPI_URL . "/third-party/dataTables/jquery.dataTables.js", array('jquery'));
       wp_register_script('jsapi', 'https://www.google.com/jsapi');
       wp_register_script('jquery-data-tables', WPI_URL . "/third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
       wp_register_script('wpi.checkout', WPI_URL . "/core/js/wpi-checkout.js", array('jquery'));

@@ -575,7 +575,6 @@ class WPI_UI {
         wp_enqueue_script('wp-invoice-events');
         wp_enqueue_script('jquery-ui-autocomplete');
         wp_enqueue_script('jquery.formatCurrency');
-        wp_enqueue_script('jquery.delegate');
         wp_enqueue_script('jquery.field');
         wp_enqueue_script('jquery.bind');
         wp_enqueue_script('jquery.form');
