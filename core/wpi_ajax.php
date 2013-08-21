@@ -505,10 +505,11 @@ class WPI_Ajax {
   function user_autocomplete_handler() {
     global $wpdb;
 
-    $users_found = $wpdb->get_results("SELECT `display_name` as `label`,`user_email` as `value`
+    $users_found = $wpdb->get_results("SELECT CONCAT(`display_name`,' - ',`user_email`) as `label`, `user_email` as `value`
                                        FROM `{$wpdb->users}`
-                                       WHERE `display_name` LIKE '%{$_REQUEST['term']}%'
-                                         OR `user_email` LIKE '%{$_REQUEST['term']}%'
+                                       WHERE (`display_name` LIKE '%{$_REQUEST['term']}%'
+                                         OR `user_email` LIKE '%{$_REQUEST['term']}%')
+                                         AND `user_email` != ''
                                        LIMIT 10");
 
     die( json_encode( $users_found ) );
