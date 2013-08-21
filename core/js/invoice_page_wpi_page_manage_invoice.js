@@ -35,6 +35,7 @@ jQuery(document).ready(function() {
 
   jQuery('.wpi_toggle_advanced_payment_options').click(function() {
     jQuery('tr.wpi_advanced_payment_options').toggle();
+    jQuery('.wp_invoice_accordion').accordion('refresh');
   });
 
 });
