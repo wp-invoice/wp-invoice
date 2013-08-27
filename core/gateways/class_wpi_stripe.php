@@ -189,10 +189,6 @@ class wpi_stripe extends wpi_gateway_base {
     function process_payment() {
       global $invoice;
 
-      echo '<pre>';
-      print_r( $pk = $invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value'] );
-      echo '</pre>';
-
       // Response
       $response = array(
         'success' => false,
@@ -210,14 +206,52 @@ class wpi_stripe extends wpi_gateway_base {
           die(json_encode($response));
       }
 
-      require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+      try {
 
-      Stripe::setApiKey($pk);
+        require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+        $pk = $invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value'];
 
-      /**
-       * @todo: ->
-       */
-      Stripe_Charge::create();
+        Stripe::setApiKey($pk);
+
+        $charge = Stripe_Charge::create(array(
+          "amount" => (float)$invoice['net']*100,
+          "currency" => strtolower( $invoice['default_currency_code'] ),
+          "card" => $token,
+          "description" => $invoice['invoice_id'].' ['.$invoice['post_title'].' / '.get_bloginfo('url').' / '.$invoice['user_email'].']'
+        ));
+
+        if ( $charge->paid ) {
+          $data['messages'][] = __( 'Successfully paid. Thank you.', WPI );
+          $response['success'] = true;
+          $response['error'] = false;
+        } else {
+          $data['messages'][] = $charge->failure_message;
+          $response['success'] = false;
+          $response['error'] = true;
+        }
+
+        $response['data'] = $data;
+        die(json_encode($response));
+
+      } catch (Stripe_CardError $e) {
+
+        $e_json = $e->getJsonBody();
+        $err = $e_json['error'];
+        $response['error'] = true;
+        $data['messages'][] = $err['message'];
+      } catch (Stripe_ApiConnectionError $e) {
+
+        $response['error'] = true;
+        $data['messages'][] = __( 'Service is currently unavailable. Please try again later.', WPI );
+      } catch (Stripe_InvalidRequestError $e) {
+
+        $response['error'] = true;
+        $data['messages'][] = __( 'Unknown error occured. Please contact site administrator.', WPI );
+      } catch (Stripe_ApiError $e) {
+
+        $response['error'] = true;
+        $data['messages'][] = __( 'Stripe server is down! Try again later.', WPI );
+      }
 
       $response['data'] = $data;
       die(json_encode($response));

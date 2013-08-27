@@ -18,8 +18,30 @@ var wpi_stripe_messages = {
 
 /* This function adds to form validation, and returns true or false */
 var wpi_stripe_validate_form = function(){
-  /* Just return, no extra validation needed */
+
+  // Get the values:
+  var ccNum = jQuery('.card-number').val(),
+  cvcNum = jQuery('.card-cvc').val(),
+  expMonth = jQuery('.card-expiry-month').val(),
+  expYear = jQuery('.card-expiry-year').val();
+
+  // Validate the number:
+  if (!Stripe.validateCardNumber(ccNum)) {
+    return false;
+  }
+
+  // Validate the CVC:
+  if (!Stripe.validateCVC(cvcNum)) {
+    return false;
+  }
+
+  // Validate the expiration:
+  if (!Stripe.validateExpiry(expMonth, expYear)) {
+    return false;
+  }
+
   return true;
+
 };
 
 function reportError(msg) {
@@ -33,41 +55,13 @@ function reportError(msg) {
 
 var wpi_stripe_submit = function(){
 
-  var error = false;
-
-  // Get the values:
-  var ccNum = jQuery('.card-number').val(),
-  cvcNum = jQuery('.card-cvc').val(),
-  expMonth = jQuery('.card-expiry-month').val(),
-  expYear = jQuery('.card-expiry-year').val();
-
-  // Validate the number:
-  if (!Stripe.validateCardNumber(ccNum)) {
-    error = true;
-    reportError('The credit card number appears to be invalid.');
-  }
-
-  // Validate the CVC:
-  if (!Stripe.validateCVC(cvcNum)) {
-    error = true;
-    reportError('The CVC number appears to be invalid.');
-  }
-
-  // Validate the expiration:
-  if (!Stripe.validateExpiry(expMonth, expYear)) {
-    error = true;
-    reportError('The expiration date appears to be invalid.');
-  }
-
-  if (!error) {
-    // Get the Stripe token:
-    Stripe.createToken({
-      number: ccNum,
-      cvc: cvcNum,
-      exp_month: expMonth,
-      exp_year: expYear
-    }, stripeResponseHandler);
-  }
+  // Get the Stripe token:
+  Stripe.createToken({
+    number: ccNum,
+    cvc: cvcNum,
+    exp_month: expMonth,
+    exp_year: expYear
+  }, stripeResponseHandler);
 
   return false;
 
