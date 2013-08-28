@@ -5,7 +5,8 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . $invoice['bil
   <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
   <input type="hidden" id="wpi_form_type" name="type" value="<?php echo $this->type; ?>" />
   <input type="hidden" id="wpi_form_invoice_id" name="invoice_id" value="<?php echo $invoice['invoice_id']; ?>" />
-  
+  <input type="hidden" id="payment_amount" name="amount" value="<?php echo $invoice['net']; ?>" />
+
   <div id="credit_card_information">
 
         <?php do_action('wpi_payment_fields_stripe', $invoice); ?>
