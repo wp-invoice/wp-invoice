@@ -60,6 +60,9 @@ var wpi_stripe_validate_form = function(){
  */
 var wpi_stripe_submit = function(){
 
+  jQuery( "#cc_pay_button" ).attr("disabled", "disabled");
+  jQuery( ".loader-img" ).show();
+
   //** Get the values */
   var ccNum = jQuery('.card-number').val(),
   cvcNum = jQuery('.card-cvc').val(),
@@ -85,9 +88,7 @@ function stripeResponseHandler(status, response) {
 
   //** Check for an error */
   if (response.error) {
-
-    reportError(response.error.message);
-
+    alert(response.error.message);
   } else {
 
     //** No errors, submit the form */
@@ -99,8 +100,6 @@ function stripeResponseHandler(status, response) {
     //** Insert the token into the form so it gets submitted to the server */
     f.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
 
-    jQuery( "#cc_pay_button" ).attr("disabled", "disabled");
-    jQuery( ".loader-img" ).show();
     var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
     var message = '';
     jQuery.post(url, jQuery("#online_payment_form-wpi_stripe").serialize(), function(d){
