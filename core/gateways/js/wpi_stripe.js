@@ -16,27 +16,38 @@ var wpi_stripe_messages = {
   }
 };
 
-/* This function adds to form validation, and returns true or false */
+/**
+ * This function adds to form validation, and returns true or false
+ */
 var wpi_stripe_validate_form = function(){
 
-  // Get the values:
+  //** Get the values */
   var ccNum = jQuery('.card-number').val(),
   cvcNum = jQuery('.card-cvc').val(),
   expMonth = jQuery('.card-expiry-month').val(),
   expYear = jQuery('.card-expiry-year').val();
 
-  // Validate the number:
+  jQuery('.card-number').removeClass('wpi_error');
+  jQuery('.card-cvc').removeClass('wpi_error');
+  jQuery('.card-expiry-month').removeClass('wpi_error'),
+  jQuery('.card-expiry-year').removeClass('wpi_error');
+
+  //** Validate the number */
   if (!Stripe.validateCardNumber(ccNum)) {
+    jQuery('.card-number').addClass('wpi_error');
     return false;
   }
 
-  // Validate the CVC:
+  //** Validate the CVC */
   if (!Stripe.validateCVC(cvcNum)) {
+    jQuery('.card-cvc').addClass('wpi_error');
     return false;
   }
 
-  // Validate the expiration:
+  //** Validate the expiration */
   if (!Stripe.validateExpiry(expMonth, expYear)) {
+    jQuery('.card-expiry-month').addClass('wpi_error'),
+    jQuery('.card-expiry-year').addClass('wpi_error');
     return false;
   }
 
@@ -44,18 +55,18 @@ var wpi_stripe_validate_form = function(){
 
 };
 
-function reportError(msg) {
-
-  // Show the error in the form:
-  alert(msg);
-
-  return false;
-
-}
-
+/**
+ * Form submit handler
+ */
 var wpi_stripe_submit = function(){
 
-  // Get the Stripe token:
+  //** Get the values */
+  var ccNum = jQuery('.card-number').val(),
+  cvcNum = jQuery('.card-cvc').val(),
+  expMonth = jQuery('.card-expiry-month').val(),
+  expYear = jQuery('.card-expiry-year').val();
+
+  //** Get the Stripe token */
   Stripe.createToken({
     number: ccNum,
     cvc: cvcNum,
@@ -67,21 +78,25 @@ var wpi_stripe_submit = function(){
 
 };
 
+/**
+ * STRIPE response handler
+ */
 function stripeResponseHandler(status, response) {
 
-  // Check for an error:
+  //** Check for an error */
   if (response.error) {
 
     reportError(response.error.message);
 
-  } else { // No errors, submit the form:
+  } else {
 
+    //** No errors, submit the form */
     var f = jQuery("#online_payment_form-wpi_stripe");
 
-    // Token contains id, last4, and card type:
+    //** Token contains id, last4, and card type */
     var token = response['id'];
 
-    // Insert the token into the form so it gets submitted to the server
+    //** Insert the token into the form so it gets submitted to the server */
     f.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
 
     jQuery( "#cc_pay_button" ).attr("disabled", "disabled");
@@ -110,6 +125,9 @@ function stripeResponseHandler(status, response) {
 
 }
 
+/**
+ * Form init
+ */
 function wpi_stripe_init_form() {
   jQuery("#online_payment_form_wrapper").trigger('formLoaded');
 }
