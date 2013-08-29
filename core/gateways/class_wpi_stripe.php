@@ -23,7 +23,7 @@ class wpi_stripe extends wpi_gateway_base {
   function __construct() {
     parent::__construct();
 
-//** Fields for front-end. */
+    //** Fields for front-end. */
     $this->front_end_fields = array(
         'customer_information' => array(
             'first_name' => array(
@@ -111,7 +111,42 @@ class wpi_stripe extends wpi_gateway_base {
         )
     );
 
-    add_action('wpi_payment_fields_stripe', array($this, 'wpi_payment_fields'));
+    add_action( 'wpi_payment_fields_stripe',      array( $this, 'wpi_payment_fields' ) );
+    add_action( 'wpi_recurring_after_bill_every', array( $this, 'billing_periods' ) );
+    add_filter( 'wpi_create_schedule_recurring',  array( $this, 'create_schedule_recurring' ) );
+  }
+
+  /**
+   *
+   * @param array $recurring
+   * @return type
+   */
+  function create_schedule_recurring( $recurring ) {
+    $recurring['stripe_interval'] = !empty( $_REQUEST['wpi_invoice']['recurring']['stripe_interval'] ) ? $_REQUEST['wpi_invoice']['recurring']['stripe_interval'] : 'week';
+    $recurring['stripe_interval_count'] = !empty( $_REQUEST['wpi_invoice']['recurring']['stripe_interval_count'] ) ? $_REQUEST['wpi_invoice']['recurring']['stripe_interval_count'] : 1;
+    return $recurring;
+  }
+
+  /**
+   *
+   * @param type $invoice
+   */
+  function billing_periods( $invoice ) {
+    ?>
+      <tr>
+        <th style="cursor:help;font-weight:bold;" title="<?php _e('Specifies billing frequency for Stripe.', WPI); ?>"><?php _e('STRIPE Interval', WPI); ?></th>
+        <td>
+           <?php echo WPI_UI::select("name=wpi_invoice[recurring][stripe_interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array( "week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($invoice['recurring']) ? $invoice['recurring']['stripe_interval'] : '')); ?>
+        </td>
+      </tr>
+
+      <tr>
+        <th style="cursor:help;font-weight:bold;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('STRIPE Interval Count', WPI); ?></th>
+        <td>
+           <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][stripe_interval_count]&value=" . (!empty($invoice['recurring']) ? $invoice['recurring']['stripe_interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
+        </td>
+      </tr>
+    <?php
   }
 
   /**
