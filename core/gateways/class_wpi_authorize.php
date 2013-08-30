@@ -11,224 +11,268 @@
 class wpi_authorize extends wpi_gateway_base {
 
   /**
-   * Input types
+   * Properties of class
+   * @var array
    */
-  const TEXT_INPUT_TYPE   = 'text';
-  const SELECT_INPUT_TYPE = 'select';
-
-  /**
-   * Opations array for settings page
-   */
-  var $options = array(
-      'name' => 'Credit Card',
-      'public_name' => 'Credit Card',
-      'allow' => true,
-      'default_option' => '',
-      'settings' => array(
-          'gateway_username' => array(
-              'label' => "Gateway Username",
-              'value' => '',
-              'description' => "Your credit card processor will provide you with a gateway username."
-          ),
-          'gateway_tran_key' => array(
-              'label' => "Gateway Transaction Key",
-              'value' => "",
-              'description' => "You will be able to generate this in your credit card processor's control panel."
-          ),
-          'gateway_url' => array(
-              'label' => "Gateway URL",
-              'value' => "",
-              'description' => "This is the URL provided to you by your credit card processing company.",
-              'special' => array(
-                  'MerchantPlus' => 'https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi',
-                  'Authorize.Net' => 'https://secure.authorize.net/gateway/transact.dll',
-                  'Authorize.Net Developer' => 'https://test.authorize.net/gateway/transact.dll',
-              )
-          ),
-          'recurring_gateway_url' => array(
-              'label' => "Recurring Billing Gateway URL",
-              'value' => "",
-              'description' => "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.",
-              'special' => array(
-                  'Authorize.net ARB' => 'https://api.authorize.net/xml/v1/request.api',
-                  'Authorize.Net ARB Testing' => 'https://apitest.authorize.net/xml/v1/request.api'
-              )
-          ),
-          'gateway_test_mode' => array(
-              'label' => "Test / Live Mode",
-              'type' => "select",
-              'data' => array(
-                  "TRUE" => "Test - Do Not Process Transactions",
-                  "FALSE" => "Live - Process Transactions"
-              )
-          ),
-          'gateway_delim_char' => array(
-              'label' => "Delimiter Character",
-              'value' => ",",
-              'description' => "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong."
-          ),
-          'gateway_encap_char' => array(
-              'label' => "Encapsulation Character",
-              'value' => "",
-              'description' => "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong."
-          ),
-          'gateway_email_customer' => array(
-              'label' => "Email Customer (on success)",
-              'type' => "select",
-              'value' => '',
-              'data' => array(
-                  "TRUE" => "Yes",
-                  "FALSE" => "No"
-              )
-          ),
-          'gateway_merchant_email' => array(
-              'label' => "Merchant Email",
-              'value' => "",
-              'description' => "Email address to which the merchant’s copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface."
-          ),
-          'gateway_header_email_receipt' => array(
-              'label' => "Customer Receipt Email Header",
-              'value' => ""
-          ),
-          'gateway_MD5Hash' => array(
-              'label' => "Security: MD5 Hash",
-              'value' => ""
-          ),
-          'gateway_delim_data' => array(
-              'label' => "Delim Data",
-              'type' => "select",
-              'value' => '',
-              'data' => array(
-                  "TRUE" => "Yes",
-                  "FALSE" => "No"
-              )
-          ),
-          'silent_post_url' => array(
-              'label' => "Silent Post URL",
-              'type' => "readonly",
-              'value' => "",
-              'description' => "Silent Post responses are returned in real-time, meaning as soon as the transaction processes the Silent Post is sent to your specified URL. Go to https://account.authorize.net -> Settings -> Silent Post URL and copy this URL to input field. Required only for Recurring Billing and not for all Merchants."
-          )
-      )
-  );
-
-  /**
-   * Fields list for frontend
-   */
-  var $front_end_fields = array(
-
-    'customer_information' => array(
-
-      'first_name'  => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[first_name]',
-        'label' => 'First Name'
-      ),
-
-      'last_name'   => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[last_name]',
-        'label' => 'Last Name'
-      ),
-
-      'user_email'  => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[user_email]',
-        'label' => 'User Email'
-      ),
-
-      'phonenumber' => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[phonenumber]',
-        'label' => 'Phone Number'
-      ),
-
-      'streetaddress'     => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[streetaddress]',
-        'label' => 'Address'
-      ),
-
-      'city'        => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[city]',
-        'label' => 'City'
-      ),
-
-      'state'       => array(
-        'type'   => 'text',
-        'class'  => 'text-input',
-        'name'   => 'cc_data[state]',
-        'label'  => 'State'
-      ),
-
-      'zip'         => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'cc_data[zip]',
-        'label' => 'Zip'
-      ),
-
-      'country'     => array(
-        'type'   => 'text',
-        'class'  => 'text-input',
-        'name'   => 'cc_data[country]',
-        'label'  => 'Country'
-      )
-
-    ),
-
-    'billing_information' => array(
-
-      'card_num'    => array(
-        'type'   => 'text',
-        'class'  => 'credit_card_number input_field text-input',
-        'name'   => 'cc_data[card_num]',
-        'label'  => 'Card Number'
-      ),
-
-      'exp_month'   => array(
-        'type'   => 'text',
-        'class'  => 'text-input exp_month',
-        'name'   => 'cc_data[exp_month]',
-        'label'  => 'Expiration Month'
-      ),
-
-      'exp_year'    => array(
-        'type'   => 'text',
-        'class'  => 'text-input exp_year',
-        'name'   => 'cc_data[exp_year]',
-        'label'  => 'Expiration Year'
-      ),
-
-      'card_code'   => array(
-        'type'   => 'text',
-        'class'  => 'text-input',
-        'name'   => 'cc_data[card_code]',
-        'label'  => 'Card Code'
-      )
-
-    )
-
-  );
+  var $options = array();
+  var $front_end_fields = array();
 
   /**
    * Construct
    */
   function __construct() {
     parent::__construct();
+
+    /**
+     * Opations array for settings page
+     */
+    $this->options = array(
+        'name' => 'Credit Card',
+        'public_name' => 'Credit Card',
+        'allow' => true,
+        'default_option' => '',
+        'settings' => array(
+            'gateway_username' => array(
+                'label' => __( "Gateway Username", WPI ),
+                'value' => '',
+                'description' => __( "Your credit card processor will provide you with a gateway username.", WPI )
+            ),
+            'gateway_tran_key' => array(
+                'label' => __( "Gateway Transaction Key", WPI ),
+                'value' => "",
+                'description' => __( "You will be able to generate this in your credit card processor's control panel.", WPI )
+            ),
+            'gateway_url' => array(
+                'label' => __( "Gateway URL", WPI ),
+                'value' => "",
+                'description' => __( "This is the URL provided to you by your credit card processing company.", WPI ),
+                'special' => array(
+                    'MerchantPlus' => 'https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi',
+                    'Authorize.Net' => 'https://secure.authorize.net/gateway/transact.dll',
+                    'Authorize.Net Developer' => 'https://test.authorize.net/gateway/transact.dll',
+                )
+            ),
+            'recurring_gateway_url' => array(
+                'label' => __( "Recurring Billing Gateway URL", WPI ),
+                'value' => "",
+                'description' => __( "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.", WPI ),
+                'special' => array(
+                    'Authorize.net ARB' => 'https://api.authorize.net/xml/v1/request.api',
+                    'Authorize.Net ARB Testing' => 'https://apitest.authorize.net/xml/v1/request.api'
+                )
+            ),
+            'gateway_test_mode' => array(
+                'label' => __( "Test / Live Mode", WPI ),
+                'type' => "select",
+                'data' => array(
+                    "TRUE" => __( "Test - Do Not Process Transactions", WPI ),
+                    "FALSE" => __( "Live - Process Transactions", WPI )
+                )
+            ),
+            'gateway_delim_char' => array(
+                'label' => __( "Delimiter Character", WPI ),
+                'value' => ",",
+                'description' => __( "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong.", WPI )
+            ),
+            'gateway_encap_char' => array(
+                'label' => __( "Encapsulation Character", WPI ),
+                'value' => "",
+                'description' => __( "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong.", WPI )
+            ),
+            'gateway_email_customer' => array(
+                'label' => __( "Email Customer (on success)", WPI ),
+                'type' => "select",
+                'value' => '',
+                'data' => array(
+                    "TRUE" => __( "Yes", WPI ),
+                    "FALSE" => __( "No", WPI )
+                )
+            ),
+            'gateway_merchant_email' => array(
+                'label' => __( "Merchant Email", WPI ),
+                'value' => "",
+                'description' => __( "Email address to which the merchant’s copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface.", WPI )
+            ),
+            'gateway_header_email_receipt' => array(
+                'label' => __( "Customer Receipt Email Header", WPI ),
+                'value' => ""
+            ),
+            'gateway_MD5Hash' => array(
+                'label' => __( "Security: MD5 Hash", WPI ),
+                'value' => ""
+            ),
+            'gateway_delim_data' => array(
+                'label' => __( "Delim Data", WPI ),
+                'type' => "select",
+                'value' => '',
+                'data' => array(
+                    "TRUE" => __( "Yes", WPI ),
+                    "FALSE" => __( "No", WPI )
+                )
+            ),
+            'silent_post_url' => array(
+                'label' => __( "Silent Post URL", WPI ),
+                'type' => "readonly",
+                'value' => "",
+                'description' => __( "Silent Post responses are returned in real-time, meaning as soon as the transaction processes the Silent Post is sent to your specified URL. Go to https://account.authorize.net -> Settings -> Silent Post URL and copy this URL to input field. Required only for Recurring Billing and not for all Merchants.", WPI )
+            )
+        )
+    );
+
+    /**
+     * Fields list for frontend
+     */
+    $this->front_end_fields = array(
+
+      'customer_information' => array(
+
+        'first_name'  => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[first_name]',
+          'label' => __( 'First Name', WPI )
+        ),
+
+        'last_name'   => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[last_name]',
+          'label' => __( 'Last Name', WPI )
+        ),
+
+        'user_email'  => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[user_email]',
+          'label' => __( 'User Email', WPI )
+        ),
+
+        'phonenumber' => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[phonenumber]',
+          'label' => __( 'Phone Number', WPI )
+        ),
+
+        'streetaddress'     => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[streetaddress]',
+          'label' => __( 'Address', WPI )
+        ),
+
+        'city'        => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[city]',
+          'label' => __( 'City', WPI )
+        ),
+
+        'state'       => array(
+          'type'   => 'text',
+          'class'  => 'text-input',
+          'name'   => 'cc_data[state]',
+          'label'  => __( 'State', WPI )
+        ),
+
+        'zip'         => array(
+          'type'  => 'text',
+          'class' => 'text-input',
+          'name'  => 'cc_data[zip]',
+          'label' => __( 'Zip', WPI )
+        ),
+
+        'country'     => array(
+          'type'   => 'text',
+          'class'  => 'text-input',
+          'name'   => 'cc_data[country]',
+          'label'  => __( 'Country', WPI )
+        )
+
+      ),
+
+      'billing_information' => array(
+
+        'card_num'    => array(
+          'type'   => 'text',
+          'class'  => 'credit_card_number input_field text-input',
+          'name'   => 'cc_data[card_num]',
+          'label'  => __( 'Card Number', WPI )
+        ),
+
+        'exp_month'   => array(
+          'type'   => 'text',
+          'class'  => 'text-input exp_month',
+          'name'   => 'cc_data[exp_month]',
+          'label'  => __( 'Expiration Month', WPI )
+        ),
+
+        'exp_year'    => array(
+          'type'   => 'text',
+          'class'  => 'text-input exp_year',
+          'name'   => 'cc_data[exp_year]',
+          'label'  => __( 'Expiration Year', WPI )
+        ),
+
+        'card_code'   => array(
+          'type'   => 'text',
+          'class'  => 'text-input',
+          'name'   => 'cc_data[card_code]',
+          'label'  => __( 'Card Code', WPI )
+        )
+
+      )
+
+    );
+
     $this->options['settings']['silent_post_url']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_authorize');
 
+    add_filter( 'wpi_recurring_settings', create_function( ' $gateways ', ' $gateways[] = "'.$this->type.'"; return $gateways; ' ) );
+    add_action( 'wpi_recurring_settings_'.$this->type, array( $this, 'recurring_settings' ) );
     add_action( 'wpi_payment_fields_authorize', array( $this, 'wpi_payment_fields' ) );
     add_action( 'wpi_authorize_user_meta_updated', array( $this, 'user_meta_updated' ) );
   }
 
+  /**
+   *
+   * @param type $this_invoice
+   */
+  function recurring_settings( $this_invoice ) {
+    ?>
+    <h4><?php _e( 'Authorize.net ARB', WPI ); ?></h4>
+    <table class="wpi_recurring_bill_settings">
+      <tr>
+        <th><?php _e( 'Bill Every', WPI ); ?></th>
+        <td>
+          <?php echo WPI_UI::input("name=wpi_invoice[recurring][".$this->type."][length]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
+          <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][unit]&values=" . serialize(array( "days" => __("Day(s)", WPI), "months" => __("Month(s)", WPI) )) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php _e( 'Billing Cycles', WPI ); ?></th>
+        <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][".$this->type."][cycles]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['cycles'] : '') . "&class=wpi_small"); ?></td>
+      </tr>
+      <tr>
+        <th><?php _e( 'Send Invoice', WPI ); ?></th>
+        <td>
+          <script type="text/javascript">var recurring_send_invoice_automatically = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';</script>
+          <?php echo WPI_UI::checkbox("id=wpi_wpi_invoice_recurring_send_invoice_automatically_&class=wpi_wpi_invoice_recurring_send_invoice_automatically_&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
+        </td>
+      </tr>
+      <tr class="wpi_recurring_start_date" style="display:<?php echo !empty($this_invoice['recurring']) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
+        <th><?php _e( 'Date', WPI ); ?></th>
+        <td>
+          <div>
+            <?php echo WPI_UI::select("id=r_start_date_mm&name=wpi_invoice[recurring][".$this->type."][start_date][month]&values=months&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['month'] : '')); ?>
+            <?php echo WPI_UI::input("id=r_start_date_jj&name=wpi_invoice[recurring][".$this->type."][start_date][day]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
+            <?php echo WPI_UI::input("id=r_start_date_aa&name=wpi_invoice[recurring][".$this->type."][start_date][year]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
+            <span onclick="wp_invoice_add_time('r_start_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 'clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <?php
+  }
 
   /**
    * Render fields

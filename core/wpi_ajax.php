@@ -25,6 +25,10 @@ class WPI_Ajax {
 
   }
 
+  /**
+   *
+   * @global object $wpdb
+   */
   function search_email() {
     global $wpdb;
 
