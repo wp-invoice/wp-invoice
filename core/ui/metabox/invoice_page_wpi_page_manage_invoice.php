@@ -147,7 +147,18 @@ function postbox_publish($this_invoice) {
           </li>
           <li class="wpi_recurring_bill_settings <?php if (!empty($this_invoice['recurring']) && $this_invoice['recurring']['active'] != 'on') {
             ?>hidden<?php } ?>">
-            <table class="wpi_recurring_bill_settings">
+
+            <?php
+//          echo '<pre>';
+//          print_r( $this_invoice );
+//          echo '</pre>';
+              $recurring_settings = apply_filters( 'wpi_recurring_settings', array(), $this_invoice );
+              foreach( $recurring_settings as $gateway ) {
+                do_action( 'wpi_recurring_settings_'.$gateway, $this_invoice );
+              }
+            ?>
+
+            <!--<table class="wpi_recurring_bill_settings">
               <tr>
                 <th><?php _e("Bill Every", WPI) ?></th>
                 <td>
@@ -159,17 +170,17 @@ function postbox_publish($this_invoice) {
               <tr>
                 <th><?php _e("Billing Cycles", WPI) ?></th>
                 <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][cycles]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['cycles'] : '') . "&class=wpi_small"); ?></td>
-              </tr>
-              <?php do_action('wpi_recurring_after_bill_cycles', $this_invoice); ?>
+              </tr>-->
+              <!--<?php do_action('wpi_recurring_after_bill_cycles', $this_invoice); ?>
               <tr>
                 <th>Send Invoice</th>
                 <td>
-                  <script type="text/javascript">var recurring_send_invoice_automatically = '<?php echo!empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'; ?>';</script>
+                  <script type="text/javascript">var recurring_send_invoice_automatically = '<?php echo !empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'; ?>';</script>
                   <?php echo WPI_UI::checkbox("name=wpi_invoice[recurring][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'); ?>
                 </td>
               </tr>
               <?php do_action('wpi_recurring_after_send_invoice', $this_invoice); ?>
-              <tr class="wpi_recurring_start_date" style="display:<?php echo!empty($this_invoice['recurring']) && $this_invoice['recurring']['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
+              <tr class="wpi_recurring_start_date" style="display:<?php echo !empty($this_invoice['recurring']) && $this_invoice['recurring']['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
                 <th>Date:</th>
                 <td>
                   <div>
@@ -182,7 +193,7 @@ function postbox_publish($this_invoice) {
                 </td>
               </tr>
               <?php do_action('wpi_recurring_after_date', $this_invoice); ?>
-            </table>
+            </table>-->
           </li>
         <?php } ?>
       </ul>
