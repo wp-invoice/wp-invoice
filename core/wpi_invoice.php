@@ -731,7 +731,6 @@ class WPI_Invoice {
     }
   }
 
-
   /**
    * Saves invoice to DB.
    *
@@ -990,4 +989,3 @@ class WPI_Invoice {
       return WPI_Functions::days_since($this->data['meta'][due_date]);
   }
 }
-?>

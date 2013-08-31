@@ -199,5 +199,3 @@ class WPI_Payment_Api {
   }
 
 }
-
-?>
