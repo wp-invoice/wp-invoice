@@ -10,12 +10,10 @@ Description: Provides the PayPal for payment options
 
 class wpi_paypal extends wpi_gateway_base {
 
-	var $options = array();
-  var $front_end_fields = array();
 
-	/**
-	 * Constructor
-	 */
+    /**
+     * Constructor
+     */
   function __construct() {
     parent::__construct();
 

@@ -10,22 +10,9 @@ Description: Provides the Google Checkout for payment options
 
 class wpi_googlecheckout extends wpi_gateway_base {
 
-  /**
-   * Input types
-   */
-  const TEXT_INPUT_TYPE   = 'text';
-  const SELECT_INPUT_TYPE = 'select';
-
-  /**
-   * Properties of class
-   * @var array
-   */
-  var $options = array();
-  var $front_end_fields = array();
-
-	/**
-	 * Constructor
-	 */
+    /**
+     * Constructor
+     */
   function __construct() {
     parent::__construct();
 
@@ -130,7 +117,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
 
     );
 
-		add_action( 'wpi_payment_fields_googlecheckout', array( $this, 'wpi_payment_fields' ) );
+    add_action( 'wpi_payment_fields_googlecheckout', array( $this, 'wpi_payment_fields' ) );
     add_filter( 'wpi_recurring_settings', create_function( ' $gateways ', ' $gateways[] = "'.$this->type.'"; return $gateways; ' ) );
     add_action( 'wpi_recurring_settings_'.$this->type, array( $this, 'recurring_settings' ) );
 	}
@@ -234,30 +221,30 @@ class wpi_googlecheckout extends wpi_gateway_base {
    * @global array $wpi_settings
    */
   function process_payment() {
-		global $invoice, $wpi_settings;
+    global $invoice, $wpi_settings;
 
-		$crm_data    = $_REQUEST['crm_data'];
+    $crm_data    = $_REQUEST['crm_data'];
     $invoice_id  = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
     $post_id     = wpi_invoice_id_to_post_id($invoice_id);
 
-		// update user data
-		update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
-		update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
-		update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
-		update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
-		update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-		update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
-		update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
-		update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+    // update user data
+    update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
+    update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
+    update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
+    update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
+    update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
+    update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
+    update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
+    update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
-		if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+    if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
 
-		echo json_encode(
-		  array( 'success' => 1 )
-		);
+    echo json_encode(
+      array( 'success' => 1 )
+    );
 
-	}
+    }
 
   /**
    * IPN handler for Google Checkout

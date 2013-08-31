@@ -11,13 +11,6 @@
 class wpi_authorize extends wpi_gateway_base {
 
   /**
-   * Properties of class
-   * @var array
-   */
-  var $options = array();
-  var $front_end_fields = array();
-
-  /**
    * Construct
    */
   function __construct() {

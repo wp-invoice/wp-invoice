@@ -11,13 +11,6 @@
 class wpi_stripe extends wpi_gateway_base {
 
   /**
-   * Properties of class
-   * @var array
-   */
-  var $options = array();
-  var $front_end_fields = array();
-
-  /**
    * Construct
    */
   function __construct() {
@@ -173,7 +166,7 @@ class wpi_stripe extends wpi_gateway_base {
             //** For each field */
             foreach ($value as $field_slug => $field_data) {
               //** Change field properties if we need */
-              $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_authorize');
+              $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_stripe');
               $html = '';
 
               ob_start();
@@ -301,17 +294,17 @@ class wpi_stripe extends wpi_gateway_base {
           $event_type = 'add_payment';
 
           $event_note = urlencode($event_note);
-          // Log balance changes
+          //** Log balance changes */
           $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
-          // Log client IP
+          //** Log client IP */
           $success = "Successfully processed by {$_SERVER['REMOTE_ADDR']}";
           $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
-          // Log payer email
+          //** Log payer */
           $payer_card = "STRIPE Card ID: {$charge->card->id}";
           $invoice_obj->add_entry("attribute=invoice&note=$payer_card&type=update");
 
           $invoice_obj->save_invoice();
-          //Mark invoice as paid
+          //** Mark invoice as paid */
           wp_invoice_mark_as_paid($invoice_id, $check = true);
 
           send_notification( $invoice );

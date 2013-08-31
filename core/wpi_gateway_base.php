@@ -10,6 +10,9 @@ abstract class wpi_gateway_base {
     const TEXT_INPUT_TYPE   = 'text';
     const SELECT_INPUT_TYPE = 'select';
 
+    var $options = array();
+    var $front_end_fields = array();
+
     /**
      * This function sets the 'type' variable for us, anything that overrides this should
      * call 'parent::__construct'
@@ -143,6 +146,13 @@ abstract class wpi_gateway_base {
         }
     }
 
+    /**
+     *
+     * @param type $setting_slug
+     * @param type $new_setting_array
+     * @param type $def_setting_array
+     * @return type
+     */
     public function sync_billing_filter($setting_slug, $new_setting_array, $def_setting_array) {
 
         if ($setting_slug == 'ipn' || $setting_slug == 'silent_post_url') {
