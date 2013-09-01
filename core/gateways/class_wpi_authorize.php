@@ -219,10 +219,7 @@ class wpi_authorize extends wpi_gateway_base {
     );
 
     $this->options['settings']['silent_post_url']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_authorize');
-
-    add_filter( 'wpi_recurring_settings', create_function( ' $gateways ', ' $gateways[] = "'.$this->type.'"; return $gateways; ' ) );
-    add_action( 'wpi_recurring_settings_'.$this->type, array( $this, 'recurring_settings' ) );
-    add_action( 'wpi_payment_fields_authorize', array( $this, 'wpi_payment_fields' ) );
+    
     add_action( 'wpi_authorize_user_meta_updated', array( $this, 'user_meta_updated' ) );
   }
 
@@ -350,18 +347,18 @@ class wpi_authorize extends wpi_gateway_base {
   }
 
   /**
-	 * Overrided process payment for Authorize.net
-	 *
-	 * @global object $invoice
-	 * @global array $wpi_settings
-	 * @param array $data
-	 */
+    * Overrided process payment for Authorize.net
+    *
+    * @global object $invoice
+    * @global array $wpi_settings
+    * @param array $data
+    */
   function process_payment($data=null) {
     global $invoice, $wpi_settings;
 
-    // Require our external libraries
-    require_once('authorize.net/authnet.class.php');
-    require_once('authorize.net/authnetARB.class.php');
+    //** Require our external libraries */
+    require_once( WPI_Path . '/third-party/authorize.net/authnet.class.php' );
+    require_once( WPI_Path . '/third-party/authorize.net/authnetARB.class.php' );
 
     // Pull in the CCard data from the request, and other variables we'll use
     // If data passed then use it. Otherwise use data from request.
@@ -371,17 +368,17 @@ class wpi_authorize extends wpi_gateway_base {
     $wp_users_id = $invoice['user_data']['ID'];
     $post_id = wpi_invoice_id_to_post_id($invoice_id);
 
-    // Recurring
+    //** Recurring */
     $recurring = $invoice['type'] == 'recurring' ? true : false;
 
-    // Response
+    //** Response */
     $response = array(
         'success' => false,
         'error' => false,
         'data' => null
     );
 
-    // Invoice custom id which is sending to authorize.net
+    //** Invoice custom id which is sending to authorize.net */
     $cc_data['invoice_id'] = $invoice_id;
 
     $invoice_obj = new WPI_Invoice();
@@ -399,11 +396,11 @@ class wpi_authorize extends wpi_gateway_base {
       $amount = $invoice['net'];
     }
 
-    // We assume that all data is good to go, considering we are valadating with JavaScript
+    //** We assume that all data is good to go, considering we are valadating with JavaScript */
     $payment = new WP_Invoice_Authnet();
     $payment->transaction($cc_data['card_num']);
 
-    // Billing Info
+    //** Billing Info */
     $payment->setParameter("x_card_code", $cc_data['card_code']);
     $payment->setParameter("x_exp_date ", $cc_data['exp_month'] . $cc_data['exp_year']);
     $payment->setParameter("x_amount", $amount);
@@ -413,12 +410,12 @@ class wpi_authorize extends wpi_gateway_base {
       $payment->setParameter("x_recurring_billing", true);
     }
 
-    // Order Info
+    //** Order Info */
     $payment->setParameter("x_description", $invoice['post_title']);
     $payment->setParameter("x_invoice_id", $invoice['invoice_id']);
     $payment->setParameter("x_duplicate_window", 30);
 
-    // Customer Info
+    //** Customer Info */
     $payment->setParameter("x_first_name", $cc_data['first_name']);
     $payment->setParameter("x_last_name", $cc_data['last_name']);
     $payment->setParameter("x_address", $cc_data['streetaddress']);
@@ -431,10 +428,10 @@ class wpi_authorize extends wpi_gateway_base {
     $payment->setParameter("x_cust_id", "WP User - " . $wp_users_id);
     $payment->setParameter("x_customer_ip ", $_SERVER['REMOTE_ADDR']);
 
-    // Process
+    //** Process */
     $payment->process();
 
-    // Process results
+    //** Process results */
     if ($payment->isApproved()) {
       update_user_meta($wp_users_id, 'last_name', $cc_data['last_name']);
       update_user_meta($wp_users_id, 'first_name', $cc_data['first_name']);
@@ -447,23 +444,23 @@ class wpi_authorize extends wpi_gateway_base {
 
       do_action( 'wpi_authorize_user_meta_updated', $cc_data );
 
-      // Add payment amount
+      //** Add payment amount */
       $event_note = WPI_Functions::currency_format($amount, $invoice['invoice_id']) . " paid via Authorize.net";
       $event_amount = $amount;
       $event_type = 'add_payment';
 
       $event_note = urlencode($event_note);
-      // Log balance changes
+      //** Log balance changes */
       $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
-      // Log client IP
+      //** Log client IP */
       $success = "Successfully processed by {$_SERVER['REMOTE_ADDR']}";
       $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
-      // Log payer email
+      //** Log payer email */
       $payer_email = "Authorize.net Payer email: {$cc_data['user_email']}";
       $invoice_obj->add_entry("attribute=invoice&note=$payer_email&type=update");
 
       $invoice_obj->save_invoice();
-      //Mark invoice as paid
+      //** Mark invoice as paid */
       wp_invoice_mark_as_paid($invoice_id, $check = true);
 
       send_notification( $invoice );
@@ -474,7 +471,7 @@ class wpi_authorize extends wpi_gateway_base {
 
       if ($recurring) {
         $arb = new WP_Invoice_AuthnetARB($invoice);
-        // Customer Info
+        //** Customer Info */
         $arb->setParameter('customerId', "WP User - " . $invoice['user_data']['ID']);
         $arb->setParameter('firstName', !empty( $cc_data['first_name'] )?$cc_data['first_name']:'-');
         $arb->setParameter('lastName', !empty( $cc_data['last_name'] )?$cc_data['last_name']:'-');
@@ -486,26 +483,26 @@ class wpi_authorize extends wpi_gateway_base {
         $arb->setParameter('customerEmail', !empty( $cc_data['user_email'] )?$cc_data['user_email']:'-');
         $arb->setParameter('customerPhoneNumber', !empty( $cc_data['phonenumber'] )?$cc_data['phonenumber']:'-');
 
-        // Billing Info
+        //** Billing Info */
         $arb->setParameter('amount', $invoice['net']);
         $arb->setParameter('cardNumber', $cc_data['card_num']);
         $arb->setParameter('expirationDate', $cc_data['exp_month'] . $cc_data['exp_year']);
 
-        //Subscription Info
+        //** Subscription Info */
         $arb->setParameter('refID', $invoice['invoice_id']);
         $arb->setParameter('subscrName', $invoice['post_title']);
 
-        $arb->setParameter('interval_length', $invoice['recurring']['length']);
-        $arb->setParameter('interval_unit', $invoice['recurring']['unit']);
+        $arb->setParameter('interval_length', $invoice['recurring']['wpi_authorize']['length']);
+        $arb->setParameter('interval_unit', $invoice['recurring']['wpi_authorize']['unit']);
 
-        // format: yyyy-mm-dd
-        if ($invoice['recurring']['send_invoice_automatically'] == 'on') {
+        //** format: yyyy-mm-dd */
+        if ($invoice['recurring']['wpi_authorize']['send_invoice_automatically'] == 'on') {
           $arb->setParameter('startDate', date("Y-m-d", time()));
         } else {
-          $arb->setParameter('startDate', $invoice['recurring']['start_date']['year'] . '-' . $invoice['recurring']['start_date']['month'] . '-' . $invoice['recurring']['start_date']['day']);
+          $arb->setParameter('startDate', $invoice['recurring']['wpi_authorize']['start_date']['year'] . '-' . $invoice['recurring']['wpi_authorize']['start_date']['month'] . '-' . $invoice['recurring']['wpi_authorize']['start_date']['day']);
         }
 
-        $arb->setParameter('totalOccurrences', $invoice['recurring']['cycles']);
+        $arb->setParameter('totalOccurrences', $invoice['recurring']['wpi_authorize']['cycles']);
 
         $arb->setParameter('trialOccurrences', 1);
         $arb->setParameter('trialAmount', '0.00');
@@ -577,14 +574,14 @@ class wpi_authorize extends wpi_gateway_base {
       $invoice_obj->load_invoice("id=$invoice_id");
 
       // Add payment amount
-      $event_note = WPI_Functions::currency_format(abs($amount), $invoice_id) . ". ARB payment $paynum of {$invoice_obj->data['recurring']['cycles']}";
+      $event_note = WPI_Functions::currency_format(abs($amount), $invoice_id) . ". ARB payment $paynum of {$invoice_obj->data['recurring']['wpi_authorize']['cycles']}";
       $event_amount = $amount;
       $event_type = 'add_payment';
 
       $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
 
       // Complete subscription if last payment done
-      if ($invoice_obj->data['recurring']['cycles'] <= $paynum) {
+      if ($invoice_obj->data['recurring']['wpi_authorize']['cycles'] <= $paynum) {
         WPI_Functions::log_event(wpi_invoice_id_to_post_id($invoice_id), 'invoice', 'update', '', __('Subscription completely paid', WPI));
         wp_invoice_mark_as_paid($invoice_id);
       }
