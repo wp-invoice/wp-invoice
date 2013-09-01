@@ -22,6 +22,9 @@ abstract class wpi_gateway_base {
         /** Set the class name */
         $this->type = get_class($this);
         add_filter('sync_billing_update', array('wpi_gateway_base', 'sync_billing_filter'), 10, 3);
+        add_filter( 'wpi_recurring_settings', create_function( ' $gateways ', ' $gateways[] = "'.$this->type.'"; return $gateways; ' ) );
+        add_action( 'wpi_recurring_settings_'.$this->type, array( $this, 'recurring_settings' ) );
+        add_action( 'wpi_payment_fields_'.$this->type, array( $this, 'wpi_payment_fields' ) );
     }
 
     /**
@@ -192,4 +195,5 @@ abstract class wpi_gateway_base {
      * Redecrale this in child class
      */
     abstract function wpi_payment_fields($invoice);
+    abstract function recurring_settings($invoice);
 }

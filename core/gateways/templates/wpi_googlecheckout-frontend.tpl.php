@@ -107,7 +107,7 @@
 
     <div id="credit_card_information">
 
-      <?php do_action('wpi_payment_fields_googlecheckout', $invoice); ?>
+      <?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
 
       <ul id="wp_invoice_process_wait">
         <li>
