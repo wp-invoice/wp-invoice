@@ -117,10 +117,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
 
     );
 
-    add_action( 'wpi_payment_fields_googlecheckout', array( $this, 'wpi_payment_fields' ) );
-    add_filter( 'wpi_recurring_settings', create_function( ' $gateways ', ' $gateways[] = "'.$this->type.'"; return $gateways; ' ) );
-    add_action( 'wpi_recurring_settings_'.$this->type, array( $this, 'recurring_settings' ) );
-	}
+    }
 
   /**
    *

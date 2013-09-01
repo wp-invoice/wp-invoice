@@ -1608,18 +1608,8 @@ class WPI_Functions {
     }
 
     //** But if recurring settings are defined then invoice type should be recurring */
-    if ( $invoice[ 'recurring' ][ 'active' ] == 'on' && !empty( $invoice[ 'recurring' ][ 'cycles' ] ) ) {
-      $ni->create_schedule( array(
-        'unit' => $invoice[ 'recurring' ][ 'unit' ],
-        'length' => $invoice[ 'recurring' ][ 'length' ],
-        'cycles' => $invoice[ 'recurring' ][ 'cycles' ],
-        'send_invoice_automatically' => $invoice[ 'recurring' ][ 'send_invoice_automatically' ],
-        'start_date' => array(
-          'month' => $invoice[ 'recurring' ][ 'start_date' ][ 'month' ],
-          'day' => $invoice[ 'recurring' ][ 'start_date' ][ 'day' ],
-          'year' => $invoice[ 'recurring' ][ 'start_date' ][ 'year' ]
-        )
-      ) );
+    if ( $invoice[ 'recurring' ][ 'active' ] == 'on' && !empty( $invoice['recurring'] ) ) {
+      $ni->create_schedule( $invoice['recurring'] );
       $invoice_type = 'recurring';
     }
 

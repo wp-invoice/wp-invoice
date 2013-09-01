@@ -520,37 +520,7 @@ class WPI_Invoice {
    * @return boolean
    */
   function create_schedule($args = '') {
-
-    $defaults = array (
-        'unit' => false,
-        'length' => false,
-        'cycles' => false,
-        'send_invoice_automatically' => false,
-        'start_date' => array()
-    );
-
-    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-
-    if(!isset($unit))
-        return false;
-    if(!isset($cycles))
-        return false;
-
-    $units  = array( 'months', 'days' );
-
-    $this->is_recurring = true;
-    $this->data['recurring']['active'] = 'on';
-    $this->data['recurring']['unit'] = in_array( $unit, $units ) ? $unit : 'months';
-    $this->data['recurring']['length'] = (int)$length;
-    $this->data['recurring']['cycles'] = (int)$cycles;
-    $this->data['recurring']['send_invoice_automatically'] =
-      ( $send_invoice_automatically != 'on' && $send_invoice_automatically != 'off' )
-      ? 'on'
-      : $send_invoice_automatically;
-    $this->data['recurring']['start_date']['month'] = (int)$start_date['month'];
-    $this->data['recurring']['start_date']['day'] = (int)$start_date['day'];
-    $this->data['recurring']['start_date']['year'] = (int)$start_date['year'];
-    $this->data['recurring'] = apply_filters('wpi_create_schedule_recurring', $this->data['recurring']);
+      $this->data['recurring'] = $args;
   }
 
   /**

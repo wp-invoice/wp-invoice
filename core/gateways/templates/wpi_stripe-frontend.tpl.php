@@ -9,7 +9,7 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . $invoice['bil
 
   <div id="credit_card_information">
 
-        <?php do_action('wpi_payment_fields_stripe', $invoice); ?>
+        <?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
 
         <ul class="wpi_checkout_block">
 

@@ -93,7 +93,17 @@ class wpi_interkassa extends wpi_gateway_base {
 
         $this->options['settings']['ipn']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_interkassa');
 
-        add_action( 'wpi_payment_fields_interkassa', array( $this, 'wpi_payment_fields' ) );
+    }
+
+    /**
+     *
+     * @param type $invoice
+     */
+    function recurring_settings( $invoice ) {
+    ?>
+      <h4><?php _e( 'InterKassa Recurring Billing', WPI ); ?></h4>
+      <p><?php _e( 'Currently InterKassa gateway does not support Recurring Billing', WPI ); ?></p>
+      <?php
     }
 
     /**
