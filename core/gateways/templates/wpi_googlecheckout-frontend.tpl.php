@@ -1,4 +1,6 @@
-<?php include_once WPI_Path.'/core/wpi_template_functions.php'; ?>
+<?php include_once WPI_Path.'/core/wpi_template_functions.php'; echo '<pre>';
+print_r( $invoice );
+echo '</pre>';?>
 <form action="<?php echo $invoice['billing']['wpi_googlecheckout']['settings']['test_mode']['value']; ?><?php echo $invoice['billing']['wpi_googlecheckout']['settings']['merchant_id']['value'] ?>" method="post" name="online_payment_form" id="online_payment_form-<?php echo $this->type; ?>" class="wpi_checkout online_payment_form <?php echo $this->type; ?> clearfix">
     <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
     <input type="hidden" id="wpi_form_type" name="type" value="<?php echo $this->type; ?>" />
@@ -78,20 +80,20 @@
       <input type="hidden" name="shopping-cart.items.item-1.unit-price" value="0.00"/>
       <input type="hidden" name="shopping-cart.items.item-1.quantity" value="1"/>
 
-      <?php if ( !empty( $invoice['recurring'] ) && $invoice['recurring']['send_invoice_automatically'] == 'off' ): ?>
-        <input type="hidden" name="shopping-cart.items.item-1.subscription.start-date" value="<?php echo $invoice['recurring']['start_date']['year'].'-'.$invoice['recurring']['start_date']['month'].'-'.$invoice['recurring']['start_date']['day']; ?>"/>
+      <?php if ( !empty( $invoice['recurring']['wpi_googlecheckout'] ) && $invoice['recurring']['wpi_googlecheckout']['send_invoice_automatically'] == 'off' ): ?>
+        <input type="hidden" name="shopping-cart.items.item-1.subscription.start-date" value="<?php echo $invoice['recurring']['wpi_googlecheckout']['start_date']['year'].'-'.$invoice['recurring']['wpi_googlecheckout']['start_date']['month'].'-'.$invoice['recurring']['wpi_googlecheckout']['start_date']['day']; ?>"/>
       <?php endif; ?>
 
-      <?php if ( !empty( $invoice['recurring'] ) &&
-                 !empty( $invoice['recurring']['google_no_charge_after']['month'] ) &&
-                 !empty( $invoice['recurring']['google_no_charge_after']['day'] ) &&
-                 !empty( $invoice['recurring']['google_no_charge_after']['year'] ) ): ?>
-        <input type="hidden" name="shopping-cart.items.item-1.subscription.no-charge-after" value="<?php echo $invoice['recurring']['google_no_charge_after']['year'].'-'.$invoice['recurring']['google_no_charge_after']['month'].'-'.$invoice['recurring']['google_no_charge_after']['day']; ?>"/>
+      <?php if ( !empty( $invoice['recurring']['wpi_googlecheckout'] ) &&
+                 !empty( $invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['month'] ) &&
+                 !empty( $invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['day'] ) &&
+                 !empty( $invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['year'] ) ): ?>
+        <input type="hidden" name="shopping-cart.items.item-1.subscription.no-charge-after" value="<?php echo $invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['year'].'-'.$invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['month'].'-'.$invoice['recurring']['wpi_googlecheckout']['google_no_charge_after']['day']; ?>"/>
       <?php endif; ?>
 
       <input type="hidden" name="shopping-cart.items.item-1.subscription.type" value="google"/>
-      <input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="<?php echo $invoice['recurring']['google_billing_period']; ?>"/>
-      <input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.times" value="<?php echo $invoice['recurring']['cycles']; ?>">
+      <input type="hidden" name="shopping-cart.items.item-1.subscription.period" value="<?php echo $invoice['recurring']['wpi_googlecheckout']['google_billing_period']; ?>"/>
+      <input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.times" value="<?php echo $invoice['recurring']['wpi_googlecheckout']['cycles']; ?>">
       <input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge" value="<?php echo number_format( (float)$invoice['net'], 2, '.', '' ); ?>">
       <input type="hidden" name="shopping-cart.items.item-1.subscription.payments.subscription-payment-1.maximum-charge.currency" value="<?php echo $invoice['default_currency_code']; ?>">
       <input type="hidden" name="shopping-cart.items.item-1.subscription.recurrent-item.item-name" value="<?php echo $invoice['post_title']; ?>">

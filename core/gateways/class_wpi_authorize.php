@@ -219,7 +219,7 @@ class wpi_authorize extends wpi_gateway_base {
     );
 
     $this->options['settings']['silent_post_url']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_authorize');
-    
+
     add_action( 'wpi_authorize_user_meta_updated', array( $this, 'user_meta_updated' ) );
   }
 
@@ -245,11 +245,20 @@ class wpi_authorize extends wpi_gateway_base {
       <tr>
         <th><?php _e( 'Send Invoice', WPI ); ?></th>
         <td>
-          <script type="text/javascript">var recurring_send_invoice_automatically = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';</script>
-          <?php echo WPI_UI::checkbox("id=wpi_wpi_invoice_recurring_send_invoice_automatically_&class=wpi_wpi_invoice_recurring_send_invoice_automatically_&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
+          <script type="text/javascript">
+            var recurring_send_invoice_automatically_<?php echo $this->type; ?> = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';
+            jQuery( document ).bind('wpi_enable_recurring', function(){
+              if ( recurring_send_invoice_automatically_<?php echo $this->type; ?> == 'on' ) {
+                wpi_disable_recurring_start_date( '<?php echo $this->type; ?>' );
+              } else {
+                wpi_enable_recurring_start_date( '<?php echo $this->type; ?>' );
+              }
+            });
+          </script>
+          <?php echo WPI_UI::checkbox("special=data-type='{$this->type}'&id=wpi_wpi_invoice_recurring_send_invoice_automatically_{$this->type}&class=wpi_wpi_invoice_recurring_send_invoice_automatically {$this->type}&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
         </td>
       </tr>
-      <tr class="wpi_recurring_start_date" style="display:<?php echo !empty($this_invoice['recurring']) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
+      <tr class="wpi_recurring_start_date <?php echo $this->type; ?>" style="display:<?php echo !empty($this_invoice['recurring'][$this->type]) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
         <th><?php _e( 'Date', WPI ); ?></th>
         <td>
           <div>

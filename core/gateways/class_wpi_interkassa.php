@@ -206,7 +206,7 @@ class wpi_interkassa extends wpi_gateway_base {
         update_post_meta( $invoice->data['ID'], 'wpi_processed_by_interkassa', 'true' );
 
         /** Add payment amount */
-        $event_note = sprintf(__('%s paid via InterKassa [%s]', WPI), WPI_Functions::currency_format(abs($_POST['ik_payment_amount'])), $_POST['ik_paysystem_alias']);
+        $event_note = sprintf(__('%s paid via InterKassa [%s]', WPI), WPI_Functions::currency_format(abs($_POST['ik_payment_amount']), $_POST['ik_payment_id']), $_POST['ik_paysystem_alias']);
         $event_amount = (float)$_POST['ik_payment_amount'];
         $event_type   = 'add_payment';
 

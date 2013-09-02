@@ -200,12 +200,6 @@ jQuery( document ).ready( function () {
     wpi_disable_recurring();
   }
 
-  if ( jQuery( ".wpi_wpi_invoice_recurring_send_invoice_automatically_" ).is( ":checked" ) ) {
-    wpi_disable_recurring_start_date();
-  } else {
-    // Singular invoice or quote. Clear out all values.
-    wpi_enable_recurring_start_date();
-  }
   /*
    * Toggle recurring billing options
    */
@@ -226,12 +220,12 @@ jQuery( document ).ready( function () {
   /*
    * Toggle recurring billing start date
    */
-  jQuery( ".wpi_wpi_invoice_recurring_send_invoice_automatically_" ).live( "click", function ( event ) {
+  jQuery( ".wpi_wpi_invoice_recurring_send_invoice_automatically" ).live( "click", function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
-      wpi_disable_recurring_start_date();
+      wpi_disable_recurring_start_date( jQuery( this ).data('type') );
     } else {
       // Singular invoice or quote. Clear out all values.
-      wpi_enable_recurring_start_date();
+      wpi_enable_recurring_start_date( jQuery( this ).data('type') );
     }
   } );
 

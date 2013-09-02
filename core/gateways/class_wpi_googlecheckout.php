@@ -143,6 +143,33 @@ class wpi_googlecheckout extends wpi_gateway_base {
           </div>
         </td>
       </tr>
+      <tr>
+        <th><?php _e( 'Send Invoice', WPI ); ?></th>
+        <td>
+          <script type="text/javascript">
+            var recurring_send_invoice_automatically_<?php echo $this->type; ?> = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';
+            jQuery( document ).bind('wpi_enable_recurring', function(){
+              if ( recurring_send_invoice_automatically_<?php echo $this->type; ?> == 'on' ) {
+                wpi_disable_recurring_start_date( '<?php echo $this->type; ?>' );
+              } else {
+                wpi_enable_recurring_start_date( '<?php echo $this->type; ?>' );
+              }
+            });
+          </script>
+          <?php echo WPI_UI::checkbox("special=data-type='{$this->type}'&id=wpi_wpi_invoice_recurring_send_invoice_automatically_{$this->type}&class=wpi_wpi_invoice_recurring_send_invoice_automatically {$this->type}&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
+        </td>
+      </tr>
+      <tr class="wpi_recurring_start_date <?php echo $this->type; ?>" style="display:<?php echo !empty($this_invoice['recurring'][$this->type]) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
+        <th><?php _e( 'Date', WPI ); ?></th>
+        <td>
+          <div>
+            <?php echo WPI_UI::select("id=r_start_date_mm&name=wpi_invoice[recurring][".$this->type."][start_date][month]&values=months&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['month'] : '')); ?>
+            <?php echo WPI_UI::input("id=r_start_date_jj&name=wpi_invoice[recurring][".$this->type."][start_date][day]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
+            <?php echo WPI_UI::input("id=r_start_date_aa&name=wpi_invoice[recurring][".$this->type."][start_date][year]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
+            <span onclick="wp_invoice_add_time('r_start_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 'clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
+          </div>
+        </td>
+      </tr>
     </table>
     <?php
   }
