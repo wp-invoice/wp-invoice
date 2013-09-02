@@ -711,13 +711,11 @@ class WPI_UI {
 
     add_meta_box( 'postbox_payment_methods', __( 'Payment Settings', WPI ), 'postbox_payment_methods', $screen_id, 'normal', 'high' );
 
-    //  add_meta_box('postbox_settings',  __('Settings',WPI), 'postbox_settings', 'admin_page_wpi_invoice_edit', 'side', 'low');
     if ( is_object( $this_invoice ) && isset( $this_invoice->data[ 'type' ] ) && $this_invoice->data[ 'type' ] == 'single_payment' ) {
       add_meta_box( 'postbox_overview', __( 'Overview', WPI ), 'postbox_overview', $screen_id, 'side', 'high' );
     } else {
       add_meta_box( 'postbox_publish', __( 'Publish', WPI ), 'postbox_publish', $screen_id, 'side', 'high' );
     }
-    //add_meta_box('recurring_billing_box', __('Publish',WPI), 'recurring_billing_box', 'admin_page_wpi_invoice_edit', 'middle', 'low');
     add_meta_box( 'postbox_user_existing', __( 'User Information', WPI ), 'postbox_user_existing', $screen_id, 'side', 'low' );
   }
 
