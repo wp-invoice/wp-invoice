@@ -269,6 +269,7 @@ if ( !class_exists( 'WPI_Core' ) ) {
       add_action( 'wp_ajax_wpi_template_autocomplete_handler', array( 'WPI_Ajax', 'template_autocomplete_handler' ) );
 
       add_action( 'wp_ajax_wpi_search_email', array( 'WPI_Ajax', 'search_email' ) );
+      add_action( 'wp_ajax_wpi_search_recipient', array( 'WPI_Ajax', 'search_recipient' ) );
 
       //** WP-CRM integration */
       add_action( 'wpi_integrate_crm_user_panel', array( 'WPI_UI', 'crm_user_panel' ) );

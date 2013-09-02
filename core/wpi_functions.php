@@ -2586,59 +2586,6 @@ class WPI_Functions {
 }
 
 /**
- * Draw users dropdown list
- *
- * @global object $wpdb
- *
- * @param string $post_type
- * @param string $select_name
- * @param bool $return_users
- *
- * @return bool|nothing
- * @author korotkov@ud
- */
-function wpi_invoice_users_dropdown( $post_type, $select_name, $return_users = false ) {
-  global $wpdb;
-
-  switch ( $post_type ) {
-    case 'wpi_object':
-      $results = $wpdb->get_results( $wpdb->prepare( "
-        SELECT u.ID, pm.meta_value
-        FROM {$wpdb->posts} AS p
-        JOIN {$wpdb->prefix}postmeta AS pm ON pm.post_id = p.ID AND pm.meta_key = 'user_email'
-        JOIN {$wpdb->users} AS u ON u.user_email = pm.meta_value
-        WHERE post_type= %s
-        ", $post_type ), ARRAY_N );
-      break;
-  }
-
-  if ( empty( $results ) ) {
-    return false;
-  }
-
-  $users = array();
-  foreach ( $results as $result ) {
-    $users[ ] = $result[ 0 ];
-  }
-
-  if ( $return_users )
-    return $users;
-
-  $selected = isset( $_GET[ 'recipient' ] ) ? (int) $_GET[ 'recipient' ] : 0;
-
-  if ( !empty( $users ) ) {
-    wp_dropdown_users(
-      array(
-        'include' => $users,
-        'show_option_all' => __( 'Show all users', WPI ),
-        'selected' => $selected,
-        'name' => $select_name
-      )
-    );
-  }
-}
-
-/**
  * Mark invoice as Paid
  *
  * @param int $invoice_id
