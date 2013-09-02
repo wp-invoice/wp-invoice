@@ -11,7 +11,7 @@
 class wpi_interkassa extends wpi_gateway_base {
 
     /**
-     *
+     * Construct
      */
     public function __construct() {
         parent::__construct();
@@ -96,7 +96,7 @@ class wpi_interkassa extends wpi_gateway_base {
     }
 
     /**
-     *
+     * Show settings for RB. Nothing in case of InterKassa
      * @param type $invoice
      */
     function recurring_settings( $invoice ) {
@@ -106,8 +106,8 @@ class wpi_interkassa extends wpi_gateway_base {
       <?php
     }
 
-    /**
-   * Fields renderer for STRIPE
+  /**
+   * Fields renderer
    * @param type $invoice
    */
   function wpi_payment_fields($invoice) {
@@ -179,12 +179,84 @@ class wpi_interkassa extends wpi_gateway_base {
     }
 
     /**
-     *
+     * Merchant CB handler
      */
-    function server_callback() {}
+    function server_callback() {
+
+        if ( empty( $_POST ) ) die(__('Direct access not allowed', WPI));
+
+        $invoice = new WPI_Invoice();
+        $invoice->load_invoice("id={$_POST['ik_payment_id']}");
+
+        if ( $_POST['ik_payment_state'] != 'success' ) {
+            echo 'Failed';
+            return;
+        }
+
+        if ( !$this->_hash_verified( $invoice ) ) {
+            echo 'Hash or Shop ID is wrong';
+            return;
+        }
+
+        if ( get_post_meta( $invoice->data['ID'], 'wpi_processed_by_interkassa', 1 ) == 'true' ) {
+            echo 'Already processed';
+            return;
+        }
+
+        update_post_meta( $invoice->data['ID'], 'wpi_processed_by_interkassa', 'true' );
+
+        /** Add payment amount */
+        $event_note = sprintf(__('%s paid via InterKassa [%s]', WPI), WPI_Functions::currency_format(abs($_POST['ik_payment_amount'])), $_POST['ik_paysystem_alias']);
+        $event_amount = (float)$_POST['ik_payment_amount'];
+        $event_type   = 'add_payment';
+
+        //** Log balance changes */
+        $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
+
+        //** Log payer email */
+        $trans_id = sprintf(__("Transaction ID: %s", WPI), $_POST['ik_trans_id']);
+        $invoice->add_entry("attribute=invoice&note=$trans_id&type=update");
+        $invoice->save_invoice();
+
+        //** ... and mark invoice as paid */
+        wp_invoice_mark_as_paid( $_POST['ik_payment_id'], $check = true );
+        send_notification( $invoice->data );
+
+        echo 'OK';
+
+    }
 
     /**
-     *
+     * Hash checker
+     * @global type $wpi_settings
+     * @param type $invoice
+     * @return type
+     */
+    private function _hash_verified( $invoice ) {
+
+        $sing_hash_str = $_POST['ik_shop_id'].':'.
+            $_POST['ik_payment_amount'].':'.
+            $_POST['ik_payment_id'].':'.
+            $_POST['ik_paysystem_alias'].':'.
+            $_POST['ik_baggage_fields'].':'.
+            $_POST['ik_payment_state'].':'.
+            $_POST['ik_trans_id'].':'.
+            $_POST['ik_currency_exch'].':'.
+            $_POST['ik_fees_payer'].':'.
+            $invoice->data['billing']['wpi_interkassa']['settings']['secret_key']['value'];
+
+        $sign_hash = strtoupper( md5( $sing_hash_str ) );
+
+        $hash_is_good = $_POST['ik_sign_hash'] == $sign_hash;
+
+        $shop_is_good = $_POST['ik_shop_id'] == $invoice->data['billing']['wpi_interkassa']['settings']['ik_shop_id']['value'];
+
+        return $hash_is_good && $shop_is_good;
+
+    }
+
+    /**
+     * Payment Processor
      */
     function process_payment() {
         global $invoice;

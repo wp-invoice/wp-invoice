@@ -259,7 +259,6 @@ class wpi_stripe extends wpi_gateway_base {
           $crm_data    = $_REQUEST['crm_data'];
           $invoice_id  = $invoice['invoice_id'];
           $wp_users_id = $invoice['user_data']['ID'];
-          $post_id     = wpi_invoice_id_to_post_id($invoice_id);
 
           // update user data
           update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
@@ -328,6 +327,10 @@ class wpi_stripe extends wpi_gateway_base {
 
         $response['error'] = true;
         $data['messages'][] = __( 'Stripe server is down! Try again later.', WPI );
+      } catch (Exception $e) {
+
+        $response['error'] = true;
+        $data['messages'][] = $e->getMessage();
       }
 
       $response['data'] = $data;
