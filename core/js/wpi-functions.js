@@ -384,11 +384,9 @@ function wpi_enable_recurring () {
   jQuery( '.wpi_turn_off_recurring' ).show();
   jQuery( ".wpi_recurring_bill_settings" ).show();
   jQuery( ".wpi_not_for_recurring" ).hide();
-  if ( recurring_send_invoice_automatically == 'on' ) {
-    wpi_disable_recurring_start_date();
-  } else {
-    wpi_enable_recurring_start_date();
-  }
+
+  jQuery( document ).trigger('wpi_enable_recurring');
+
   is_recurring = true;
   wpi_toggle_wpi_event_type();
   wpi_recalc_totals();
@@ -397,13 +395,13 @@ function wpi_enable_recurring () {
 /**
  * Toggle recurring start date
  */
-function wpi_enable_recurring_start_date () {
-  jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_" ).removeAttr( "checked" );
-  jQuery( ".wpi_recurring_start_date" ).show();
+function wpi_enable_recurring_start_date( type ) {
+  jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_"+type ).removeAttr( "checked" );
+  jQuery( ".wpi_recurring_start_date."+type ).show();
 }
-function wpi_disable_recurring_start_date () {
-  jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_" ).attr( "checked", "checked" );
-  jQuery( ".wpi_recurring_start_date" ).hide();
+function wpi_disable_recurring_start_date( type ) {
+  jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_"+type ).attr( "checked", "checked" );
+  jQuery( ".wpi_recurring_start_date."+type ).hide();
 }
 /*
  Hide recurring option on invoice
@@ -629,11 +627,6 @@ function checkdate ( input ) {
 function wpi_validate_invoice () {
   var validated = true;
 
-  /*if ( jQuery('#wp_invoice_payment_method').length == 0 ) {
-   validated = false;
-   window.location.hash = '#postbox_payment_methods';
-   }*/
-
   // If recurring is setup, make sure billing cycles are set
   if ( jQuery( "#wpi_wpi_invoice_recurring_active_" ).is( ":checked" ) ) {
     if ( jQuery( "#wpi_meta_recuring_cycles" ).val() == "" ) {
@@ -642,7 +635,7 @@ function wpi_validate_invoice () {
     } else {
       jQuery( "#wpi_meta_recuring_cycles" ).removeClass( 'wpi_error' );
     }
-    if ( jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_:checked" ).val() == undefined ) {
+    /*if ( jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_:checked" ).val() == undefined ) {
       if ( jQuery( "#r_start_date_mm" ).val() == "" ) {
         jQuery( "#r_start_date_mm" ).addClass( 'wpi_error' );
         validated = false;
@@ -672,7 +665,7 @@ function wpi_validate_invoice () {
       jQuery( "#r_start_date_mm" ).removeClass( 'wpi_error' );
       jQuery( "#r_start_date_aa" ).removeClass( 'wpi_error' );
       jQuery( "#r_start_date_jj" ).removeClass( 'wpi_error' );
-    }
+    }*/
   }
   if ( jQuery( '[name^="wpi_invoice[subject]"]' ).val() == '' ) {
     jQuery( '[name^="wpi_invoice[subject]"]' ).addClass( 'wpi_error' );
@@ -680,29 +673,7 @@ function wpi_validate_invoice () {
   } else {
     jQuery( '[name^="wpi_invoice[subject]"]' ).removeClass( 'wpi_error' );
   }
-  /*// Doesn't need to validate, because Invoice should be have a chance to be saved without itemized list
-   jQuery("input.item_name:visible", "#invoice_list").each(function(k, v){
-   jQuery(v).removeClass('wpi_error');
-   if ( empty( jQuery(v).val()) ) {
-   jQuery(v).addClass('wpi_error');
-   validated = false;
-   }
-   });
-   jQuery("input.item_quantity:visible", "#invoice_list").each(function(k, v){
-   jQuery(v).removeClass('wpi_error');
-   if ( empty( jQuery(v).val()) ) {
-   jQuery(v).addClass('wpi_error');
-   validated = false;
-   }
-   });
-   jQuery("input.item_price:visible", "#invoice_list").each(function(k, v){
-   jQuery(v).removeClass('wpi_error');
-   if ( empty( jQuery(v).val()) ) {
-   jQuery(v).addClass('wpi_error');
-   validated = false;
-   }
-   });
-   */
+
   jQuery( "input.item_name:visible", "#charges_list" ).each( function ( k, v ) {
     jQuery( v ).removeClass( 'wpi_error' );
     if ( empty( jQuery( v ).val() ) ) {
