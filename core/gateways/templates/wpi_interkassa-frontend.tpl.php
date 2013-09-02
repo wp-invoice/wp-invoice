@@ -1,3 +1,6 @@
+<?php echo '<pre>';
+print_r( $invoice );
+echo '</pre>'; ?>
 <form action="http://www.interkassa.com/lib/payment.php" method="post" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
     <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
     <input type="hidden" id="wpi_form_type" name="type" value="<?php print $this->type; ?>" />
