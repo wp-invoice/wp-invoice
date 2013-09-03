@@ -1,6 +1,4 @@
-<?php include_once WPI_Path.'/core/wpi_template_functions.php'; echo '<pre>';
-print_r( $invoice );
-echo '</pre>';?>
+<?php include_once WPI_Path.'/core/wpi_template_functions.php'; ?>
 <form action="<?php echo $invoice['billing']['wpi_googlecheckout']['settings']['test_mode']['value']; ?><?php echo $invoice['billing']['wpi_googlecheckout']['settings']['merchant_id']['value'] ?>" method="post" name="online_payment_form" id="online_payment_form-<?php echo $this->type; ?>" class="wpi_checkout online_payment_form <?php echo $this->type; ?> clearfix">
     <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
     <input type="hidden" id="wpi_form_type" name="type" value="<?php echo $this->type; ?>" />

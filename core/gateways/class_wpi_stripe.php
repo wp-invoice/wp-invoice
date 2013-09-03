@@ -100,6 +100,12 @@ class wpi_stripe extends wpi_gateway_base {
                     'test' => "Test",
                     'live' => "Live"
                 )
+            ),
+            'webhook_url' => array(
+                'label' => __( "Webhook URL", WPI ),
+                'type' => "readonly",
+                'value' => admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_stripe'),
+                'description' => __( "Use webhooks to be notified about events that happen in your Stripe account.", WPI )
             )
         )
     );
@@ -204,7 +210,7 @@ class wpi_stripe extends wpi_gateway_base {
     }
 
     /**
-     *
+     * Process STRIPE payment
      * @global type $invoice
      */
     function process_payment() {
@@ -234,76 +240,127 @@ class wpi_stripe extends wpi_gateway_base {
 
         Stripe::setApiKey($pk);
 
-        //** Support partial payments */
-        if ($invoice['deposit_amount'] > 0) {
-          $amount = (float) $_REQUEST['amount'];
-          if (((float) $_REQUEST['amount']) > $invoice['net']) {
-            $amount = $invoice['net'];
-          }
-          if (((float) $_REQUEST['amount']) < $invoice['deposit_amount']) {
-            $amount = $invoice['deposit_amount'];
-          }
-        } else {
-          $amount = $invoice['net'];
-        }
+        switch( $invoice['type'] == 'recurring' ) {
 
-        $charge = Stripe_Charge::create(array(
-          "amount" => (float)$amount*100,
-          "currency" => strtolower( $invoice['default_currency_code'] ),
-          "card" => $token,
-          "description" => $invoice['invoice_id'].' ['.$invoice['post_title'].' / '.get_bloginfo('url').' / '.$invoice['user_email'].']'
-        ));
+          //** If recurring */
+          case true:
 
-        if ( $charge->paid ) {
+            $plan = Stripe_Plan::create(array(
+              "amount" => (float)$invoice['net']*100,
+              "interval" => $invoice['recurring']['wpi_stripe']['interval'],
+              "interval_count" => $invoice['recurring']['wpi_stripe']['interval_count'],
+              "name" => $invoice['post_title'],
+              "currency" => strtolower($invoice['default_currency_code']),
+              "id" => $invoice['invoice_id'])
+            );
 
-          $crm_data    = $_REQUEST['crm_data'];
-          $invoice_id  = $invoice['invoice_id'];
-          $wp_users_id = $invoice['user_data']['ID'];
+            $customer = Stripe_Customer::create(array(
+              "card" => $token,
+              "plan" => $invoice['invoice_id'],
+              "email" => $invoice['user_email'])
+            );
 
-          // update user data
-          update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
-          update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
-          update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
-          update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
-          update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-          update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
-          update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
-          update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+            if ( !empty( $plan->id ) && !empty( $plan->amount ) && !empty( $customer->id ) ) {
 
-          if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+              $invoice_obj = new WPI_Invoice();
+              $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
+              $log = sprintf( __( "Subscription has been initiated. Plan: %s, Customer: %s", WPI ), $plan->id, $customer->id );
+              $invoice_obj->add_entry("attribute=invoice&note=$log&type=update");
+              $invoice_obj->save_invoice();
 
-          $invoice_obj = new WPI_Invoice();
-          $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
+              update_post_meta( wpi_invoice_id_to_post_id( $invoice['invoice_id'] ), '_stripe_customer_id', $customer->id );
 
-          $amount = (float)($charge->amount/100);
-          //** Add payment amount */
-          $event_note = WPI_Functions::currency_format($amount, $invoice['invoice_id']) . " paid via STRIPE";
-          $event_amount = $amount;
-          $event_type = 'add_payment';
+              $data['messages'][] = __( 'Stripe Subscription has been initiated. Do not pay this invoice again. Thank you.', WPI );
+              $response['success'] = true;
+              $response['error'] = false;
+            } else {
 
-          $event_note = urlencode($event_note);
-          //** Log balance changes */
-          $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
-          //** Log client IP */
-          $success = "Successfully processed by {$_SERVER['REMOTE_ADDR']}";
-          $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
-          //** Log payer */
-          $payer_card = "STRIPE Card ID: {$charge->card->id}";
-          $invoice_obj->add_entry("attribute=invoice&note=$payer_card&type=update");
+              $data['messages'][] = __( 'Could not initiate Stripe Subscription. Contact site Administrator please.', WPI );
+              $response['success'] = false;
+              $response['error'] = true;
+            }
 
-          $invoice_obj->save_invoice();
-          //** Mark invoice as paid */
-          wp_invoice_mark_as_paid($invoice_id, $check = true);
+            break;
 
-          send_notification( $invoice );
+          //** If regular payment */
+          case false:
 
-          $data['messages'][] = __( 'Successfully paid. Thank you.', WPI );
-          $response['success'] = true;
-          $response['error'] = false;
-        } else {
-          $data['messages'][] = $charge->failure_message;
-          $response['success'] = false;
-          $response['error'] = true;
+            //** Support partial payments */
+            if ($invoice['deposit_amount'] > 0) {
+              $amount = (float) $_REQUEST['amount'];
+              if (((float) $_REQUEST['amount']) > $invoice['net']) {
+                $amount = $invoice['net'];
+              }
+              if (((float) $_REQUEST['amount']) < $invoice['deposit_amount']) {
+                $amount = $invoice['deposit_amount'];
+              }
+            } else {
+              $amount = $invoice['net'];
+            }
+
+            $charge = Stripe_Charge::create(array(
+              "amount" => (float)$amount*100,
+              "currency" => strtolower( $invoice['default_currency_code'] ),
+              "card" => $token,
+              "description" => $invoice['invoice_id'].' ['.$invoice['post_title'].' / '.get_bloginfo('url').' / '.$invoice['user_email'].']'
+            ));
+
+            if ( $charge->paid ) {
+
+              $crm_data    = $_REQUEST['crm_data'];
+              $invoice_id  = $invoice['invoice_id'];
+              $wp_users_id = $invoice['user_data']['ID'];
+
+              //** update user data */
+              update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
+              update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
+              update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
+              update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
+              update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
+              update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
+              update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
+              update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+
+              if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+
+              $invoice_obj = new WPI_Invoice();
+              $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
+
+              $amount = (float)($charge->amount/100);
+              //** Add payment amount */
+              $event_note = WPI_Functions::currency_format($amount, $invoice['invoice_id']) . __(" paid via STRIPE", WPI);
+              $event_amount = $amount;
+              $event_type = 'add_payment';
+
+              $event_note = urlencode($event_note);
+              //** Log balance changes */
+              $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
+              //** Log client IP */
+              $success = __("Successfully processed by ", WPI).$_SERVER['REMOTE_ADDR'];
+              $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
+              //** Log payer */
+              $payer_card = __("STRIPE Card ID: ", WPI).$charge->card->id;
+              $invoice_obj->add_entry("attribute=invoice&note=$payer_card&type=update");
+
+              $invoice_obj->save_invoice();
+              //** Mark invoice as paid */
+              wp_invoice_mark_as_paid($invoice_id, $check = true);
+
+              send_notification( $invoice );
+
+              $data['messages'][] = __( 'Successfully paid. Thank you.', WPI );
+              $response['success'] = true;
+              $response['error'] = false;
+            } else {
+              $data['messages'][] = $charge->failure_message;
+              $response['success'] = false;
+              $response['error'] = true;
+            }
+
+            break;
+
+          //** Other cases */
+          default: break;
         }
 
         $response['data'] = $data;
@@ -335,6 +392,85 @@ class wpi_stripe extends wpi_gateway_base {
 
       $response['data'] = $data;
       die(json_encode($response));
+    }
+
+    /**
+     *
+     */
+    function server_callback() {
+      global $wpdb;
+
+      //** Get request body */
+      $body = @file_get_contents('php://input');
+      $event_object = json_decode($body);
+
+      switch ($event_object->type) {
+
+        //** Used only for subscriptions since single payments processed without Webhook */
+        case 'charge.succeeded':
+
+          $post_id = $wpdb->get_col("SELECT post_id
+          FROM {$wpdb->postmeta}
+          WHERE meta_key = '_stripe_customer_id'
+            AND meta_value = '{$event_object->data->object->card->customer}'");
+
+          $invoice_object = new WPI_Invoice();
+          $invoice_object->load_invoice("id=" . $post_id[0]);
+
+          if (empty($invoice_object->data['ID'])) {
+            die("Can't load invoice");
+          }
+
+          require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+
+          Stripe::setApiKey($pk);
+
+          $event = Stripe_Event::retrieve($event_object->id);
+
+
+          if ($event->data->object->paid == 1) {
+            $event_amount = (float) ($event->data->object->amount / 100);
+            $event_note = WPI_Functions::currency_format(abs($event_amount), $invoice_object->data['invoice_id']) . ' ' . __('Stripe Subscription Payment', WPI);
+            $event_type = 'add_payment';
+
+            $invoice_object->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
+            $invoice_object->save_invoice();
+          }
+          break;
+
+        case 'customer.subscription.deleted':
+
+          $post_id = $wpdb->get_col("SELECT post_id
+          FROM {$wpdb->postmeta}
+          WHERE meta_key = '_stripe_customer_id'
+            AND meta_value = '{$event_object->data->object->customer}'");
+
+          $invoice_object = new WPI_Invoice();
+          $invoice_object->load_invoice("id=" . $post_id[0]);
+
+          if (empty($invoice_object->data['ID'])) {
+            die("Can't load invoice");
+          }
+
+          require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+
+          Stripe::setApiKey($pk);
+
+          $event = Stripe_Event::retrieve($event_object->id);
+
+          if ( $event->data->object->status == 'canceled' ) {
+            $invoice_object->add_entry("attribute=invoice&note=".__('Stripe Subscription has been canceled', WPI)."&type=update");
+            $invoice_object->save_invoice();
+            wp_invoice_mark_as_paid($invoice_object->data['invoice_id']);
+          }
+
+          break;
+
+        default: break;
+      }
+
     }
 
   }

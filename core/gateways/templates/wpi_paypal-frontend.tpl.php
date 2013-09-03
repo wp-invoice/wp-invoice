@@ -15,7 +15,7 @@
   <input type="hidden" name="invoice" id="invoice_id" value="<?php echo $invoice['invoice_id']; ?>">
 
   <?php if ( is_recurring() ): ?>
-  <?php switch ( $invoice['recurring']['unit'] ) {
+  <?php switch ( $invoice['recurring']['wpi_paypal']['unit'] ) {
           case 'days':
             $subscription_unit = "D";
             break;
@@ -33,9 +33,9 @@
     <input type="hidden" name="cmd" value="_xclick-subscriptions">
     <input type="hidden" name="item_number" value="<?php echo $invoice['invoice_id']; ?>">
     <input type="hidden" name="src" value="1">
-    <input type="hidden" name="srt" value="<?php echo (int)$invoice['recurring']['cycles']; ?>">
+    <input type="hidden" name="srt" value="<?php echo (int)$invoice['recurring']['wpi_paypal']['cycles']; ?>">
     <input type="hidden" name="a3" value="<?php echo number_format( (float)$invoice['net'], 2, '.', '' ); ?>">
-    <input type="hidden" name="p3" value="<?php echo (int)$invoice['recurring']['length']; ?>">
+    <input type="hidden" name="p3" value="<?php echo (int)$invoice['recurring']['wpi_paypal']['length']; ?>">
     <input type="hidden" name="t3" value="<?php echo $subscription_unit; ?>">
   <?php else: ?>
     <input type="hidden" id="payment_amount" name="amount" value="<?php echo number_format( (float)$invoice['net'], 2, '.', '' ); ?>">
