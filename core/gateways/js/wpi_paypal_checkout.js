@@ -118,7 +118,7 @@ jQuery( document ).on( 'wpi_checkout_init-wpi_paypal', function( event, self ) {
   /**
    * Handle payment venue switching
    */
-  jQuery('.wpi_checkout_select_payment_method_dropdown', self.instance ).change( self.change_payment_method );
+  jQuery('.wpi_checkout_select_payment_method_dropdown', self.instance ).change( self.change_payment_method ).change();
 
   /**
    * Handle custom amount typing
