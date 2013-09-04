@@ -143,7 +143,7 @@ class WPI_Payment_Api {
                              ? $args['fax']
                              : '';
 
-          require_once('gateways/authorize.net/authnet.class.php');
+          require_once( WPI_Path . '/third-party/authorize.net/authnet.class.php' );
 
           $transaction = new WP_Invoice_Authnet( $this->method );
           $transaction->setUrl( $this->url );
