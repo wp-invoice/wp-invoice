@@ -9,8 +9,13 @@
  * The meta-box-hidden_$page is updated in (admin-ajax.php line 997) via Ajax calls
  * $page = 'admin_page_wpi_invoice_edit'
  */
+
+/**
+ * Metabox for notifications
+ * @global type $wpi_settings
+ * @param type $this_invoice
+ */
 function message_meta_box($this_invoice) {
-  global $wpi_settings;
   ?>
   <div id="send_notification_box" class="hidden postbox">
     <h3 class='hndle'><span><?php _e("Send Notification", WPI) ?></span></h3>
@@ -68,6 +73,10 @@ function message_meta_box($this_invoice) {
   <?php
 }
 
+/**
+ * Overview metabox
+ * @param type $this_invoice
+ */
 function postbox_overview($this_invoice) {
 
   ?>
@@ -105,6 +114,11 @@ function postbox_overview($this_invoice) {
 
 }
 
+/**
+ * Publish metabox
+ * @global type $wpi_settings
+ * @param type $this_invoice
+ */
 function postbox_publish($this_invoice) {
 
   global $wpi_settings;
@@ -147,42 +161,14 @@ function postbox_publish($this_invoice) {
           </li>
           <li class="wpi_recurring_bill_settings <?php if (!empty($this_invoice['recurring']) && $this_invoice['recurring']['active'] != 'on') {
             ?>hidden<?php } ?>">
-            <table class="wpi_recurring_bill_settings">
-              <tr>
-                <th><?php _e("Bill Every", WPI) ?></th>
-                <td>
-                  <?php echo WPI_UI::input("name=wpi_invoice[recurring][length]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
-                  <?php echo WPI_UI::select("name=wpi_invoice[recurring][unit]&values=" . serialize(apply_filters('wpi_schedule_units', array( "days" => __("Day(s)", WPI), "weeks" => __("Week(s) [PayPal only]", WPI), "months" => __("Month(s)", WPI), "years" => __("Year(s) [PayPal only]", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['unit'] : '')); ?>
-                </td>
-              </tr>
-              <?php do_action('wpi_recurring_after_bill_every', $this_invoice); ?>
-              <tr>
-                <th><?php _e("Billing Cycles", WPI) ?></th>
-                <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][cycles]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['cycles'] : '') . "&class=wpi_small"); ?></td>
-              </tr>
-              <?php do_action('wpi_recurring_after_bill_cycles', $this_invoice); ?>
-              <tr>
-                <th>Send Invoice</th>
-                <td>
-                  <script type="text/javascript">var recurring_send_invoice_automatically = '<?php echo!empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'; ?>';</script>
-                  <?php echo WPI_UI::checkbox("name=wpi_invoice[recurring][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring']['send_invoice_automatically']) ? $this_invoice['recurring']['send_invoice_automatically'] : 'on'); ?>
-                </td>
-              </tr>
-              <?php do_action('wpi_recurring_after_send_invoice', $this_invoice); ?>
-              <tr class="wpi_recurring_start_date" style="display:<?php echo!empty($this_invoice['recurring']) && $this_invoice['recurring']['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
-                <th>Date:</th>
-                <td>
-                  <div>
-                    <?php echo WPI_UI::select("id=r_start_date_mm&name=wpi_invoice[recurring][start_date][month]&values=months&current_value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['start_date']['month'] : '')); ?>
-                    <?php echo WPI_UI::input("id=r_start_date_jj&name=wpi_invoice[recurring][start_date][day]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['start_date']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
-                    <?php echo WPI_UI::input("id=r_start_date_aa&name=wpi_invoice[recurring][start_date][year]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['start_date']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
-                    <span onclick="wp_invoice_add_time('r_start_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 'clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
-                  </div>
-                  <small><?php _e('Applicable only for Authorize.net', WPI); ?></small>
-                </td>
-              </tr>
-              <?php do_action('wpi_recurring_after_date', $this_invoice); ?>
-            </table>
+
+            <?php
+              $recurring_settings = apply_filters( 'wpi_recurring_settings', array(), $this_invoice );
+              foreach( $recurring_settings as $gateway ) {
+                do_action( 'wpi_recurring_settings_'.$gateway, $this_invoice );
+              }
+            ?>
+
           </li>
         <?php } ?>
       </ul>
@@ -194,7 +180,7 @@ function postbox_publish($this_invoice) {
         </thead>
         <tbody>
           <tr class="column-publish-due-date wpi_not_for_recurring wpi_not_for_quote">
-            <th>Due Date</th>
+            <th><?php _e('Due Date', WPI); ?></th>
             <td>
               <div class="timestampdiv" style="display:block;">
                 <?php echo WPI_UI::select("id=due_date_mm&name=wpi_invoice[due_date_month]&values=months&current_value=" . (!empty($this_invoice['due_date_month']) ? $this_invoice['due_date_month'] : '')); ?>
@@ -251,65 +237,11 @@ function postbox_publish($this_invoice) {
   <?php
 }
 
-function recurring_billing_box() {
-  ?>
-  <div class="postbox column-recurring-billing" id="wp_invoice_client_info_div">
-    <h3>
-      <label for="link_name">
-      <?php _e("Recurring Billing", WPI) ?>
-      </label>
-    </h3>
-    <div id="wp_invoice_enable_recurring_billing" class="wp_invoice_click_me" <?php if ($invoice->recurring) { ?>style="display:none;"<?php } ?>>
-  <?php _e("Create a recurring billing schedule for this invoice.", WPI) ?>
-    </div>
-    <div class="wp_invoice_enable_recurring_billing" <?php if (!$invoice->recurring) { ?>style="display:none;"<?php } ?>>
-      <table class="form-table" id="add_new_invoice">
-        <tr>
-          <th><a class="wp_invoice_tooltip" title="<?php _e("A name to identify this subscription by in addition to the invoice id. (ex: 'standard hosting')", WPI) ?>">
-  <?php _e("Subscription Name", WPI) ?>
-            </a></th>
-          <td><?php echo WPI_UI::input('wp_invoice_subscription_name', $wp_invoice_subscription_name); ?></td>
-        </tr>
-        <tr>
-          <th><?php _e("Start Date", WPI) ?></th>
-          <td><span style="<?php if ($recurring_auto_start) { ?>display:none;<?php } ?>" class="wp_invoice_timestamp">
-                <?php _e("Start automatically as soon as the customer enters their billing information. ", WPI) ?>
-              <span class="wp_invoice_click_me" onclick="jQuery('.wp_invoice_timestamp').toggle();">
-                <?php _e("Specify Start Date", WPI) ?>
-              </span></span>
-            <div style="<?php if (!$recurring_auto_start) { ?>display:none;<?php } ?>" class="wp_invoice_timestamp"> <?php echo WPI_UI::draw_select('wp_invoice_subscription_start_month', array("01" => "Jan", "02" => "Feb", "03" => "Mar", "04" => "Apr", "05" => "May", "06" => "Jun", "07" => "Jul", "08" => "Aug", "09" => "Sep", "10" => "Oct", "11" => "Nov", "12" => "Dec"), $wp_invoice_subscription_start_month); ?> <?php echo WPI_UI::input('wp_invoice_subscription_start_day', $wp_invoice_subscription_start_day, ' size="2" maxlength="2" autocomplete="off" '); ?>, <?php echo WPI_UI::input('wp_invoice_subscription_start_year', $wp_invoice_subscription_start_year, ' size="4" maxlength="4" autocomplete="off" '); ?> <span onclick="wp_invoice_subscription_start_time(7);" class="wp_invoice_click_me">
-                <?php _e("In One Week", WPI) ?>
-              </span> | <span onclick="wp_invoice_subscription_start_time(30);" class="wp_invoice_click_me">
-  <?php _e("In 30 Days", WPI) ?>
-              </span> | <span onclick="jQuery('.wp_invoice_timestamp').toggle();wp_invoice_subscription_start_time('clear');"  class="wp_invoice_click_me">
-              <?php _e("Start automatically", WPI) ?>
-              </span> </div></td>
-        </tr>
-        <tr>
-          <th><a class="wp_invoice_tooltip"  title="<?php _e("This will be the number of times the client will be billed. (ex: 12)", WPI) ?>">
-  <?php _e("Bill Every", WPI) ?>
-            </a></th>
-          <td><?php echo WPI_UI::input('wp_invoice_subscription_length', $wp_invoice_subscription_length, ' size="3" maxlength="3" autocomplete="off" '); ?> <?php echo WPI_UI::draw_select('wp_invoice_subscription_unit', array("months" => __("month(s)", WPI), "days" => __("days", WPI)), $wp_invoice_subscription_unit); ?></td>
-        </tr>
-        <tr>
-          <th><a class="wp_invoice_tooltip"  title="<?php _e("Keep it under the maximum of 9999.", WPI) ?>">
-  <?php _e("Total Billing Cycles", WPI) ?>
-            </a></th>
-          <td><?php echo WPI_UI::input('wp_invoice_subscription_total_occurances', $wp_invoice_subscription_total_occurances, ' size="4" maxlength="4" autocomplete="off" '); ?></td>
-        </tr>
-        <tr>
-          <th></th>
-          <td><?php _e("All <b>recurring billing</b> fields must be filled out to activate recurring billing. ", WPI) ?>
-            <span onclick="wp_invoice_cancel_recurring()" class="wp_invoice_click_me">
-  <?php _e("Cancel Recurring Billing", WPI) ?>
-            </span></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <?php
-}
-
+/**
+ * New User metabox
+ * @global type $wpi_settings
+ * @param type $this_invoice
+ */
 function postbox_user_new($this_invoice) {
   global $wpi_settings;
   ?>
@@ -354,13 +286,16 @@ function postbox_user_new($this_invoice) {
   <?php
 }
 
+/**
+ * Metabox for existing user
+ * @global type $wpi_settings
+ * @global type $wpdb
+ * @param type $this_invoice
+ */
 function postbox_user_existing($this_invoice) {
-  global $wpi_settings, $wpdb;
+  global $wpi_settings;
 
   $user_email = $this_invoice['user_data']['user_email'];
-
-  //** Get array of all user emails, excluding any empty ones (no provision as of now for creating invoices for users w/o emails */
-  $user_emails = $wpdb->get_col("SELECT user_email FROM {$wpdb->users} WHERE user_email != '' ");
 
   //** Get required user fields */
   $required_fields = $wpi_settings['user_meta']['required'];
@@ -371,22 +306,48 @@ function postbox_user_existing($this_invoice) {
   //** Merge required and non-required user fields */
   $user_information = array_merge($required_fields, $custom_fields);
 
-  //** Determine if the user for this invoice already exists */
-  $new_user = get_user_by('email', $user_email) ? false : true;
+  wp_enqueue_script('wpi_select2_js');
+  wp_enqueue_style('wpi_select2_css');
 
   ?>
 
+  <script type="text/javascript">
+    jQuery( document ).ready(function(){
+      jQuery(".wpi_user_email_selection").select2({
+        placeholder: 'Select User',
+        multiple: false,
+        width: '100%',
+        minimumInputLength: 3,
+        ajax: {
+          url: ajaxurl,
+          dataType: 'json',
+          type: 'POST',
+          data: function (term, page) {
+            return {
+              action: 'wpi_search_email',
+              s: term
+            };
+          },
+          results: function (data, page) {
+            return {results: data};
+          }
+        },
+        initSelection: function(element, callback) {
+          callback(<?php echo json_encode(array('id'=>$user_email, 'title'=>$user_email)); ?>);
+        },
+        formatResult: function(o) {
+          return o.title;
+        },
+        formatSelection: function(o) {
+          return o.title;
+        },
+        escapeMarkup: function (m) { return m; }
+      });
+    });
+  </script>
+
   <div class="wpi_user_email_selection_wrapper">
-    <select class="wpi_user_email_selection" name="wpi_invoice[user_data][user_email]">
-    <?php if ($new_user) { ?>
-      <option selected="selected" value="<?php echo esc_attr($user_email); ?>"><?php echo esc_attr($user_email); ?></option>
-      <?php } else {  ?>
-      <option></option>
-    <?php } ?>
-    <?php foreach ($user_emails as $this_email) {  ?>
-      <option <?php selected($this_email, $user_email); ?> value="<?php echo esc_attr($this_email); ?>"><?php echo esc_attr($this_email); ?></option>
-    <?php } ?>
-    </select>
+    <input type="text" value="<?php echo esc_attr($user_email); ?>" name="wpi_invoice[user_data][user_email]" class="wpi_user_email_selection" />
   </div>
 
   <table class="form-table wp_invoice_new_user">
@@ -410,6 +371,11 @@ function postbox_user_existing($this_invoice) {
   do_action('wpi_integrate_crm_user_panel', $this_invoice['user_data']['ID']);
 }
 
+/**
+ * Payment methods metabox
+ * @global type $wpi_settings
+ * @param type $this_invoice
+ */
 function postbox_payment_methods($this_invoice) {
   global $wpi_settings;
   if (!empty($this_invoice['billing'])) {
@@ -553,8 +519,11 @@ function postbox_payment_methods($this_invoice) {
   }
 }
 
+/**
+ * Invoice status metabox
+ * @param type $this_invoice
+ */
 function status_meta_box($this_invoice) {
-
 
   $hidden = '';
   if (!empty($_REQUEST['wpi']['new_invoice'])) {
@@ -606,14 +575,13 @@ function status_meta_box($this_invoice) {
         </table>
         <div style="padding: 5px;">
           <table class="form-table" id="wpi_invoice_status_table">
-  <?php
-
-  if (!empty($this_invoice['log']) && is_array($this_invoice['log'])) {
-    if (!empty($this_invoice['ID'])) {
-      WPI_Functions::get_status($this_invoice['ID']);
-    }
-  }
-  ?>
+            <?php
+            if (!empty($this_invoice['log']) && is_array($this_invoice['log'])) {
+              if (!empty($this_invoice['ID'])) {
+                WPI_Functions::get_status($this_invoice['ID']);
+              }
+            }
+            ?>
           </table>
         </div>
       </div>
