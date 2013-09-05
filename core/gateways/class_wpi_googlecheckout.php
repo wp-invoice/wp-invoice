@@ -10,22 +10,9 @@ Description: Provides the Google Checkout for payment options
 
 class wpi_googlecheckout extends wpi_gateway_base {
 
-  /**
-   * Input types
-   */
-  const TEXT_INPUT_TYPE   = 'text';
-  const SELECT_INPUT_TYPE = 'select';
-
-  /**
-   * Properties of class
-   * @var array
-   */
-  var $options = array();
-  var $front_end_fields = array();
-
-	/**
-	 * Constructor
-	 */
+    /**
+     * Constructor
+     */
   function __construct() {
     parent::__construct();
 
@@ -130,58 +117,60 @@ class wpi_googlecheckout extends wpi_gateway_base {
 
     );
 
-		add_action( 'wpi_payment_fields_googlecheckout', array( $this, 'wpi_payment_fields' ) );
-    add_action( 'wpi_recurring_after_bill_every',    array( $this, 'billing_periods' ) );
-    add_action( 'wpi_recurring_after_date',          array( $this, 'no_charge_after' ) );
-    add_filter( 'wpi_create_schedule_recurring',     array( $this, 'create_schedule_recurring' ) );
-	}
+    }
 
   /**
-   * Process saving of Google Checkout specific options
-   *
-   * @param array $recurring
-   * @return type
-   */
-  function create_schedule_recurring( $recurring ) {
-    $recurring['google_billing_period'] = !empty( $_REQUEST['wpi_invoice']['recurring']['google_billing_period'] ) ? $_REQUEST['wpi_invoice']['recurring']['google_billing_period'] : 'DAILY';
-    $recurring['google_no_charge_after'] = !empty( $_REQUEST['wpi_invoice']['recurring']['google_no_charge_after'] ) ? $_REQUEST['wpi_invoice']['recurring']['google_no_charge_after'] : array();
-    return $recurring;
-  }
-
-  /**
-   * Render No Charge After options.
    *
    * @param type $this_invoice
    */
-  function no_charge_after( $this_invoice ) {
+  function recurring_settings( $this_invoice ) {
     ?>
-    <tr>
-      <th style="cursor:help;font-weight:bold;" title="<?php _e('This option specifies the latest date that you can charge the customer for the subscription. This element can help you to ensure that you do not overcharge your customers.', WPI); ?>"><?php _e('No Charge After', WPI); ?>:</th>
-      <td>
-        <div>
-          <?php echo WPI_UI::select("id=r_no_charge_after_mm&name=wpi_invoice[recurring][google_no_charge_after][month]&values=months&current_value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['google_no_charge_after']['month'] : '')); ?>
-          <?php echo WPI_UI::input("id=r_no_charge_after_jj&name=wpi_invoice[recurring][google_no_charge_after][day]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['google_no_charge_after']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
-          <?php echo WPI_UI::input("id=r_no_charge_after_aa&name=wpi_invoice[recurring][google_no_charge_after][year]&value=" . (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['google_no_charge_after']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?>
-        </div>
-        <small><?php _e('Applicable only for Google Wallet', WPI); ?></small>
-      </td>
-    </tr>
-    <?php
-  }
-
-  /**
-   * Render Google Checkout specific options
-   *
-   * @param array $invoice
-   */
-  function billing_periods( $invoice ) {
-    ?>
+    <h4><?php _e( 'Google Wallet Subscriptions', WPI ); ?></h4>
+    <table class="wpi_recurring_bill_settings">
       <tr>
-        <th style="cursor:help;font-weight:bold;" title="<?php _e('If you use Google Wallet for subscriptions then these options will be used to determine billing period.', WPI); ?>"><?php _e('Google Wallet Billing Period', WPI); ?></th>
+        <th style="cursor:help;" title="<?php _e('If you use Google Wallet for subscriptions then these options will be used to determine billing period.', WPI); ?>"><?php _e('Google Wallet Billing Period', WPI); ?></th>
         <td>
-           <?php echo WPI_UI::select("name=wpi_invoice[recurring][google_billing_period]&values=" . serialize(apply_filters('wpi_google_billing_period', array( "DAILY" => __("Daily", WPI), "WEEKLY" => __("Weekly", WPI), "SEMI_MONTHLY" => __("Semi Monthly", WPI), "MONTHLY" => __("Monthly", WPI), "EVERY_TWO_MONTHS" => __("Every Two Months", WPI), "QUARTERLY" => __("Quarterly", WPI), "YEARLY" => __("Yearly", WPI)))) . "&current_value=" . (!empty($invoice['recurring']) ? $invoice['recurring']['google_billing_period'] : '')); ?>
+           <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][google_billing_period]&values=" . serialize(apply_filters('wpi_google_billing_period', array( "DAILY" => __("Daily", WPI), "WEEKLY" => __("Weekly", WPI), "SEMI_MONTHLY" => __("Semi Monthly", WPI), "MONTHLY" => __("Monthly", WPI), "EVERY_TWO_MONTHS" => __("Every Two Months", WPI), "QUARTERLY" => __("Quarterly", WPI), "YEARLY" => __("Yearly", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['google_billing_period'] : '')); ?>
         </td>
       </tr>
+      <tr>
+        <th style="cursor:help;" title="<?php _e('This option specifies the latest date that you can charge the customer for the subscription. This element can help you to ensure that you do not overcharge your customers.', WPI); ?>"><?php _e('No Charge After', WPI); ?></th>
+        <td>
+          <div>
+            <?php echo WPI_UI::select("id=r_no_charge_after_mm&name=wpi_invoice[recurring][".$this->type."][google_no_charge_after][month]&values=months&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['google_no_charge_after']['month'] : '')); ?>
+            <?php echo WPI_UI::input("id=r_no_charge_after_jj&name=wpi_invoice[recurring][".$this->type."][google_no_charge_after][day]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['google_no_charge_after']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
+            <?php echo WPI_UI::input("id=r_no_charge_after_aa&name=wpi_invoice[recurring][".$this->type."][google_no_charge_after][year]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['google_no_charge_after']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th><?php _e( 'Send Invoice', WPI ); ?></th>
+        <td>
+          <script type="text/javascript">
+            var recurring_send_invoice_automatically_<?php echo $this->type; ?> = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';
+            jQuery( document ).bind('wpi_enable_recurring', function(){
+              if ( recurring_send_invoice_automatically_<?php echo $this->type; ?> == 'on' ) {
+                wpi_disable_recurring_start_date( '<?php echo $this->type; ?>' );
+              } else {
+                wpi_enable_recurring_start_date( '<?php echo $this->type; ?>' );
+              }
+            });
+          </script>
+          <?php echo WPI_UI::checkbox("special=data-type='{$this->type}'&id=wpi_wpi_invoice_recurring_send_invoice_automatically_{$this->type}&class=wpi_wpi_invoice_recurring_send_invoice_automatically {$this->type}&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
+        </td>
+      </tr>
+      <tr class="wpi_recurring_start_date <?php echo $this->type; ?>" style="display:<?php echo !empty($this_invoice['recurring'][$this->type]) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
+        <th><?php _e( 'Date', WPI ); ?></th>
+        <td>
+          <div>
+            <?php echo WPI_UI::select("id=r_start_date_mm&name=wpi_invoice[recurring][".$this->type."][start_date][month]&values=months&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['month'] : '')); ?>
+            <?php echo WPI_UI::input("id=r_start_date_jj&name=wpi_invoice[recurring][".$this->type."][start_date][day]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
+            <?php echo WPI_UI::input("id=r_start_date_aa&name=wpi_invoice[recurring][".$this->type."][start_date][year]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['start_date']['year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
+            <span onclick="wp_invoice_add_time('r_start_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('r_start_date', 'clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
+          </div>
+        </td>
+      </tr>
+    </table>
     <?php
   }
 
@@ -256,30 +245,30 @@ class wpi_googlecheckout extends wpi_gateway_base {
    * @global array $wpi_settings
    */
   function process_payment() {
-		global $invoice, $wpi_settings;
+    global $invoice, $wpi_settings;
 
-		$crm_data    = $_REQUEST['crm_data'];
+    $crm_data    = $_REQUEST['crm_data'];
     $invoice_id  = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
     $post_id     = wpi_invoice_id_to_post_id($invoice_id);
 
-		// update user data
-		update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
-		update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
-		update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
-		update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
-		update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-		update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
-		update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
-		update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+    // update user data
+    update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
+    update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
+    update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
+    update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
+    update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
+    update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
+    update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
+    update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
-		if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+    if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
 
-		echo json_encode(
-		  array( 'success' => 1 )
-		);
+    echo json_encode(
+      array( 'success' => 1 )
+    );
 
-	}
+    }
 
   /**
    * IPN handler for Google Checkout

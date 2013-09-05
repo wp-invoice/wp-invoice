@@ -10,170 +10,186 @@ Description: Provides the PayPal for payment options
 
 class wpi_paypal extends wpi_gateway_base {
 
-	/**
-   * Input types
-   */
-  const TEXT_INPUT_TYPE   = 'text';
-  const SELECT_INPUT_TYPE = 'select';
 
-	/**
-	 * Payment settings
-	 *
-	 * @var array
-	 */
-  var $options = array(
-    'name' => 'PayPal',
-    'allow' => '',
-    'default_option' => '',
-    'settings' => array(
-      'paypal_address' => array(
-        'label' => "PayPal Username",
-        'value' => ''
-      ),
-      'test_mode' => array(
-        'label' => "Use in Test Mode",
-        'description' => "Use PayPal SandBox for test mode",
-        'type' => 'select',
-        'value' => 'https://www.paypal.com/cgi-bin/webscr',
-        'data' => array(
-          'https://www.paypal.com/cgi-bin/webscr' => "No",
-          'https://www.sandbox.paypal.com/cgi-bin/webscr' => "Yes"
-        )
-      ),
-      'ipn' => array(
-        'label' => "PayPal IPN URL",
-        'type' => "readonly",
-        'description' => "Once IPN is integrated, sellers can automate their back office so they don’t have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings."
-      )
-    )
-  );
+    /**
+     * Constructor
+     */
+    function __construct() {
+        parent::__construct();
 
-	/**
-   * Fields list for frontend
-   */
-  var $front_end_fields = array(
+        /**
+        * Payment settings
+        *
+        * @var array
+        */
+        $this->options = array(
+         'name' => 'PayPal',
+         'allow' => '',
+         'default_option' => '',
+         'settings' => array(
+           'paypal_address' => array(
+             'label' => __( "PayPal Username", WPI ),
+             'value' => ''
+           ),
+           'test_mode' => array(
+             'label' => __( "Use in Test Mode", WPI ),
+             'description' => __( "Use PayPal SandBox for test mode", WPI ),
+             'type' => 'select',
+             'value' => 'https://www.paypal.com/cgi-bin/webscr',
+             'data' => array(
+               'https://www.paypal.com/cgi-bin/webscr' => __( "No", WPI ),
+               'https://www.sandbox.paypal.com/cgi-bin/webscr' => __( "Yes", WPI )
+             )
+           ),
+           'ipn' => array(
+             'label' => __( "PayPal IPN URL", WPI ),
+             'type' => "readonly",
+             'description' => __( "Once IPN is integrated, sellers can automate their back office so they don’t have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings.", WPI )
+           )
+         )
+        );
 
-    'customer_information' => array(
+        /**
+        * Fields list for frontend
+        */
+        $this->front_end_fields = array(
 
-      'first_name'  => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'first_name',
-        'label' => 'First Name'
-      ),
+         'customer_information' => array(
 
-      'last_name'   => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'last_name',
-        'label' => 'Last Name'
-      ),
+           'first_name'  => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'first_name',
+             'label' => __( 'First Name', WPI )
+           ),
 
-      'user_email'  => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'email_address',
-        'label' => 'Email Address'
-      ),
+           'last_name'   => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'last_name',
+             'label' => __( 'Last Name', WPI )
+           ),
 
-			'phonenumber' => array(
-				array(
-					'type'  => 'text',
-					'class' => 'text-input small',
-					'name'  => 'night_phone_a'
-				),
-				array(
-					'type'  => 'text',
-					'class' => 'text-input small',
-					'name'  => 'night_phone_b'
-				),
-				array(
-					'type'  => 'text',
-					'class' => 'text-input small',
-					'name'  => 'night_phone_c'
-				)
-			),
+           'user_email'  => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'email_address',
+             'label' => __( 'Email Address', WPI )
+           ),
 
-      'streetaddress'     => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'address1',
-        'label' => 'Address'
-      ),
+           'phonenumber' => array(
+             array(
+               'type'  => 'text',
+               'class' => 'text-input small',
+               'name'  => 'night_phone_a'
+             ),
+             array(
+               'type'  => 'text',
+               'class' => 'text-input small',
+               'name'  => 'night_phone_b'
+             ),
+             array(
+               'type'  => 'text',
+               'class' => 'text-input small',
+               'name'  => 'night_phone_c'
+             )
+           ),
 
-      'city'        => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'city',
-        'label' => 'City'
-      ),
+           'streetaddress'     => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'address1',
+             'label' => __( 'Address', WPI )
+           ),
 
-      'state'       => array(
-        'type'   => 'text',
-        'class'  => 'text-input',
-        'name'   => 'state',
-        'label'  => 'State/Province'
-      ),
+           'city'        => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'city',
+             'label' => __( 'City', WPI )
+           ),
 
-      'zip'         => array(
-        'type'  => 'text',
-        'class' => 'text-input',
-        'name'  => 'zip',
-        'label' => 'Zip/Postal Code'
-      ),
+           'state'       => array(
+             'type'   => 'text',
+             'class'  => 'text-input',
+             'name'   => 'state',
+             'label'  => __( 'State/Province', WPI )
+           ),
 
-      'country'     => array(
-        'type'   => 'text',
-        'class'  => 'text-input',
-        'name'   => 'country',
-        'label'  => 'Country'
-      )
+           'zip'         => array(
+             'type'  => 'text',
+             'class' => 'text-input',
+             'name'  => 'zip',
+             'label' => __( 'Zip/Postal Code', WPI )
+           ),
 
-    )
+           'country'     => array(
+             'type'   => 'text',
+             'class'  => 'text-input',
+             'name'   => 'country',
+             'label'  => __( 'Country', WPI )
+           )
 
-  );
+         )
 
-	/**
-	 * Constructor
-	 */
-  function __construct() {
-    parent::__construct();
-    $this->options['settings']['ipn']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_paypal');
+        );
 
-		add_action( 'wpi_payment_fields_paypal', array( $this, 'wpi_payment_fields' ) );
-	}
+        $this->options['settings']['ipn']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_paypal');
 
-	/**
-	 * Overrided payment process for paypal
-	 *
-	 * @global type $invoice
-	 * @global type $wpi_settings
-	 */
-	function process_payment() {
-		global $invoice, $wpi_settings;
+    }
 
-		$crm_data    = $_REQUEST['crm_data'];
-    $invoice_id  = $invoice['invoice_id'];
-    $wp_users_id = $invoice['user_data']['ID'];
-    $post_id     = wpi_invoice_id_to_post_id($invoice_id);
+    /**
+     *
+     * @param type $this_invoice
+     */
+    function recurring_settings( $this_invoice ) {
+      ?>
+      <h4><?php _e( 'PayPal Subscriptions', WPI ); ?></h4>
+      <table class="wpi_recurring_bill_settings">
+        <tr>
+          <th><?php _e( 'Bill Every', WPI ); ?></th>
+          <td>
+            <?php echo WPI_UI::input("name=wpi_invoice[recurring][".$this->type."][length]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
+            <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][unit]&values=" . serialize(array( "days" => __("Day(s)", WPI), "weeks" => __("Week(s)", WPI), "months" => __("Month(s)", WPI), "years" => __("Year(s)", WPI) )) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
+          </td>
+        </tr>
+        <tr>
+          <th><?php _e( 'Billing Cycles', WPI ); ?></th>
+          <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][".$this->type."][cycles]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['cycles'] : '') . "&class=wpi_small"); ?></td>
+        </tr>
+      </table>
+      <?php
+    }
 
-		// update user data
-		update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
-		update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
-		update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
-		update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
-		update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-		update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
-		update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'].'-'.$_REQUEST['night_phone_b'].'-'.$_REQUEST['night_phone_c']);
-		update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+    /**
+     * Overrided payment process for paypal
+     *
+     * @global type $invoice
+     * @global type $wpi_settings
+     */
+    function process_payment() {
+        global $invoice;
 
-		if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+        $crm_data = $_REQUEST['crm_data'];
+        $wp_users_id = $invoice['user_data']['ID'];
 
-		echo json_encode(
-		  array( 'success' => 1 )
-		);
+        //** update user data */
+        update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
+        update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
+        update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
+        update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
+        update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
+        update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
+        update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'] . '-' . $_REQUEST['night_phone_b'] . '-' . $_REQUEST['night_phone_c']);
+        update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
-	}
+        if (!empty($crm_data))
+            $this->user_meta_updated($crm_data);
+
+        echo json_encode(
+                array('success' => 1)
+        );
+    }
 
 	/**
    * Render fields

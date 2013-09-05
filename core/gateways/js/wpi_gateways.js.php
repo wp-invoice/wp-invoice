@@ -5,7 +5,7 @@ header("Content-type: application/x-javascript");
 if ($dir = opendir(getcwd())) {
   while (false !== ($file = readdir($dir))) {
     $exploded = explode(".", $file);
-    if(end($exploded) == 'js') {
+    if( end($exploded) == 'js' && !strstr($exploded[0], '_checkout') ) {
       $f = file_get_contents($file);
       print $f;
     }
