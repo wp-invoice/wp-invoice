@@ -982,4 +982,16 @@ jQuery( document ).ready( function () {
     jQuery( this ).parents( 'ul' ).find( 'li.wpi_ga_events_list' ).toggle();
   } );
 
+  //** When enabling recurring billing - disable the ability to set different payment options */
+  jQuery( document ).bind('wpi_enable_recurring', function(){
+    if ( jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).is(":checked") )
+      jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).click();
+    jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).parent().hide();
+  });
+
+  //** When disabling recurring billing - enable the ability to set different payment options */
+  jQuery( document ).bind('wpi_disable_recurring', function(){
+    jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).parent().show();
+  });
+
 } );

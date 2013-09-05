@@ -21,7 +21,7 @@ function wpi_toggle_advanced_options ( this_element ) {
   var show_type = false;
   var show_type_element_attribute = false;
 
-  //* Try getting arguments automatically */
+  //** Try getting arguments automatically */
   var wrapper = (jQuery( this_element ).attr( 'wrapper' ) ? jQuery( this_element ).closest( '.' + jQuery( this_element ).attr( 'wrapper' ) ) : jQuery( this_element ).parents( '.wpi_dynamic_table_row' ));
 
   if ( jQuery( this_element ).attr( "advanced_option_class" ) !== undefined ) {
@@ -32,22 +32,22 @@ function wpi_toggle_advanced_options ( this_element ) {
     var show_type_element_attribute = jQuery( this_element ).attr( "show_type_element_attribute" );
   }
 
-  //* If no advanced_option_class is found in attribute, we default to 'wpi_advanced_option' */
+  //** If no advanced_option_class is found in attribute, we default to 'wpi_advanced_option' */
   if ( !advanced_option_class ) {
     advanced_option_class = ".wpi_advanced_option";
   }
 
-  //* If element does not have a table row wrapper, we look for the closts .wpi_something_advanced_wrapper wrapper */
+  //** If element does not have a table row wrapper, we look for the closts .wpi_something_advanced_wrapper wrapper */
   if ( wrapper.length == 0 ) {
     var wrapper = jQuery( this_element ).parents( '.wpi_something_advanced_wrapper' );
   }
 
-  //* get_show_type_value forces the a look up a value of a passed element, ID of which is passed, which is then used as another conditional argument */
+  //** get_show_type_value forces the a look up a value of a passed element, ID of which is passed, which is then used as another conditional argument */
   if ( show_type_source = jQuery( this_element ).attr( "show_type_source" ) ) {
     var source_element = jQuery( "#" + show_type_source );
 
     if ( source_element ) {
-      //* Element found, determine type and get current value */
+      //** Element found, determine type and get current value */
       if ( jQuery( source_element ).is( "select" ) ) {
         show_type = jQuery( "option:selected", source_element ).val();
       }
@@ -63,7 +63,7 @@ function wpi_toggle_advanced_options ( this_element ) {
     element_path = jQuery( advanced_option_class + "[" + show_type_element_attribute + "='" + show_type + "']", wrapper );
   }
 
-  /* Check if this_element element is a checkbox, we assume that we always show things when it is checked, and hiding when unchecked */
+  //** Check if this_element element is a checkbox, we assume that we always show things when it is checked, and hiding when unchecked */
   if ( jQuery( this_element ).is( "input[type=checkbox]" ) ) {
 
     var toggle_logic = jQuery( this_element ).attr( "toggle_logic" );
@@ -101,7 +101,7 @@ function wpi_toggle_advanced_options ( this_element ) {
 
 }
 
-/*
+/**
  * Checks the message / notification stack in DOM and hides it if empty
  * @param object instance. DOM element
  * @param boolean allowRandomSlug. Determine if Row can contains random slugs.
@@ -132,14 +132,14 @@ var wpi_updateRowNames = function ( instance, allowRandomSlug ) {
   }
 
   var this_row = jQuery( instance ).parents( 'tr.wpi_dynamic_table_row' );
-  // Slug of row in question
+  //** Slug of row in question */
   var old_slug = jQuery( this_row ).attr( 'slug' );
-  // Get data from input.slug_setter
+  //** Get data from input.slug_setter */
   var new_slug = jQuery( instance ).val();
-  // Convert into slug
+  //** Convert into slug */
   var new_slug = wpi_create_slug( new_slug );
 
-  // Don't allow to blank out slugs
+  //** Don't allow to blank out slugs */
   if ( new_slug == "" ) {
     if ( allowRandomSlug ) {
       new_slug = 'random_' + Math.floor( Math.random() * 1000 );
@@ -148,31 +148,34 @@ var wpi_updateRowNames = function ( instance, allowRandomSlug ) {
     }
   }
 
-  // If slug input.slug exists in row, we modify it
+  //** If slug input.slug exists in row, we modify it */
   jQuery( ".slug", this_row ).val( new_slug );
-  // Update row slug
+  //** Update row slug */
   jQuery( this_row ).attr( 'slug', new_slug );
 
-  // Cycle through all child elements and fix names
+  //** Cycle through all child elements and fix names */
   jQuery( 'input,select,textarea', this_row ).each( function ( element ) {
     var old_name = jQuery( this ).attr( 'name' );
     var new_name = old_name.replace( old_slug, new_slug );
     var old_id = jQuery( this ).attr( 'id' );
     var new_id = old_id.replace( old_slug, new_slug );
-    // Update to new name
+    //** Update to new name */
     jQuery( this ).attr( 'name', new_name );
     jQuery( this ).attr( 'id', new_id );
   } );
 
-  // Cycle through labels too
+  //** Cycle through labels too */
   jQuery( 'label', this_row ).each( function ( element ) {
     var old_for = jQuery( this ).attr( 'for' );
     var new_for = old_for.replace( old_slug, new_slug );
-    // Update to new name
+    //** Update to new name */
     jQuery( this ).attr( 'for', new_for );
   } );
 }
 
+/**
+ * Create slug
+ */
 function wpi_create_slug ( slug ) {
 
   slug = slug.replace( /[^a-zA-Z0-9_\s]/g, "" );
@@ -182,25 +185,28 @@ function wpi_create_slug ( slug ) {
   return slug;
 }
 
+/**
+ * Add row
+ */
 function wpi_add_row ( element ) {
   var auto_increment = false;
   var table = jQuery( element ).parents( '.ud_ui_dynamic_table' );
   var table_id = jQuery( table ).attr( "id" );
 
-  // Determine if table rows are numeric
+  //** Determine if table rows are numeric */
   if ( jQuery( table ).attr( 'auto_increment' ) == 'true' ) {
     var auto_increment = true;
   } else if ( jQuery( table ).attr( 'allow_random_slug' ) == 'true' ) {
     var allow_random_slug = true;
   }
 
-  // Clone last row
+  //** Clone last row */
   var cloned = jQuery( ".wpi_dynamic_table_row:last", table ).clone();
 
-  // Insert new row after last one
+  //** Insert new row after last one */
   jQuery( cloned ).appendTo( table );
 
-  // Get Last row to update names to match slug
+  //** Get Last row to update names to match slug */
   var added_row = jQuery( ".wpi_dynamic_table_row:last", table );
 
   jQuery( added_row ).mouseenter(function () {
@@ -209,18 +215,18 @@ function wpi_add_row ( element ) {
       curency_and_delete_action( this, 'hide' );
     } );
 
-  // Display row just in case
+  //** Display row just in case */
   jQuery( added_row ).show();
 
-  // Blank out all values
+  //** Blank out all values */
   jQuery( "textarea", added_row ).val( '' );
   jQuery( "input[type=text]", added_row ).val( '' );
   jQuery( "input[type=checkbox]", added_row ).attr( 'checked', false );
   jQuery( "textarea:disabled,input[type=text]:disabled,input[type=checkbox]:disabled", added_row ).removeAttr( 'disabled' );
 
-  // Increment name value automatically
+  //** Increment name value automatically */
   if ( auto_increment ) {
-    // Cycle through all child elements and fix names
+    //** Cycle through all child elements and fix names */
     jQuery( 'input,select,textarea', added_row ).each( function ( element ) {
       var old_name = jQuery( this ).attr( 'name' );
 
@@ -233,50 +239,53 @@ function wpi_add_row ( element ) {
       }
       var new_name = old_name.replace( '[' + old_count + ']', '[' + new_count + ']' );
 
-      // Update to new name
+      //** Update to new name */
       jQuery( this ).attr( 'name', new_name );
 
     } );
   } else if ( allow_random_slug ) {
-    // Update Row names
+    //** Update Row names */
     var slug_setter = jQuery( "input.slug_setter", added_row );
     if ( slug_setter.length > 0 ) {
       wpi_updateRowNames( slug_setter.get( 0 ), true );
     }
   }
 
-  // Unset 'new_row' attribute
+  //** Unset 'new_row' attribute */
   jQuery( added_row ).attr( 'new_row', 'true' );
 
-  // Focus on new element
+  //** Focus on new element */
   jQuery( 'input.slug_setter', added_row ).focus();
 
   return added_row;
 
 }
 
-/*
- Displays error
+/**
+ * Display error
  */
 function wpi_show_error ( message ) {
   jQuery( '#wpi_single_error' ).remove();
   jQuery( "<div id='wpi_single_error' class='error fade below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap h2' );
 }
-/*
- Displays success
+
+/**
+ * Displays success
  */
 function wpi_show_success ( message ) {
   jQuery( '#message' ).remove();
   jQuery( "<div id='message' class='updated below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap h2' );
 }
-/*
- Hide all errors
+
+/**
+ * Hide all errors
  */
 function wpi_remove_errors ( message ) {
   jQuery( '#wpi_single_error' ).remove();
 }
-/*
- Validates email address
+
+/**
+ * Validates email address
  */
 function wpi_validate_email ( address ) {
   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -286,8 +295,9 @@ function wpi_validate_email ( address ) {
     return true;
   }
 }
-/*
- Update user option
+
+/**
+ * Update user option
  */
 function wpi_update_user_option ( meta_key, meta_value ) {
   jQuery.post( ajaxurl, {
@@ -297,14 +307,15 @@ function wpi_update_user_option ( meta_key, meta_value ) {
   }, function ( data ) {
   } );
 }
-/*
- Turn off quote. Usually happens when activating recurring.
+
+/**
+ * Turn off quote. Usually happens when activating recurring.
  */
 function wpi_disable_quote () {
   jQuery( '.wpi_wpi_invoice_quote_' ).attr( "checked", false );
 }
 
-/*
+/**
  * Turn on quote option.
  */
 function wpi_enable_quote () {
@@ -312,9 +323,9 @@ function wpi_enable_quote () {
   jQuery( '.wpi_wpi_invoice_quote_' ).attr( "checked", true );
 }
 
-/*
- Fixes the payment/charge/adjustment dropdown to only allow for
- accepting charges.  This way we don't overcomplicate things with recurring billing.
+/**
+ * Fixes the payment/charge/adjustment dropdown to only allow for
+ * accepting charges.  This way we don't overcomplicate things with recurring billing.
  */
 function wpi_toggle_wpi_event_type () {
   if ( is_recurring ) {
@@ -324,19 +335,20 @@ function wpi_toggle_wpi_event_type () {
     jQuery( "#wpi_event_type" ).removeAttr( "disabled" );
   }
 }
-/*
- Turns ON deposit options on invoice
+
+/**
+ * Turns ON deposit options on invoice
  */
 function wpi_enable_deposit () {
-  // Recurring invoice
+  //** Recurring invoice */
   wpi_disable_quote();
   wpi_disable_recurring();
   wpi_hide_recurring_option();
   wpi_hide_quote_option();
   jQuery( '.wpi_deposit_settings' ).show();
 }
-/*
- TurnsOFF deposit options on invoice
+/**
+ * TurnsOFF deposit options on invoice
  */
 function wpi_disable_deposit () {
   wpi_show_recurring_option();
@@ -428,6 +440,9 @@ function wpi_disable_recurring () {
   jQuery( '.wpi_recurring_bill_settings' ).hide();
   jQuery( ".wpi_not_for_recurring" ).show();
 //    jQuery(".wpi_not_for_deposit").show();
+
+  jQuery( document ).trigger('wpi_disable_recurring');
+
   is_recurring = false;
   wpi_recalc_totals();
   wpi_toggle_wpi_event_type();
@@ -627,46 +642,6 @@ function checkdate ( input ) {
 function wpi_validate_invoice () {
   var validated = true;
 
-  // If recurring is setup, make sure billing cycles are set
-  if ( jQuery( "#wpi_wpi_invoice_recurring_active_" ).is( ":checked" ) ) {
-    if ( jQuery( "#wpi_meta_recuring_cycles" ).val() == "" ) {
-      jQuery( "#wpi_meta_recuring_cycles" ).addClass( 'wpi_error' );
-      validated = false;
-    } else {
-      jQuery( "#wpi_meta_recuring_cycles" ).removeClass( 'wpi_error' );
-    }
-    /*if ( jQuery( "#wpi_wpi_invoice_recurring_send_invoice_automatically_:checked" ).val() == undefined ) {
-      if ( jQuery( "#r_start_date_mm" ).val() == "" ) {
-        jQuery( "#r_start_date_mm" ).addClass( 'wpi_error' );
-        validated = false;
-      } else {
-        jQuery( "#r_start_date_mm" ).removeClass( 'wpi_error' );
-      }
-      if ( jQuery( "#r_start_date_jj" ).val() == "" ) {
-        jQuery( "#r_start_date_jj" ).addClass( 'wpi_error' );
-        validated = false;
-      } else {
-        jQuery( "#r_start_date_jj" ).removeClass( 'wpi_error' );
-      }
-      if ( jQuery( "#r_start_date_aa" ).val() == "" ) {
-        jQuery( "#r_start_date_aa" ).addClass( 'wpi_error' );
-        validated = false;
-      } else {
-        jQuery( "#r_start_date_aa" ).removeClass( 'wpi_error' );
-      }
-      var date = jQuery( "#r_start_date_mm" ).val() + "/" + jQuery( "#r_start_date_jj" ).val() + "/" + jQuery( "#r_start_date_aa" ).val();
-      if ( !checkdate( date ) ) {
-        validated = false;
-        jQuery( "#r_start_date_mm" ).addClass( 'wpi_error' );
-        jQuery( "#r_start_date_aa" ).addClass( 'wpi_error' );
-        jQuery( "#r_start_date_jj" ).addClass( 'wpi_error' );
-      }
-    } else {
-      jQuery( "#r_start_date_mm" ).removeClass( 'wpi_error' );
-      jQuery( "#r_start_date_aa" ).removeClass( 'wpi_error' );
-      jQuery( "#r_start_date_jj" ).removeClass( 'wpi_error' );
-    }*/
-  }
   if ( jQuery( '[name^="wpi_invoice[subject]"]' ).val() == '' ) {
     jQuery( '[name^="wpi_invoice[subject]"]' ).addClass( 'wpi_error' );
     validated = false;
