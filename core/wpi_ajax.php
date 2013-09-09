@@ -26,41 +26,43 @@ class WPI_Ajax {
   }
 
   /**
-   *
+   * Search user for invoice page metabox
    * @global object $wpdb
    */
   function search_email() {
-    global $wpdb;
+    global $wpdb, $blog_id;
 
-    $user_emails = $wpdb->get_col( "SELECT user_email FROM {$wpdb->users} WHERE user_email LIKE '%{$_POST['s']}%' " );
+    $users_found = $wpdb->get_results( "SELECT `u`.`user_email` as `id`, `u`.`user_email` as `title`
+                                       FROM `{$wpdb->users}` as `u` INNER JOIN `{$wpdb->usermeta}` as `m`
+                                         ON `u`.`ID` = `m`.`user_id`
+                                       WHERE (`u`.`display_name` LIKE '%{$_REQUEST['s']}%'
+                                         OR `u`.`user_email` LIKE '%{$_REQUEST['s']}%')
+                                         AND `u`.`user_email` != ''
+                                         AND `m`.`meta_key` = '{$wpdb->get_blog_prefix( $blog_id )}capabilities'
+                                       GROUP BY `u`.`ID`
+                                       LIMIT 10" );
 
-    $return = array();
-    foreach ( $user_emails as $email ) {
-      $return[ ] = array(
-        'id' => $email,
-        'title' => $email
-      );
-    }
-    die( json_encode( $return ) );
+    die( json_encode( $users_found ) );
   }
 
   /**
-   *
+   * Search users for filter invoice section
    * @global object $wpdb
    */
   function search_recipient() {
-    global $wpdb;
+    global $wpdb, $blog_id;
 
-    $users = $wpdb->get_results( "SELECT DISTINCT ID,user_email,display_name FROM {$wpdb->users} WHERE ( display_name LIKE '%{$_POST['s']}%' OR user_email LIKE '%{$_POST['s']}%' ) AND user_email != '' LIMIT 10" );
+    $users_found = $wpdb->get_results( "SELECT `u`.`ID` as `id`, CONCAT(`u`.`display_name`, ' (', `u`.`user_email`, ')') as `title`
+                                       FROM `{$wpdb->users}` as `u` INNER JOIN `{$wpdb->usermeta}` as `m`
+                                         ON `u`.`ID` = `m`.`user_id`
+                                       WHERE (`u`.`display_name` LIKE '%{$_REQUEST['s']}%'
+                                         OR `u`.`user_email` LIKE '%{$_REQUEST['s']}%')
+                                         AND `u`.`user_email` != ''
+                                         AND `m`.`meta_key` = '{$wpdb->get_blog_prefix( $blog_id )}capabilities'
+                                       GROUP BY `u`.`ID`
+                                       LIMIT 10" );
 
-    $return = array();
-    foreach ( $users as $user ) {
-      $return[ ] = array(
-        'id' => $user->ID,
-        'title' => $user->display_name.' ('.$user->user_email.')'
-      );
-    }
-    die( json_encode( $return ) );
+    die( json_encode( $users_found ) );
   }
 
   /**
@@ -528,13 +530,16 @@ class WPI_Ajax {
    * @author korotkov@ud
    */
   function user_autocomplete_handler() {
-    global $wpdb;
+    global $wpdb, $blog_id;
 
-    $users_found = $wpdb->get_results( "SELECT CONCAT(`display_name`,' - ',`user_email`) as `label`, `user_email` as `value`
-                                       FROM `{$wpdb->users}`
-                                       WHERE (`display_name` LIKE '%{$_REQUEST['term']}%'
-                                         OR `user_email` LIKE '%{$_REQUEST['term']}%')
-                                         AND `user_email` != ''
+    $users_found = $wpdb->get_results( "SELECT `u`.`ID`, CONCAT(`u`.`display_name`,' - ',`u`.`user_email`) as `label`, `user_email` as `value`
+                                       FROM `{$wpdb->users}` as `u` INNER JOIN `{$wpdb->usermeta}` as `m`
+                                         ON `u`.`ID` = `m`.`user_id`
+                                       WHERE (`u`.`display_name` LIKE '%{$_REQUEST['term']}%'
+                                         OR `u`.`user_email` LIKE '%{$_REQUEST['term']}%')
+                                         AND `u`.`user_email` != ''
+                                         AND `m`.`meta_key` = '{$wpdb->get_blog_prefix( $blog_id )}capabilities'
+                                       GROUP BY `u`.`ID`
                                        LIMIT 10" );
 
     die( json_encode( $users_found ) );
