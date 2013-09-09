@@ -397,6 +397,7 @@ function postbox_payment_methods($this_invoice) {
           if (count($this_invoice['billing']) > 1) {
             echo WPI_UI::checkbox("class=wpi_client_change_payment_method&name=wpi_invoice[client_change_payment_method]&value=true&label=".__('Client can change payment option.', WPI), !empty( $this_invoice['client_change_payment_method'] )? ( $this_invoice['client_change_payment_method'] == 'on' ? true : false ) : false);
           }
+          echo WPI_UI::checkbox("class=wpi_use_manual_payment&name=wpi_invoice[use_manual_payment]&value=true&label=".__('Manual Payment only', WPI), !empty( $this_invoice['use_manual_payment'] )? ( $this_invoice['use_manual_payment'] == 'on' ? true : false ) : false);
           ?>
         </td>
       </tr>

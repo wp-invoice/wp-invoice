@@ -1638,6 +1638,11 @@ class WPI_Functions {
       $ni->set( array( 'client_change_payment_method' => $invoice[ 'client_change_payment_method' ] ) );
     }
 
+    //** Ability to turn off all payment methods and turn on manual that way */
+    if ( !empty( $invoice[ 'use_manual_payment' ] ) ) {
+      $ni->set( array( 'use_manual_payment' => $invoice[ 'use_manual_payment' ] ) );
+    }
+
     //** Default payment method */
     $ni->set( array( 'default_payment_method' => $invoice[ 'default_payment_method' ] ) );
 
