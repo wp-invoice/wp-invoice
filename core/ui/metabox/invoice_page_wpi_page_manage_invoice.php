@@ -386,7 +386,7 @@ function postbox_payment_methods($this_invoice) {
       <tr class="column-payment-method-default wpi_not_for_quote">
         <th><?php _e("Default Payment Option", WPI) ?></th>
         <td>
-          <select id="wp_invoice_payment_method" name="wpi_invoice[default_payment_method]">
+          <select id="wp_invoice_payment_method" data-name="wpi_invoice[default_payment_method]" name="wpi_invoice[default_payment_method]">
             <?php foreach ($this_invoice['billing'] as $key => $payment_option) : ?>
             <?php if (!isset($payment_option['name']))
               continue; ?>
@@ -398,10 +398,14 @@ function postbox_payment_methods($this_invoice) {
             echo WPI_UI::checkbox("class=wpi_client_change_payment_method&name=wpi_invoice[client_change_payment_method]&value=true&label=".__('Client can change payment option.', WPI), !empty( $this_invoice['client_change_payment_method'] )? ( $this_invoice['client_change_payment_method'] == 'on' ? true : false ) : false);
           }
           ?>
+          &nbsp;&nbsp;
+          <?php
+          echo WPI_UI::checkbox("class=wpi_use_manual_payment&name=wpi_invoice[use_manual_payment]&value=true&label=".__('Manual Payment only', WPI), !empty( $this_invoice['use_manual_payment'] )? ( $this_invoice['use_manual_payment'] == 'on' ? true : false ) : false);
+          ?>
         </td>
       </tr>
 
-      <tr class='wpi_not_for_quote wpi-payment-setting column-paymenth-method-<?php echo $key; ?>'>
+      <tr class="wpi_not_for_quote wpi-payment-setting column-paymenth-method-<?php echo $key; ?>">
         <th><?php _e("Accepted Payments", WPI) ?></th>
         <td>
           <ul class="wpi_settings_list">
@@ -410,7 +414,6 @@ function postbox_payment_methods($this_invoice) {
                 break; ?>
               <li class="clearfix">
       <?php echo WPI_UI::checkbox("name=wpi_invoice[billing][{$key}][allow]&id={$key}&value=true&label={$value['name']}&class=wpi_billing_section_show", $value['allow'] == 'on' ? true : false) ?>
-      <?php /* <div class="wpi_notice"><?php _e("Notice the ") ?><span onClick="wpi_select_payment_method('<?php echo $key; ?>');"><u><?php echo $value['name']; ?><?php _e(" Tab") ?></u></span><?php _e(" below. ") ?></div> */ ?>
               </li>
     <?php endforeach; ?>
           </ul>
