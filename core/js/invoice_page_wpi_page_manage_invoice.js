@@ -38,4 +38,34 @@ jQuery( document ).ready( function () {
     jQuery( '.wp_invoice_accordion' ).accordion( 'refresh' );
   } );
 
+  var enable_manual_payment = function() {
+    jQuery( '#wp_invoice_payment_method' )
+      .removeAttr('name')
+      .attr('disabled', 'disabled');
+    if ( jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).is(":checked") )
+      jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).click();
+    jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).parent().hide();
+  };
+
+  var disable_manual_payment = function() {
+    jQuery( '#wp_invoice_payment_method' )
+      .attr('name', jQuery( '#wp_invoice_payment_method' ).data('name'))
+      .removeAttr('disabled');
+    jQuery( "#wpi_wpi_invoice_client_change_payment_method_" ).parent().show();
+  };
+
+  if ( jQuery('.wpi_use_manual_payment').is(':checked') ) {
+    enable_manual_payment();
+  } else {
+    disable_manual_payment();
+  }
+
+  jQuery( '.wpi_use_manual_payment' ).click(function() {
+    if ( jQuery(this).is(':checked') ) {
+      enable_manual_payment();
+    } else {
+      disable_manual_payment();
+    }
+  });
+
 } );

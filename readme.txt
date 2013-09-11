@@ -4,7 +4,7 @@ Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, google checkout, merchantplus
 Requires at least: 3.6
 Tested up to: 3.6
-Stable tag: 3.08.9
+Stable tag: 3.09.0
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
 == Description ==
@@ -104,6 +104,11 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 * New features.
 
 == Change Log ==
+
+= Version 3.09.0 =
+* Fixed multisite compatibility issue.
+* Fixed Stripe Subscriptions issue.
+* Added manual payment option for specific invoices.
 
 = Version 3.08.9 =
 * Added STRIPE Gateway for regular and recurring invoices.
