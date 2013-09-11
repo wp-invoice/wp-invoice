@@ -412,7 +412,7 @@ class wpi_stripe extends wpi_gateway_base {
           $post_id = $wpdb->get_col("SELECT post_id
           FROM {$wpdb->postmeta}
           WHERE meta_key = '_stripe_customer_id'
-            AND meta_value = '{$event_object->data->object->card->customer}'");
+            AND meta_value = '{$event_object->data->object->customer}'");
 
           $invoice_object = new WPI_Invoice();
           $invoice_object->load_invoice("id=" . $post_id[0]);
