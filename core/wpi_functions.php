@@ -1041,7 +1041,7 @@ class WPI_Functions {
     } else {
       ?>
       <tr class="wpi_event_error">
-        <th colspan='2'>No log entries.</th>
+        <th colspan="2">No log entries.</th>
       </tr>
 
     <?php

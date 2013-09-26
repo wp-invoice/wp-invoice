@@ -61,6 +61,7 @@ require_once( WPI_Path . '/core/wpi_chargify.php' ); */
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
 require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
 require_once( WPI_Path . '/core/wpi_xmlrpc_api.php' );
+require_once( WPI_Path . '/core/wpi_dashboard_widget.php' );
 
 //** Need to do this before init. Temporary here. */
 add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
