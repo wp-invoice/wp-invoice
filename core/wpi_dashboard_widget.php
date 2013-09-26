@@ -1,50 +1,50 @@
 <?php
 
 /**
- *
+ * Base class for WPI dashboard widgets implementation
+ * Needs to be extended
+ * @author korotkov@ud
  */
 if ( !class_exists('WPI_Dashboard_Widget') ) {
   class WPI_Dashboard_Widget {
 
     /**
-     *
+     * Widget ID
      * @var type
      */
     var $widget_id;
 
     /**
-     *
+     * Widget Title
      * @var type
      */
     var $widget_title;
 
     /**
-     *
+     * Construct
      */
-    function __construct( $widget_id, $widget_title ) {
+    function __construct( $widget_id, $widget_title, $default_options = array() ) {
       $this->widget_id = $widget_id;
       $this->widget_title = $widget_title;
 
-      //Register widget settings...
+      //** Register widget settings */
       self::update_dashboard_widget_options(
-          $this->widget_id,                                  //The  widget id
-          array(
-              'test' => '111'
-          ),
-          true                                        //Add only (will not update existing options)
+          $this->widget_id,
+          $default_options,
+          true
       );
 
-      //Register the widget...
+      //** Register the widget */
       wp_add_dashboard_widget(
-          $this->widget_id,                                  //A unique slug/ID
-          $this->widget_title,   //Visible name for the widget
-          array( $this, 'widget' ),      //Callback for the main widget content
-          array( $this, 'config' )       //Optional callback for widget configuration content
+          $this->widget_id,
+          $this->widget_title,
+          array( $this, 'widget' ),
+          array( $this, 'config' )
       );
     }
 
     /**
-     *
+     * Widget output. Needs to be redeclared.
      * @param type $args
      * @param type $instance
      */
@@ -53,14 +53,14 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
     }
 
     /**
-     *
+     * Config UI output. May be redeclared.
      */
     function config() {
       echo '<p class="no-options-widget">' . __('There are no options for this widget.') . '</p>';
     }
 
     /**
-     *
+     * Get specific option of specific widget
      * @param type $widget_id
      * @param type $option
      * @param type $default
@@ -70,11 +70,11 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
 
       $opts = self::get_dashboard_widget_options($widget_id);
 
-      //If widget opts dont exist, return false
+      //** If widget opts dont exist, return false */
       if (!$opts)
         return false;
 
-      //Otherwise fetch the option or use default
+      //** Otherwise fetch the option or use default */
       if (isset($opts[$option]) && !empty($opts[$option]))
         return $opts[$option];
       else
@@ -82,7 +82,7 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
     }
 
     /**
-     *
+     * Update options of cpecific widget
      * @param type $widget_id
      * @param type $args
      * @param type $add_only
@@ -90,43 +90,43 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
      */
     public static function update_dashboard_widget_options($widget_id, $args = array(), $add_only = false) {
 
-      //Fetch ALL dashboard widget options from the db...
+      //** Fetch ALL dashboard widget options from the db */
       $opts = get_option('dashboard_widget_options');
 
-      //Get just our widget's options, or set empty array
+      //** Get just our widget's options, or set empty array */
       $w_opts = ( isset($opts[$widget_id]) ) ? $opts[$widget_id] : array();
 
       if ($add_only) {
-        //Flesh out any missing options (existing ones overwrite new ones)
+        //** Flesh out any missing options (existing ones overwrite new ones) */
         $opts[$widget_id] = array_merge($args, $w_opts);
       } else {
-        //Merge new options with existing ones, and add it back to the widgets array
+        //** Merge new options with existing ones, and add it back to the widgets array */
         $opts[$widget_id] = array_merge($w_opts, $args);
       }
 
-      //Save the entire widgets array back to the db
+      //** Save the entire widgets array back to the db */
       return update_option('dashboard_widget_options', $opts);
     }
 
     /**
-     *
+     * Get all options of specific widget
      * @param type $widget_id
      * @return boolean
      */
     public static function get_dashboard_widget_options($widget_id = '') {
 
-      //Fetch ALL dashboard widget options from the db...
+      //** Fetch ALL dashboard widget options from the db */
       $opts = get_option('dashboard_widget_options');
 
-      //If no widget is specified, return everything
+      //** If no widget is specified, return everything */
       if (empty($widget_id))
         return $opts;
 
-      //If we request a widget and it exists, return it
+      //** If we request a widget and it exists, return it */
       if (isset($opts[$widget_id]))
         return $opts[$widget_id];
 
-      //Something went wrong...
+      //** Something went wrong */
       return false;
     }
 

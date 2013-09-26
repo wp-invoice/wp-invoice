@@ -18,16 +18,22 @@
     padding: 0;
     position: relative;
 }
-#wpi_dw_user_invoices .table_content {
+#wpi_dw_user_invoices .table_invoices {
     border-top-style: solid;
     border-top-width: 1px;
     float: left;
     width: 45%;
+    border-top-color: #ECECEC;
 }
-#wpi_dw_user_invoices .table_invoices {
+#wpi_dw_user_invoices .table_statistics {
     border-top-style: solid;
     border-top-width: 1px;
+    float: right;
+    width: 45%;
     border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_statistics table {
+  width: 100%;
 }
 #wpi_dw_user_invoices table td {
     padding: 3px 0;
@@ -58,18 +64,24 @@
 #wpi_dw_user_invoices .t a {
     white-space: nowrap;
 }
-#wpi_dw_user_invoices .trashed {
-    color: #FF0000;
+#wpi_dw_user_invoices .trashed, #wpi_dw_user_invoices .total-dept {
+    color: #FF0000 !important;
 }
 #wpi_dw_user_invoices .archived {
     color: #E66F00;
 }
-#wpi_dw_user_invoices .paid {
-    color: #008000;
+#wpi_dw_user_invoices .paid, #wpi_dw_user_invoices .total-paid {
+    color: #008000 !important;
 }
 #wpi_dw_user_invoices a.button {
     clear: right;
     float: right;
     position: relative;
     top: -5px;
+}
+
+#wpi_dw_user_invoices .total-number {
+  font-size: 18px;
+  font-family: Georgia;
+  color: #21759B;
 }
