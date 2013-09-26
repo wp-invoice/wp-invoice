@@ -22,14 +22,26 @@
     border-top-style: solid;
     border-top-width: 1px;
     float: left;
-    width: 45%;
+    width: 48%;
     border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_settings {
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: left;
+    width: 100%;
+    border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_invoices ul li {
+    border-top: 1px solid #ECECEC;
+    font-family: Georgia;
+    padding-top: 7px;
 }
 #wpi_dw_user_invoices .table_statistics {
     border-top-style: solid;
     border-top-width: 1px;
     float: right;
-    width: 45%;
+    width: 48%;
     border-top-color: #ECECEC;
 }
 #wpi_dw_user_invoices .table_statistics table {
@@ -37,7 +49,6 @@
 }
 #wpi_dw_user_invoices table td {
     padding: 3px 0;
-    white-space: nowrap;
 }
 #wpi_dw_user_invoices table tr.first td {
     border-top: medium none;
