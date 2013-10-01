@@ -23,9 +23,7 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
     /**
      * Construct
      */
-    function __construct( $widget_id, $widget_title, $default_options = array() ) {
-      $this->widget_id = $widget_id;
-      $this->widget_title = $widget_title;
+    function __construct( $default_options = array() ) {
 
       //** Register widget settings */
       self::update_dashboard_widget_options(
