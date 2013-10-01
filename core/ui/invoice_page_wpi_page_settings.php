@@ -231,6 +231,9 @@ class WPI_Settings_page {
                 ?>
               </label>
             </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoice only for logged in recipients.", WPI), WPI_Functions::is_true($wpi_settings['logged_in_only'])); ?>
+            </li>
           </ul>
         </td>
       </tr>
