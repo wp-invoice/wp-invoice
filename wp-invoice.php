@@ -533,13 +533,21 @@ if ( !class_exists( 'WPI_Core' ) ) {
 
           $wpi_invoice_object = new WPI_Invoice();
           $wpi_invoice_object->load_invoice( "id=$post_id" );
-          $wpi_invoice_object->data;
 
           add_filter( 'viewable_invoice_types', array( $this, 'viewable_types' ) );
 
           //* Determine if current invoice object is "viewable" */
           if ( !in_array( $wpi_invoice_object->data[ 'post_status' ], apply_filters( 'viewable_invoice_types', array( 'active' ) ) ) ) {
             return;
+          }
+
+          if ( $wpi_settings['logged_in_only'] == 'true' ) {
+            if ( !current_user_can( WPI_UI::get_capability_by_level( $wpi_settings['user_level'] ) ) && !WPI_Functions::user_is_invoice_recipient( $wpi_invoice_object ) ) {
+              /* Show 404 when invoice doesn't exist */
+              $not_found = get_query_template( '404' );
+              require_once $not_found;
+              die();
+            }
           }
 
           // Load front end scripts
