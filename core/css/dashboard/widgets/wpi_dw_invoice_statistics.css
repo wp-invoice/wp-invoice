@@ -1,0 +1,15 @@
+.chart {
+  display: none;
+}
+
+#wpi_dw_invoice_statistics p.sub {
+  border-bottom: 1px solid #ECECEC;
+  color: #8F8F8F;
+  font-size: 14px;
+  margin: -3px 2px 6px;
+  padding-bottom: 6px;
+}
+
+#wpi_dw_invoice_statistics canvas {
+  margin-bottom: 10px;
+}
