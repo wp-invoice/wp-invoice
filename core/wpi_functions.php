@@ -2588,6 +2588,22 @@ class WPI_Functions {
     return true;
 
   }
+
+  /**
+   *
+   * @global type $current_user
+   * @param type $invoice_data
+   * @return boolean
+   */
+  function user_is_invoice_recipient( $invoice_data ) {
+    global $current_user;
+
+    if ( !$current_user->ID ) return false;
+
+    if ( $current_user->data->user_email != $invoice_data->data['user_email'] ) return false;
+
+    return true;
+  }
 }
 
 /**
