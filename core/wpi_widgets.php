@@ -109,6 +109,7 @@ class InvoiceHistoryWidget extends WP_Widget {
 
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
     $allow_types = !empty( $instance[ 'allow_types' ] ) ? $instance[ 'allow_types' ] : array( 'invoice', 'recurring' );
+    if ( !is_array($allow_types) ) $allow_types = explode(',', $allow_types);
     ?>
     <?php echo $before_widget; ?>
     <?php if ( $title )
