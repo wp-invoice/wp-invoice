@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
         period: 'day'
       },
       success: function(data) {
-        if ( data.success ) draw_chart( 'day', data.data, widget_container );
+        if ( data.success ) draw_chart( 'day', data, widget_container );
       }
     });
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
         period: 'week'
       },
       success: function(data) {
-        if ( data.success ) draw_chart( 'week', data.data, widget_container );
+        if ( data.success ) draw_chart( 'week', data, widget_container );
       }
     });
 
@@ -39,7 +39,7 @@ jQuery(document).ready(function(){
         period: 'month'
       },
       success: function(data) {
-        if ( data.success ) draw_chart( 'month', data.data, widget_container );
+        if ( data.success ) draw_chart( 'month', data, widget_container );
       }
     });
   });
@@ -49,17 +49,31 @@ jQuery(document).ready(function(){
    */
   function draw_chart( type, data, container ) {
     var line_data = {
-      labels : data.labels,
+      labels : data.data.labels,
       datasets : [
           {
             fillColor : "rgba(33,117,155,0.5)",
             strokeColor : "rgba(33,117,155,1)",
             pointColor : "#fff",
             pointStrokeColor : "rgba(33,117,155,1)",
-            data : data.values
+            data : data.data.values
           }
         ]
       };
+
+    if ( data.goals.enable ) {
+      var goal_array = [];
+      for( var i=0; i<data.data.values.length; i++ ) {
+        goal_array.push(data.goals[type]);
+      }
+      line_data.datasets.push({
+        fillColor : "rgba(159,198,159,0.2)",
+        strokeColor : "rgba(159,198,159,0.8)",
+        pointColor : "#fff",
+        pointStrokeColor : "rgba(159,198,159,0.8)",
+        data : goal_array
+      });
+    }
 
     jQuery('.'+type+'_chart', container).show();
     jQuery('.loader', container).hide();
@@ -76,7 +90,7 @@ jQuery(document).ready(function(){
       period: 'day'
     },
     success: function(data) {
-      if ( data.success ) draw_chart( 'day', data.data, widget_container );
+      if ( data.success ) draw_chart( 'day', data, widget_container );
     }
   });
 
@@ -89,7 +103,7 @@ jQuery(document).ready(function(){
       period: 'week'
     },
     success: function(data) {
-      if ( data.success ) draw_chart( 'week', data.data, widget_container );
+      if ( data.success ) draw_chart( 'week', data, widget_container );
     }
   });
 
@@ -102,7 +116,7 @@ jQuery(document).ready(function(){
       period: 'month'
     },
     success: function(data) {
-      if ( data.success ) draw_chart( 'month', data.data, widget_container );
+      if ( data.success ) draw_chart( 'month', data, widget_container );
     }
   });
 
