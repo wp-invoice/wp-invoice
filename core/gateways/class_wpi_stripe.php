@@ -92,7 +92,7 @@ class wpi_stripe extends wpi_gateway_base {
                 'value' => ''
             ),
             'mode' => array(
-                'label' => "Mode",
+                'label' => __("Mode", WPI),
                 'description' => "Stripe payment mode",
                 'type' => 'select',
                 'value' => 'test',
@@ -113,7 +113,7 @@ class wpi_stripe extends wpi_gateway_base {
   }
 
     /**
-     *
+     * Settings for recurring billing
      * @param type $this_invoice
      */
     function recurring_settings($this_invoice) {

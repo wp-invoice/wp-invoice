@@ -159,9 +159,9 @@ class WPI_Object_List_Table extends WPI_List_Table {
         case 'post_modified':
           if ( !empty( $post->post_status ) ) {
             if ( $post->post_status == 'paid' ) {
-              $r .= get_post_status_object($post->post_status)->label.' '.human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).' ago';
+              $r .= get_post_status_object($post->post_status)->label.' '.human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).__(' ago', WPI);
             } else {
-              $r .= human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).' ago';
+              $r .= human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).__(' ago', WPI);
             }
           } else {
             $r .= date(get_option('date_format'), strtotime($post->post_date));
