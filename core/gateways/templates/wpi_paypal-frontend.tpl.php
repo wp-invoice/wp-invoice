@@ -14,6 +14,10 @@
   <input type="hidden" name="item_name" value="<?php echo $invoice['post_title']; ?>">
   <input type="hidden" name="invoice" id="invoice_id" value="<?php echo $invoice['invoice_id']; ?>">
 
+  <?php if ( $invoice['billing']['wpi_paypal']['settings']['send_notify_url']['value'] == '1' ): ?>
+    <input type="hidden" name="notify_url" value="<?php echo $invoice['billing']['wpi_paypal']['settings']['ipn']['value'] ?>" />
+  <?php endif; ?>
+
   <?php if ( is_recurring() ): ?>
   <?php switch ( $invoice['recurring']['wpi_paypal']['unit'] ) {
           case 'days':

@@ -32,7 +32,7 @@ $grand_total = '<strong>' . __('BALANCE', WPI) . ': <span style="color: #bc4873"
 $tax_th = '<td style="color: #d4d4d4;" width="90"><strong>' . __('TAX', WPI) . '</strong></td>';
 $tax_td = '<td bgcolor="#d4d4d4" style="color: #3e8eaf; text-transform: uppercase"><b>%line_total_tax%</b></td>';
 
-$description_table = '<table border="0" cellspacing="0" cellpadding="3">
+$description_table = '<h4>'.__( 'ITEMS', WPI ).'</h4><table border="0" cellspacing="0" cellpadding="3">
     <tr>
       <td style="color: #d4d4d4;" width="%desc_width%"><strong>' . __('DESCRIPTION', WPI) . '</strong></td>
       <td style="color: #d4d4d4;" width="90"><strong>' . __('QTY', WPI) . '</strong></td>
@@ -47,7 +47,23 @@ $description_table = '<table border="0" cellspacing="0" cellpadding="3">
     </tr>
   </table>
 ';
-
+$charges = '
+  <h4>'.__( 'CHARGES', WPI ).'</h4>
+  <table border="0" cellspacing="0" cellpadding="3">
+    <tr>
+      <td width="%desc_width%">' . __('DESCRIPTION', WPI) . '</td>
+      <td width="100">' . __('AMOUNT', WPI) . '</td>
+    </tr>
+    %charges_rows%
+  </table>
+  <hr />
+';
+$charges_row = '
+  <tr>
+    <td>%name%</td>
+    <td>%after_tax%</td>
+  </tr>
+';
 $description_row = '
   <tr>
     <td bgcolor="#d4d4d4" style="text-transform: uppercase"><b>%name%</b></td>
@@ -116,7 +132,7 @@ $html = '<table border="0" cellspacing="5" cellpadding="5" width="600">
       </td>
     </tr>
     %content%
-    <tr><td style="border-top: 1px solid #cdcdcd;">%description%</td></tr>
+    <tr><td style="border-top: 1px solid #cdcdcd;">%charges%%description%</td></tr>
     %terms_n_conditions%
     %notes%
   </table>

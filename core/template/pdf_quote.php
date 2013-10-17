@@ -80,8 +80,25 @@ $content = '
     </td>
   </tr>
 ';
-
+$charges = '
+  <h4>'.__( 'CHARGES', WPI ).'</h4>
+  <table border="0" cellspacing="0" cellpadding="3">
+    <tr>
+      <td width="%desc_width%">' . __('DESCRIPTION', WPI) . '</td>
+      <td width="100">' . __('AMOUNT', WPI) . '</td>
+    </tr>
+    %charges_rows%
+  </table>
+  <hr />
+';
+$charges_row = '
+  <tr>
+    <td>%name%</td>
+    <td>%after_tax%</td>
+  </tr>
+';
 $description_table = '
+  <h4>'.__( 'ITEMS', WPI ).'</h4>
 <table style="border-collapse: collapse; border: 1px solid #9f9f9f" width="600" cellspacing="0" cellpadding="3">
   <tr>
     <th style="border-collapse: collapse; border: 1px solid #9f9f9f" width="%desc_width%">' . __('DESCRIPTION', WPI) . '</th>
@@ -142,7 +159,7 @@ $html = '
     </td>
   </tr>
   %content%
-  <tr><td>%description%</td></tr>
+  <tr><td>%charges%%description%</td></tr>
   %terms_n_conditions%
   %notes%
 </table>
