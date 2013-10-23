@@ -136,7 +136,14 @@
                     <?php $s_count = 0; ?>
                     <br/>
                     <?php foreach ($setting_value['special'] as $s_label => $s_value): ?>
-                      <span class="wp_invoice_click_me" onclick="jQuery('input[name=\"wpi_settings[billing][<?php echo $key; ?>][settings][<?php echo $key2; ?>][value]\"]').val('<?php echo $s_value; ?>');"><?php echo $s_label; ?></span>
+                    <span class="wp_invoice_click_me <?php echo $key; ?> <?php echo sanitize_title($s_label); ?>"><?php echo $s_label; ?></span>
+                      <script type="text/javascript">
+                        jQuery(document).ready(function(){
+                          jQuery('.wp_invoice_click_me.<?php echo $key; ?>.<?php echo sanitize_title($s_label); ?>').on('click', function(){
+                            jQuery('input[name="wpi_settings[billing][<?php echo $key; ?>][settings][<?php echo $key2; ?>][value]"]').val('<?php echo $s_value; ?>');
+                          });
+                        });
+                      </script>
                       <?php echo (++$s_count < count($setting_value['special']) ? ' | ' : '' ); ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
