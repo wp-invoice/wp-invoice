@@ -445,7 +445,7 @@ class wpi_paypal extends wpi_gateway_base {
         default:
           break;
       }
-
+      echo ' ';
     }
 
   }
