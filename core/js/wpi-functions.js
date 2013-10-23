@@ -209,12 +209,6 @@ function wpi_add_row ( element ) {
   //** Get Last row to update names to match slug */
   var added_row = jQuery( ".wpi_dynamic_table_row:last", table );
 
-  jQuery( added_row ).mouseenter(function () {
-    curency_and_delete_action( this, 'show' );
-  } ).mouseleave( function () {
-      curency_and_delete_action( this, 'hide' );
-    } );
-
   //** Display row just in case */
   jQuery( added_row ).show();
 
