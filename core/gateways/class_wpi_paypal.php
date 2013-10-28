@@ -44,7 +44,7 @@ class wpi_paypal extends wpi_gateway_base {
            'ipn' => array(
              'label' => __( "PayPal IPN URL", WPI ),
              'type' => "readonly",
-             'description' => __( "Once IPN is integrated, sellers can automate their back office so they don’t have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings.", WPI )
+             'description' => __( "Once IPN is integrated, sellers can automate their back office so they don't have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings.", WPI )
            ),
            'send_notify_url' => array(
                 'label' => __( "Send IPN URL with payment request?", WPI ),

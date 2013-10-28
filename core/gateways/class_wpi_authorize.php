@@ -84,7 +84,7 @@ class wpi_authorize extends wpi_gateway_base {
             'gateway_merchant_email' => array(
                 'label' => __( "Merchant Email", WPI ),
                 'value' => "",
-                'description' => __( "Email address to which the merchant’s copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface.", WPI )
+                'description' => __( "Email address to which the merchant's copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface.", WPI )
             ),
             'gateway_header_email_receipt' => array(
                 'label' => __( "Customer Receipt Email Header", WPI ),
