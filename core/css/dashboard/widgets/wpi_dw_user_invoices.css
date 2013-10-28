@@ -1,0 +1,98 @@
+#wpi_dw_user_invoices p.sub, #wpi_dw_user_invoices .table {
+    margin: -12px;
+}
+#wpi_dw_user_invoices .inside {
+    font-size: 12px;
+    padding-top: 20px;
+}
+#wpi_dw_user_invoices p.sub {
+    color: #8F8F8F;
+    font-size: 14px;
+    left: 15px;
+    padding: 5px 0 15px;
+    position: absolute;
+    top: -17px;
+}
+#wpi_dw_user_invoices .table {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#wpi_dw_user_invoices .table_invoices {
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: left;
+    width: 48%;
+    border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_settings {
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: left;
+    width: 100%;
+    border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_invoices ul li {
+    border-top: 1px solid #ECECEC;
+    font-family: Georgia;
+    padding-top: 7px;
+}
+#wpi_dw_user_invoices .table_statistics {
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: right;
+    width: 48%;
+    border-top-color: #ECECEC;
+}
+#wpi_dw_user_invoices .table_statistics table {
+  width: 100%;
+}
+#wpi_dw_user_invoices table td {
+    padding: 3px 0;
+}
+#wpi_dw_user_invoices table tr.first td {
+    border-top: medium none;
+}
+#wpi_dw_user_invoices td.b {
+    font-size: 14px;
+    padding-right: 6px;
+    text-align: right;
+    width: 1%;
+}
+#wpi_dw_user_invoices td.b a {
+    font-family: Georgia;
+    font-size: 18px;
+}
+#wpi_dw_user_invoices td.b a:hover {
+    color: #D54E21;
+}
+#wpi_dw_user_invoices .t {
+    color: #777777;
+    font-size: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+}
+#wpi_dw_user_invoices .t a {
+    white-space: nowrap;
+}
+#wpi_dw_user_invoices .trashed, #wpi_dw_user_invoices .total-dept {
+    color: #FF0000 !important;
+}
+#wpi_dw_user_invoices .archived {
+    color: #E66F00;
+}
+#wpi_dw_user_invoices .paid, #wpi_dw_user_invoices .total-paid {
+    color: #008000 !important;
+}
+#wpi_dw_user_invoices a.button {
+    clear: right;
+    float: right;
+    position: relative;
+    top: -5px;
+}
+
+#wpi_dw_user_invoices .total-number {
+  font-size: 18px;
+  font-family: Georgia;
+  color: #21759B;
+}

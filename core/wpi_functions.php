@@ -1041,7 +1041,7 @@ class WPI_Functions {
     } else {
       ?>
       <tr class="wpi_event_error">
-        <th colspan='2'>No log entries.</th>
+        <th colspan="2">No log entries.</th>
       </tr>
 
     <?php
@@ -1751,7 +1751,8 @@ class WPI_Functions {
       if ( empty( $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ] ) ) {
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'subject' ] = __( 'Invoice #[invoice_id] has been paid', 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'to' ] = '[user_email]';
-        $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'send_from' ] = '[business_name] <[from]>';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'send_from' ] = '[from]';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'send_from_name' ] = '[business_name]';
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'message' ] = __( "Dear [user_name],\n[business_name] has received your payment for the invoice.\n\nYou can overview invoice status and payment history by clicking this link:\n[permalink]\n\nThank you very much for your patronage.\n\nBest regards,\n[business_name] ([from])", 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_thank_you_email' ][ 'fire_on_action' ] = array( 'wpi_send_thank_you_email' );
         $update_needed = true;
@@ -1759,7 +1760,8 @@ class WPI_Functions {
       if ( empty( $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ] ) ) {
         $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'subject' ] = __( 'Invoice #[invoice_id] has been paid by [user_name]', 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'to' ] = '[admin_email]';
-        $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'send_from' ] = '[business_name] <[from]>';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'send_from' ] = '[from]';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'send_from_name' ] = '[business_name]';
         $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'message' ] = __( "[user_name] has paid invoice #[invoice_id].\n[invoice_title]\nTotal payments: [default_currency_code] [total_payments] of [default_currency_code] [total].\n\nYou can overview invoice status and payment history by clicking this link:\n[permalink]\n\nUser information:\n\nID: [user_id]\nName: [user_name]\nEmail: [user_email]\n\n--------------------\n[site]", 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_cc_thank_you_email' ][ 'fire_on_action' ] = array( 'wpi_cc_thank_you_email' );
         $update_needed = true;
@@ -1767,7 +1769,8 @@ class WPI_Functions {
       if ( empty( $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ] ) ) {
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'subject' ] = __( 'Invoice #[invoice_id] has been paid by [user_name]', 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'to' ] = '[creator_email]';
-        $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'send_from' ] = '[business_name] <[from]>';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'send_from' ] = '[from]';
+        $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'send_from_name' ] = '[business_name]';
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'message' ] = __( "Dear [creator_name],\n[user_name] has paid invoice #[invoice_id].\n\n[invoice_title]\nTotal payments: [default_currency_code] [total_payments] of [default_currency_code] [total].\n\nYou can overview invoice status and payment history by clicking this link:\n[permalink]\n\nUser information:\n\nID: [user_id]\nName: [user_name]\nEmail: [user_email]\n\n--------------------\n[site]", 'wp_crm' );
         $wp_crm_settings[ 'notifications' ][ 'wpi_send_invoice_creator_email' ][ 'fire_on_action' ] = array( 'wpi_send_invoice_creator_email' );
         $update_needed = true;
@@ -2587,6 +2590,22 @@ class WPI_Functions {
 
     return true;
 
+  }
+
+  /**
+   *
+   * @global type $current_user
+   * @param type $invoice_data
+   * @return boolean
+   */
+  function user_is_invoice_recipient( $invoice_data ) {
+    global $current_user;
+
+    if ( !$current_user->ID ) return false;
+
+    if ( $current_user->data->user_email != $invoice_data->data['user_email'] ) return false;
+
+    return true;
   }
 }
 

@@ -723,7 +723,11 @@ class WPI_Invoice {
       'post_status',
       'post_content',
       'post_date',
-      'log'
+      'log',
+      'post_author',
+      'post_date_gmt',
+      'post_modified',
+      'post_modified_gmt'
     );
 
     if(!empty($this->data['ID']) && (int)$this->data['ID'] > 0) {

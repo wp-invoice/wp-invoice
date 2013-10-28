@@ -4,7 +4,7 @@
  * Plugin URI: http://usabilitydynamics.com/products/wp-invoice/
  * Description: Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href="admin.php?page=wpi_page_settings">WP-Invoice Settings Page</a> to setup.
  * Author: UsabilityDynamics.com
- * Version: 3.09.0
+ * Version: 3.09.1
  * Author URI: http://UsabilityDynamics.com/
  * Copyright 2011 - 2012  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
@@ -24,7 +24,7 @@
  */
 
 /* Define WPI Version */
-define( 'WP_INVOICE_VERSION_NUM', '3.09.0' );
+define( 'WP_INVOICE_VERSION_NUM', '3.09.1' );
 
 /* Define shorthand for transdomain */
 define( 'WPI', 'wp-invoice' );
@@ -61,6 +61,7 @@ require_once( WPI_Path . '/core/wpi_chargify.php' ); */
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
 require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
 require_once( WPI_Path . '/core/wpi_xmlrpc_api.php' );
+require_once( WPI_Path . '/core/wpi_dashboard_widget.php' );
 
 //** Need to do this before init. Temporary here. */
 add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
@@ -532,13 +533,21 @@ if ( !class_exists( 'WPI_Core' ) ) {
 
           $wpi_invoice_object = new WPI_Invoice();
           $wpi_invoice_object->load_invoice( "id=$post_id" );
-          $wpi_invoice_object->data;
 
           add_filter( 'viewable_invoice_types', array( $this, 'viewable_types' ) );
 
           //* Determine if current invoice object is "viewable" */
           if ( !in_array( $wpi_invoice_object->data[ 'post_status' ], apply_filters( 'viewable_invoice_types', array( 'active' ) ) ) ) {
             return;
+          }
+
+          if ( $wpi_settings['logged_in_only'] == 'true' ) {
+            if ( !current_user_can( WPI_UI::get_capability_by_level( $wpi_settings['user_level'] ) ) && !WPI_Functions::user_is_invoice_recipient( $wpi_invoice_object ) ) {
+              /* Show 404 when invoice doesn't exist */
+              $not_found = get_query_template( '404' );
+              require_once $not_found;
+              die();
+            }
           }
 
           // Load front end scripts

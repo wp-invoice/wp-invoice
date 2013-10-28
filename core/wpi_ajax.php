@@ -230,7 +230,7 @@ class WPI_Ajax {
       case WPI_EVENT_TYPE_ADD_CHARGE:
         if ( !empty( $event_amount ) ) {
           $name = $event_note;
-          $event_note = "" . WPI_Functions::currency_format( $event_amount, $invoice_id ) . "  " . __( 'charge added', WPI ) . " - $event_note";
+          $event_note = WPI_Functions::currency_format( $event_amount, $invoice_id ) . " " . (!empty($event_tax)?'&#43;'.$event_tax.'%':'') . "  " . __( 'charge added', WPI ) . " - $event_note";
           $core = WPI_Core::getInstance();
           $charge_item = $core->Functions->add_itemized_charge( $invoice_id, $name, $event_amount, $event_tax );
         }
@@ -255,7 +255,13 @@ class WPI_Ajax {
 
     $invoice = new WPI_Invoice();
     $invoice->load_invoice( "id=$invoice_id" );
-    $insert_id = $invoice->add_entry( "attribute=balance&note=$event_note&amount=$event_amount&type=$event_type&time=$timestamp" );
+    $insert_id = $invoice->add_entry(array(
+        'attribute' => 'balance',
+        'note'      => $event_note,
+        'amount'    => $event_amount,
+        'type'      => $event_type,
+        'time'      => $timestamp
+    ));
 
     if ( $insert_id ) {
       $response = array( 'success' => 'true', 'message' => sprintf( __( 'Event Added: %1s.', WPI ), $event_note ) );
