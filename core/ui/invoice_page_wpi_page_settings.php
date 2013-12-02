@@ -793,7 +793,7 @@ class WPI_Settings_page {
             <div id="wpi_plugins_ajax_response" class="hidden"></div>
           </td>
         </tr>
-        <tr>
+        <!--<tr>
           <th><?php _e('WP-Invoice API Key', WPI); ?> for <?php echo $this_domain; ?></th>
           <td>
     <?php echo WPI_UI::input("type=text&name=wpi_api_key&group=wpi_settings&value={$wpi_settings['wpi_api_key']}") ?>
@@ -801,7 +801,7 @@ class WPI_Settings_page {
       <?php _e('Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href="#" target="_blank">UsabilityDynamics.com</a>.', WPI); ?>
             </div>
           </td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
 
