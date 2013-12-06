@@ -720,7 +720,7 @@ class WPI_Functions {
         if ( !empty( $userdata[ 'first_name' ] ) && !empty( $userdata[ 'last_name' ] ) ) {
           $userdata[ 'display_name' ] = $userdata[ 'first_name' ] . ' ' . $userdata[ 'last_name' ];
         } else {
-
+          //** Nothing to do here... */
         }
       }
 
@@ -731,9 +731,19 @@ class WPI_Functions {
       }
 
       $user_id = wp_insert_user( $userdata );
+
+      global $wpi_settings;
+      if ( is_int( $user_id ) && WPI_Functions::is_true( $wpi_settings['send_password_to_new_users'] ) ) {
+        wp_mail(
+          $userdata[ 'user_email' ],
+          sprintf( __( 'Your Access Credentials [%s]', WPI ), get_bloginfo('url') ),
+          sprintf( __( "Dear customer,\n\nwe have set an account for you on %s. You are able to login now using the following credentials:\n\nURL: %s\nLogin: %s\nPassword: %s", WPI ), get_bloginfo('url'), wp_login_url(), $userdata[ 'user_login' ], $userdata[ 'user_pass' ] )
+        );
+      }
+
     }
 
-    // Prevent entering of wrong phone number to avoid errors on front-end
+    //** Prevent entering of wrong phone number to avoid errors on front-end */
     if ( !preg_match( '/\A[\d.+?]{0,3}-[\d.+?]{0,3}-[\d.+?]{0,4}\Z/si', $userdata[ 'phonenumber' ] ) ) {
       if ( preg_match( '/\A[\d.+?]{0,10}\Z/si', $userdata[ 'phonenumber' ] ) ) {
         $phonenumber = $userdata[ 'phonenumber' ];
