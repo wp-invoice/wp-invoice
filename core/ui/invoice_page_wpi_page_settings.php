@@ -232,7 +232,10 @@ class WPI_Settings_page {
               </label>
             </li>
             <li>
-              <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoice only for logged in recipients.", WPI), WPI_Functions::is_true($wpi_settings['logged_in_only'])); ?>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoices only for logged in recipients.", WPI), WPI_Functions::is_true($wpi_settings['logged_in_only'])); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[send_password_to_new_users]&value=true&label=" . __("Send passwords to newly created recipients.", WPI), WPI_Functions::is_true($wpi_settings['send_password_to_new_users'])); ?>
             </li>
           </ul>
         </td>
@@ -321,15 +324,15 @@ class WPI_Settings_page {
         <td>
           <ul class="wpi_settings_list">
             <li>
-    <?php
-    echo WPI_UI::input(array(
-        'label' => __('Sender Name', WPI),
-        'type' => 'text',
-        'name' => 'mail_from_sender_name',
-        'group' => 'wpi_settings',
-        'value' => empty($wpi_settings['mail_from_sender_name']) ? 'WordPress' : $wpi_settings['mail_from_sender_name']
-    ));
-    ?>
+              <?php
+              echo WPI_UI::input(array(
+                  'label' => __('Sender Name', WPI),
+                  'type' => 'text',
+                  'name' => 'mail_from_sender_name',
+                  'group' => 'wpi_settings',
+                  'value' => empty($wpi_settings['mail_from_sender_name']) ? 'WordPress' : $wpi_settings['mail_from_sender_name']
+              ));
+              ?>
               <div class="description"><?php _e('The sender name that the email is from', WPI); ?></div>
             </li>
             <li>
@@ -345,14 +348,14 @@ class WPI_Settings_page {
               <div class="description"><?php _e('Email address e.g. username@example.com', WPI); ?></div>
             </li>
             <li>
-    <?php
-    echo WPI_UI::checkbox(array(
-        'label' => __("Apply 'Mail From' settings.", WPI),
-        'name' => 'change_mail_from',
-        'value' => 'true',
-        'group' => 'wpi_settings'
-            ), $wpi_settings['change_mail_from']);
-    ?>
+            <?php
+            echo WPI_UI::checkbox(array(
+                'label' => __("Apply 'Mail From' settings.", WPI),
+                'name' => 'change_mail_from',
+                'value' => 'true',
+                'group' => 'wpi_settings'
+                    ), $wpi_settings['change_mail_from']);
+            ?>
             </li>
           </ul>
         </td>
@@ -793,7 +796,7 @@ class WPI_Settings_page {
             <div id="wpi_plugins_ajax_response" class="hidden"></div>
           </td>
         </tr>
-        <tr>
+        <!--<tr>
           <th><?php _e('WP-Invoice API Key', WPI); ?> for <?php echo $this_domain; ?></th>
           <td>
     <?php echo WPI_UI::input("type=text&name=wpi_api_key&group=wpi_settings&value={$wpi_settings['wpi_api_key']}") ?>
@@ -801,7 +804,7 @@ class WPI_Settings_page {
       <?php _e('Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href="#" target="_blank">UsabilityDynamics.com</a>.', WPI); ?>
             </div>
           </td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
 
