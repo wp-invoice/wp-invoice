@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Web Invoicing and Billing v3.08.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-28 14:07+0200\n"
-"PO-Revision-Date: 2013-10-28 14:08+0200\n"
+"POT-Creation-Date: 2013-12-19 17:18+0200\n"
+"PO-Revision-Date: 2013-12-19 17:18+0200\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,111 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:57
+#, fuzzy
+msgid "Sales Statistics"
+msgstr "請求書の統計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:74
+#, fuzzy
+msgid "Last Day"
+msgstr "姓（ローマ字 - 例：Yamada）"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:79
+#, fuzzy
+msgid "Last Week"
+msgstr "姓（ローマ字 - 例：Yamada）"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:84
+#, fuzzy
+msgid "Last Month"
+msgstr "月"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:156
+#, fuzzy
+msgid "My Invoice Statistics"
+msgstr "請求書の統計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:247
+#, fuzzy
+msgid "My Invoices"
+msgstr "請求書"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:259
+#: core/wpi_settings.php:102
+msgid "Active"
+msgstr "アクティブ"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:283
+#: wpi_dashboard_widgets.php:320
+#: wpi_dashboard_widgets.php:355
+#: wpi_dashboard_widgets.php:390
+#, fuzzy
+msgid "No invoices"
+msgstr "請求書が見つかりませんでした"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:296
+#: core/wpi_settings.php:105
+msgid "Paid"
+msgstr "支払済"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:333
+#: core/wpi_settings.php:103
+msgid "Archived"
+msgstr "アーカイブ済"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:368
+#: core/wpi_settings.php:104
+msgid "Trashed"
+msgstr "破棄済"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:403
+#, fuzzy
+msgid "My Statistics"
+msgstr "請求書の統計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:409
+#, fuzzy
+msgid "Total invoices"
+msgstr "請求書の編集"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:418
+#, fuzzy
+msgid "Total paid"
+msgstr "合計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:427
+#, fuzzy
+msgid "Total dept"
+msgstr "合計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:436
+#, fuzzy
+msgid "Total balance"
+msgstr "集金合計"
+
+# @ wp-invoice
+#: wpi_dashboard_widgets.php:474
+#: core/class_list_table.php:120
+msgid "Display"
+msgstr "表示"
 
 # @ wp-invoice
 #: wpi_legacy.php:106
@@ -106,9 +211,122 @@ msgid "Imported Log from Web Invoice plugin"
 msgstr "Web Invoiceプラグインからインポートされたログ"
 
 # @ wp-invoice
-#: core/class_list_table.php:120
-msgid "Display"
-msgstr "表示"
+#: wpi_quotes.php:64
+#, fuzzy
+msgid "Accept Quote"
+msgstr "受け入れる"
+
+#: wpi_quotes.php:103
+msgid "Authorization required."
+msgstr ""
+
+#: wpi_quotes.php:112
+msgid "You are not allowed to make that action. You are not a recipient of this quote. Plese login under proper account."
+msgstr ""
+
+#: wpi_quotes.php:122
+msgid "Quote has been accepted and converted to invoice. Refreshing..."
+msgstr ""
+
+#: wpi_quotes.php:124
+msgid "Error! Unknown request."
+msgstr ""
+
+#: wpi_quotes.php:149
+msgid "Reply to this comment"
+msgstr ""
+
+#: wpi_quotes.php:149
+msgid "Reply"
+msgstr ""
+
+#: wpi_quotes.php:150
+msgid "Delete"
+msgstr ""
+
+# @ wp-invoice
+#: wpi_quotes.php:194
+#, fuzzy
+msgid "Response:"
+msgstr "レスポンスコード：  "
+
+# @ wp-invoice
+#: wpi_quotes.php:195
+msgid "Send Response"
+msgstr "Send Response"
+
+#: wpi_quotes.php:197
+msgid "Have a question?"
+msgstr ""
+
+# @ wp-invoice
+#: wpi_quotes.php:198
+#, fuzzy
+msgid "Send Question"
+msgstr "通知を送信"
+
+# @ wp-invoice
+#: wpi_quotes.php:390
+#, fuzzy
+msgid "Comments"
+msgstr "コンポーネント"
+
+# @ wp-invoice
+#: wpi_quotes.php:395
+msgid "Author"
+msgstr "著者"
+
+#: wpi_quotes.php:396
+msgid "Comment"
+msgstr ""
+
+#: wpi_quotes.php:413
+msgid "There are no comments for this quote."
+msgstr ""
+
+#: wpi_quotes.php:511
+msgid "Reply to Comment"
+msgstr ""
+
+# @ wp-invoice
+# @ wpi_gateway
+#: wpi_quotes.php:515
+#: core/wpi_chargify.php:167
+#: core/wpi_chargify.php:174
+#: core/wpi_chargify.php:209
+#: core/wpi_chargify.php:216
+#: core/wpi_functions.php:1952
+msgid "Name"
+msgstr "名前"
+
+# @ wp-invoice
+#: wpi_quotes.php:519
+#, fuzzy
+msgid "E-mail"
+msgstr "電子メール"
+
+#: wpi_quotes.php:523
+msgid "URL"
+msgstr ""
+
+# @ default
+# @ wp-invoice
+#: wpi_quotes.php:534
+#: core/wpi_chargify.php:816
+msgid "Cancel"
+msgstr "キャンセル"
+
+# @ wp-invoice
+#: wpi_quotes.php:536
+#, fuzzy
+msgid "Update Comment"
+msgstr "製品を更新"
+
+# @ default
+#: wpi_quotes.php:537
+#, fuzzy
+msgid "Submit Reply"
+msgstr "送信"
 
 # @ wp-invoice
 # @ default
@@ -356,7 +574,6 @@ msgstr "Chargify 経由でサブスクリプションベースの支払い"
 
 # @ wp-invoice
 #: core/wpi_chargify.php:101
-#: core/wpi_ui.php:337
 msgid "General Information"
 msgstr "一般的な情報"
 
@@ -421,17 +638,6 @@ msgid "Products"
 msgstr "製品"
 
 # @ wp-invoice
-# @ wpi_gateway
-#: core/wpi_chargify.php:167
-#: core/wpi_chargify.php:174
-#: core/wpi_chargify.php:209
-#: core/wpi_chargify.php:216
-#: core/wpi_functions.php:1942
-#: core/wpi_functions.php:2007
-msgid "Name"
-msgstr "名前"
-
-# @ wp-invoice
 #: core/wpi_chargify.php:168
 #: core/wpi_chargify.php:175
 #: core/wpi_chargify.php:695
@@ -455,7 +661,6 @@ msgstr "コンポーネント"
 # @ wp-invoice
 #: core/wpi_chargify.php:210
 #: core/wpi_chargify.php:217
-#: core/wpi_ui.php:606
 msgid "Type"
 msgstr "タイプ"
 
@@ -646,7 +851,6 @@ msgstr "コスト"
 
 # @ wp-invoice
 #: core/wpi_chargify.php:803
-#: core/wpi_ui.php:605
 msgid "Status"
 msgstr "ステータス"
 
@@ -654,12 +858,6 @@ msgstr "ステータス"
 #: core/wpi_chargify.php:814
 msgid "Update"
 msgstr "更新"
-
-# @ default
-# @ wp-invoice
-#: core/wpi_chargify.php:816
-msgid "Cancel"
-msgstr "キャンセル"
 
 # @ wp-invoice
 #: core/wpi_chargify.php:832
@@ -700,69 +898,86 @@ msgstr "N/A"
 msgid "There are no options for this widget."
 msgstr ""
 
+#: core/wpi_functions.php:739
+#, php-format
+msgid "Your Access Credentials [%s]"
+msgstr ""
+
+#: core/wpi_functions.php:740
+#, php-format
+msgid ""
+"Dear customer,\n"
+"\n"
+"we have set an account for you on %s. You are able to login now using the following credentials:\n"
+"\n"
+"URL: %s\n"
+"Login: %s\n"
+"Password: %s"
+msgstr ""
+
 # @ wp-invoice
-#: core/wpi_functions.php:1159
+#: core/wpi_functions.php:1169
 msgid "Schedule created with plugin activation."
 msgstr "プラグインのライセンス認証とスケジュールが作成されました。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1169
+#: core/wpi_functions.php:1179
 msgid "Plugin activated. No older versions found, installing version "
 msgstr "プラグインが有効になりました。インストール中のものより古いバージョンは見つかりません、　　"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1173
+#: core/wpi_functions.php:1183
 msgid "Plugin activated."
 msgstr "プラグイン有効化済。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1187
+#: core/wpi_functions.php:1197
 msgid "Plugin deactivated."
 msgstr "プラグインは、無効化されました。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1253
+#: core/wpi_functions.php:1263
 msgid "user_email changed."
 msgstr "user_email 変更済。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1361
+#: core/wpi_functions.php:1371
 msgid "Today"
 msgstr "今日"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1363
+#: core/wpi_functions.php:1373
 msgid " Tomorrow "
 msgstr "明日  "
 
 # @ wp-invoice
-#: core/wpi_functions.php:1363
+#: core/wpi_functions.php:1373
 msgid " Yesterday "
 msgstr "昨日  "
 
 # @ wp-invoice
-#: core/wpi_functions.php:1365
+#: core/wpi_functions.php:1375
 #, php-format
 msgid " in %s days "
 msgstr " %s 日中  "
 
 # @ wp-invoice
-#: core/wpi_functions.php:1365
+#: core/wpi_functions.php:1375
 msgid "days ago"
 msgstr "日前  "
 
 # @ wp-invoice
-#: core/wpi_functions.php:1421
+#: core/wpi_functions.php:1431
 msgid "The plugin database tables are gone, deactivate and reactivate plugin to re-create them."
 msgstr "プラグイン データベース テーブルはもうありません。再作成するために、プラグインを無効化または再開してください。"
 
 # @ wp_crm
-#: core/wpi_functions.php:1752
+#: core/wpi_functions.php:1762
 msgid "Invoice #[invoice_id] has been paid"
 msgstr "請求書#  [invoice_id] は支払済"
 
 # @ wp_crm
-#: core/wpi_functions.php:1756
+#: core/wpi_functions.php:1766
 msgid ""
 "Dear [user_name],\n"
 "[business_name] has received your payment for the invoice.\n"
@@ -787,13 +1002,13 @@ msgstr ""
 "[business_name] ([from])"
 
 # @ wp_crm
-#: core/wpi_functions.php:1761
-#: core/wpi_functions.php:1770
+#: core/wpi_functions.php:1771
+#: core/wpi_functions.php:1780
 msgid "Invoice #[invoice_id] has been paid by [user_name]"
 msgstr "Invoice #[invoice_id] has been paid by [user_name]"
 
 # @ wp_crm
-#: core/wpi_functions.php:1765
+#: core/wpi_functions.php:1775
 msgid ""
 "[user_name] has paid invoice #[invoice_id].\n"
 "[invoice_title]\n"
@@ -828,7 +1043,7 @@ msgstr ""
 "[site]"
 
 # @ wp_crm
-#: core/wpi_functions.php:1774
+#: core/wpi_functions.php:1784
 msgid ""
 "Dear [creator_name],\n"
 "[user_name] has paid invoice #[invoice_id].\n"
@@ -867,68 +1082,66 @@ msgstr ""
 "[site]"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1819
+#: core/wpi_functions.php:1829
 msgid "Invoices"
 msgstr "請求書"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1820
-#: core/wpi_functions.php:1835
+#: core/wpi_functions.php:1830
+#: core/wpi_functions.php:1845
 #: core/wpi_settings.php:36
-#: core/wpi_ui.php:22
 msgid "Invoice"
 msgstr "請求書"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1821
-#: core/wpi_ui.php:24
+#: core/wpi_functions.php:1831
 msgid "Add New"
 msgstr "新規追加"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1822
+#: core/wpi_functions.php:1832
 msgid "Add New Invoice"
 msgstr "新しい請求書を追加"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1823
+#: core/wpi_functions.php:1833
 msgid "Edit Invoice"
 msgstr "請求書の編集"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1824
+#: core/wpi_functions.php:1834
 #: core/wpi_settings.php:421
 msgid "New Invoice"
 msgstr "新しい請求書"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1825
+#: core/wpi_functions.php:1835
 msgid "View Invoice"
 msgstr "納品書の表示"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1826
+#: core/wpi_functions.php:1836
 msgid "Search Invoices"
 msgstr "請求書検索"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1827
+#: core/wpi_functions.php:1837
 msgid "No invoices found"
 msgstr "請求書が見つかりませんでした"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1828
+#: core/wpi_functions.php:1838
 msgid "No invoices found in Trash"
 msgstr "ゴミ箱には請求書がありません"
 
 # @ default
-#: core/wpi_functions.php:1849
+#: core/wpi_functions.php:1859
 msgctxt "wpi_object"
 msgid "Archived"
 msgstr "アーカイブ済"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1852
+#: core/wpi_functions.php:1862
 #, php-format
 msgid "Archived <span class=\"count\">(%s)</span>"
 msgid_plural "Archived <span class=\"count\">(%s)</span>"
@@ -936,13 +1149,13 @@ msgstr[0] "アーカイブされた <span class=\"count\">(%s)</span>"
 msgstr[1] "アーカイブされた <span class=\"count\">(%s)</span>"
 
 # @ default
-#: core/wpi_functions.php:1857
+#: core/wpi_functions.php:1867
 msgctxt "wpi_object"
 msgid "Active"
 msgstr "アクティブ"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1860
+#: core/wpi_functions.php:1870
 #, php-format
 msgid "Due Invoices <span class=\"count\">(%s)</span>"
 msgid_plural "Due Invoices <span class=\"count\">(%s)</span>"
@@ -950,13 +1163,13 @@ msgstr[0] "請求書の期日 <span class=\"count\">(%s)</span>"
 msgstr[1] "請求書の期日 <span class=\"count\">(%s)</span>"
 
 # @ default
-#: core/wpi_functions.php:1865
+#: core/wpi_functions.php:1875
 msgctxt "wpi_object"
 msgid "Paid"
 msgstr "支払済"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1868
+#: core/wpi_functions.php:1878
 #, php-format
 msgid "Paid <span class=\"count\">(%s)</span>"
 msgid_plural "Paid <span class=\"count\">(%s)</span>"
@@ -964,13 +1177,13 @@ msgstr[0] "Paid <span class=\"count\">(%s)</span>"
 msgstr[1] "Paid <span class=\"count\">(%s)</span>"
 
 # @ default
-#: core/wpi_functions.php:1873
+#: core/wpi_functions.php:1883
 msgctxt "wpi_object"
 msgid "Trash"
 msgstr "ゴミ箱"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1876
+#: core/wpi_functions.php:1886
 #, php-format
 msgid "Trash  <span class=\"count\">(%s)</span>"
 msgid_plural "Trash <span class=\"count\">(%s)</span>"
@@ -978,13 +1191,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ default
-#: core/wpi_functions.php:1881
+#: core/wpi_functions.php:1891
 msgctxt "wpi_object"
 msgid "Pending"
 msgstr "保留中"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1884
+#: core/wpi_functions.php:1894
 #, php-format
 msgid "Pending  <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
@@ -992,13 +1205,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 # @ default
-#: core/wpi_functions.php:1889
+#: core/wpi_functions.php:1899
 msgctxt "wpi_object"
 msgid "Refund"
 msgstr "払い戻し"
 
 # @ wp-invoice
-#: core/wpi_functions.php:1892
+#: core/wpi_functions.php:1902
 #, php-format
 msgid "Refund  <span class=\"count\">(%s)</span>"
 msgid_plural "Refund <span class=\"count\">(%s)</span>"
@@ -1007,176 +1220,168 @@ msgstr[1] ""
 
 # @ wpi_gateway
 # @ wp-invoice
-#: core/wpi_functions.php:1943
-#: core/wpi_functions.php:2008
+#: core/wpi_functions.php:1953
 msgid "Version"
 msgstr "バージョン"
 
 # @ wpi_gateway
 # @ wp-invoice
-#: core/wpi_functions.php:1944
-#: core/wpi_functions.php:2009
+#: core/wpi_functions.php:1954
 msgid "Description"
 msgstr "説明"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2010
-msgid "Minimum Core Version"
-msgstr "最小コアバージョン"
-
-# @ wp-invoice
-#: core/wpi_functions.php:2133
+#: core/wpi_functions.php:2143
 msgid "The API key could not be generated."
 msgstr "API キーを生成できませんでした。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2137
+#: core/wpi_functions.php:2147
 #, fuzzy, php-format
 msgid "An error occurred during premium feature check. API Key '<b>%s</b>' is incorrect."
 msgstr "プレミアム機能チェック中にエラーが発生しました: <b>%s</b>。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2145
+#: core/wpi_functions.php:2155
 #, fuzzy
 msgid "Could not do remote request."
 msgstr "サブスクリプションを削除できませんでした。"
 
-#: core/wpi_functions.php:2153
+#: core/wpi_functions.php:2163
 #, php-format
 msgid "Response code from requested server is %s."
 msgstr ""
 
-#: core/wpi_functions.php:2159
+#: core/wpi_functions.php:2169
 msgid "Requested server returned empty result or timeout was exceeded. Please, try again later."
 msgstr ""
 
 # @ wp-invoice
-#: core/wpi_functions.php:2171
+#: core/wpi_functions.php:2181
 msgid "There are no available premium features."
 msgstr "利用可能なプレミアム機能はありません。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2175
+#: core/wpi_functions.php:2185
 #, fuzzy
 msgid "No premium features were downloaded because the setting is disabled. Enable in the \"Main\" tab."
 msgstr "更新プログラムは正常に実行されましたが、設定が無効なため、機能はダウンロードされませんでした。 \"Main\"タブで有効にしてください。"
 
-#: core/wpi_functions.php:2185
+#: core/wpi_functions.php:2195
 msgid "Specific directory for uploading premium features can not be created."
 msgstr ""
 
-#: core/wpi_functions.php:2214
+#: core/wpi_functions.php:2224
 #, php-format
 msgid "<b>%s</b> updated from version %s to %s ."
 msgstr ""
 
-#: core/wpi_functions.php:2216
+#: core/wpi_functions.php:2226
 #, php-format
 msgid "<b>%s</b> %s has been installed."
 msgstr ""
 
 # @ wp-invoice
-#: core/wpi_functions.php:2219
+#: core/wpi_functions.php:2229
 #, fuzzy, php-format
 msgid "WP-Invoice Premium Feature: %s"
 msgstr "プレミアム機能"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2223
+#: core/wpi_functions.php:2233
 #, fuzzy
 msgid "There are no file permissions to upload or update premium features."
 msgstr "利用可能なプレミアム機能はありません。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2228
+#: core/wpi_functions.php:2238
 #, fuzzy
 msgid "There are no available premium features. Check your licenses for the current domain"
 msgstr "利用可能なプレミアム機能はありません。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2239
+#: core/wpi_functions.php:2249
 msgid "Update ran successfully."
 msgstr "更新プログラムは正常に実行されました。"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2247
+#: core/wpi_functions.php:2257
 #, fuzzy
 msgid "You have the latest premium features versions."
 msgstr "利用可能なプレミアム機能はありません。"
 
 # @ default
-#: core/wpi_functions.php:2465
+#: core/wpi_functions.php:2475
 msgid "WP-Invoice Notification"
 msgstr "WP-Invoice 通知"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2544
+#: core/wpi_functions.php:2554
 #, php-format
 msgid "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
 msgstr "調べる方法を<a target=\"_blank\" href=\"%s\">拡張するために</a>あなたの<a target=\"_blank\" href=\"%s\"WP-Invoice</a>のプラグイン"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2548
-#: core/wpi_ui.php:431
+#: core/wpi_functions.php:2558
 msgid "Premium Features"
 msgstr "プレミアム機能"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2550
+#: core/wpi_functions.php:2560
 msgid "Support Forum"
 msgstr "サポート フォーラム"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2553
+#: core/wpi_functions.php:2563
 msgid "User Guide"
 msgstr "ユーザー ガイド"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2631
-#: core/wpi_functions.php:2651
+#: core/wpi_functions.php:2641
+#: core/wpi_functions.php:2661
 msgid "Payment status: Complete"
 msgstr "お支払いのステータス： 完了"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2675
+#: core/wpi_functions.php:2685
 msgid "Pending"
 msgstr "保留中"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2735
-#: core/wpi_functions.php:2785
-#: core/wpi_functions.php:2834
+#: core/wpi_functions.php:2745
+#: core/wpi_functions.php:2795
+#: core/wpi_functions.php:2844
 #, php-format
 msgid "Invoice #%s has been paid"
 msgstr "請求書 #%s は支払済"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2741
+#: core/wpi_functions.php:2751
 #, php-format
 msgid "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can overview invoice status and payment history by clicking this link:<br>%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,<br>%4s (%5s)"
 msgstr "%1s 様<br><br>ご愛顧ありがとうございます。<br>%2s は、確かにあなたからの請求書へのお支払いを受領いたしました。<br><br>請求書のステータスと支払い履歴の参照のためには、このリンクをクリックしてください。<br>%3s<br><br>以上、よろしくお願いいたします<br>%4s (%5s)"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2755
-#: core/wpi_functions.php:2806
-#: core/wpi_functions.php:2854
+#: core/wpi_functions.php:2765
+#: core/wpi_functions.php:2816
+#: core/wpi_functions.php:2864
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
 msgstr "WP-Invoice: 件名 '%1s' のメッセージが送信されました"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2761
+#: core/wpi_functions.php:2771
 msgid "Receipt eMailed"
 msgstr "メールで領収書を送信"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2788
+#: core/wpi_functions.php:2798
 #, php-format
 msgid "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s.<br><br>You can overview invoice status and payment history by clicking this link:<br>%8s<br><br>User information:<br><br>ID: %9s<br>Name: %10s<br>Email: %11s<br><br>--------------------<br>%12s"
 msgstr "%1s が請求書 #%2s.を支払いました。<br><br>%3s<br>合計の支払い:  %4s %5s of %6s %7s。<br><br>請求書のステータスと支払い履歴は、このリンクをクリックすると参照できます。<br>%8s<br><br>ユーザー情報:<br><br>ID: %9s<br>名前: %10s<br>メール: %11s<br><br>--------------------<br>%12s"
 
 # @ wp-invoice
-#: core/wpi_functions.php:2836
+#: core/wpi_functions.php:2846
 #, php-format
 msgid "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: %5s %6s of %7s %8s.<br><br>You can overview invoice status and payment history by clicking this link:<br>%9s<br><br>User information:<br><br>ID: %10s<br>Name: %11s<br>Email: %12s<br><br>--------------------<br>%13s"
 msgstr "こんにちは、%1s 様<br><br>%2s が請求書 #%3sの支払いをしました。<br><br>%4s<br>合計支払額： %5s %6s of %7s %8s<br><br>請求書のステータスと支払い履歴は、このリンクをクリックすると参照できます。<br>%9s<br><br>ユーザー情報:<br><br>ID: %10s<br>名前:  %11s<br>メール: %12s<br><br>--------------------<br>%13s　"
@@ -1320,26 +1525,6 @@ msgstr "都道府県"
 #: core/wpi_settings.php:99
 msgid "ZIP"
 msgstr "郵便番号"
-
-# @ wp-invoice
-#: core/wpi_settings.php:102
-msgid "Active"
-msgstr "アクティブ"
-
-# @ wp-invoice
-#: core/wpi_settings.php:103
-msgid "Archived"
-msgstr "アーカイブ済"
-
-# @ wp-invoice
-#: core/wpi_settings.php:104
-msgid "Trashed"
-msgstr "破棄済"
-
-# @ wp-invoice
-#: core/wpi_settings.php:105
-msgid "Paid"
-msgstr "支払済"
 
 # @ wp-invoice
 #: core/wpi_settings.php:107
@@ -3269,6 +3454,7 @@ msgstr "ショート コード"
 # @ wp-invoice
 # @ default
 #: core/wpi_ui.php:438
+#: core/wpi_widgets.php:89
 msgid "Invoice History"
 msgstr "インボイス履歴"
 
@@ -3310,6 +3496,8 @@ msgstr "受信者"
 
 # @ wp-invoice
 #: core/wpi_ui.php:604
+#: core/gateways/class_wpi_authorize.php:262
+#: core/gateways/class_wpi_googlecheckout.php:163
 msgid "Date"
 msgstr "日付"
 
@@ -3360,134 +3548,144 @@ msgid "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" t
 msgstr "または、UsabilityDynamics.com の <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">WP-Invoice ヘルプのページ</a> をご参照ください。"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1122
+#: core/wpi_ui.php:1129
+#: core/gateways/class_wpi_authorize.php:80
+#: core/gateways/class_wpi_authorize.php:102
+#: core/gateways/class_wpi_googlecheckout.php:36
+#: core/gateways/class_wpi_paypal.php:41
+#: core/gateways/class_wpi_paypal.php:55
 msgid "Yes"
 msgstr "はい"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1122
+#: core/wpi_ui.php:1129
+#: core/gateways/class_wpi_authorize.php:81
+#: core/gateways/class_wpi_authorize.php:103
+#: core/gateways/class_wpi_googlecheckout.php:35
+#: core/gateways/class_wpi_paypal.php:40
+#: core/gateways/class_wpi_paypal.php:56
 msgid "No"
 msgstr "いいえ"
 
 # @ default
-#: core/wpi_ui.php:1125
+#: core/wpi_ui.php:1132
 msgid "Select"
 msgstr "選択"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1314
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1321
 msgid "Jan"
 msgstr "1 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1315
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1322
 msgid "Feb"
 msgstr "2 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1316
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1323
 msgid "Mar"
 msgstr "3 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1317
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1324
 msgid "Apr"
 msgstr "4 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1318
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1325
 msgid "May"
 msgstr "5 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1319
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1326
 msgid "Jun"
 msgstr "6 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1320
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1327
 msgid "Jul"
 msgstr "7 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1321
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1328
 msgid "Aug"
 msgstr "8 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1322
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1329
 msgid "Sep"
 msgstr "9 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1323
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1330
 msgid "Oct"
 msgstr "10 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1324
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1331
 msgid "Nov"
 msgstr "11 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1143
-#: core/wpi_ui.php:1325
+#: core/wpi_ui.php:1150
+#: core/wpi_ui.php:1332
 msgid "Dec"
 msgstr "12 月"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1155
+#: core/wpi_ui.php:1162
 msgid "Values are empty"
 msgstr "値が空です。"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1177
+#: core/wpi_ui.php:1184
 msgid "View Profile"
 msgstr "プロフィール表示"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1180
+#: core/wpi_ui.php:1187
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "ユーザー管理を強化するために WP CRM プラグインを取得してください。"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1211
+#: core/wpi_ui.php:1218
 msgid "WP-Invoice custom field"
 msgstr "WP-Invoice のカスタム フィールド"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1227
+#: core/wpi_ui.php:1234
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1228
+#: core/wpi_ui.php:1235
 msgid "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>"
 msgstr "<p>高度なオプション<b>WP-Invoice のカスタム フィールド</b>は、支払いフォーム用のカスタムユーザー データ フィールドを追加するために使用できます。</p>"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1229
+#: core/wpi_ui.php:1236
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr "<p>現在動作するのは、Authorize.net の支払方法のみです。</p>"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1230
+#: core/wpi_ui.php:1237
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "<h3>WP-Invoice 通知</h3>"
 
 # @ wp-invoice
-#: core/wpi_ui.php:1231
+#: core/wpi_ui.php:1238
 msgid "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you can use this shortcodes:</p>"
 msgstr "<p>このトリガ ・ アクションのいずれかのあなたへの通知 &mdash;<i>WPI: 請求書の支払い （クライアント領収書）</i>、 <i>WPI: 請求書の支払い （通知管理者)</i>、 <i>WPI: 請求書支払い (通知の作成者)</i> — このショート コードを使用できます：</p>"
 
@@ -4372,13 +4570,11 @@ msgid "Stripe Subscription has been canceled"
 msgstr "PayPal 購読が取り消されました"
 
 #: core/gateways/templates/wpi_authorize-checkout.tpl.php:49
-#: core/gateways/templates/wpi_paypal-checkout.tpl.php:109
 msgid "Agreement"
 msgstr ""
 
 # @ wp-invoice
 #: core/gateways/templates/wpi_authorize-checkout.tpl.php:65
-#: core/gateways/templates/wpi_paypal-checkout.tpl.php:125
 #, fuzzy
 msgid "Process Payment"
 msgstr "支払いを処理　　"
@@ -4397,7 +4593,6 @@ msgstr "値引き合計"
 
 # @ wp-invoice
 #: core/gateways/templates/wpi_interkassa-frontend.tpl.php:21
-#: core/gateways/templates/wpi_paypal-frontend.tpl.php:58
 msgid "Process Payment of "
 msgstr "支払いを処理　　"
 
@@ -4456,30 +4651,6 @@ msgid "Select Network Type"
 msgstr ""
 
 # @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:63
-#, fuzzy
-msgid "Sales Statistics"
-msgstr "請求書の統計"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:80
-#, fuzzy
-msgid "Last Day"
-msgstr "姓（ローマ字 - 例：Yamada）"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:85
-#, fuzzy
-msgid "Last Week"
-msgstr "姓（ローマ字 - 例：Yamada）"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:90
-#, fuzzy
-msgid "Last Month"
-msgstr "月"
-
-# @ wp-invoice
 #: core/premium/wpi_dashboard_widgets.php:114
 #, fuzzy
 msgid "Goals"
@@ -4508,57 +4679,6 @@ msgstr "毎週"
 #, fuzzy
 msgid "Month Goal"
 msgstr "毎月"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:225
-#, fuzzy
-msgid "My Invoice Statistics"
-msgstr "請求書の統計"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:316
-#, fuzzy
-msgid "My Invoices"
-msgstr "請求書"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:352
-#: core/premium/wpi_dashboard_widgets.php:389
-#: core/premium/wpi_dashboard_widgets.php:424
-#: core/premium/wpi_dashboard_widgets.php:459
-#, fuzzy
-msgid "No invoices"
-msgstr "請求書が見つかりませんでした"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:472
-#, fuzzy
-msgid "My Statistics"
-msgstr "請求書の統計"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:478
-#, fuzzy
-msgid "Total invoices"
-msgstr "請求書の編集"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:487
-#, fuzzy
-msgid "Total paid"
-msgstr "合計"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:496
-#, fuzzy
-msgid "Total dept"
-msgstr "合計"
-
-# @ wp-invoice
-#: core/premium/wpi_dashboard_widgets.php:505
-#, fuzzy
-msgid "Total balance"
-msgstr "集金合計"
 
 # @ wp-invoice
 #: core/premium/wpi_pdf.php:126
@@ -4658,15 +4778,15 @@ msgstr ""
 msgid "PDF Invoice"
 msgstr "請求書"
 
-#: core/premium/wpi_pdf.php:624
+#: core/premium/wpi_pdf.php:628
 msgid "RECEIPT"
 msgstr ""
 
-#: core/premium/wpi_pdf.php:627
+#: core/premium/wpi_pdf.php:631
 msgid "QUOTE"
 msgstr ""
 
-#: core/premium/wpi_pdf.php:630
+#: core/premium/wpi_pdf.php:634
 msgid "INVOICE"
 msgstr ""
 
@@ -4825,12 +4945,6 @@ msgid "Editor"
 msgstr "エディター"
 
 # @ wp-invoice
-#: core/premium/wpi_power_tools.php:720
-#: core/premium/wpi_quotes.php:395
-msgid "Author"
-msgstr "著者"
-
-# @ wp-invoice
 #: core/premium/wpi_power_tools.php:721
 msgid "Contributor"
 msgstr "寄稿者"
@@ -4987,100 +5101,43 @@ msgstr ""
 msgid "In order to the option that you have selected above, you'll be able to select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
 msgstr ""
 
+#: core/premium/wpi_quotes.php:59
+msgid "Quotes"
+msgstr ""
+
+#: core/premium/wpi_quotes.php:67
+msgid "Make recipients to be authorized to be able to Accept Quote."
+msgstr ""
+
+#: core/premium/wpi_quotes.php:70
+msgid "By default quote recipients do not have to sign in before Accepting the quote you sent to them. Tick this option if you need them to be logged in."
+msgstr ""
+
+#: core/premium/wpi_quotes.php:84
+msgid "Add \"Terms &amp; Conditions\" checkbox to Quote page."
+msgstr ""
+
+#: core/premium/wpi_quotes.php:88
+msgid "This option allows you to add \"Terms &amp; Conditions\" checkbox to every Quote page. Be sure you have specified Terms page ID below."
+msgstr ""
+
+#: core/premium/wpi_quotes.php:91
+msgid "\"T&amp;C\" Page ID:"
+msgstr ""
+
+#: core/premium/wpi_quotes.php:99
+msgid "Numeric value of WordPress page ID that has \"Terms &amp; Conditions\"."
+msgstr ""
+
 # @ wp-invoice
-#: core/premium/wpi_quotes.php:64
-#, fuzzy
-msgid "Accept Quote"
-msgstr "受け入れる"
-
-#: core/premium/wpi_quotes.php:103
-msgid "Authorization required."
-msgstr ""
-
-#: core/premium/wpi_quotes.php:112
-msgid "You are not allowed to make that action. You are not a recipient of this quote. Plese login under proper account."
-msgstr ""
-
-#: core/premium/wpi_quotes.php:122
-msgid "Quote has been accepted and converted to invoice. Refreshing..."
-msgstr ""
-
 #: core/premium/wpi_quotes.php:124
-msgid "Error! Unknown request."
+#, fuzzy, php-format
+msgid "I accept <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>"
+msgstr "<a href=\"#\" target=\"_blank\">もっと教えてください。</a>"
+
+#: core/premium/wpi_quotes.php:186
+msgid "You have to accept Terms &amp; Conditions."
 msgstr ""
-
-#: core/premium/wpi_quotes.php:149
-msgid "Reply to this comment"
-msgstr ""
-
-#: core/premium/wpi_quotes.php:149
-msgid "Reply"
-msgstr ""
-
-#: core/premium/wpi_quotes.php:150
-msgid "Delete"
-msgstr ""
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:194
-#, fuzzy
-msgid "Response:"
-msgstr "レスポンスコード：  "
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:195
-msgid "Send Response"
-msgstr "Send Response"
-
-#: core/premium/wpi_quotes.php:197
-msgid "Have a question?"
-msgstr ""
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:198
-#, fuzzy
-msgid "Send Question"
-msgstr "通知を送信"
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:390
-#, fuzzy
-msgid "Comments"
-msgstr "コンポーネント"
-
-#: core/premium/wpi_quotes.php:396
-msgid "Comment"
-msgstr ""
-
-#: core/premium/wpi_quotes.php:413
-msgid "There are no comments for this quote."
-msgstr ""
-
-#: core/premium/wpi_quotes.php:511
-msgid "Reply to Comment"
-msgstr ""
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:519
-#, fuzzy
-msgid "E-mail"
-msgstr "電子メール"
-
-#: core/premium/wpi_quotes.php:523
-msgid "URL"
-msgstr ""
-
-# @ wp-invoice
-#: core/premium/wpi_quotes.php:536
-#, fuzzy
-msgid "Update Comment"
-msgstr "製品を更新"
-
-# @ default
-#: core/premium/wpi_quotes.php:537
-#, fuzzy
-msgid "Submit Reply"
-msgstr "送信"
 
 # @ wp-invoice
 #: core/premium/wpi_spc.php:76
@@ -5635,7 +5692,7 @@ msgstr "請求書を表示するためにページを選択："
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:42
-#: core/ui/invoice_page_wpi_page_settings.php:299
+#: core/ui/invoice_page_wpi_page_settings.php:306
 msgid "Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag."
 msgstr "すべてのページのコンテンツを上書きし、コンテンツの下部に挿入するか [wp-invoice] タグを探すかを選択します。"
 
@@ -5646,31 +5703,31 @@ msgstr "インボイスの挿入方法："
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:48
-#: core/ui/invoice_page_wpi_page_settings.php:302
+#: core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Overwrite All Page Content"
 msgstr "すべてのページ内容を上書き"
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:48
-#: core/ui/invoice_page_wpi_page_settings.php:302
+#: core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Place Below Content"
 msgstr "下記内容を配置"
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:48
-#: core/ui/invoice_page_wpi_page_settings.php:302
+#: core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Above Content"
 msgstr "上記内容"
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:48
-#: core/ui/invoice_page_wpi_page_settings.php:302
+#: core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Replace [wp-invoice] Tag"
 msgstr " [wp-invoice]タグを配置"
 
 # @ wp-invoice
 #: core/ui/first_time_setup.php:52
-#: core/ui/invoice_page_wpi_page_settings.php:302
+#: core/ui/invoice_page_wpi_page_settings.php:309
 msgid "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</span> somewhere within your page content."
 msgstr "タグを使用する場合は、 <span class=\\\"wp_invoice_explanation\\\">[wp-invoice]</span>をページのコンテンツ内のどこかに配置します。"
 
@@ -5733,21 +5790,21 @@ msgstr "担当名"
 #: core/ui/invoice_page_wpi_page_manage_invoice.php:222
 #: core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: core/ui/invoice_page_wpi_page_settings.php:668
+#: core/ui/invoice_page_wpi_page_settings.php:675
 msgid "Total"
 msgstr "合計"
 
 # @ wp-invoice
 #: core/ui/invoice_page_wpi_page_manage_invoice.php:219
 #: core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: core/ui/invoice_page_wpi_page_settings.php:665
+#: core/ui/invoice_page_wpi_page_settings.php:672
 msgid "Qty."
 msgstr "数量"
 
 # @ wp-invoice
 #: core/ui/invoice_page_wpi_page_manage_invoice.php:243
 #: core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: core/ui/invoice_page_wpi_page_settings.php:678
+#: core/ui/invoice_page_wpi_page_settings.php:685
 msgid "Toggle Description"
 msgstr "説明の切替"
 
@@ -5990,337 +6047,349 @@ msgid "None"
 msgstr "なし"
 
 #: core/ui/invoice_page_wpi_page_settings.php:235
-msgid "Show invoice only for logged in recipients."
+msgid "Show invoices only for logged in recipients."
+msgstr ""
+
+#: core/ui/invoice_page_wpi_page_settings.php:238
+msgid "Send passwords to newly created recipients."
+msgstr ""
+
+#: core/ui/invoice_page_wpi_page_settings.php:241
+msgid "Turn off compatibility mode."
+msgstr ""
+
+#: core/ui/invoice_page_wpi_page_settings.php:242
+msgid "By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off."
 msgstr ""
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:262
+#: core/ui/invoice_page_wpi_page_settings.php:269
 msgid "When creating an invoice"
 msgstr "請求書の作成時"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:265
+#: core/ui/invoice_page_wpi_page_settings.php:272
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr "自動的に請求書のカスタム ID を 1 ずつ増分します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:271
+#: core/ui/invoice_page_wpi_page_settings.php:278
 msgid "When viewing an invoice"
 msgstr "請求書を表示するとき"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:274
+#: core/ui/invoice_page_wpi_page_settings.php:281
 msgid "Display invoices on the"
 msgstr "上に請求書を表示"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:288
+#: core/ui/invoice_page_wpi_page_settings.php:295
 msgid "page."
 msgstr "ページ。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:290
+#: core/ui/invoice_page_wpi_page_settings.php:297
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr "請求書を表示するときは、HTML タイトルを請求書の題名と交換してください。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:291
+#: core/ui/invoice_page_wpi_page_settings.php:298
 msgid "Replace page heading and navigation link title with invoice subject when viewing invoice."
 msgstr "請求書を表示するときは、ページの見出しとナビゲーション リンクのタイトルを請求書の題名と交換してください。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:292
+#: core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Hide page heading and navigation link completely."
 msgstr "ページの見出しやナビゲーション リンクを完全に隠します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:294
+#: core/ui/invoice_page_wpi_page_settings.php:301
 msgid "Show my business name and address."
 msgstr "自分の事業名と住所を表示。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:295
+#: core/ui/invoice_page_wpi_page_settings.php:302
 msgid "Show quantity breakdowns in the itemized list."
 msgstr "数量の内訳明細を一覧に表示します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:300
+#: core/ui/invoice_page_wpi_page_settings.php:307
 msgid "How to Insert Invoice"
 msgstr "請求書の挿入方法"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:305
+#: core/ui/invoice_page_wpi_page_settings.php:312
 msgid "After a payment has been completed"
 msgstr "支払いが完了"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:308
+#: core/ui/invoice_page_wpi_page_settings.php:315
 msgid "Send email confirmation to the client."
 msgstr "電子メールの確認をクライアントに送信します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:309
+#: core/ui/invoice_page_wpi_page_settings.php:316
 #, php-format
 msgid "Send email notification to the address set for administrative purposes from <a href=\"%s\">General Settings</a>"
 msgstr "管理目的のための <a href=\"%s\">全般的な設定</a>から設定されたアドレスに電子メール通知を送信します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:310
+#: core/ui/invoice_page_wpi_page_settings.php:317
 msgid "Send email notification to invoice creator."
 msgstr "請求書の作成者に電子メール通知を送信します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:311
+#: core/ui/invoice_page_wpi_page_settings.php:318
 msgid "Use CRM to send notifications"
 msgstr "CRM を使用し通知を送信する"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:311
+#: core/ui/invoice_page_wpi_page_settings.php:318
 #, php-format
 msgid "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification management."
 msgstr "通知の管理を強化する<a class=\"small\" href=\"%s\">WP CRM プラグイン</a>を取得。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:317
+#: core/ui/invoice_page_wpi_page_settings.php:324
 msgid "This options allow you to change the default email address that WordPress sends it's mail from, and the name of the sender that the email is from."
 msgstr "このオプションで、デフォルトのワードプレスのメールと 電子メール アドレスを送る送信者の名前を変更できます。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:318
+#: core/ui/invoice_page_wpi_page_settings.php:325
 msgid "Mail From options"
 msgstr "メール送信元オプション"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:326
+#: core/ui/invoice_page_wpi_page_settings.php:333
 msgid "Sender Name"
 msgstr "送信者名"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:333
+#: core/ui/invoice_page_wpi_page_settings.php:340
 msgid "The sender name that the email is from"
 msgstr "電子メール発信元の送信者名"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:338
+#: core/ui/invoice_page_wpi_page_settings.php:345
 msgid "User E-mail"
 msgstr "ユーザーの電子メール"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:345
+#: core/ui/invoice_page_wpi_page_settings.php:352
 msgid "Email address e.g. username@example.com"
 msgstr "メール アドレス　 例： username@example.com"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:350
+#: core/ui/invoice_page_wpi_page_settings.php:357
 msgid "Apply 'Mail From' settings."
 msgstr "「送信元」 の設定を適用。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:362
+#: core/ui/invoice_page_wpi_page_settings.php:369
 msgid "If you are using <b>Google Analytics Site Tracking</b> code on your site then you can track WP-Invoice events."
 msgstr "サイトに<b>Google Analytics Site Tracking</b>コードを使用している場合は、 WP-Invoice イベントを追跡できます。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:363
+#: core/ui/invoice_page_wpi_page_settings.php:370
 msgid "Google Analytics Events Tracking"
 msgstr "Google アナリティクスのイベント追跡"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:370
+#: core/ui/invoice_page_wpi_page_settings.php:377
 msgid "I want to track events."
 msgstr "イベントを追跡したいと思います。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:375
+#: core/ui/invoice_page_wpi_page_settings.php:382
 msgid "Track Invoices events:"
 msgstr "請求書のイベントを追跡："
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:378
+#: core/ui/invoice_page_wpi_page_settings.php:385
 msgid "Attempting to pay Invoices"
 msgstr "請求書を支払おうとしています。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:381
+#: core/ui/invoice_page_wpi_page_settings.php:388
 msgid "View Invoices"
 msgstr "請求書の表示"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:411
+#: core/ui/invoice_page_wpi_page_settings.php:418
 msgid "Default Currency"
 msgstr "既定の通貨"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:421
+#: core/ui/invoice_page_wpi_page_settings.php:428
 msgid "Currency list"
 msgstr "通貨リスト"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:426
+#: core/ui/invoice_page_wpi_page_settings.php:433
 msgid "Code"
 msgstr "コード"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:427
+#: core/ui/invoice_page_wpi_page_settings.php:434
 msgid "Symbol"
 msgstr "シンボル"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:451
+#: core/ui/invoice_page_wpi_page_settings.php:458
 msgid "Add Currency"
 msgstr "通貨を追加"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:462
+#: core/ui/invoice_page_wpi_page_settings.php:469
 msgid "Default Payment Method"
 msgstr "デフォルトの支払い方法"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:469
+#: core/ui/invoice_page_wpi_page_settings.php:476
 #: core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:398
 msgid "Client can change payment option."
 msgstr "クライアントは、支払いオプションを変更できます。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:474
+#: core/ui/invoice_page_wpi_page_settings.php:481
 msgid "Payment Gateways"
 msgstr "支払ゲートウェイ"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:533
+#: core/ui/invoice_page_wpi_page_settings.php:540
 msgid "Manual Payment information"
 msgstr "手動のお支払い情報"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:538
+#: core/ui/invoice_page_wpi_page_settings.php:545
 msgid "If an invoice has no payment gateways, this message will be displayed offering the customer guidance on their course of action."
 msgstr "請求書に決済ゲートウェイがない場合、行動指針にしたがってカスタマーガイダンスを提供してこのメッセージが表示されます。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:546
+#: core/ui/invoice_page_wpi_page_settings.php:553
 msgid "Subscription Payments"
 msgstr "サブスクリプションの支払い"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:571
+#: core/ui/invoice_page_wpi_page_settings.php:578
 msgid "Subject"
 msgstr "件名"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:572
+#: core/ui/invoice_page_wpi_page_settings.php:579
 msgid "Content"
 msgstr "内容"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:596
+#: core/ui/invoice_page_wpi_page_settings.php:603
 msgid "Add Template"
 msgstr "テンプレートを追加"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:647
+#: core/ui/invoice_page_wpi_page_settings.php:654
 msgid "Setup your common services and products in here to streamline invoice creation."
 msgstr "一般的なサービスおよび請求書の作成を合理化するためにここで製品をセットアップします。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:664
+#: core/ui/invoice_page_wpi_page_settings.php:671
 msgid "Name & Description"
 msgstr "名前 & 説明"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:667
+#: core/ui/invoice_page_wpi_page_settings.php:674
 #, fuzzy
 msgid "Tax %"
 msgstr "税"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:705
+#: core/ui/invoice_page_wpi_page_settings.php:712
 msgid "Add Line Item"
 msgstr "取扱品名を追加"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:736
+#: core/ui/invoice_page_wpi_page_settings.php:743
 msgid "Look up the $wpi_settings global settings array:"
 msgstr "$wpi_settings のグローバル設定の配列を見る："
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:736
+#: core/ui/invoice_page_wpi_page_settings.php:743
 msgid "Toggle $wpi_settings"
 msgstr "$wpi_settings 切替"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:743
+#: core/ui/invoice_page_wpi_page_settings.php:750
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr "WP-Invoice 構成のバックアップを復元"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:744
+#: core/ui/invoice_page_wpi_page_settings.php:751
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr "WP-Invoiceの現在の構成のバックアップをダウンロードします。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:782
+#: core/ui/invoice_page_wpi_page_settings.php:789
 msgid "Check for Updates"
 msgstr "更新プログラムの確認"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:784
+#: core/ui/invoice_page_wpi_page_settings.php:791
 msgid "Check for any premium feature updates from the Usability Dynamics Update server:"
 msgstr "ユーザビリティ ダイナミクス更新サーバーからのプレミアム機能アップデートを確認します。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:785
+#: core/ui/invoice_page_wpi_page_settings.php:792
 msgid "Check Updates"
 msgstr "更新を確認"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:789
+#: core/ui/invoice_page_wpi_page_settings.php:796
 msgid "Your Domain"
 msgstr "あなたのドメイン"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:791
+#: core/ui/invoice_page_wpi_page_settings.php:798
 msgid "When purchasing the premium features you will need to specify your domain to add the license correctly.  This is your domain:"
 msgstr "プレミアム機能を購入するとき、ライセンスを正しく追加するドメインを指定する必要があります。これはあなたのドメインです："
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:797
+#: core/ui/invoice_page_wpi_page_settings.php:804
 msgid "WP-Invoice API Key"
 msgstr "WP-Invoice API キー"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:801
+#: core/ui/invoice_page_wpi_page_settings.php:808
 msgid "Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href=\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
 msgstr "いくつかのサブスクリプション ベースのプレミアム機能は、このドメインと WP-Invoice 固有 API キーが必要です。 <a href=\"#\" target=\"_blank\">>UsabilityDynamics.com</a>のアカウントからこれを得ることができます。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:840
+#: core/ui/invoice_page_wpi_page_settings.php:847
 msgid "[purchase feature]"
 msgstr "[purchase feature]"
 
 # @ default
-#: core/ui/invoice_page_wpi_page_settings.php:850
+#: core/ui/invoice_page_wpi_page_settings.php:857
 #, php-format
 msgid "This feature is disabled because it requires WP-Invoice %1$s or higher."
 msgstr "WP-Invoice %1$s またはそれ以上が必要なためこの機能は無効化されています。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:852
+#: core/ui/invoice_page_wpi_page_settings.php:859
 msgid "Disable premium feature."
 msgstr "プレミアム機能を無効にします。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:855
+#: core/ui/invoice_page_wpi_page_settings.php:862
 msgid "Feature installed, using version"
 msgstr "機能がインストールされました。使用バージョン"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:859
+#: core/ui/invoice_page_wpi_page_settings.php:866
 #, php-format
 msgid "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this feature."
 msgstr "この機能を購入するには<a href=\"%s\">UsabilityDynamics.com</a>を参照してください。"
 
 # @ wp-invoice
-#: core/ui/invoice_page_wpi_page_settings.php:869
+#: core/ui/invoice_page_wpi_page_settings.php:876
 #, fuzzy
 msgid "There are no available premium features. Try clicking Check Updates button above."
 msgstr "利用可能なプレミアム機能はありません。"

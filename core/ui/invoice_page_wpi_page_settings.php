@@ -237,6 +237,10 @@ class WPI_Settings_page {
             <li>
               <?php echo WPI_UI::checkbox("name=wpi_settings[send_password_to_new_users]&value=true&label=" . __("Send passwords to newly created recipients.", WPI), WPI_Functions::is_true($wpi_settings['send_password_to_new_users'])); ?>
             </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[turn_off_compatibility_mode]&value=true&label=" . __("Turn off compatibility mode.", WPI), WPI_Functions::is_true($wpi_settings['turn_off_compatibility_mode'])); ?>
+              <div class="description"><?php _e( 'By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off.', WPI ); ?></div>
+            </li>
           </ul>
         </td>
       </tr>
