@@ -2014,10 +2014,10 @@ class WPI_Functions {
     global $wpi_settings;
 
     $default_headers = array(
-      'Name' => __( 'Name', WPI ),
-      'Version' => __( 'Version', WPI ),
-      'Description' => __( 'Description', WPI ),
-      'Minimum Core Version' => __( 'Minimum Core Version', WPI )
+      'Name' => 'Name',
+      'Version' => 'Version',
+      'Description' => 'Description',
+      'Minimum Core Version' => 'Minimum Core Version'
     );
 
     $previos_data = $wpi_settings[ 'installed_features' ];
