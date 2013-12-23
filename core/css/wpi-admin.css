@@ -417,7 +417,7 @@ input.wpi_no_input{
 }
 
 #wpi_invoice_form #side-info-column .form-table th,
-#wpi_invoice_form #postbox-container-1 .form-table th {width: 80px; color: #777777}
+#wpi_invoice_form #postbox-container-1 .form-table th {width: 80px; color: #777777; padding-left: 10px;}
 #wpi_invoice_form .form-table td {padding-left: 0; padding-right: 0;}
 
 #wpi_screen_meta .wp_invoice_ui_manage_page ul li{padding-bottom: 10px;}
