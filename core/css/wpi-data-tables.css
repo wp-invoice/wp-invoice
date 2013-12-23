@@ -86,24 +86,6 @@
 	float: left;
 }
 
-.paginate_disabled_previous {
-	background-image: url('images/back_disabled.jpg');
-}
-
-.paginate_enabled_previous {
-	background-image: url('images/back_enabled.jpg');
-}
-
-.paginate_disabled_next {
-	background-image: url('images/forward_disabled.jpg');
-}
-
-.paginate_enabled_next {
-	background-image: url('images/forward_enabled.jpg');
-}
-
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables display
  */
@@ -159,34 +141,6 @@ table.display td.center {
 .wp-list-table .column-user_email {
   width:185px;
 }
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DataTables sorting
- */
-
-.sorting_asc {
-	background: url('images/sort_asc.png') no-repeat center right;
-}
-
-.sorting_desc {
-	background: url('images/sort_desc.png') no-repeat center right;
-}
-
-.sorting {
-	background: url('images/sort_both.png') no-repeat center right;
-}
-
-.sorting_asc_disabled {
-	background: url('images/sort_asc_disabled.png') no-repeat center right;
-}
-
-.sorting_desc_disabled {
-	background: url('images/sort_desc_disabled.png') no-repeat center right;
-}
-
-
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables row classes
