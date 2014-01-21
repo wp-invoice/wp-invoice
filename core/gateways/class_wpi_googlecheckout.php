@@ -144,7 +144,7 @@ class wpi_googlecheckout extends wpi_gateway_base {
         </td>
       </tr>
       <tr>
-        <th><?php _e( 'Send Invoice', WPI ); ?></th>
+        <th><?php _e( 'Payment Date', WPI ); ?></th>
         <td>
           <script type="text/javascript">
             var recurring_send_invoice_automatically_<?php echo $this->type; ?> = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';

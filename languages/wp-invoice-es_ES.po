@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 17:18+0200\n"
+"POT-Creation-Date: 2014-01-21 17:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: \n"
@@ -2702,7 +2702,7 @@ msgid "You can create as many e-mailed templates as needed, they can later be us
 msgstr "Puedes crear tantas plantillas enviadas por correo electrónico, según sea necesario, que luego se pueden utilizar para crear rápidamente las notificaciones de facturas y recordatorios, y se envían directamente desde una página de la factura. Las siguientes variables se pueden utilizar en el asunto o el contenido de las plantillas de correo electrónico:"
 
 #: ../core/wpi_ui.php:403
-#: ../core/wpi_ui.php:607
+#: ../core/wpi_ui.php:608
 msgid "Invoice ID"
 msgstr "ID de factura"
 
@@ -2800,61 +2800,61 @@ msgstr "Buscar Factura"
 msgid "Works the same way as 'Invoice Lookup' widget. Allows you to search your invoices by invoice numbers."
 msgstr "Funciona de la misma manera que tu currículum 'Buscar factura. Permite buscar sus facturas por el número de factura."
 
-#: ../core/wpi_ui.php:601
+#: ../core/wpi_ui.php:602
 msgid "Title"
 msgstr "Título"
 
-#: ../core/wpi_ui.php:602
+#: ../core/wpi_ui.php:603
 msgid "Total Collected"
 msgstr "Total Recaudado"
 
-#: ../core/wpi_ui.php:603
+#: ../core/wpi_ui.php:604
 msgid "Recipient"
 msgstr "Recibidor"
 
-#: ../core/wpi_ui.php:604
+#: ../core/wpi_ui.php:605
 #: ../core/gateways/class_wpi_authorize.php:262
 #: ../core/gateways/class_wpi_googlecheckout.php:163
 msgid "Date"
 msgstr "Fecha"
 
-#: ../core/wpi_ui.php:712
+#: ../core/wpi_ui.php:713
 msgid "Payment Settings"
 msgstr "Configuraciones de Pago"
 
-#: ../core/wpi_ui.php:715
+#: ../core/wpi_ui.php:716
 msgid "Overview"
 msgstr "Vista General"
 
-#: ../core/wpi_ui.php:717
+#: ../core/wpi_ui.php:718
 msgid "Publish"
 msgstr "Publicar"
 
-#: ../core/wpi_ui.php:719
+#: ../core/wpi_ui.php:720
 msgid "User Information"
 msgstr "Información del Usuario"
 
-#: ../core/wpi_ui.php:799
+#: ../core/wpi_ui.php:800
 msgid "For more information:"
 msgstr "Para más información:"
 
-#: ../core/wpi_ui.php:800
+#: ../core/wpi_ui.php:801
 msgid "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">WP-Invoice Product Page</a>"
 msgstr "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">Página del Producto WP-Invoice </a>"
 
-#: ../core/wpi_ui.php:801
+#: ../core/wpi_ui.php:802
 msgid "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target=\"_blank\">WP-Invoice Forums</a>"
 msgstr "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target=\"_blank\">Foro de WP-Invoice</a>"
 
-#: ../core/wpi_ui.php:807
+#: ../core/wpi_ui.php:808
 msgid "Please upgrade Wordpress to the latest version for detailed help."
 msgstr "Por favor actualiza Wordpress a la última versión para más ayuda."
 
-#: ../core/wpi_ui.php:807
+#: ../core/wpi_ui.php:808
 msgid "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
 msgstr "O visita <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">La página de ayuda de WP-Invoice</a> en UsabilityDynamics.com"
 
-#: ../core/wpi_ui.php:1129
+#: ../core/wpi_ui.php:1130
 #: ../core/gateways/class_wpi_authorize.php:80
 #: ../core/gateways/class_wpi_authorize.php:102
 #: ../core/gateways/class_wpi_googlecheckout.php:36
@@ -2863,7 +2863,7 @@ msgstr "O visita <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" 
 msgid "Yes"
 msgstr "Si"
 
-#: ../core/wpi_ui.php:1129
+#: ../core/wpi_ui.php:1130
 #: ../core/gateways/class_wpi_authorize.php:81
 #: ../core/gateways/class_wpi_authorize.php:103
 #: ../core/gateways/class_wpi_googlecheckout.php:35
@@ -2872,104 +2872,104 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-#: ../core/wpi_ui.php:1132
+#: ../core/wpi_ui.php:1133
 msgid "Select"
 msgstr "Selecciona"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1321
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1322
 msgid "Jan"
 msgstr "Ene"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1322
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1323
 msgid "Feb"
 msgstr "Feb"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1323
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1324
 msgid "Mar"
 msgstr "Mar"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1324
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1325
 msgid "Apr"
 msgstr "Abr"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1325
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1326
 msgid "May"
 msgstr "May"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1326
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1327
 msgid "Jun"
 msgstr "Jun"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1327
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1328
 msgid "Jul"
 msgstr "Jul"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1328
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1329
 msgid "Aug"
 msgstr "Ago"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1329
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1330
 msgid "Sep"
 msgstr "Sep"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1330
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1331
 msgid "Oct"
 msgstr "Oct"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1331
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1332
 msgid "Nov"
 msgstr "Nov"
 
-#: ../core/wpi_ui.php:1150
-#: ../core/wpi_ui.php:1332
+#: ../core/wpi_ui.php:1151
+#: ../core/wpi_ui.php:1333
 msgid "Dec"
 msgstr "Dic"
 
-#: ../core/wpi_ui.php:1162
+#: ../core/wpi_ui.php:1163
 msgid "Values are empty"
 msgstr "Los valores están vacíos"
 
-#: ../core/wpi_ui.php:1184
+#: ../core/wpi_ui.php:1185
 msgid "View Profile"
 msgstr "Ver Perfil"
 
-#: ../core/wpi_ui.php:1187
+#: ../core/wpi_ui.php:1188
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "Obtén el plugin WP-CRM para mejorar la administración del usuario."
 
-#: ../core/wpi_ui.php:1218
+#: ../core/wpi_ui.php:1219
 #, fuzzy
 msgid "WP-Invoice custom field"
 msgstr "Título de Factura"
 
-#: ../core/wpi_ui.php:1234
+#: ../core/wpi_ui.php:1235
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
-#: ../core/wpi_ui.php:1235
+#: ../core/wpi_ui.php:1236
 msgid "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>"
 msgstr "<p>Opción Avanzada<b>Campo PersonalizadoWP-Invoice</b> puede ser usado para agregar un usuario personalizado para formas de pago.</p>"
 
-#: ../core/wpi_ui.php:1236
+#: ../core/wpi_ui.php:1237
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr "<p>Obras para el método de pago Authorize.net sólo por ahora.</p>"
 
-#: ../core/wpi_ui.php:1237
+#: ../core/wpi_ui.php:1238
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "<h3>Notificaciones de WP-Invoice</h3>"
 
-#: ../core/wpi_ui.php:1238
+#: ../core/wpi_ui.php:1239
 msgid "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you can use this shortcodes:</p>"
 msgstr "<p> Para las notificaciones en cualquiera de estas acciones - <i> WPI: Factura de pago (recibo del cliente) </ i>, <i> WPI: Factura de pago (Notificar al Administrator) </ i>, <i> WPI : Factura de pago (Avisar al Creador) </ i> - puede utilizar estos accesos directos: </ p>"
 
@@ -3360,8 +3360,8 @@ msgstr ""
 #: ../core/gateways/class_wpi_authorize.php:246
 #: ../core/gateways/class_wpi_googlecheckout.php:147
 #, fuzzy
-msgid "Send Invoice"
-msgstr "Nueva Factura"
+msgid "Payment Date"
+msgstr "Dirección de Pago"
 
 #: ../core/gateways/class_wpi_authorize.php:258
 #: ../core/gateways/class_wpi_googlecheckout.php:159
@@ -4007,7 +4007,7 @@ msgid "Log History"
 msgstr "Historial de Factura"
 
 #: ../core/premium/wpi_power_tools.php:595
-#: ../core/premium/wpi_power_tools.php:1779
+#: ../core/premium/wpi_power_tools.php:1783
 msgid "Export Invoice log history."
 msgstr "Exportar historial de registro de facturas."
 
@@ -4025,7 +4025,7 @@ msgid "Import Options"
 msgstr "<b> opciones de importación </ b>"
 
 #: ../core/premium/wpi_power_tools.php:630
-#: ../core/premium/wpi_power_tools.php:1793
+#: ../core/premium/wpi_power_tools.php:1797
 msgid "Add import log item."
 msgstr "Añadir elemento del registro de importación."
 
@@ -4035,7 +4035,7 @@ msgid "Recipients"
 msgstr "Recibidor"
 
 #: ../core/premium/wpi_power_tools.php:646
-#: ../core/premium/wpi_power_tools.php:1799
+#: ../core/premium/wpi_power_tools.php:1803
 msgid "Override Recipient information if already exists."
 msgstr "Reemplazar la información del destinatario, si ya existe."
 
@@ -4144,75 +4144,75 @@ msgstr "Descargar PDF"
 msgid "Under WP-Invoice Objects we mean Invoices, Quotes, Receipts, <abbr title=\"Single Page Checkout\">SPC</abbr> transactions and any other types of invoices."
 msgstr ""
 
-#: ../core/premium/wpi_power_tools.php:1771
+#: ../core/premium/wpi_power_tools.php:1775
 msgid "Export/Import Invoices"
 msgstr "Exportación / Importación de facturas"
 
-#: ../core/premium/wpi_power_tools.php:1772
+#: ../core/premium/wpi_power_tools.php:1776
 msgid "<b>Export Options</b>"
 msgstr "<b> Opciones de exportación </ b>"
 
-#: ../core/premium/wpi_power_tools.php:1773
+#: ../core/premium/wpi_power_tools.php:1777
 msgid "<u>Default Format</u> - format that will be used for generating export file dump. You can specify format using dropdown next to \"Export\" button."
 msgstr "<u> Formato Predeterminado </ u> - formato que se utilizará para la generación de volcado de archivo de exportación. Puede especificar formato utilizando desplegable al lado del botón \"Exportar\"."
 
-#: ../core/premium/wpi_power_tools.php:1774
+#: ../core/premium/wpi_power_tools.php:1778
 msgid "<u>XML Charset</u> - the charset of the dump file content. It is recommended to use default but you can change it to some supported charset. Note that unsupported charsets can make export failed."
 msgstr "<u> XML Charset </ u> - el juego de caracteres del contenido del archivo de volcado. Se recomienda usar por defecto, pero se puede cambiar a algún juego de caracteres admitidos. Tenga en cuenta que los conjuntos de caracteres no compatibles pueden no exportación."
 
-#: ../core/premium/wpi_power_tools.php:1775
+#: ../core/premium/wpi_power_tools.php:1779
 msgid "<u>XML Version</u> - the value which is used for XML formatted dump files. Usually is \"1.0\""
 msgstr "<u> Versión XML </ u> - el valor que se utiliza para los archivos de volcado XML formateados. Por lo general es \"1.0\""
 
-#: ../core/premium/wpi_power_tools.php:1776
+#: ../core/premium/wpi_power_tools.php:1780
 msgid "<u>Log History</u> - options for log history exports. See descriptions below:"
 msgstr "<u> Log History </ u> - opciones para la exportación de historia de registro. Vea las descripciones a continuación:"
 
-#: ../core/premium/wpi_power_tools.php:1779
+#: ../core/premium/wpi_power_tools.php:1783
 msgid "whether or not to export history logs for every invoice object."
 msgstr "si o no exportar registros de la historia de cada objeto factura."
 
-#: ../core/premium/wpi_power_tools.php:1782
+#: ../core/premium/wpi_power_tools.php:1786
 msgid "<u>Filename Format</u> - specify pattern for dump filename to use. Use allowed tags below."
 msgstr "<u> formato de fichero </ u> - especificar patrón de nombre de archivo de volcado de usar. Utilice etiquetas permitidas a continuación."
 
-#: ../core/premium/wpi_power_tools.php:1783
+#: ../core/premium/wpi_power_tools.php:1787
 msgid "<u>Advanced Options</u> - some advanced useful options. See descriptions below:"
 msgstr "<u> Opciones avanzadas </ u> - algunas opciones útiles avanzados. Vea las descripciones a continuación:"
 
-#: ../core/premium/wpi_power_tools.php:1786
+#: ../core/premium/wpi_power_tools.php:1790
 msgid "Delete exported Objects (Invoices) after export."
 msgstr "Eliminar objetos exportados (Facturas) después de la exportación."
 
-#: ../core/premium/wpi_power_tools.php:1786
+#: ../core/premium/wpi_power_tools.php:1790
 msgid "if you are SURE that you don't need your invoice objects any more then this option will delete invoices after export is done. Note that you won't be able to restore them."
 msgstr "Si está seguro de que usted no necesita los objetos de factura más, esta opción eliminará las facturas después de que se realiza la exportación. Tenga en cuenta que usted no será capaz de restaurarlos."
 
-#: ../core/premium/wpi_power_tools.php:1789
+#: ../core/premium/wpi_power_tools.php:1793
 msgid "<b>Import Options</b>"
 msgstr "<b> opciones de importación </ b>"
 
-#: ../core/premium/wpi_power_tools.php:1790
+#: ../core/premium/wpi_power_tools.php:1794
 msgid "<u>Log History</u> - options for log history imports. See descriptions below:"
 msgstr "<u>Historial de Registro</ u> - opciones para la importación de historia de registro. Vea las descripciones a continuación:"
 
-#: ../core/premium/wpi_power_tools.php:1793
+#: ../core/premium/wpi_power_tools.php:1797
 msgid "whether or not to add log item with information about importing invoice object."
 msgstr "si desea añadir el artículo log con información sobre la importación objeto factura."
 
-#: ../core/premium/wpi_power_tools.php:1796
+#: ../core/premium/wpi_power_tools.php:1800
 msgid "<u>Recipients</u> - options for management recipients. See descriptions below:"
 msgstr "<u> Destinatarios </ u> - opciones para la gestión de los destinatarios. Vea las descripciones a continuación:"
 
-#: ../core/premium/wpi_power_tools.php:1799
+#: ../core/premium/wpi_power_tools.php:1803
 msgid "whether or not to replace existing user's information."
 msgstr "si o no para reemplazar la información del usuario existente."
 
-#: ../core/premium/wpi_power_tools.php:1800
+#: ../core/premium/wpi_power_tools.php:1804
 msgid "You can decide what to do if user doesn't exist using the dropdown <i>'If Recipient does not exist'.</i>"
 msgstr "Usted puede decidir qué hacer si el usuario no existe utilizando la <i> desplegable 'Si destinatario no existe'. </ I>"
 
-#: ../core/premium/wpi_power_tools.php:1801
+#: ../core/premium/wpi_power_tools.php:1805
 msgid "In order to the option that you have selected above, you'll be able to select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
 msgstr "Con el fin de la opción que haya seleccionado anteriormente, usted será capaz de seleccionar <i> usuario Rol '</ i> o <i> Especifique Destinatario (e-mail)' </ i>."
 
@@ -4817,20 +4817,20 @@ msgstr "cargo agregado"
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:222
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: ../core/ui/invoice_page_wpi_page_settings.php:675
+#: ../core/ui/invoice_page_wpi_page_settings.php:686
 #, fuzzy
 msgid "Total"
 msgstr "Portugal"
 
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:219
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: ../core/ui/invoice_page_wpi_page_settings.php:672
+#: ../core/ui/invoice_page_wpi_page_settings.php:683
 msgid "Qty."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:243
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: ../core/ui/invoice_page_wpi_page_settings.php:685
+#: ../core/ui/invoice_page_wpi_page_settings.php:696
 #, fuzzy
 msgid "Toggle Description"
 msgstr "Descripción"
@@ -5256,90 +5256,90 @@ msgstr "Platillas E-Mail"
 msgid "Setup your common services and products in here to streamline invoice creation."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:671
+#: ../core/ui/invoice_page_wpi_page_settings.php:682
 #, fuzzy
 msgid "Name & Description"
 msgstr "Descripción"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:674
+#: ../core/ui/invoice_page_wpi_page_settings.php:685
 #, fuzzy
 msgid "Tax %"
 msgstr "Impuesto"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:712
+#: ../core/ui/invoice_page_wpi_page_settings.php:722
 #, fuzzy
 msgid "Add Line Item"
 msgstr "Elementos de línea"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:743
+#: ../core/ui/invoice_page_wpi_page_settings.php:753
 msgid "Look up the $wpi_settings global settings array:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:743
+#: ../core/ui/invoice_page_wpi_page_settings.php:753
 msgid "Toggle $wpi_settings"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:750
+#: ../core/ui/invoice_page_wpi_page_settings.php:760
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:751
+#: ../core/ui/invoice_page_wpi_page_settings.php:761
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:789
+#: ../core/ui/invoice_page_wpi_page_settings.php:799
 msgid "Check for Updates"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:791
+#: ../core/ui/invoice_page_wpi_page_settings.php:801
 msgid "Check for any premium feature updates from the Usability Dynamics Update server:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:792
+#: ../core/ui/invoice_page_wpi_page_settings.php:802
 msgid "Check Updates"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:796
+#: ../core/ui/invoice_page_wpi_page_settings.php:806
 #, fuzzy
 msgid "Your Domain"
 msgstr "Su cantidad"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:798
+#: ../core/ui/invoice_page_wpi_page_settings.php:808
 msgid "When purchasing the premium features you will need to specify your domain to add the license correctly.  This is your domain:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:804
+#: ../core/ui/invoice_page_wpi_page_settings.php:814
 #, fuzzy
 msgid "WP-Invoice API Key"
 msgstr "ID de factura"
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:808
+#: ../core/ui/invoice_page_wpi_page_settings.php:818
 msgid "Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href=\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:847
+#: ../core/ui/invoice_page_wpi_page_settings.php:857
 msgid "[purchase feature]"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:857
+#: ../core/ui/invoice_page_wpi_page_settings.php:867
 #, fuzzy, php-format
 msgid "This feature is disabled because it requires WP-Invoice %1$s or higher."
 msgstr "Esta función está desactivada porque requiere WP-Invoice% 1 $ s o superior."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:859
+#: ../core/ui/invoice_page_wpi_page_settings.php:869
 msgid "Disable premium feature."
 msgstr "Desactivar la característica premium."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:862
+#: ../core/ui/invoice_page_wpi_page_settings.php:872
 msgid "Feature installed, using version"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:866
+#: ../core/ui/invoice_page_wpi_page_settings.php:876
 #, php-format
 msgid "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this feature."
 msgstr "Por favor, visite <a href=\"%s\"> UsabilityDynamics.com </ a> para comprar esta característica."
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:876
+#: ../core/ui/invoice_page_wpi_page_settings.php:886
 msgid "There are no available premium features. Try clicking Check Updates button above."
 msgstr ""
 
@@ -5622,6 +5622,10 @@ msgstr "Proceso de pago de% s"
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:592
 msgid "Toggle History Detail"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Send Invoice"
+#~ msgstr "Nueva Factura"
 
 #~ msgid "Minimum Core Version"
 #~ msgstr "Versión mínima del núcleo"

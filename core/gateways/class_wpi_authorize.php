@@ -243,7 +243,7 @@ class wpi_authorize extends wpi_gateway_base {
         <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][".$this->type."][cycles]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['cycles'] : '') . "&class=wpi_small"); ?></td>
       </tr>
       <tr>
-        <th><?php _e( 'Send Invoice', WPI ); ?></th>
+        <th><?php _e( 'Payment Date', WPI ); ?></th>
         <td>
           <script type="text/javascript">
             var recurring_send_invoice_automatically_<?php echo $this->type; ?> = '<?php echo !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'; ?>';
