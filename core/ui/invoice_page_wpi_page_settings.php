@@ -655,6 +655,17 @@ class WPI_Settings_page {
     <script type="text/javascript">
       jQuery(document).ready( function() {
         wpi_recalc_totals();
+        jQuery('#wpi_predefined_services_div tbody').sortable({
+          stop: function( event, ui ) {
+            jQuery.each(jQuery('tr', ui.item.parent()), function(key, tr){
+              var slug = jQuery(tr).attr('slug');
+              jQuery('input,textarea', tr).each(function(k, v){
+                jQuery(v).attr('name', String(jQuery(v).attr('name')).replace(String(slug), String(key)));
+              });
+              jQuery(tr).attr('slug', key);
+            });
+          }
+        });
       });
     </script>
     <?php
@@ -679,12 +690,11 @@ class WPI_Settings_page {
     <?php foreach ($wpi_settings['predefined_services'] as $slug => $itemized_item) : ?>
             <tr class="wpi_dynamic_table_row wp_invoice_itemized_list_row" slug="<?php echo $slug; ?>" new_row="false">
               <td>
-                <div class="flexible_width_holder">
-                  <div class="flexible_width_holder_content"> <span class="row_delete">&nbsp;</span>
+                <span>
+                  <span class="row_delete">&nbsp;</span>
                     <input type="text" class="item_name input_field" name="wpi_settings[predefined_services][<?php echo $slug; ?>][name]" value="<?php echo esc_attr($itemized_item['name']); ?>" />
                     <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e("Toggle Description", WPI) ?></span></span>
-                  </div>
-                </div>
+                </span>
                 <div class="flexible_width_holder">
                   <div class="flexible_width_holder_content">
                     <textarea style="display:<?php echo (empty($itemized_item['description']) ? 'none' : 'block'); ?>" name="wpi_settings[predefined_services][<?php echo $slug; ?>][description]" class="item_description"><?php echo esc_attr($itemized_item['description']); ?></textarea>

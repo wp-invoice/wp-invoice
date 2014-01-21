@@ -559,6 +559,7 @@ class WPI_UI {
         wp_enqueue_script( 'postbox' );
       case 'invoice_page_wpi_page_settings':
         wp_enqueue_script( 'jquery-ui-tabs' );
+        wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'wp-invoice-functions' );
         wp_enqueue_script( 'jquery.smookie' );
         wp_enqueue_script( 'jquery-ui-autocomplete' );
