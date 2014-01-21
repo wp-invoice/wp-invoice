@@ -9,6 +9,7 @@ jQuery( document ).ready( function () {
   if ( jQuery( '.wrap.wpi_invoice_status_paid' ).length ) {
     jQuery( 'select,textarea,input', jQuery( '.wpi_invoice_status_paid' ) ).attr( 'disabled', true );
     jQuery( 'select,textarea,input', jQuery( '#wpi_enter_payments' ) ).attr( 'disabled', false );
+    jQuery( 'select,textarea,input', jQuery( '#send_notification_box' ) ).attr( 'disabled', false );
     jQuery( '.button.add-new-h2' ).attr( 'disabled', false );
   }
 
