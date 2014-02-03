@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-21 17:35+0200\n"
-"PO-Revision-Date: 2014-01-21 17:35+0200\n"
+"POT-Creation-Date: 2014-02-03 18:16+0200\n"
+"PO-Revision-Date: 2014-02-03 18:16+0200\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: dvzzz <dvzzz.kg@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -3261,7 +3261,7 @@ msgstr "E-mail пользователя"
 
 #: ../core/gateways/class_wpi_authorize.php:154
 #: ../core/gateways/class_wpi_googlecheckout.php:85
-#: ../core/gateways/class_wpi_interkassa.php:71
+#: ../core/gateways/class_wpi_interkassa.php:75
 #: ../core/gateways/class_wpi_paypal.php:112
 #: ../core/gateways/class_wpi_stripe.php:50
 msgid "Address"
@@ -3389,27 +3389,27 @@ msgid "Specify a URL for Google to notify you of new orders and changes in order
 msgstr "Укажите URL для Google, чтобы уведомить Dас о новых заказах и изменения в порядке."
 
 #: ../core/gateways/class_wpi_googlecheckout.php:71
-#: ../core/gateways/class_wpi_interkassa.php:59
+#: ../core/gateways/class_wpi_interkassa.php:63
 #: ../core/gateways/class_wpi_paypal.php:87
 #: ../core/gateways/class_wpi_stripe.php:38
 msgid "Email Address"
 msgstr "Email адрес"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:78
-#: ../core/gateways/class_wpi_interkassa.php:65
+#: ../core/gateways/class_wpi_interkassa.php:69
 #: ../core/gateways/class_wpi_stripe.php:44
 msgid "Phone"
 msgstr "Телефон"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:99
-#: ../core/gateways/class_wpi_interkassa.php:83
+#: ../core/gateways/class_wpi_interkassa.php:87
 #: ../core/gateways/class_wpi_paypal.php:126
 #: ../core/gateways/class_wpi_stripe.php:62
 msgid "State/Province"
 msgstr "Штат/Провинция"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:106
-#: ../core/gateways/class_wpi_interkassa.php:89
+#: ../core/gateways/class_wpi_interkassa.php:93
 #: ../core/gateways/class_wpi_paypal.php:133
 #: ../core/gateways/class_wpi_stripe.php:68
 msgid "Zip/Postal Code"
@@ -3464,7 +3464,7 @@ msgid "No Charge After"
 msgstr "Не взымать после"
 
 #: ../core/gateways/class_wpi_googlecheckout.php:278
-#: ../core/gateways/class_wpi_interkassa.php:186
+#: ../core/gateways/class_wpi_interkassa.php:190
 #: ../core/gateways/class_wpi_paypal.php:321
 msgid "Direct access not allowed"
 msgstr "В прямом доступе отказано"
@@ -3488,27 +3488,31 @@ msgid "Secret Key"
 msgstr ""
 
 #: ../core/gateways/class_wpi_interkassa.php:33
+msgid "Test Key"
+msgstr ""
+
+#: ../core/gateways/class_wpi_interkassa.php:37
 msgid "Status URL"
 msgstr "Status URL"
 
-#: ../core/gateways/class_wpi_interkassa.php:35
+#: ../core/gateways/class_wpi_interkassa.php:39
 msgid "Use this URL as Status URL in Merchant settings to get notified once payments made."
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:104
+#: ../core/gateways/class_wpi_interkassa.php:108
 msgid "InterKassa Recurring Billing"
 msgstr "InterKassa Регулярные Платежи"
 
-#: ../core/gateways/class_wpi_interkassa.php:105
+#: ../core/gateways/class_wpi_interkassa.php:109
 msgid "Currently InterKassa gateway does not support Recurring Billing"
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:209
+#: ../core/gateways/class_wpi_interkassa.php:213
 #, php-format
 msgid "%s paid via InterKassa [%s]"
 msgstr "%s оплачено через InterKassa [%s]"
 
-#: ../core/gateways/class_wpi_interkassa.php:217
+#: ../core/gateways/class_wpi_interkassa.php:221
 #, php-format
 msgid "Transaction ID: %s"
 msgstr "Транзакция №: %s"
