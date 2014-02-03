@@ -1,14 +1,14 @@
-<form action="http://www.interkassa.com/lib/payment.php" method="post" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
+<form action="https://sci.interkassa.com/" method="POST" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
     <?php if ( !is_recurring() ): ?>
       <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
       <input type="hidden" id="wpi_form_type" name="type" value="<?php print $this->type; ?>" />
       <input type="hidden" id="wpi_form_invoice_id" name="invoice_id" value="<?php print $invoice['invoice_id']; ?>" />
 
-      <input type="hidden" name="ik_shop_id" value="<?php echo $invoice['billing'][$this->type]['settings']['ik_shop_id']['value']; ?>">
-      <input type="hidden" id="payment_amount" name="ik_payment_amount" value="<?php echo number_format( (float)$invoice['net'], 2, '.', '' ); ?>">
-      <input type="hidden" name="ik_payment_id" value="<?php print $invoice['invoice_id']; ?>">
-      <input type="hidden" name="ik_payment_desc" value="<?php print $invoice['post_title']; ?>">
-      <input type="hidden" name="ik_paysystem_alias" value="">
+      <input type="hidden" name="ik_co_id" value="<?php echo $invoice['billing'][$this->type]['settings']['ik_shop_id']['value']; ?>">
+      <input type="hidden" id="payment_amount" name="ik_am" value="<?php echo number_format( (float)$invoice['net'], 2, '.', '' ); ?>">
+      <input type="hidden" name="ik_pm_no" value="<?php print $invoice['invoice_id']; ?>">
+      <input type="hidden" name="ik_desc" value="<?php print $invoice['post_title']; ?>">
+      <input type="hidden" name="ik_cur" value="<?php echo $invoice['default_currency_code']; ?>">
 
       <div id="credit_card_information">
 
