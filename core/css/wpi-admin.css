@@ -496,23 +496,6 @@ input.wpi_no_input{
   font-size: 13px;
 }
 
-#screen-functions-wrap,
-#screen-options-wrap
-{
-  border-style: none solid solid;
-  border-top: 0 none;
-  border-width: 0 1px 1px;
-  margin: 0 15px;
-  padding: 8px 12px 12px;
-  -moz-border-radius: 0 0 0 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  -khtml-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  background-color: #f1f1f1;
-  border-color: #dfdfdf;
-
-}
-
 #wpi_screen_meta a.show-settings {
   background-color: transparent;
   text-shadow: rgba(255,255,255,0.7) 0 1px 0;
