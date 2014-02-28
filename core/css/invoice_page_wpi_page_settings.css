@@ -107,6 +107,11 @@ td.wpi_premium_feature_image {
 
 #wp_invoice_settings_page {
   border: none;
+  background: none;
+}
+
+#wp_invoice_settings_page .form-table th {
+  padding: 20px 10px;
 }
 
 #wp_invoice_settings_page ul.wp_invoice_settings_tabs {
