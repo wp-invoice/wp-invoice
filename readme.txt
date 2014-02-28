@@ -109,6 +109,8 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 * Fixed critical issues.
 * Fixed Stripe gateway's conflict.
 * Fixed fatal error on sending notifications.
+* Updated German (DE) localization.
+* Updated Russian (RU) localization.
 
 = Version 3.09.2 =
 * Fixed simple style issues.
