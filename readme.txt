@@ -1,5 +1,5 @@
 === WP-Invoice - Web Invoice and Billing ===
-Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw
+Contributors: usability_dynamics, anton-korotkoff, andypotanin, jbrw1984, maxim.peshkov, ideric
 Donate link: https://usabilitydynamics.com/products/wp-invoice/
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, google checkout, merchantplus
 Requires at least: 3.6
