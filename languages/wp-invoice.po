@@ -2,22 +2,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-28 14:01+0200\n"
-"PO-Revision-Date: 2013-10-28 14:01+0200\n"
+"POT-Creation-Date: 2014-02-28 12:59+0200\n"
+"PO-Revision-Date: 2014-02-28 14:41+0200\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: Usability Dynamics, Inc. <info@usabilitydynamics.com>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_US\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
 #: ../wpi_legacy.php:106
-msgid "Global WP-Invoice Settings were successfully migrated to the new version."
+msgid ""
+"Global WP-Invoice Settings were successfully migrated to the new version."
 msgstr ""
 
 #: ../wpi_legacy.php:146
@@ -49,8 +50,7 @@ msgstr ""
 msgid "Invoice Notification"
 msgstr ""
 
-#: ../wpi_legacy.php:404
-#: ../core/wpi_settings.php:425
+#: ../wpi_legacy.php:404 ../core/wpi_settings.php:425
 msgid "Reminder"
 msgstr ""
 
@@ -90,8 +90,7 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-#: ../core/class_list_table.php:120
-#: ../core/wpi_functions.php:424
+#: ../core/class_list_table.php:120 ../core/wpi_functions.php:424
 msgid "All"
 msgstr ""
 
@@ -112,8 +111,7 @@ msgstr ""
 msgid "Invoice %s not found."
 msgstr ""
 
-#: ../core/template.php:58
-#: ../core/template.php:67
+#: ../core/template.php:58 ../core/template.php:67
 msgid "Archived."
 msgstr ""
 
@@ -125,43 +123,76 @@ msgstr ""
 msgid "Enter Invoice ID"
 msgstr ""
 
-#: ../core/template.php:88
-#: ../core/wpi_settings.php:51
+#: ../core/template.php:88 ../core/wpi_settings.php:51
 msgid "Lookup"
 msgstr ""
 
-#: ../core/ud_api.php:82
+#: ../core/ud_api.php:83
 msgid "API service not specified."
 msgstr ""
 
-#: ../core/ud_api.php:100
+#: ../core/ud_api.php:101
 #, php-format
 msgid "API Failure: %1s."
 msgstr ""
 
-#: ../core/ud_api.php:238
+#: ../core/ud_api.php:272
 msgid "UD Error"
 msgstr ""
 
-#: ../core/ud_api.php:804
+#: ../core/ud_api.php:845
 msgid "Unknown error."
 msgstr ""
 
-#: ../core/ud_api.php:890
+#: ../core/ud_api.php:932
 #, php-format
-msgid "You cannot call UD_API::log() before the %1$s hook, since the current user is not yet known."
+msgid ""
+"You cannot call UD_API::log() before the %1$s hook, since the current user "
+"is not yet known."
 msgstr ""
 
-#: ../core/ud_api.php:904
+#: ../core/ud_api.php:946
 msgid "Log Started."
 msgstr ""
 
-#: ../core/ud_api.php:1022
-msgid "UD Log Page for"
+#: ../core/ud_api.php:1048
+#, php-format
+msgid "You cannot call UD_API::add_log_page() after the %1$s hook."
 msgstr ""
 
-#: ../core/ud_api.php:1023
+#: ../core/ud_api.php:1076
+msgid "Log Page for"
+msgstr ""
+
+#: ../core/ud_api.php:1077
 msgid "Clear Log"
+msgstr ""
+
+#: ../core/ud_api.php:1082
+msgid "Timestamp"
+msgstr ""
+
+#: ../core/ud_api.php:1083 ../core/wpi_chargify.php:210
+#: ../core/wpi_chargify.php:217 ../core/wpi_ui.php:607
+msgid "Type"
+msgstr ""
+
+#: ../core/ud_api.php:1084 ../core/wpi_template_functions.php:270
+#: ../core/ui/invoice_page_wpi_page_settings.php:625
+#: ../core/ui/invoice_page_wpi_page_settings.php:639
+msgid "Event"
+msgstr ""
+
+#: ../core/ud_api.php:1085
+msgid "User"
+msgstr ""
+
+#: ../core/ud_api.php:1086
+msgid "Related Object"
+msgstr ""
+
+#: ../core/ud_api.php:1096 ../core/ui/invoice_page_wpi_page_settings.php:225
+msgid "None"
 msgstr ""
 
 #: ../core/wpi_ajax.php:21
@@ -173,7 +204,7 @@ msgstr ""
 msgid "Please enter a note and numeric amount."
 msgstr ""
 
-#: ../core/wpi_ajax.php:226
+#: ../core/wpi_ajax.php:226 ../core/premium/wpi_spc.php:817
 msgid "paid in"
 msgstr ""
 
@@ -203,8 +234,7 @@ msgstr ""
 msgid "Due date is not set"
 msgstr ""
 
-#: ../core/wpi_ajax.php:307
-#: ../core/wpi_ajax.php:308
+#: ../core/wpi_ajax.php:307 ../core/wpi_ajax.php:308
 msgid "invoice"
 msgstr ""
 
@@ -213,7 +243,9 @@ msgid "No description given."
 msgstr ""
 
 #: ../core/wpi_ajax.php:400
-msgid "The fields should not be empty. Please, check the fields data and try to send notification again."
+msgid ""
+"The fields should not be empty. Please, check the fields data and try to "
+"send notification again."
 msgstr ""
 
 #: ../core/wpi_ajax.php:411
@@ -246,7 +278,9 @@ msgid "Invoice id #"
 msgstr ""
 
 #: ../core/wpi_ajax.php:428
-msgid "There was a problem with saving the invoice. Reference the log for troubleshooting."
+msgid ""
+"There was a problem with saving the invoice. Reference the log for "
+"troubleshooting."
 msgstr ""
 
 #: ../core/wpi_ajax.php:474
@@ -282,13 +316,11 @@ msgstr ""
 msgid "metered"
 msgstr ""
 
-#: ../core/wpi_chargify.php:97
-#: ../core/wpi_chargify.php:273
+#: ../core/wpi_chargify.php:97 ../core/wpi_chargify.php:273
 msgid "Subscription Based Payments via Chargify"
 msgstr ""
 
-#: ../core/wpi_chargify.php:101
-#: ../core/wpi_ui.php:337
+#: ../core/wpi_chargify.php:101 ../core/wpi_ui.php:337
 msgid "General Information"
 msgstr ""
 
@@ -297,7 +329,9 @@ msgid "WPI API Key "
 msgstr ""
 
 #: ../core/wpi_chargify.php:112
-msgid "Oops, it looks like you haven't set your WPI API key on the Premium Features tab. Chargify will <strong>not</strong> work in it's current state."
+msgid ""
+"Oops, it looks like you haven't set your WPI API key on the Premium Features "
+"tab. Chargify will <strong>not</strong> work in it's current state."
 msgstr ""
 
 #: ../core/wpi_chargify.php:121
@@ -340,26 +374,26 @@ msgstr ""
 msgid "Products"
 msgstr ""
 
-#: ../core/wpi_chargify.php:167
-#: ../core/wpi_chargify.php:174
-#: ../core/wpi_chargify.php:209
-#: ../core/wpi_chargify.php:216
-#: ../core/wpi_functions.php:1942
-#: ../core/wpi_functions.php:2007
+#: ../core/wpi_chargify.php:167 ../core/wpi_chargify.php:174
+#: ../core/wpi_chargify.php:209 ../core/wpi_chargify.php:216
+#: ../core/wpi_functions.php:1952 ../core/premium/wpi_quotes.php:617
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:216
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:342
+#: ../core/ui/invoice_page_wpi_page_settings.php:435
+#: ../core/ui/invoice_page_wpi_page_settings.php:577
 msgid "Name"
 msgstr ""
 
-#: ../core/wpi_chargify.php:168
-#: ../core/wpi_chargify.php:175
-#: ../core/wpi_chargify.php:695
-#: ../core/wpi_chargify.php:875
+#: ../core/wpi_chargify.php:168 ../core/wpi_chargify.php:175
+#: ../core/wpi_chargify.php:695 ../core/wpi_chargify.php:875
 msgid "Trial"
 msgstr ""
 
-#: ../core/wpi_chargify.php:169
-#: ../core/wpi_chargify.php:176
-#: ../core/wpi_chargify.php:211
-#: ../core/wpi_chargify.php:218
+#: ../core/wpi_chargify.php:169 ../core/wpi_chargify.php:176
+#: ../core/wpi_chargify.php:211 ../core/wpi_chargify.php:218
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:220
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:350
+#: ../core/ui/invoice_page_wpi_page_settings.php:684
 msgid "Price"
 msgstr ""
 
@@ -367,14 +401,11 @@ msgstr ""
 msgid "Components"
 msgstr ""
 
-#: ../core/wpi_chargify.php:210
-#: ../core/wpi_chargify.php:217
-#: ../core/wpi_ui.php:606
-msgid "Type"
-msgstr ""
-
 #: ../core/wpi_chargify.php:276
-msgid "Did you know that you can now accept subscription payments using <a href=\"http://chargify.com\" target=\"_blank\">Chargify</a> and our <a href=\"#\">Single Page Checkout</a> Premium Feature?"
+msgid ""
+"Did you know that you can now accept subscription payments using <a href="
+"\"http://chargify.com\" target=\"_blank\">Chargify</a> and our <a href=\"#"
+"\">Single Page Checkout</a> Premium Feature?"
 msgstr ""
 
 #: ../core/wpi_chargify.php:279
@@ -382,7 +413,9 @@ msgid "<a href=\"#\" target=\"_blank\">Tell Me More</a>"
 msgstr ""
 
 #: ../core/wpi_chargify.php:300
-msgid "Oops, something is wrong with the API. Did you remember to save the WPI settings first?"
+msgid ""
+"Oops, something is wrong with the API. Did you remember to save the WPI "
+"settings first?"
 msgstr ""
 
 #: ../core/wpi_chargify.php:321
@@ -390,7 +423,9 @@ msgid "This is a subscription based product. "
 msgstr ""
 
 #: ../core/wpi_chargify.php:338
-msgid "Products updated. Please <a href=\"javascript:window.location.reload();\">refresh</a>."
+msgid ""
+"Products updated. Please <a href=\"javascript:window.location.reload();"
+"\">refresh</a>."
 msgstr ""
 
 #: ../core/wpi_chargify.php:386
@@ -441,8 +476,7 @@ msgstr ""
 msgid "Please input the credit card expiration date as \"MM/YYYY\"."
 msgstr ""
 
-#: ../core/wpi_chargify.php:442
-#: ../core/wpi_chargify.php:488
+#: ../core/wpi_chargify.php:442 ../core/wpi_chargify.php:488
 msgid "The Chargify API is not enabled."
 msgstr ""
 
@@ -515,14 +549,13 @@ msgstr ""
 msgid "Card"
 msgstr ""
 
-#: ../core/wpi_chargify.php:802
-#: ../core/wpi_chargify.php:876
+#: ../core/wpi_chargify.php:802 ../core/wpi_chargify.php:876
 #: ../core/wpi_template_functions.php:40
 msgid "Cost"
 msgstr ""
 
-#: ../core/wpi_chargify.php:803
-#: ../core/wpi_ui.php:605
+#: ../core/wpi_chargify.php:803 ../core/wpi_ui.php:606
+#: ../core/ui/wpi_metaboxes.php:56
 msgid "Status"
 msgstr ""
 
@@ -530,7 +563,9 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: ../core/wpi_chargify.php:816
+#: ../core/wpi_chargify.php:816 ../core/premium/wpi_quotes.php:636
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:65
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:574
 msgid "Cancel"
 msgstr ""
 
@@ -566,56 +601,76 @@ msgstr ""
 msgid "There are no options for this widget."
 msgstr ""
 
-#: ../core/wpi_functions.php:1159
-msgid "Schedule created with plugin activation."
+#: ../core/wpi_functions.php:739
+#, php-format
+msgid "Your Access Credentials [%s]"
+msgstr ""
+
+#: ../core/wpi_functions.php:740
+#, php-format
+msgid ""
+"Dear customer,\n"
+"\n"
+"we have set an account for you on %s. You are able to login now using the "
+"following credentials:\n"
+"\n"
+"URL: %s\n"
+"Login: %s\n"
+"Password: %s"
 msgstr ""
 
 #: ../core/wpi_functions.php:1169
+msgid "Schedule created with plugin activation."
+msgstr ""
+
+#: ../core/wpi_functions.php:1179
 msgid "Plugin activated. No older versions found, installing version "
 msgstr ""
 
-#: ../core/wpi_functions.php:1173
+#: ../core/wpi_functions.php:1183
 msgid "Plugin activated."
 msgstr ""
 
-#: ../core/wpi_functions.php:1187
+#: ../core/wpi_functions.php:1197
 msgid "Plugin deactivated."
 msgstr ""
 
-#: ../core/wpi_functions.php:1253
+#: ../core/wpi_functions.php:1263
 msgid "user_email changed."
 msgstr ""
 
-#: ../core/wpi_functions.php:1361
+#: ../core/wpi_functions.php:1371
 msgid "Today"
 msgstr ""
 
-#: ../core/wpi_functions.php:1363
+#: ../core/wpi_functions.php:1373
 msgid " Tomorrow "
 msgstr ""
 
-#: ../core/wpi_functions.php:1363
+#: ../core/wpi_functions.php:1373
 msgid " Yesterday "
 msgstr ""
 
-#: ../core/wpi_functions.php:1365
+#: ../core/wpi_functions.php:1375
 #, php-format
 msgid " in %s days "
 msgstr ""
 
-#: ../core/wpi_functions.php:1365
+#: ../core/wpi_functions.php:1375
 msgid "days ago"
 msgstr ""
 
-#: ../core/wpi_functions.php:1421
-msgid "The plugin database tables are gone, deactivate and reactivate plugin to re-create them."
+#: ../core/wpi_functions.php:1431
+msgid ""
+"The plugin database tables are gone, deactivate and reactivate plugin to re-"
+"create them."
 msgstr ""
 
-#: ../core/wpi_functions.php:1752
+#: ../core/wpi_functions.php:1762
 msgid "Invoice #[invoice_id] has been paid"
 msgstr ""
 
-#: ../core/wpi_functions.php:1756
+#: ../core/wpi_functions.php:1766
 msgid ""
 "Dear [user_name],\n"
 "[business_name] has received your payment for the invoice.\n"
@@ -629,16 +684,16 @@ msgid ""
 "[business_name] ([from])"
 msgstr ""
 
-#: ../core/wpi_functions.php:1761
-#: ../core/wpi_functions.php:1770
+#: ../core/wpi_functions.php:1771 ../core/wpi_functions.php:1780
 msgid "Invoice #[invoice_id] has been paid by [user_name]"
 msgstr ""
 
-#: ../core/wpi_functions.php:1765
+#: ../core/wpi_functions.php:1775
 msgid ""
 "[user_name] has paid invoice #[invoice_id].\n"
 "[invoice_title]\n"
-"Total payments: [default_currency_code] [total_payments] of [default_currency_code] [total].\n"
+"Total payments: [default_currency_code] [total_payments] of "
+"[default_currency_code] [total].\n"
 "\n"
 "You can overview invoice status and payment history by clicking this link:\n"
 "[permalink]\n"
@@ -653,13 +708,14 @@ msgid ""
 "[site]"
 msgstr ""
 
-#: ../core/wpi_functions.php:1774
+#: ../core/wpi_functions.php:1784
 msgid ""
 "Dear [creator_name],\n"
 "[user_name] has paid invoice #[invoice_id].\n"
 "\n"
 "[invoice_title]\n"
-"Total payments: [default_currency_code] [total_payments] of [default_currency_code] [total].\n"
+"Total payments: [default_currency_code] [total_payments] of "
+"[default_currency_code] [total].\n"
 "\n"
 "You can overview invoice status and payment history by clicking this link:\n"
 "[permalink]\n"
@@ -674,210 +730,217 @@ msgid ""
 "[site]"
 msgstr ""
 
-#: ../core/wpi_functions.php:1819
+#: ../core/wpi_functions.php:1829
 msgid "Invoices"
 msgstr ""
 
-#: ../core/wpi_functions.php:1820
-#: ../core/wpi_functions.php:1835
-#: ../core/wpi_settings.php:36
-#: ../core/wpi_ui.php:22
+#: ../core/wpi_functions.php:1830 ../core/wpi_functions.php:1845
+#: ../core/wpi_settings.php:36 ../core/wpi_ui.php:22
 msgid "Invoice"
 msgstr ""
 
-#: ../core/wpi_functions.php:1821
-#: ../core/wpi_ui.php:24
+#: ../core/wpi_functions.php:1831 ../core/wpi_ui.php:24
+#: ../core/ui/toplevel_page_wpi_main.php:19
 msgid "Add New"
 msgstr ""
 
-#: ../core/wpi_functions.php:1822
+#: ../core/wpi_functions.php:1832
 msgid "Add New Invoice"
 msgstr ""
 
-#: ../core/wpi_functions.php:1823
+#: ../core/wpi_functions.php:1833
 msgid "Edit Invoice"
 msgstr ""
 
-#: ../core/wpi_functions.php:1824
-#: ../core/wpi_settings.php:421
+#: ../core/wpi_functions.php:1834 ../core/wpi_settings.php:421
 msgid "New Invoice"
 msgstr ""
 
-#: ../core/wpi_functions.php:1825
+#: ../core/wpi_functions.php:1835
 msgid "View Invoice"
 msgstr ""
 
-#: ../core/wpi_functions.php:1826
+#: ../core/wpi_functions.php:1836
 msgid "Search Invoices"
 msgstr ""
 
-#: ../core/wpi_functions.php:1827
+#: ../core/wpi_functions.php:1837
 msgid "No invoices found"
 msgstr ""
 
-#: ../core/wpi_functions.php:1828
+#: ../core/wpi_functions.php:1838
 msgid "No invoices found in Trash"
 msgstr ""
 
-#: ../core/wpi_functions.php:1943
-#: ../core/wpi_functions.php:2008
+#: ../core/wpi_functions.php:1953
 msgid "Version"
 msgstr ""
 
-#: ../core/wpi_functions.php:1944
-#: ../core/wpi_functions.php:2009
+#: ../core/wpi_functions.php:1954
 msgid "Description"
 msgstr ""
 
-#: ../core/wpi_functions.php:2010
-msgid "Minimum Core Version"
-msgstr ""
-
-#: ../core/wpi_functions.php:2133
+#: ../core/wpi_functions.php:2143
 msgid "The API key could not be generated."
 msgstr ""
 
-#: ../core/wpi_functions.php:2137
+#: ../core/wpi_functions.php:2147
 #, php-format
-msgid "An error occurred during premium feature check. API Key '<b>%s</b>' is incorrect."
+msgid ""
+"An error occurred during premium feature check. API Key '<b>%s</b>' is "
+"incorrect."
 msgstr ""
 
-#: ../core/wpi_functions.php:2145
+#: ../core/wpi_functions.php:2155
 msgid "Could not do remote request."
 msgstr ""
 
-#: ../core/wpi_functions.php:2153
+#: ../core/wpi_functions.php:2163
 #, php-format
 msgid "Response code from requested server is %s."
 msgstr ""
 
-#: ../core/wpi_functions.php:2159
-msgid "Requested server returned empty result or timeout was exceeded. Please, try again later."
+#: ../core/wpi_functions.php:2169
+msgid ""
+"Requested server returned empty result or timeout was exceeded. Please, try "
+"again later."
 msgstr ""
 
-#: ../core/wpi_functions.php:2171
+#: ../core/wpi_functions.php:2181
 msgid "There are no available premium features."
 msgstr ""
 
-#: ../core/wpi_functions.php:2175
-msgid "No premium features were downloaded because the setting is disabled. Enable in the \"Main\" tab."
+#: ../core/wpi_functions.php:2185
+msgid ""
+"No premium features were downloaded because the setting is disabled. Enable "
+"in the \"Main\" tab."
 msgstr ""
 
-#: ../core/wpi_functions.php:2185
+#: ../core/wpi_functions.php:2195
 msgid "Specific directory for uploading premium features can not be created."
 msgstr ""
 
-#: ../core/wpi_functions.php:2214
+#: ../core/wpi_functions.php:2224
 #, php-format
 msgid "<b>%s</b> updated from version %s to %s ."
 msgstr ""
 
-#: ../core/wpi_functions.php:2216
+#: ../core/wpi_functions.php:2226
 #, php-format
 msgid "<b>%s</b> %s has been installed."
 msgstr ""
 
-#: ../core/wpi_functions.php:2219
+#: ../core/wpi_functions.php:2229
 #, php-format
 msgid "WP-Invoice Premium Feature: %s"
 msgstr ""
 
-#: ../core/wpi_functions.php:2223
+#: ../core/wpi_functions.php:2233
 msgid "There are no file permissions to upload or update premium features."
 msgstr ""
 
-#: ../core/wpi_functions.php:2228
-msgid "There are no available premium features. Check your licenses for the current domain"
+#: ../core/wpi_functions.php:2238
+msgid ""
+"There are no available premium features. Check your licenses for the current "
+"domain"
 msgstr ""
 
-#: ../core/wpi_functions.php:2239
+#: ../core/wpi_functions.php:2249
 msgid "Update ran successfully."
 msgstr ""
 
-#: ../core/wpi_functions.php:2247
+#: ../core/wpi_functions.php:2257
 msgid "You have the latest premium features versions."
 msgstr ""
 
-#: ../core/wpi_functions.php:2465
+#: ../core/wpi_functions.php:2475
 msgid "WP-Invoice Notification"
 msgstr ""
 
-#: ../core/wpi_functions.php:2544
+#: ../core/wpi_functions.php:2554
 #, php-format
-msgid "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
+msgid ""
+"Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target="
+"\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
 msgstr ""
 
-#: ../core/wpi_functions.php:2548
-#: ../core/wpi_ui.php:431
+#: ../core/wpi_functions.php:2558 ../core/wpi_ui.php:431
+#: ../core/ui/invoice_page_wpi_page_settings.php:31
 msgid "Premium Features"
 msgstr ""
 
-#: ../core/wpi_functions.php:2550
+#: ../core/wpi_functions.php:2560
 msgid "Support Forum"
 msgstr ""
 
-#: ../core/wpi_functions.php:2553
+#: ../core/wpi_functions.php:2563
 msgid "User Guide"
 msgstr ""
 
-#: ../core/wpi_functions.php:2631
-#: ../core/wpi_functions.php:2651
+#: ../core/wpi_functions.php:2641 ../core/wpi_functions.php:2661
 msgid "Payment status: Complete"
 msgstr ""
 
-#: ../core/wpi_functions.php:2675
+#: ../core/wpi_functions.php:2685
 msgid "Pending"
 msgstr ""
 
-#: ../core/wpi_functions.php:2735
-#: ../core/wpi_functions.php:2785
-#: ../core/wpi_functions.php:2834
+#: ../core/wpi_functions.php:2745 ../core/wpi_functions.php:2795
+#: ../core/wpi_functions.php:2844
 #, php-format
 msgid "Invoice #%s has been paid"
 msgstr ""
 
-#: ../core/wpi_functions.php:2741
+#: ../core/wpi_functions.php:2751
 #, php-format
-msgid "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can overview invoice status and payment history by clicking this link:<br>%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,<br>%4s (%5s)"
+msgid ""
+"Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can "
+"overview invoice status and payment history by clicking this link:<br>"
+"%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,<br>"
+"%4s (%5s)"
 msgstr ""
 
-#: ../core/wpi_functions.php:2755
-#: ../core/wpi_functions.php:2806
-#: ../core/wpi_functions.php:2854
+#: ../core/wpi_functions.php:2765 ../core/wpi_functions.php:2816
+#: ../core/wpi_functions.php:2864
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
 msgstr ""
 
-#: ../core/wpi_functions.php:2761
+#: ../core/wpi_functions.php:2771
 msgid "Receipt eMailed"
 msgstr ""
 
-#: ../core/wpi_functions.php:2788
+#: ../core/wpi_functions.php:2798
 #, php-format
-msgid "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s.<br><br>You can overview invoice status and payment history by clicking this link:<br>%8s<br><br>User information:<br><br>ID: %9s<br>Name: %10s<br>Email: %11s<br><br>--------------------<br>%12s"
+msgid ""
+"%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s."
+"<br><br>You can overview invoice status and payment history by clicking this "
+"link:<br>%8s<br><br>User information:<br><br>ID: %9s<br>Name: %10s<br>Email: "
+"%11s<br><br>--------------------<br>%12s"
 msgstr ""
 
-#: ../core/wpi_functions.php:2836
+#: ../core/wpi_functions.php:2846
 #, php-format
-msgid "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: %5s %6s of %7s %8s.<br><br>You can overview invoice status and payment history by clicking this link:<br>%9s<br><br>User information:<br><br>ID: %10s<br>Name: %11s<br>Email: %12s<br><br>--------------------<br>%13s"
+msgid ""
+"Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: "
+"%5s %6s of %7s %8s.<br><br>You can overview invoice status and payment "
+"history by clicking this link:<br>%9s<br><br>User information:<br><br>ID: "
+"%10s<br>Name: %11s<br>Email: %12s<br><br>--------------------<br>%13s"
 msgstr ""
 
 #: ../core/wpi_gateway_base.php:24
 msgid "Customer Information"
 msgstr ""
 
-#: ../core/wpi_invoice.php:107
-#: ../core/wpi_invoice.php:132
+#: ../core/wpi_invoice.php:107 ../core/wpi_invoice.php:132
 msgid "Loaded user from passed ID."
 msgstr ""
 
-#: ../core/wpi_invoice.php:111
-#: ../core/wpi_invoice.php:136
+#: ../core/wpi_invoice.php:111 ../core/wpi_invoice.php:136
 msgid "Loaded user from e-mail."
 msgstr ""
 
-#: ../core/wpi_invoice.php:115
-#: ../core/wpi_invoice.php:140
+#: ../core/wpi_invoice.php:115 ../core/wpi_invoice.php:140
 msgid "User info not, found - assuming new user."
 msgstr ""
 
@@ -930,6 +993,11 @@ msgid "Recurring"
 msgstr ""
 
 #: ../core/wpi_settings.php:47
+#: ../core/gateways/templates/wpi_googlecheckout-frontend.tpl.php:45
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:186
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:221
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:276
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:352
 msgid "Tax"
 msgstr ""
 
@@ -941,11 +1009,19 @@ msgstr ""
 msgid "Dropdown"
 msgstr ""
 
-#: ../core/wpi_settings.php:92
+#: ../core/wpi_settings.php:92 ../core/gateways/class_wpi_authorize.php:126
+#: ../core/gateways/class_wpi_googlecheckout.php:57
+#: ../core/gateways/class_wpi_interkassa.php:51
+#: ../core/gateways/class_wpi_paypal.php:73
+#: ../core/gateways/class_wpi_stripe.php:26 ../core/premium/wpi_spc.php:64
 msgid "First Name"
 msgstr ""
 
-#: ../core/wpi_settings.php:93
+#: ../core/wpi_settings.php:93 ../core/gateways/class_wpi_authorize.php:133
+#: ../core/gateways/class_wpi_googlecheckout.php:64
+#: ../core/gateways/class_wpi_interkassa.php:57
+#: ../core/gateways/class_wpi_paypal.php:80
+#: ../core/gateways/class_wpi_stripe.php:32 ../core/premium/wpi_spc.php:68
 msgid "Last Name"
 msgstr ""
 
@@ -953,19 +1029,24 @@ msgstr ""
 msgid "Company Name"
 msgstr ""
 
-#: ../core/wpi_settings.php:95
+#: ../core/wpi_settings.php:95 ../core/gateways/class_wpi_authorize.php:147
+#: ../core/gateways/class_wpi_paypal.php:234
 msgid "Phone Number"
 msgstr ""
 
-#: ../core/wpi_settings.php:96
+#: ../core/wpi_settings.php:96 ../core/premium/wpi_spc.php:98
 msgid "Street Address"
 msgstr ""
 
-#: ../core/wpi_settings.php:97
+#: ../core/wpi_settings.php:97 ../core/gateways/class_wpi_authorize.php:161
+#: ../core/gateways/class_wpi_googlecheckout.php:92
+#: ../core/gateways/class_wpi_interkassa.php:81
+#: ../core/gateways/class_wpi_paypal.php:119
+#: ../core/gateways/class_wpi_stripe.php:56 ../core/premium/wpi_spc.php:102
 msgid "City"
 msgstr ""
 
-#: ../core/wpi_settings.php:98
+#: ../core/wpi_settings.php:98 ../core/gateways/class_wpi_authorize.php:168
 msgid "State"
 msgstr ""
 
@@ -1213,8 +1294,7 @@ msgstr ""
 msgid "Faroe Islands"
 msgstr ""
 
-#: ../core/wpi_settings.php:163
-#: ../core/wpi_settings.php:308
+#: ../core/wpi_settings.php:163 ../core/wpi_settings.php:308
 msgid "Federated States of Micronesia"
 msgstr ""
 
@@ -1402,8 +1482,7 @@ msgstr ""
 msgid "Malta"
 msgstr ""
 
-#: ../core/wpi_settings.php:210
-#: ../core/wpi_settings.php:321
+#: ../core/wpi_settings.php:210 ../core/wpi_settings.php:321
 msgid "Marshall Islands"
 msgstr ""
 
@@ -1495,8 +1574,7 @@ msgstr ""
 msgid "Oman"
 msgstr ""
 
-#: ../core/wpi_settings.php:233
-#: ../core/wpi_settings.php:341
+#: ../core/wpi_settings.php:233 ../core/wpi_settings.php:341
 msgid "Palau"
 msgstr ""
 
@@ -2112,7 +2190,8 @@ msgid ""
 "\n"
 "%description% \n"
 "\n"
-"You may pay, view and print the invoice online by visiting the following link: \n"
+"You may pay, view and print the invoice online by visiting the following "
+"link: \n"
 "%link% \n"
 "\n"
 "Best regards, \n"
@@ -2127,11 +2206,13 @@ msgstr ""
 msgid ""
 "Dear %recipient%, \n"
 "\n"
-"%business_name% has sent you a reminder for the %type% in the amount of %amount%. \n"
+"%business_name% has sent you a reminder for the %type% in the amount of "
+"%amount%. \n"
 "\n"
 "%description% \n"
 "\n"
-"You may pay, view and print the invoice online by visiting the following link: \n"
+"You may pay, view and print the invoice online by visiting the following "
+"link: \n"
 "%link%. \n"
 "\n"
 "Best regards, \n"
@@ -2150,7 +2231,8 @@ msgstr ""
 msgid ""
 "Dear %recipient%, \n"
 "\n"
-"%business_name% has received your payment for the %type% in the amount of %amount%. \n"
+"%business_name% has received your payment for the %type% in the amount of "
+"%amount%. \n"
 "\n"
 "Thank you very much for your patronage. \n"
 "\n"
@@ -2180,8 +2262,8 @@ msgstr ""
 
 #: ../core/wpi_template_functions.php:129
 msgid ""
-"Partial payment is not available because of an error.\\n"
-"Contact Administirator for more information."
+"Partial payment is not available because of an error.\\nContact "
+"Administirator for more information."
 msgstr ""
 
 #: ../core/wpi_template_functions.php:167
@@ -2201,6 +2283,8 @@ msgid "Discounts:"
 msgstr ""
 
 #: ../core/wpi_template_functions.php:223
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:312
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:490
 msgid "Adjustments:"
 msgstr ""
 
@@ -2209,15 +2293,15 @@ msgid "Received Payment:"
 msgstr ""
 
 #: ../core/wpi_template_functions.php:235
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:318
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:502
 msgid "Balance:"
 msgstr ""
 
 #: ../core/wpi_template_functions.php:269
+#: ../core/ui/invoice_page_wpi_page_settings.php:624
+#: ../core/ui/invoice_page_wpi_page_settings.php:638
 msgid "Time"
-msgstr ""
-
-#: ../core/wpi_template_functions.php:270
-msgid "Event"
 msgstr ""
 
 #: ../core/wpi_template_functions.php:312
@@ -2241,10 +2325,13 @@ msgid "Other"
 msgstr ""
 
 #: ../core/wpi_template_functions.php:379
-msgid "This invoice allows partial payments, please select the amount you would like to pay."
+msgid ""
+"This invoice allows partial payments, please select the amount you would "
+"like to pay."
 msgstr ""
 
-#: ../core/wpi_template_functions.php:400
+#: ../core/wpi_template_functions.php:400 ../core/template/wpi_checkout.php:33
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:498
 msgid "Payment Method"
 msgstr ""
 
@@ -2256,27 +2343,36 @@ msgstr ""
 msgid "View All"
 msgstr ""
 
-#: ../core/wpi_ui.php:25
-#: ../core/wpi_ui.php:355
+#: ../core/wpi_ui.php:25 ../core/wpi_ui.php:355
+#: ../core/ui/invoice_page_wpi_page_reports.php:195
 msgid "Reports"
 msgstr ""
 
-#: ../core/wpi_ui.php:29
+#: ../core/wpi_ui.php:29 ../core/premium/wpi_pdf.php:229
 msgid "Settings"
 msgstr ""
 
 #: ../core/wpi_ui.php:232
 #, php-format
-msgid "Invoice page not selected. Visit <strong><i><a href=\"%s\">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section."
+msgid ""
+"Invoice page not selected. Visit <strong><i><a href=\"%s\">Settings Page</a> "
+"- Business Process</i></strong> and set <b><i>Display invoice page</i></b> "
+"under <strong><i>When viewing an invoice</i></strong> section."
 msgstr ""
 
 #: ../core/wpi_ui.php:235
 #, php-format
-msgid "Selected invoice page does not exist. Visit <strong><i><a href=\"%s\">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section."
+msgid ""
+"Selected invoice page does not exist. Visit <strong><i><a href=\"%s"
+"\">Settings Page</a> - Business Process</i></strong> and set <b><i>Display "
+"invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> "
+"section."
 msgstr ""
 
 #: ../core/wpi_ui.php:243
-msgid "Your server does not support cURL. Payments could not be processed. Contact your server administrator."
+msgid ""
+"Your server does not support cURL. Payments could not be processed. Contact "
+"your server administrator."
 msgstr ""
 
 #: ../core/wpi_ui.php:252
@@ -2292,7 +2388,9 @@ msgid "Creating New Invoice"
 msgstr ""
 
 #: ../core/wpi_ui.php:278
-msgid "Begin typing the recipient's email into the input box, or double-click to view list of possible options."
+msgid ""
+"Begin typing the recipient's email into the input box, or double-click to "
+"view list of possible options."
 msgstr ""
 
 #: ../core/wpi_ui.php:279
@@ -2325,7 +2423,9 @@ msgid "\"Invoice(s) %s archived.\""
 msgstr ""
 
 #: ../core/wpi_ui.php:338
-msgid "You are on the page which lists your invoices and other item types that you are using."
+msgid ""
+"You are on the page which lists your invoices and other item types that you "
+"are using."
 msgstr ""
 
 #: ../core/wpi_ui.php:339
@@ -2336,112 +2436,192 @@ msgstr ""
 msgid "This page allows you to manage your sales statistics."
 msgstr ""
 
-#: ../core/wpi_ui.php:372
+#: ../core/wpi_ui.php:372 ../core/ui/invoice_page_wpi_page_settings.php:6
 msgid "Main"
 msgstr ""
 
 #: ../core/wpi_ui.php:373
-msgid "<b>Business Name</b><br /> Enter your business name here. This field defaults to the blog name you chose during WordPress installation."
+msgid ""
+"<b>Business Name</b><br /> Enter your business name here. This field "
+"defaults to the blog name you chose during WordPress installation."
 msgstr ""
 
 #: ../core/wpi_ui.php:374
-msgid "<b>Business Address</b><br /> Enter your business address here. It will appear on the invoices and quotes you send."
+msgid ""
+"<b>Business Address</b><br /> Enter your business address here. It will "
+"appear on the invoices and quotes you send."
 msgstr ""
 
 #: ../core/wpi_ui.php:375
-msgid "<b>Business Phone</b><br /> Enter your business phone here. It will appear on the invoices and quotes you send."
+msgid ""
+"<b>Business Phone</b><br /> Enter your business phone here. It will appear "
+"on the invoices and quotes you send."
 msgstr ""
 
 #: ../core/wpi_ui.php:376
-msgid "<b>Email Address</b><br /> Enter your email address here. It will appear on the invoices and quotes you send."
+msgid ""
+"<b>Email Address</b><br /> Enter your email address here. It will appear on "
+"the invoices and quotes you send."
 msgstr ""
 
 #: ../core/wpi_ui.php:377
-msgid "<b>Display Styles</b><br /> Here you can set, enable or disable the WP-Invoice default style settings. Change the default values only if you are an advanced user who understands CSS styles and is able to create their own stylesheets. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+msgid ""
+"<b>Display Styles</b><br /> Here you can set, enable or disable the WP-"
+"Invoice default style settings. Change the default values only if you are an "
+"advanced user who understands CSS styles and is able to create their own "
+"stylesheets. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:378
-msgid "<b>Tax Handling</b><br /> Here you can set when tax calculation is done (depends on your country's fiscal system) and you can define a global default tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+msgid ""
+"<b>Tax Handling</b><br /> Here you can set when tax calculation is done "
+"(depends on your country's fiscal system) and you can define a global "
+"default tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:379
-msgid "<b>Advanced Settings</b><br /> These settings control advanced features that have to do with billing, installation features, design issues and general actions for administrators and developers. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+msgid ""
+"<b>Advanced Settings</b><br /> These settings control advanced features that "
+"have to do with billing, installation features, design issues and general "
+"actions for administrators and developers. <a target=\"_blank\" href="
+"\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+"main/\">More...</a>"
 msgstr ""
 
-#: ../core/wpi_ui.php:381
+#: ../core/wpi_ui.php:381 ../core/ui/invoice_page_wpi_page_settings.php:11
 msgid "Business Process"
 msgstr ""
 
 #: ../core/wpi_ui.php:382
-msgid "<b>When creating an invoice</b><br />Options for managing invoice creating process. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
+msgid ""
+"<b>When creating an invoice</b><br />Options for managing invoice creating "
+"process. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/"
+"wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:383
-msgid "<b>When viewing an invoice</b><br />Options for managing invoice view. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
+msgid ""
+"<b>When viewing an invoice</b><br />Options for managing invoice view. <a "
+"target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
+"wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:384
-msgid "<b>How to insert invoice</b><br />Here you have four choices that will define the way an invoice will appear on the invoice display page you have set before. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
+msgid ""
+"<b>How to insert invoice</b><br />Here you have four choices that will "
+"define the way an invoice will appear on the invoice display page you have "
+"set before. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:385
-msgid "<b>After a payment has been completed</b><br />Here we have options that will create automatic email notifications on successful payment of an invoice (partial or complete). <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
+msgid ""
+"<b>After a payment has been completed</b><br />Here we have options that "
+"will create automatic email notifications on successful payment of an "
+"invoice (partial or complete). <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:386
-msgid "<b>Mail From options</b><br />This options allow you to change the default email address that WordPress sends it's mail from, and the name of the sender that the email is from."
+msgid ""
+"<b>Mail From options</b><br />This options allow you to change the default "
+"email address that WordPress sends it's mail from, and the name of the "
+"sender that the email is from."
 msgstr ""
 
 #: ../core/wpi_ui.php:387
-msgid "<b>Google Analytics Events Tracking</b><br />If you are using <a target=\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/tracking/asyncTracking.html\">Google Analytics code snippet</a> for tracking site activity then you can do it better with WP-Invoice Event Tracking feature. Tick events you want to track in your Google Analytics account and see where/when/what people do. To view Events activity go to Content -> Events in your Google Analytics account."
+msgid ""
+"<b>Google Analytics Events Tracking</b><br />If you are using <a target="
+"\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
+"tracking/asyncTracking.html\">Google Analytics code snippet</a> for tracking "
+"site activity then you can do it better with WP-Invoice Event Tracking "
+"feature. Tick events you want to track in your Google Analytics account and "
+"see where/when/what people do. To view Events activity go to Content -> "
+"Events in your Google Analytics account."
 msgstr ""
 
 #: ../core/wpi_ui.php:388
-msgid "<u>Attempting to pay Invoices</u> - event is triggered on clicking \"Process Payment\" button on Invoice page."
+msgid ""
+"<u>Attempting to pay Invoices</u> - event is triggered on clicking \"Process "
+"Payment\" button on Invoice page."
 msgstr ""
 
 #: ../core/wpi_ui.php:389
-msgid "<u>View Invoices</u> - event is triggered when Invoice was viewed by the customer."
+msgid ""
+"<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
+"customer."
 msgstr ""
 
 #: ../core/wpi_ui.php:390
 msgid "<i>More Events soon!</i>"
 msgstr ""
 
-#: ../core/wpi_ui.php:392
+#: ../core/wpi_ui.php:392 ../core/ui/invoice_page_wpi_page_settings.php:16
 msgid "Payment"
 msgstr ""
 
 #: ../core/wpi_ui.php:393
-msgid "<b>Default Currency</b><br />Sets the default currency you will use in your invoices. Default value is U.S. Dollars."
+msgid ""
+"<b>Default Currency</b><br />Sets the default currency you will use in your "
+"invoices. Default value is U.S. Dollars."
 msgstr ""
 
 #: ../core/wpi_ui.php:394
-msgid "<b>Currency list</b><br>This expandable area allows you to manage the list of currencies you have. You can add new currencies or remove existing ones.<br>Be aware, if you add a new currency please make sure that it corresponds to ISO 4217 and the currency code can be accepted by the payment services / gateways you are using. Here's a <a href=\"http://en.wikipedia.org/wiki/List_of_circulating_currencies\">list of currencies</a> with ISO codes and currency symbols.<br>Note that you cannot delete a currency which has already been used in an existing invoice or that is currently selected as default. To do so, delete any invoices using that currency first."
+msgid ""
+"<b>Currency list</b><br>This expandable area allows you to manage the list "
+"of currencies you have. You can add new currencies or remove existing ones."
+"<br>Be aware, if you add a new currency please make sure that it corresponds "
+"to ISO 4217 and the currency code can be accepted by the payment services / "
+"gateways you are using. Here's a <a href=\"http://en.wikipedia.org/wiki/"
+"List_of_circulating_currencies\">list of currencies</a> with ISO codes and "
+"currency symbols.<br>Note that you cannot delete a currency which has "
+"already been used in an existing invoice or that is currently selected as "
+"default. To do so, delete any invoices using that currency first."
 msgstr ""
 
 #: ../core/wpi_ui.php:396
-msgid "<b>Default Payment Method</b><br />Here you can choose what default payment method you want to use for invoice payments."
+msgid ""
+"<b>Default Payment Method</b><br />Here you can choose what default payment "
+"method you want to use for invoice payments."
 msgstr ""
 
 #: ../core/wpi_ui.php:397
-msgid "<b>Payment Gateways</b><br />Here you can specify Gateways which you want to use for your invoices by default. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\">More...</a>"
+msgid ""
+"<b>Payment Gateways</b><br />Here you can specify Gateways which you want to "
+"use for your invoices by default. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/"
+"\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:398
-msgid "<b>Manual Payment Information</b><br />If you don't want to use payment gateways but offline payments, or if an invoice has no payment gateways enabled, the text in this field will appear as a message to the customer, offering guidance on how to pay you. Write a short text with your bank account number or any other way you want to accept the offline payment. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\">More...</a>"
+msgid ""
+"<b>Manual Payment Information</b><br />If you don't want to use payment "
+"gateways but offline payments, or if an invoice has no payment gateways "
+"enabled, the text in this field will appear as a message to the customer, "
+"offering guidance on how to pay you. Write a short text with your bank "
+"account number or any other way you want to accept the offline payment. <a "
+"target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
+"wp-invoice-settings-payment/\">More...</a>"
 msgstr ""
 
-#: ../core/wpi_ui.php:400
+#: ../core/wpi_ui.php:400 ../core/ui/invoice_page_wpi_page_settings.php:21
 msgid "E-Mail Templates"
 msgstr ""
 
 #: ../core/wpi_ui.php:401
-msgid "You can create as many e-mailed templates as needed, they can later be used to quickly create invoice notifications and reminders, and being sent directly from an invoice page. The following variables can be used within the Subject or the Content of the e-mail templates:"
+msgid ""
+"You can create as many e-mailed templates as needed, they can later be used "
+"to quickly create invoice notifications and reminders, and being sent "
+"directly from an invoice page. The following variables can be used within "
+"the Subject or the Content of the e-mail templates:"
 msgstr ""
 
-#: ../core/wpi_ui.php:403
-#: ../core/wpi_ui.php:607
+#: ../core/wpi_ui.php:403 ../core/wpi_ui.php:608
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:89
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:194
 msgid "Invoice ID"
 msgstr ""
 
@@ -2465,7 +2645,7 @@ msgstr ""
 msgid "Description of Invoice"
 msgstr ""
 
-#: ../core/wpi_ui.php:409
+#: ../core/wpi_ui.php:409 ../core/ui/invoice_page_wpi_page_settings.php:138
 msgid "Business Name"
 msgstr ""
 
@@ -2493,41 +2673,60 @@ msgstr ""
 msgid "More..."
 msgstr ""
 
-#: ../core/wpi_ui.php:428
+#: ../core/wpi_ui.php:428 ../core/ui/invoice_page_wpi_page_settings.php:26
 msgid "Line Items"
 msgstr ""
 
 #: ../core/wpi_ui.php:429
-msgid "Predefined Line Items are common services and/or products that you can create once and use in your invoices. For example, if you are a Web professional and your usual invoice has at least an hour of Web Design or / and Web Development services, you can create these item entries to save yourself from typing it every time. When you create a new invoice or quote (with the Quotes Premium Feature), or edit an existing one, you will be able to select these items from a list and if you want, edit the name, description, quantity, price and tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-predefined-line-items/\">More...</a>"
+msgid ""
+"Predefined Line Items are common services and/or products that you can "
+"create once and use in your invoices. For example, if you are a Web "
+"professional and your usual invoice has at least an hour of Web Design or / "
+"and Web Development services, you can create these item entries to save "
+"yourself from typing it every time. When you create a new invoice or quote "
+"(with the Quotes Premium Feature), or edit an existing one, you will be able "
+"to select these items from a list and if you want, edit the name, "
+"description, quantity, price and tax. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-predefined-"
+"line-items/\">More...</a>"
 msgstr ""
 
 #: ../core/wpi_ui.php:432
-msgid "This tab show a list of the premium features which are available for purchase and those which you have purchased for WP-Invoice. You can see a list of features available for purchase in the WP-Invoice Premium Features section of our website. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-premium-features/\">More...</a>"
+msgid ""
+"This tab show a list of the premium features which are available for "
+"purchase and those which you have purchased for WP-Invoice. You can see a "
+"list of features available for purchase in the WP-Invoice Premium Features "
+"section of our website. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-premium-"
+"features/\">More...</a>"
 msgstr ""
 
-#: ../core/wpi_ui.php:434
+#: ../core/wpi_ui.php:434 ../core/ui/invoice_page_wpi_page_settings.php:36
 msgid "Help"
 msgstr ""
 
 #: ../core/wpi_ui.php:435
-msgid "This tab will help you troubleshoot your plugin and check for updates for Premium Features"
+msgid ""
+"This tab will help you troubleshoot your plugin and check for updates for "
+"Premium Features"
 msgstr ""
 
 #: ../core/wpi_ui.php:437
 msgid "Shortcodes"
 msgstr ""
 
-#: ../core/wpi_ui.php:438
+#: ../core/wpi_ui.php:438 ../core/wpi_widgets.php:89
 msgid "Invoice History"
 msgstr ""
 
-#: ../core/wpi_ui.php:439
-#: ../core/wpi_ui.php:443
+#: ../core/wpi_ui.php:439 ../core/wpi_ui.php:443
 msgid "Shortcode:"
 msgstr ""
 
 #: ../core/wpi_ui.php:440
-msgid "Works the same way as 'Invoice History' widget. Shows invoice list for currently logged in users."
+msgid ""
+"Works the same way as 'Invoice History' widget. Shows invoice list for "
+"currently logged in users."
 msgstr ""
 
 #: ../core/wpi_ui.php:442
@@ -2535,175 +2734,192 @@ msgid "Invoice Lookup"
 msgstr ""
 
 #: ../core/wpi_ui.php:444
-msgid "Works the same way as 'Invoice Lookup' widget. Allows you to search your invoices by invoice numbers."
-msgstr ""
-
-#: ../core/wpi_ui.php:601
-msgid "Title"
+msgid ""
+"Works the same way as 'Invoice Lookup' widget. Allows you to search your "
+"invoices by invoice numbers."
 msgstr ""
 
 #: ../core/wpi_ui.php:602
-msgid "Total Collected"
+msgid "Title"
 msgstr ""
 
 #: ../core/wpi_ui.php:603
+msgid "Total Collected"
+msgstr ""
+
+#: ../core/wpi_ui.php:604 ../core/ui/wpi_metaboxes.php:71
 msgid "Recipient"
 msgstr ""
 
-#: ../core/wpi_ui.php:604
+#: ../core/wpi_ui.php:605 ../core/gateways/class_wpi_authorize.php:262
+#: ../core/gateways/class_wpi_googlecheckout.php:163
+#: ../core/premium/wpi_power_tools.php:288
+#: ../core/premium/wpi_power_tools.php:373 ../core/ui/wpi_metaboxes.php:121
 msgid "Date"
 msgstr ""
 
-#: ../core/wpi_ui.php:712
+#: ../core/wpi_ui.php:713
 msgid "Payment Settings"
 msgstr ""
 
-#: ../core/wpi_ui.php:715
+#: ../core/wpi_ui.php:716 ../core/ui/invoice_page_wpi_page_reports.php:10
+#: ../core/ui/toplevel_page_wpi_main.php:19
 msgid "Overview"
 msgstr ""
 
-#: ../core/wpi_ui.php:717
+#: ../core/wpi_ui.php:718
 msgid "Publish"
 msgstr ""
 
-#: ../core/wpi_ui.php:719
+#: ../core/wpi_ui.php:720
 msgid "User Information"
 msgstr ""
 
-#: ../core/wpi_ui.php:799
+#: ../core/wpi_ui.php:800
 msgid "For more information:"
 msgstr ""
 
-#: ../core/wpi_ui.php:800
-msgid "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">WP-Invoice Product Page</a>"
-msgstr ""
-
 #: ../core/wpi_ui.php:801
-msgid "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target=\"_blank\">WP-Invoice Forums</a>"
+msgid ""
+"<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+"\"_blank\">WP-Invoice Product Page</a>"
 msgstr ""
 
-#: ../core/wpi_ui.php:807
+#: ../core/wpi_ui.php:802
+msgid ""
+"<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target="
+"\"_blank\">WP-Invoice Forums</a>"
+msgstr ""
+
+#: ../core/wpi_ui.php:808
 msgid "Please upgrade Wordpress to the latest version for detailed help."
 msgstr ""
 
-#: ../core/wpi_ui.php:807
-msgid "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
+#: ../core/wpi_ui.php:808
+msgid ""
+"Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+"target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
 msgstr ""
 
-#: ../core/wpi_ui.php:1122
+#: ../core/wpi_ui.php:1130 ../core/gateways/class_wpi_authorize.php:80
+#: ../core/gateways/class_wpi_authorize.php:102
+#: ../core/gateways/class_wpi_googlecheckout.php:36
+#: ../core/gateways/class_wpi_paypal.php:41
+#: ../core/gateways/class_wpi_paypal.php:55 ../core/ui/first_time_setup.php:85
+#: ../core/ui/payment_processing.php:60
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:276
 msgid "Yes"
 msgstr ""
 
-#: ../core/wpi_ui.php:1122
+#: ../core/wpi_ui.php:1130 ../core/gateways/class_wpi_authorize.php:81
+#: ../core/gateways/class_wpi_authorize.php:103
+#: ../core/gateways/class_wpi_googlecheckout.php:35
+#: ../core/gateways/class_wpi_paypal.php:40
+#: ../core/gateways/class_wpi_paypal.php:56
+#: ../core/ui/payment_processing.php:60
 msgid "No"
 msgstr ""
 
-#: ../core/wpi_ui.php:1125
+#: ../core/wpi_ui.php:1133
 msgid "Select"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1314
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1322
 msgid "Jan"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1315
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1323
 msgid "Feb"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1316
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1324
 msgid "Mar"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1317
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1325
 msgid "Apr"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1318
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1326
 msgid "May"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1319
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1327
 msgid "Jun"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1320
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1328
 msgid "Jul"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1321
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1329
 msgid "Aug"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1322
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1330
 msgid "Sep"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1323
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1331
 msgid "Oct"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1324
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1332
 msgid "Nov"
 msgstr ""
 
-#: ../core/wpi_ui.php:1143
-#: ../core/wpi_ui.php:1325
+#: ../core/wpi_ui.php:1151 ../core/wpi_ui.php:1333
 msgid "Dec"
 msgstr ""
 
-#: ../core/wpi_ui.php:1155
+#: ../core/wpi_ui.php:1163
 msgid "Values are empty"
 msgstr ""
 
-#: ../core/wpi_ui.php:1177
+#: ../core/wpi_ui.php:1185
 msgid "View Profile"
 msgstr ""
 
-#: ../core/wpi_ui.php:1180
+#: ../core/wpi_ui.php:1188
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr ""
 
-#: ../core/wpi_ui.php:1211
+#: ../core/wpi_ui.php:1219
 msgid "WP-Invoice custom field"
 msgstr ""
 
-#: ../core/wpi_ui.php:1227
+#: ../core/wpi_ui.php:1235
 msgid "<h3>WP-Invoice</h3>"
 msgstr ""
 
-#: ../core/wpi_ui.php:1228
-msgid "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>"
+#: ../core/wpi_ui.php:1236
+msgid ""
+"<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
+"custom user data fields for payments forms.</p>"
 msgstr ""
 
-#: ../core/wpi_ui.php:1229
+#: ../core/wpi_ui.php:1237
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr ""
 
-#: ../core/wpi_ui.php:1230
+#: ../core/wpi_ui.php:1238
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr ""
 
-#: ../core/wpi_ui.php:1231
-msgid "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you can use this shortcodes:</p>"
+#: ../core/wpi_ui.php:1239
+msgid ""
+"<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
+"Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
+"Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you "
+"can use this shortcodes:</p>"
 msgstr ""
 
-#: ../core/wpi_widgets.php:68
-#: ../core/wpi_widgets.php:209
+#: ../core/wpi_widgets.php:68 ../core/wpi_widgets.php:209
 msgid "Title:"
 msgstr ""
 
 #: ../core/wpi_widgets.php:70
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:54
 msgid "Message:"
 msgstr ""
 
@@ -2747,23 +2963,20 @@ msgstr ""
 msgid "Method requires \"items\" or \"charges\" argument to be passed."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:343
-#: ../core/wpi_xmlrpc_api.php:718
+#: ../core/wpi_xmlrpc_api.php:343 ../core/wpi_xmlrpc_api.php:718
 msgid "Unknown invoice type."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:348
-#: ../core/wpi_xmlrpc_api.php:723
-msgid "Method requires correct \"recurring\" argument if \"type\" is recurring."
+#: ../core/wpi_xmlrpc_api.php:348 ../core/wpi_xmlrpc_api.php:723
+msgid ""
+"Method requires correct \"recurring\" argument if \"type\" is recurring."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:349
-#: ../core/wpi_xmlrpc_api.php:724
+#: ../core/wpi_xmlrpc_api.php:349 ../core/wpi_xmlrpc_api.php:724
 msgid "Cannot use \"deposit\" with \"recurring\" type."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:354
-#: ../core/wpi_xmlrpc_api.php:729
+#: ../core/wpi_xmlrpc_api.php:354 ../core/wpi_xmlrpc_api.php:729
 msgid "Cannot use \"deposit\" with \"quote\" type."
 msgstr ""
 
@@ -2775,71 +2988,63 @@ msgstr ""
 msgid "Unknown invoice status."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:425
-#: ../core/wpi_xmlrpc_api.php:769
+#: ../core/wpi_xmlrpc_api.php:425 ../core/wpi_xmlrpc_api.php:769
 msgid "Discount name is required."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:426
-#: ../core/wpi_xmlrpc_api.php:770
+#: ../core/wpi_xmlrpc_api.php:426 ../core/wpi_xmlrpc_api.php:770
 msgid "Discount type is required. (\"amount\" or \"percent\")."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:427
-#: ../core/wpi_xmlrpc_api.php:771
+#: ../core/wpi_xmlrpc_api.php:427 ../core/wpi_xmlrpc_api.php:771
 msgid "Discount amount is required."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:438
-#: ../core/wpi_xmlrpc_api.php:784
+#: ../core/wpi_xmlrpc_api.php:438 ../core/wpi_xmlrpc_api.php:784
 msgid "One or more \"items\" have malformed structure. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:445
-#: ../core/wpi_xmlrpc_api.php:791
-msgid "One or more \"items\" have wrong \"quantity\" value. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:445 ../core/wpi_xmlrpc_api.php:791
+msgid ""
+"One or more \"items\" have wrong \"quantity\" value. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:446
-#: ../core/wpi_xmlrpc_api.php:792
-msgid "One or more \"items\" have wrong \"price\" value. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:446 ../core/wpi_xmlrpc_api.php:792
+msgid ""
+"One or more \"items\" have wrong \"price\" value. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:448
-#: ../core/wpi_xmlrpc_api.php:794
-msgid "One or more \"items\" have wrong \"tax_rate\" value. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:448 ../core/wpi_xmlrpc_api.php:794
+msgid ""
+"One or more \"items\" have wrong \"tax_rate\" value. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:461
-#: ../core/wpi_xmlrpc_api.php:806
-msgid "One or more \"charges\" have malformed structure. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:461 ../core/wpi_xmlrpc_api.php:806
+msgid ""
+"One or more \"charges\" have malformed structure. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:468
-#: ../core/wpi_xmlrpc_api.php:813
-msgid "One or more \"charges\" have wrong \"amount\" value. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:468 ../core/wpi_xmlrpc_api.php:813
+msgid ""
+"One or more \"charges\" have wrong \"amount\" value. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:470
-#: ../core/wpi_xmlrpc_api.php:815
-msgid "One or more \"charges\" have wrong \"tax\" value. Cannot create Invoice."
+#: ../core/wpi_xmlrpc_api.php:470 ../core/wpi_xmlrpc_api.php:815
+msgid ""
+"One or more \"charges\" have wrong \"tax\" value. Cannot create Invoice."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:480
-#: ../core/wpi_xmlrpc_api.php:763
+#: ../core/wpi_xmlrpc_api.php:480 ../core/wpi_xmlrpc_api.php:763
 msgid "Unknown \"tax_method\"."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:509
-#: ../core/wpi_xmlrpc_api.php:558
-#: ../core/wpi_xmlrpc_api.php:618
-#: ../core/wpi_xmlrpc_api.php:645
+#: ../core/wpi_xmlrpc_api.php:509 ../core/wpi_xmlrpc_api.php:558
+#: ../core/wpi_xmlrpc_api.php:618 ../core/wpi_xmlrpc_api.php:645
 #: ../core/wpi_xmlrpc_api.php:689
 msgid "Argument \"ID\" is required."
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:518
-#: ../core/wpi_xmlrpc_api.php:569
+#: ../core/wpi_xmlrpc_api.php:518 ../core/wpi_xmlrpc_api.php:569
 #: ../core/wpi_xmlrpc_api.php:654
 msgid "Invoice not found"
 msgstr ""
@@ -2888,8 +3093,7 @@ msgstr ""
 msgid "Unknown method"
 msgstr ""
 
-#: ../core/wpi_xmlrpc_api.php:889
-#: ../core/wpi_xmlrpc_api.php:894
+#: ../core/wpi_xmlrpc_api.php:889 ../core/wpi_xmlrpc_api.php:894
 msgid "WP-Invoice XML-RPC API Reference"
 msgstr ""
 
@@ -2910,35 +3114,48 @@ msgid "Arguments:"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:29
+#: ../core/ui/payment_accordion.php:29 ../core/ui/payment_processing.php:19
 msgid "Gateway Username"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:31
+#: ../core/ui/payment_accordion.php:29 ../core/ui/payment_processing.php:19
 msgid "Your credit card processor will provide you with a gateway username."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:34
+#: ../core/ui/payment_accordion.php:34 ../core/ui/payment_processing.php:24
 msgid "Gateway Transaction Key"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:36
-msgid "You will be able to generate this in your credit card processor's control panel."
+#: ../core/ui/payment_accordion.php:34 ../core/ui/payment_processing.php:24
+msgid ""
+"You will be able to generate this in your credit card processor's control "
+"panel."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:39
+#: ../core/ui/payment_accordion.php:38 ../core/ui/payment_processing.php:28
 msgid "Gateway URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:41
+#: ../core/ui/payment_accordion.php:38 ../core/ui/payment_processing.php:28
 msgid "This is the URL provided to you by your credit card processing company."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:49
+#: ../core/ui/payment_accordion.php:46 ../core/ui/payment_processing.php:36
 msgid "Recurring Billing Gateway URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:51
-msgid "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode."
+#: ../core/ui/payment_accordion.php:46 ../core/ui/payment_processing.php:36
+msgid ""
+"Recurring billing gateway URL is most likely different from the Gateway URL, "
+"and will almost always be with Authorize.net. Be advised - test credit card "
+"numbers will be declined even when in test mode."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:58
@@ -2954,19 +3171,28 @@ msgid "Live - Process Transactions"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:66
+#: ../core/ui/payment_processing.php:47
 msgid "Delimiter Character"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:68
-msgid "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong."
+#: ../core/ui/payment_processing.php:47
+msgid ""
+"Get this from your credit card processor. If the transactions are not going "
+"through, this character is most likely wrong."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:71
+#: ../core/ui/payment_processing.php:51
 msgid "Encapsulation Character"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:73
-msgid "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong."
+#: ../core/ui/payment_processing.php:51
+msgid ""
+"Authorize.net default is blank. Otherwise, get this from your credit card "
+"processor. If the transactions are going through, but getting strange "
+"responses, this character is most likely wrong."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:76
@@ -2974,18 +3200,24 @@ msgid "Email Customer (on success)"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:85
+#: ../core/ui/payment_accordion.php:25 ../core/ui/payment_processing.php:55
 msgid "Merchant Email"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:87
-msgid "Email address to which the merchant's copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface."
+msgid ""
+"Email address to which the merchant's copy of the customer confirmation "
+"email should be sent. If a value is submitted, an email will be sent to this "
+"address as well as the address(es) configured in the Merchant Interface."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:90
+#: ../core/ui/payment_processing.php:63
 msgid "Customer Receipt Email Header"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:94
+#: ../core/ui/payment_processing.php:67
 msgid "Security: MD5 Hash"
 msgstr ""
 
@@ -2998,7 +3230,12 @@ msgid "Silent Post URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:110
-msgid "Silent Post responses are returned in real-time, meaning as soon as the transaction processes the Silent Post is sent to your specified URL. Go to https://account.authorize.net -> Settings -> Silent Post URL and copy this URL to input field. Required only for Recurring Billing and not for all Merchants."
+msgid ""
+"Silent Post responses are returned in real-time, meaning as soon as the "
+"transaction processes the Silent Post is sent to your specified URL. Go to "
+"https://account.authorize.net -> Settings -> Silent Post URL and copy this "
+"URL to input field. Required only for Recurring Billing and not for all "
+"Merchants."
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:140
@@ -3007,7 +3244,7 @@ msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:154
 #: ../core/gateways/class_wpi_googlecheckout.php:85
-#: ../core/gateways/class_wpi_interkassa.php:71
+#: ../core/gateways/class_wpi_interkassa.php:75
 #: ../core/gateways/class_wpi_paypal.php:112
 #: ../core/gateways/class_wpi_stripe.php:50
 msgid "Address"
@@ -3019,11 +3256,12 @@ msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:182
 #: ../core/gateways/class_wpi_googlecheckout.php:113
-#: ../core/gateways/class_wpi_paypal.php:140
+#: ../core/gateways/class_wpi_paypal.php:140 ../core/premium/wpi_spc.php:114
 msgid "Country"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:193
+#: ../core/gateways/templates/wpi_stripe-frontend.tpl.php:20
 msgid "Card Number"
 msgstr ""
 
@@ -3035,7 +3273,7 @@ msgstr ""
 msgid "Expiration Year"
 msgstr ""
 
-#: ../core/gateways/class_wpi_authorize.php:214
+#: ../core/gateways/class_wpi_authorize.php:214 ../core/premium/wpi_spc.php:91
 msgid "Card Code"
 msgstr ""
 
@@ -3065,7 +3303,7 @@ msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:246
 #: ../core/gateways/class_wpi_googlecheckout.php:147
-msgid "Send Invoice"
+msgid "Payment Date"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:258
@@ -3075,16 +3313,19 @@ msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:268
 #: ../core/gateways/class_wpi_googlecheckout.php:169
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:189
 msgid "In One Week"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:268
 #: ../core/gateways/class_wpi_googlecheckout.php:169
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:189
 msgid "In 30 Days"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:268
 #: ../core/gateways/class_wpi_googlecheckout.php:169
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:189
 msgid "Clear"
 msgstr ""
 
@@ -3093,7 +3334,9 @@ msgid "Subscription initiated, Subcription ID"
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:533
-msgid "One-time credit card payment is processed successfully. However, recurring billing setup failed. "
+msgid ""
+"One-time credit card payment is processed successfully. However, recurring "
+"billing setup failed. "
 msgstr ""
 
 #: ../core/gateways/class_wpi_authorize.php:536
@@ -3130,33 +3373,36 @@ msgid "API callback URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:42
-msgid "Specify a URL for Google to notify you of new orders and changes in order state."
+msgid ""
+"Specify a URL for Google to notify you of new orders and changes in order "
+"state."
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:71
-#: ../core/gateways/class_wpi_interkassa.php:59
+#: ../core/gateways/class_wpi_interkassa.php:63
 #: ../core/gateways/class_wpi_paypal.php:87
 #: ../core/gateways/class_wpi_stripe.php:38
+#: ../core/ui/invoice_page_wpi_page_settings.php:150
 msgid "Email Address"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:78
-#: ../core/gateways/class_wpi_interkassa.php:65
-#: ../core/gateways/class_wpi_stripe.php:44
+#: ../core/gateways/class_wpi_interkassa.php:69
+#: ../core/gateways/class_wpi_stripe.php:44 ../core/premium/wpi_spc.php:72
 msgid "Phone"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:99
-#: ../core/gateways/class_wpi_interkassa.php:83
+#: ../core/gateways/class_wpi_interkassa.php:87
 #: ../core/gateways/class_wpi_paypal.php:126
-#: ../core/gateways/class_wpi_stripe.php:62
+#: ../core/gateways/class_wpi_stripe.php:62 ../core/premium/wpi_spc.php:106
 msgid "State/Province"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:106
-#: ../core/gateways/class_wpi_interkassa.php:89
+#: ../core/gateways/class_wpi_interkassa.php:93
 #: ../core/gateways/class_wpi_paypal.php:133
-#: ../core/gateways/class_wpi_stripe.php:68
+#: ../core/gateways/class_wpi_stripe.php:68 ../core/premium/wpi_spc.php:110
 msgid "Zip/Postal Code"
 msgstr ""
 
@@ -3165,7 +3411,9 @@ msgid "Google Wallet Subscriptions"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:131
-msgid "If you use Google Wallet for subscriptions then these options will be used to determine billing period."
+msgid ""
+"If you use Google Wallet for subscriptions then these options will be used "
+"to determine billing period."
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:131
@@ -3173,10 +3421,12 @@ msgid "Google Wallet Billing Period"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:133
+#: ../core/premium/wpi_power_tools.php:393
 msgid "Daily"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:133
+#: ../core/premium/wpi_power_tools.php:393
 msgid "Weekly"
 msgstr ""
 
@@ -3185,6 +3435,7 @@ msgid "Semi Monthly"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:133
+#: ../core/premium/wpi_power_tools.php:393
 msgid "Monthly"
 msgstr ""
 
@@ -3201,7 +3452,10 @@ msgid "Yearly"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:137
-msgid "This option specifies the latest date that you can charge the customer for the subscription. This element can help you to ensure that you do not overcharge your customers."
+msgid ""
+"This option specifies the latest date that you can charge the customer for "
+"the subscription. This element can help you to ensure that you do not "
+"overcharge your customers."
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:137
@@ -3209,7 +3463,7 @@ msgid "No Charge After"
 msgstr ""
 
 #: ../core/gateways/class_wpi_googlecheckout.php:278
-#: ../core/gateways/class_wpi_interkassa.php:186
+#: ../core/gateways/class_wpi_interkassa.php:190
 #: ../core/gateways/class_wpi_paypal.php:321
 msgid "Direct access not allowed"
 msgstr ""
@@ -3233,32 +3487,39 @@ msgid "Secret Key"
 msgstr ""
 
 #: ../core/gateways/class_wpi_interkassa.php:33
+msgid "Test Key"
+msgstr ""
+
+#: ../core/gateways/class_wpi_interkassa.php:37
 msgid "Status URL"
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:35
-msgid "Use this URL as Status URL in Merchant settings to get notified once payments made."
+#: ../core/gateways/class_wpi_interkassa.php:39
+msgid ""
+"Use this URL as Status URL in Merchant settings to get notified once "
+"payments made."
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:104
+#: ../core/gateways/class_wpi_interkassa.php:108
 msgid "InterKassa Recurring Billing"
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:105
+#: ../core/gateways/class_wpi_interkassa.php:109
 msgid "Currently InterKassa gateway does not support Recurring Billing"
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:209
+#: ../core/gateways/class_wpi_interkassa.php:213
 #, php-format
 msgid "%s paid via InterKassa [%s]"
 msgstr ""
 
-#: ../core/gateways/class_wpi_interkassa.php:217
+#: ../core/gateways/class_wpi_interkassa.php:221
 #, php-format
 msgid "Transaction ID: %s"
 msgstr ""
 
-#: ../core/gateways/class_wpi_paypal.php:31
+#: ../core/gateways/class_wpi_paypal.php:31 ../core/ui/payment_accordion.php:8
+#: ../core/ui/payment_processing.php:6
 msgid "PayPal Username"
 msgstr ""
 
@@ -3271,7 +3532,10 @@ msgid "PayPal IPN URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_paypal.php:47
-msgid "Once IPN is integrated, sellers can automate their back office so they don't have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings."
+msgid ""
+"Once IPN is integrated, sellers can automate their back office so they don't "
+"have to wait for payments to come in to trigger order fulfillment. Setup "
+"this URL into your PayPal Merchant Account Settings."
 msgstr ""
 
 #: ../core/gateways/class_wpi_paypal.php:50
@@ -3340,7 +3604,8 @@ msgid "Webhook URL"
 msgstr ""
 
 #: ../core/gateways/class_wpi_stripe.php:108
-msgid "Use webhooks to be notified about events that happen in your Stripe account."
+msgid ""
+"Use webhooks to be notified about events that happen in your Stripe account."
 msgstr ""
 
 #: ../core/gateways/class_wpi_stripe.php:121
@@ -3368,7 +3633,10 @@ msgid "Year"
 msgstr ""
 
 #: ../core/gateways/class_wpi_stripe.php:131
-msgid "The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of \"month\" for quarterly billing (every 3 months)."
+msgid ""
+"The number of the unit specified in the interval parameter. For example, you "
+"could specify an interval_count of 3 and an interval of \"month\" for "
+"quarterly billing (every 3 months)."
 msgstr ""
 
 #: ../core/gateways/class_wpi_stripe.php:131
@@ -3376,55 +3644,60 @@ msgid "Interval Count"
 msgstr ""
 
 #: ../core/gateways/class_wpi_stripe.php:230
-msgid "The order cannot be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again."
+msgid ""
+"The order cannot be processed. You have not been charged. Please confirm "
+"that you have JavaScript enabled and try again."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:267
+#: ../core/gateways/class_wpi_stripe.php:269
 #, php-format
 msgid "Subscription has been initiated. Plan: %s, Customer: %s"
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:273
-msgid "Stripe Subscription has been initiated. Do not pay this invoice again. Thank you."
+#: ../core/gateways/class_wpi_stripe.php:275
+msgid ""
+"Stripe Subscription has been initiated. Do not pay this invoice again. Thank "
+"you."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:278
-msgid "Could not initiate Stripe Subscription. Contact site Administrator please."
+#: ../core/gateways/class_wpi_stripe.php:280
+msgid ""
+"Could not initiate Stripe Subscription. Contact site Administrator please."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:331
+#: ../core/gateways/class_wpi_stripe.php:333
 msgid " paid via STRIPE"
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:339
+#: ../core/gateways/class_wpi_stripe.php:341
 msgid "Successfully processed by "
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:342
+#: ../core/gateways/class_wpi_stripe.php:344
 msgid "STRIPE Card ID: "
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:351
+#: ../core/gateways/class_wpi_stripe.php:353
 msgid "Successfully paid. Thank you."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:378
+#: ../core/gateways/class_wpi_stripe.php:380
 msgid "Service is currently unavailable. Please try again later."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:382
+#: ../core/gateways/class_wpi_stripe.php:384
 msgid "Unknown error occured. Please contact site administrator."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:386
+#: ../core/gateways/class_wpi_stripe.php:388
 msgid "Stripe server is down! Try again later."
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:434
+#: ../core/gateways/class_wpi_stripe.php:438
 msgid "Stripe Subscription Payment"
 msgstr ""
 
-#: ../core/gateways/class_wpi_stripe.php:464
+#: ../core/gateways/class_wpi_stripe.php:470
 msgid "Stripe Subscription has been canceled"
 msgstr ""
 
@@ -3435,11 +3708,13 @@ msgstr ""
 
 #: ../core/gateways/templates/wpi_authorize-checkout.tpl.php:65
 #: ../core/gateways/templates/wpi_paypal-checkout.tpl.php:125
+#: ../core/premium/wpi_spc.php:982
 msgid "Process Payment"
 msgstr ""
 
 #: ../core/gateways/templates/wpi_authorize-frontend.tpl.php:18
 #: ../core/gateways/templates/wpi_googlecheckout-frontend.tpl.php:116
+#: ../core/gateways/templates/wpi_stripe-frontend.tpl.php:60
 #, php-format
 msgid "Process Payment of %s"
 msgstr ""
@@ -3454,7 +3729,9 @@ msgid "Process Payment of "
 msgstr ""
 
 #: ../core/gateways/templates/wpi_interkassa-frontend.tpl.php:30
-msgid "This payment gateway does not support Recurring Billing. Try another one or contact site Administrator."
+msgid ""
+"This payment gateway does not support Recurring Billing. Try another one or "
+"contact site Administrator."
 msgstr ""
 
 #: ../core/gateways/templates/wpi_paypal-checkout.tpl.php:83
@@ -3485,92 +3762,11 @@ msgstr ""
 msgid "Expiration (Year)"
 msgstr ""
 
-#: ../core/premium/wpi_bb.php:50
-msgid "Branded Billing"
-msgstr ""
-
-#: ../core/premium/wpi_bb.php:74
-msgid "Select Network Type"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:63
-msgid "Sales Statistics"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:80
-msgid "Last Day"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:85
-msgid "Last Week"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:90
-msgid "Last Month"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:114
-msgid "Goals"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:119
-msgid "Show Goal lines"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:124
-msgid "Day Goal"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:130
-msgid "Week Goal"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:136
-msgid "Month Goal"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:225
-msgid "My Invoice Statistics"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:316
-msgid "My Invoices"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:352
-#: ../core/premium/wpi_dashboard_widgets.php:389
-#: ../core/premium/wpi_dashboard_widgets.php:424
-#: ../core/premium/wpi_dashboard_widgets.php:459
-msgid "No invoices"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:472
-msgid "My Statistics"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:478
-msgid "Total invoices"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:487
-msgid "Total paid"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:496
-msgid "Total dept"
-msgstr ""
-
-#: ../core/premium/wpi_dashboard_widgets.php:505
-msgid "Total balance"
-msgstr ""
-
-#: ../core/premium/wpi_pdf.php:126
-#: ../core/premium/wpi_pdf.php:169
+#: ../core/premium/wpi_pdf.php:126 ../core/premium/wpi_pdf.php:169
 msgid "View PDF"
 msgstr ""
 
-#: ../core/premium/wpi_pdf.php:139
-#: ../core/premium/wpi_pdf.php:188
+#: ../core/premium/wpi_pdf.php:139 ../core/premium/wpi_pdf.php:188
 msgid "Download PDF"
 msgstr ""
 
@@ -3591,7 +3787,8 @@ msgid "Display logo in the PDF."
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:244
-msgid "Enter a valid URL of an image you would like to use in the PDF as a logo."
+msgid ""
+"Enter a valid URL of an image you would like to use in the PDF as a logo."
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:250
@@ -3615,7 +3812,9 @@ msgid "Default Font"
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:273
-msgid "The default font is Helvetica (core). If you will have any problems with current font try choosing another one."
+msgid ""
+"The default font is Helvetica (core). If you will have any problems with "
+"current font try choosing another one."
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:277
@@ -3639,22 +3838,24 @@ msgid "Display Notes"
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:295
-msgid "Notes will be displayed towards the bottom of the Invoice/Quote, depending on the template."
+msgid ""
+"Notes will be displayed towards the bottom of the Invoice/Quote, depending "
+"on the template."
 msgstr ""
 
 #: ../core/premium/wpi_pdf.php:311
 msgid "PDF Invoice"
 msgstr ""
 
-#: ../core/premium/wpi_pdf.php:624
+#: ../core/premium/wpi_pdf.php:628
 msgid "RECEIPT"
 msgstr ""
 
-#: ../core/premium/wpi_pdf.php:627
+#: ../core/premium/wpi_pdf.php:631
 msgid "QUOTE"
 msgstr ""
 
-#: ../core/premium/wpi_pdf.php:630
+#: ../core/premium/wpi_pdf.php:634
 msgid "INVOICE"
 msgstr ""
 
@@ -3731,7 +3932,10 @@ msgid "Filename Format"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:614
-msgid "Allowed tags: <code>[blog_name]</code>, <code>[month]</code>, <code>[day]</code>, <code>[year]</code>, <code>[hour]</code>, <code>[minute]</code>, <code>[second]</code> and <code>[timestamp]</code>"
+msgid ""
+"Allowed tags: <code>[blog_name]</code>, <code>[month]</code>, <code>[day]</"
+"code>, <code>[year]</code>, <code>[hour]</code>, <code>[minute]</code>, "
+"<code>[second]</code> and <code>[timestamp]</code>"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:619
@@ -3773,23 +3977,27 @@ msgid "User Role:"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:717
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Administrator"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:718
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Subscriber"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:719
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Editor"
 msgstr ""
 
-#: ../core/premium/wpi_power_tools.php:720
-#: ../core/premium/wpi_quotes.php:395
+#: ../core/premium/wpi_power_tools.php:720 ../core/premium/wpi_quotes.php:497
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Author"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:721
+#: ../core/ui/invoice_page_wpi_page_settings.php:192
 msgid "Contributor"
 msgstr ""
 
@@ -3800,7 +4008,9 @@ msgid "Export Invoices"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:999
-msgid "Something went wrong with exporting process. Check if XML Encoding you selected is supported."
+msgid ""
+"Something went wrong with exporting process. Check if XML Encoding you "
+"selected is supported."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1041
@@ -3817,19 +4027,29 @@ msgid "Invoice Export"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1096
-msgid "It is unable to import data from the file that you specified. It may be broken or empty. Make sure that you select proper <code>WP-Invoice XML</code> or <code>WP-Invoice JSON</code> file which has at least 1 object."
+msgid ""
+"It is unable to import data from the file that you specified. It may be "
+"broken or empty. Make sure that you select proper <code>WP-Invoice XML</"
+"code> or <code>WP-Invoice JSON</code> file which has at least 1 object."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1134
-msgid "You forgot to specify dump file. Make sure that you select proper <code>WP-Invoice XML</code> or <code>WP-Invoice JSON</code> file."
+msgid ""
+"You forgot to specify dump file. Make sure that you select proper <code>WP-"
+"Invoice XML</code> or <code>WP-Invoice JSON</code> file."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1154
-msgid "<b>WP-Invoice Power Tools</b> feature allows you to Import data from another WP-Invoice powered site."
+msgid ""
+"<b>WP-Invoice Power Tools</b> feature allows you to Import data from another "
+"WP-Invoice powered site."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1155
-msgid "If you already have <code>WP-Invoice XML</code> or <code>WP-Invoice JSON</code> export file from another site then you can specify it in the form below. Once ready click '<b>Import</b>' button."
+msgid ""
+"If you already have <code>WP-Invoice XML</code> or <code>WP-Invoice JSON</"
+"code> export file from another site then you can specify it in the form "
+"below. Once ready click '<b>Import</b>' button."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1158
@@ -3841,11 +4061,16 @@ msgid "Import"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1180
-msgid "<b>WP-Invoice Power Tools</b> feature allows you to export your existing <i>WP-Invoice Objects</i><sup>1</sup> and import them into another WP-Invoice powered site."
+msgid ""
+"<b>WP-Invoice Power Tools</b> feature allows you to export your existing "
+"<i>WP-Invoice Objects</i><sup>1</sup> and import them into another WP-"
+"Invoice powered site."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1181
-msgid "Export dump can be downloaded in two different formats: <code>JSON</code> and <code>XML</code><sup>2</sup>."
+msgid ""
+"Export dump can be downloaded in two different formats: <code>JSON</code> "
+"and <code>XML</code><sup>2</sup>."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1182
@@ -3857,7 +4082,10 @@ msgid "Download Export File"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1191
-msgid "Under WP-Invoice Objects we mean Invoices, Quotes, Receipts, <abbr title=\"Single Page Checkout\">SPC</abbr> transactions and any other types of invoices."
+msgid ""
+"Under WP-Invoice Objects we mean Invoices, Quotes, Receipts, <abbr title="
+"\"Single Page Checkout\">SPC</abbr> transactions and any other types of "
+"invoices."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1771
@@ -3869,19 +4097,27 @@ msgid "<b>Export Options</b>"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1773
-msgid "<u>Default Format</u> - format that will be used for generating export file dump. You can specify format using dropdown next to \"Export\" button."
+msgid ""
+"<u>Default Format</u> - format that will be used for generating export file "
+"dump. You can specify format using dropdown next to \"Export\" button."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1774
-msgid "<u>XML Charset</u> - the charset of the dump file content. It is recommended to use default but you can change it to some supported charset. Note that unsupported charsets can make export failed."
+msgid ""
+"<u>XML Charset</u> - the charset of the dump file content. It is recommended "
+"to use default but you can change it to some supported charset. Note that "
+"unsupported charsets can make export failed."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1775
-msgid "<u>XML Version</u> - the value which is used for XML formatted dump files. Usually is \"1.0\""
+msgid ""
+"<u>XML Version</u> - the value which is used for XML formatted dump files. "
+"Usually is \"1.0\""
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1776
-msgid "<u>Log History</u> - options for log history exports. See descriptions below:"
+msgid ""
+"<u>Log History</u> - options for log history exports. See descriptions below:"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1779
@@ -3889,11 +4125,15 @@ msgid "whether or not to export history logs for every invoice object."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1782
-msgid "<u>Filename Format</u> - specify pattern for dump filename to use. Use allowed tags below."
+msgid ""
+"<u>Filename Format</u> - specify pattern for dump filename to use. Use "
+"allowed tags below."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1783
-msgid "<u>Advanced Options</u> - some advanced useful options. See descriptions below:"
+msgid ""
+"<u>Advanced Options</u> - some advanced useful options. See descriptions "
+"below:"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1786
@@ -3901,7 +4141,10 @@ msgid "Delete exported Objects (Invoices) after export."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1786
-msgid "if you are SURE that you don't need your invoice objects any more then this option will delete invoices after export is done. Note that you won't be able to restore them."
+msgid ""
+"if you are SURE that you don't need your invoice objects any more then this "
+"option will delete invoices after export is done. Note that you won't be "
+"able to restore them."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1789
@@ -3909,15 +4152,20 @@ msgid "<b>Import Options</b>"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1790
-msgid "<u>Log History</u> - options for log history imports. See descriptions below:"
+msgid ""
+"<u>Log History</u> - options for log history imports. See descriptions below:"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1793
-msgid "whether or not to add log item with information about importing invoice object."
+msgid ""
+"whether or not to add log item with information about importing invoice "
+"object."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1796
-msgid "<u>Recipients</u> - options for management recipients. See descriptions below:"
+msgid ""
+"<u>Recipients</u> - options for management recipients. See descriptions "
+"below:"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1799
@@ -3925,98 +4173,146 @@ msgid "whether or not to replace existing user's information."
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1800
-msgid "You can decide what to do if user doesn't exist using the dropdown <i>'If Recipient does not exist'.</i>"
+msgid ""
+"You can decide what to do if user doesn't exist using the dropdown <i>'If "
+"Recipient does not exist'.</i>"
 msgstr ""
 
 #: ../core/premium/wpi_power_tools.php:1801
-msgid "In order to the option that you have selected above, you'll be able to select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
+msgid ""
+"In order to the option that you have selected above, you'll be able to "
+"select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:64
-msgid "Accept Quote"
+#: ../core/premium/wpi_quotes.php:59
+msgid "Quotes"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:103
-msgid "Authorization required."
+#: ../core/premium/wpi_quotes.php:67
+msgid "Make recipients to be authorized to be able to Accept Quote."
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:112
-msgid "You are not allowed to make that action. You are not a recipient of this quote. Plese login under proper account."
+#: ../core/premium/wpi_quotes.php:70
+msgid ""
+"By default quote recipients do not have to sign in before Accepting the "
+"quote you sent to them. Tick this option if you need them to be logged in."
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:122
-msgid "Quote has been accepted and converted to invoice. Refreshing..."
+#: ../core/premium/wpi_quotes.php:84
+msgid "Add \"Terms &amp; Conditions\" checkbox to Quote page."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:88
+msgid ""
+"This option allows you to add \"Terms &amp; Conditions\" checkbox to every "
+"Quote page. Be sure you have specified Terms page ID below."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:91
+msgid "\"T&amp;C\" Page ID:"
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:99
+msgid "Numeric value of WordPress page ID that has \"Terms &amp; Conditions\"."
 msgstr ""
 
 #: ../core/premium/wpi_quotes.php:124
+#, php-format
+msgid "I accept <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>"
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:135
+msgid "Accept Quote"
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:186
+msgid "You have to accept Terms &amp; Conditions."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:204
+msgid "Authorization required."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:213
+msgid ""
+"You are not allowed to make that action. You are not a recipient of this "
+"quote. Plese login under proper account."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:223
+msgid "Quote has been accepted and converted to invoice. Refreshing..."
+msgstr ""
+
+#: ../core/premium/wpi_quotes.php:225
 msgid "Error! Unknown request."
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:149
+#: ../core/premium/wpi_quotes.php:250
 msgid "Reply to this comment"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:149
+#: ../core/premium/wpi_quotes.php:250
 msgid "Reply"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:150
+#: ../core/premium/wpi_quotes.php:251
 msgid "Delete"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:194
+#: ../core/premium/wpi_quotes.php:295
 msgid "Response:"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:195
+#: ../core/premium/wpi_quotes.php:296
 msgid "Send Response"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:197
+#: ../core/premium/wpi_quotes.php:298
 msgid "Have a question?"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:198
+#: ../core/premium/wpi_quotes.php:299
 msgid "Send Question"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:390
+#: ../core/premium/wpi_quotes.php:492
 msgid "Comments"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:396
+#: ../core/premium/wpi_quotes.php:498
 msgid "Comment"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:413
+#: ../core/premium/wpi_quotes.php:515
 msgid "There are no comments for this quote."
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:511
+#: ../core/premium/wpi_quotes.php:613
 msgid "Reply to Comment"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:519
+#: ../core/premium/wpi_quotes.php:621
 msgid "E-mail"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:523
+#: ../core/premium/wpi_quotes.php:625
 msgid "URL"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:536
+#: ../core/premium/wpi_quotes.php:638
 msgid "Update Comment"
 msgstr ""
 
-#: ../core/premium/wpi_quotes.php:537
+#: ../core/premium/wpi_quotes.php:639
 msgid "Submit Reply"
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:76
+#: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:253
 msgid "Email"
 msgstr ""
 
-#: ../core/premium/wpi_spc.php:83
+#: ../core/premium/wpi_spc.php:83 ../core/ui/payment_processing.php:15
 msgid "Credit Card"
 msgstr ""
 
@@ -4033,20 +4329,26 @@ msgid "Transaction complete."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:340
-msgid "<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/single-page-checkout/\">More...</a>"
+msgid ""
+"<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout "
+"Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/single-page-checkout/\">More...</a>"
 msgstr ""
 
-#: ../core/premium/wpi_spc.php:342
-#: ../core/premium/wpi_spc.php:1129
+#: ../core/premium/wpi_spc.php:342 ../core/premium/wpi_spc.php:1129
 msgid "Single Page Checkout"
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:343
-msgid "Create single page checkout forms that are then visible in the \"Invoice\" overview."
+msgid ""
+"Create single page checkout forms that are then visible in the \"Invoice\" "
+"overview."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:344
-msgid "You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</b>. Options:"
+msgid ""
+"You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</"
+"b>. Options:"
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:346
@@ -4070,15 +4372,20 @@ msgid "A CSV list of Title of any custom attributes for the checkout."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:351
-msgid "`true/false` value. If true then custom amount field will appear on SPC. Do not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+msgid ""
+"`true/false` value. If true then custom amount field will appear on SPC. Do "
+"not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:352
-msgid "Disabled the checkout items, only use this if you are using some sort of JS script to enable them back on."
+msgid ""
+"Disabled the checkout items, only use this if you are using some sort of JS "
+"script to enable them back on."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:353
-msgid "Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
+msgid ""
+"Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:354
@@ -4090,7 +4397,9 @@ msgid " Available values: "
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:363
-msgid "Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount=\"true\" fee=\"5%\"]</b>"
+msgid ""
+"Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount=\"true"
+"\" fee=\"5%\"]</b>"
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:465
@@ -4126,7 +4435,9 @@ msgid "Transaction Error: "
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:656
-msgid "There was an error with the transaction. Please select another payment venue, or contact support."
+msgid ""
+"There was an error with the transaction. Please select another payment "
+"venue, or contact support."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:713
@@ -4141,8 +4452,7 @@ msgstr ""
 msgid " of fee."
 msgstr ""
 
-#: ../core/premium/wpi_spc.php:721
-#: ../core/premium/wpi_spc.php:723
+#: ../core/premium/wpi_spc.php:721 ../core/premium/wpi_spc.php:723
 #: ../core/premium/wpi_spc.php:833
 msgid "Transaction #"
 msgstr ""
@@ -4151,8 +4461,9 @@ msgstr ""
 msgid "Default Checkout Form"
 msgstr ""
 
-#: ../core/premium/wpi_spc.php:771
-#: ../core/premium/wpi_spc.php:1055
+#: ../core/premium/wpi_spc.php:771 ../core/premium/wpi_spc.php:1055
+#: ../core/ui/invoice_page_wpi_page_manage_invoice.php:185
+#: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:274
 msgid "Amount"
 msgstr ""
 
@@ -4166,7 +4477,9 @@ msgid "Transaction #%s was successfully completed."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:834
-msgid " was successfully completed, but invoice of the current transaction could not be saved. We advise You to add transaction's invoice manually."
+msgid ""
+" was successfully completed, but invoice of the current transaction could "
+"not be saved. We advise You to add transaction's invoice manually."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:835
@@ -4207,7 +4520,9 @@ msgid "Enforce SSL on checkout pages."
 msgstr ""
 
 #: ../core/premium/wpi_spc.php:1134
-msgid "As for regular invoice pages, HTTPS should be enforced on pages that have a checkout form."
+msgid ""
+"As for regular invoice pages, HTTPS should be enforced on pages that have a "
+"checkout form."
 msgstr ""
 
 #: ../core/template/invoice_page.php:3
@@ -4229,8 +4544,7 @@ msgstr ""
 msgid "This is a recurring bill."
 msgstr ""
 
-#: ../core/template/invoice_page.php:27
-#: ../core/template/receipt_page.php:18
+#: ../core/template/invoice_page.php:27 ../core/template/receipt_page.php:18
 msgid "You've made payments, but still owe:"
 msgstr ""
 
@@ -4242,49 +4556,40 @@ msgstr ""
 msgid "Contact site Administrator for payment information please."
 msgstr ""
 
-#: ../core/template/pdf_quote.php:10
-#: ../core/template/pdf_quote_modern.php:10
+#: ../core/template/pdf_quote.php:10 ../core/template/pdf_quote_modern.php:10
 msgid "DUE DATE"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:11
-#: ../core/template/pdf_quote.php:88
-#: ../core/template/pdf_quote.php:106
-#: ../core/template/pdf_quote_bold.php:55
+#: ../core/template/pdf_quote.php:11 ../core/template/pdf_quote.php:88
+#: ../core/template/pdf_quote.php:106 ../core/template/pdf_quote_bold.php:55
 #: ../core/template/pdf_quote_modern.php:46
 #: ../core/template/pdf_quote_modern.php:64
 msgid "AMOUNT"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:12
-#: ../core/template/pdf_quote_bold.php:13
+#: ../core/template/pdf_quote.php:12 ../core/template/pdf_quote_bold.php:13
 #: ../core/template/pdf_quote_modern.php:12
 msgid "ATTN"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:13
-#: ../core/template/pdf_quote_modern.php:13
+#: ../core/template/pdf_quote.php:13 ../core/template/pdf_quote_modern.php:13
 msgid "BILL TO"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:14
-#: ../core/template/pdf_quote_modern.php:14
+#: ../core/template/pdf_quote.php:14 ../core/template/pdf_quote_modern.php:14
 msgid "ADDRESS"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:15
-#: ../core/template/pdf_quote_modern.php:15
+#: ../core/template/pdf_quote.php:15 ../core/template/pdf_quote_modern.php:15
 msgid "TELEPHONE"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:18
-#: ../core/template/pdf_quote_bold.php:21
+#: ../core/template/pdf_quote.php:18 ../core/template/pdf_quote_bold.php:21
 #: ../core/template/pdf_quote_modern.php:18
 msgid "TOTAL"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:21
-#: ../core/template/pdf_quote.php:29
+#: ../core/template/pdf_quote.php:21 ../core/template/pdf_quote.php:29
 #: ../core/template/pdf_quote_bold.php:24
 #: ../core/template/pdf_quote_bold.php:32
 #: ../core/template/pdf_quote_modern.php:21
@@ -4292,38 +4597,32 @@ msgstr ""
 msgid "TAX"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:24
-#: ../core/template/pdf_quote_bold.php:27
+#: ../core/template/pdf_quote.php:24 ../core/template/pdf_quote_bold.php:27
 #: ../core/template/pdf_quote_modern.php:24
 msgid "DISCOUNT"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:27
-#: ../core/template/pdf_quote_bold.php:30
+#: ../core/template/pdf_quote.php:27 ../core/template/pdf_quote_bold.php:30
 #: ../core/template/pdf_quote_modern.php:27
 msgid "BALANCE"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:47
-#: ../core/template/pdf_quote_bold.php:82
+#: ../core/template/pdf_quote.php:47 ../core/template/pdf_quote_bold.php:82
 #: ../core/template/pdf_quote_modern.php:92
 msgid "TERMS &amp; CONDITIONS"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:62
-#: ../core/template/pdf_quote_bold.php:96
+#: ../core/template/pdf_quote.php:62 ../core/template/pdf_quote_bold.php:96
 #: ../core/template/pdf_quote_modern.php:107
 msgid "NOTES"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:84
-#: ../core/template/pdf_quote_bold.php:51
+#: ../core/template/pdf_quote.php:84 ../core/template/pdf_quote_bold.php:51
 #: ../core/template/pdf_quote_modern.php:42
 msgid "CHARGES"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:87
-#: ../core/template/pdf_quote.php:104
+#: ../core/template/pdf_quote.php:87 ../core/template/pdf_quote.php:104
 #: ../core/template/pdf_quote_bold.php:37
 #: ../core/template/pdf_quote_bold.php:54
 #: ../core/template/pdf_quote_modern.php:45
@@ -4331,14 +4630,12 @@ msgstr ""
 msgid "DESCRIPTION"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:101
-#: ../core/template/pdf_quote_bold.php:35
+#: ../core/template/pdf_quote.php:101 ../core/template/pdf_quote_bold.php:35
 #: ../core/template/pdf_quote_modern.php:59
 msgid "ITEMS"
 msgstr ""
 
-#: ../core/template/pdf_quote.php:105
-#: ../core/template/pdf_quote_modern.php:63
+#: ../core/template/pdf_quote.php:105 ../core/template/pdf_quote_modern.php:63
 msgid "QUANTITY"
 msgstr ""
 
@@ -4459,7 +4756,9 @@ msgid "WP-Invoice First-Use Setup"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:12
-msgid "Thank you for installing WP-Invoice.  Please provide the necessary information to complete the first-time setup."
+msgid ""
+"Thank you for installing WP-Invoice.  Please provide the necessary "
+"information to complete the first-time setup."
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:15
@@ -4471,7 +4770,10 @@ msgid "Business Name:"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:31
-msgid "Your clients will have to follow their secure link to this page to see their invoice. Opening this page without following a link will result in the standard page content begin shown."
+msgid ""
+"Your clients will have to follow their secure link to this page to see their "
+"invoice. Opening this page without following a link will result in the "
+"standard page content begin shown."
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:31
@@ -4479,8 +4781,10 @@ msgid "Select a page to display invoices:"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:42
-#: ../core/ui/invoice_page_wpi_page_settings.php:299
-msgid "Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag."
+#: ../core/ui/invoice_page_wpi_page_settings.php:306
+msgid ""
+"Select whether to overwrite all page content, insert at the bottom of the "
+"content, or to look for the [wp-invoice] tag."
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:42
@@ -4488,28 +4792,30 @@ msgid "How to Insert Invoice:"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:48
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Overwrite All Page Content"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:48
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Place Below Content"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:48
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Above Content"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:48
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
+#: ../core/ui/invoice_page_wpi_page_settings.php:309
 msgid "Replace [wp-invoice] Tag"
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:52
-#: ../core/ui/invoice_page_wpi_page_settings.php:302
-msgid "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</span> somewhere within your page content."
+#: ../core/ui/invoice_page_wpi_page_settings.php:309
+msgid ""
+"If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</"
+"span> somewhere within your page content."
 msgstr ""
 
 #: ../core/ui/first_time_setup.php:56
@@ -4560,19 +4866,19 @@ msgstr ""
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:222
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: ../core/ui/invoice_page_wpi_page_settings.php:668
+#: ../core/ui/invoice_page_wpi_page_settings.php:686
 msgid "Total"
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:219
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: ../core/ui/invoice_page_wpi_page_settings.php:665
+#: ../core/ui/invoice_page_wpi_page_settings.php:683
 msgid "Qty."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_manage_invoice.php:243
 #: ../core/ui/invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: ../core/ui/invoice_page_wpi_page_settings.php:678
+#: ../core/ui/invoice_page_wpi_page_settings.php:696
 msgid "Toggle Description"
 msgstr ""
 
@@ -4706,7 +5012,9 @@ msgid "Use global tax."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:177
-msgid "This will make all new invoices have default Tax value which can be changed for different invoice."
+msgid ""
+"This will make all new invoices have default Tax value which can be changed "
+"for different invoice."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:184
@@ -4734,19 +5042,27 @@ msgid "Using Godaddy Hosting:"
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:196
-msgid "Special proxy must be used to process credit card transactions on GoDaddy servers."
+msgid ""
+"Special proxy must be used to process credit card transactions on GoDaddy "
+"servers."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:204
-msgid "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' folder in your active theme's folder."
+msgid ""
+"Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
+"folder in your active theme's folder."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:209
-msgid "Note: Currently there is no \"wpi\" folder in your active template's folder, WP-Invoice will attempt to create it after saving."
+msgid ""
+"Note: Currently there is no \"wpi\" folder in your active template's folder, "
+"WP-Invoice will attempt to create it after saving."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:211
-msgid "A \"wpi\" folder has been found, any files with the proper file names will be used instead of the default template files."
+msgid ""
+"A \"wpi\" folder has been found, any files with the proper file names will "
+"be used instead of the default template files."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:214
@@ -4754,7 +5070,9 @@ msgid "Install"
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:214
-msgid "the custom templates inside the <b>wpi</b> folder in your active theme's folder."
+msgid ""
+"the custom templates inside the <b>wpi</b> folder in your active theme's "
+"folder."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:216
@@ -4765,277 +5083,312 @@ msgstr ""
 msgid "Thousands Separator Symbol"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:225
-msgid "None"
-msgstr ""
-
 #: ../core/ui/invoice_page_wpi_page_settings.php:235
-msgid "Show invoice only for logged in recipients."
+msgid "Show invoices only for logged in recipients."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:262
+#: ../core/ui/invoice_page_wpi_page_settings.php:238
+msgid "Send passwords to newly created recipients."
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:241
+msgid "Turn off compatibility mode."
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:242
+msgid ""
+"By default the Compatibility Mode is on. If you encounter problems "
+"displaying your invoices then turn it off."
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:269
 msgid "When creating an invoice"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:265
+#: ../core/ui/invoice_page_wpi_page_settings.php:272
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:271
+#: ../core/ui/invoice_page_wpi_page_settings.php:278
 msgid "When viewing an invoice"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:274
+#: ../core/ui/invoice_page_wpi_page_settings.php:281
 msgid "Display invoices on the"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:288
+#: ../core/ui/invoice_page_wpi_page_settings.php:295
 msgid "page."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:290
+#: ../core/ui/invoice_page_wpi_page_settings.php:297
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:291
-msgid "Replace page heading and navigation link title with invoice subject when viewing invoice."
+#: ../core/ui/invoice_page_wpi_page_settings.php:298
+msgid ""
+"Replace page heading and navigation link title with invoice subject when "
+"viewing invoice."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:292
+#: ../core/ui/invoice_page_wpi_page_settings.php:299
 msgid "Hide page heading and navigation link completely."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:294
+#: ../core/ui/invoice_page_wpi_page_settings.php:301
 msgid "Show my business name and address."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:295
+#: ../core/ui/invoice_page_wpi_page_settings.php:302
 msgid "Show quantity breakdowns in the itemized list."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:300
+#: ../core/ui/invoice_page_wpi_page_settings.php:307
 msgid "How to Insert Invoice"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:305
+#: ../core/ui/invoice_page_wpi_page_settings.php:312
 msgid "After a payment has been completed"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:308
+#: ../core/ui/invoice_page_wpi_page_settings.php:315
 msgid "Send email confirmation to the client."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:309
+#: ../core/ui/invoice_page_wpi_page_settings.php:316
 #, php-format
-msgid "Send email notification to the address set for administrative purposes from <a href=\"%s\">General Settings</a>"
-msgstr ""
-
-#: ../core/ui/invoice_page_wpi_page_settings.php:310
-msgid "Send email notification to invoice creator."
-msgstr ""
-
-#: ../core/ui/invoice_page_wpi_page_settings.php:311
-msgid "Use CRM to send notifications"
-msgstr ""
-
-#: ../core/ui/invoice_page_wpi_page_settings.php:311
-#, php-format
-msgid "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification management."
+msgid ""
+"Send email notification to the address set for administrative purposes from "
+"<a href=\"%s\">General Settings</a>"
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:317
-msgid "This options allow you to change the default email address that WordPress sends it's mail from, and the name of the sender that the email is from."
+msgid "Send email notification to invoice creator."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:318
+msgid "Use CRM to send notifications"
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:318
+#, php-format
+msgid ""
+"Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
+"management."
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:324
+msgid ""
+"This options allow you to change the default email address that WordPress "
+"sends it's mail from, and the name of the sender that the email is from."
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:325
 msgid "Mail From options"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:326
+#: ../core/ui/invoice_page_wpi_page_settings.php:333
 msgid "Sender Name"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:333
+#: ../core/ui/invoice_page_wpi_page_settings.php:340
 msgid "The sender name that the email is from"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:338
+#: ../core/ui/invoice_page_wpi_page_settings.php:345
 msgid "User E-mail"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:345
+#: ../core/ui/invoice_page_wpi_page_settings.php:352
 msgid "Email address e.g. username@example.com"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:350
+#: ../core/ui/invoice_page_wpi_page_settings.php:357
 msgid "Apply 'Mail From' settings."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:362
-msgid "If you are using <b>Google Analytics Site Tracking</b> code on your site then you can track WP-Invoice events."
-msgstr ""
-
-#: ../core/ui/invoice_page_wpi_page_settings.php:363
-msgid "Google Analytics Events Tracking"
+#: ../core/ui/invoice_page_wpi_page_settings.php:369
+msgid ""
+"If you are using <b>Google Analytics Site Tracking</b> code on your site "
+"then you can track WP-Invoice events."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_page_settings.php:370
+msgid "Google Analytics Events Tracking"
+msgstr ""
+
+#: ../core/ui/invoice_page_wpi_page_settings.php:377
 msgid "I want to track events."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:375
+#: ../core/ui/invoice_page_wpi_page_settings.php:382
 msgid "Track Invoices events:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:378
+#: ../core/ui/invoice_page_wpi_page_settings.php:385
 msgid "Attempting to pay Invoices"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:381
+#: ../core/ui/invoice_page_wpi_page_settings.php:388
 msgid "View Invoices"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:411
+#: ../core/ui/invoice_page_wpi_page_settings.php:418
 msgid "Default Currency"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:421
+#: ../core/ui/invoice_page_wpi_page_settings.php:428
 msgid "Currency list"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:426
+#: ../core/ui/invoice_page_wpi_page_settings.php:433
 msgid "Code"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:427
+#: ../core/ui/invoice_page_wpi_page_settings.php:434
 msgid "Symbol"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:451
+#: ../core/ui/invoice_page_wpi_page_settings.php:458
 msgid "Add Currency"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:462
+#: ../core/ui/invoice_page_wpi_page_settings.php:469
 msgid "Default Payment Method"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:469
+#: ../core/ui/invoice_page_wpi_page_settings.php:476
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:398
 msgid "Client can change payment option."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:474
+#: ../core/ui/invoice_page_wpi_page_settings.php:481
 msgid "Payment Gateways"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:533
+#: ../core/ui/invoice_page_wpi_page_settings.php:540
 msgid "Manual Payment information"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:538
-msgid "If an invoice has no payment gateways, this message will be displayed offering the customer guidance on their course of action."
+#: ../core/ui/invoice_page_wpi_page_settings.php:545
+msgid ""
+"If an invoice has no payment gateways, this message will be displayed "
+"offering the customer guidance on their course of action."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:546
+#: ../core/ui/invoice_page_wpi_page_settings.php:553
 msgid "Subscription Payments"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:571
+#: ../core/ui/invoice_page_wpi_page_settings.php:578
 msgid "Subject"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:572
+#: ../core/ui/invoice_page_wpi_page_settings.php:579
 msgid "Content"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:596
+#: ../core/ui/invoice_page_wpi_page_settings.php:603
 msgid "Add Template"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:647
-msgid "Setup your common services and products in here to streamline invoice creation."
+#: ../core/ui/invoice_page_wpi_page_settings.php:654
+msgid ""
+"Setup your common services and products in here to streamline invoice "
+"creation."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:664
+#: ../core/ui/invoice_page_wpi_page_settings.php:682
 msgid "Name & Description"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:667
+#: ../core/ui/invoice_page_wpi_page_settings.php:685
 msgid "Tax %"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:705
+#: ../core/ui/invoice_page_wpi_page_settings.php:722
 msgid "Add Line Item"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:736
+#: ../core/ui/invoice_page_wpi_page_settings.php:753
 msgid "Look up the $wpi_settings global settings array:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:736
+#: ../core/ui/invoice_page_wpi_page_settings.php:753
 msgid "Toggle $wpi_settings"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:743
+#: ../core/ui/invoice_page_wpi_page_settings.php:760
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:744
+#: ../core/ui/invoice_page_wpi_page_settings.php:761
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:782
+#: ../core/ui/invoice_page_wpi_page_settings.php:799
 msgid "Check for Updates"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:784
-msgid "Check for any premium feature updates from the Usability Dynamics Update server:"
+#: ../core/ui/invoice_page_wpi_page_settings.php:801
+msgid ""
+"Check for any premium feature updates from the Usability Dynamics Update "
+"server:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:785
+#: ../core/ui/invoice_page_wpi_page_settings.php:802
 msgid "Check Updates"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:789
+#: ../core/ui/invoice_page_wpi_page_settings.php:806
 msgid "Your Domain"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:791
-msgid "When purchasing the premium features you will need to specify your domain to add the license correctly.  This is your domain:"
+#: ../core/ui/invoice_page_wpi_page_settings.php:808
+msgid ""
+"When purchasing the premium features you will need to specify your domain to "
+"add the license correctly.  This is your domain:"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:797
+#: ../core/ui/invoice_page_wpi_page_settings.php:814
 msgid "WP-Invoice API Key"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:801
-msgid "Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href=\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
+#: ../core/ui/invoice_page_wpi_page_settings.php:818
+msgid ""
+"Some subscription based premium features require an API key that is specific "
+"to this domain and WP-Invoice. You can get this from your account on <a href="
+"\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:840
+#: ../core/ui/invoice_page_wpi_page_settings.php:857
 msgid "[purchase feature]"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:850
+#: ../core/ui/invoice_page_wpi_page_settings.php:867
 #, php-format
 msgid "This feature is disabled because it requires WP-Invoice %1$s or higher."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:852
+#: ../core/ui/invoice_page_wpi_page_settings.php:869
 msgid "Disable premium feature."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:855
+#: ../core/ui/invoice_page_wpi_page_settings.php:872
 msgid "Feature installed, using version"
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:859
+#: ../core/ui/invoice_page_wpi_page_settings.php:876
 #, php-format
-msgid "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this feature."
+msgid ""
+"Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this "
+"feature."
 msgstr ""
 
-#: ../core/ui/invoice_page_wpi_page_settings.php:869
-msgid "There are no available premium features. Try clicking Check Updates button above."
+#: ../core/ui/invoice_page_wpi_page_settings.php:886
+msgid ""
+"There are no available premium features. Try clicking Check Updates button "
+"above."
 msgstr ""
 
 #: ../core/ui/invoice_page_wpi_spc.php:17
@@ -5050,8 +5403,7 @@ msgstr ""
 msgid "PayPal Setup"
 msgstr ""
 
-#: ../core/ui/payment_accordion.php:12
-#: ../core/ui/payment_processing.php:10
+#: ../core/ui/payment_accordion.php:12 ../core/ui/payment_processing.php:10
 msgid "PayPal Pay Button URL"
 msgstr ""
 
@@ -5111,8 +5463,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: ../core/ui/wpi_metaboxes.php:71
-#: ../core/ui/wpi_metaboxes.php:121
+#: ../core/ui/wpi_metaboxes.php:71 ../core/ui/wpi_metaboxes.php:121
 msgid "Show"
 msgstr ""
 
@@ -5195,7 +5546,9 @@ msgid "New User Information"
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:270
-msgid "If checked a WordPress user account will be created, otherwise the new user will only be visible within WP-Invoice."
+msgid ""
+"If checked a WordPress user account will be created, otherwise the new user "
+"will only be visible within WP-Invoice."
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:271
@@ -5230,12 +5583,16 @@ msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:501
 #, php-format
-msgid "To manage payment settings you should accept at least one payment method. Visit <a href=\"%s\">Payment Settings page</a> to setup."
+msgid ""
+"To manage payment settings you should accept at least one payment method. "
+"Visit <a href=\"%s\">Payment Settings page</a> to setup."
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:502
 #, php-format
-msgid "If you do not want to use any payment venue then <a href=\"%s\">setup Manual Payment information</a>."
+msgid ""
+"If you do not want to use any payment venue then <a href=\"%s\">setup Manual "
+"Payment information</a>."
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:537
@@ -5263,7 +5620,9 @@ msgid "Refund"
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:545
-msgid "Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments."
+msgid ""
+"Note: Recurring bills cannot have administrative adjustments or additional "
+"charges, only received payments."
 msgstr ""
 
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:549
@@ -5289,4 +5648,3 @@ msgstr ""
 #: ../core/ui/metabox/invoice_page_wpi_page_manage_invoice.php:592
 msgid "Toggle History Detail"
 msgstr ""
-

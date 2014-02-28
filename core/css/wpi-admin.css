@@ -417,7 +417,7 @@ input.wpi_no_input{
 }
 
 #wpi_invoice_form #side-info-column .form-table th,
-#wpi_invoice_form #postbox-container-1 .form-table th {width: 80px; color: #777777}
+#wpi_invoice_form #postbox-container-1 .form-table th {width: 80px; color: #777777; padding-left: 10px;}
 #wpi_invoice_form .form-table td {padding-left: 0; padding-right: 0;}
 
 #wpi_screen_meta .wp_invoice_ui_manage_page ul li{padding-bottom: 10px;}
@@ -494,23 +494,6 @@ input.wpi_no_input{
 #contextual-help-wrap h5 {
   margin: 8px 0;
   font-size: 13px;
-}
-
-#screen-functions-wrap,
-#screen-options-wrap
-{
-  border-style: none solid solid;
-  border-top: 0 none;
-  border-width: 0 1px 1px;
-  margin: 0 15px;
-  padding: 8px 12px 12px;
-  -moz-border-radius: 0 0 0 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  -khtml-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  background-color: #f1f1f1;
-  border-color: #dfdfdf;
-
 }
 
 #wpi_screen_meta a.show-settings {

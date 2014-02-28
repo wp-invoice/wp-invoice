@@ -2,10 +2,11 @@
 /**
  * UD API Distributable - Common Functions Used in Usability Dynamics, Inc. Products.
  *
- * @copyright Copyright (c) 2010 - 2013, Usability Dynamics, Inc.
+ * @copyright Copyright (c) 2010 - 2014, Usability Dynamics, Inc.
  * @license https://usabilitydynamics.com/services/theme-and-plugin-eula/
- * @version 1.0.3
+ * @link http://api.usabilitydynamics.com/readme/ud_api.txt UD API Changelog
  *
+ * @version 1.1
  */
 
 if ( class_exists( 'UD_API' ) ) {
@@ -79,7 +80,7 @@ class UD_API {
     ) );
 
     if ( !$args[ 'service' ] ) {
-      return new WP_Error( 'error', sprintf( __( 'API service not specified.', 'wpp' ) ) );
+      return new WP_Error( 'error', sprintf( __( 'API service not specified.', UD_API_Transdomain ) ) );
     }
 
     $response = wp_remote_request( add_query_arg( 'api', get_option( 'ud_api_key' ), trailingslashit( 'http://api.usabilitydynamics.com' ) . trailingslashit( $args[ 'service' ] ) ), array(
@@ -97,10 +98,42 @@ class UD_API {
     if ( $response[ 'response' ][ 'code' ] == 200 ) {
       return json_decode( $response[ 'body' ] ) ? json_decode( $response[ 'body' ] ) : $response[ 'body' ];
     } else {
-      return new WP_Error( 'error', sprintf( __( 'API Failure: %1s.', 'wpp' ), $response[ 'response' ][ 'message' ] ) );
+      return new WP_Error( 'error', sprintf( __( 'API Failure: %1s.', UD_API_Transdomain ), $response[ 'response' ][ 'message' ] ) );
     }
 
   }
+
+
+  /**
+   * Port of jQuery.extend() function.
+   *
+   * @since 1.0.3
+   * @version 0.1
+   */
+  static function extend() {
+    //$arrays = array_reverse( func_get_args() );
+    $arrays = func_get_args();
+    $base = array_shift( $arrays );
+    if( !is_array( $base ) ) $base = empty( $base ) ? array() : array( $base );
+    foreach( (array) $arrays as $append ) {
+      if( !is_array( $append ) ) $append = array( $append );
+      foreach( (array) $append as $key => $value ) {
+        if( !array_key_exists( $key, $base ) and !is_numeric( $key ) ) {
+        $base[ $key ] = $append[ $key ];
+        continue;
+        }
+        if( @is_array( $value ) or @is_array( $base[ $key ] ) ) {
+        $base[ $key ] = self::extend( $base[ $key ], $append[ $key ] );
+        } else if( is_numeric( $key ) ) {
+        if( !in_array( $value, $base ) ) $base[] = $value;
+        } else {
+        $base[ $key ] = $value;
+        }
+      }
+    }
+    return $base;
+  }
+
 
   /**
    * Converts slashes for Windows paths.
@@ -171,6 +204,7 @@ class UD_API {
    * @author potanin@UD
    */
   static function array_insert_before( $array, $key, $new ) {
+    $array = (array)$array;
     $keys = array_keys( $array );
     $pos = (int)array_search( $key, $keys );
     return array_merge(
@@ -388,7 +422,7 @@ class UD_API {
       return false;
     }
 
-    $_api_response = UD_API::get_service( array(
+    $_api_response = self::get_service( array(
       'service' => 'parser',
       'args' => array(
         'string' => file_get_contents( $readme_file ),
@@ -410,7 +444,7 @@ class UD_API {
    */
   static function repair_serialized_array( $serialized ) {
     $tmp = preg_replace( '/^a:\d+:\{/', '', $serialized );
-    return UD_API::repair_serialized_array_callback( $tmp ); // operates on and whittles down the actual argument
+    return self::repair_serialized_array_callback( $tmp ); // operates on and whittles down the actual argument
   }
 
   /**
@@ -477,7 +511,7 @@ class UD_API {
             $re = '/^a:\d+:\{/';
             if ( preg_match( $re, $broken, $m ) ) {
               $broken = preg_replace( '/^a:\d+:\{/', '', $broken );
-              $data[ $index ] = UD_API::repair_serialized_array_callback( $broken );
+              $data[ $index ] = self::repair_serialized_array_callback( $broken );
               $index = null;
             }
             break;
@@ -525,14 +559,27 @@ class UD_API {
   /**
    * Determine if any requested template exists and return path to it.
    *
-   * @todo Merge with x_get_template_part() to support $slug and $name, as well as $path.
-   * @name array $name List of requested templates. Will be return the first found
-   * @path array $path [optional]. Method tries to find template in theme, but also it can be found in given list of pathes.
+   * == Usage ==
+   * The function will search through: STYLESHEETPATH, TEMPLATEPATH, and any custom paths you pass as second argument.
+   *
+   * $best_template = UD_API::get_template_part( array(
+   *   'template-ideal-match',
+   *   'template-default',
+   * ), array( PATH_TO_MY_TEMPLATES );
+   *
+   * Note: load_template() extracts $wp_query->query_vars into the loaded template, so to add any global variables to the template, add them to
+   * $wp_query->query_vars prior to calling this function.
+   *
+   * @param mixed $name List of requested templates. Will be return the first found
+   * @param array $path [optional]. Method tries to find template in theme, but also it can be found in given list of pathes.
+   * @param array $opts [optional]. Set of additional params: 
+   *   - string $instance. Template can depend on instance. For example: facebook, PDF, etc. Uses filter: ud::template_part::{instance}
+   *   - boolean $load. if true, rendered HTML will be returned, in other case, only found template's path.
+   * @load boolean [optional]. If true and a template is found, the template will be loaded via load_template() and returned as a string
    * @author peshkov@UD
-   * @version 1.0
+   * @version 1.1
    */
   static function get_template_part( $name, $path = array(), $opts = array() ) {
-
     $name = (array)$name;
     $template = "";
 
@@ -544,7 +591,11 @@ class UD_API {
 
     $opts = wp_parse_args( $opts, array(
       'instance' => $instance,
-    ));
+      'load' => false,
+    ) );
+    
+    //** Allows to add/change templates storage directory. */
+    $path = apply_filters( "ud::template_part::path", $path, $name, $opts );
 
     foreach ( $name as $n ) {
       $n = "{$n}.php";
@@ -553,10 +604,20 @@ class UD_API {
         foreach ( (array)$path as $p ) {
           if ( file_exists( $p . "/" . $n ) ) {
             $template = $p . "/" . $n;
+            break( 2 );
           }
         }
       }
       if ( !empty( $template ) ) break;
+    }
+
+    $template = apply_filters( "ud::template_part::{$opts['instance']}", $template, array( 'name' => $name, 'path' => $path, 'opts' => $opts ) );
+    
+    //** If match and load was requested, get template and return */
+    if( !empty( $template ) && $opts[ 'load' ] == true ) {
+      ob_start();
+      load_template( $template, false );
+      return ob_get_clean();
     }
 
     return !empty( $template ) ? $template : false;
@@ -581,7 +642,10 @@ class UD_API {
    * @version 0.1
    */
   static function get_css_classes( $args = array() ) {
-
+    $classes = '';
+    $instance = '';
+    $element = '';
+    $return = '';
     //** Set arguments */
     $args = wp_parse_args( (array)$args, array(
       'classes' => array(),
@@ -607,7 +671,7 @@ class UD_API {
     $classes = apply_filters( "$instance::css::$element", $classes, $args );
 
     if ( !$return ) {
-      echo implode( " ", (array) $classes );
+      echo implode( " ", (array)$classes );
     }
 
     return $classes;
@@ -676,7 +740,7 @@ class UD_API {
         UNIQUE KEY post_id ( post_id ) ) ENGINE = MyISAM" );
     }
 
-    $args[ 'current_columns' ] = UD_API::get_column_names( $args[ 'table_name' ] );
+    $args[ 'current_columns' ] = self::get_column_names( $args[ 'table_name' ] );
 
     /* Add attributes, if they don't exist, to table */
     foreach ( (array)$args[ 'attributes' ] as $attribute => $type ) {
@@ -822,13 +886,13 @@ class UD_API {
     $base = array_shift( $arrays );
     if ( !is_array( $base ) ) $base = empty( $base ) ? array() : array( $base );
     foreach ( (array)$arrays as $append ) {
-      if ( !is_array( $append ) ) $append = array( $append );
+      if ( !is_array( $append ) ) $append = empty( $append ) ? array() : array( $append );
       foreach ( (array)$append as $key => $value ) {
         if ( !array_key_exists( $key, $base ) and !is_numeric( $key ) ) {
           $base[ $key ] = $append[ $key ];
           continue;
         }
-        if ( @is_array( $value ) or @is_array( $base[ $key ] ) ) {
+        if ( @is_array( $value ) && isset( $base[ $key ] ) && isset( $append[ $key ] ) && is_array( $base[ $key ] ) && is_array( $append[ $key ] ) ) {
           $base[ $key ] = self::array_merge_recursive_distinct( $base[ $key ], $append[ $key ] );
         } else if ( is_numeric( $key ) ) {
           if ( !in_array( $value, $base ) ) $base[ ] = $value;
@@ -875,14 +939,15 @@ class UD_API {
    * self::log( "Settings updated" );
    *
    */
-  static function log( $message = false, $type = 'default' ) {
-
+  static function log( $message = false, $args = array() ) {
+    $prefix = '';
+    $type = '';
+    $object = '';
     $args = wp_parse_args( $args, array(
       'type' => 'default',
       'object' => false,
       'prefix' => 'ud',
-    ));
-
+    ) );
     extract( $args );
     $log = "{$prefix}_log";
 
@@ -951,12 +1016,11 @@ class UD_API {
    *
    */
   static function get_log( $args = false ) {
-
+    $prefix = '';
     $args = wp_parse_args( $args, array(
       'limit' => 20,
       'prefix' => 'ud'
-    ));
-
+    ) );
     extract( $args );
 
     $log = "{$prefix}_log";
@@ -966,7 +1030,7 @@ class UD_API {
       $this_log = self::log( false, array( 'prefix' => $prefix ) );
     }
 
-    $entries = (array) get_option( $log );
+    $entries = (array)get_option( $log );
 
     $entries = array_reverse( $entries );
 
@@ -981,8 +1045,16 @@ class UD_API {
    *
    * @uses update_option()
    */
-  static function delete_log() {
-    delete_option( self::prefixed( 'log' ) );
+  static function delete_log( $args = array() ) {
+    $prefix = '';
+    $args = wp_parse_args( $args, array(
+      'prefix' => 'ud'
+    ) );
+    extract( $args );
+
+    $log = "{$prefix}_log";
+
+    delete_option( $log );
   }
 
   /**
@@ -994,7 +1066,14 @@ class UD_API {
    * @uses add_action() Calls 'admin_menu' hook with an anonymous ( lambda-style ) function which uses add_menu_page to create a UI Log page
    */
   static function add_log_page() {
-    add_action( 'admin_menu', create_function( '', "add_menu_page( __( 'Log' ,UD_API_Transdomain ), __( 'Log',UD_API_Transdomain ), 10, 'ud_log', array( 'UD_API_Transdomain','show_log_page' ) );" ) );
+
+    if ( did_action( 'admin_menu' ) ) {
+      _doing_it_wrong( __FUNCTION__, sprintf( __( 'You cannot call UD_API::add_log_page() after the %1$s hook.' ), 'init' ), '3.4' );
+      return false;
+    }
+
+    add_action( 'admin_menu', create_function( '', "add_menu_page( __( 'Log' ,UD_API_Transdomain ), __( 'Log',UD_API_Transdomain ), 10, 'ud_log', array( 'UD_API', 'show_log_page' ) );" ) );
+
   }
 
   /**
@@ -1002,16 +1081,14 @@ class UD_API {
    *
    * @todo Add button or link to delete log
    * @todo Add nonce to clear_log functions
-   * @since 1.0
-   * @uses UD_API::delete_log()
-   * @uses UD_API::get_log()
-   * @uses UD_API::nice_time()
-   * @uses add_action() Calls 'admin_menu' hook with an anonymous (lambda-style) function which uses add_menu_page to create a UI Log page
+   * @todo Should be refactored to implement adding LOG tabs for different instances (wpp, wpi, wp-crm). peshkov@UD
+   *
+   * @since 1.0.0
    */
   static function show_log_page() {
 
     if ( $_REQUEST[ 'ud_action' ] == 'clear_log' ) {
-      UD_API::delete_log();
+      self::delete_log();
     }
 
     $output = array();
@@ -1019,36 +1096,36 @@ class UD_API {
     $output[ ] = '<style type="text/css">.ud_event_row b { background:none repeat scroll 0 0 #F6F7DC; padding:2px 6px;}</style>';
 
     $output[ ] = '<div class="wrap">';
-    $output[ ] = '<h2>' . __( 'UD Log Page for', 'wpp' ) . get_option( self::prefixed( 'log' ) );
-    $output[ ] = '<a href="' . admin_url( "admin.php?page=ud_log&ud_action=clear_log" ) . '" class="button">' . __( 'Clear Log', 'wpp' ) . '</a></h2>';
+    $output[ ] = '<h2>' . __( 'Log Page for', UD_API_Transdomain ) . ' ud_log ';
+    $output[ ] = '<a href="' . admin_url( "admin.php?page=ud_log&ud_action=clear_log" ) . '" class="button">' . __( 'Clear Log', UD_API_Transdomain ) . '</a></h2>';
 
-    /*
-    <table class="widefat">
-      <thead>
-      <tr>
-        <th style="width: 150px"><?php _e('Timestamp','wpp') ?></th>
-        <th><?php _e('Type','wpp') ?></th>
-        <th><?php _e('Event','wpp') ?></th>
-        <th><?php _e('User','wpp') ?></th>
-        <th><?php _e('Related Object','wpp') ?></th>
-      </tr>
-      </thead>
+    //die( '<pre>' . print_r( self::get_log() , true ) . '</pre>' );
 
-      <tbody>
-      <?php foreach(UD_API::get_log() as $event): ?>
-      <tr class="ud_event_row">
-        <td><?php echo UD_API::nice_time($event[0]); ?></td>
-        <td><?php echo $event[1]; ?></td>
-        <td><?php echo $event[2]; ?></td>
-        <td><?php $user_data = get_userdata($event[2]); echo $user_data->display_name; ?></td>
-        <td><?php echo $event[4]; ?></td>
-      </tr>
-      <?php endforeach; ?>
-      </tbody>
-    </table>
-    </div>
-    <?php
-    */
+    $output[ ] = '<table class="widefat"><thead><tr>';
+    $output[ ] = '<th style="width: 150px">' . __( 'Timestamp', UD_API_Transdomain ) . '</th>';
+    $output[ ] = '<th>' . __( 'Type', UD_API_Transdomain ) . '</th>';
+    $output[ ] = '<th>' . __( 'Event', UD_API_Transdomain ) . '</th>';
+    $output[ ] = '<th>' . __( 'User', UD_API_Transdomain ) . '</th>';
+    $output[ ] = '<th>' . __( 'Related Object', UD_API_Transdomain ) . '</th>';
+    $output[ ] = '</tr></thead>';
+
+    $output[ ] = '<tbody>';
+
+    foreach ( (array)self::get_log() as $event ) {
+      $output[ ] = '<tr class="ud_event_row">';
+      $output[ ] = '<td>' . self::nice_time( $event[ 'time' ] ) . '</td>';
+      $output[ ] = '<td>' . $event[ 'type' ] . '</td>';
+      $output[ ] = '<td>' . $event[ 'message' ] . '</td>';
+      $output[ ] = '<td>' . ( is_numeric( $event[ 'user' ] ) ? get_userdata( $event[ 'user' ] )->display_name : __( 'None' ) ) . '</td>';
+      $output[ ] = '<td>' . $event[ 'object' ] . '</td>';
+      $output[ ] = '</tr>';
+    }
+
+    $output[ ] = '</tbody></table>';
+
+    $output[ ] = '</div>';
+
+    echo implode( '', (array)$output );
 
   }
 
@@ -1064,7 +1141,7 @@ class UD_API {
    * @return string
    */
   static function create_slug( $content, $args = false ) {
-
+    $separator = '';
     $defaults = array(
       'separator' => '-',
       'check_existance' => false
@@ -1107,6 +1184,8 @@ class UD_API {
     if ( is_array( $address ) ) {
       return false;
     }
+
+    $return = new stdClass();
 
     $address = urlencode( $address );
 
@@ -1196,6 +1275,44 @@ class UD_API {
   }
 
   /**
+   * Returns avaliability of Google's Geocoding Service based on time of last returned status OVER_QUERY_LIMIT
+   * @uses const self::blocking_for_new_validation_interval
+   * @uses option ud::geo_locate_address_last_OVER_QUERY_LIMIT
+   * @param type $update used to set option value in time()
+   * @return boolean
+   * @author odokienko@UD
+   */
+  static function available_address_validation( $update = false ) {
+    global $wpdb;
+
+    if ( empty( $update ) ) {
+
+      $last_error = (int)get_option( 'ud::geo_locate_address_last_OVER_QUERY_LIMIT' );
+      if ( !empty( $last_error ) && ( time() - (int)$last_error ) < 2 ) {
+        sleep( 1 );
+      }
+      /*if (!empty($last_error) && (((int)$last_error + self::blocking_for_new_validation_interval ) > time()) ){
+        sleep(1);
+        //return false;
+      }else{
+        //** if last success validation was less than a seccond ago we will wait for 1 seccond
+        $last = $wpdb->get_var("
+          SELECT if(DATE_ADD(FROM_UNIXTIME(pm.meta_value), INTERVAL 1 SECOND) < NOW(), 0, UNIX_TIMESTAMP()-pm.meta_value) LAST
+          FROM {$wpdb->postmeta} pm
+          WHERE pm.meta_key='wpp::last_address_validation'
+          LIMIT 1
+        ");
+        usleep((int)$last);
+      }*/
+    } else {
+      update_option( 'ud::geo_locate_address_last_OVER_QUERY_LIMIT', time() );
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
    * Returns date and/or time using the WordPress date or time format, as configured.
    *
    * @param string $time Date or time to use for calculation.
@@ -1212,22 +1329,20 @@ class UD_API {
       'format' => 'date_and_time'
     ) );
 
-    extract( $args );
-
     if ( !$time ) {
       return false;
     }
 
-    if ( $format == 'date' ) {
+    if ( $args[ 'format' ] == 'date' ) {
       return date( get_option( 'date_format' ), $time );
     }
 
-    if ( $format == 'time' ) {
+    if ( $args[ 'format' ] == 'time' ) {
       return date( get_option( 'time_format' ), $time );
     }
 
-    if ( $format == 'date_and_time' ) {
-      return date( get_option( 'date_format' ), $time ) . " " . date( get_option( 'time_format' ), $time );
+    if ( $args[ 'format' ] == 'date_and_time' ) {
+      return date( get_option( 'date_format' ), $time ) . ' ' . date( get_option( 'time_format' ), $time );
     }
 
     return false;
@@ -1254,6 +1369,113 @@ class UD_API {
   static function is_url( $url ) {
     _deprecated_function( __FUNCTION__, '3.4', 'esc_url' );
     return preg_match( '|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url );
+  }
+
+  /**
+   * Wrapper function to send notification with WP-CRM or without one
+   * @param mixed $args['user']
+   * @param sting $args['trigger_action']
+   * @param sting $args['data']             aka $notification_data
+   * @param sting $args['crm_log_message']
+   * @param sting $args['subject']          using in email notification
+   * @param sting $args['message']          using in email notification
+   * @uses self::replace_data()
+   * @uses wp_crm_send_notification()
+   * @return boolean false if notification was not sent successfully
+   * @autor odokienko@UD
+   */
+  static function send_notification( $args = array() ) {
+
+    $args = wp_parse_args( $args, array(
+      'ignore_wp_crm' => false,
+      'user' => false,
+      'trigger_action' => false,
+      'data' => array(),
+      'message' => '',
+      'subject' => '',
+      'crm_log_message' => ''
+    ) );
+
+    if ( is_numeric( $args[ 'user' ] ) ) {
+      $args[ 'user' ] = get_user_by( 'id', $args[ 'user' ] );
+    } elseif ( filter_var( $args[ 'user' ], FILTER_VALIDATE_EMAIL ) ) {
+      $args[ 'user' ] = get_user_by( 'email', $args[ 'user' ] );
+    } elseif ( is_string( $args[ 'user' ] ) ) {
+      $args[ 'user' ] = get_user_by( 'login', $args[ 'user' ] );
+    }
+
+    if ( !is_object( $args[ 'user' ] ) || empty( $args[ 'user' ]->data->user_email ) ) {
+      return false;
+    }
+
+    if ( function_exists( 'wp_crm_send_notification' ) &&
+      empty( $args[ 'ignore_wp_crm' ] )
+    ) {
+
+      if ( !empty( $args[ 'crm_log_message' ] ) ) {
+        wp_crm_add_to_user_log( $args[ 'user' ]->ID, self::replace_data( $args[ 'crm_log_message' ], $args[ 'data' ] ) );
+      }
+
+      if ( !empty( $args[ 'trigger_action' ] ) && is_callable( 'WP_CRM_N', 'get_trigger_action_notification' ) ) {
+        $notifications = WP_CRM_N::get_trigger_action_notification( $args[ 'trigger_action' ] );
+        if ( !empty( $notifications ) ) {
+          return wp_crm_send_notification( $args[ 'trigger_action' ], $args[ 'data' ] );
+        }
+      }
+
+    }
+
+    if ( empty( $args[ 'message' ] ) ) {
+      return false;
+    }
+
+    return wp_mail( $args[ 'user' ]->data->user_email, self::replace_data( $args[ 'subject' ], $args[ 'data' ] ), self::replace_data( $args[ 'message' ], $args[ 'data' ] ) );
+
+  }
+
+  /**
+   * Replace in $str all entries of keys of the given $values
+   * where each key will be rounded by $brackets['left'] and $brackets['right']
+   * with the relevant values of the $values
+   * @param string|array $str
+   * @param array $values
+   * @param array $brackets
+   * @return string|array
+   * @author odokienko@UD
+   */
+  static function replace_data( $str = '', $values = array(), $brackets = array( 'left' => '[', 'right' => ']' ) ) {
+    $values = (array)$values;
+    $replacements = array_keys( $values );
+    array_walk( $replacements, create_function( '&$val', '$val = "' . $brackets[ 'left' ] . '".$val."' . $brackets[ 'right' ] . '";' ) );
+    return str_replace( $replacements, array_values( $values ), $str );
+  }
+
+  /**
+   * Gets complicated html entity e.g. Table and ou|ol
+   * and removes whitespace characters include new line.
+   * we should to do this before use nl2br
+   *
+   * @author odokienko@UD
+   */
+  static function cleanup_extra_whitespace( $content ) {
+
+    $content = preg_replace_callback( '~<(?:table|ul|ol )[^>]*>.*?<\/( ?:table|ul|ol )>~ims', create_function( '$matches', 'return preg_replace(\'~>[\s]+<((?:t[rdh]|li|\/tr|/table|/ul ))~ims\',\'><$1\',$matches[0]);' ), $content );
+
+    return $content;
+  }
+
+  /**
+   * Wrapper for json_encode function.
+   * Emulates JSON_UNESCAPED_UNICODE.
+   *
+   * @param type $arr
+   * @return JSON
+   * @author peshkov@UD
+   */
+  function json_encode( $arr ) {
+    // convmap since 0x80 char codes so it takes all multibyte codes (above ASCII 127). So such characters are being "hidden" from normal json_encoding
+    array_walk_recursive( $arr, create_function( '&$item, $key', 'if (is_string($item)) $item = mb_encode_numericentity($item, array (0x80, 0xffff, 0, 0xffff), "UTF-8");' ) );
+    return mb_decode_numericentity( json_encode( $arr ), array( 0x80, 0xffff, 0, 0xffff ), 'UTF-8' );
   }
 
 }

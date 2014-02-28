@@ -2,7 +2,8 @@ jQuery(document).ready(function(){
 
   var widget_container = jQuery('#wpi_dw_invoice_statistics .inside');
 
-  jQuery('.columns-prefs input[type="radio"]').bind('click.postboxes', function(){
+  jQuery('.columns-prefs input[type="radio"], #wpi_dw_invoice_statistics.postbox h3, #wpi_dw_invoice_statistics.postbox .handlediv').bind('click.postboxes', function(){
+    jQuery('.loader', widget_container).show();
     jQuery('.chart').hide();
     jQuery.ajax({
       url: ajaxurl,
@@ -45,7 +46,7 @@ jQuery(document).ready(function(){
   });
 
   /**
-   *
+   * Draw Chart
    */
   function draw_chart( type, data, container ) {
     var line_data = {

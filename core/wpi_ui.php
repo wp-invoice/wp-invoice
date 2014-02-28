@@ -559,6 +559,7 @@ class WPI_UI {
         wp_enqueue_script( 'postbox' );
       case 'invoice_page_wpi_page_settings':
         wp_enqueue_script( 'jquery-ui-tabs' );
+        wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'wp-invoice-functions' );
         wp_enqueue_script( 'jquery.smookie' );
         wp_enqueue_script( 'jquery-ui-autocomplete' );
@@ -854,20 +855,23 @@ class WPI_UI {
    *
    */
   function the_content( $content ) {
+    global $wpi_settings;
     /**
      * Well. Here I'm trying to fix conflicts with plugins such as Simple Facebook Connect.
      * I will try to determine the source of function hook calling using debug_backtrace() function.
      * Correct source is /wp-includes/post-template.php We need to ignore other cases.
      * Probably this condition shoud be changed somehow with new version of Wordpress
+     * The condition may be turned off in settings if it causes errors.
      *
      * @author korotkov@ud
      * @since 3.08.6
      */
-    if ( function_exists( 'debug_backtrace' ) )
-      if ( $call_stack = debug_backtrace() )
-        if ( !empty( $call_stack[ 2 ][ 'file' ] ) )
-          if ( basename( $call_stack[ 2 ][ 'file' ] ) != 'post-template.php' )
-            return $content;
+    if ( !WPI_Functions::is_true( $wpi_settings['turn_off_compatibility_mode'] ) )
+      if ( function_exists( 'debug_backtrace' ) )
+        if ( $call_stack = debug_backtrace() )
+          if ( !empty( $call_stack[ 2 ][ 'file' ] ) )
+            if ( basename( $call_stack[ 2 ][ 'file' ] ) != 'post-template.php' )
+              return $content;
 
     //** Continue as usually */
     global $post, $invoice, $invoice_id, $wpi_settings, $wpi_invoice_object;
@@ -977,6 +981,10 @@ class WPI_UI {
       $invoice_items[ $key ] = $value;
       $invoice_items[ $key ][ 'id' ] = str_replace( '-', '_', sanitize_title( $invoice_items[ $key ][ 'name' ] ) );
     }
+
+    $order = array("\\r\\n", "\\n", "\\r","\\t");
+    $replace = array("\\\\r\\\\n", "\\\\n", "\\\\r", "\\\\t");
+    $encode_invoice_items = str_replace($order, $replace, json_encode($invoice_items));
     ?>
 
     <script type="text/javascript">
@@ -991,7 +999,7 @@ class WPI_UI {
         wpi.tax = '<?php echo !empty($wpi_invoice_object->data['tax'])?$wpi_invoice_object->data['tax']:''; ?>';
         wpi.business_name = '<?php echo ($wpi_settings['business_name']); ?>';
         wpi.user_data = {city: '<?php echo !empty($wpi_settings['user_data']['city']) ? $wpi_settings['user_data']['city'] : ''; ?>', state: '<?php echo !empty($wpi_settings['user_data']['state']) ? $wpi_settings['user_data']['state'] : ''; ?>', country: '<?php echo !empty($wpi_settings['user_data']['country']) ? $wpi_settings['user_data']['country'] : ''; ?>'}
-        wpi.invoice_items = jQuery.parseJSON( '<?php echo json_encode($invoice_items); ?>' );
+        wpi.invoice_items = jQuery.parseJSON( '<?php echo $encode_invoice_items; ?>' );
 
         if ( typeof window._gaq != 'undefined' ) wpi.ga.tracking.init( <?php echo!empty($wpi_settings['ga_event_tracking']['events']['invoices']) ? json_encode($wpi_settings['ga_event_tracking']['events']['invoices']) : '{}'; ?> );
 

@@ -89,6 +89,7 @@ jQuery( document ).on( 'wpi_checkout_init-wpi_paypal', function( event, self ) {
             jQuery('.wpi_checkout_submit_btn', wpi_checkout_form).val( i.strings.process_payment );
           } else if ( result.payment_status == 'success' && result.invoice_id ) {
             //** Trigger added to be able to hook it to add some custom stuff @author korotkov@UD */
+            result.message = i.strings.redirecting_to_paypal;
             jQuery(document).trigger('wpi_spc_success', [result, wpi_checkout_form, 'wpi_paypal']);
             jQuery('.wpi_chechout_invoice_id', wpi_checkout_form).val( result.invoice_id );
             jQuery('.wpi_checkout_payment_response', wpi_checkout_form).show();
