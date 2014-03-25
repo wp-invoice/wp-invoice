@@ -238,7 +238,7 @@ class wpi_stripe extends wpi_gateway_base {
         if ( !class_exists('Stripe') ) {
           require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
         }
-        $pk = $invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value'];
+        $pk = trim($invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value']);
 
         Stripe::setApiKey($pk);
 
@@ -426,7 +426,7 @@ class wpi_stripe extends wpi_gateway_base {
           if ( !class_exists('Stripe') ) {
             require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
           }
-          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+          $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 
           Stripe::setApiKey($pk);
 
@@ -460,7 +460,7 @@ class wpi_stripe extends wpi_gateway_base {
           if ( !class_exists('Stripe') ) {
             require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
           }
-          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+          $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 
           Stripe::setApiKey($pk);
 
