@@ -539,7 +539,7 @@ class WPI_Settings {
    *
    * @return bool
    */
-  function setOption( $key, $value, $group = false ) {
+  static function setOption( $key, $value, $group = false ) {
     global $wpi_settings;
 
     if ( isset( $this ) ) {

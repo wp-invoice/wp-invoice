@@ -7,7 +7,7 @@ add_action( 'wpi_pre_init', array( 'WPI_Web_Invoice_Importer', 'init' ) );
 
 /*
  * Class for importing plugin's legacy data.
- * 
+ *
  * @since 3.0
  * @author Maxim Peshkov
  */
@@ -16,8 +16,8 @@ class WPI_Legacy {
   /*
    * Contains all legacy general settings data,
    * which is used in previous versions ( < 3.0 )
-   * and stored in {$wpdb->prefix}options table 
-   * 
+   * and stored in {$wpdb->prefix}options table
+   *
    * @since 3.0
    */
   private static $settings = array(
@@ -80,7 +80,7 @@ class WPI_Legacy {
    * @since 3.0
    *
    */
-  function init() {
+  static function init() {
     if ( self::legacy_version_exist() ) {
       self::do_import();
     }
@@ -181,7 +181,7 @@ class WPI_Legacy {
    * @since 3.0
    *
    */
-  function legacy_version_exist() {
+  static function legacy_version_exist() {
     global $wpdb, $wpi_settings;
 
     $version = get_option( 'wp_invoice_version' );
@@ -544,8 +544,8 @@ class WPI_Legacy {
           WHERE `ID` = '{$invoice['user_id']}'
         " );
       }
-      /* User email is the neccessary attribute. 
-       * If it's empty we will not do import to avoid the issues in future. 
+      /* User email is the neccessary attribute.
+       * If it's empty we will not do import to avoid the issues in future.
        */
       if ( empty( $i[ 'user_data' ][ 'user_email' ] ) ) {
         continue;
@@ -642,8 +642,8 @@ class WPI_Legacy {
     /* Get invoice id */
     $invoice_id = $wpdb->get_var( "
       SELECT meta_value
-      FROM `{$wpdb->postmeta}` 
-      WHERE meta_key = 'invoice_id' 
+      FROM `{$wpdb->postmeta}`
+      WHERE meta_key = 'invoice_id'
       AND post_id = '{$ID}'
     " );
 
@@ -775,7 +775,7 @@ class WPI_Legacy {
 
 /*
  * Class for importing Web Invoice data.
- * 
+ *
  * @since 3.02
  * @author Maxim Peshkov
  */
@@ -860,11 +860,11 @@ class WPI_Web_Invoice_Importer {
 
   /*
    * Something like constructor
-   * 
+   *
    * @since 3.02
    * @author Maxim Peshkov
    */
-  function init() {
+  static function init() {
     add_filter( 'prepare_admin_notices', array( __CLASS__, 'admin_notices' ) );
     add_action( 'wp_ajax_wpi_web_invoice_import', array( __CLASS__, 'do_import' ) );
     add_action( 'wp_ajax_wpi_close_web_invoice_import_notice', array( __CLASS__, 'close_notification' ) );
@@ -873,13 +873,13 @@ class WPI_Web_Invoice_Importer {
   /*
    * Set Notice, which suggests user to import data
    * from Web Invoice to WPI
-   * 
+   *
    * @param array @notices
    * @return array @notices Updated
    * @since 3.02
    * @author Maxim Peshkov
    */
-  function admin_notices( $notices ) {
+  static function admin_notices( $notices ) {
 
     if ( self::web_invoice_exists() && !self::imported_already() && !self::notice_is_hidden() ) {
 
@@ -943,11 +943,11 @@ class WPI_Web_Invoice_Importer {
 
   /*
    * Determine if Web Invoice plugin exists
-   * 
+   *
    * @since 3.02
    * @author Maxim Peshkov
    */
-  function web_invoice_exists() {
+  static function web_invoice_exists() {
     global $wpdb;
 
     //* Determine if web invoice version exists */
@@ -1242,9 +1242,9 @@ class WPI_Web_Invoice_Importer {
     }
 
     // PAYMENT GATEWAYS
-    // 
+    //
     // Authorize.net / Merchant Plus
-    // 
+    //
     // Delim char
     $option = get_option( self::$field_prefix . 'gateway_delim_char' );
     if ( $option !== false ) {
@@ -1479,8 +1479,8 @@ class WPI_Web_Invoice_Importer {
           WHERE `ID` = '{$invoice['user_id']}'
         " );
       }
-      /* User email is the neccessary attribute. 
-       * If it's empty we will not do import to avoid the issues in future. 
+      /* User email is the neccessary attribute.
+       * If it's empty we will not do import to avoid the issues in future.
        */
       if ( empty( $i[ 'user_data' ][ 'user_email' ] ) ) {
         continue;
@@ -1577,8 +1577,8 @@ class WPI_Web_Invoice_Importer {
     /* Get invoice id */
     $invoice_id = $wpdb->get_var( "
       SELECT meta_value
-      FROM `{$wpdb->postmeta}` 
-      WHERE meta_key = 'invoice_id' 
+      FROM `{$wpdb->postmeta}`
+      WHERE meta_key = 'invoice_id'
       AND post_id = '{$ID}'
     " );
 

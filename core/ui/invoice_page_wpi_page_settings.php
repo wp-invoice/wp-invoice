@@ -130,7 +130,7 @@ class WPI_Settings_page {
    * @global type $wpdb
    * @param type $wpi_settings
    */
-  function basic($wpi_settings) {
+  static function basic($wpi_settings) {
     ?>
 
     <table class="form-table">
@@ -259,7 +259,7 @@ class WPI_Settings_page {
    * @global type $wpdb
    * @param type $wpi_settings
    */
-  function business_process($wpi_settings) {
+  static function business_process($wpi_settings) {
 
     global $wpdb;
     ?>
@@ -410,7 +410,7 @@ class WPI_Settings_page {
    * @global type $wpi_chargify
    * @param type $wpi_settings
    */
-  function payment($wpi_settings) {
+  static function payment($wpi_settings) {
     global $wpi_chargify;
     ?>
     <table class="form-table">
@@ -567,7 +567,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function email_templates($wpi_settings) {
+  static function email_templates($wpi_settings) {
 ?>
 <?php $notifications_array = apply_filters('wpi_email_templates', $wpi_settings['notification']); ?>
     <?php //WPI_Functions::qc($notifications_array);  ?>
@@ -649,7 +649,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function predefined($wpi_settings) {
+  static function predefined($wpi_settings) {
     ?>
     <p><?php _e('Setup your common services and products in here to streamline invoice creation.', WPI); ?></p>
     <script type="text/javascript">
@@ -733,7 +733,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function help($wpi_settings) {
+  static function help($wpi_settings) {
     ?>
     <script type='text/javascript'>
       jQuery(document).ready(function() {
@@ -773,7 +773,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function plugins($wpi_settings) {
+  static function plugins($wpi_settings) {
 
     $parseUrl = parse_url(trim(get_bloginfo('url')));
     $this_domain = trim($parseUrl['host'] ? $parseUrl['host'] : array_shift(explode('/', $parseUrl['path'], 2)));

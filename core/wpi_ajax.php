@@ -13,7 +13,7 @@ class WPI_Ajax {
    * @since 3.01
    *
    */
-  function check_plugin_updates() {
+  static function check_plugin_updates() {
 
     $result = WPI_Functions::check_for_premium_features( true );
 
@@ -107,7 +107,7 @@ class WPI_Ajax {
    * @since 3.0
    *
    */
-  function wpi_list_table() {
+  static function wpi_list_table() {
     global $wpi_settings;
 
     include WPI_Path . '/core/ui/class_wpi_object_list_table.php';
@@ -535,7 +535,7 @@ class WPI_Ajax {
    * @global object $wpdb
    * @author korotkov@ud
    */
-  function user_autocomplete_handler() {
+  static function user_autocomplete_handler() {
     global $wpdb, $blog_id;
 
     $users_found = $wpdb->get_results( "SELECT `u`.`ID`, CONCAT(`u`.`display_name`,' - ',`u`.`user_email`) as `label`, `user_email` as `value`

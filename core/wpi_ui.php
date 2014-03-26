@@ -11,7 +11,7 @@ class WPI_UI {
    * @since 3.0
    *
    */
-  function admin_menu() {
+  static function admin_menu() {
     global $wpi_settings, $submenu, $wp_version;
 
     //unset($submenu['edit.php?post_type=wpi_object'][10]);
@@ -59,7 +59,7 @@ class WPI_UI {
    * @since 3.0
    * @author Maxim Peshkov
    */
-  function get_capability_by_level( $level ) {
+  static function get_capability_by_level( $level ) {
     $capability = '';
     switch ( $level ) {
       /* Subscriber */
@@ -133,7 +133,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function draw_user_auto_complete_field( $args = '' ) {
+  static function draw_user_auto_complete_field( $args = '' ) {
     global $wpi_settings, $wpdb, $wp_scripts;
     wp_enqueue_script( 'jquery-ui-autocomplete' );
 
@@ -166,7 +166,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function common_pre_header() {
+  static function common_pre_header() {
     global $current_screen;
 
     $browser = WPI_Functions::browser();
@@ -212,7 +212,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function page_loader() {
+  static function page_loader() {
     global $screen_layout_columns, $current_screen, $wpdb, $crm_messages, $user_ID, $this_invoice, $wpi_settings, $wpi;
 
     $screen_id = $current_screen->id;
@@ -258,7 +258,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function pre_load_edit_page() {
+  static function pre_load_edit_page() {
     global $wpi_settings;
 
     if ( !empty( $_REQUEST[ 'wpi' ] ) && !empty( $_REQUEST[ 'wpi' ][ 'existing_invoice' ] ) ) {
@@ -290,7 +290,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function pre_load_main_page() {
+  static function pre_load_main_page() {
     global $wpi_settings, $wpdb;
 
     /* Process Bulk Actions */
@@ -349,7 +349,7 @@ class WPI_UI {
    *
    * @author korotkov@UD
    */
-  function pre_load_reports_page() {
+  static function pre_load_reports_page() {
 
     //** Default Help items */
     $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'Reports', WPI ) . '</h3>';
@@ -366,7 +366,7 @@ class WPI_UI {
    *
    * @author korotkov@UD
    */
-  function pre_load_settings_page() {
+  static function pre_load_settings_page() {
 
     //** Default Help items */
     $contextual_help[ 'Main' ][ ] = '<h3>' . __( 'Main', WPI ) . '</h3>';
@@ -534,7 +534,7 @@ class WPI_UI {
    * @since 3.0
    *
    */
-  function admin_enqueue_scripts() {
+  static function admin_enqueue_scripts() {
     global $current_screen;
 
     /** Include on all pages */
@@ -595,7 +595,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function overview_columns( $columns ) {
+  static function overview_columns( $columns ) {
 
     $overview_columns = apply_filters( 'wpi_overview_columns', array(
       'cb' => '',
@@ -622,7 +622,7 @@ class WPI_UI {
    * @todo Better check to see if import has already been done
    * @since 3.0
    */
-  function wpi_display_user_selection( $file_path, $screen, $path ) {
+  static function wpi_display_user_selection( $file_path, $screen, $path ) {
     global $wpdb;
 
     if ( $screen != 'invoice_page_wpi_page_manage_invoice' ) {
@@ -643,11 +643,9 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function page_manage_invoice_preprocess( $screen_id ) {
+  static function page_manage_invoice_preprocess( $screen_id ) {
     global $wpi_settings, $this_invoice, $wpdb;
 
-    //add_screen_option( 'screen_option', array('label' => "Default Screen Option", 'default' => 7, 'option' => 'screen_option') );
-    //add_contextual_help($screen_id, 'test');
     // Check if invoice_id already exists
     $invoice_id_exists = false;
     if ( !empty( $_REQUEST[ 'wpi' ] ) ) {
@@ -750,7 +748,7 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function admin_print_styles() {
+  static function admin_print_styles() {
     global $wpi_settings, $current_screen;
 
     wp_enqueue_style( 'wpi-custom-jquery-ui' );
@@ -770,7 +768,7 @@ class WPI_UI {
    *
    * @author korotkov@ud
    */
-  function wpi_contextual_help( $args = array() ) {
+  static function wpi_contextual_help( $args = array() ) {
 
     $defaults = array(
       'contextual_help' => array()
@@ -1011,9 +1009,11 @@ class WPI_UI {
   }
 
   /**
-  Shorthand function for drawing input fields
+   * Shorthand function for drawing input fields
+   * @param type $args
+   * @return type
    */
-  function input( $args = '' ) {
+  static function input( $args = '' ) {
     $defaults = array( 'id' => '', 'class_from_name' => '', 'title' => '', 'class' => '', 'pattern' => '', 'name' => '', 'group' => '', 'special' => '', 'value' => '', 'type' => '', 'hidden' => false, 'style' => false, 'readonly' => false, 'label' => false );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
     // if [ character is present, we do not use the name in class and id field
@@ -1032,9 +1032,12 @@ class WPI_UI {
   }
 
   /**
-  Shorthand function for drawing checkbox fields
+   *
+   * @param type $args
+   * @param type $checked
+   * @return type
    */
-  function checkbox( $args = '', $checked = false ) {
+  static function checkbox( $args = '', $checked = false ) {
     $defaults = array( 'name' => '', 'id' => false, 'class' => false, 'group' => '', 'special' => '', 'value' => '', 'label' => false, 'maxlength' => false );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
 
@@ -1104,13 +1107,24 @@ class WPI_UI {
     return $return;
   }
 
-  function textarea( $args = '' ) {
+  /**
+   *
+   * @param type $args
+   * @return type
+   */
+  static function textarea( $args = '' ) {
     $defaults = array( 'title' => '', 'class' => '', 'name' => '', 'group' => '', 'special' => '', 'value' => '', 'type' => '' );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
     return "<textarea id='$name' class='input_field $name $class " . ( $group ? "group_$group" : '' ) . "'  name='" . ( $group ? $group . "[" . $name . "]" : $name ) . "' title='$title' $special >" . stripslashes( $value ) . "</textarea>";
   }
 
-  function select( $args = '' ) {
+  /**
+   *
+   * @global array $wpi_settings
+   * @param type $args
+   * @return string
+   */
+  static function select( $args = '' ) {
     $defaults = array( 'id' => '', 'class' => '', 'name' => '', 'group' => '', 'special' => '', 'values' => '', 'current_value' => '' );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
     global $wpi_settings;
@@ -1173,7 +1187,7 @@ class WPI_UI {
    *
    * @author korotkov@ud
    */
-  function crm_user_panel( $user_id ) {
+  static function crm_user_panel( $user_id ) {
 
     if ( !$user_id ) {
       return;
@@ -1271,7 +1285,7 @@ class WPI_UI {
    *
    * @param type $args
    */
-  function draw_template_auto_complete_field( $args = '' ) {
+  static function draw_template_auto_complete_field( $args = '' ) {
     global $wpi_settings, $wpdb;
     wp_enqueue_script( 'jquery-ui-autocomplete' );
 

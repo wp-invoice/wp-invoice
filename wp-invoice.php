@@ -520,7 +520,7 @@ if ( !class_exists( 'WPI_Core' ) ) {
       wp_enqueue_style( 'wpi-default-style' );
 
       /* Determine if the current page is invoice's page */
-      if ( $wpi_settings[ 'web_invoice_page' ] != $post->ID ) {
+      if ( empty($post->ID) || $wpi_settings[ 'web_invoice_page' ] != $post->ID ) {
         return;
       }
 

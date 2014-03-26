@@ -242,7 +242,7 @@ class WPI_Invoice {
     //** Default payment method */
 		$dpm = '';
     foreach ( $wpi_settings['billing'] as $key => $value) {
-      if ( WPI_Functions::is_true( $value['allow'] ) && $value['default_option'] == 'true' ) {
+      if ( !empty($value['allow']) && WPI_Functions::is_true( $value['allow'] ) && $value['default_option'] == 'true' ) {
         $dpm = $key;
       }
     }
