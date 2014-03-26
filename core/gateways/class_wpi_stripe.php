@@ -213,7 +213,7 @@ class wpi_stripe extends wpi_gateway_base {
      * Process STRIPE payment
      * @global type $invoice
      */
-    function process_payment() {
+    static function process_payment() {
       global $invoice;
 
       //** Response */

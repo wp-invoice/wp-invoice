@@ -256,14 +256,14 @@ if ( !class_exists( 'WPI_Core' ) ) {
       add_action( 'wp_ajax_wpi_total_revalidate', array( 'WPI_Ajax', 'revalidate' ) );
 
       //** Add our actions for our payment handlers */
-      add_action( 'wp_ajax_nopriv_wpi_gateway_process_payment', array( 'WPI_Gateway_Base', 'process_payment' ) );
-      add_action( 'wp_ajax_wpi_gateway_process_payment', array( 'WPI_Gateway_Base', 'process_payment' ) );
-      add_action( 'wp_ajax_nopriv_wpi_front_change_payment_form_ajax', array( 'WPI_Gateway_Base', 'change_payment_form_ajax' ) );
-      add_action( 'wp_ajax_wpi_front_change_payment_form_ajax', array( 'WPI_Gateway_Base', 'change_payment_form_ajax' ) );
+      add_action( 'wp_ajax_nopriv_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );
+      add_action( 'wp_ajax_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );
+      add_action( 'wp_ajax_nopriv_wpi_front_change_payment_form_ajax', array( 'wpi_gateway_base', 'change_payment_form_ajax' ) );
+      add_action( 'wp_ajax_wpi_front_change_payment_form_ajax', array( 'wpi_gateway_base', 'change_payment_form_ajax' ) );
 
       //** Server Callback functionality */
-      add_action( 'wp_ajax_nopriv_wpi_gateway_server_callback', array( 'WPI_Gateway_Base', 'server_callback' ) );
-      add_action( 'wp_ajax_wpi_gateway_server_callback', array( 'WPI_Gateway_Base', 'server_callback' ) );
+      add_action( 'wp_ajax_nopriv_wpi_gateway_server_callback', array( 'wpi_gateway_base', 'server_callback' ) );
+      add_action( 'wp_ajax_wpi_gateway_server_callback', array( 'wpi_gateway_base', 'server_callback' ) );
 
       //** Install custom templates to theme */
       add_action( 'wp_ajax_wpi_install_custom_templates', array( 'WPI_Ajax', 'install_templates' ) );

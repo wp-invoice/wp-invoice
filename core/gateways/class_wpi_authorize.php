@@ -362,7 +362,7 @@ class wpi_authorize extends wpi_gateway_base {
     * @global array $wpi_settings
     * @param array $data
     */
-  function process_payment($data=null) {
+  static function process_payment($data=null) {
     global $invoice, $wpi_settings;
 
     //** Require our external libraries */

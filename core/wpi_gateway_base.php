@@ -52,7 +52,7 @@ abstract class wpi_gateway_base {
      * the 'frontend_display' function
      * @since 3.0
      */
-    function change_payment_form_ajax() {
+    static function change_payment_form_ajax() {
         global $wpdb, $wpi_settings, $invoice;
         /** Pull in the invoice */
         $the_invoice = new WPI_Invoice();
@@ -67,7 +67,7 @@ abstract class wpi_gateway_base {
      * @param string $args The args for the fucnction
      * @since 3.0
      */
-    function process_payment() {
+    static function process_payment() {
         global $wpi_settings, $invoice;
         /** Pull the invoice */
         $the_invoice = new WPI_Invoice();
@@ -95,7 +95,7 @@ abstract class wpi_gateway_base {
      * This function syncs our options table with our actual object
      * @since 3.0
      */
-    function sync_billing_objects() {
+    static function sync_billing_objects() {
         global $wpi_settings;
 
         if (!isset($wpi_settings['billing']) || !is_array($wpi_settings['billing'])) {
@@ -157,7 +157,7 @@ abstract class wpi_gateway_base {
      * @param type $def_setting_array
      * @return type
      */
-    public function sync_billing_filter($setting_slug, $new_setting_array, $def_setting_array) {
+    public static function sync_billing_filter($setting_slug, $new_setting_array, $def_setting_array) {
 
         if ($setting_slug == 'ipn' || $setting_slug == 'silent_post_url') {
             return $new_setting_array;

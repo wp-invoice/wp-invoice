@@ -266,7 +266,7 @@ class wpi_interkassa extends wpi_gateway_base {
     /**
      * Payment Processor
      */
-    function process_payment() {
+    static function process_payment() {
         global $invoice;
 
         $crm_data = $_REQUEST['crm_data'];

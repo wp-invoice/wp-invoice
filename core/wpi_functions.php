@@ -1802,7 +1802,7 @@ class WPI_Functions {
    * @return $new_value
    * @author odokienko@UD
    */
-  function option_wpi_options( $value ) {
+  static function option_wpi_options( $value ) {
 
     if ( empty( $value[ 'currency' ][ 'symbol' ] ) ) return $value;
 
@@ -1972,10 +1972,11 @@ class WPI_Functions {
         if ( $file == 'index.php' )
           continue;
 
-        if ( end( explode( ".", $file ) ) == 'php' ) {
+        $ex = explode( ".", $file );
+        if ( end( $ex ) == 'php' ) {
           $slug = str_replace( array( '.php' ), '', $file );
           if ( substr( $slug, 0, 6 ) == "class_" ) {
-            $t = split( "class_", $slug );
+            $t = explode( "class_", $slug );
             $slug = $t[ 1 ];
           }
 
@@ -2001,7 +2002,7 @@ class WPI_Functions {
       }
 
       /** Sync our options */
-      WPI_Gateway_Base::sync_billing_objects();
+      wpi_gateway_base::sync_billing_objects();
     }
   }
 
