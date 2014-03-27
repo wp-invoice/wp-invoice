@@ -323,7 +323,7 @@ class wpi_stripe extends wpi_gateway_base {
               update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
               update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
-              if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+              if ( !empty( $crm_data ) ) self::user_meta_updated( $crm_data );
 
               $invoice_obj = new WPI_Invoice();
               $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
