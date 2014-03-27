@@ -2448,12 +2448,15 @@ class WPI_Functions {
     $attributes = self::get_wpi_crm_attributes();
     if ( empty( $attributes ) ) return $current_fields;
 
+    global $invoice;
+
     foreach ( $attributes as $attr_key => $attr_value ) {
       $current_fields[ 'customer_information' ][ $attr_key ] = array(
         'type' => 'text',
         'class' => 'text-input',
         'name' => $name . '[' . $attr_key . ']',
-        'label' => __( $attr_value[ 'title' ], WPI )
+        'label' => __( $attr_value[ 'title' ], WPI ),
+        'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
       );
     }
 

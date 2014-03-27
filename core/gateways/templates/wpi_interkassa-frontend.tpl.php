@@ -1,3 +1,4 @@
+<?php include_once WPI_Path.'/core/wpi_template_functions.php'; ?>
 <form action="https://sci.interkassa.com/" method="POST" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
     <?php if ( !is_recurring() ): ?>
       <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />
