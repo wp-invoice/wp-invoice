@@ -2055,7 +2055,7 @@ class WPI_Functions {
 
           $plugin_slug = str_replace( array( '.php' ), '', $file );
           if ( substr( $plugin_slug, 0, 6 ) == "class_" ) {
-            $t = split( "class_", $plugin_slug );
+            $t = explode( "class_", $plugin_slug );
             $plugin_slug = $t[ 1 ];
           }
 
