@@ -183,8 +183,11 @@ class WPI_Settings_page {
       <tr>
         <th><?php _e("Advanced Settings", WPI) ?></th>
         <td>
-          <ul class="wpi_settings_list">
-            <li><?php echo WPI_UI::checkbox("name=allow_deposits&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
+          <ul class="wpi_settings_list wpi_something_advanced_wrapper">
+            <li><?php echo WPI_UI::checkbox("name=allow_deposits&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
+
+            <li class="wpi_advanced_option"><?php echo WPI_UI::checkbox("name=allow_deposits_by_default&group=wpi_settings&value=true&label=" . __('Partial payments allowed by default.', WPI), $wpi_settings['allow_deposits_by_default']); ?></li>
+
             <li><?php echo WPI_UI::checkbox("name=show_recurring_billing&group=wpi_settings&value=true&label=" . __('Show recurring billing options.', WPI), $wpi_settings['show_recurring_billing']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=force_https&group=wpi_settings&value=true&label=" . __('Enforce HTTPS on invoice pages, if available on this server.', WPI), $wpi_settings['force_https']); ?> </li>
 
