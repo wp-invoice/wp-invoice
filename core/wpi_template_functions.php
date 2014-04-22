@@ -258,8 +258,18 @@ if ( !function_exists('show_itemized_table') ) {
  * @global array $invoice
  */
 if ( !function_exists('show_invoice_history') ) {
-  function show_invoice_history() {
+  function show_invoice_history( $args = array() ) {
     global $invoice;
+
+    $args = wp_parse_args( $args, array(
+      'create'      => true,
+      'add_payment' => true,
+      'paid'        => true,
+      'refund'      => true,
+      'add_charge'  => false,
+      'do_adjustment' => false
+    ));
+
     echo '<b class="wpi_greeting">Log</b>';
     if (!empty($invoice['log']) && is_array($invoice['log'])) {
       ?>
@@ -273,13 +283,13 @@ if ( !function_exists('show_invoice_history') ) {
 
         <tbody>
           <?php foreach ($invoice['log'] as $key => $value) : ?>
-            <?php if ($value['action'] == 'create') : ?>
+            <?php if ($value['action'] == 'create' && $args['create']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['action'] == 'add_payment') : ?>
+            <?php if ($value['action'] == 'add_payment' && $args['add_payment']) : ?>
               <?php
               $by = '';
               if ($value['user_id'] != 0) {
@@ -292,13 +302,25 @@ if ( !function_exists('show_invoice_history') ) {
                 <td class="description"><?php echo $value['text'] . $by; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['value'] == 'paid') : ?>
+            <?php if ($value['value'] == 'paid' && $args['paid']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['action'] == 'refund') : ?>
+            <?php if ($value['action'] == 'refund' && $args['refund']) : ?>
+              <tr class="invoice-history-item">
+                <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
+                <td class="description"><?php echo $value['text']; ?></td>
+              </tr>
+            <?php endif; ?>
+            <?php if ($value['action'] == 'add_charge' && $args['add_charge']) : ?>
+              <tr class="invoice-history-item">
+                <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
+                <td class="description"><?php echo $value['text']; ?></td>
+              </tr>
+            <?php endif; ?>
+            <?php if ($value['action'] == 'do_adjustment' && $args['do_adjustment']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>
