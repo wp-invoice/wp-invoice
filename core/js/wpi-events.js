@@ -1,62 +1,26 @@
-/*
- This file handles WPI events.
- All the functions are in the wpi-functions.js file.
- Some events that are very short (2-4 lines) may not have functions.
+/**
+ * Global Plugin events
  */
 jQuery.noConflict();
 
 jQuery( document ).ready( function () {
 
-  /* Cycle through all advanced UI options and toggle them */
+  //** Cycle through all advanced UI options and toggle them */
   jQuery( ".wpi_show_advanced" ).each( function () {
     wpi_toggle_advanced_options( this );
   } );
 
-  /* Enable monitoring of toggling of advanced UI options */
-  jQuery( ".wpi_show_advanced" ).live( "click", function () {
+  //** Enable monitoring of toggling of advanced UI options */
+  jQuery( ".wpi_show_advanced" ).on( "click", function () {
     wpi_toggle_advanced_options( this );
   } );
 
-  //* Hide WPI legacy import nag */
-  jQuery( '.wpi_hide_import_nag' ).live( 'click', function () {
-
-    var message_holder = jQuery( this ).parents( '.wpi_message_holder' );
-    var import_type = jQuery( this ).attr( 'import_type' );
-
-    jQuery( jQuery( this ).parents( '.wpi_message_holder' ) ).val( 'Please wait...' );
-
-    jQuery.post( ajaxurl, {
-      action: 'wpi_update_wpi_option',
-      value: 'true',
-      option: import_type,
-      group: 'disable_legacy_import_nag'
-    }, function ( response ) {
-
-      if ( response.success == 'true' ) {
-        jQuery( message_holder ).hide();
-        wpi_message_stack_check();
-      }
-
-    }, 'json' );
-
-  } );
-
-  // Add row to UD UI Dynamic Table
-  jQuery( ".wpi_add_row" ).live( "click", function () {
+  //** Add row to UD UI Dynamic Table */
+  jQuery( ".wpi_add_row" ).on( "click", function () {
     wpi_add_row( this );
   } );
 
-  // When the .slug_setter input field is modified, we update names of other elements in row
-  jQuery( ".wpi_dynamic_table_row[new_row=true] input.slug_setter" ).live( "change", function () {
-    //console.log('Name changed.');
-    wpi_updateRowNames( this );
-    /*
-     jQuery('.wpi_width input', this_row).attr("name", "wpi_settings[image_sizes][" + new_slug + "][width]");
-     jQuery('.wpi_height input', this_row).attr("name", "wpi_settings[image_sizes][" + new_slug + "][height]");
-     */
-  } );
-
-  jQuery( "#currency-list .wpi_dynamic_table_row[new_row=true] input.names_changer" ).live( "change", function () {
+  jQuery( "#currency-list" ).on( "change", ".wpi_dynamic_table_row[new_row=true] input.names_changer", function () {
 
     var this_row = jQuery( this ).parents( 'tr.wpi_dynamic_table_row' );
     // Slug of row in question
@@ -104,7 +68,7 @@ jQuery( document ).ready( function () {
   } );
 
   jQuery( "#minor-publishing table.form-table" ).find( 'tbody' ).toggle();
-  jQuery( "#wpi_button_show_advanced" ).live( "click", function () {
+  jQuery( "#wpi_button_show_advanced" ).on( "click", function () {
     jQuery( this ).parents( "#minor-publishing table.form-table" ).find( 'tbody' ).toggle();
   } );
 

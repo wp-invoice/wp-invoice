@@ -243,7 +243,6 @@ if ( !class_exists( 'WPI_Core' ) ) {
       add_action( 'wp_ajax_wpi_ajax_check_plugin_updates', create_function( '', ' die(WPI_Ajax::check_plugin_updates());' ) );
 
       add_action( 'wp_ajax_wpi_update_user_option', array( 'WPI_Ajax', 'update_user_option' ) );
-      add_action( 'wp_ajax_wpi_update_wpi_option', array( 'WPI_Ajax', 'update_wpi_option' ) );
       add_action( 'wp_ajax_wpi_process_manual_event', array( 'WPI_Ajax', 'process_manual_event' ) );
       add_action( 'wp_ajax_wpi_get_notification_email', array( 'WPI_Ajax', 'get_notification_email' ) );
       add_action( 'wp_ajax_wpi_save_invoice', array( 'WPI_Ajax', 'save_invoice' ) );

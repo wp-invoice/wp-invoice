@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
   } );
 
   //** Toggle invoice lists */
-  jQuery('.toggler', widget_container).live('click', function(){
+  jQuery(widget_container).on('click', '.toggler', function(){
     jQuery( this ).parents('tr').next().toggle();
   });
 

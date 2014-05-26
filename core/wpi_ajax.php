@@ -164,26 +164,6 @@ class WPI_Ajax {
   }
 
   /**
-   * Import legacy invoice data via ajax call
-   *
-   * @since 3.0
-   *
-   */
-  static function update_wpi_option() {
-    global $wpdb, $wpi_settings;
-
-    $type = $_REQUEST[ 'import_type' ];
-
-    if ( WPI_Settings::setOption( $_REQUEST[ 'option' ], $_REQUEST[ 'value' ], $_REQUEST[ 'group' ] ) ) {
-      $return[ 'success' ] = 'true';
-    } else {
-      $return[ 'success' ] = 'false';
-    }
-
-    die( json_encode( $return ) );
-  }
-
-  /**
   Updates usermeta - mostly for updating screen options
    */
   function update_user_option() {

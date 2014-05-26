@@ -101,23 +101,6 @@ function wpi_toggle_advanced_options ( this_element ) {
 
 }
 
-/**
- * Checks the message / notification stack in DOM and hides it if empty
- * @param object instance. DOM element
- * @param boolean allowRandomSlug. Determine if Row can contains random slugs.
- */
-function wpi_message_stack_check () {
-
-  if ( jQuery( '.wpi_yellow_notification .wpi_message_holder:visible' ).length == 0 ) {
-    jQuery( '.wpi_yellow_notification' ).remove();
-  }
-
-  if ( jQuery( '.wpi_red_notification .wpi_message_holder:visible' ).length == 0 ) {
-    jQuery( '.wpi_red_notification' ).remove();
-  }
-
-}
-
 /*
  * Updates Row field names
  * @param object instance. DOM element
