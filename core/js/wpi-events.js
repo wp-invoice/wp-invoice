@@ -72,28 +72,6 @@ jQuery( document ).ready( function () {
     jQuery( this ).parents( "#minor-publishing table.form-table" ).find( 'tbody' ).toggle();
   } );
 
-  // Delete dynamic row
-  jQuery( ".wpi_delete_row" ).live( "click", function () {
-
-    var parent = jQuery( this ).parents( 'tr.wpi_dynamic_table_row' );
-    var row_count = jQuery( ".wpi_delete_row:visible" ).length;
-
-    if ( jQuery( this ).attr( 'verify_action' ) == 'true' ) {
-      if ( !confirm( 'Are you sure?' ) )
-        return false;
-    }
-
-    // Blank out all values
-    jQuery( "input[type=text]", parent ).val( '' );
-    jQuery( "input[type=checkbox]", parent ).attr( 'checked', false );
-
-    // Don't hide last row
-    if ( row_count > 1 ) {
-      jQuery( parent ).hide();
-      jQuery( parent ).remove();
-    }
-  } );
-
   // -- Global Event Handles -- //
   var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
 
@@ -119,18 +97,6 @@ jQuery( document ).ready( function () {
 
   // -- Invoice Page Event Handlers -- //
 
-  /*
-   * Allow Watermark
-   */
-  jQuery( "#wpi_invoice_show_watermark" ).live( "click", function ( event ) {
-    if ( jQuery( this ).is( ":checked" ) ) {
-      jQuery( ".wpi_watermark_settings" ).show();
-    } else {
-      jQuery( ".wpi_watermark_settings" ).hide();
-      jQuery( ".wpi_watermark_settings input" ).val( "" );
-    }
-  } );
-
   //If Deposit is allowed for the current invoice, we show/hide additional settings
   if ( jQuery( "#wpi_wpi_invoice_deposit_" ).is( ":checked" ) ) {
     wpi_enable_deposit();
@@ -149,7 +115,7 @@ jQuery( document ).ready( function () {
   /*
    * Toggle invoice deposit options
    */
-  jQuery( "#wpi_wpi_invoice_deposit_" ).live( "click", function ( event ) {
+  jQuery( "#wpi_wpi_invoice_deposit_" ).on( "click", function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
       wpi_enable_deposit();
     } else {
@@ -167,7 +133,7 @@ jQuery( document ).ready( function () {
   /*
    * Toggle recurring billing options
    */
-  jQuery( ".wpi_wpi_invoice_recurring_active_" ).live( "click", function ( event ) {
+  jQuery( ".wpi_wpi_invoice_recurring_active_" ).on( "click", function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
       wpi_enable_recurring();
     } else {
@@ -181,10 +147,11 @@ jQuery( document ).ready( function () {
       wpi_show_quote_option();
     }
   } );
-  /*
+
+  /**
    * Toggle recurring billing start date
    */
-  jQuery( ".wpi_wpi_invoice_recurring_send_invoice_automatically" ).live( "click", function ( event ) {
+  jQuery( ".wpi_wpi_invoice_recurring_send_invoice_automatically" ).on( "click", function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
       wpi_disable_recurring_start_date( jQuery( this ).data('type') );
     } else {
@@ -193,15 +160,7 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  wpi_validate_recurring_units( ".wpi_bill_every_length" );
-  jQuery( "#wpi_wpi_invoice_recurring_unit_" ).live( "change", function ( e ) {
-    wpi_validate_recurring_units( ".wpi_bill_every_length" );
-  } );
-  jQuery( ".wpi_bill_every_length" ).live( "change", function ( e ) {
-    wpi_validate_recurring_units( e.target );
-  } );
-
-  /*
+  /**
    * Turn off certain options when it quote mode
    */
   jQuery( ".wpi_wpi_invoice_quote_" ).click( function () {
@@ -216,38 +175,8 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  /*
-   Prevent differnet types of discounts
-   Disables button if value changed to percent
-   This function runs twice for some reason.
-   */
-  /*
-   jQuery(".wp_invoice_discount_row .item_type").live('change', function(event) {
-   var mismatch;
-   var percent_active;
-   if(jQuery(this).val() == 'percent') {
-   jQuery(".wp_invoice_discount_row:visible").each(function() {
-   if(jQuery('option:selected', this).val() == 'amount') {
-   mismatch = true;
-   } else {
-   mismatch = false;
-   jQuery('#wpi_discount_mismatch_error').text('You cannot mismatch discount types');
-   jQuery('#wpi_add_discount').attr('disabled', true);
-   }
-   });
-   if(mismatch) {
-   jQuery('#wpi_discount_mismatch_error').text('You cannot mismatch discount types');
-   jQuery(this).val('amount');
-   }
-   } else {
-   // Enable button
-   jQuery('#wpi_add_discount').removeAttr('disabled');
-   jQuery('#wpi_discount_mismatch_error').text('');
-   }
-   });
-   */
-  /*
-   Update blank item rows count
+  /**
+   * Update blank item rows count
    */
   jQuery( "#wpi_blank_item_rows" ).change( function () {
     var updated_row_count = jQuery( this ).val();
