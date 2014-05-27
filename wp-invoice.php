@@ -252,8 +252,6 @@ if ( !class_exists( 'WPI_Core' ) ) {
 
       add_action( 'wp_ajax_wpi_import_legacy', array( 'WPI_Ajax', 'import_legacy_data' ) );
 
-      add_action( 'wp_ajax_wpi_total_revalidate', array( 'WPI_Ajax', 'revalidate' ) );
-
       //** Add our actions for our payment handlers */
       add_action( 'wp_ajax_nopriv_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );
       add_action( 'wp_ajax_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );

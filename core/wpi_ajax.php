@@ -459,13 +459,6 @@ class WPI_Ajax {
   }
 
   /**
-   * Revalidate all amounts
-   */
-  function revalidate() {
-    WPI_Functions::total_revalidate();
-  }
-
-  /**
    * Install templates for WPI
    *
    * @return null

@@ -79,7 +79,7 @@ if ( !function_exists('show_itemized_table') ) {
           var minimum_amount_option = jQuery("#wpi_minimum_amount_option");
           var full_amount_option    = jQuery("#wpi_full_amount_option");
           var custom_amount_field = jQuery("#wpi_custom_amount_option_field_wrapper");
-          my_amount.live("focus", function(){
+          my_amount.on("focus", function(){
             custom_amount_option.attr("checked", "checked");
           });
           custom_amount_option.click(function(){
@@ -97,7 +97,7 @@ if ( !function_exists('show_itemized_table') ) {
             set_pay_button_value();
           });
           //** Handle changing of payment method */
-          jQuery("#online_payment_form_wrapper").live("formLoaded", function(){
+          jQuery("#online_payment_form_wrapper").on("formLoaded", function(){
             payment_amount = jQuery("#payment_amount");
             my_amount      = jQuery("#my_amount");
             //** update field data */
@@ -112,16 +112,16 @@ if ( !function_exists('show_itemized_table') ) {
           //** If there are required fields */
           if ( payment_amount.length && my_amount.length ) {
             //** update field data */
-            my_amount.live("keyup", function(){
+            my_amount.on("keyup", function(){
               var new_value = my_amount.val();
               payment_amount.val( validate_amount( new_value ) );
               set_pay_button_value();
             });
-            my_amount.live("blur", function(){
+            my_amount.on("blur", function(){
               my_amount.val( payment_amount.val() );
               set_pay_button_value();
             });
-            my_amount.live("focus", function(){
+            my_amount.on("focus", function(){
               my_amount.val( payment_amount.val() );
               set_pay_button_value();
             });

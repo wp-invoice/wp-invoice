@@ -183,7 +183,7 @@ jQuery( document ).ready( function () {
     var current_row_count = jQuery( ".wp_invoice_itemized_list_row" ).size();
     var row_difference = updated_row_count - current_row_count;
     wpi_update_user_option( 'wpi_blank_item_rows', updated_row_count );
-    // Insert rows if amount is more than current amount
+    //** Insert rows if amount is more than current amount */
     if ( row_difference > 0 ) {
       var i = 0;
       while ( i < row_difference ) {
@@ -192,48 +192,29 @@ jQuery( document ).ready( function () {
       }
     }
   } );
-  /*
-   Process manual event
+
+  /**
+   * process manual event
    */
-  jQuery( '#wpi_process_manual_event' ).live( 'click', function ( event ) {
+  jQuery( '#wpi_process_manual_event' ).on( 'click', function ( event ) {
     wpi_process_manual_event();
   } );
 
   /**
-   * Process revalidation request
-   **/
-  jQuery( '#wpi_revalidate' ).live( 'click', function () {
-    jQuery( '#revalidate-loading' ).css( {visibility: 'visible'} );
-    jQuery( this ).hide();
-    var event_data = {
-      action: "wpi_total_revalidate"
-    };
-    jQuery.ajax( {
-      dataType: "json",
-      data: event_data,
-      type: "POST",
-      url: ajaxurl,
-      success: function () {
-        location.reload( true );
-      }
-    } );
-  } );
-
-  /*
    * Update line tax when general tax is udpated
    * and Run recalculation function
    */
-  jQuery( '#postbox_publish #wp_invoice_tax' ).live( 'keyup', function ( event ) {
+  jQuery( '#postbox_publish #wp_invoice_tax' ).on( 'keyup', function ( event ) {
     jQuery( '.line_tax_item' ).val( jQuery( this ).val() );
     jQuery( '.item_charge_tax' ).val( jQuery( this ).val() );
     wpi_recalc_totals();
   } );
 
-  jQuery( "#charges_list .fixed_width_holder input" ).live( 'keyup', function () {
+  jQuery( "#charges_list .fixed_width_holder input" ).on( 'keyup', function () {
     wpi_recalc_totals();
   } );
 
-  jQuery( "#wpi_tax_method" ).live( 'change', function () {
+  jQuery( "#wpi_tax_method" ).on( 'change', function () {
     wpi_recalc_totals();
   } );
 
@@ -262,7 +243,7 @@ jQuery( document ).ready( function () {
     }
   } ) );
 
-  jQuery( '.item_name, .item_quantity, .item_price, .item_price input, .item_amount, .line_tax_item, .item_charge_tax' ).live( "blur", function () {
+  jQuery( '.item_name, .item_quantity, .item_price, .item_price input, .item_amount, .line_tax_item, .item_charge_tax' ).on( "blur", function () {
     wpi_recalc_totals();
     var name = jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).find( '.item_name' );
     var price = jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).find( '.item_price' );
@@ -283,31 +264,25 @@ jQuery( document ).ready( function () {
     }
   } ) );
 
-  /*
-   Get the Notification Data depending on the value selected
+  /**
+   * Get the Notification Data depending on the value selected
    */
   jQuery( "#wpi_change_notification" ).change( function () {
     wpi_load_email_notification();
   } );
-  jQuery( '#wpi_send_notification' ).live( 'click', function ( event ) {
+  jQuery( '#wpi_send_notification' ).on( 'click', function ( event ) {
     event.preventDefault();
     wpi_send_notification();
   } );
-  /*
-   Event pack to toggle clickable link to add a description to an itemized row
-   */
-  /*jQuery('.wp_invoice_itemized_list_row').live('mouseover', function(event) {
-   jQuery(".wpi_add_description_text .content", this).css('visibility','visible');
-   });
-   jQuery('.wp_invoice_itemized_list_row').live('mouseout', function(event) {
-   jQuery(".wpi_add_description_text .content", this).css('visibility','hidden');
-   });*/
-  jQuery( '.wpi_add_description_text .content' ).live( 'click', function ( event ) {
+
+  jQuery( '.wpi_add_description_text .content' ).on( 'click', function ( event ) {
+    console.log(this);
     jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).find( '.item_description' ).toggle();
   } );
-  /*
-   Adjusts the UI for line-item tax.
-   Toggles tax column and fixes widths.
+
+  /**
+   * Adjusts the UI for line-item tax.
+   * Toggles tax column and fixes widths.
    */
   jQuery( "#invoice-details-itemized-list-tax" ).click( function () {
     if ( jQuery( "#invoice-details-itemized-list-tax" ).is( ":checked" ) ) {
@@ -316,63 +291,63 @@ jQuery( document ).ready( function () {
       wpi_adjust_for_tax_column( 'hide' );
     }
   } );
-  /*
-   Button for adding another line to the itemized list
+
+  /**
+   * Button for adding another line to the itemized list
    */
   jQuery( '#wpi_predefined_services_select' ).click( function () {
     add_itemized_list_row( 'invoice_list' );
   } );
-  /*
-   Add another discount item to the itemized list.
+
+  /**
+   * Add another discount item to the itemized list.
    */
   jQuery( '#wpi_add_discount' ).click( function () {
-    // To fix the mismach issues, only allow one discount
+    //** To fix the mismach issues, only allow one discount */
     if ( jQuery( ".wp_invoice_discount_row:visible" ).size() > 0 ) {
     } else {
       add_itemized_list_row_discount();
     }
   } );
-  /*
-   Triggers insertion of a predefined service
+
+  /**
+   * Triggers insertion of a predefined service
    */
   jQuery( '#wpi_predefined_services' ).change( function () {
     wpi_insert_predefined_service();
   } );
-  /*
-   Adjusts settings based on if the client can change payment methods or not.
-   If user can't change paymetn method than we hide all methods except for the one selected
+
+  /**
+   * Adjusts settings based on if the client can change payment methods or not.
+   * If user can't change paymetn method than we hide all methods except for the one selected
    */
-  jQuery( '#wp_invoice_payment_method' ).live( 'change', function ( event ) {
+  jQuery( '#wp_invoice_payment_method' ).on( 'change', function ( event ) {
     if ( jQuery( '.wpi_client_change_payment_method' ).is( ":not(:checked)" ) )
       wpi_disable_all_payment_methods();
     wpi_select_payment_method( jQuery( 'option:selected', this ).val(), true );
     wpi_can_client_change_payment_method();
   } );
-  /*
-   Called when user changes wheather the client can change payment method, or must use the default
-   wpi_can_client_change_payment_method() handles toggling options
+
+  /**
+   * Called when user changes wheather the client can change payment method, or must use the default
+   * wpi_can_client_change_payment_method() handles toggling options
    */
-  jQuery( '.wpi_client_change_payment_method' ).live( 'click', function ( event ) {
+  jQuery( '.wpi_client_change_payment_method' ).on( 'click', function ( event ) {
     wpi_can_client_change_payment_method();
   } );
-  /*
-   Displays specified payment method box
+
+  /**
+   * Displays specified payment method box
    */
-  jQuery( '.wpi_billing_section_show' ).live( 'click', function ( event ) {
-    // if it is set as default, we can't turn it off
-    /*if ( jQuery('#wp_invoice_payment_method option[value="'+jQuery(this).attr('id')+'"]').is(':selected') ) {
-     if ( !jQuery(this).is(':checked') ) {
-     return false;
-     }
-     }*/
+  jQuery( '.wpi_billing_section_show' ).on( 'click', function ( event ) {
     wpi_select_payment_method( jQuery( this ).attr( 'id' ) );
   } );
 
-  /*
+  /**
    * Handles invoice saving and updating
    * Validated invoice first, if validation is passed runs ajax saving functions
    */
-  jQuery( '#wpi_invoice_form' ).live( 'submit', function ( event ) {
+  jQuery( '#wpi_invoice_form' ).on( 'submit', function ( event ) {
     if ( !wpi_validate_invoice() )
       return false;
     /** Timeout is added here for hacking IE7,8 (IE fires some events too late, so we need to wait). peshkov@UD */
@@ -380,11 +355,11 @@ jQuery( document ).ready( function () {
     return false;
   } );
 
-  /*
+  /**
    * Deletes an itemized list row
    * Recalculates totals
    */
-  jQuery( '.wp_invoice_itemized_list_row .row_delete', '#invoice_list' ).live( 'click', function ( event ) {
+  jQuery( '#invoice_list' ).on( 'click', '.wp_invoice_itemized_list_row .row_delete', function ( event ) {
     if ( jQuery( ".wp_invoice_itemized_list_row" ).size() > 1 ) {
       jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).remove();
     } else {
@@ -393,19 +368,19 @@ jQuery( document ).ready( function () {
     wpi_recalc_totals();
   } );
 
-  /*
+  /**
    * Deletes an itemized list row
    * Recalculates totals
    */
-  jQuery( '.wp_invoice_itemized_charge_row .row_delete', '#charges_list' ).live( 'click', function ( event ) {
+  jQuery( '#charges_list' ).on( 'click', '.wp_invoice_itemized_charge_row .row_delete', function ( event ) {
     jQuery( this ).parents( '.wp_invoice_itemized_charge_row' ).remove();
     wpi_recalc_totals();
   } );
 
-  /*
+  /**
    * Deletes a dynamic table row
    */
-  jQuery( '.wpi_dynamic_table_row .row_delete' ).live( 'click', function ( event ) {
+  jQuery( '.wpi_dynamic_table_row .row_delete' ).on( 'click', function ( event ) {
     var table = jQuery( this ).parents( '.ud_ui_dynamic_table' );
     var current_row = jQuery( this ).parents( '.wpi_dynamic_table_row' );
 
@@ -420,11 +395,11 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  /*
+  /**
    * Deletes a discount row, clears out all values in row
    * Recalculates totals
    */
-  jQuery( '.wp_invoice_discount_row .row_delete' ).live( 'click', function ( event ) {
+  jQuery( '.wp_invoice_discount_row .row_delete' ).on( 'click', function ( event ) {
     if ( jQuery( ".wp_invoice_discount_row" ).size() > 1 ) {
       jQuery( this ).parents( '.wp_invoice_discount_row' ).remove();
     } else {
@@ -432,22 +407,6 @@ jQuery( document ).ready( function () {
     }
     jQuery( '.wp_invoice_discount_row:hidden input' ).val( '' );
     wpi_recalc_totals();
-  } );
-  /*
-   UI Management for Invoice Management Page (admin_page_wpi_invoice_edit)
-   Postboxes have class:     .wpi-toggle-postbox
-   Other elements have class:   .wpi-toggle-element
-   Different classes used because WP Function can be used for poxtboxes,
-   but custom functions must be used for custom elements (elements within postboxes)
-   */
-  // Postboxes
-  jQuery( "#wpi_screen_meta .wpi-toggle-postbox" ).click( function () {
-    // Toggle postbox
-    postbox_name = jQuery( this ).attr( 'name' );
-    //alert("#postbox_" + postbox_name);
-    jQuery( '#postbox_' + postbox_name ).toggle();
-    // Save changes to user options via database
-    wpi_save_postboxes();
   } );
 
   /*
@@ -504,8 +463,9 @@ jQuery( document ).ready( function () {
       wpi_recalc_totals();
     }
   } ) );
-  /*
-   Toggles Screen Options tab expansion and collapsing
+
+  /**
+   * Toggles Screen Options tab expansion and collapsing
    */
   jQuery( '#wpi_screen_meta #wpi-show-settings-link' ).click( function () {
     if ( !jQuery( '#screen-options-wrap' ).hasClass( 'screen-options-open' ) ) {
@@ -525,8 +485,9 @@ jQuery( document ).ready( function () {
     } );
     return false;
   } );
-  /*
-   Handles Screen Help tab expansion and collapsing
+
+  /**
+   * Handles Screen Help tab expansion and collapsing
    */
   jQuery( '#wpi_screen_meta #wpi-contextual-help-link' ).click( function () {
     if ( !jQuery( '#contextual-help-wrap' ).hasClass( 'contextual-help-open' ) ) {
@@ -546,8 +507,9 @@ jQuery( document ).ready( function () {
     } );
     return false;
   } );
-  /*
-   Handles Special Functions tab expansion and collapsing
+
+  /**
+   * Handles Special Functions tab expansion and collapsing
    */
   jQuery( '#wpi_screen_meta #wpi-show-functions-link' ).click( function () {
     if ( !jQuery( '#screen-functions-wrap' ).hasClass( 'screen-functions-open' ) ) {
@@ -567,7 +529,10 @@ jQuery( document ).ready( function () {
     } );
     return false;
   } );
-// --- New Invoice Creation -- //
+
+  /**
+   * New invoice creation
+   */
   jQuery( "#wpi_new_invoice_form" ).submit( function () {
     if ( wpi_validate_email( jQuery( "#wp_invoice_userlookup" ).val() ) ) {
       wpi_remove_errors();
@@ -577,43 +542,47 @@ jQuery( document ).ready( function () {
       return false;
     }
   } );
-  /*
-   Handle invoice copying
+
+  /**
+   * Handle invoice copying
    */
   jQuery( "#wp_invoice_copy_invoice" ).click( function () {
     jQuery( ".wp_invoice_copy_invoice" ).toggle();
     jQuery( "#wp_invoice_create_new_invoice" ).toggle();
     jQuery( "#wp_invoice_copy_invoice" ).toggle();
-  } )
-  /*
-   Cancel invoice copying
+  } );
+
+  /**
+   * Cancel invoice copying
    */
   jQuery( "#wp_invoice_copy_invoice_cancel" ).click( function () {
     jQuery( ".wp_invoice_copy_invoice" ).toggle();
     jQuery( "#wp_invoice_create_new_invoice" ).toggle();
     jQuery( "#wp_invoice_copy_invoice" ).toggle();
-  } )
-  /*
-   Do not submit form if no user is defined
+  } );
+
+  /**
+   * Do not submit form if no user is defined
    */
   jQuery( "#wpi_new_invoice_form" ).submit( function () {
     if ( jQuery( "#wp_invoice_userlookup" ).val() == "" ) return false;
   } );
-// -- Settings Page -- //
-  /*
-   Display notification of wheather custom template can be used based on if a "wpi" folder exists or not
+
+  /**
+   * Display notification of wheather custom template can be used based on if a "wpi" folder exists or not
    */
-  jQuery( '.wpi_wpi_settings_use_custom_templates_' ).live( 'click', function ( event ) {
+  jQuery( '.wpi_wpi_settings_use_custom_templates_' ).on( 'click', function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
       jQuery( ".wpi_use_custom_template_settings" ).show();
     } else {
       jQuery( ".wpi_use_custom_template_settings" ).hide();
     }
   } );
-  /*
-   Confirms that user wants to overwrite any tempaltes in their wpi folder
+
+  /**
+   * Confirms that user wants to overwrite any tempaltes in their wpi folder
    */
-  jQuery( 'input.wpi_install_custom_templates' ).live( 'click', function () {
+  jQuery( 'input.wpi_install_custom_templates' ).on( 'click', function () {
     var answer = confirm( "This will overwrite any theme files you currently have in your /wpi/ folder." )
     if ( answer ) {
       jQuery.post( ajaxurl, {
@@ -623,14 +592,18 @@ jQuery( document ).ready( function () {
         }, 'json' );
     }
   } );
-  /*
-   Called when user changes wheather the client can change payment method, or must use the default
-   wpi_can_client_change_payment_method() handles toggling options
+
+  /**
+   * Called when user changes wheather the client can change payment method, or must use the default
+   * wpi_can_client_change_payment_method() handles toggling options
    */
-  jQuery( '.wpi_settings_client_change_payment_method' ).live( 'change', function ( event ) {
+  jQuery( '.wpi_settings_client_change_payment_method' ).on( 'change', function ( event ) {
     wpi_can_client_change_payment_method();
   } );
 
+  /**
+   * Currencies
+   */
   var wpi_currency_accordion = jQuery( "#currency-list" ).accordion( {
     header: "h3",
     animated: false,
@@ -643,8 +616,8 @@ jQuery( document ).ready( function () {
     active: false
   } );
 
-  /*
-   Do any validation/data work before the settings page form is submitted
+  /**
+   * Do any validation/data work before the settings page form is submitted
    */
   jQuery( "#wpi_settings_form" ).submit( function () {
     var validation_ok = true;
@@ -664,11 +637,11 @@ jQuery( document ).ready( function () {
       }
     } );
 
-    // Convert list of favorite countries into CSV format, and paste CSV into hidden field
+    //** Convert list of favorite countries into CSV format, and paste CSV into hidden field */
     jQuery( "input[name='wpi_settings[globals][favorite_countries]']" ).val( jQuery( "#wpi_favorite_countries option" ).attrList( "value", "," ) );
 
     if ( !validation_ok ) {
-      jQuery( "#wp_invoice_settings_page" ).tabs( 'select', 2 ); // switch to third tab
+      jQuery( "#wp_invoice_settings_page" ).tabs( 'select', 2 );
       if ( jQuery( "#currency-list" ).accordion( "option", "active" ) === false ) {
         jQuery( "#currency-list" ).accordion( "option", "active", 0 );
       }
@@ -677,8 +650,9 @@ jQuery( document ).ready( function () {
     }
 
   } );
-  /*
-   Confirm complete removal of WPI databases
+
+  /**
+   * Confirm complete removal of WPI databases
    */
   jQuery( '#delete_all_wp_invoice_databases' ).click( function () {
     var txt = 'Are you sure you want to delete all the databases?  All your invoice and log data will be lost forever. ';
@@ -688,10 +662,11 @@ jQuery( document ).ready( function () {
       }
     }
     } );
-    return false
+    return false;
   } );
-  /*
-   Invoice overview table sorting and filtering
+
+  /**
+   * Invoice overview table sorting and filtering
    */
   var tog = false; // or true if they are checked on load
   jQuery( '#invoice_sorter_table #CheckAll' ).click( function () {
@@ -702,76 +677,23 @@ jQuery( document ).ready( function () {
   jQuery( "#invoice_sorter_table tr:has(td)" ).each( function () {
     var t = jQuery( this ).text().toLowerCase(); //all row text
     jQuery( "<td class='indexColumn'></td>" ).hide().text( t ).appendTo( this );
-  } );//each tr
+  } );
+
+  /**
+   *
+   */
   jQuery( ".invoice-search-input" ).keyup( function () {
-    //wp_invoice_calculate_owed();
+
     var s = jQuery( this ).val().toLowerCase().split( " " );
-    //show all rows.
+
     jQuery( "#invoice_sorter_table tr:hidden" ).show();
     jQuery.each( s, function () {
       jQuery( "#invoice_sorter_table tr:visible .indexColumn:not(:contains('" + this + "'))" ).parent().hide();
-    } );//each
-  } );//key up.
-  // -- First Time Setup -- //
-  /*
-   Validate first-time setup form
-   */
-  /*
-   var validator =  jQuery("#wp_invoice_first_time_setup").validate({
-   rules: {
-   "wp_invoice_business_name": {
-   required: true
-   },
-   "wp_invoice_web_invoice_page": {
-   required: true
-   },
-   // If we are accepting PayPal
-   "wp_invoice_paypal_address": {
-   required: function(element) {return jQuery("#wp_invoice_paypal_allow").attr("checked"); },
-   email: true
-   },
-   "wp_invoice_fe_paypal_link_url": {
-   required: function(element) {return jQuery("#wp_invoice_paypal_allow").attr("checked"); },
-   url: true
-   },
-   // If we are accepting credit cards
-   "wp_invoice_gateway_merchant_email ": {
-   required: function(element) {return jQuery("#wp_invoice_cc_allow").attr("checked"); },
-   email: true
-   },
-   "wp_invoice_gateway_tran_key": {
-   required: function(element) {return jQuery("#wp_invoice_cc_allow").attr("checked"); }
-   },
-   "wp_invoice_gateway_username": {
-   required: function(element) {return jQuery("#wp_invoice_cc_allow").attr("checked"); }
-   },
-   "wp_invoice_gateway_url": {
-   required: function(element) {return jQuery("#wp_invoice_cc_allow").attr("checked"); },
-   url: true
-   },
-   },
-   invalidHandler: function() {
-   alert('invalid handler form for new user setup');
-   },
-   submitHandler: function(form) {
-   jQuery("#wp_invoice_first_time_setup").submit();
-   }});
-   // overwrite focusInvalid to activate tab with invalid elements
-   jQuery("#wp_invoice_first_time_setup").focusInvalid = function() {
-   if( this.settings.focusInvalid ) {
-   try {
-   var focused = jQuery(this.errorList.length && this.errorList[0].element || []);
-   jQuery('.wp_invoice_accordion_section').accordion('activate' , '#' + focused.parents('.wp_invoice_accordion_section').children('h3').attr("id"));
-   focused.focus();
-   } catch(e) {
-   // ignore IE throwing errors when focusing hidden elements
-   }
-   }
-   };
-   /*
-   // --- Invoice Overview Page -- //
-   /*
-   Filter by recipients
+    } );
+  } );
+
+  /**
+   * Filter by recipients
    */
   jQuery( "#wpi_filter_overview_by_recipient" ).change( function () {
     var target_url = jQuery( "#wpi_target_url" ).val();
@@ -835,16 +757,17 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  // Permanently deletion confirm
-  jQuery( "a.submitdelete.permanently" ).live( "click", function () {
-    var answer = confirm( "Remove this invoice permanently?" )
-    if ( answer ) {
-      return true;
-    }
-    return false;
+  /**
+   * Permanently deletion confirm
+   */
+  jQuery( "#wp-list-table" ).on( "click", "a.submitdelete.permanently", function () {
+    return confirm( "Remove this invoice permanently?" );
   } );
 
-  jQuery( "#doaction" ).live( "click", function () {
+  /**
+   * Bulk actions
+   */
+  jQuery( "#doaction" ).on( "click", function () {
     var action = jQuery( "select[name=action]" ).val();
     if ( action == 'delete' ) {
       var answer = confirm( "Remove selected invoices permanently?" )
@@ -856,8 +779,10 @@ jQuery( document ).ready( function () {
     return true;
   } );
 
-  // Prevent page reloading when list table is clicked
-  jQuery( "#wp-list-table th a" ).live( "click", function () {
+  /**
+   * Prevent page reloading when list table is clicked
+   */
+  jQuery( "#wp-list-table th a" ).on( "click", function () {
     return false;
   } );
 

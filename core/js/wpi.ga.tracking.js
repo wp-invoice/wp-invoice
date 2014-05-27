@@ -47,7 +47,7 @@ wpi.ga = {
     attempting_pay_invoice : function () {
       var self = this;
       wpi = wpi || {};
-      jQuery('#cc_pay_button').live('click',function(){
+      jQuery('#cc_pay_button').on('click',function(){
         if (typeof wpi.invoice_id !='undefined'){
           self.track_pay_invoice();
         }

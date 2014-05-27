@@ -861,21 +861,6 @@ function wp_invoice_subscription_start_time ( add_days ) {
   return false;
 }
 
-function wpi_save_postboxes () {
-  var closed = jQuery( '.postbox' ).filter( '.closed' ).map(function () {
-    return this.id;
-  } ).get().join( ',' ), hidden = jQuery( '.postbox' ).filter( ':hidden' ).map(function () {
-    return this.id;
-  } ).get().join( ',' );
-  jQuery.post( ajaxurl, {
-    action: 'closed-postboxes',
-    closed: closed,
-    hidden: hidden,
-    closedpostboxesnonce: jQuery( '#closedpostboxesnonce' ).val(),
-    page: [jQuery( '#wpi_page' ).val()]
-  } );
-}
-
 function wpi_disable_all_payment_methods () {
   // uncheck app payment method checkboxes
   jQuery( '.wpi_billing_section_show' ).attr( 'checked', false );

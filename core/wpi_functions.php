@@ -2387,30 +2387,6 @@ class WPI_Functions {
   }
 
   /**
-   * Revalidate all the invoices
-   *
-   * @author korotkov@ud
-   * @global object $wpdb
-   */
-  function total_revalidate() {
-    global $wpdb;
-
-    /** Recalculate all invoices */
-    $invoices = $wpdb->get_col( "
-      SELECT ID
-      FROM {$wpdb->posts}
-      WHERE post_type = 'wpi_object'
-    " );
-
-    foreach ( $invoices as $post_id ) {
-      $invoice_id = wpi_post_id_to_invoice_id( $post_id );
-      $this_invoice = new WPI_Invoice();
-      $this_invoice->load_invoice( "id={$invoice_id}" );
-      $this_invoice->save_invoice();
-    }
-  }
-
-  /**
    * Returns WP-CRM attributes list
    *
    * @global object $wp_crm
