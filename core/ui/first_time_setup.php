@@ -34,7 +34,7 @@
                 <?php wp_dropdown_pages(array(
                     'name'     => 'wpi_settings[web_invoice_page]',
                     'id'       => 'wp_invoice_web_invoice_page',
-                    'selected' => $wp_invoice_web_invoice_page
+                    'selected' => (isset($wp_invoice_web_invoice_page) ? $wp_invoice_web_invoice_page : '' )
                 )); ?>
               </td>
             </tr>
