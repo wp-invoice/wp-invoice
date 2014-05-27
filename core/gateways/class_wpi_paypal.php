@@ -234,7 +234,7 @@ class wpi_paypal extends wpi_gateway_base {
 							echo '<li class="wpi_checkout_row"><div class="control-group"><label class="control-label">'.__('Phone Number', WPI).'</label><div class="controls">';
 
 							$phonenumber = !empty($invoice['user_data']['phonenumber']) ? $invoice['user_data']['phonenumber'] : "---";
-							$phone_array = split('[/.-]', $phonenumber);
+							$phone_array = preg_split('/-/', $phonenumber);
 
 							foreach( $field_data as $field ) {
                 //** Change field properties if we need */
