@@ -1975,7 +1975,7 @@ class WPI_Functions {
         if ( end( explode( ".", $file ) ) == 'php' ) {
           $slug = str_replace( array( '.php' ), '', $file );
           if ( substr( $slug, 0, 6 ) == "class_" ) {
-            $t = split( "class_", $slug );
+            $t = explode( "class_", $slug );
             $slug = $t[ 1 ];
           }
 
