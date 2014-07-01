@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=ready&title=Ready)](http://waffle.io/usabilitydynamics/wp-invoice)
+
 This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.
 
 **[Download the original WordPress Invoicing plugin now!](http://downloads.wordpress.org/plugin/wp-invoice.zip)**
