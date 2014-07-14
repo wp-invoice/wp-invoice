@@ -8,6 +8,7 @@
   Version: 1.0
   Description: Provides the 2Checkout for payment options
  */
+
 class wpi_twocheckout extends wpi_gateway_base {
 
   /**
@@ -111,14 +112,45 @@ class wpi_twocheckout extends wpi_gateway_base {
   }
 
   /**
-   * 
+   * Recurring settings UI
    * @param type $this_invoice
    */
   function recurring_settings($this_invoice) {
     ?>
-    <h4><?php _e('2Checkout Subscriptions', WPI); ?></h4>
-    @todo this
+    <h4><?php _e('2Checkout Recurring Billing', WPI); ?></h4>
+    <table class="wpi_recurring_bill_settings">
+        <tr>
+            <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
+            <td>
+              <?php echo WPI_UI::input("id=2co_recurrence_interval&name=wpi_invoice[recurring][".$this->type."][recurrence_interval]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['recurrence_interval'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
+              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][recurrence_period]&values=" . serialize(apply_filters('wpi_2co_recurrence_period', array("Week" => __("Week", WPI), "Month" => __("Month", WPI), "Year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['recurrence_period'] : '')); ?>
+            </td>
+        </tr>
+        <tr>
+            <th style="cursor:help;" title="<?php _e('Specifies billing duration.', WPI); ?>"><?php _e('Duration', WPI); ?></th>
+            <td>
+              <?php echo WPI_UI::input("id=2co_duration_interval&name=wpi_invoice[recurring][".$this->type."][duration_interval]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['duration_interval'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
+              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][duration_period]&values=" . serialize(apply_filters('wpi_2co_duration_period', array("Week" => __("Week", WPI), "Month" => __("Month", WPI), "Year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['duration_period'] : '')); ?>
+            </td>
+        </tr>
+    </table>
     <?php
+  }
+  
+  /**
+   * Get recurrence
+   * @param type $invoice
+   */
+  public function get_recurrence( $invoice ) {
+    return $invoice['recurring']['wpi_twocheckout']['recurrence_interval'].' '.$invoice['recurring']['wpi_twocheckout']['recurrence_period'];
+  }
+  
+  /**
+   * Get duration
+   * @param type $invoice
+   */
+  public function get_duration( $invoice ) {
+    return $invoice['recurring']['wpi_twocheckout']['duration_interval'].' '.$invoice['recurring']['wpi_twocheckout']['duration_period'];
   }
 
   /**

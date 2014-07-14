@@ -19,7 +19,8 @@
   <input type="hidden" name="merchant_order_id" value="<?php echo $invoice['invoice_id']; ?>">
   
   <?php if ( is_recurring() ): ?>
-  
+    <input type="hidden" name="li_0_recurrence" value="<?php echo $this->get_recurrence( $invoice ); ?>">
+    <input type="hidden" name="li_0_duration" value="<?php echo $this->get_duration( $invoice ); ?>">
   <?php endif; ?>
   
   <div id="credit_card_information">
