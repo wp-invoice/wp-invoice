@@ -65,7 +65,7 @@ class wpi_twocheckout extends wpi_gateway_base {
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
-                'name' => 'email_address',
+                'name' => 'email',
                 'label' => __('Email Address', WPI)
             ),
             'phonenumber' => array(
@@ -77,8 +77,14 @@ class wpi_twocheckout extends wpi_gateway_base {
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
-                'name' => 'address1',
+                'name' => 'street_address',
                 'label' => __('Address', WPI)
+            ),
+            'country' => array(
+                'type' => 'text',
+                'class' => 'text-input',
+                'name' => 'country',
+                'label' => __('Country', WPI)
             ),
             'city' => array(
                 'type' => 'text',
@@ -127,7 +133,6 @@ class wpi_twocheckout extends wpi_gateway_base {
     $crm_data = $_REQUEST['crm_data'];
     $invoice_id = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
-    $post_id = wpi_invoice_id_to_post_id($invoice_id);
 
     // update user data
     update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
@@ -135,8 +140,8 @@ class wpi_twocheckout extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
     update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
     update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-    update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
-    update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'] . '-' . $_REQUEST['night_phone_b'] . '-' . $_REQUEST['night_phone_c']);
+    update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['street_address']);
+    update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
     update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
     if (!empty($crm_data))
@@ -247,7 +252,7 @@ class wpi_twocheckout extends wpi_gateway_base {
           /** ... and mark invoice as paid */
           wp_invoice_mark_as_paid($_REQUEST['invoice'], $check = true);
           send_notification($invoice->data);
-          echo '<script type="text/javascript">window.location="' . $_REQUEST['x_receipt_link_url'] . '";</script>';
+          echo '<script type="text/javascript">window.location="' . get_invoice_permalink($invoice->data['ID']) . '";</script>';
 
           /** Handle INS messages */
         } elseif ($_POST['md5_hash']) {
@@ -295,19 +300,43 @@ class wpi_twocheckout extends wpi_gateway_base {
         }
       }
     }
+    
+    /**
+     * Get proper api url
+     * @filters wpi_2co_live_url, wpi_2co_demo_url
+     * @param type $invoice
+     * @return type
+     */
+    public function get_api_url( $invoice ) {
+      return $invoice['billing']['wpi_twocheckout']['settings']['test_mode']['value'] == 'N' ? apply_filters( 'wpi_2co_live_url', 'https://www.2checkout.com/checkout/purchase' ) : apply_filters( 'wpi_2co_demo_url', 'https://sandbox.2checkout.com/checkout/purchase' );
+    }
+    
+    /**
+     * Get SID
+     * @param type $invoice
+     * @return type
+     */
+    public function get_sid( $invoice ) {
+      return $invoice['billing']['wpi_twocheckout']['settings']['twocheckout_sid']['value'];
+    }
+    
+    /**
+     * 
+     * @param type $invoice
+     * @return \type
+     */
+    public function get_callback_url( $invoice ) {
+      return $invoice['billing']['wpi_twocheckout']['settings']['passback']['value'];
+    }
 
    /**
     * Verify return/notification and return TRUE or FALSE
     * @author Craig Christenson
     **/
     private function _ipn_verified($invoice = false) {
-
+     
       if ($_REQUEST['key']) {
-        if ($this->options['settings']['test_mode']['value'] == 'Y') {
-          $transaction_id = 1;
-        } else {
-          $transaction_id = $_REQUEST['order_number'];
-        }
+        $transaction_id = $_REQUEST['order_number'];
         $compare_string = $this->options['settings']['twocheckout_secret']['value'] .
                 $this->options['settings']['twocheckout_sid']['value'] . $transaction_id .
                 $_REQUEST['total'];

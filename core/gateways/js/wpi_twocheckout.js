@@ -5,6 +5,15 @@ var wpi_twocheckout_rules = {
     },
     "last_name": {
         required: true
+    },
+    "country": {
+        required: true
+    },
+    "street_address": {
+        required: true
+    },
+    "city": {
+        required: true
     }
 };
 
