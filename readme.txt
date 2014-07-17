@@ -107,6 +107,15 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 = Version 3.09.3.2 =
 * Updated libraries.
+* Google Wallet deprecated and removed.
+* Fixed issue with Stripe keys having spaces around.
+* Fixed a lot of Warnings/Strict Standards.
+* Added option to allow partial payments by default.
+* Fixes to Invoice History shortcode.
+* Fixed JavaScript jQuery deprecated code (live to on).
+* Added 2Checkout payment gateway.
+* Fixed WP-CRM integration.
+* Added fix that should prevent mod_security issue from appearing.
 
 = Version 3.09.3.1 =
 * Updated libraries.
