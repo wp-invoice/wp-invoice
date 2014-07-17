@@ -23,21 +23,21 @@ jQuery( document ).ready( function () {
   jQuery( "#currency-list" ).on( "change", ".wpi_dynamic_table_row[new_row=true] input.names_changer", function () {
 
     var this_row = jQuery( this ).parents( 'tr.wpi_dynamic_table_row' );
-    // Slug of row in question
+    //** Slug of row in question */
     var old_slug = jQuery( this_row ).attr( 'slug' );
     var new_slug = jQuery( this ).val();
 
-    // Don't allow to blank out slugs
+    //** Don't allow to blank out slugs */
     if ( new_slug == "" ) {
       return;
     }
 
-    // If slug input.slug exists in row, we modify it
+    //** If slug input.slug exists in row, we modify it */
     jQuery( ".slug", this_row ).val( new_slug );
-    // Update row slug
+    //** Update row slug */
     jQuery( this_row ).attr( 'slug', new_slug );
 
-    // Cycle through all child elements and fix names
+    //** Cycle through all child elements and fix names */
     jQuery( 'input,select,textarea', this_row ).each( function ( element ) {
       var old_name = jQuery( this ).attr( 'name' );
       if ( typeof old_name != 'undefined' ) {
@@ -51,7 +51,7 @@ jQuery( document ).ready( function () {
       }
     } );
 
-    // Cycle through labels too
+    //** Cycle through labels too */
     jQuery( 'label', this_row ).each( function ( element ) {
       var old_for = jQuery( this ).attr( 'for' );
       if ( typeof old_for != 'undefined' ) {
@@ -62,7 +62,7 @@ jQuery( document ).ready( function () {
 
   } );
 
-  /** remove html5 check for reqirements and make it manualy on submit */
+  //** remove html5 check for reqirements and make it manualy on submit */
   jQuery( "#currency-list :input[required]" ).each( function () {
     jQuery( this ).removeAttr( 'required' ).attr( 'validation_required', true );
   } );
@@ -72,10 +72,10 @@ jQuery( document ).ready( function () {
     jQuery( this ).parents( "#minor-publishing table.form-table" ).find( 'tbody' ).toggle();
   } );
 
-  // -- Global Event Handles -- //
+  //** Accordions */
   var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
-
   var wpi_payment_accordion = jQuery( ".wp_invoice_accordion" ).accordion( {
+    heightStyle: "content",
     header: "h3",
     animated: false,
     autoHeight: false,
@@ -95,24 +95,22 @@ jQuery( document ).ready( function () {
   jQuery( '#contextual-help-link-wrap, #screen-options-link-wrap, #screen-functions-link-wrap' ).show();
   tooltip();
 
-  // -- Invoice Page Event Handlers -- //
-
-  //If Deposit is allowed for the current invoice, we show/hide additional settings
+  //** If Deposit is allowed for the current invoice, we show/hide additional settings */
   if ( jQuery( "#wpi_wpi_invoice_deposit_" ).is( ":checked" ) ) {
     wpi_enable_deposit();
   }
-  // If Recurring is allowed for the current invoice, we show/hide additional settings
+  //** If Recurring is allowed for the current invoice, we show/hide additional settings */
   else if ( jQuery( "#wpi_wpi_invoice_meta_recurring_active_" ).is( ":checked" ) ) {
     wpi_enable_recurring();
   }
-  // If Quote is allowed for the current invoice, we show/hide quote option
+  //** If Quote is allowed for the current invoice, we show/hide quote option */
   else if ( jQuery( "#wpi_wpi_invoice_quote_" ).is( ":checked" ) ) {
     wpi_enable_quote();
     wpi_hide_deposit_option();
     wpi_hide_recurring_option();
   }
 
-  /*
+  /**
    * Toggle invoice deposit options
    */
   jQuery( "#wpi_wpi_invoice_deposit_" ).on( "click", function ( event ) {
@@ -126,21 +124,21 @@ jQuery( document ).ready( function () {
   if ( jQuery( ".wpi_wpi_invoice_recurring_active_" ).is( ":checked" ) ) {
     wpi_enable_recurring();
   } else {
-    // Singular invoice or quote. Clear out all values.
+    //** Singular invoice or quote. Clear out all values. */
     wpi_disable_recurring();
   }
 
-  /*
+  /**
    * Toggle recurring billing options
    */
   jQuery( ".wpi_wpi_invoice_recurring_active_" ).on( "click", function ( event ) {
     if ( jQuery( this ).is( ":checked" ) ) {
       wpi_enable_recurring();
     } else {
-      // Singular invoice or quote. Clear out all values.
+      //** Singular invoice or quote. Clear out all values. */
       wpi_disable_recurring();
 
-      /*
+      /**
        * This functions was moved from wpi_disable_recurring() (wpi-functions.js)
        */
       wpi_show_deposit_option();
@@ -155,7 +153,7 @@ jQuery( document ).ready( function () {
     if ( jQuery( this ).is( ":checked" ) ) {
       wpi_disable_recurring_start_date( jQuery( this ).data('type') );
     } else {
-      // Singular invoice or quote. Clear out all values.
+      //** Singular invoice or quote. Clear out all values. */
       wpi_enable_recurring_start_date( jQuery( this ).data('type') );
     }
   } );
@@ -234,7 +232,7 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  /*
+  /**
    * Run recalculation function when certain fields are updates
    */
   jQuery( '#wpi_invoice_form, #wpi_predefined_services_div' ).change( jQuery.delegate( {
@@ -254,11 +252,11 @@ jQuery( document ).ready( function () {
       name.removeClass( 'wpi_error' );
     }
   } );
-  /*
+  
+  /**
    * Run recalculation function when certain fields are updates
    */
   jQuery( '#wpi_invoice_form, #wpi_predefined_services_div' ).keyup( jQuery.delegate( {
-    //'.item_quantity, .item_price, .item_price input': function() {wpi_recalc_totals();},
     '.line_tax_item, .item_charge_tax': function () {
       jQuery( "#wp_invoice_tax" ).val( "" );
     }
@@ -409,7 +407,7 @@ jQuery( document ).ready( function () {
     wpi_recalc_totals();
   } );
 
-  /*
+  /**
    * Handles saving non-metabox Screen Options into a cookie.
    * On-load checking/unchecking is handled by PHP.
    */
@@ -418,7 +416,7 @@ jQuery( document ).ready( function () {
     jQuery.cookie( 'wpi_display_' + jQuery( this ).attr( 'name' ), action );
   } );
 
-  /*
+  /**
    * Handles result of a non-metabox item being clickec in Screen Options
    * Saving the settings is handled by a different event
    * Recalcs totals on events related to totals and taxes.
@@ -680,7 +678,7 @@ jQuery( document ).ready( function () {
   } );
 
   /**
-   *
+   * User ssearch
    */
   jQuery( ".invoice-search-input" ).keyup( function () {
 
@@ -700,9 +698,9 @@ jQuery( document ).ready( function () {
     window.location = target_url + "&recipient_filter=" + jQuery( this ).val();
   } );
 
-  /*
-   Toggle display of archived invoices
-   Recalc amount owed.
+  /**
+   * Toggle display of archived invoices
+   * Recalc amount owed.
    */
   jQuery( "#wp_invoice_show_archived" ).click( function () {
     jQuery( ".wp_invoice_archived" ).toggle();
@@ -710,8 +708,8 @@ jQuery( document ).ready( function () {
     return false;
   } )
 
-  /*
-   Perform bulk delete action
+  /**
+   * Perform bulk delete action
    */
   jQuery( "#submit_bulk_action" ).click( function () {
     if ( jQuery( "#wp_invoice_action :selected" ).text() == 'Delete' ) {
@@ -724,16 +722,18 @@ jQuery( document ).ready( function () {
     }
   } );
 
-  /*
-   Do not submit invoice filter if no action is selected
+  /**
+   * Do not submit invoice filter if no action is selected
    */
   jQuery( "#invoices-filter" ).submit( function () {
     if ( jQuery( "#invoices-filter select" ).val() == '-1' )
       return false;
   } )
 
-  // Anton Korotkov
-  // Event date & time
+  /**
+   * Event date & time
+   * @type Date
+   */
   var curDate = new Date();
   var m = curDate.getMonth() + 1;
   jQuery( ".wpi_event_date" ).val( (m < 10 ? "0" + m : m) + "/" + (curDate.getDate() < 10 ? "0" + curDate.getDate() : curDate.getDate()) + "/" + curDate.getFullYear() ).datepicker();
@@ -741,14 +741,14 @@ jQuery( document ).ready( function () {
   var minutes = curDate.getMinutes() < 10 ? "0" + curDate.getMinutes() : curDate.getMinutes();
   jQuery( ".wpi_event_time" ).val( h + ":" + minutes );
 
-  // Invoice link expanding
+  //** Invoice link expanding */
   jQuery( '#edit-slug-box.wpi-edit-slug-box' ).click( function () {
     jQuery( this ).css( {height: function () {
       return jQuery( this ).height() == 18 ? "auto" : 18
     }} );
   } );
 
-  // event_type_selector
+  //** event_type_selector */
   jQuery( "#wpi_event_type" ).change( function () {
     if ( jQuery( this ).val() == 'add_charge' ) {
       jQuery( "#event_tax_holder" ).show();
@@ -786,7 +786,7 @@ jQuery( document ).ready( function () {
     return false;
   } );
 
-  // DataTable check all checkbox
+  //** DataTable check all checkbox */
   jQuery( "input.check-all", "#wp-list-table" ).click( function ( e ) {
     if ( e.target.checked ) {
       jQuery( "#the-list td.cb input:checkbox" ).attr( 'checked', 'checked' );
