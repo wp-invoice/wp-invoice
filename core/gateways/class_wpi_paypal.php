@@ -188,7 +188,7 @@ class wpi_paypal extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['address1']);
     update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'] . '-' . $_REQUEST['night_phone_b'] . '-' . $_REQUEST['night_phone_c']);
     update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
-
+    
     if (!empty($crm_data))
       self::user_meta_updated($crm_data);
 

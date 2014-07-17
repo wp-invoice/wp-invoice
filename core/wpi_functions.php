@@ -2425,15 +2425,38 @@ class WPI_Functions {
     if ( empty( $attributes ) ) return $current_fields;
 
     global $invoice;
+    
+
 
     foreach ( $attributes as $attr_key => $attr_value ) {
-      $current_fields[ 'customer_information' ][ $attr_key ] = array(
-        'type' => 'text',
-        'class' => 'text-input',
-        'name' => $name . '[' . $attr_key . ']',
-        'label' => __( $attr_value[ 'title' ], WPI ),
-        'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
-      );
+      switch ( $attr_value['input_type'] ) {
+        case 'dropdown':
+          
+          $values = array();
+          foreach( $attr_value['option_keys'] as $o_k => $o_v ) {
+            $values[$o_v] = $attr_value['option_labels'][$o_k];
+          }
+          
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'select',
+            'class' => 'dropdown-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], WPI ),
+            'values' => serialize($values),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
+        
+        default:
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'text',
+            'class' => 'text-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], WPI ),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
+      }
     }
 
     return $current_fields;

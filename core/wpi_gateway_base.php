@@ -182,12 +182,25 @@ abstract class wpi_gateway_base {
         $crm_attributes = WPI_Functions::get_wpi_crm_attributes();
         if (empty($crm_attributes))
             return;
-
+        
         $wp_users_id = $invoice['user_data']['ID'];
 
         foreach ($data as $key => $value) {
             if (key_exists($key, $crm_attributes)) {
-                update_user_meta($wp_users_id, $key, $value);
+              switch ( $crm_attributes[$key]['input_type'] ) {
+                case 'dropdown':
+                  
+                  foreach( $crm_attributes[$key]['option_keys'] as $_to_rm ) {
+                    delete_user_meta( $wp_users_id, $_to_rm );
+                  }
+                  
+                  update_user_meta($wp_users_id, $value, 'on');
+                  break;
+                
+                default:
+                  update_user_meta($wp_users_id, $key, $value);
+                  break;
+              }
             }
         }
     }
