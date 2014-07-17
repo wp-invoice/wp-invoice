@@ -3,7 +3,7 @@ $i = 1;
 $custom = array('obj' => 'spc');
 ?>
 <!-- PAYPAL -->
-<form class="<?php echo apply_filters('wpi_spc::form_class', "wpi_checkout {$gateway_key}"); ?>" action="<?php echo $wpi_settings['billing'][$gateway_key]['settings']['test_mode']['value']; ?>" <?php echo $display ? '' : 'style="display:none;"'; ?>>
+<form class="<?php echo apply_filters('wpi_spc::form_class', "wpi_checkout {$gateway_key}"); ?>" action="<?php echo wpi_paypal::get_api_url( $wpi_settings ); ?>" <?php echo $display ? '' : 'style="display:none;"'; ?>>
 <?php do_action( 'wpi::spc::payment_form_top', $atts); ?>
   <input type="hidden" name="wpi_checkout[payment_method]" value="wpi_paypal" />
 <?php if ( !empty( $atts['items'] ) ): ?>

@@ -112,30 +112,30 @@ class wpi_stripe extends wpi_gateway_base {
 
   }
 
-    /**
-     * Settings for recurring billing
-     * @param type $this_invoice
-     */
-    function recurring_settings($this_invoice) {
-        ?>
-        <h4><?php _e('Stripe Subscriptions', WPI); ?></h4>
-        <table class="wpi_recurring_bill_settings">
-            <tr>
-                <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
-                <td>
-                    <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
-                </td>
-            </tr>
+  /**
+   * Settings for recurring billing
+   * @param type $this_invoice
+   */
+  function recurring_settings($this_invoice) {
+      ?>
+      <h4><?php _e('Stripe Subscriptions', WPI); ?></h4>
+      <table class="wpi_recurring_bill_settings">
+          <tr>
+              <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
+              <td>
+                  <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
+              </td>
+          </tr>
 
-            <tr>
-                <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('Interval Count', WPI); ?></th>
-                <td>
-                    <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][".$this->type."][interval_count]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
-                </td>
-            </tr>
-        </table>
-        <?php
-    }
+          <tr>
+              <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('Interval Count', WPI); ?></th>
+              <td>
+                  <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][".$this->type."][interval_count]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
+              </td>
+          </tr>
+      </table>
+      <?php
+  }
 
   /**
    * Fields renderer for STRIPE
