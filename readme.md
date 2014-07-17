@@ -1,5 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=ready&title=Ready)](http://waffle.io/usabilitydynamics/wp-invoice)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/UsabilityDynamics/wp-invoice/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/UsabilityDynamics/wp-invoice/?branch=development)
+[![Build Status](https://scrutinizer-ci.com/g/UsabilityDynamics/wp-invoice/badges/build.png?b=development)](https://scrutinizer-ci.com/g/UsabilityDynamics/wp-invoice/build-status/development)
 
 This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.
 
