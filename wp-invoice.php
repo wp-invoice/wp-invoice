@@ -4,7 +4,7 @@
  * Plugin URI: http://usabilitydynamics.com/products/wp-invoice/
  * Description: Send itemized web-invoices directly to your clients.  Credit card payments may be accepted via Authorize.net, MerchantPlus NaviGate, or PayPal account. Recurring billing is also available via Authorize.net's ARB. Visit <a href="admin.php?page=wpi_page_settings">WP-Invoice Settings Page</a> to setup.
  * Author: UsabilityDynamics.com
- * Version: 3.09.3.1
+ * Version: 3.09.3.2
  * Author URI: http://UsabilityDynamics.com/
  * Copyright 2011 - 2012  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
@@ -24,7 +24,7 @@
  */
 
 /* Define WPI Version */
-define( 'WP_INVOICE_VERSION_NUM', '3.09.3.1' );
+define( 'WP_INVOICE_VERSION_NUM', '3.09.3.2' );
 
 /* Define shorthand for transdomain */
 define( 'WPI', 'wp-invoice' );
@@ -243,7 +243,6 @@ if ( !class_exists( 'WPI_Core' ) ) {
       add_action( 'wp_ajax_wpi_ajax_check_plugin_updates', create_function( '', ' die(WPI_Ajax::check_plugin_updates());' ) );
 
       add_action( 'wp_ajax_wpi_update_user_option', array( 'WPI_Ajax', 'update_user_option' ) );
-      add_action( 'wp_ajax_wpi_update_wpi_option', array( 'WPI_Ajax', 'update_wpi_option' ) );
       add_action( 'wp_ajax_wpi_process_manual_event', array( 'WPI_Ajax', 'process_manual_event' ) );
       add_action( 'wp_ajax_wpi_get_notification_email', array( 'WPI_Ajax', 'get_notification_email' ) );
       add_action( 'wp_ajax_wpi_save_invoice', array( 'WPI_Ajax', 'save_invoice' ) );
@@ -253,17 +252,15 @@ if ( !class_exists( 'WPI_Core' ) ) {
 
       add_action( 'wp_ajax_wpi_import_legacy', array( 'WPI_Ajax', 'import_legacy_data' ) );
 
-      add_action( 'wp_ajax_wpi_total_revalidate', array( 'WPI_Ajax', 'revalidate' ) );
-
       //** Add our actions for our payment handlers */
-      add_action( 'wp_ajax_nopriv_wpi_gateway_process_payment', array( 'WPI_Gateway_Base', 'process_payment' ) );
-      add_action( 'wp_ajax_wpi_gateway_process_payment', array( 'WPI_Gateway_Base', 'process_payment' ) );
-      add_action( 'wp_ajax_nopriv_wpi_front_change_payment_form_ajax', array( 'WPI_Gateway_Base', 'change_payment_form_ajax' ) );
-      add_action( 'wp_ajax_wpi_front_change_payment_form_ajax', array( 'WPI_Gateway_Base', 'change_payment_form_ajax' ) );
+      add_action( 'wp_ajax_nopriv_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );
+      add_action( 'wp_ajax_wpi_gateway_process_payment', array( 'wpi_gateway_base', 'process_payment' ) );
+      add_action( 'wp_ajax_nopriv_wpi_front_change_payment_form_ajax', array( 'wpi_gateway_base', 'change_payment_form_ajax' ) );
+      add_action( 'wp_ajax_wpi_front_change_payment_form_ajax', array( 'wpi_gateway_base', 'change_payment_form_ajax' ) );
 
       //** Server Callback functionality */
-      add_action( 'wp_ajax_nopriv_wpi_gateway_server_callback', array( 'WPI_Gateway_Base', 'server_callback' ) );
-      add_action( 'wp_ajax_wpi_gateway_server_callback', array( 'WPI_Gateway_Base', 'server_callback' ) );
+      add_action( 'wp_ajax_nopriv_wpi_gateway_server_callback', array( 'wpi_gateway_base', 'server_callback' ) );
+      add_action( 'wp_ajax_wpi_gateway_server_callback', array( 'wpi_gateway_base', 'server_callback' ) );
 
       //** Install custom templates to theme */
       add_action( 'wp_ajax_wpi_install_custom_templates', array( 'WPI_Ajax', 'install_templates' ) );
@@ -520,7 +517,7 @@ if ( !class_exists( 'WPI_Core' ) ) {
       wp_enqueue_style( 'wpi-default-style' );
 
       /* Determine if the current page is invoice's page */
-      if ( $wpi_settings[ 'web_invoice_page' ] != $post->ID ) {
+      if ( empty($post->ID) || $wpi_settings[ 'web_invoice_page' ] != $post->ID ) {
         return;
       }
 

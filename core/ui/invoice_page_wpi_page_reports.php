@@ -22,7 +22,7 @@ class WPI_Reports_page {
    * @since 3.0
    *
    */
-  function overview_reports() {
+  static function overview_reports() {
     global $wpi_reports;
     ?>
       <script type="text/javascript">
@@ -51,8 +51,8 @@ class WPI_Reports_page {
 
 
         function wpi_overall_status() {
-        
-        <?php 
+
+        <?php
         $overall_satus_array = array();
         if(isset($wpi_reports['total_paid'])) {
           $overall_satus_array[] = "['Paid', {$wpi_reports['total_paid']}]";
@@ -61,13 +61,13 @@ class WPI_Reports_page {
           $overall_satus_array[] = "['Unpaid', {$wpi_reports['total_unpaid']}]";
         }
         ?>
-        
+
 
           var data = new google.visualization.DataTable();
           data.addColumn('string', 'Status');
           data.addColumn('number', 'Count');
           data.addRows([<?php echo @implode(',', $overall_satus_array); ?>]);
- 
+
           var options = {
           'title':'<?php _e('Collected and Uncollected Funds', WPI) ?>',
           'is3D': true,
@@ -79,8 +79,8 @@ class WPI_Reports_page {
           var chart = new google.visualization.PieChart(document.getElementById('wpi_overall_status'));
 
           var formatter = new google.visualization.NumberFormat({prefix: '$', negativeColor: 'red', negativeParens: true});
-          formatter.format(data, 1);  
-          
+          formatter.format(data, 1);
+
           chart.draw(data, options);
         }
 
@@ -115,10 +115,10 @@ class WPI_Reports_page {
           };
 
           var chart = new google.visualization.PieChart(document.getElementById('wpi_mvcs'));
-          
+
           var formatter = new google.visualization.NumberFormat({prefix: '$', negativeColor: 'red', negativeParens: true});
-          formatter.format(data, 1);           
-          
+          formatter.format(data, 1);
+
           chart.draw(data, options);
         }
 
@@ -163,10 +163,10 @@ class WPI_Reports_page {
           };
 
           var chart = new google.visualization.PieChart(document.getElementById('wpi_top_line_items'));
-          
+
           var formatter = new google.visualization.NumberFormat({prefix: '$', negativeColor: 'red', negativeParens: true});
-          formatter.format(data, 1);           
-          
+          formatter.format(data, 1);
+
           chart.draw(data, options);
         }
 

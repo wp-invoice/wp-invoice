@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-  
+
   /**
    * Filter sections toggling
    */
@@ -10,17 +10,8 @@ jQuery(document).ready(function() {
         jQuery('.wpi_filter_show', parent).html('Show');
       } else {
         jQuery('.wpi_filter_show', parent).html('Hide');
-      } 
+      }
     });
   });
-  
-  /**
-   * 'Show actions toggle'
-   */
-  jQuery('.wpi_toggle').live('click',function() {
-    var toggle_what = jQuery(this).attr('toggle');
 
-    jQuery("." + toggle_what).toggle();
-  });
-  
 });

@@ -14,7 +14,7 @@ class WPI_Functions {
    *
    * @since 3.0.3
    */
-  function console_log( $text = false ) {
+  static function console_log( $text = false ) {
     global $wpi_settings;
 
     if ( isset( $wpi_settings[ 'developer_mode' ] ) && $wpi_settings[ 'developer_mode' ] != 'true' ) {
@@ -44,7 +44,7 @@ class WPI_Functions {
    * @since 3.0.2
    *
    */
-  function get_api_key( $args = false ) {
+  static function get_api_key( $args = false ) {
 
     $defaults = array(
       'return_all' => false,
@@ -414,7 +414,7 @@ class WPI_Functions {
    * @global object $wpdb
    * @return type
    */
-  function get_search_filters() {
+  static function get_search_filters() {
     global $wpi_settings, $wpdb;
 
     $filters = array();
@@ -479,7 +479,7 @@ class WPI_Functions {
    *
    * @return type
    */
-  function slug_to_label( $slug = false ) {
+  static function slug_to_label( $slug = false ) {
 
     if ( !$slug )
       return;
@@ -615,7 +615,7 @@ class WPI_Functions {
    *
    * @return bool
    */
-  function is_true( $param ) {
+  static function is_true( $param ) {
     if ( empty( $param ) )
       return false;
     return ( $param == 'true' || $param == 'on' || $param == 'yes' ) ? true : false;
@@ -627,7 +627,7 @@ class WPI_Functions {
    * @param array $wpi_settings_billings
    * @param array &$invoice_billings
    */
-  function merge_billings( $wpi_settings_billings, &$invoice_billings ) {
+  static function merge_billings( $wpi_settings_billings, &$invoice_billings ) {
     if ( !isset( $invoice_billings ) || !is_array( $invoice_billings ) ) {
       $invoice_billings = array();
     }
@@ -635,7 +635,7 @@ class WPI_Functions {
       foreach ( $wpi_settings_billings as $key => $value ) {
         // TODO: Refactor on|yes|true off|no|false
         // WPI_Functions::is_true() used temporary
-        if ( !WPI_Functions::is_true( $value[ 'allow' ] ) ) {
+        if ( empty($value[ 'allow' ]) || !WPI_Functions::is_true( $value[ 'allow' ] ) ) {
           unset( $invoice_billings[ $key ] );
         } else {
           if ( !empty( $invoice_billings[ $key ] ) ) {
@@ -839,7 +839,12 @@ class WPI_Functions {
     }
   }
 
-  function objectToArray( $object ) {
+  /**
+   *
+   * @param type $object
+   * @return type
+   */
+  static function objectToArray( $object ) {
     if ( !is_object( $object ) && !is_array( $object ) ) {
       return $object;
     }
@@ -850,7 +855,9 @@ class WPI_Functions {
   }
 
   /**
-  Generates a slug
+   *
+   * @param type $title
+   * @return type
    */
   function generateSlug( $title ) {
     $slug = preg_replace( "/[^a-zA-Z0-9 ]/", "", $title );
@@ -942,9 +949,11 @@ class WPI_Functions {
   }
 
   /**
-  Display messages in queve
+   * Display messages in queve
+   * @global type $wpi_messages
+   * @return type
    */
-  function print_messages() {
+  static function print_messages() {
     global $wpi_messages;
 
     if ( count( $wpi_messages ) < 1 )
@@ -1489,8 +1498,13 @@ class WPI_Functions {
     return true;
   }
 
-  // Alternative to print_r
-  function pretty_print_r( $data, $echo = false ) {
+  /**
+   * Alternative to print_r
+   * @param type $data
+   * @param type $echo
+   * @return string
+   */
+  static function pretty_print_r( $data, $echo = false ) {
     // Clean $_REQUEST array
     $result = '';
     if ( $data == $_REQUEST ) {
@@ -1715,7 +1729,7 @@ class WPI_Functions {
    * @return $new_value
    * @author odokienko@UD
    */
-  function pre_update_option_wpi_options( $new_value, $old_value ) {
+  static function pre_update_option_wpi_options( $new_value, $old_value ) {
     global $wpdb;
 
     $default_currency_code = $new_value[ 'currency' ][ "default_currency_code" ];
@@ -1802,7 +1816,7 @@ class WPI_Functions {
    * @return $new_value
    * @author odokienko@UD
    */
-  function option_wpi_options( $value ) {
+  static function option_wpi_options( $value ) {
 
     if ( empty( $value[ 'currency' ][ 'symbol' ] ) ) return $value;
 
@@ -1972,7 +1986,8 @@ class WPI_Functions {
         if ( $file == 'index.php' )
           continue;
 
-        if ( end( explode( ".", $file ) ) == 'php' ) {
+        $ex = explode( ".", $file );
+        if ( end( $ex ) == 'php' ) {
           $slug = str_replace( array( '.php' ), '', $file );
           if ( substr( $slug, 0, 6 ) == "class_" ) {
             $t = explode( "class_", $slug );
@@ -2001,7 +2016,7 @@ class WPI_Functions {
       }
 
       /** Sync our options */
-      WPI_Gateway_Base::sync_billing_objects();
+      wpi_gateway_base::sync_billing_objects();
     }
   }
 
@@ -2040,7 +2055,7 @@ class WPI_Functions {
 
           $plugin_slug = str_replace( array( '.php' ), '', $file );
           if ( substr( $plugin_slug, 0, 6 ) == "class_" ) {
-            $t = split( "class_", $plugin_slug );
+            $t = explode( "class_", $plugin_slug );
             $plugin_slug = $t[ 1 ];
           }
 
@@ -2095,7 +2110,7 @@ class WPI_Functions {
    * Called in admin_init hook.
    *
    **/
-  function manual_activation() {
+  static function manual_activation() {
 
     $installed_ver = get_option( "wp_invoice_version" );
     $wpi_version = WP_INVOICE_VERSION_NUM;
@@ -2125,7 +2140,7 @@ class WPI_Functions {
    * @since 3.0
    *
    */
-  function check_for_premium_features( $return = false ) {
+  static function check_for_premium_features( $return = false ) {
     global $wpi_settings;
 
     $updates = array();
@@ -2269,7 +2284,7 @@ class WPI_Functions {
    *
    * @return boolean.
    */
-  function check_premium( $slug ) {
+  static function check_premium( $slug ) {
     global $wpi_settings;
 
     if ( empty( $wpi_settings[ 'installed_features' ][ $slug ][ 'version' ] ) ) {
@@ -2341,7 +2356,7 @@ class WPI_Functions {
    * @author korotkov@ud
    * @return array
    */
-  function browser() {
+  static function browser() {
     global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 
     if ( $is_lynx )
@@ -2369,30 +2384,6 @@ class WPI_Functions {
       $classes[ 'sys' ] = 'windows';
     }
     return $classes;
-  }
-
-  /**
-   * Revalidate all the invoices
-   *
-   * @author korotkov@ud
-   * @global object $wpdb
-   */
-  function total_revalidate() {
-    global $wpdb;
-
-    /** Recalculate all invoices */
-    $invoices = $wpdb->get_col( "
-      SELECT ID
-      FROM {$wpdb->posts}
-      WHERE post_type = 'wpi_object'
-    " );
-
-    foreach ( $invoices as $post_id ) {
-      $invoice_id = wpi_post_id_to_invoice_id( $post_id );
-      $this_invoice = new WPI_Invoice();
-      $this_invoice->load_invoice( "id={$invoice_id}" );
-      $this_invoice->save_invoice();
-    }
   }
 
   /**
@@ -2433,13 +2424,39 @@ class WPI_Functions {
     $attributes = self::get_wpi_crm_attributes();
     if ( empty( $attributes ) ) return $current_fields;
 
+    global $invoice;
+    
+
+
     foreach ( $attributes as $attr_key => $attr_value ) {
-      $current_fields[ 'customer_information' ][ $attr_key ] = array(
-        'type' => 'text',
-        'class' => 'text-input',
-        'name' => $name . '[' . $attr_key . ']',
-        'label' => __( $attr_value[ 'title' ], WPI )
-      );
+      switch ( $attr_value['input_type'] ) {
+        case 'dropdown':
+          
+          $values = array();
+          foreach( $attr_value['option_keys'] as $o_k => $o_v ) {
+            $values[$o_v] = $attr_value['option_labels'][$o_k];
+          }
+          
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'select',
+            'class' => 'dropdown-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], WPI ),
+            'values' => serialize($values),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
+        
+        default:
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'text',
+            'class' => 'text-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], WPI ),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
+      }
     }
 
     return $current_fields;
@@ -2534,7 +2551,7 @@ class WPI_Functions {
    * @global type $wp_properties
    * @author korotkov@ud
    */
-  function promotional_notice() {
+  static function promotional_notice() {
     global $wpi_settings;
 
     $hour = 3600;

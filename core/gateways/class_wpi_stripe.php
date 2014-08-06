@@ -112,30 +112,30 @@ class wpi_stripe extends wpi_gateway_base {
 
   }
 
-    /**
-     * Settings for recurring billing
-     * @param type $this_invoice
-     */
-    function recurring_settings($this_invoice) {
-        ?>
-        <h4><?php _e('Stripe Subscriptions', WPI); ?></h4>
-        <table class="wpi_recurring_bill_settings">
-            <tr>
-                <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
-                <td>
-                    <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
-                </td>
-            </tr>
+  /**
+   * Settings for recurring billing
+   * @param type $this_invoice
+   */
+  function recurring_settings($this_invoice) {
+      ?>
+      <h4><?php _e('Stripe Subscriptions', WPI); ?></h4>
+      <table class="wpi_recurring_bill_settings">
+          <tr>
+              <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
+              <td>
+                  <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
+              </td>
+          </tr>
 
-            <tr>
-                <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('Interval Count', WPI); ?></th>
-                <td>
-                    <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][".$this->type."][interval_count]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
-                </td>
-            </tr>
-        </table>
-        <?php
-    }
+          <tr>
+              <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('Interval Count', WPI); ?></th>
+              <td>
+                  <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][".$this->type."][interval_count]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
+              </td>
+          </tr>
+      </table>
+      <?php
+  }
 
   /**
    * Fields renderer for STRIPE
@@ -174,7 +174,7 @@ class wpi_stripe extends wpi_gateway_base {
                     <div class="control-group">
                       <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
                       <div class="controls">
-                        <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo!empty($invoice['user_data'][$field_slug]) ? $invoice['user_data'][$field_slug] : ''; ?>" />
+                        <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
                       </div>
                     </div>
                   </li>
@@ -213,7 +213,7 @@ class wpi_stripe extends wpi_gateway_base {
      * Process STRIPE payment
      * @global type $invoice
      */
-    function process_payment() {
+    static function process_payment() {
       global $invoice;
 
       //** Response */
@@ -238,7 +238,7 @@ class wpi_stripe extends wpi_gateway_base {
         if ( !class_exists('Stripe') ) {
           require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
         }
-        $pk = $invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value'];
+        $pk = trim($invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value']);
 
         Stripe::setApiKey($pk);
 
@@ -323,7 +323,7 @@ class wpi_stripe extends wpi_gateway_base {
               update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
               update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
 
-              if ( !empty( $crm_data ) ) $this->user_meta_updated( $crm_data );
+              if ( !empty( $crm_data ) ) self::user_meta_updated( $crm_data );
 
               $invoice_obj = new WPI_Invoice();
               $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
@@ -426,7 +426,7 @@ class wpi_stripe extends wpi_gateway_base {
           if ( !class_exists('Stripe') ) {
             require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
           }
-          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+          $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 
           Stripe::setApiKey($pk);
 
@@ -460,7 +460,7 @@ class wpi_stripe extends wpi_gateway_base {
           if ( !class_exists('Stripe') ) {
             require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
           }
-          $pk = $invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value'];
+          $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 
           Stripe::setApiKey($pk);
 

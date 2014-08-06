@@ -1,5 +1,5 @@
 <?php
-echo '<script type="text/javascript">Stripe.setPublishableKey("' . $invoice['billing'][$this->type]['settings'][$invoice['billing'][$this->type]['settings']['mode']['value'].'_publishable_key']['value'] . '");</script>';
+echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice['billing'][$this->type]['settings'][$invoice['billing'][$this->type]['settings']['mode']['value'].'_publishable_key']['value']) . '");</script>';
 ?>
 <form method="post" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
   <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />

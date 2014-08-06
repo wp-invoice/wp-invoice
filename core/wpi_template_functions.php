@@ -79,7 +79,7 @@ if ( !function_exists('show_itemized_table') ) {
           var minimum_amount_option = jQuery("#wpi_minimum_amount_option");
           var full_amount_option    = jQuery("#wpi_full_amount_option");
           var custom_amount_field = jQuery("#wpi_custom_amount_option_field_wrapper");
-          my_amount.live("focus", function(){
+          my_amount.on("focus", function(){
             custom_amount_option.attr("checked", "checked");
           });
           custom_amount_option.click(function(){
@@ -97,7 +97,7 @@ if ( !function_exists('show_itemized_table') ) {
             set_pay_button_value();
           });
           //** Handle changing of payment method */
-          jQuery("#online_payment_form_wrapper").live("formLoaded", function(){
+          jQuery("#online_payment_form_wrapper").on("formLoaded", function(){
             payment_amount = jQuery("#payment_amount");
             my_amount      = jQuery("#my_amount");
             //** update field data */
@@ -112,16 +112,16 @@ if ( !function_exists('show_itemized_table') ) {
           //** If there are required fields */
           if ( payment_amount.length && my_amount.length ) {
             //** update field data */
-            my_amount.live("keyup", function(){
+            my_amount.on("keyup", function(){
               var new_value = my_amount.val();
               payment_amount.val( validate_amount( new_value ) );
               set_pay_button_value();
             });
-            my_amount.live("blur", function(){
+            my_amount.on("blur", function(){
               my_amount.val( payment_amount.val() );
               set_pay_button_value();
             });
-            my_amount.live("focus", function(){
+            my_amount.on("focus", function(){
               my_amount.val( payment_amount.val() );
               set_pay_button_value();
             });
@@ -258,8 +258,18 @@ if ( !function_exists('show_itemized_table') ) {
  * @global array $invoice
  */
 if ( !function_exists('show_invoice_history') ) {
-  function show_invoice_history() {
+  function show_invoice_history( $args = array() ) {
     global $invoice;
+
+    $args = wp_parse_args( $args, array(
+      'create'      => true,
+      'add_payment' => true,
+      'paid'        => true,
+      'refund'      => true,
+      'add_charge'  => false,
+      'do_adjustment' => false
+    ));
+
     echo '<b class="wpi_greeting">Log</b>';
     if (!empty($invoice['log']) && is_array($invoice['log'])) {
       ?>
@@ -273,13 +283,13 @@ if ( !function_exists('show_invoice_history') ) {
 
         <tbody>
           <?php foreach ($invoice['log'] as $key => $value) : ?>
-            <?php if ($value['action'] == 'create') : ?>
+            <?php if ($value['action'] == 'create' && $args['create']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['action'] == 'add_payment') : ?>
+            <?php if ($value['action'] == 'add_payment' && $args['add_payment']) : ?>
               <?php
               $by = '';
               if ($value['user_id'] != 0) {
@@ -292,13 +302,25 @@ if ( !function_exists('show_invoice_history') ) {
                 <td class="description"><?php echo $value['text'] . $by; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['value'] == 'paid') : ?>
+            <?php if ($value['value'] == 'paid' && $args['paid']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>
               </tr>
             <?php endif; ?>
-            <?php if ($value['action'] == 'refund') : ?>
+            <?php if ($value['action'] == 'refund' && $args['refund']) : ?>
+              <tr class="invoice-history-item">
+                <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
+                <td class="description"><?php echo $value['text']; ?></td>
+              </tr>
+            <?php endif; ?>
+            <?php if ($value['action'] == 'add_charge' && $args['add_charge']) : ?>
+              <tr class="invoice-history-item">
+                <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
+                <td class="description"><?php echo $value['text']; ?></td>
+              </tr>
+            <?php endif; ?>
+            <?php if ($value['action'] == 'do_adjustment' && $args['do_adjustment']) : ?>
               <tr class="invoice-history-item">
                 <td class="time"><?php echo date(get_option('date_format'), $value['time']) ?></td>
                 <td class="description"><?php echo $value['text']; ?></td>

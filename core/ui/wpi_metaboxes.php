@@ -16,7 +16,7 @@ class toplevel_page_wpi_main {
    * @since 0.01
    *
    */
-  function filter($wp_list_table) {
+  static function filter($wp_list_table) {
     global $wpi_settings;
     ?>
     <div class="misc-pub-section">

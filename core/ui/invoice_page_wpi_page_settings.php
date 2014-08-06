@@ -130,7 +130,7 @@ class WPI_Settings_page {
    * @global type $wpdb
    * @param type $wpi_settings
    */
-  function basic($wpi_settings) {
+  static function basic($wpi_settings) {
     ?>
 
     <table class="form-table">
@@ -183,8 +183,11 @@ class WPI_Settings_page {
       <tr>
         <th><?php _e("Advanced Settings", WPI) ?></th>
         <td>
-          <ul class="wpi_settings_list">
-            <li><?php echo WPI_UI::checkbox("name=allow_deposits&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
+          <ul class="wpi_settings_list wpi_something_advanced_wrapper">
+            <li><?php echo WPI_UI::checkbox("name=allow_deposits&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
+
+            <li class="wpi_advanced_option"><?php echo WPI_UI::checkbox("name=allow_deposits_by_default&group=wpi_settings&value=true&label=" . __('Partial payments allowed by default.', WPI), $wpi_settings['allow_deposits_by_default']); ?></li>
+
             <li><?php echo WPI_UI::checkbox("name=show_recurring_billing&group=wpi_settings&value=true&label=" . __('Show recurring billing options.', WPI), $wpi_settings['show_recurring_billing']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=force_https&group=wpi_settings&value=true&label=" . __('Enforce HTTPS on invoice pages, if available on this server.', WPI), $wpi_settings['force_https']); ?> </li>
 
@@ -259,7 +262,7 @@ class WPI_Settings_page {
    * @global type $wpdb
    * @param type $wpi_settings
    */
-  function business_process($wpi_settings) {
+  static function business_process($wpi_settings) {
 
     global $wpdb;
     ?>
@@ -410,7 +413,7 @@ class WPI_Settings_page {
    * @global type $wpi_chargify
    * @param type $wpi_settings
    */
-  function payment($wpi_settings) {
+  static function payment($wpi_settings) {
     global $wpi_chargify;
     ?>
     <table class="form-table">
@@ -567,7 +570,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function email_templates($wpi_settings) {
+  static function email_templates($wpi_settings) {
 ?>
 <?php $notifications_array = apply_filters('wpi_email_templates', $wpi_settings['notification']); ?>
     <?php //WPI_Functions::qc($notifications_array);  ?>
@@ -649,7 +652,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function predefined($wpi_settings) {
+  static function predefined($wpi_settings) {
     ?>
     <p><?php _e('Setup your common services and products in here to streamline invoice creation.', WPI); ?></p>
     <script type="text/javascript">
@@ -733,7 +736,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function help($wpi_settings) {
+  static function help($wpi_settings) {
     ?>
     <script type='text/javascript'>
       jQuery(document).ready(function() {
@@ -773,7 +776,7 @@ class WPI_Settings_page {
    *
    * @param type $wpi_settings
    */
-  function plugins($wpi_settings) {
+  static function plugins($wpi_settings) {
 
     $parseUrl = parse_url(trim(get_bloginfo('url')));
     $this_domain = trim($parseUrl['host'] ? $parseUrl['host'] : array_shift(explode('/', $parseUrl['path'], 2)));

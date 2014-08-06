@@ -101,23 +101,6 @@ function wpi_toggle_advanced_options ( this_element ) {
 
 }
 
-/**
- * Checks the message / notification stack in DOM and hides it if empty
- * @param object instance. DOM element
- * @param boolean allowRandomSlug. Determine if Row can contains random slugs.
- */
-function wpi_message_stack_check () {
-
-  if ( jQuery( '.wpi_yellow_notification .wpi_message_holder:visible' ).length == 0 ) {
-    jQuery( '.wpi_yellow_notification' ).remove();
-  }
-
-  if ( jQuery( '.wpi_red_notification .wpi_message_holder:visible' ).length == 0 ) {
-    jQuery( '.wpi_red_notification' ).remove();
-  }
-
-}
-
 /*
  * Updates Row field names
  * @param object instance. DOM element
@@ -668,16 +651,6 @@ function wpi_validate_invoice () {
   return validated;
 }
 
-function wpi_validate_recurring_units ( e ) {
-  var unit = jQuery( "#wpi_wpi_invoice_recurring_unit_" ).val();
-  if ( unit == 'days' ) {
-    jQuery( e ).val( jQuery( e ).val() >= 1 && jQuery( e ).val() <= 365 ? jQuery( e ).val() : 1 );
-  }
-  if ( unit == 'months' ) {
-    jQuery( e ).val( jQuery( e ).val() >= 1 && jQuery( e ).val() <= 12 ? jQuery( e ).val() : 1 );
-  }
-}
-
 function wpi_save_invoice () {
   var invoice_data;
   // primary data to set things up
@@ -886,21 +859,6 @@ function wp_invoice_subscription_start_time ( add_days ) {
     jQuery( "#wp_invoice_subscription_start_year" ).val( week_from_now.getFullYear() );
   }
   return false;
-}
-
-function wpi_save_postboxes () {
-  var closed = jQuery( '.postbox' ).filter( '.closed' ).map(function () {
-    return this.id;
-  } ).get().join( ',' ), hidden = jQuery( '.postbox' ).filter( ':hidden' ).map(function () {
-    return this.id;
-  } ).get().join( ',' );
-  jQuery.post( ajaxurl, {
-    action: 'closed-postboxes',
-    closed: closed,
-    hidden: hidden,
-    closedpostboxesnonce: jQuery( '#closedpostboxesnonce' ).val(),
-    page: [jQuery( '#wpi_page' ).val()]
-  } );
 }
 
 function wpi_disable_all_payment_methods () {
