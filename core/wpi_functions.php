@@ -1832,7 +1832,7 @@ class WPI_Functions {
    * Ran everytime.
    *
    * @since 3.0
-   *
+   * @todo What the hell $wp_properties does here?...
    */
   function register_post_type() {
     global $wpdb, $wpi_settings, $wp_properties;

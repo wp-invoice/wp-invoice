@@ -14,8 +14,6 @@ class WPI_UI {
   static function admin_menu() {
     global $wpi_settings, $submenu, $wp_version;
 
-    //unset($submenu['edit.php?post_type=wpi_object'][10]);
-
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
