@@ -1092,6 +1092,9 @@ class WPI_UI {
       case 'true':
         $opposite_value = 'false';
         break;
+      default:
+        $opposite_value = false;
+        break;
     }
     // Print label if one is set
     if ( $label )

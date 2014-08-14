@@ -196,6 +196,7 @@ td.wpi_premium_feature_image {
 .updated.wpi_promotional_notice .wpi_promotional_notice_bottom_line a:hover {
   color: #eb7525;
 }
-.wpi_products_labels td {
+.wpi_products_labels td,
+.wpi_products_support td {
   padding:5px;
 }

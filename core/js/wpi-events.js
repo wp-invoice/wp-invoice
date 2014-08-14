@@ -73,7 +73,7 @@ jQuery( document ).ready( function () {
   } );
 
   //** Accordions */
-  var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
+  var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {heightStyle: "content", header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
   var wpi_payment_accordion = jQuery( ".wp_invoice_accordion" ).accordion( {
     heightStyle: "content",
     header: "h3",
