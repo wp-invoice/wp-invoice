@@ -77,15 +77,7 @@ namespace WPI {
             'rewrite' => array(
               'slug' => 'product'
             ),
-            'supports' => array(
-              'thumbnail',
-              'excerpt',
-              'trackbacks',
-              'comments',
-              'revisions',
-              'page-attributes',
-              'post-formats'
-            )
+            'supports' => array()
           )
         ));
       }

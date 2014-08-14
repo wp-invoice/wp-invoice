@@ -6,14 +6,6 @@
  * @package wp-invoice
  */
 
-echo '<pre>';
-print_r( self::$defaults );
-echo '</pre>';
-
-echo '<pre>';
-print_r( $wpi_settings['products'] );
-echo '</pre>';
-
 ?>
 
 <table class="form-table">
@@ -177,45 +169,46 @@ echo '</pre>';
         </li>
         <li>
           <?php _e( 'Product should support', WPI ); ?><br />
-          <table class="wpi_products_support">
-            
-            <!-- Always enabled -->
-            <tr>
-              <td>
-                <input type="checkbox" checked="checked" disabled="disabled" />
-              </td>
-              <td>
+          
+          <ul>
+            <li>
+              <label for="wpi_post_type_support_title">
+                <input id="wpi_post_type_support_title" type="checkbox" checked="checked" disabled="disabled" />
                 <?php _e( 'Title', WPI ); ?>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" checked="checked" disabled="disabled" />
-              </td>
-              <td>
+              </label>
+            </li>
+            <li>
+              <label for="wpi_post_type_support_content">
+                <input id="wpi_post_type_support_content" type="checkbox" checked="checked" disabled="disabled" />
                 <?php _e( 'Content', WPI ); ?>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" checked="checked" disabled="disabled" />
-              </td>
-              <td>
+              </label>
+            </li>
+            <li>
+              <label for="wpi_post_type_support_custom_fields">
+                <input id="wpi_post_type_support_content" type="checkbox" checked="checked" disabled="disabled" />
                 <?php _e( 'Custom Fields', WPI ); ?>
-              </td>
-            </tr>
-            <!-- /Always enabled -->
-            
-            <tr>
-              <td>
-                <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][0]&value=thumbnail", !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'thumbnail', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'thumbnail', self::$defaults['post_type']['supports'] ) ); ?>
-              </td>
-              <td>
-                <label><?php _e( 'Thumbnails', WPI ); ?></label>
-              </td>
-            </tr>
-            
-          </table>
+              </label>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][0]&value=thumbnail&label=".__( 'Thumbnails', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'thumbnail', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'thumbnail', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][1]&value=excerpt&label=".__( 'Excerpt', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'excerpt', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'excerpt', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][2]&value=trackbacks&label=".__( 'Trackbacks', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'trackbacks', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'trackbacks', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][3]&value=comments&label=".__( 'Comments', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'comments', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'comments', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][4]&value=page-attributes&label=".__( 'Page Attributes', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'page-attributes', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'page-attributes', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[products][post_type][supports][5]&value=post-formats&label=".__( 'Post Formats', WPI ), !empty( $wpi_settings['products']['post_type']['supports'] ) ? in_array( 'post-formats', $wpi_settings['products']['post_type']['supports'] ) : in_array( 'post-formats', self::$defaults['post_type']['supports'] ) ); ?>
+            </li>
+          </ul>
+
         </li>
       </ul>
     </td>

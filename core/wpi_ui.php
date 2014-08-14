@@ -1093,7 +1093,7 @@ class WPI_UI {
         $opposite_value = 'false';
         break;
       default:
-        $opposite_value = false;
+        $opposite_value = null;
         break;
     }
     // Print label if one is set
