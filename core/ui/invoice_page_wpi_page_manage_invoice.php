@@ -328,9 +328,13 @@
               $services_array[""] = __("Insert a predefined line item", WPI);
               foreach($wpi_settings['predefined_services'] as $service) {
                 //** skip blanks */
-                if(empty($service['name'])) {
+                if( empty($service['name']) ) {
                   continue;
                 }
+                
+                $service['description'] = !empty($service['description'])?$service['description']:'';
+                $service['tax'] = !empty($service['tax'])?$service['tax']:'';
+                
                 $services_array["{$service['name']}|{$service['description']}|{$service['quantity']}|{$service['price']}|{$service['tax']}"] = $service['name'] . ": " . $service['quantity'] . " x ". $service['price'];
               }
               //** Make sure there are more services than the label */

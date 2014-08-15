@@ -144,7 +144,7 @@ function postbox_publish($this_invoice) {
         <?php if ($wpi_settings['allow_deposits'] == 'true') { ?>
           <li class="wpi_not_for_recurring wpi_hide_deposit_option wpi_not_for_quote">
             <?php $app_title = __("Allow Partial Payment", WPI); ?>
-            <?php echo WPI_UI::checkbox("name=wpi_invoice[deposit]&value=true&label={$app_title}", ((!empty($this_invoice['deposit_amount']) && (int) $this_invoice['deposit_amount'] > 0) ? true : (WPI_Functions::is_true($wpi_settings['allow_deposits_by_default']) && !empty($this_invoice['new_invoice']) ? true : false ) )) ?></li>
+            <?php echo WPI_UI::checkbox("name=wpi_invoice[deposit]&value=true&label={$app_title}", ((!empty($this_invoice['deposit_amount']) && (int) $this_invoice['deposit_amount'] > 0) ? true : (WPI_Functions::is_true( isset($wpi_settings['allow_deposits_by_default'])?$wpi_settings['allow_deposits_by_default']:false ) && !empty($this_invoice['new_invoice']) ? true : false ) )) ?></li>
           <li class="wpi_deposit_settings">
             <table class="wpi_deposit_settings">
               <tr>
