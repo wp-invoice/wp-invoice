@@ -162,25 +162,25 @@ class wpi_twocheckout extends wpi_gateway_base {
   static function process_payment() {
     global $invoice, $wpi_settings;
 
-    $crm_data = $_REQUEST['crm_data'];
     $invoice_id = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
 
     // update user data
-    update_user_meta($wp_users_id, 'last_name', $_REQUEST['last_name']);
-    update_user_meta($wp_users_id, 'first_name', $_REQUEST['first_name']);
-    update_user_meta($wp_users_id, 'city', $_REQUEST['city']);
-    update_user_meta($wp_users_id, 'state', $_REQUEST['state']);
-    update_user_meta($wp_users_id, 'zip', $_REQUEST['zip']);
-    update_user_meta($wp_users_id, 'streetaddress', $_REQUEST['street_address']);
-    update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['phonenumber']);
-    update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
+    update_user_meta($wp_users_id, 'last_name', !empty($_REQUEST['last_name'])?$_REQUEST['last_name']:'' );
+    update_user_meta($wp_users_id, 'first_name', !empty($_REQUEST['first_name'])?$_REQUEST['first_name']:'' );
+    update_user_meta($wp_users_id, 'city', !empty($_REQUEST['city'])?$_REQUEST['city']:'' );
+    update_user_meta($wp_users_id, 'state', !empty($_REQUEST['state'])?$_REQUEST['state']:'' );
+    update_user_meta($wp_users_id, 'zip', !empty($_REQUEST['zip'])?$_REQUEST['zip']:'' );
+    update_user_meta($wp_users_id, 'streetaddress', !empty($_REQUEST['street_address'])?$_REQUEST['street_address']:'' );
+    update_user_meta($wp_users_id, 'phonenumber', !empty($_REQUEST['phonenumber'])?$_REQUEST['phonenumber']:'' );
+    update_user_meta($wp_users_id, 'country', !empty($_REQUEST['country'])?$_REQUEST['country']:'' );
 
-    if (!empty($crm_data))
-      $this->user_meta_updated($crm_data);
+    if ( !empty( $_REQUEST['crm_data'] ) ) {
+      $this->user_meta_updated( $_REQUEST['crm_data'] );
+    }
 
     echo json_encode(
-            array('success' => 1)
+      array('success' => 1)
     );
   }
 

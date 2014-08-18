@@ -862,7 +862,7 @@ class WPI_UI {
      * @author korotkov@ud
      * @since 3.08.6
      */
-    if ( !WPI_Functions::is_true( $wpi_settings['turn_off_compatibility_mode'] ) )
+    if ( !WPI_Functions::is_true( isset( $wpi_settings['turn_off_compatibility_mode'] ) ? $wpi_settings['turn_off_compatibility_mode'] : false ) )
       if ( function_exists( 'debug_backtrace' ) )
         if ( $call_stack = debug_backtrace() )
           if ( !empty( $call_stack[ 2 ][ 'file' ] ) )

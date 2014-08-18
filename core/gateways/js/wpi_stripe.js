@@ -70,12 +70,17 @@ var wpi_stripe_submit = function(){
   expYear = jQuery('.card-expiry-year').val();
 
   //** Get the Stripe token */
-  Stripe.createToken({
-    number: ccNum,
-    cvc: cvcNum,
-    exp_month: expMonth,
-    exp_year: expYear
-  }, stripeResponseHandler);
+  try {
+    Stripe.createToken({
+      number: ccNum,
+      cvc: cvcNum,
+      exp_month: expMonth,
+      exp_year: expYear
+    }, stripeResponseHandler);
+  } catch ( e ) {
+    alert( e );
+    location.reload(true);
+  }
 
   return false;
 

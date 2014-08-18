@@ -123,15 +123,12 @@ class WPI_Invoice {
     } else {
 
       if($user_id = get_user_by('ID', $user_id)->ID) {
-        WPI_Functions::console_log(__('Loaded user from passed ID.', WPI));
         $new_user = false;
 
       } elseif (!empty($email) && $user_id = get_user_by('email', $email)->ID) {
-        WPI_Functions::console_log(__('Loaded user from e-mail.', WPI));
         $new_user = false;
 
       } else {
-        WPI_Functions::console_log(__('User info not, found - assuming new user.', WPI));
         $new_user = true;
 
       }
@@ -293,11 +290,8 @@ class WPI_Invoice {
     if($new_invoice || count($invoice_data) < 1) {
       $this->error = true;
       $this->new_invoice = true;
-      WPI_Functions::console_log('WPI_Invoice::load_invoice() '.__('function executed, no invoice ID found, assuming new invoice.', WPI));
       return;
     }
-
-    WPI_Functions::console_log('WPI_Invoice::load_invoice() '.__('function executed, invoice_id: ', WPI) . $id);
 
     $object_meta = get_post_custom($id);
 
@@ -335,10 +329,6 @@ class WPI_Invoice {
 
     if(!empty($invoice_data['user_email'])) {
       $this->load_user("email={$invoice_data['user_email']}");
-    }
-
-    if(empty($this->data['user_data'])) {
-      WPI_Functions::console_log(__('Warning: no user information loaded for this invoice.', WPI));
     }
 
     if(!is_array($this->data)) {

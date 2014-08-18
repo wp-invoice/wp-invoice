@@ -541,7 +541,7 @@ if ( !class_exists( 'WPI_Core' ) ) {
             return;
           }
 
-          if ( $wpi_settings['logged_in_only'] == 'true' ) {
+          if ( isset( $wpi_settings['logged_in_only'] ) && $wpi_settings['logged_in_only'] == 'true' ) {
             if ( !current_user_can( WPI_UI::get_capability_by_level( $wpi_settings['user_level'] ) ) && !WPI_Functions::user_is_invoice_recipient( $wpi_invoice_object ) ) {
               /* Show 404 when invoice doesn't exist */
               $not_found = get_query_template( '404' );

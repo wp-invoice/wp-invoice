@@ -1269,8 +1269,6 @@ class WPI_Functions {
           AND posts.post_type = 'wpi_object'
       " );
 
-      WPI_Functions::console_log( 'WPI_Invoice::protect_user_invoices() ' . __( 'user_email changed.', WPI ) );
-
     }
 
   }

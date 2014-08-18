@@ -544,16 +544,6 @@ class wpi_authorize extends wpi_gateway_base {
 
     $response['data'] = $data;
 
-    // Uncomment these to troubleshoot.  You will need FireBug to view the response of the AJAX post.
-    //echo $arb->xml;
-    //echo $arb->response;
-    //echo $arb->getResponse();
-    //print_r( $payment->getResults() );
-    //echo $payment->getResponseText();
-    //echo $payment->getTransactionID();
-    //echo $payment->getAVSResponse();
-    //echo $payment->getAuthCode();
-
     die(json_encode($response));
   }
 
