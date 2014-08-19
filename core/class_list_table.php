@@ -256,7 +256,7 @@ class WPI_List_Table extends WP_List_Table {
     }
     /* Get Bulk actions HTML */
     ob_start();
-    $this->bulk_actions( $which );
+    $this->bulk_actions();
     $bulk_actions = ob_get_contents();
     ob_end_clean();
 
@@ -533,6 +533,50 @@ class WPI_List_Table extends WP_List_Table {
     return $r;
   }
 
-  //function bulk_actions(){}
+  /**
+	 * Display the bulk actions dropdown.
+	 *
+	 * @since 3.1.0
+	 * @access public
+	 */
+	function bulk_actions() {
+      if ( is_null( $this->_actions ) ) {
+          $no_new_actions = $this->_actions = $this->get_bulk_actions();
+          /**
+           * Filter the list table Bulk Actions drop-down.
+           *
+           * The dynamic portion of the hook name, $this->screen->id, refers
+           * to the ID of the current screen, usually a string.
+           *
+           * This filter can currently only be used to remove bulk actions.
+           *
+           * @since 3.5.0
+           *
+           * @param array $actions An array of the available bulk actions.
+           */
+          $this->_actions = apply_filters( "bulk_actions-".get_current_screen()->id, $this->_actions );
+          $this->_actions = array_intersect_assoc( $this->_actions, $no_new_actions );
+          $two = '';
+      } else {
+          $two = '2';
+      }
+
+      if ( empty( $this->_actions ) )
+          return;
+
+      echo "<select name='action$two'>\n";
+      echo "<option value='-1' selected='selected'>" . __( 'Bulk Actions' ) . "</option>\n";
+
+      foreach ( $this->_actions as $name => $title ) {
+          $class = 'edit' == $name ? ' class="hide-if-no-js"' : '';
+
+          echo "\t<option value='$name'$class>$title</option>\n";
+      }
+
+      echo "</select>\n";
+
+      submit_button( __( 'Apply' ), 'action', false, false, array( 'id' => "doaction$two" ) );
+      echo "\n";
+	}
 
 }
