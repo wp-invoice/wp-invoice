@@ -1730,7 +1730,7 @@ class WPI_Functions {
   static function pre_update_option_wpi_options( $new_value, $old_value ) {
     global $wpdb;
 
-    $default_currency_code = $new_value[ 'currency' ][ "default_currency_code" ];
+    $default_currency_code = !empty($new_value[ 'currency' ][ 'default_currency_code' ])?$new_value[ 'currency' ][ 'default_currency_code' ]:'';
     $protected_currencies = array();
 
     /* check for curency with default_currency_code*/
@@ -2033,7 +2033,7 @@ class WPI_Functions {
       'Minimum Core Version' => 'Minimum Core Version'
     );
 
-    $previos_data = $wpi_settings[ 'installed_features' ];
+    $previos_data = !empty($wpi_settings[ 'installed_features' ])?$wpi_settings[ 'installed_features' ]:array();
 
     $wpi_settings[ 'installed_features' ] = array();
 
@@ -2194,7 +2194,7 @@ class WPI_Functions {
         throw new Exception( __( 'There are no available premium features.', WPI ) );
       }
 
-      if ( $wpi_settings[ 'disable_automatic_feature_update' ] == 'true' ) {
+      if ( isset($wpi_settings[ 'disable_automatic_feature_update' ]) && $wpi_settings[ 'disable_automatic_feature_update' ] == 'true' ) {
         throw new Exception( __( 'No premium features were downloaded because the setting is disabled. Enable in the "Main" tab.', WPI ) );
       }
 
