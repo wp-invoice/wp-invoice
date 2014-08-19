@@ -700,7 +700,7 @@ class WPI_Settings_page {
                 </span>
                 <div class="flexible_width_holder">
                   <div class="flexible_width_holder_content">
-                    <textarea style="display:<?php echo (empty($itemized_item['description']) ? 'none' : 'block'); ?>" name="wpi_settings[predefined_services][<?php echo $slug; ?>][description]" class="item_description"><?php echo esc_attr($itemized_item['description']); ?></textarea>
+                    <textarea style="display:<?php echo (empty($itemized_item['description']) ? 'none' : 'block'); ?>" name="wpi_settings[predefined_services][<?php echo $slug; ?>][description]" class="item_description"><?php echo esc_attr(!empty($itemized_item['description'])?$itemized_item['description']:''); ?></textarea>
                   </div>
                 </div>
               </td>
