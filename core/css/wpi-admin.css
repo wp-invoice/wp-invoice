@@ -478,17 +478,6 @@ input.wpi_no_input{
 .web-invoice_page_page_manage_invoice #screen-meta{display:none;}
 .web-invoice_page_invoice_settings #screen-meta{display:none;}
 
-#screen-options-link-wrap,
-#screen-functions-link-wrap,
-#contextual-help-link-wrap {
-  float: right;
-  background: transparent url( images/screen-options-left.gif ) no-repeat 0 0;
-  font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
-  height: 22px;
-  padding: 0;
-  margin: 0 6px 0 0;
-}
-
 #screen-functions-wrap h5,
 #screen-options-wrap h5,
 #contextual-help-wrap h5 {
