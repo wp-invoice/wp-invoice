@@ -19,7 +19,7 @@ abstract class wpi_gateway_base {
      * @since 1.0
      */
     function __construct() {
-        /** Set the class name */
+        //** Set the class name */
         $this->type = get_class($this);
         __( 'Customer Information', WPI );
         add_filter('sync_billing_update', array('wpi_gateway_base', 'sync_billing_filter'), 10, 3);
@@ -36,13 +36,11 @@ abstract class wpi_gateway_base {
      */
     function frontend_display($args = '', $from_ajax = false) {
         global $wpdb, $wpi_settings, $invoice;
-        /** Setup defaults, and extract the variables */
+        //** Setup defaults, and extract the variables */
         $defaults = array();
         extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-        /** Include the template file required */
+        //** Include the template file required */
         include('gateways/templates/payment_header.tpl.php');
-        /** Why eval here? korotkov@ud */
-        //eval("include('gateways/templates/".$this->type."-frontend.tpl.php');");
         include('gateways/templates/' . $this->type . '-frontend.tpl.php');
         include('gateways/templates/payment_footer.tpl.php');
     }
@@ -54,10 +52,10 @@ abstract class wpi_gateway_base {
      */
     static function change_payment_form_ajax() {
         global $wpdb, $wpi_settings, $invoice;
-        /** Pull in the invoice */
+        //** Pull in the invoice */
         $the_invoice = new WPI_Invoice();
         $invoice = $the_invoice->load_invoice("return=true&id=" . wpi_invoice_id_to_post_id($_REQUEST['invoice_id']));
-        /** We have the invoice, call the frontend_display */
+        //** We have the invoice, call the frontend_display */
         $wpi_settings['installed_gateways'][$_REQUEST['type']]['object']->frontend_display($invoice, true);
         die();
     }
@@ -69,10 +67,10 @@ abstract class wpi_gateway_base {
      */
     static function process_payment() {
         global $wpi_settings, $invoice;
-        /** Pull the invoice */
+        //** Pull the invoice */
         $the_invoice = new WPI_Invoice();
         $invoice = $the_invoice->load_invoice("return=true&id=" . wpi_invoice_id_to_post_id($_REQUEST['invoice_id']));
-        /** Call the child function based on the wpi_type variable sent */
+        //** Call the child function based on the wpi_type variable sent */
         $wpi_settings['installed_gateways'][$_REQUEST['type']]['object']->process_payment();
         die();
     }
@@ -86,7 +84,7 @@ abstract class wpi_gateway_base {
      */
     function server_callback() {
         global $wpi_settings;
-        /** Call the actual function that does the processing on the type of object we have */
+        //** Call the actual function that does the processing on the type of object we have */
         $wpi_settings['installed_gateways'][$_REQUEST['type']]['object']->server_callback();
         die();
     }
@@ -103,14 +101,14 @@ abstract class wpi_gateway_base {
         }
 
         $g = array();
-        /* Handle Merging of arrays to custom variable */
+        //** Handle Merging of arrays to custom variable */
         foreach ($wpi_settings['installed_gateways'] as $slug => $gateway) {
 
             if (!empty($gateway['object']->options))
                 foreach ($gateway['object']->options as $option_key => $option) {
 
                     switch ($option_key) {
-                        /* Handle Settings element. */
+                        //** Handle Settings element. */
                         case 'settings':
                             if (is_array($option)) {
                                 foreach ($option as $k => $v) {
@@ -143,7 +141,7 @@ abstract class wpi_gateway_base {
                     }
                 }
 
-            /** Do it recursively, so both items have the same values */
+            //** Do it recursively, so both items have the same values */
             if (!empty($wpi_settings['installed_gateways'][$slug]['object']->options))
                 $wpi_settings['installed_gateways'][$slug]['object']->options = $g[$slug];
             $wpi_settings['billing'][$slug] = $g[$slug];
@@ -151,7 +149,7 @@ abstract class wpi_gateway_base {
     }
 
     /**
-     *
+     * Sync billing
      * @param type $setting_slug
      * @param type $new_setting_array
      * @param type $def_setting_array
@@ -175,7 +173,8 @@ abstract class wpi_gateway_base {
      */
     function user_meta_updated($data) {
         global $invoice;
-        // CRM data updating
+        
+        //** CRM data updating */
         if (!class_exists('WP_CRM_Core'))
             return;
 

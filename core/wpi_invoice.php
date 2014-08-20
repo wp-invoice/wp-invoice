@@ -1,23 +1,22 @@
 <?php
 /**
-Class used to create new, update, and query invoices.
-Example:
-$new_invoice = new WPI_Invoice();
-$invoice_data = $new_invoice->load_invoice("id=12345");
-$invoice_data = $invoice_data->data[subject]
-*/
+ * Class used to create new, update, and query invoices.
+ */
 class WPI_Invoice {
+  
+  /**
+   * Invoice data
+   * @var type 
+   */
   var $data;
+  
+  /**
+   * Has invoice discounts or not
+   */
   var $has_discount;
 
   /**
-   * Sets variables for the invoice class;
-   * Example:
-   * $invoce_class->set("subject=Your House Cleaning Bill");
-   * $invoce_class->set("description=For cleaning your house on September 19th.");
-   * $invoce_class->set("default_payment_method=paypal");
-   * Any validation should happen here, and return false is setup is incorrect.
-   * Save_invoice() does not validate, only save
+   * Sets variables for the invoice class
    */
   function set($args) {
     global $wpdb;
@@ -70,11 +69,9 @@ class WPI_Invoice {
    */
   function load_defaults() {
     global $wpi_settings;
-    // load globals
+
     $this->data['meta'] = $wpi_settings['globals'];
-    // currencies
     $this->data['currencies'] = $wpi_settings['currency']['types'];
-    // load billing
     $this->data['billing'] = $wpi_settings['billing'];
   }
 
@@ -228,20 +225,22 @@ class WPI_Invoice {
 
     //** Load Globals */
     $this->data = array_merge($this->data, $wpi_settings['globals']);
+    
     //** Default Currency */
     $this->data['default_currency_code'] = $wpi_settings['currency']['default_currency_code'];
+    
     //** Default payment method */
-		$dpm = '';
+    $dpm = '';
     foreach ( $wpi_settings['billing'] as $key => $value) {
       if ( !empty($value['allow']) && WPI_Functions::is_true( $value['allow'] ) && $value['default_option'] == 'true' ) {
         $dpm = $key;
       }
     }
-		$this->data['default_payment_method'] = $dpm;
+    
+    $this->data['default_payment_method'] = $dpm;
     //** Default Billings */
-    //** Merge billings to get available billings - A.K. */
+
     WPI_Functions::merge_billings( $wpi_settings['billing'], $this->data['billing'] );
-    //** $this->data['billing'] = $wpi_settings['billing']; */
   }
 
   /**
@@ -351,15 +350,19 @@ class WPI_Invoice {
   function query_log($args = "") {
     $defaults = array('paid_in' => false);
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-    if (!is_array($this->data['log']))
+    
+    if (!is_array($this->data['log'])) {
       return;
+    }
+    
     foreach ($this->data['log'] as $event) {
       if ($event['event_type'] == 'add_payment') {
         $total_paid_in = intval($total_paid_in) + intval($event['event_amount']);
       }
     }
-    if ($paid_in)
+    if ($paid_in) {
       return abs($total_paid_in);
+    }
   }
 
   /**
@@ -437,7 +440,6 @@ class WPI_Invoice {
     $this->data['itemized_list'][$items_in_list]['line_total_tax'] = $quantity * $price * ($tax_rate / 100);
     $this->data['itemized_list'][$items_in_list]['line_total_before_tax'] = $quantity * $price;
     $this->data['itemized_list'][$items_in_list]['line_total_after_tax'] = $quantity * $price * (1 + ($tax_rate / 100));
-
   }
 
   /**
@@ -455,8 +457,9 @@ class WPI_Invoice {
     );
 
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-    if (empty ($name) || empty ($amount))
+    if (empty ($name) || empty ($amount)) {
       return false;
+    }
 
     $items_in_list = count( empty( $this->data['itemized_charges'] ) ? null : $this->data['itemized_charges'] ) + 1;
 
@@ -784,7 +787,7 @@ class WPI_Invoice {
       return false;
     }
 
-    /*
+    /**
      * We need to determine hash to avoid confusing with invoice URL in future
      * It's need for debug in the most cases.
      * The general reason is three (3) different invoice IDs which we use:
@@ -796,7 +799,7 @@ class WPI_Invoice {
     $this->data['hash'] = md5($this->data['invoice_id']);
 
     $meta_keys = array();
-    // now add the rest of the array
+    //** now add the rest of the array */
     foreach($this->data as $meta_key => $meta_value) {
       do_action('wpi_save_meta_' . $meta_key, $meta_value, $this->data);
 
@@ -808,7 +811,7 @@ class WPI_Invoice {
       update_post_meta($this->data['ID'], $meta_key, $meta_value);
     }
 
-    // Remove old postmeta data which is not used anymore
+    //** Remove old postmeta data which is not used anymore */
     $meta_keys = apply_filters('wpi_custom_meta', $meta_keys);
     if(!empty($meta_keys)) {
       $wpdb->query("
@@ -918,11 +921,13 @@ class WPI_Invoice {
     $ID = $this->data['ID'];
     if($ID) {
       if ( 'archived' == $this->data['post_status']) {
+        
         //** Update post status */
         $ID = wp_update_post(array(
           'ID' => $this->data['ID'],
           'post_status' => 'active'
         ));
+        
         //** Determine if post was successfully updated */
         if((int)$ID > 0) {
           return true;
@@ -940,10 +945,9 @@ class WPI_Invoice {
    * @return type
    */
   function payment_due($args = '') {
-      global $wpi_settings;
       $defaults = array ('invoice_id' => false);
       extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-      // Figure out if this is a recurring bill
+      //** Figure out if this is a recurring bill */
       return WPI_Functions::days_since($this->data['meta'][due_date]);
   }
 }

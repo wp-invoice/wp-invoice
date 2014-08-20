@@ -4,10 +4,18 @@
  * InitOptions are default settings, and loaded if wpi_options is not set.
  * All these settings are also stored in a global variable ($wpi_settings) for easy access
  */
-
 class WPI_Settings {
 
+  /**
+   * Core
+   * @var type 
+   */
   var $Core;
+  
+  /**
+   * Data
+   * @var type 
+   */
   var $data;
 
   /**
@@ -28,10 +36,11 @@ class WPI_Settings {
   function InitOptions() {
     global $wp_invoice_debug;
 
-    if ( isset( $Core ) && $Core )
+    if ( isset( $Core ) && $Core ) {
       $this->options[ 'version' ] = $this->Core->version;
+    }
 
-    /** Default Invoice Types */
+    //** Default Invoice Types */
     $this->options[ 'types' ] = array(
       'invoice' => array( 'label' => __( 'Invoice', WPI ) ),
       'recurring' => array( 'label' => __( 'Recurring', WPI ) )
@@ -43,14 +52,14 @@ class WPI_Settings {
       $this->options[ 'developer_mode' ] = 'true';
     }
 
-    /** Localization Labels */
+    //** Localization Labels */
     $this->options[ 'custom_label_tax' ] = __( "Tax", WPI );
 
-    /** WP-Invoice Lookup */
+    //** WP-Invoice Lookup */
     $this->options[ 'lookup_text' ] = __( "Pay Your Invoice", WPI );
     $this->options[ 'lookup_submit' ] = __( "Lookup", WPI );
 
-    /** Frontend Customization */
+    //** Frontend Customization */
     $this->options[ 'use_custom_templates' ] = "false";
     $this->options[ 'state_selection' ] = __( "Dropdown", WPI );
 
@@ -64,13 +73,13 @@ class WPI_Settings {
     $this->options[ 'web_invoice_page' ] = '';
     $this->options[ 'where_to_display' ] = 'overwrite';
 
-    /** Advanced Settings */
+    //** Advanced Settings */
     $this->options[ 'allow_deposits' ] = 'true';
 
-    /** Payment */
+    //** Payment */
     $this->options[ 'client_change_payment_method' ] = 'false';
 
-    /** Basic Settings */
+    //** Basic Settings */
     $this->options[ 'replace_page_title_with_subject' ] = 'true';
     $this->options[ 'using_godaddy' ] = 'no';
     $this->options[ 'use_wp_users' ] = 'true';
@@ -98,7 +107,7 @@ class WPI_Settings {
     $this->options[ 'user_meta' ][ 'custom' ][ 'state' ] = __( 'State', WPI );
     $this->options[ 'user_meta' ][ 'custom' ][ 'zip' ] = __( 'ZIP', WPI );
 
-    /** Invoice statuses. Filter: wpi_invoice_statuses */
+    //** Invoice statuses. Filter: wpi_invoice_statuses */
     $this->options[ 'invoice_statuses' ][ 'active' ] = __( "Active", WPI );
     $this->options[ 'invoice_statuses' ][ 'archive' ] = __( "Archived", WPI );
     $this->options[ 'invoice_statuses' ][ 'trash' ] = __( "Trashed", WPI );
@@ -417,7 +426,7 @@ class WPI_Settings {
     $this->options[ 'globals' ][ 'show_business_address' ] = 'false';
     $this->options[ 'globals' ][ 'show_quantities' ] = 'false';
 
-    /** Mail - Notification */
+    //** Mail - Notification */
     $this->options[ 'notification' ][ 1 ][ 'name' ] = __( "New Invoice", WPI );
     $this->options[ 'notification' ][ 1 ][ 'subject' ] = __( "[New Invoice] %subject%", WPI );
     $this->options[ 'notification' ][ 1 ][ 'content' ] = __( "Dear %recipient%, \n\n%business_name% has sent you the %type% in the amount of %amount%. \n\n%description% \n\nYou may pay, view and print the invoice online by visiting the following link: \n%link% \n\nBest regards, \n%business_name% (%business_email%)", WPI );
@@ -446,7 +455,7 @@ class WPI_Settings {
     $new_settings[ 'first_time_setup_ran' ] = 'true';
 
     $this->options = WPI_Functions::array_merge_recursive_distinct( $this->options, $new_settings );
-    /** just fo now we use the merged options array and overwrite two brances with new values. It is the custom solution to be able detete currency. odokienko@UD */
+    //** just fo now we use the merged options array and overwrite two brances with new values. It is the custom solution to be able detete currency. odokienko@UD */
     if ( isset( $new_settings[ 'currency' ] ) && $new_settings[ 'currency' ] ) {
       $this->options[ 'currency' ][ 'symbol' ] = $new_settings[ 'currency' ][ 'symbol' ];
       $this->options[ 'currency' ][ 'types' ] = $new_settings[ 'currency' ][ 'types' ];
@@ -467,8 +476,6 @@ class WPI_Settings {
     if ( isset( $new_settings[ 'notification' ] ) ) {
       $this->options[ 'notification' ] = $new_settings[ 'notification' ];
     }
-
-    //** Process Special Settings */
 
     //** fix checkboxes */
     foreach ( $this->options[ 'billing' ] as $key => $value ) {
@@ -495,7 +502,6 @@ class WPI_Settings {
    * Load options from DB or from initial array
    */
   function LoadOptions() {
-    //** Options concept taken from Theme My Login (http://webdesign.jaedub.com) */
     $this->InitOptions();
     $storedoptions = get_option( 'wpi_options' );
 
@@ -512,7 +518,6 @@ class WPI_Settings {
     } else {
       update_option( 'wpi_options', $this->options );
     }
-
   }
 
   /**
@@ -563,7 +568,7 @@ class WPI_Settings {
 
       $settings = $wpi_settings;
 
-      /* This element of array contain objects and should not be stored in DB */
+      //** This element of array contain objects and should not be stored in DB */
       if ( isset( $settings[ 'installed_gateways' ] ) ) {
         unset( $settings[ 'installed_gateways' ] );
       }
@@ -581,10 +586,11 @@ class WPI_Settings {
    */
   function CommitUpdates() {
     $oldvalue = get_option( 'wpi_options' );
-    if ( $oldvalue == $this->options )
+    if ( $oldvalue == $this->options ) {
       return false;
-    else
+    } else {
       return update_option( 'wpi_options', $this->options );
+    }
   }
 
   /**
@@ -594,9 +600,6 @@ class WPI_Settings {
    */
   function ConvertPre20Options() {
     global $wpdb;
-
-    // Take all old wp_invoice options and convert them put them into a single option
-    // DOESN"T WORK WITH BILLING OPTIONS SINCE THEY ARE NOW HELD IN MULTIMENSIONAL ARRAY
     $load_all_options = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}options WHERE option_name LIKE 'wp_invoice%'" );
 
     if ( is_array( $load_all_options ) ) {
