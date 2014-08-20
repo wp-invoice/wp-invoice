@@ -972,10 +972,12 @@ class WPI_UI {
     global $wpi_settings, $wpi_invoice_object;
     $invoice_items = array();
 
-    /** It is for adding SKU (unique) field to items list */
-    foreach ( (array) $wpi_invoice_object->data[ 'itemized_list' ] as $key => $value ) {
-      $invoice_items[ $key ] = $value;
-      $invoice_items[ $key ][ 'id' ] = str_replace( '-', '_', sanitize_title( $invoice_items[ $key ][ 'name' ] ) );
+    //** It is for adding SKU (unique) field to items list */
+    if ( !empty( $wpi_invoice_object->data[ 'itemized_list' ] ) ) {
+      foreach ( (array) $wpi_invoice_object->data[ 'itemized_list' ] as $key => $value ) {
+        $invoice_items[ $key ] = $value;
+        $invoice_items[ $key ][ 'id' ] = str_replace( '-', '_', sanitize_title( $invoice_items[ $key ][ 'name' ] ) );
+      }
     }
 
     $order = array("\\r\\n", "\\n", "\\r","\\t");
