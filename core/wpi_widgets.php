@@ -40,20 +40,6 @@ class InvoiceLookupWidget extends WP_Widget {
   }
 
   /**
-   * Update widget.
-   *
-   * @see WP_Widget::update
-   *
-   * @param type $new_instance
-   * @param type $old_instance
-   *
-   * @return type
-   */
-  function update( $new_instance, $old_instance ) {
-    return $new_instance;
-  }
-
-  /**
    * Widget settings form.
    *
    * @see WP_Widget::form
@@ -61,9 +47,9 @@ class InvoiceLookupWidget extends WP_Widget {
    * @param type $instance
    */
   function form( $instance ) {
-    $title = esc_attr( $instance[ 'title' ] );
-    $message = esc_attr( $instance[ 'message' ] );
-    $button_text = esc_attr( $instance[ 'button_text' ] );
+    $title = esc_attr( isset( $instance[ 'title' ] ) ? $instance[ 'title' ] : __('Search Invoices', WPI) );
+    $message = esc_attr( isset( $instance[ 'message' ] ) ? $instance[ 'message' ] : '' );
+    $button_text = esc_attr( isset( $instance[ 'button_text' ] ) ? $instance[ 'button_text' ] : __('Find', WPI) );
     ?>
     <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/></label></p>
@@ -104,12 +90,15 @@ class InvoiceHistoryWidget extends WP_Widget {
     extract( $args );
     global $current_user;
 
-    if ( !$current_user->ID )
+    if ( !$current_user->ID ) {
       return;
+    }
 
     $title = apply_filters( 'widget_title', $instance[ 'title' ] );
     $allow_types = !empty( $instance[ 'allow_types' ] ) ? $instance[ 'allow_types' ] : array( 'invoice', 'recurring' );
-    if ( !is_array($allow_types) ) $allow_types = explode(',', $allow_types);
+    if ( !is_array($allow_types) ) {
+      $allow_types = explode(',', $allow_types);
+    }
     ?>
     <?php echo $before_widget; ?>
     <?php if ( $title )
@@ -176,20 +165,6 @@ class InvoiceHistoryWidget extends WP_Widget {
     </div>
     <?php echo $after_widget; ?>
   <?php
-  }
-
-  /**
-   * Update widget
-   *
-   * @see WP_Widget::update
-   *
-   * @param type $new_instance
-   * @param type $old_instance
-   *
-   * @return type
-   */
-  function update( $new_instance, $old_instance ) {
-    return $new_instance;
   }
 
   /**
