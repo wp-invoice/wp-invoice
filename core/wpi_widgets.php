@@ -175,21 +175,35 @@ class InvoiceHistoryWidget extends WP_Widget {
    * @param type $instance
    */
   function form( $instance ) {
+    global $wpi_settings;
+    
     $title = !empty( $instance[ 'title' ] ) ? esc_attr( $instance[ 'title' ] ) : '';
     $types = !empty( $instance[ 'allow_types' ] ) ? $instance[ 'allow_types' ] : array( 'invoice', 'recurring' );
-
+    $statuses = !empty( $instance[ 'allow_statuses' ] ) ? $instance[ 'allow_statuses' ] : array( 'active', 'paid' );
     $allow_types = apply_filters( 'wpi_invoice_history_allow_types', array( 'invoice', 'recurring' ) );
+    $allow_statuses = $wpi_settings['statuses'];
 
     ?>
-    <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/></label></p>
+    <p>
+      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
+      </label>
+    </p>
     <p>
       <label for="<?php echo $this->get_field_id( 'allow_types' ); ?>"><?php _e( 'Types to display:' ); ?></label>
-    <ul>
+      <ul>
         <?php foreach ( $allow_types as $allow_type ): ?>
           <li><input <?php checked( true, in_array( $allow_type, $types ) ); ?> type="checkbox" name="<?php echo $this->get_field_name( 'allow_types' ); ?>[]" value="<?php echo $allow_type; ?>"/> <?php echo ucfirst( $allow_type ); ?></li>
         <?php endforeach; ?>
-        </ul>
+      </ul>
+    </p>
+    <p>
+      <label for="<?php echo $this->get_field_id( 'allow_statuses' ); ?>"><?php _e( 'Statuses to display:' ); ?></label>
+      <ul>
+        <?php foreach ( $allow_statuses as $allow_status ): ?>
+          <li><input <?php checked( true, in_array( $allow_status, $statuses ) ); ?> type="checkbox" name="<?php echo $this->get_field_name( 'allow_statuses' ); ?>[]" value="<?php echo $allow_status; ?>"/> <?php echo ucfirst( $allow_status ); ?></li>
+        <?php endforeach; ?>
+      </ul>
     </p>
   <?php
   }
