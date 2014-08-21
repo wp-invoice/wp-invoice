@@ -434,7 +434,7 @@ class WPI_UI {
 
     $contextual_help[ 'Shortcodes' ][ ] = '<h3>' . __( 'Shortcodes', WPI ) . '</h3>';
     $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice History', WPI ) . '</b></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote"]</code></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote" allow_statuses="active,paid,pending"]</code></p>';
     $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice History' widget. Shows invoice list for currently logged in users.", WPI ) . '</p>';
 
     $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice Lookup', WPI ) . '</b></p>';
