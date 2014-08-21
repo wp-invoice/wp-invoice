@@ -909,7 +909,6 @@ class WPI_Functions {
     $query_invoices = new WP_Query(array(
       'post_type' => 'wpi_object',
       'post_status' => $status,
-      'orderby'    => 'post_status',
       'meta_query' => array(
 		array(
           'key'     => 'user_email',
