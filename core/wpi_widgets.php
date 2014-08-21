@@ -87,79 +87,65 @@ class InvoiceHistoryWidget extends WP_Widget {
    * @return type
    */
   function widget( $args, $instance ) {
+    
     extract( $args );
-    global $current_user;
+    
+    global $current_user, $wpi_settings;
 
     if ( !$current_user->ID ) {
       return;
     }
 
-    $title = apply_filters( 'widget_title', $instance[ 'title' ] );
+    $title = apply_filters( 'widget_title', !empty($instance[ 'title' ])?$instance[ 'title' ]:'' );
+    
     $allow_types = !empty( $instance[ 'allow_types' ] ) ? $instance[ 'allow_types' ] : array( 'invoice', 'recurring' );
+    $allow_statuses = !empty( $instance[ 'allow_statuses' ] ) ? $instance[ 'allow_statuses' ] : array( 'active', 'paid' );
+    
     if ( !is_array($allow_types) ) {
       $allow_types = explode(',', $allow_types);
     }
-    ?>
-    <?php echo $before_widget; ?>
-    <?php if ( $title )
-      echo $before_title . $title . $after_title; ?>
+    
+    if ( !is_array($allow_statuses) ) {
+      $allow_statuses = explode(',', $allow_statuses);
+    }
+    
+    echo $before_widget;
+    
+    if ( $title ) {
+      echo $before_title . $title . $after_title;
+    }
+    
+  ?>
     <div class="wpi_widget_invoice_history">
       <?php
-      $invoice_array = WPI_Functions::get_user_invoices( "user_email={$current_user->user_email}&status=active" );
+      
+      foreach( $allow_types as $_type ) {
 
-      foreach ( $invoice_array as $key => $wpi_object ) {
-        if ( !in_array( $wpi_object->data[ 'type' ], $allow_types ) ) {
-          unset( $invoice_array[ $key ] );
-        }
-      }
+        $invoice_array = WPI_Functions::get_user_invoices( array(
+          'user_email' => $current_user->user_email,
+          'status' => $allow_statuses,
+          'type' => $_type
+        ));
 
-      $invoices_found = false;
+        $invoices_found = false;
 
-      if ( !empty( $invoice_array ) && is_array( $invoice_array ) ) {
-        $invoices_found = true;
-        ?>
-        <b class="wpi_sidebar_title"><?php _e( "Active Invoice(s)" ); ?></b>
-        <ul class="wpi_invoice_history_list wpi_active_invoices">
-          <?php
-          foreach ( $invoice_array as $invoice ) {
-            ?>
-            <li><a href="<?php echo get_invoice_permalink( $invoice->data[ 'invoice_id' ] ); ?>"><?php echo $invoice->data[ 'post_title' ]; ?></a></li>
-          <?php
-          }
+        if ( !empty( $invoice_array ) && is_array( $invoice_array ) ) {
+          $invoices_found = true;
           ?>
-        </ul>
-      <?php
-      }
-      ?>
-      <?php
-      $invoice_array = WPI_Functions::get_user_invoices( "user_email={$current_user->user_email}&status=paid" );
-
-      foreach ( $invoice_array as $key => $wpi_object ) {
-        if ( !in_array( $wpi_object->data[ 'type' ], $allow_types ) ) {
-          unset( $invoice_array[ $key ] );
-        }
-      }
-
-      if ( !empty( $invoice_array ) && is_array( $invoice_array ) ) {
-        $invoices_found = true;
-        ?>
-        <b class="wpi_sidebar_title"><?php _e( "Paid Invoice(s)" ); ?></b>
-        <ul class="wpi_invoice_history_list wpi_active_invoices">
-          <?php
-          foreach ( $invoice_array as $invoice ) {
+          <b class="wpi_sidebar_title"><?php echo $wpi_settings['types'][$_type]['label']; ?></b>
+          <ul class="wpi_invoice_history_list wpi_active_invoices">
+            <?php
+            foreach ( $invoice_array as $invoice ) {
+              ?>
+              <li class="<?php echo $_type; ?> <?php echo $invoice->data['post_status'] ?>">
+                <a href="<?php echo get_invoice_permalink( $invoice->data[ 'invoice_id' ] ); ?>"><?php echo $invoice->data[ 'post_title' ]; ?></a> (<?php echo $invoice->data['post_status'] ?>)
+              </li>
+            <?php
+            }
             ?>
-            <li><a href="<?php echo get_invoice_permalink( $invoice->data[ 'invoice_id' ] ); ?>"><?php echo $invoice->data[ 'post_title' ]; ?></a></li>
-          <?php
-          }
-          ?>
-        </ul>
-      <?php
-      }
-
-      if ( !$invoices_found ) {
-        ?>
-        <p><?php _e( 'You currently do not have any invoices', WPI ); ?></p>
-      <?php
+          </ul>
+        <?php
+        }
       }
       ?>
     </div>
