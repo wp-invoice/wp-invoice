@@ -1042,7 +1042,7 @@ class WPI_Functions {
    *
    * @param type $invoice_id
    */
-  function get_status( $invoice_id ) {
+  static function get_status( $invoice_id ) {
 
     $this_invoice = new WPI_Invoice();
     $this_invoice->load_invoice( "id=$invoice_id" );
