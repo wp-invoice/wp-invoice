@@ -106,7 +106,7 @@
             <table class="form-table">
             <?php foreach($value['settings'] as $key2 => $setting_value) { ?>
               <tr>
-                <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo $setting_value['label']; ?></span></th>
+                <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo !empty($setting_value['label'])?$setting_value['label']:''; ?></span></th>
                 <td>
                   <?php if (isset($setting_value['type']) && $setting_value['type'] == 'select') : ?>
                     <?php echo WPI_UI::select(array(
@@ -125,6 +125,8 @@
                         'value' => $setting_value['value'],
                         'special' => 'readonly="readonly"'
                     )); ?>
+                  <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
+                    <p><?php echo $setting_value['data']; ?></p>
                   <?php else : ?>
                     <?php echo WPI_UI::input(array(
                         'type' => 'text',

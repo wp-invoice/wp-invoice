@@ -504,11 +504,11 @@ class WPI_Settings_page {
                         <?php
                         if ($value['object']->options['settings'])
                           foreach ($value['object']->options['settings'] as $key2 => $setting_value) {
-                            $setting_value['value'] = urldecode($setting_value['value']);
+                            $setting_value['value'] = urldecode(isset($setting_value['value'])?$setting_value['value']:'');
                             $setting_value['type'] = !empty($setting_value['type']) ? $setting_value['type'] : 'input';
                             ?>
                         <tr>
-                          <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo $setting_value['label']; ?></span></th>
+                          <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo !empty($setting_value['label'])?$setting_value['label']:''; ?></span></th>
                           <td>
                         <?php if ($setting_value['type'] == 'select') : ?>
             <?php echo WPI_UI::select("name=wpi_settings[billing][{$key}][settings][{$key2}][value]&values=" . serialize($setting_value['data']) . "&current_value={$setting_value['value']}"); ?>
@@ -516,6 +516,8 @@ class WPI_Settings_page {
                     <?php echo WPI_UI::textarea("name=wpi_settings[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
                   <?php elseif ($setting_value['type'] == 'readonly') : ?>
                               <p class="wpi_readonly"><?php echo $setting_value['value']; ?></p>
+            <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
+                    <p><?php echo $setting_value['data']; ?></p>
           <?php else : ?>
             <?php echo WPI_UI::input("type=text&name=wpi_settings[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
           <?php endif; ?>
