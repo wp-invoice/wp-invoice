@@ -505,7 +505,7 @@ if ( !class_exists( 'WPI_Core' ) ) {
       //** If invoice_id is passed, run validate_page_hash  to make sure this is the right page and invoice_id exists */
       if ( isset( $_GET[ 'invoice_id' ] ) ) {
 
-        if ( WPI_Functions::validate_page_hash( mysql_escape_string( $_GET[ 'invoice_id' ] ) ) ) {
+        if ( WPI_Functions::validate_page_hash( esc_sql( $_GET[ 'invoice_id' ] ) ) ) {
 
           //** load global invoice object */
           $post_id = wpi_invoice_id_to_post_id( $invoice_id );

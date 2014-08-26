@@ -701,7 +701,7 @@ class WPI_Functions {
    *
    * @since 3.0
    */
-  function update_user( $userdata ) {
+  static function update_user( $userdata ) {
 
     $user_id = email_exists( $userdata[ 'user_email' ] );
 
@@ -823,7 +823,7 @@ class WPI_Functions {
    * @since 3.0
    *
    */
-  function the_post( &$post ) {
+  static function the_post( &$post ) {
     global $post;
 
     if ( $post->post_type == 'wpi_object' ) {
@@ -868,7 +868,7 @@ class WPI_Functions {
   /**
    * Figure out current page for front-end AJAX function
    */
-  function current_page() {
+  static function current_page() {
     $pageURL = 'http';
     if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
       $pageURL .= "s";
@@ -1007,7 +1007,7 @@ class WPI_Functions {
    *
    * @return type
    */
-  function wpi_use_custom_template( $template ) {
+  static function wpi_use_custom_template( $template ) {
     global $wpi_settings;
 
     /* if custom templates are turned off, don't bother checking */
@@ -1078,7 +1078,7 @@ class WPI_Functions {
    *
    * @param int $post_id
    */
-  function get_charges( $post_id ) {
+  static function get_charges( $post_id ) {
 
     $charges_list = get_post_meta( $post_id, 'itemized_charges', true );
 
@@ -1229,7 +1229,7 @@ class WPI_Functions {
    *
    * @return bool True on successful update, false on failure.
    */
-  function save_update_profile( $user_id, $old_user_data ) {
+  static function save_update_profile( $user_id, $old_user_data ) {
     global $wpi_settings;
 
     if ( empty( $user_id ) || $user_id == 0 ) {
@@ -1263,7 +1263,7 @@ class WPI_Functions {
    * @return boolean
    * @author odokienko@UD
    */
-  function protect_user_invoices( $user_id, $old_user_data ) {
+  static function protect_user_invoices( $user_id, $old_user_data ) {
     global $wpdb;
 
     if ( empty( $user_id ) || $user_id == 0 ) {
@@ -1317,7 +1317,7 @@ class WPI_Functions {
   /**
    * Called by template_redirect to validate whether an invoice should be displayed
    */
-  function validate_page_hash( $md5_invoice_id ) {
+  static function validate_page_hash( $md5_invoice_id ) {
     global $wpdb, $wpi_settings, $post, $invoice_id;
 
     $invoice_id = $wpdb->get_var( "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key='invoice_id' AND MD5(meta_value) = '{$md5_invoice_id}'" );
@@ -1568,7 +1568,7 @@ class WPI_Functions {
    *
    * @return boolean
    */
-  function save_invoice( $invoice, $args = '' ) {
+  static function save_invoice( $invoice, $args = '' ) {
 
     //** Set function additional params */
     $defaults = array(
@@ -2325,7 +2325,7 @@ class WPI_Functions {
    *
    * @since 3.0
    */
-  function log_event( $object_id, $attribute, $action, $value, $text = '', $time = false ) {
+  static function log_event( $object_id, $attribute, $action, $value, $text = '', $time = false ) {
     global $wpdb, $current_user, $blog_id;
 
     if ( !$time ) {

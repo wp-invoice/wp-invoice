@@ -808,7 +808,7 @@ class WPI_UI {
   /**
    * Can overwite page title (heading)
    */
-  function wp_title( $title, $sep, $seplocation ) {
+  static function wp_title( $title, $sep, $seplocation ) {
     global $invoice_id, $wpdb;
 
     $post_id = $wpdb->get_var( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'invoice_id' AND meta_value = '{$invoice_id}'" );
@@ -850,7 +850,7 @@ class WPI_UI {
    * Invoice object already loaded into $wpi_invoice_object at template_redirect()
    *
    */
-  function the_content( $content ) {
+  static function the_content( $content ) {
     global $wpi_settings;
     /**
      * Well. Here I'm trying to fix conflicts with plugins such as Simple Facebook Connect.
@@ -968,7 +968,7 @@ class WPI_UI {
    *
    * @global array $wpi_settings
    */
-  function frontend_header() {
+  static function frontend_header() {
     global $wpi_settings, $wpi_invoice_object;
     $invoice_items = array();
 

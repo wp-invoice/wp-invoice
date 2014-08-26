@@ -181,7 +181,7 @@ class WPI_Ajax {
   /**
    * Process special invoice-related event
    */
-  function process_manual_event() {
+  static function process_manual_event() {
     
     $invoice_id = $_REQUEST[ 'invoice_id' ];
     $event_type = $_REQUEST[ 'event_type' ];
@@ -395,7 +395,7 @@ class WPI_Ajax {
   /**
    * Save invoice from Ajax
    */
-  function save_invoice() {
+  static function save_invoice() {
     $invoice_id = WPI_Functions::save_invoice( $_REQUEST[ 'wpi_invoice' ] );
     if ( $invoice_id ) {
       echo sprintf( __( "Saved. <a target='_blank' href='%s'>View Invoice</a>", WPI ), get_invoice_permalink( $invoice_id ) ) . ". " . __( 'Invoice id #', WPI ) . "<span id='new_invoice_id'>$invoice_id</span>.";
@@ -528,7 +528,7 @@ class WPI_Ajax {
    * @global object $wpdb
    * @author korotkov@ud
    */
-  function template_autocomplete_handler() {
+  static function template_autocomplete_handler() {
     global $wpdb;
 
     $invoices_found = $wpdb->get_results( "SELECT `post_title` as `label`,`ID` as `value`
