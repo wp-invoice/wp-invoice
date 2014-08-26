@@ -102,7 +102,7 @@ $custom = array('obj' => 'spc');
   </ul>
 <?php		$i++; ?>
 <?php	endif; ?>
-<?php if($atts['terms']): ?>
+<?php if( !empty($atts['terms']) ): ?>
         <ul class="wpi_checkout_block wpi_checkout_terms">
           <li class="wpi_checkout_row_terms wpi_checkout_row">
             <div validation_type="checked" class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
