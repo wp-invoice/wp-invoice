@@ -184,7 +184,7 @@ class wpi_interkassa extends wpi_gateway_base {
   /**
    * Merchant CB handler
    */
-  function server_callback() {
+  static function server_callback() {
 
     if (empty($_POST))
       die(__('Direct access not allowed', WPI));
@@ -197,7 +197,7 @@ class wpi_interkassa extends wpi_gateway_base {
       return;
     }
 
-    if (!$this->_hash_verified($invoice)) {
+    if (!self::_hash_verified($invoice)) {
       header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error [Hash or Shop ID is wrong]', true, 500);
       return;
     }
@@ -235,7 +235,7 @@ class wpi_interkassa extends wpi_gateway_base {
    * @param type $invoice
    * @return type
    */
-  private function _hash_verified($invoice) {
+  private static function _hash_verified($invoice) {
 
     if ($_POST['ik_pw_via'] == 'test_interkassa_test_xts') {
       $secret_key = $invoice->data['billing']['wpi_interkassa']['settings']['test_key']['value'];

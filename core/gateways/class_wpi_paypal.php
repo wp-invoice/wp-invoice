@@ -324,7 +324,7 @@ class wpi_paypal extends wpi_gateway_base {
      * @author korotkov@ud
      * Full callback URL: http://domain/wp-admin/admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_paypal
      */
-    function server_callback() {
+    static function server_callback() {
 
       if (empty($_POST))
         die(__('Direct access not allowed', WPI));
@@ -333,7 +333,7 @@ class wpi_paypal extends wpi_gateway_base {
       $invoice->load_invoice("id={$_POST['invoice']}");
 
       /** Verify callback request */
-      if ($this->_ipn_verified($invoice)) {
+      if (self::_ipn_verified($invoice)) {
 
         switch ($_POST['txn_type']) {
           /** New PayPal Subscription */
@@ -460,13 +460,13 @@ class wpi_paypal extends wpi_gateway_base {
      * Verify IPN and returns TRUE or FALSE
      * @author korotkov@ud
      * */
-    private function _ipn_verified($invoice = false) {
+    private static function _ipn_verified($invoice = false) {
 
       if ($invoice) {
-        $request = $this->get_api_url( $invoice->data ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $invoice->data ) . '?cmd=_notify-validate';
       } else {
         global $wpi_settings;
-        $request = $this->get_api_url( $wpi_settings ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $wpi_settings ) . '?cmd=_notify-validate';
       }
 
       foreach ($_POST as $key => $value) {

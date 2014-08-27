@@ -945,7 +945,7 @@ class WPI_Functions {
   /**
    * Add message to notice queue
    */
-  function add_message( $message, $type = 'good', $class = '' ) {
+  static function add_message( $message, $type = 'good', $class = '' ) {
     global $wpi_messages;
     if ( !is_array( $wpi_messages ) ) {
       $wpi_messages = array();
@@ -962,8 +962,9 @@ class WPI_Functions {
   static function print_messages() {
     global $wpi_messages;
 
-    if ( count( $wpi_messages ) < 1 )
+    if ( count( $wpi_messages ) < 1 ) {
       return;
+    }
 
     $update_messages = array();
     $warning_messages = array();
@@ -1171,7 +1172,7 @@ class WPI_Functions {
    * Run when a plugin is being activated
    * Handles the task of migrating from old version of WPI to new
    */
-  function Activate() {
+  static function Activate() {
 
     //** check if scheduler already sheduled */
     if ( !wp_next_scheduled( 'wpi_hourly_event' ) ) {
@@ -1214,9 +1215,10 @@ class WPI_Functions {
   /**
    * Deactivation hook
    */
-  function Deactivate() {
+  static function Deactivate() {
     wp_clear_scheduled_hook( 'wpi_hourly_event' );
     wp_clear_scheduled_hook( 'wpi_update' );
+    wp_clear_scheduled_hook( 'wpi_spc_remove_abandoned_transactions' );
     WPI_Functions::log( __( "Plugin deactivated.", WPI ) );
   }
 
@@ -1409,17 +1411,18 @@ class WPI_Functions {
    *
    * @return type
    */
-  function money_format( $number ) {
+  static function money_format( $number ) {
     global $wpi_settings;
     return number_format( (float) $number, 2, '.', !empty( $wpi_settings[ 'thousands_separator_symbol' ] ) ? $wpi_settings[ 'thousands_separator_symbol' ] : '' );
   }
 
   /**
-  We use this to merge two arrays.
-  Used when loading default billing data, and then being updated by invoice-specific data
-  Awesome function from http://us2.php.net/manual/en/function.array-merge-recursive.php
+   * We use this to merge two arrays.
+   * Used when loading default billing data, and then being updated by invoice-specific data
+   * Awesome function from http://us2.php.net/manual/en/function.array-merge-recursive.php
+   * @return type
    */
-  function &array_merge_recursive_distinct() {
+  static function &array_merge_recursive_distinct() {
     $aArrays = func_get_args();
     $aMerged = $aArrays[ 0 ];
 
@@ -1438,71 +1441,21 @@ class WPI_Functions {
     return $aMerged;
   }
 
-  /** @TODO: Update it to show Settings page link */
-  function set_plugin_page_settings_link( $links ) {
-    /* $settings_link = "<a href='{$core->options['links']['settings_page']}'>Settings</a>";
-      array_unshift($links, $settings_link); */
-    return $links;
-  }
-
-  // Checks whether all plugin tables exist via tables_exist function
-  function check_tables() {
-    global $wpdb;
-    if ( !WPI_Functions::tables_exist() ) {
-      $message = __( "The plugin database tables are gone, deactivate and reactivate plugin to re-create them.", WPI );
-    }
-    WPI_UI::error_message( $message );
-  }
-
-  function tables_exist() {
-    global $wpdb;
-    if ( !$wpdb->query( "SHOW TABLES LIKE '{$wpdb->base_prefix}wpi_object_log';" ) )
-      return false;
-    return true;
-  }
-
-  // Used for displaying variables in the UI, mostly for debugging
-  function qc( $what, $force = false ) {
-    global $wp_invoice_debug;
-
-    if ( is_array( $what ) ) {
-      $what = WPI_Functions::pretty_print_r( $what, false );
-    }
-
-    if ( is_array( $what ) || is_string( $what ) ) { // this way we don't try and show classess
-      if ( $wp_invoice_debug || $force ) {
-        ?>
-        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-          <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-            <span class="message_content"><?php echo $what; ?></span></p>
-        </div>
-      <?php
-      }
-    } else {
-      ?>
-      <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-        <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-          <span class="message_content"><pre><?php print_r( $what ); ?></pre></span></p>
-      </div>
-    <?php
-    }
-
-    // Add QC Message to Log
-    //WPI_Functions::log($what)
-  }
-
-  // Logs events and saved them into WordPress option 'wpi_log'
-  // This function is intended to ease troubleshooting later
-  function log( $what ) {
+  /**
+   * Logs events and saved them into WordPress option 'wpi_log'
+   * @param type $what
+   * @return boolean
+   */
+  static function log( $what ) {
     $wpi_log = get_option( 'wpi_log' );
 
-    // If no session log created yet, create one
+    //** If no session log created yet, create one */
     if ( !is_array( $wpi_log ) ) {
       $wpi_log = array();
       array_push( $wpi_log, array( time(), "Log Started." ) );
     }
 
-    // Insert event into session
+    //** Insert event into session */
     array_push( $wpi_log, array( time(), $what ) );
 
     update_option( 'wpi_log', $wpi_log );
@@ -1540,12 +1493,16 @@ class WPI_Functions {
       $result .= var_dump( $data, true );
       $result .= " &lt;=========";
     }
-    if ( $echo == false )
+    if ( $echo == false ) {
       return $result;
+    }
     $echo;
   }
 
-  function settings_action() {
+  /**
+   * Settings action
+   */
+  static function settings_action() {
 
     if ( isset( $_REQUEST[ 'wpi_settings' ] ) ) {
 
@@ -1747,10 +1704,10 @@ class WPI_Functions {
     $default_currency_code = !empty($new_value[ 'currency' ][ 'default_currency_code' ])?$new_value[ 'currency' ][ 'default_currency_code' ]:'';
     $protected_currencies = array();
 
-    /* check for curency with default_currency_code*/
+    //** check for curency with default_currency_code */
     $protected_currencies[ ] = $default_currency_code;
 
-    /* check for currencies that are already used in invoices */
+    //** check for currencies that are already used in invoices */
     $results = $wpdb->get_results( "
       SELECT DISTINCT `{$wpdb->prefix}postmeta`.meta_value
       FROM `{$wpdb->posts}`
@@ -1941,7 +1898,7 @@ class WPI_Functions {
    * @since 3.0
    *
    */
-  function create_new_schema_tables() {
+  static function create_new_schema_tables() {
     global $wpdb;
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -2080,19 +2037,18 @@ class WPI_Functions {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] = $plugin_data[ 'Minimum Core Version' ];
           }
 
-          //** If feature has a Minimum Core Version and it is more than current version - we do not load **/
+          //** If feature has a Minimum Core Version and it is more than current version - we do not load */
           $feature_requires_upgrade = ( !empty( $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] ) && ( version_compare( WP_INVOICE_VERSION_NUM, $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] ) < 0 ) ? true : false );
 
           if ( $feature_requires_upgrade ) {
-            //** Disable feature if it requires a higher WPI version**/
+            //** Disable feature if it requires a higher WPI version */
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'true';
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'needs_higher_wpi_version' ] = 'true';
           } else {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'needs_higher_wpi_version' ] = 'false';
-            //$wpi_settings['installed_features'][$plugin_slug]['disabled'] = 'false';
           }
 
-          // Check if the plugin is disabled
+          //** Check if the plugin is disabled */
           if ( empty( $previos_data[ $plugin_slug ][ 'disabled' ] ) ) {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'false';
           } else {
@@ -2102,13 +2058,13 @@ class WPI_Functions {
 
             include_once( WPI_Premium . "/" . $file );
 
-            // Disable plugin if class does not exists - file is empty
+            //** Disable plugin if class does not exists - file is empty */
             if ( !class_exists( $plugin_slug ) )
               unset( $wpi_settings[ 'installed_features' ][ $plugin_slug ] );
             else
               $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'false';
           } else {
-            // Feature not loaded because it is disabled
+            //** Feature not loaded because it is disabled */
           }
         }
       }
@@ -2405,8 +2361,8 @@ class WPI_Functions {
    * @return array
    * @author korotkov@ud
    */
-  function get_wpi_crm_attributes() {
-    /** If WP-CRM not installed */
+  static function get_wpi_crm_attributes() {
+    //** If WP-CRM not installed */
     if ( !class_exists( 'WP_CRM_Core' ) ) return;
 
     global $wp_crm;
@@ -2432,7 +2388,7 @@ class WPI_Functions {
    * @return array
    * @author korotkov@ud
    */
-  function wpi_crm_custom_fields( $current_fields, $name ) {
+  static function wpi_crm_custom_fields( $current_fields, $name ) {
     $attributes = self::get_wpi_crm_attributes();
     if ( empty( $attributes ) ) return $current_fields;
 
@@ -2482,7 +2438,7 @@ class WPI_Functions {
    * @author odokienko@UD
    * @return array
    */
-  function wpi_crm_custom_notification( $current ) {
+  static function wpi_crm_custom_notification( $current ) {
 
     foreach ( WPI_Core::$crm_notification_actions as $action_key => $action_name ) {
       $current[ $action_key ] = $action_name;
@@ -2497,7 +2453,7 @@ class WPI_Functions {
    * @version 1.0
    * @author odokienko@UD
    */
-  function wp_crm_entry_type_label( $attr, $entity ) {
+  static function wp_crm_entry_type_label( $attr, $entity ) {
     global $wp_crm;
     switch ( $attr ) {
       case "wpi_notification":
@@ -2535,7 +2491,7 @@ class WPI_Functions {
    * @global array $wpi_settings
    * @return string
    */
-  function notification_mail_from() {
+  static function notification_mail_from() {
     global $wpi_settings;
 
     $email = empty( $wpi_settings[ 'mail_from_user_email' ] ) ? "wordpress@" . strtolower( $_SERVER[ 'SERVER_NAME' ] ) : $wpi_settings[ 'mail_from_user_email' ];
@@ -2549,7 +2505,7 @@ class WPI_Functions {
    * @global array $wpi_settings
    * @return type
    */
-  function notification_mail_from_name() {
+  static function notification_mail_from_name() {
     global $wpi_settings;
 
     $sendername = empty( $wpi_settings[ 'mail_from_sender_name' ] ) ? "WordPress" : stripslashes( $wpi_settings[ 'mail_from_sender_name' ] );
@@ -2608,7 +2564,7 @@ class WPI_Functions {
    * @author korotkov@ud
    * @since 3.08.4
    */
-  function delete_invoice_log( $args ) {
+  static function delete_invoice_log( $args ) {
 
     $defaults = array(
       'post_id' => 0
@@ -2637,7 +2593,7 @@ class WPI_Functions {
    * @param type $invoice_data
    * @return boolean
    */
-  function user_is_invoice_recipient( $invoice_data ) {
+  static function user_is_invoice_recipient( $invoice_data ) {
     global $current_user;
 
     if ( !$current_user->ID ) return false;
@@ -2931,7 +2887,7 @@ function send_notification( $invoice ) {
     $notification_data[ 'user_name' ] = wpi_get_user_display_name( $invoice );
     $notification_data[ 'user_id' ] = $invoice[ 'user_data' ][ 'ID' ];
 
-    $admin = get_user_by_email( get_option( 'admin_email' ) );
+    $admin = get_user_by( 'email', get_option( 'admin_email' ) );
     $notification_data[ 'admin_email' ] = stripslashes( $admin->user_email );
     $notification_data[ 'admin_id' ] = $admin->ID;
     $notification_data[ 'admin_name' ] = stripslashes( $admin->display_name );

@@ -82,7 +82,7 @@ abstract class wpi_gateway_base {
      * It should be overridden
      * @since 3.0
      */
-    function server_callback() {
+    static function server_callback() {
         global $wpi_settings;
         //** Call the actual function that does the processing on the type of object we have */
         $wpi_settings['installed_gateways'][$_REQUEST['type']]['object']->server_callback();

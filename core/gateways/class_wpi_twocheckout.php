@@ -10,6 +10,8 @@
  */
 
 class wpi_twocheckout extends wpi_gateway_base {
+  
+  static $_options = array();
 
   /**
    * Constructor
@@ -109,6 +111,8 @@ class wpi_twocheckout extends wpi_gateway_base {
     );
     
     $this->options['settings']['passback']['value'] = admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_twocheckout');
+  
+    self::$_options = $this->options;
   }
 
   /**
@@ -261,16 +265,17 @@ class wpi_twocheckout extends wpi_gateway_base {
      * @author Craig Christenson
      * Full callback URL: http://domain/wp-admin/admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_twocheckout
      */
-    function server_callback() {
+    static function server_callback() {
 
-      if (empty($_REQUEST))
+      if (empty($_REQUEST)) {
         die(__('Direct access not allowed', WPI));
+      }
 
       $invoice = new WPI_Invoice();
       $invoice->load_invoice("id={$_REQUEST['merchant_order_id']}");
 
       /** Verify callback request */
-      if ($this->_ipn_verified($invoice)) {
+      if ( self::_ipn_verified($invoice) ) {
         if ($_REQUEST['key']) {
           $event_note = sprintf(__('%s paid via 2Checkout', WPI), WPI_Functions::currency_format(abs($_REQUEST['total']), $_REQUEST['merchant_order_id']));
           $event_amount = (float) $_REQUEST['total'];
@@ -282,7 +287,7 @@ class wpi_twocheckout extends wpi_gateway_base {
           $invoice->add_entry("attribute=invoice&note=$payer_email&type=update");
           $invoice->save_invoice();
           /** ... and mark invoice as paid */
-          wp_invoice_mark_as_paid($_REQUEST['invoice'], $check = true);
+          wp_invoice_mark_as_paid($_REQUEST['invoice_id'], $check = true);
           send_notification($invoice->data);
           echo '<script type="text/javascript">window.location="' . get_invoice_permalink($invoice->data['ID']) . '";</script>';
 
@@ -365,23 +370,26 @@ class wpi_twocheckout extends wpi_gateway_base {
     * Verify return/notification and return TRUE or FALSE
     * @author Craig Christenson
     **/
-    private function _ipn_verified($invoice = false) {
-     
+    private static function _ipn_verified($invoice = false) {
+
       if ($_REQUEST['key']) {
         $transaction_id = $_REQUEST['order_number'];
-        $compare_string = $this->options['settings']['twocheckout_secret']['value'] .
-                $this->options['settings']['twocheckout_sid']['value'] . $transaction_id .
+        
+        $compare_string = $invoice->data['billing']['wpi_twocheckout']['settings']['twocheckout_secret']['value'] .
+                $invoice->data['billing']['wpi_twocheckout']['settings']['twocheckout_sid']['value'] . $transaction_id .
                 $_REQUEST['total'];
+        
         $compare_hash1 = strtoupper(md5($compare_string));
         $compare_hash2 = $_REQUEST['key'];
+
         if ($compare_hash1 != $compare_hash2) {
           die("MD5 HASH Mismatch! Make sure your demo settings are correct.");
         } else {
           return TRUE;
         }
       } elseif ($_POST['md5_hash']) {
-        $compare_string = $_POST['sale_id'] . $this->options['settings']['twocheckout_sid']['value'] .
-                $_POST['invoice_id'] . $this->options['settings']['twocheckout_secret']['value'];
+        $compare_string = $_POST['sale_id'] . $invoice->data['billing']['wpi_twocheckout']['settings']['twocheckout_sid']['value'] .
+                $_POST['invoice_id'] . $invoice->data['billing']['wpi_twocheckout']['settings']['twocheckout_secret']['value'];
         $compare_hash1 = strtoupper(md5($compare_string));
         $compare_hash2 = $_POST['md5_hash'];
         if ($compare_hash1 != $compare_hash2) {

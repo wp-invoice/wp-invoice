@@ -173,7 +173,7 @@ class wpi_payoneer extends wpi_gateway_base {
   /**
    * Merchant CB handler
    */
-  function server_callback() {}
+  static function server_callback() {}
 
   /**
    * Payment Processor

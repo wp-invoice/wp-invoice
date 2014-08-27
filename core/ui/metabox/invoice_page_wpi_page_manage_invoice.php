@@ -368,7 +368,7 @@ function postbox_user_existing($this_invoice) {
   <?php } ?>
   </table>
   <?php
-  do_action('wpi_integrate_crm_user_panel', $this_invoice['user_data']['ID']);
+  do_action('wpi_integrate_crm_user_panel', !empty($this_invoice['user_data']['ID'])?$this_invoice['user_data']['ID']:'' );
 }
 
 /**

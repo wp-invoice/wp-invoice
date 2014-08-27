@@ -281,7 +281,6 @@ if ( !class_exists( 'WPI_Core' ) ) {
       }
 
       add_action( 'the_post', array( 'WPI_Functions', 'the_post' ) );
-      add_filter( "plugin_action_links_{$this->plugin_basename}", array( $this->Functions, 'set_plugin_page_settings_link' ) );
       add_filter( "screen_settings", array( $this->Functions, 'wpi_screen_options' ), 10, 2 );
 
       add_shortcode( 'wp-invoice-lookup', 'wp_invoice_lookup' );

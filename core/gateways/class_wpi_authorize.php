@@ -550,7 +550,7 @@ class wpi_authorize extends wpi_gateway_base {
   /**
    * Handler for Silent Post Url
    */
-  function server_callback() {
+  static function server_callback() {
     $arb = false;
     $fields = array();
 

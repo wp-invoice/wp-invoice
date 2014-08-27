@@ -451,10 +451,10 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function process_invoice_actions( $action, $ids ) {
+  static function process_invoice_actions( $action, $ids ) {
     global $wpi_settings;
 
-    // Set status
+    //** Set status */
     switch ( $action ) {
       case 'trash':
         $status = 'trashed';
@@ -477,10 +477,10 @@ class WPI_UI {
       $ids = explode( ',', $ids );
     }
 
-    // Process action
+    //** Process action */
     $invoice_ids = array();
     foreach ( (array) $ids as $ID ) {
-      // Perfom action
+      //** Perfom action */
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id={$ID}" );
       $invoice_id = $this_invoice->data[ 'invoice_id' ];
@@ -513,10 +513,10 @@ class WPI_UI {
       }
     }
     if ( !empty( $status ) && $status ) {
-      // Get Referer and clean it up
+      //** Get Referer and clean it up */
       $sendback = wp_get_referer();
       $sendback = remove_query_arg( array( 'trashed', 'untrashed', 'deleted', 'invoice_id, unarchived, archived' ), $sendback );
-      // Determine if reffer is not main page, we set it ( anyway, will do redirect to main page )
+      //** Determine if reffer is not main page, we set it ( anyway, will do redirect to main page ) */
       if ( !strpos( $sendback, $wpi_settings[ 'links' ][ 'overview_page' ] ) ) {
         $sendback = $wpi_settings[ 'links' ][ 'overview_page' ];
       }
@@ -535,17 +535,17 @@ class WPI_UI {
   static function admin_enqueue_scripts() {
     global $current_screen;
 
-    /** Include on all pages */
+    //** Include on all pages */
     wp_enqueue_script( 'jquery-ui-accordion' );
     wp_enqueue_script( 'jquery-ui-datepicker' );
 
-    /** Includes page-specific JS if it exists */
+    //** Includes page-specific JS if it exists */
     wp_enqueue_script( 'wpi-this-page-js' );
 
-    /** Load scripts on specific pages */
+    //** Load scripts on specific pages */
     switch ( $current_screen->id ) {
 
-      /** Reports page */
+      //** Reports page */
       case 'invoice_page_wpi_page_reports':
         wp_enqueue_script( 'jsapi' );
         wp_enqueue_script( 'wp-invoice-events' );
@@ -578,7 +578,7 @@ class WPI_UI {
         wp_enqueue_script( 'jquery.form' );
         wp_enqueue_script( 'jquery.smookie' );
 
-        /** Add scripts and styles for Tiny MCE Editor (default WP Editor) */
+        //** Add scripts and styles for Tiny MCE Editor (default WP Editor) */
         wp_enqueue_script( array( 'editor', 'thickbox', 'media-upload' ) );
         wp_enqueue_style( 'thickbox' );
 
@@ -922,7 +922,7 @@ class WPI_UI {
         include( $wpi_settings[ 'default_template_path' ] . 'invoice_page.php' );
       }
     }
-    $result .= ob_get_contents();
+    $result = ob_get_contents();
     ob_end_clean();
 
     switch ( $wpi_settings[ 'where_to_display' ] ) {
