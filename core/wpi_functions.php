@@ -245,6 +245,8 @@ class WPI_Functions {
    */
   static function get_sales_by( $search_vars = false, $interval = "weekly" ) {
     global $wpdb;
+    
+    $sql = '';
 
     switch ( $interval ) {
       case "weekly":
