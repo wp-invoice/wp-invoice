@@ -517,7 +517,7 @@ class WPI_Settings_page {
                   <?php elseif ($setting_value['type'] == 'readonly') : ?>
                               <p class="wpi_readonly"><?php echo $setting_value['value']; ?></p>
             <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
-                    <p><?php echo $setting_value['data']; ?></p>
+                    <p><?php echo !empty($setting_value['data'])?$setting_value['data']:''; ?></p>
           <?php else : ?>
             <?php echo WPI_UI::input("type=text&name=wpi_settings[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
           <?php endif; ?>

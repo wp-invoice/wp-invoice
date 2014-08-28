@@ -21,13 +21,51 @@ class wpi_payoneer extends wpi_gateway_base {
         'allow' => '',
         'default_option' => '',
         'settings' => array(
-            'account_details_url' => array(
-                'label' => __("Account Details URL", WPI),
-                'value' => ''
+            'type' => array(
+                'label' => __("Mode", WPI),
+                'description' => "Payment method mode",
+                'type' => 'select',
+                'value' => 'usd',
+                'data' => array(
+                    'usd' => "USD - ACH",
+                    'euro' => "EURO - IBAN/BIC"
+                )
             ),
             'sign_up_text' => array(
                 'type' => "static",
-                'data' => __("Don't have a Payoneer account? <a href='#' target='_blank'>Sign up now</a>", WPI)
+                'data' => __("Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-invoice/' target='_blank'>Sign up now</a>", WPI)
+            ),
+            'usd_details' => array(
+                'type' => "static",
+                'label' => __("USD Payment service details", WPI )
+            ),
+            'usd_bank_name' => array(
+                'label' => __("Bank Name"),
+                'value' => ''
+            ),
+            'usd_account_number' => array(
+                'label' => __("Account Number"),
+                'value' => ''
+            ),
+            'usd_bank_routing_number' => array(
+                'label' => __("ABA (Bank Routing Number)"),
+                'value' => ''
+            ),
+            'euro_details' => array(
+                'type' => "static",
+                'label' => __("EURO Payment service details", WPI )
+            ),
+            'euro_bank_name' => array(
+                'label' => __("Bank Name"),
+                'value' => ''
+            ),
+            'euro_bic' => array(
+                'label' => __("BIC"),
+                'value' => ''
+            ),
+            'euro_iban' => array(
+                'label' => __("IBAN"),
+                'value' => ''
             )
         )
     );

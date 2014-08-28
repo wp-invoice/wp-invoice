@@ -126,7 +126,7 @@
                         'special' => 'readonly="readonly"'
                     )); ?>
                   <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
-                    <p><?php echo $setting_value['data']; ?></p>
+                    <p><?php echo !empty($setting_value['data'])?$setting_value['data']:''; ?></p>
                   <?php else : ?>
                     <?php echo WPI_UI::input(array(
                         'type' => 'text',

@@ -465,7 +465,7 @@ function postbox_payment_methods($this_invoice) {
                             <?php $setting_value['value'] = urlencode($setting_value['value']); ?>
                             <?php echo WPI_UI::textarea("name=wpi_invoice[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}&special=readonly='readonly'"); ?>
                           <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
-                            <p><?php echo $setting_value['data']; ?></p>
+                            <p><?php echo !empty($setting_value['data'])?$setting_value['data']:''; ?></p>
                           <?php else : ?>
                             <?php echo WPI_UI::input("name=wpi_invoice[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
                           <?php endif; ?>
