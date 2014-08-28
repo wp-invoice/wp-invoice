@@ -56,7 +56,7 @@ var wpi_payoneer_submit = function(){
             });
             if ( msg.success == 1 ) {
               jQuery( ".loader-img" ).hide();
-              //** Here need to run something connected to Payoneer logic. */
+              jQuery( ".payment_details" ).show();
             }
         }, 'json');
     return false;

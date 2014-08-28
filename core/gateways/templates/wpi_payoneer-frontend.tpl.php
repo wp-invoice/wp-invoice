@@ -8,12 +8,87 @@
       <div id="credit_card_information">
 
           <?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
+        
+          <ul class="wpi_checkout_block payment_details" style="display: none;">
+            <li class="section_title"><?php _e( "Payment Details", WPI ); ?></li>
+            
+            <?php 
+              switch( $invoice['billing'][$this->type]['settings']['type']['value'] ) {
+                
+                case 'usd':
+                  
+                  ?>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "Bank Name", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_bank_name']['value'])?$invoice['billing'][$this->type]['settings']['usd_bank_name']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "Account Number", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_account_number']['value'])?$invoice['billing'][$this->type]['settings']['usd_account_number']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "ABA (Bank Routing Number)", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_bank_routing_number']['value'])?$invoice['billing'][$this->type]['settings']['usd_bank_routing_number']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <?php
+                  
+                  break;
+                
+                case 'euro':
+                  
+                  ?>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "Bank Name", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_bank_name']['value'])?$invoice['billing'][$this->type]['settings']['euro_bank_name']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "BIC", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_bic']['value'])?$invoice['billing'][$this->type]['settings']['euro_bic']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <li class="wpi_checkout_row">
+                    <div class="control-group">
+                      <label class="control-label"><?php _e( "IBAN", WPI ); ?>:</label>
+                      <label class="controls">
+                        <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_iban']['value'])?$invoice['billing'][$this->type]['settings']['euro_iban']['value']:__('Not set', WPI); ?>
+                      </label>
+                    </div>
+                  </li>
+                  <?php
+                  
+                  break;
+                
+                default: break;
+                
+              } 
+            ?>
+            
+          </ul>
 
           <ul id="wp_invoice_process_wait">
               <li>
                   <div class="wpi-control-group">
                       <div class="controls">
-                          <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payment of ', WPI); ?><?php echo (!empty($wpi_settings['currency']['symbol'][$invoice['default_currency_code']]) ? $wpi_settings['currency']['symbol'][$invoice['default_currency_code']] : "$"); ?><span id="pay_button_value"><?php echo WPI_Functions::money_format($invoice['net']); ?></span></button>
+                          <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payer Information', WPI); ?></button>
                       </div>
                       <img style="display: none;" class="loader-img" src="<?php echo WPI_URL; ?>/core/css/images/processing-ajax.gif" alt="" />
                   </div>
