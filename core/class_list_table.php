@@ -7,6 +7,14 @@ require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
  * You should create child class
  */
 class WPI_List_Table extends WP_List_Table {
+  
+  public $column_ids;
+
+  public $aoColumnDefs;
+  
+  public $aoColumns;
+  
+  public $_args;
 
   /**
    * Table scope
@@ -31,14 +39,14 @@ class WPI_List_Table extends WP_List_Table {
       'ajax' => false
     ) );
 
-    $this->_args = $args;
-
-    if ( empty( $this->_args[ 'current_screen' ] ) ) {
-      if ( $this->_args[ 'ajax' ] != true ) {
+    if ( empty( $args[ 'current_screen' ] ) ) {
+      if ( $args[ 'ajax' ] != true ) {
         $screen = get_current_screen();
-        $this->_args[ 'current_screen' ] = $screen->id;
+        $args[ 'current_screen' ] = $screen->id;
       }
     }
+    
+    $this->_args = $args;
 
     //** Returns columns, hidden, sortable */
     list( $columns, $hidden, $sortable ) = $this->get_column_info();
@@ -518,7 +526,7 @@ class WPI_List_Table extends WP_List_Table {
    * @since 3.1.0
    * @access public
    */
-  function bulk_actions() {
+  function bulk_actions( $which = '' ) {
     if (is_null($this->_actions)) {
       $no_new_actions = $this->_actions = $this->get_bulk_actions();
       /**
