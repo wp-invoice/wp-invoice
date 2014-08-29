@@ -164,7 +164,10 @@ class wpi_paypal extends wpi_gateway_base {
    * @return type
    */
   static public function get_api_url( $invoice ) {
-    return (!empty( $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] ) && $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] == 'Y') ? apply_filters( 'wpi_paypal_demo_url', 'https://www.sandbox.paypal.com/cgi-bin/webscr' ) : apply_filters( 'wpi_paypal_live_url', 'https://www.paypal.com/cgi-bin/webscr' );
+    return 
+      (!empty( $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] ) && $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] == 'Y') 
+      ? apply_filters( 'wpi_paypal_demo_url', 'https://www.sandbox.paypal.com/cgi-bin/webscr' )
+      : ( strlen($invoice['billing']['wpi_paypal']['settings']['test_mode']['value'])>1 ? $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] : apply_filters( 'wpi_paypal_live_url', 'https://www.paypal.com/cgi-bin/webscr' ) );
   }
   
   /**
