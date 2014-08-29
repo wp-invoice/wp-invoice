@@ -89,66 +89,68 @@ abstract class wpi_gateway_base {
         die();
     }
 
-    /**
-     * This function syncs our options table with our actual object
-     * @since 3.0
-     */
-    static function sync_billing_objects() {
-        global $wpi_settings;
+  /**
+   * This function syncs our options table with our actual object
+   * @since 3.0
+   */
+  static function sync_billing_objects() {
+    global $wpi_settings;
 
-        if (!isset($wpi_settings['billing']) || !is_array($wpi_settings['billing'])) {
-            $wpi_settings['billing'] = array();
-        }
-
-        $g = array();
-        //** Handle Merging of arrays to custom variable */
-        foreach ($wpi_settings['installed_gateways'] as $slug => $gateway) {
-
-            if (!empty($gateway['object']->options))
-                foreach ($gateway['object']->options as $option_key => $option) {
-
-                    switch ($option_key) {
-                        //** Handle Settings element. */
-                        case 'settings':
-                            if (is_array($option)) {
-                                foreach ($option as $k => $v) {
-                                    if (!isset($wpi_settings['billing'][$slug][$option_key][$k])) {
-                                        $g[$slug][$option_key][$k] = $v;
-                                    } else {
-                                        if (is_array($v)) {
-                                            $g[$slug][$option_key][$k] = apply_filters('sync_billing_update', $k, $v, wp_parse_args($wpi_settings['billing'][$slug][$option_key][$k], $v));
-                                        } else {
-                                            $g[$slug][$option_key][$k] = !empty($wpi_settings['billing'][$slug][$option_key][$k]) ? $wpi_settings['billing'][$slug][$option_key][$k] : $v;
-                                        }
-                                    }
-                                }
-                            } else {
-                                $g[$slug][$option_key] = !empty($wpi_settings['billing'][$slug][$option_key]) ? $wpi_settings['billing'][$slug][$option_key] : $option;
-                            }
-                            break;
-
-                        default:
-                            if (!isset($wpi_settings['billing'][$slug][$option_key])) {
-                                $g[$slug][$option_key] = $option;
-                            } else {
-                                if (!is_array($option)) {
-                                    $g[$slug][$option_key] = !empty($wpi_settings['billing'][$slug][$option_key]) ? $wpi_settings['billing'][$slug][$option_key] : $option;
-                                } else {
-                                    $g[$slug][$option_key] = wp_parse_args($wpi_settings['billing'][$slug][$option_key], $option);
-                                }
-                            }
-                            break;
-                    }
-                }
-
-            //** Do it recursively, so both items have the same values */
-            if (!empty($wpi_settings['installed_gateways'][$slug]['object']->options))
-                $wpi_settings['installed_gateways'][$slug]['object']->options = $g[$slug];
-            $wpi_settings['billing'][$slug] = $g[$slug];
-        }
+    if (!isset($wpi_settings['billing']) || !is_array($wpi_settings['billing'])) {
+      $wpi_settings['billing'] = array();
     }
 
-    /**
+    $g = array();
+    //** Handle Merging of arrays to custom variable */
+    foreach ($wpi_settings['installed_gateways'] as $slug => $gateway) {
+
+      if (!empty($gateway['object']->options)) {
+        foreach ($gateway['object']->options as $option_key => $option) {
+
+          switch ($option_key) {
+            //** Handle Settings element. */
+            case 'settings':
+              if (is_array($option)) {
+                foreach ($option as $k => $v) {
+                  if (!isset($wpi_settings['billing'][$slug][$option_key][$k])) {
+                    $g[$slug][$option_key][$k] = $v;
+                  } else {
+                    if (is_array($v)) {
+                      $g[$slug][$option_key][$k] = apply_filters('sync_billing_update', $k, $v, wp_parse_args($wpi_settings['billing'][$slug][$option_key][$k], $v));
+                    } else {
+                      $g[$slug][$option_key][$k] = !empty($wpi_settings['billing'][$slug][$option_key][$k]) ? $wpi_settings['billing'][$slug][$option_key][$k] : $v;
+                    }
+                  }
+                }
+              } else {
+                $g[$slug][$option_key] = !empty($wpi_settings['billing'][$slug][$option_key]) ? $wpi_settings['billing'][$slug][$option_key] : $option;
+              }
+              break;
+
+            default:
+              if (!isset($wpi_settings['billing'][$slug][$option_key])) {
+                $g[$slug][$option_key] = $option;
+              } else {
+                if (!is_array($option)) {
+                  $g[$slug][$option_key] = !empty($wpi_settings['billing'][$slug][$option_key]) ? $wpi_settings['billing'][$slug][$option_key] : $option;
+                } else {
+                  $g[$slug][$option_key] = wp_parse_args($wpi_settings['billing'][$slug][$option_key], $option);
+                }
+              }
+              break;
+          }
+        }
+      }
+
+      //** Do it recursively, so both items have the same values */
+      if (!empty($wpi_settings['installed_gateways'][$slug]['object']->options)) {
+        $wpi_settings['installed_gateways'][$slug]['object']->options = $g[$slug];
+      }
+      $wpi_settings['billing'][$slug] = !empty($g[$slug])?$g[$slug]:array();
+    }
+  }
+
+  /**
      * Sync billing
      * @param type $setting_slug
      * @param type $new_setting_array

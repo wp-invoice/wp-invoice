@@ -35,7 +35,7 @@
               <div <?php echo $attrs; ?> class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
   <?php					$input_classes = implode(' ', apply_filters('wpi_spc::form_input_classes', array("input-large", "text-input", "wpi_checkout_payment_{$slug}_input"), $slug, $data, 'wpi_authorize') ); ?>
   <?php					$value = !empty($current_user->$slug) ? $current_user->$slug : '' ; ?>
-  <?php         if ( $slug == 'amount' ) { $value = $atts['amount']; } ?>
+  <?php         if ( $slug == 'amount' ) { $value = !empty($atts['amount'])?$atts['amount']:''; } ?>
   <?php					echo apply_filters("wpi_checkout_input_{$slug}", "<label class='control-label' for='wpi_checkout_payment_{$slug}'>{$data['label']}</label><div class='controls'><input ".implode(' ', apply_filters('wpi_spc::input_attributes', array("type='text'"),$slug))." name='wpi_checkout[billing][{$slug}]' value='".apply_filters('wpi_spc::input_value', esc_attr($value), $slug, $atts)."' id='wpi_checkout_payment_{$slug}_{$gateway_key}' class='{$input_classes}' /><span class='help-inline validation'></span></div>", $slug, $data); ?>
               </div>
             </li>

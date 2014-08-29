@@ -893,7 +893,7 @@ class WPI_Functions {
    *
    * @return boolean|\WPI_Invoice
    */
-  function get_user_invoices( $args ) {
+  static function get_user_invoices( $args ) {
     
     $defaults = array( 'user_id' => false, 'status' => false, 'type' => false );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );

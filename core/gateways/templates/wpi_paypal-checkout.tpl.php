@@ -96,7 +96,7 @@ $custom = array('obj' => 'spc');
 ?>
       <div <?php echo $attrs; ?> class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
         <?php $input_classes = implode(' ', apply_filters('wpi_spc::form_input_classes', array("input-large", "text-input", "wpi_checkout_payment_amount_input"), 'amount', array(), 'wpi_paypal') ); ?>
-        <?php echo apply_filters("wpi_spc::input_amount", "<label class='control-label' for='wpi_checkout_payment_amount'>".__('Enter Amount', WPI)."</label><div class='controls'><input type='text' value='". $atts['amount'] ."' name='wpi_checkout[billing][amount]' class='{$input_classes}' /><span class='help-inline validation'></span></div>", 'amount', array()); ?>
+        <?php echo apply_filters("wpi_spc::input_amount", "<label class='control-label' for='wpi_checkout_payment_amount'>".__('Enter Amount', WPI)."</label><div class='controls'><input type='text' value='". (!empty($atts['amount'])?$atts['amount']:'') ."' name='wpi_checkout[billing][amount]' class='{$input_classes}' /><span class='help-inline validation'></span></div>", 'amount', array()); ?>
       </div>
     </li>
   </ul>
