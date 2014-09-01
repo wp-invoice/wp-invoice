@@ -21,16 +21,6 @@ class wpi_payoneer extends wpi_gateway_base {
         'allow' => '',
         'default_option' => '',
         'settings' => array(
-            'type' => array(
-                'label' => __("Mode", WPI),
-                'description' => "Payment method mode",
-                'type' => 'select',
-                'value' => 'usd',
-                'data' => array(
-                    'usd' => "USD - ACH",
-                    'euro' => "EURO - IBAN/BIC"
-                )
-            ),
             'sign_up_text' => array(
                 'type' => "static",
                 'data' => __("Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-invoice/' target='_blank'>Sign up now</a>", WPI)
@@ -145,8 +135,10 @@ class wpi_payoneer extends wpi_gateway_base {
     $this->front_end_fields = apply_filters('wpi_crm_custom_fields', $this->front_end_fields, 'crm_data');
 
     if (!empty($this->front_end_fields)) {
+      
       //** For each section */
       foreach ($this->front_end_fields as $key => $value) {
+        
         //** If section is not empty */
         if (!empty($this->front_end_fields[$key])) {
           $html = '';
@@ -157,8 +149,10 @@ class wpi_payoneer extends wpi_gateway_base {
             <?php
             $html = ob_get_clean();
             echo $html;
+            
             //** For each field */
             foreach ($value as $field_slug => $field_data) {
+              
               //** Change field properties if we need */
               $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_interkassa');
               $html = '';

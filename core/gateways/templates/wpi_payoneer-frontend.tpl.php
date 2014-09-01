@@ -13,7 +13,8 @@
             <li class="section_title"><?php _e( "Payment Details", WPI ); ?></li>
             
             <?php 
-              switch( $invoice['billing'][$this->type]['settings']['type']['value'] ) {
+            
+              switch( strtolower( $invoice['default_currency_code'] ) ) {
                 
                 case 'usd':
                   
@@ -46,7 +47,7 @@
                   
                   break;
                 
-                case 'euro':
+                case 'eur':
                   
                   ?>
                   <li class="wpi_checkout_row">
@@ -77,7 +78,15 @@
                   
                   break;
                 
-                default: break;
+                default:
+                  
+                  ?>
+                  <li class="wpi_checkout_row">
+                    <?php echo sprintf( __( 'Sorry, no Payment Details for currency of %s. Please contact seller for the information.', WPI ), $invoice['default_currency_code'] ); ?>
+                  </li>
+                  <?php
+                  
+                  break;
                 
               } 
             ?>
