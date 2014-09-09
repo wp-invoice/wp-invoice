@@ -99,7 +99,6 @@ class WPI_Core {
         && $_REQUEST[ 'wpi_action' ] == 'download-wpi-backup'
         && wp_verify_nonce( $_REQUEST[ '_wpnonce' ], 'download-wpi-backup' )
       ) {
-        global $wpi_settings;
 
         $sitename = sanitize_key( get_bloginfo( 'name' ) );
         $filename = $sitename . '-wp-invoice.' . date( 'Y-m-d' ) . '.txt';
