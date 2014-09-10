@@ -138,7 +138,7 @@ namespace UsabilityDynamics\WPI {
           require_once( WPI_Path . '/lib/class_legacy.php' );
           
           //** Initiate the plugin */
-          $this->core = new \WPI_Core();
+          $this->core = \WPI_Core::getInstance();
         
         }
         
