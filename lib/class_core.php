@@ -212,7 +212,7 @@ class WPI_Core {
 
       //** Find out if a wpi directory exists in template folder and use that, if not, use default template */
       $wpi_settings[ 'frontend_template_path' ] = $this->Functions->template_path();
-      $wpi_settings[ 'default_template_path' ] = $this->path . '/static/template/';
+      $wpi_settings[ 'default_template_path' ] = WPI_STATIC_PATH . '/template/';
 
       //** has to be set here, WPI_Core is loaded too early */
       $this->current_user = $user_ID;

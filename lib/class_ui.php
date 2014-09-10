@@ -896,7 +896,7 @@ class WPI_UI {
     }
 
     /** Include our template functions */
-    include_once( 'wpi_template_functions.php' );
+    include_once( 'class_template_functions.php' );
 
     ob_start();
     if ( $invoice[ 'post_status' ] == 'paid' ) {
@@ -940,12 +940,21 @@ class WPI_UI {
     }
   }
 
+  /**
+   * 
+   * @global type $post
+   * @global type $invoice
+   * @global type $invoice_id
+   * @global array $wpi_settings
+   * @global type $wpi_invoice_object
+   * @return type
+   */
   function the_content_shortcode() {
     global $post, $invoice, $invoice_id, $wpi_settings, $wpi_invoice_object;
 
     $invoice = $wpi_invoice_object->data;
 
-    include_once( 'wpi_template_functions.php' );
+    include_once( 'class_template_functions.php' );
 
     ob_start();
     if ( WPI_Functions::wpi_use_custom_template( 'invoice_page.php' ) ) {
