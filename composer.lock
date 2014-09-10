@@ -64,7 +64,7 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "lib"
+                    "lib/classes"
                 ]
             },
             "license": [
@@ -79,7 +79,7 @@
                 "plugins",
                 "wordpress"
             ],
-            "time": "2014-09-05 16:55:34"
+            "time": "2014-09-10 11:27:54"
         },
         {
             "name": "usabilitydynamics/lib-utility",
@@ -147,7 +147,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2014-09-05 13:58:48"
+            "time": "2014-09-09 16:49:13"
         }
     ],
     "packages-dev": [],

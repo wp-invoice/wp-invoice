@@ -39,22 +39,6 @@ namespace UsabilityDynamics\WPI {
         
         //** Be sure we do not have errors. Do not initialize plugin if we have them. */
         if( !$this->has_errors() ) {
-        
-          //** Licenses Manager */
-          global $_ud_license_updater;
-          $this->client = new \UsabilityDynamics\UD_API\Bootstrap( $this->args );
-          $_ud_license_updater[ $this->plugin ] = $this->client;
-          
-          //** Init Settings */
-//          $this->settings = new Settings( array(
-//            'key'  => 'wpp_settings',
-//            'store'  => 'options',
-//            'data' => array(
-//              'name' => $this->name,
-//              'version' => $this->version,
-//              'domain' => $this->domain,
-//            )
-//          ));
           
           add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
           add_filter( "option_wpi_options", array( 'WPI_Functions', 'option_wpi_options' ) );
@@ -149,7 +133,7 @@ namespace UsabilityDynamics\WPI {
        *
        */
       public function define_schemas() {
-        $path = WPI_Path . 'static/schemas/';
+        $path = WPI_Path . '/static/schemas/';
         $this->schemas = array(
           //** Autoload Classes versions dependencies for Composer Modules */
           'dependencies' => $path . 'schema.dependencies.json',
@@ -166,6 +150,10 @@ namespace UsabilityDynamics\WPI {
        */
       public function activate() {
         
+        if ( !class_exists('\WPI_Functions') ) {
+          require_once( WPI_Path . '/lib/class_functions.php' );
+        }
+        
         //** check if scheduler already sheduled */
         if ( !wp_next_scheduled( 'wpi_hourly_event' ) ) {
 
@@ -178,22 +166,22 @@ namespace UsabilityDynamics\WPI {
           wp_schedule_event( time(), 'daily', 'wpi_update' );
         }
 
-        WPI_Functions::log( __( "Schedule created with plugin activation.", WPI ) );
+        \WPI_Functions::log( __( "Schedule created with plugin activation.", WPI ) );
 
         //** Try to create new schema tables */
-        WPI_Functions::create_new_schema_tables();
+        \WPI_Functions::create_new_schema_tables();
 
         //** Get previous activated version */
         $current_version = get_option( 'wp_invoice_version' );
 
         //** If no version found at all, we do new install */
         if ( $current_version == WP_INVOICE_VERSION_NUM ) {
-          WPI_Functions::log( __( "Plugin activated. No older versions found, installing version ", WPI ) . WP_INVOICE_VERSION_NUM . "." );
+          \WPI_Functions::log( __( "Plugin activated. No older versions found, installing version ", WPI ) . WP_INVOICE_VERSION_NUM . "." );
         } else if ( (int) $current_version < 3 ) {
 
           //** Determine if legacy data exist */
-          WPI_Legacy::init();
-          WPI_Functions::log( __( "Plugin activated.", WPI ) );
+          \WPI_Legacy::init();
+          \WPI_Functions::log( __( "Plugin activated.", WPI ) );
         }
 
         //** Update version */
@@ -208,10 +196,13 @@ namespace UsabilityDynamics\WPI {
        *
        */
       public function deactivate() {
+        if ( !class_exists('\WPI_Functions') ) {
+          require_once( WPI_Path . '/lib/class_functions.php' );
+        }
         wp_clear_scheduled_hook( 'wpi_hourly_event' );
         wp_clear_scheduled_hook( 'wpi_update' );
         wp_clear_scheduled_hook( 'wpi_spc_remove_abandoned_transactions' );
-        WPI_Functions::log( __( "Plugin deactivated.", WPI ) );
+        \WPI_Functions::log( __( "Plugin deactivated.", WPI ) );
       }
 
     }
