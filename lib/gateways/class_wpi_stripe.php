@@ -222,6 +222,8 @@ class wpi_stripe extends wpi_gateway_base {
         'error' => false,
         'data' => null
       );
+      
+      $data = array();
 
       if (isset($_POST['stripeToken'])) {
         $token = $_POST['stripeToken'];
@@ -331,7 +333,7 @@ class wpi_stripe extends wpi_gateway_base {
 
               $amount = (float)($charge->amount/100);
               //** Add payment amount */
-              $event_note = WPI_Functions::currency_format($amount, $invoice['invoice_id']) . __(" paid via STRIPE", WPI);
+              $event_note = WPI_Functions::currency_format((float)$amount, $invoice['invoice_id']) . __(" paid via STRIPE", WPI);
               $event_amount = $amount;
               $event_type = 'add_payment';
 
