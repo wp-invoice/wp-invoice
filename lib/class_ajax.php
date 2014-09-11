@@ -127,6 +127,8 @@ class WPI_Ajax {
     }
 
     $wp_list_table->prepare_items( $wpi_search );
+    
+    $data = array();
 
     if ( $wp_list_table->has_items() ) {
       foreach ( $wp_list_table->items as $count => $item ) {
