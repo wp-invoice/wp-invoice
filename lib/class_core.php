@@ -74,7 +74,7 @@ class WPI_Core {
       $wpi_settings[ 'links' ][ 'overview_page' ] = 'admin.php?page=wpi_main';
       $wpi_settings[ 'links' ][ 'settings_page' ] = 'admin.php?page=wpi_page_settings';
       $wpi_settings[ 'links' ][ 'manage_invoice' ] = 'admin.php?page=wpi_page_manage_invoice';
-      $wpi_settings[ 'admin' ][ 'ui_path' ] = ( $this->options[ 'use_custom_templates' ] == "true" && is_dir( STYLESHEETPATH . "/{WPI_Dir}" ) ? STYLESHEETPATH . "/{WPI_Dir}" : $this->path . "/lib/ui/" );
+      $wpi_settings[ 'admin' ][ 'ui_path' ] = ( $this->options[ 'use_custom_templates' ] == "true" && is_dir( STYLESHEETPATH . "/{WPI_Dir}" ) ? STYLESHEETPATH . "/{WPI_Dir}" : $this->path . "/ui/" );
 
       //** Load Payment gateways */
       $this->Functions->load_gateways();
