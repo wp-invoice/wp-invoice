@@ -1220,7 +1220,7 @@ class WPI_UI {
    *
    * @author korotkov@ud
    */
-  function wp_crm_data_structure_attributes( $args ) {
+  static function wp_crm_data_structure_attributes( $args ) {
 
     global $wp_crm;
 
@@ -1236,7 +1236,7 @@ class WPI_UI {
       ?>
       <li class="wp_crm_advanced_configuration">
         <input id="<?php echo $row_hash; ?>_no_edit_wpi" value='true'
-               type="checkbox"  <?php checked( $wp_crm[ 'data_structure' ][ 'attributes' ][ $slug ][ 'wp_invoice' ], 'true' ); ?>
+               type="checkbox"  <?php checked( !empty($wp_crm[ 'data_structure' ][ 'attributes' ][ $slug ][ 'wp_invoice' ])?$wp_crm[ 'data_structure' ][ 'attributes' ][ $slug ][ 'wp_invoice' ]:'false', 'true' ); ?>
                name="wp_crm[data_structure][attributes][<?php echo $slug; ?>][wp_invoice]"/>
         <label for="<?php echo $row_hash; ?>_no_edit_wpi"><?php _e( 'WP-Invoice custom field', WPI ); ?></label>
       </li>
@@ -1252,7 +1252,7 @@ class WPI_UI {
    * @return array
    * @author korotkov@ud
    */
-  function wp_crm_contextual_help( $data ) {
+  static function wp_crm_contextual_help( $data ) {
 
     $data[ 'WP-Invoice Integration' ][ ] = __( '<h3>WP-Invoice</h3>', WPI );
     $data[ 'WP-Invoice Integration' ][ ] = __( '<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>', WPI );
