@@ -1,0 +1,263 @@
+/** Default WP-Invoice styles */
+#wp_invoice_process_wait {
+  margin: 0;
+  float: left;
+}
+.wp_invoice_business_name {
+  font-weight: bold;
+}
+.wp_invoice_business_phone {
+  font-style: italic;
+}
+.wpi_left_col,
+.wpi_right_col {
+  float: left;
+  width: 425px;
+}
+
+.wpi_left_col {
+  margin-right: 15px;
+}
+
+div.invoice_top_message  {
+  margin-bottom: 10px;
+}
+
+div.wpi_payment_form  {
+
+}
+
+div.wpi_payment_form  ul.wpi_inline_fields  li {
+  display: inline;
+}
+
+div.wpi_payment_form  ul.wpi_inline_fields  li label {
+  width: auto;
+  float: none;
+}
+
+div.wpi_payment_form  ul.wpi_checkout_block{
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 17px;
+    padding: 0;
+    margin-left: 0px;
+    width: 100%;
+}
+
+div.wpi_payment_form ul,
+div.wpi_payment_form ol {
+  margin:0;
+  padding:0;
+}
+
+table.invoice_history .time {
+  min-width: 120px;
+
+}
+
+div.wpi_payment_form div.partial_payments input[type=radio] {
+  float: left;
+  margin:5px 0 0 0;
+  padding:0;
+}
+
+div.wpi_payment_form div.partial_payments label {
+  width: auto;
+  margin-left: 5px;
+  margin-right: 0px;
+
+}
+div.wpi_payment_form div.partial_payments  #my_amount{
+  position: relative;
+  left: 3px;
+}
+
+
+div.wpi_payment_form  li {
+    min-height: 2em;
+    list-style: none;
+}
+
+div.wpi_payment_form  li.section_title {
+    border-top: 1px dotted #E0E0E0;
+    font-size: 1.5em;
+    padding: 16px 0 0;
+    clear: both;
+}
+
+
+div.wpi_payment_form  li span.validation {
+    color: #624343;
+    font-size: 0.8em;
+    padding-left: 9px;
+}
+
+.wp_invoice_select_payment_method label {
+    float: left;
+    position: relative;
+    width: 140px;
+}
+
+div.wpi_payment_form  .online_payment_form_wrapper li label {
+    float: left;
+    position: relative;
+    width: 140px;
+}
+
+div.wpi_payment_form  select,
+div.wpi_payment_form  .text-input {
+    margin: 3px 0;
+    padding: 3px;
+}
+
+div.wpi_payment_form  .paypal_button {
+  margin-top: 15px;
+}
+
+
+div.wpi_payment_form  .text-input.wpi_error,
+div.wpi_payment_form  .input_field.wpi_error {
+  border: 1px solid #AE1C1C !important;
+}
+
+div.wpi_payment_form  input.wpi_checkout_input_error{
+  background: none repeat scroll 0 0 #F9EBEB;
+  border: 1px solid #961C1C;
+}
+
+div.wpi_payment_form  input.wpi_checkout_process_payment {
+      box-shadow: 0 0 13px #A3A1A1;
+    clear: both;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 14px 8px 9px 132px;
+    padding: 5px 16px;
+}
+
+div.wpi_payment_form  .total_price  {
+    font-size: 1.3em;
+    position: relative;
+    top: -8px;
+}
+
+div.wpi_payment_form  .total_price  {
+   color: #565555;
+    font-size: 1.4em;
+    font-weight: bold;
+    position: relative;
+    top: -9px;
+    left: 3px;
+}
+
+div.wpi_payment_form  .wpi_checkout_payment_response  {
+  display:none;
+  background: none repeat scroll 0 0 #FFFDEE;
+  border: 1px solid #CDC5C5;
+  clear: both;
+  height: 41px;
+  margin-left: 130px;
+  padding: 9px;
+  width: 219px;
+}
+
+
+
+form.wpi_checkout {
+  width: 100%;
+}
+
+form.wpi_checkout ul.wpi_checkout_block,
+div.wpi_checkout_payment_box ul.wpi_checkout_block {
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 17px;
+    padding: 0;
+    margin-left: 0px;
+    width: 100%;
+}
+
+form.wpi_checkout li,
+div.wpi_checkout_payment_box li {
+    min-height: 2em;
+    list-style: none;
+    clear:both;
+}
+
+form.wpi_checkout li.section_title,
+div.wpi_checkout_payment_box li.section_title {
+    border-top: 1px dotted #E0E0E0;
+    font-size: 1.5em;
+    padding: 16px 0 0;
+    clear: both;
+}
+
+
+form.wpi_checkout li span.validation {
+    color: #624343;
+    font-size: 0.8em;
+    padding-left: 9px;
+}
+
+form.wpi_checkout li label,
+div.wpi_checkout_payment_box li label {
+    float: left;
+    position: relative;
+    top: 6px;
+    width: 140px;
+}
+
+form.wpi_checkout .text-input,
+div.wpi_checkout_payment_box select {
+    color: #3E3E3E;
+    margin: 3px 0;
+    padding: 3px;
+    width: 230px;
+}
+form.wpi_checkout .text-input.small {
+	width: 68px;
+}
+form.wpi_checkout input.wpi_checkout_input_error{
+  background: none repeat scroll 0 0 #F9EBEB;
+  border: 1px solid #961C1C;
+}
+
+form.wpi_checkout input.wpi_checkout_process_payment {
+      box-shadow: 0 0 13px #A3A1A1;
+    clear: both;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 14px 8px 9px 132px;
+    padding: 5px 16px;
+}
+
+form.wpi_checkout .total_price  {
+    font-size: 1.3em;
+    position: relative;
+    top: -8px;
+}
+
+form.wpi_checkout .total_price  {
+   color: #565555;
+    font-size: 1.4em;
+    font-weight: bold;
+    position: relative;
+    top: -9px;
+    left: 3px;
+}
+
+form.wpi_checkout .wpi_checkout_payment_response  {
+  display:none;
+  background: none repeat scroll 0 0 #FFFDEE;
+  border: 1px solid #CDC5C5;
+  clear: both;
+  margin-left: 130px;
+  padding: 9px;
+  width: 219px;
+}
+
+small.notice {
+  font-size: 0.7em;
+}

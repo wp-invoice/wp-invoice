@@ -198,8 +198,8 @@ class WPI_UI {
     }
 
     //* Load Conditional Metabox Files */
-    if ( file_exists( WPI_Path . "/lib/ui/metabox/{$screen_id}.php" ) ) {
-      include_once WPI_Path . "/lib/ui/metabox/{$screen_id}.php";
+    if ( file_exists( ud_get_wp_invoice()->path( "lib/ui/metabox/{$screen_id}.php", 'dir' ) ) ) {
+      include_once( ud_get_wp_invoice()->path( "lib/ui/metabox/{$screen_id}.php", 'dir' ) );
     }
   }
 

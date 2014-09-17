@@ -4,46 +4,8 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d26bb6c7331ea23f1744a7cf7d94311",
+    "hash": "39eb076043f7653161d2ad625504bb57",
     "packages": [
-        {
-            "name": "usabilitydynamics/lib-settings",
-            "version": "master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:UsabilityDynamics/lib-settings",
-                "reference": "master"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/usabilitydynamics/lib-settings/archive/master.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "usabilitydynamics/lib-utility": "*"
-            },
-            "require-dev": {
-                "justinrainbow/json-schema": "1.1.*"
-            },
-            "type": "library",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "scripts/settings.js"
-                    ],
-                    "templates": [
-                        "views/new-installation.xhtml"
-                    ]
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lib"
-                ]
-            },
-            "time": "2014-06-02 15:22:26"
-        },
         {
             "name": "usabilitydynamics/lib-ud-api-client",
             "version": "master",
@@ -79,7 +41,7 @@
                 "plugins",
                 "wordpress"
             ],
-            "time": "2014-09-10 11:27:54"
+            "time": "2014-09-11 15:55:32"
         },
         {
             "name": "usabilitydynamics/lib-utility",
@@ -113,7 +75,7 @@
                     "lib"
                 ]
             },
-            "time": "2014-09-06 09:50:48"
+            "time": "2014-09-17 14:53:01"
         },
         {
             "name": "usabilitydynamics/lib-wp-bootstrap",
@@ -147,13 +109,15 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2014-09-09 16:49:13"
+            "time": "2014-09-17 15:15:35"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": null,
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "codeclimate/php-test-reporter": 20
+    },
     "platform": {
         "php": ">=5.3"
     },

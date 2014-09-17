@@ -92,7 +92,7 @@ class WPI_Ajax {
   static function wpi_list_table() {
     global $wpi_settings;
 
-    include WPI_Path . '/lib/ui/class_wpi_object_list_table.php';
+    require_once( ud_get_wp_invoice()->path( 'lib/ui/class_wpi_object_list_table.php', 'dir' ) );
 
     //** Get the paramters we care about */
     $sEcho = $_REQUEST[ 'sEcho' ];
@@ -254,7 +254,7 @@ class WPI_Ajax {
   static function get_notification_email() {
     global $wpi_settings, $invoice;
 
-    require_once WPI_Path . '/lib/class_template_functions.php';
+    require_once( ud_get_wp_invoice()->path( 'lib/class_template_functions.php', 'dir' ) );
 
     $template_id = intval( $_REQUEST[ 'template_id' ] );
     $invoice_id = intval( $_REQUEST[ 'wpi_invoiceid' ] );

@@ -196,7 +196,7 @@ class WPI_Core {
   function init() {
     global $user_ID, $wpi_settings;
 
-    load_plugin_textdomain(WPI, false, basename(WPI_Path) . '/static/languages');
+    load_plugin_textdomain( WPI, false, basename( ud_get_wp_invoice()->path( '', 'dir' ) ) . '/static/languages' );
 
     //** Download backup of configuration BEFORE any additional info added to it by filters */
     if (isset($_REQUEST['page']) && $_REQUEST['page'] == 'wpi_page_settings' && isset($_REQUEST['wpi_action']) && $_REQUEST['wpi_action'] == 'download-wpi-backup' && wp_verify_nonce($_REQUEST['_wpnonce'], 'download-wpi-backup')
