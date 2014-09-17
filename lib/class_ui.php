@@ -218,7 +218,7 @@ class WPI_UI {
      * If plugin just installed
      */
     if ( $wpi_settings[ 'first_time_setup_ran' ] == 'false' ) {
-      $file_path = apply_filters( 'wpi_page_loader_path', WPI_Path . "/lib/ui/first_time_setup.php", 'first_time_setup', WPI_Path . "/lib/ui/" );
+      $file_path = apply_filters( 'wpi_page_loader_path', ud_get_wp_invoice()->path( 'lib/ui/first_time_setup.php', 'dir' ), 'first_time_setup', ud_get_wp_invoice()->path( 'lib/ui/', 'dir' ) );
     } else {
       /**
        * Check if 'web_invoice_page' exists
@@ -240,7 +240,7 @@ class WPI_UI {
         echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI ) . '</p></div>';
       }
 
-      $file_path = apply_filters( 'wpi_page_loader_path', WPI_Path . "/lib/ui/{$current_screen->base}.php", $current_screen->base, WPI_Path . "/lib/ui/" );
+      $file_path = apply_filters( 'wpi_page_loader_path', ud_get_wp_invoice()->path( "lib/ui/{$current_screen->base}.php", 'dir' ), $current_screen->base, ud_get_wp_invoice()->path( "lib/ui/", 'dir' ) );
     }
 
     if ( file_exists( $file_path ) )
