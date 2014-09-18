@@ -314,7 +314,7 @@ class WPI_Core {
 
     //** Find out if a wpi directory exists in template folder and use that, if not, use default template */
     $wpi_settings['frontend_template_path'] = $this->Functions->template_path();
-    $wpi_settings['default_template_path'] = WPI_STATIC_PATH . '/template/';
+    $wpi_settings['default_template_path'] = ud_get_wp_invoice()->path( 'static/views/', 'dir' );
 
     //** has to be set here, WPI_Core is loaded too early */
     $this->current_user = $user_ID;
@@ -344,41 +344,40 @@ class WPI_Core {
     if (!get_user_option("wpi_ui_currency_options")) {
       update_user_option($user_ID, 'wpi_ui_currency_options', 'true', true);
     }
-
-    wp_register_script('jquery.bind', WPI_STATIC_URL . "/js/jquery.bind.js", array('jquery'));
-    wp_register_script('jquery.maskedinput', WPI_STATIC_URL . "/js/jquery.maskedinput.js", array('jquery'));
-    wp_register_script('jquery.form', WPI_STATIC_URL . "/js/jquery.form.js", array('jquery'));
+            
+    wp_register_script('jquery.bind', ud_get_wp_invoice()->path( "static/scripts/jquery.bind.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.maskedinput', ud_get_wp_invoice()->path( "static/scripts/jquery.maskedinput.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.form', ud_get_wp_invoice()->path( "static/scripts/jquery.form.js", 'url' ), array('jquery'));
     wp_register_script('jquery.validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js', array('jquery'));
-    wp_register_script('jquery.smookie', WPI_STATIC_URL . "/js/jquery.smookie.js", array('jquery'));
-    wp_register_script('jquery.formatCurrency', WPI_STATIC_URL . "/js/jquery.formatCurrency.js", array('jquery'));
-    wp_register_script('jquery.number.format', WPI_STATIC_URL . "/js/jquery.number.format.js", array('jquery'));
-    wp_register_script('jquery.impromptu', WPI_STATIC_URL . "/js/jquery-impromptu.1.7.js", array('jquery'));
-    wp_register_script('jquery.field', WPI_STATIC_URL . "/js/jquery.field.min.js", array('jquery'));
-    wp_register_script('wpi-gateways', WPI_Gateways_URL . '/js/wpi_gateways.js.php', array('jquery'));
+    wp_register_script('jquery.smookie', ud_get_wp_invoice()->path( "static/scripts/jquery.smookie.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.formatCurrency', ud_get_wp_invoice()->path( "static/scripts/jquery.formatCurrency.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.number.format', ud_get_wp_invoice()->path( "static/scripts/jquery.number.format.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.impromptu', ud_get_wp_invoice()->path( "static/scripts/jquery-impromptu.1.7.js", 'url' ), array('jquery'));
+    wp_register_script('jquery.field', ud_get_wp_invoice()->path( "static/scripts/jquery.field.min.js", 'url' ), array('jquery'));
+    wp_register_script('wpi-gateways', ud_get_wp_invoice()->path( "lib/gateways/js/wpi_gateways.js.php", 'url' ), array('jquery'));
     wp_register_script('jsapi', 'https://www.google.com/jsapi');
-    wp_register_script('jquery-data-tables', WPI_URL . "/third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
-    wp_register_script('wpi.checkout', WPI_STATIC_URL . "/js/wpi-checkout.js", array('jquery'));
-    wp_register_script('wpi_select2_js', WPI_URL . '/third-party/select2/select2.js', array('jquery'));
-
-    wp_register_style('wpi-jquery-data-tables', WPI_STATIC_URL . "/css/wpi-data-tables.css");
-    wp_register_style('wpi_select2_css', WPI_URL . '/third-party/select2/select2.css', array());
+    wp_register_script('jquery-data-tables', ud_get_wp_invoice()->path( "lib/third-party/dataTables/jquery.dataTables.min.js", 'url' ), array('jquery'));
+    wp_register_script('wpi.checkout', ud_get_wp_invoice()->path( "static/scripts/wpi-checkout.js", 'url' ), array('jquery'));
+    wp_register_script('wpi_select2_js', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.js", 'url' ), array('jquery'));
+    wp_register_style('wpi-jquery-data-tables', ud_get_wp_invoice()->path( "static/styles/wpi-data-tables.css", 'url' ));
+    wp_register_style('wpi_select2_css', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.css", 'url' ), array());
 
     //** Masure dependancies are identified in case this script is included in other pages */
-    wp_register_script('wp-invoice-events', WPI_STATIC_URL . "/js/wpi-events.js", array(
+    wp_register_script('wp-invoice-events', ud_get_wp_invoice()->path( "static/scripts/wpi-events.js", 'url' ), array(
         'jquery',
         'jquery.formatCurrency',
         'jquery-ui-core'
     ));
 
-    wp_register_script('wp-invoice-functions', WPI_STATIC_URL . "/js/wpi-functions.js", array('wp-invoice-events'));
+    wp_register_script('wp-invoice-functions', ud_get_wp_invoice()->path( "static/scripts/wpi-functions.js", 'url' ), array('wp-invoice-events'));
 
     //** Find and register theme-specific style if a custom wp_properties.css does not exist in theme */
     if (!$this->Functions->is_true($wpi_settings['do_not_load_theme_specific_css']) && $this->Functions->has_theme_specific_stylesheet()) {
-      wp_register_style('wpi-theme-specific', WPI_STATIC_URL . "/template/theme-specific/" . get_option('template') . ".css", array(), WP_INVOICE_VERSION_NUM);
+      wp_register_style('wpi-theme-specific', ud_get_wp_invoice()->path( "static/views/theme-specific/".get_option('template').".css", 'url' ), array(), WP_INVOICE_VERSION_NUM);
     }
 
     if ($this->Functions->is_true($wpi_settings['use_css'])) {
-      wp_register_style('wpi-default-style', WPI_STATIC_URL . "/template/wpi-default-style.css", array(), WP_INVOICE_VERSION_NUM);
+      wp_register_style('wpi-default-style', ud_get_wp_invoice()->path( "static/views/wpi-default-style.css", 'url' ), array(), WP_INVOICE_VERSION_NUM);
     }
   }
 
@@ -553,7 +552,7 @@ class WPI_Core {
         wp_enqueue_script('wpi-frontend-scripts');
 
         if (!empty($wpi_settings['ga_event_tracking']) && $wpi_settings['ga_event_tracking']['enabled'] == 'true') {
-          wp_enqueue_script('wpi-ga-tracking', WPI_STATIC_URL . "/js/wpi.ga.tracking.js", array('jquery'));
+          wp_enqueue_script('wpi-ga-tracking', ud_get_wp_invoice()->path( "static/scripts/wpi.ga.tracking.js", 'url' ), array('jquery'));
         }
 
         //** Apply Filters to the invoice description */

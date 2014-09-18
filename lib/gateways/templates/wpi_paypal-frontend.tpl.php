@@ -57,7 +57,7 @@
           <div class="controls">
             <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payment of ', WPI); ?><?php echo (!empty($wpi_settings['currency']['symbol'][$invoice['default_currency_code']]) ? $wpi_settings['currency']['symbol'][$invoice['default_currency_code']] : "$"); ?><span id="pay_button_value"><?php echo WPI_Functions::money_format($invoice['net']); ?></span></button>
           </div>
-          <img style="display: none;" class="loader-img" src="<?php echo WPI_STATIC_URL; ?>/css/images/processing-ajax.gif" alt="" />
+          <img style="display: none;" class="loader-img" src="<?php echo ud_get_wp_invoice()->path( "static/styles/images/processing-ajax.gif", 'url' ); ?>" alt="" />
         </div>
       </li>
 		</ul>

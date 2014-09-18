@@ -99,7 +99,7 @@
                       <div class="controls">
                           <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payer Information', WPI); ?></button>
                       </div>
-                      <img style="display: none;" class="loader-img" src="<?php echo WPI_STATIC_URL; ?>/css/images/processing-ajax.gif" alt="" />
+                      <img style="display: none;" class="loader-img" src="<?php echo ud_get_wp_invoice()->path( "static/styles/images/processing-ajax.gif", 'url' ); ?>" alt="" />
                   </div>
               </li>
           </ul>

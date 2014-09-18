@@ -32,14 +32,6 @@ if ( !defined( 'WPI_URL' ) ) {
   define( 'WPI_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 }
 
-if ( !defined( 'WPI_STATIC_URL' ) ) {
-  define( 'WPI_STATIC_URL', WPI_URL . '/static' );
-}
-
-if ( !defined( 'WPI_STATIC_PATH' ) ) {
-  define( 'WPI_STATIC_PATH', WPI_Path . '/static' );
-}
-
 //** Directory paths */
 if ( !defined( 'WPI_Gateways_Path' ) ) {
   define( 'WPI_Gateways_Path', WPI_Path . '/lib/gateways' );

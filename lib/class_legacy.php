@@ -888,7 +888,7 @@ class WPI_Web_Invoice_Importer {
       ?>
       <p>Web Invoice Plugin's data was found.</p>
       <p>You can <a class="wpi_run_web_invoice_import" href="javascript:void(0);">import</a> all Web Invoice settings and invoices to WP-Invoice (the current WP-Invoice settings will be rewrited) or <a class="wpi_close_web_invoice_import_notice" href="javascript:void(0);">close this notice</a> (It will not be shown next time).</p>
-      <p class="import-loading" style="display:none;"><img src="<?php echo WPI_STATIC_URL ?>/css/images/ajax-loader-blue.gif" alt=""/></p>
+      <p class="import-loading" style="display:none;"><img src="<?php echo ud_get_wp_invoice()->path( "static/styles/images/ajax-loader-blue.gif", 'url' ) ?>" alt=""/></p>
       <script type="text/javascript">
         jQuery( document ).ready( function () {
           //* Run import */

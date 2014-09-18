@@ -602,8 +602,8 @@ class WPI_Functions {
   static function has_theme_specific_stylesheet() {
 
     $theme_slug = get_option( 'template' );
-
-    if ( file_exists( WPI_STATIC_PATH . "/template/theme-specific/{$theme_slug}.css" ) ) {
+    
+    if ( file_exists( ud_get_wp_invoice()->path( "static/views/theme-specific/{$theme_slug}.css", 'dir' ) ) ) {
       return true;
     }
 
@@ -1783,7 +1783,7 @@ class WPI_Functions {
       'rewrite' => array( 'slug' => $wp_properties[ 'configuration' ][ 'base_slug' ] ),
       'query_var' => $wp_properties[ 'configuration' ][ 'base_slug' ],
       'supports' => array( 'title', 'editor', 'thumbnail' ),
-      'menu_icon' => WPI_STATIC_URL . "/css/images/wp_invoice.png"
+      'menu_icon' => ud_get_wp_invoice()->path( "static/styles/images/wp_invoice.png", 'url' )
     ) );
 
     register_post_status( 'archived', array(

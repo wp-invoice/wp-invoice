@@ -17,7 +17,7 @@ class WPI_UI {
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), WPI_STATIC_URL . "/css/images/wp_invoice.png" );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), ud_get_wp_invoice()->path( "static/styles/images/wp_invoice.png", 'url' ) );
     $wpi_settings[ 'pages' ][ 'main' ] = add_submenu_page( 'wpi_main', __( 'View All', WPI ), __( 'View All', WPI ), $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ) );
     $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', WPI ), __( 'Add New', WPI ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
     $wpi_settings[ 'pages' ][ 'reports' ] = add_submenu_page( 'wpi_main', __( 'Reports', WPI ), __( 'Reports', WPI ), $capability, 'wpi_page_reports', array( 'WPI_UI', 'page_loader' ) );
@@ -174,27 +174,27 @@ class WPI_UI {
     }
 
     //* Load Global Script and CSS Files */
-    if ( file_exists( WPI_STATIC_PATH . '/css/jquery-ui-1.8.21.custom.css' ) ) {
-      wp_register_style( 'wpi-custom-jquery-ui', WPI_STATIC_URL . '/css/jquery-ui-1.8.21.custom.css' );
+    if ( file_exists( ud_get_wp_invoice()->path( 'static/styles/jquery-ui-1.8.21.custom.css', 'dir' ) ) ) {
+      wp_register_style( 'wpi-custom-jquery-ui', ud_get_wp_invoice()->path( 'static/styles/jquery-ui-1.8.21.custom.css', 'url' ) );
     }
 
-    if ( file_exists( WPI_STATIC_PATH . '/css/wpi-admin.css' ) ) {
-      wp_register_style( 'wpi-admin-css', WPI_STATIC_URL . '/css/wpi-admin.css', array(), WP_INVOICE_VERSION_NUM );
+    if ( file_exists( ud_get_wp_invoice()->path( 'static/styles/wpi-admin.css', 'dir' ) ) ) {
+      wp_register_style( 'wpi-admin-css', ud_get_wp_invoice()->path( 'static/styles/wpi-admin.css', 'url' ), array(), WP_INVOICE_VERSION_NUM );
     }
-
+    
     //* Load Page Conditional Script and CSS Files if they exist*/
-    if ( file_exists( WPI_STATIC_PATH . "/css/{$screen_id}.css" ) ) {
-      wp_register_style( 'wpi-this-page-css', WPI_STATIC_URL . "/css/{$screen_id}.css", array( 'wpi-admin-css' ), WP_INVOICE_VERSION_NUM );
+    if ( file_exists( ud_get_wp_invoice()->path( "static/styles/{$screen_id}.css", 'dir' ) ) ) {
+      wp_register_style( 'wpi-this-page-css', ud_get_wp_invoice()->path( "static/styles/{$screen_id}.css", 'url' ), array( 'wpi-admin-css' ), WP_INVOICE_VERSION_NUM );
     }
 
     //* Load IE 7 fix styles */
-    if ( file_exists( WPI_STATIC_PATH . "/css/ie7.css" ) && $browser[ 'name' ] == 'ie' && $browser[ 'version' ] == 7 ) {
-      wp_register_style( 'wpi-ie7', WPI_STATIC_URL . "/css/ie7.css", array( 'wpi-admin-css' ), WP_INVOICE_VERSION_NUM );
+    if ( file_exists( ud_get_wp_invoice()->path( "static/styles/ie7.css", 'dir' ) ) && $browser[ 'name' ] == 'ie' && $browser[ 'version' ] == 7 ) {
+      wp_register_style( 'wpi-ie7', ud_get_wp_invoice()->path( "static/styles/ie7.css", 'url' ), array( 'wpi-admin-css' ), WP_INVOICE_VERSION_NUM );
     }
 
     //* Load Page Conditional Script and CSS Files if they exist*/
-    if ( file_exists( WPI_STATIC_PATH . "/js/{$screen_id}.js" ) ) {
-      wp_register_script( 'wpi-this-page-js', WPI_STATIC_URL . "/js/{$screen_id}.js", array( 'wp-invoice-events' ), WP_INVOICE_VERSION_NUM );
+    if ( file_exists( ud_get_wp_invoice()->path( "static/scripts/{$screen_id}.js", 'dir' ) ) ) {
+      wp_register_script( 'wpi-this-page-js', ud_get_wp_invoice()->path( "static/scripts/{$screen_id}.js", 'url' ), array( 'wp-invoice-events' ), WP_INVOICE_VERSION_NUM );
     }
 
     //* Load Conditional Metabox Files */
