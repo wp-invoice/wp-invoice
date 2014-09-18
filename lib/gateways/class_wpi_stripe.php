@@ -238,7 +238,7 @@ class wpi_stripe extends wpi_gateway_base {
       try {
 
         if ( !class_exists('Stripe') ) {
-          require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+          require_once( ud_get_wp_invoice()->path( "lib/third-party/stripe/lib/Stripe.php", 'dir' ) );
         }
         $pk = trim($invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value']);
 
@@ -427,7 +427,7 @@ class wpi_stripe extends wpi_gateway_base {
           }
 
           if ( !class_exists('Stripe') ) {
-            require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+            require_once( ud_get_wp_invoice()->path( "lib/third-party/stripe/lib/Stripe.php", 'dir' ) );
           }
           $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 
@@ -461,7 +461,7 @@ class wpi_stripe extends wpi_gateway_base {
           }
 
           if ( !class_exists('Stripe') ) {
-            require_once( WPI_Path . '/third-party/stripe/lib/Stripe.php' );
+            require_once( ud_get_wp_invoice()->path( "lib/third-party/stripe/lib/Stripe.php", 'dir' ) );
           }
           $pk = trim($invoice_object->data['billing']['wpi_stripe']['settings'][$invoice_object->data['billing']['wpi_stripe']['settings']['mode']['value'] . '_secret_key']['value']);
 

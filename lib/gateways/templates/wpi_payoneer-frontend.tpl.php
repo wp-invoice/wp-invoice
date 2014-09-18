@@ -1,4 +1,4 @@
-<?php include_once WPI_Path.'/lib/class_template_functions.php'; ?>
+<?php require_once( ud_get_wp_invoice()->path( "lib/class_template_functions.php", 'dir' ) ); ?>
 <form action="" method="POST" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
     <?php if ( !is_recurring() ): ?>
       <input type="hidden" id="wpi_action" name="wpi_action" value="wpi_gateway_process_payment" />

@@ -366,8 +366,8 @@ class wpi_authorize extends wpi_gateway_base {
     global $invoice, $wpi_settings;
 
     //** Require our external libraries */
-    require_once( WPI_Path . '/third-party/authorize.net/authnet.class.php' );
-    require_once( WPI_Path . '/third-party/authorize.net/authnetARB.class.php' );
+    require_once( ud_get_wp_invoice()->path( "lib/third-party/authorize.net/authnet.class.php", 'dir' ) );
+    require_once( ud_get_wp_invoice()->path( "lib/third-party/authorize.net/authnetARB.class.php", 'dir' ) );
 
     // Pull in the CCard data from the request, and other variables we'll use
     // If data passed then use it. Otherwise use data from request.

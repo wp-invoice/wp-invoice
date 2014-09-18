@@ -6,7 +6,7 @@
  * @since 3.0
  * @access private
  */
-require_once(WPI_Path . '/lib/class_list_table.php');
+require_once( ud_get_wp_invoice()->path( "lib/class_list_table.php", 'dir' ) );
 
 class WPI_Object_List_Table extends WPI_List_Table {
 

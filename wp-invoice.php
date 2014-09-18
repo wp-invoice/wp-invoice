@@ -27,11 +27,6 @@ if ( !defined( 'WPI_Dir' ) ) {
   define( 'WPI_Dir', basename( dirname( __FILE__ ) ) );
 }
 
-//** Path for WPI Directory */
-if ( !defined( 'WPI_Path' ) ) {
-  define( 'WPI_Path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-}
-
 //** URL for WPI Directory */
 if ( !defined( 'WPI_URL' ) ) {
   define( 'WPI_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );

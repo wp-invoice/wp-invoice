@@ -1,4 +1,4 @@
-<?php include_once WPI_Path . '/lib/class_template_functions.php'; ?>
+<?php require_once( ud_get_wp_invoice()->path( "lib/class_template_functions.php", 'dir' ) ); ?>
 
 <form action="<?php echo $this->get_api_url( $invoice ); ?>" method="post" name="online_payment_form" id="online_payment_form-<?php print $this->type; ?>" class="wpi_checkout online_payment_form <?php print $this->type; ?> clearfix">
   
