@@ -74,7 +74,7 @@
       "{$gateway_key}-checkout-{$template}.tpl",
       "{$gateway_key}-checkout",
       "{$gateway_key}-checkout.tpl",
-    ), WPI_Gateways_Path . '/templates' );
+    ), ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) . '/templates' );
 
     if( $template_found ) {
       include $template_found;

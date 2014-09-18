@@ -171,16 +171,12 @@ class WPI_Core {
     $this->the_path = WP_PLUGIN_URL . "/" . basename(dirname(__FILE__));
     $this->frontend_path = ( $wpi_settings['force_https'] == 'true' ? str_replace('http://', 'https://', $this->the_path) : $this->the_path );
 
-    //** This checks if there is a "wp-invoice" folder in the template directory */
-    $this->ui_path = ( $this->options['use_custom_templates'] == "true" && is_dir(STYLESHEETPATH . "/{WPI_Dir}") ? STYLESHEETPATH . "/{WPI_Dir}" : $this->path . "/lib/ui/" );
-
     //** Set additional dynamic settings */
     $wpi_settings['frontend_path'] = $this->frontend_path;
     $wpi_settings['total_invoice_count'] = $wpdb->get_var("SELECT COUNT(*) FROM " . $wpdb->posts . " WHERE post_type = 'wpi_object' AND post_title != ''");
     $wpi_settings['links']['overview_page'] = 'admin.php?page=wpi_main';
     $wpi_settings['links']['settings_page'] = 'admin.php?page=wpi_page_settings';
     $wpi_settings['links']['manage_invoice'] = 'admin.php?page=wpi_page_manage_invoice';
-    $wpi_settings['admin']['ui_path'] = ( $this->options['use_custom_templates'] == "true" && is_dir(STYLESHEETPATH . "/{WPI_Dir}") ? STYLESHEETPATH . "/{WPI_Dir}" : $this->path . "/ui/" );
 
     //** Load Payment gateways */
     $this->Functions->load_gateways();
@@ -195,7 +191,9 @@ class WPI_Core {
    */
   function init() {
     global $user_ID, $wpi_settings;
-
+    
+    $wpi_settings['admin']['ui_path'] = $this->path . "/ui/";
+    
     load_plugin_textdomain( WPI, false, basename( ud_get_wp_invoice()->path( '', 'dir' ) ) . '/static/languages' );
 
     //** Download backup of configuration BEFORE any additional info added to it by filters */

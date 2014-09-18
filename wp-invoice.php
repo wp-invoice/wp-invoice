@@ -22,33 +22,6 @@ if ( !defined( 'WPI' ) ) {
   define( 'WPI', 'wp-invoice' );
 }
 
-//** Define WPI directory name - used to identify WPI templates */
-if ( !defined( 'WPI_Dir' ) ) {
-  define( 'WPI_Dir', basename( dirname( __FILE__ ) ) );
-}
-
-//** URL for WPI Directory */
-if ( !defined( 'WPI_URL' ) ) {
-  define( 'WPI_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
-}
-
-//** Directory paths */
-if ( !defined( 'WPI_Gateways_Path' ) ) {
-  define( 'WPI_Gateways_Path', WPI_Path . '/lib/gateways' );
-}
-
-if ( !defined( 'WPI_Gateways_URL' ) ) {
-  define( 'WPI_Gateways_URL', WPI_URL . '/lib/gateways' );
-}
-
-if ( !defined( 'WPI_Templates_Path' ) ) {
-  define( 'WPI_Templates_Path', WPI_Path . '/static/template' );
-}
-
-if ( !defined( 'WPI_Templates_URL' ) ) {
-  define( 'WPI_Templates_URL', WPI_URL . '/static/template' );
-}
-
 if( !function_exists( 'ud_get_wp_invoice' ) ) {
 
   /**

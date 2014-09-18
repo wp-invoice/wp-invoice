@@ -1885,17 +1885,17 @@ class WPI_Functions {
       'Description' => __( 'Description', 'wpi_gateway' )
     );
 
-    if ( !is_dir( WPI_Gateways_Path ) ) {
+    if ( !is_dir( ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) ) ) {
       return;
     }
 
-    if ( $gateways_dir = opendir( WPI_Gateways_Path ) ) {
+    if ( $gateways_dir = opendir( ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) ) ) {
 
-      if ( file_exists( WPI_Gateways_Path . "/index.php" ) ) {
+      if ( file_exists( ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) . "/index.php" ) ) {
         if ( WP_DEBUG ) {
-          include_once( WPI_Gateways_Path . "/index.php" );
+          include_once( ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) . "/index.php" );
         } else {
-          @include_once( WPI_Gateways_Path . "/index.php" );
+          @include_once( ud_get_wp_invoice()->path( 'lib/gateways', 'dir' ) . "/index.php" );
         }
       }
 
@@ -1911,15 +1911,15 @@ class WPI_Functions {
             $slug = $t[ 1 ];
           }
 
-          $plugin_data = @get_file_data( WPI_Gateways_Path . "/" . $file, $default_headers, 'plugin' );
+          $plugin_data = @get_file_data( ud_get_wp_invoice()->path( 'lib/gateways/', 'dir' ) . $file, $default_headers, 'plugin' );
           $wpi_settings[ 'installed_gateways' ][ $slug ][ 'name' ] = $plugin_data[ 'Name' ];
           $wpi_settings[ 'installed_gateways' ][ $slug ][ 'version' ] = $plugin_data[ 'Version' ];
           $wpi_settings[ 'installed_gateways' ][ $slug ][ 'description' ] = $plugin_data[ 'Description' ];
 
           if ( WP_DEBUG ) {
-            include_once( WPI_Gateways_Path . "/" . $file );
+            include_once( ud_get_wp_invoice()->path( 'lib/gateways/', 'dir' ) . $file );
           } else {
-            @include_once( WPI_Gateways_Path . "/" . $file );
+            @include_once( ud_get_wp_invoice()->path( 'lib/gateways/', 'dir' ) . $file );
           }
 
           // Disable plugin if class does not exists - file is empty
