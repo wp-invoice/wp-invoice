@@ -75,7 +75,7 @@
                     "lib"
                 ]
             },
-            "time": "2014-09-17 14:53:01"
+            "time": "2014-09-18 13:23:04"
         },
         {
             "name": "usabilitydynamics/lib-wp-bootstrap",
@@ -118,6 +118,7 @@
     "stability-flags": {
         "codeclimate/php-test-reporter": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3"
     },

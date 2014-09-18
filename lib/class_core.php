@@ -292,7 +292,7 @@ class WPI_Core {
     }
 
     //** If we are in debug mode, lets add these actions */
-    if ($wpi_settings['debug']) {
+    if ( isset( $wpi_settings['debug'] ) && $wpi_settings['debug'] ) {
       add_action('wp_ajax_wpi_debug_get_invoice', array('WPI_Ajax', 'debug_get_invoice'));
     }
 

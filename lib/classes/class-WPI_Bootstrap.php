@@ -149,6 +149,10 @@ namespace UsabilityDynamics\WPI {
           \WPI_Functions::log( __( "Plugin activated. No older versions found, installing version ", WPI ) . WP_INVOICE_VERSION_NUM . "." );
         } else if ( (int) $current_version < 3 ) {
 
+          if ( !class_exists('\WPI_Legacy') ) {
+            require_once( ud_get_wp_invoice()->path( 'lib/class_legacy.php', 'dir' ) );
+          }
+        
           //** Determine if legacy data exist */
           \WPI_Legacy::init();
           \WPI_Functions::log( __( "Plugin activated.", WPI ) );
