@@ -1,0 +1,176 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+    <style>
+      /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
+      pre code {
+        display: block; padding: 0.5em;
+        color: #333;
+        background: #f8f8ff
+      }
+      pre .comment,
+      pre .template_comment,
+      pre .diff .header,
+      pre .javadoc {
+        color: #998;
+        font-style: italic
+      }
+      pre .keyword,
+      pre .css .rule .keyword,
+      pre .winutils,
+      pre .javascript .title,
+      pre .nginx .title,
+      pre .subst,
+      pre .request,
+      pre .status {
+        color: #333;
+        font-weight: bold
+      }
+      pre .number,
+      pre .hexcolor,
+      pre .ruby .constant {
+        color: #099;
+      }
+      pre .string,
+      pre .tag .value,
+      pre .phpdoc,
+      pre .tex .formula {
+        color: #d14
+      }
+      pre .title,
+      pre .id {
+        color: #900;
+        font-weight: bold
+      }
+      pre .javascript .title,
+      pre .lisp .title,
+      pre .clojure .title,
+      pre .subst {
+        font-weight: normal
+      }
+      pre .class .title,
+      pre .haskell .type,
+      pre .vhdl .literal,
+      pre .tex .command {
+        color: #458;
+        font-weight: bold
+      }
+      pre .tag,
+      pre .tag .title,
+      pre .rules .property,
+      pre .django .tag .keyword {
+        color: #000080;
+        font-weight: normal
+      }
+      pre .attribute,
+      pre .variable,
+      pre .lisp .body {
+        color: #008080
+      }
+      pre .regexp {
+        color: #009926
+      }
+      pre .class {
+        color: #458;
+        font-weight: bold
+      }
+      pre .symbol,
+      pre .ruby .symbol .string,
+      pre .lisp .keyword,
+      pre .tex .special,
+      pre .prompt {
+        color: #990073
+      }
+      pre .built_in,
+      pre .lisp .title,
+      pre .clojure .built_in {
+        color: #0086b3
+      }
+      pre .preprocessor,
+      pre .pi,
+      pre .doctype,
+      pre .shebang,
+      pre .cdata {
+        color: #999;
+        font-weight: bold
+      }
+      pre .deletion {
+        background: #fdd
+      }
+      pre .addition {
+        background: #dfd
+      }
+      pre .diff .change {
+        background: #0086b3
+      }
+      pre .chunk {
+        color: #aaa
+      }
+    </style>
+  </head>
+  <body>  
+    <h3 id="wp-invoice-plugin">WP-Invoice Plugin</h3>
+<p>WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.</p>
+<hr>
+<p><a href="http://waffle.io/usabilitydynamics/wp-invoice"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=bug&amp;title=Bugs" alt="Issues - Bug"></a>
+<a href="http://waffle.io/usabilitydynamics/wp-invoice/"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=backlog&amp;title=Backlog" alt="Issues - Backlog"></a>
+<a href="http://waffle.io/usabilitydynamics/wp-invoice/"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=in progress&amp;title=Active" alt="Issues - Active"></a></p>
+<hr>
+<p><a href="https://gemnasium.com/usabilitydynamics/wp-invoice"><img src="https://gemnasium.com/usabilitydynamics/wp-invoice.svg" alt="Dependency Status"></a>
+<a href="https://scrutinizer-ci.com/g/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/scrutinizer/g/usabilitydynamics/wp-invoice.svg" alt="Scrutinizer Quality"></a>
+<a href="https://scrutinizer-ci.com/g/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/scrutinizer/coverage/g/usabilitydynamics/wp-invoice.svg" alt="Scrutinizer Coverage"></a>
+<a href="https://packagist.org/packages/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/packagist/v/usabilitydynamics/wp-invoice.svg" alt="Packagist Vesion"></a>
+<a href="https://circleci.com/gh/usabilitydynamics/wp-invoice"><img src="https://circleci.com/gh/usabilitydynamics/wp-invoice.png" alt="CircleCI"></a></p>
+<hr>
+<p>This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.</p>
+<p><strong><a href="http://downloads.wordpress.org/plugin/wp-invoice.zip">Download the original WordPress Invoicing plugin now!</a></strong></p>
+<p>WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill. The plugin ties into WP&#39;s user management database to keep track of your clients and their information.</p>
+<p>Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog&#39;s special invoice page, view their invoice, and pay their bill using PayPal. The control panel is very user-friendly and intuitive.</p>
+<p>Credit card payments may be accepted via Authorize.net, MerchantPlus&#39; NaviGate, PayPal or Google Checkout account. For recurring billing we have integrated Authorize.net&#39;s ARB API that will allow you to setup payment schedules along with invoices. Subscriptions implemented using PayPal Subscriptions and Google Checkout Subscriptions.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Automatically import invoices from Web Invoice plugin</li>
+<li>WP-CRM Integration</li>
+<li>Brand new user interface for much improved invoicing filtering and searching</li>
+<li>Minimum and Split / Partial Payments</li>
+<li>Invoices can be reassigned to a different recipient</li>
+<li>Receipt Page with Invoice Log</li>
+<li>Per-defined Line Items</li>
+<li>Discount Line Items</li>
+<li>Custom Payment Entry, and administrative adjustments</li>
+<li>Customizable Invoice and Receipt Templates</li>
+<li>Create invoices from the WordPress control panel</li>
+<li>Prefill customer information using the WordPress user list</li>
+<li>Send invoice notifications to customers with a secured link back to the web-invoice</li>
+<li>Accept credit card payment via Authorize.net or MerchantPlus NaviGate</li>
+<li>PayPal available if you don&#39;t have a credit card processing account</li>
+<li>Setup recurring billing using Authorize.net&#39;s ARB (Automatic Recurring Billing) feature</li>
+<li>Force web-invoice pages to be viewed in SSL mode</li>
+<li>Archive old invoices</li>
+<li>Easily use old invoices as templates for new ones</li>
+<li>Dynamic and intuitive user interface</li>
+<li>Custom tax label, states input, and PayPal button URL</li>
+<li>Insert an &quot;Invoice Lookup&quot; form using PHP or WordPress Shortcode anywhere</li>
+<li>Create users directly from WP-Invoice</li>
+<li>Customize billing settings per invoice</li>
+<li>Customize invoice notification email per invoice</li>
+<li>Invoice notification, reminder and receipt templates</li>
+<li>Export/Import Invoices [Power Tools]</li>
+<li>Sales Visualization [Power Tools]</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>Upload all the files into your wp-content/plugins directory, be sure to put them into a folder called &quot;wp-invoice&quot;</li>
+<li>Activate the plugin at the plugin administration page</li>
+<li>Follow set-up steps on main Invoice page</li>
+<li>To create your first invoice navigate to Invoice -&gt; New Invoice, and select the user who will be the recipient.</li>
+</ol>
+<p>Please see the <a href="https://usabilitydynamics.com/products/wp-invoice/">wp-invoice plugin home page</a> for details.</p>
+<h3 id="frequently-asked-questions">Frequently Asked Questions</h3>
+<p>Please visit the <a href="https://usabilitydynamics.com/products/wp-invoice/forums/">wp-invoice community page</a> for suggestions and help.</p>
+
+  </body>
+</html>

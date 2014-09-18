@@ -41,7 +41,7 @@
                 "plugins",
                 "wordpress"
             ],
-            "time": "2014-09-11 15:55:32"
+            "time": "2014-09-18 13:43:59"
         },
         {
             "name": "usabilitydynamics/lib-utility",
@@ -109,7 +109,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2014-09-17 15:15:35"
+            "time": "2014-09-18 15:47:07"
         }
     ],
     "packages-dev": null,
@@ -118,7 +118,6 @@
     "stability-flags": {
         "codeclimate/php-test-reporter": 20
     },
-    "prefer-stable": false,
     "platform": {
         "php": ">=5.3"
     },
