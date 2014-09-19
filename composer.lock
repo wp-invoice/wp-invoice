@@ -41,7 +41,7 @@
                 "plugins",
                 "wordpress"
             ],
-            "time": "2014-09-18 13:43:59"
+            "time": "2014-09-18 16:54:11"
         },
         {
             "name": "usabilitydynamics/lib-utility",
@@ -109,7 +109,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2014-09-18 15:47:07"
+            "time": "2014-09-18 15:52:15"
         }
     ],
     "packages-dev": null,
