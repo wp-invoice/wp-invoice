@@ -42,6 +42,9 @@
     ]
   },
   "extra": {
+    "splashes": {
+      "install": "static/splashes/install.php"
+    },
     "schemas": {
       "dependencies" : {
         "modules": {
@@ -53,7 +56,8 @@
       },
       "licenses" : {
         "client" : {
-		  "screen": {
+		  "products": "https://usabilitydynamics.com/products.json", 
+          "screen": {
 			"parent": "wpi_main",
 			"title": "Licenses"
 		  }
