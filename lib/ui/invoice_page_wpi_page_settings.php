@@ -404,11 +404,9 @@ class WPI_Settings_page {
   /**
    * Payment tab
    *
-   * @global type $wpi_chargify
    * @param type $wpi_settings
    */
   static function payment($wpi_settings) {
-    global $wpi_chargify;
     ?>
     <table class="form-table">
       <tr>
@@ -545,17 +543,6 @@ class WPI_Settings_page {
         </td>
 
       </tr>
-
-    <?php if (is_callable(array($wpi_chargify, 'wpi_chargify_settings'))): ?>
-        <tr>
-          <th>
-      <?php _e("Subscription Payments", WPI) ?>
-          </th>
-          <td>
-      <?php $wpi_chargify->wpi_chargify_settings(); ?>
-          </td>
-        </tr>
-    <?php endif; ?>
 
     </table>
 
