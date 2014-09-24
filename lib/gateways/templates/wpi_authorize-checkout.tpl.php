@@ -4,7 +4,7 @@
   <input type="hidden" name="wpi_checkout[payment_method]" value="wpi_authorize" />
   <input type="hidden" name="wpi_checkout[currency_code]" value="<?php echo $wpi_settings['currency']['default_currency_code']; ?>" />
 <?php if ( !empty( $atts['items'] ) ) : ?>
-<?php   foreach($atts['items'] as $item): ?>
+<?php   foreach($atts['items'] as $item): $item['tax'] = isset( $item['tax'] ) ? $item['tax'] : 0; ?>
           <input type="checkbox" <?php echo ($atts['uncheck_items'] != 'true' ? 'checked="true"' : ''); ?>  style="display:none;" class="wpi_checkout_products" item_price="<?php echo esc_attr( number_format( (float)($item['price']*$item['quantity'] + ($item['price']*$item['quantity']/100*$item['tax'])), 2, '.', '') ); ?>"  item_name="<?php echo esc_attr($item['name']); ?>" name="wpi_checkout[items][<?php echo esc_attr($item['name']); ?>]" value="true" />
 <?php   endforeach; ?>
 <?php endif; ?>
