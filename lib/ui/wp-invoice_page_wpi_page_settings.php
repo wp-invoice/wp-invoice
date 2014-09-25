@@ -72,7 +72,7 @@ if (isset($_REQUEST['message'])) {
 <div class="wrap">
   <form method="post" id="wpi_settings_form" enctype="multipart/form-data">
     <?php echo WPI_UI::input("type=hidden&name=wpi_settings_update&value=true") ?>
-    <h2><?php _e("WP-Invoice Global Settings", WPI) ?></h2>
+    <h2><?php _e("WP-Invoice Global Settings", ud_get_wp_invoice()->domain) ?></h2>
 
     <?php WPI_Functions::print_messages(); ?>
 
@@ -102,7 +102,7 @@ if (isset($_REQUEST['message'])) {
         <div class="inside">
           <div id="major-publishing-actions">
             <div id="publishing-action">
-              <input type="submit" value="<?php esc_attr(_e('Save All Settings', WPI)) ?>" class="button-primary">
+              <input type="submit" value="<?php esc_attr(_e('Save All Settings', ud_get_wp_invoice()->domain)) ?>" class="button-primary">
             </div>
             <div class="clear"></div>
           </div>
@@ -130,24 +130,24 @@ class WPI_Settings_page {
 
     <table class="form-table">
       <tr>
-        <th width="200"><?php _e("Business Name", WPI) ?></th>
+        <th width="200"><?php _e("Business Name", ud_get_wp_invoice()->domain) ?></th>
         <td><?php echo WPI_UI::input("type=text&name=business_name&group=wpi_settings&value={$wpi_settings['business_name']}") ?> </td>
       </tr>
       <tr>
-        <th width="200"><?php _e("Business Address", WPI) ?></th>
+        <th width="200"><?php _e("Business Address", ud_get_wp_invoice()->domain) ?></th>
         <td><?php echo WPI_UI::textarea("name=business_address&group=wpi_settings&value={$wpi_settings['business_address']}") ?> </td>
       </tr>
       <tr>
-        <th width="200"><?php _e("Business Phone", WPI) ?></th>
+        <th width="200"><?php _e("Business Phone", ud_get_wp_invoice()->domain) ?></th>
         <td><?php echo WPI_UI::input("type=text&name=business_phone&group=wpi_settings&value={$wpi_settings['business_phone']}") ?> </td>
       </tr>
       <tr>
-        <th width="200"><?php _e("Email Address", WPI) ?></th>
+        <th width="200"><?php _e("Email Address", ud_get_wp_invoice()->domain) ?></th>
         <td><?php echo WPI_UI::input("type=text&name=email_address&group=wpi_settings&value={$wpi_settings['email_address']}") ?> </td>
       </tr>
 
       <tr>
-        <th><?php _e("Display Styles", WPI) ?></th>
+        <th><?php _e("Display Styles", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul>
             <?php if (WPI_Functions::has_theme_specific_stylesheet()) : ?>
@@ -162,21 +162,21 @@ class WPI_Settings_page {
       </tr>
 
       <tr>
-        <th><?php _e("Tax Handling", WPI) ?></th>
+        <th><?php _e("Tax Handling", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_something_advanced_wrapper">
-            <li><label for="wpi_tax_method"><?php _e('Calculate Taxable Subtotal', WPI) ?> <?php echo WPI_UI::select("name=tax_method&group=wpi_settings&values=" . serialize(array("after_discount" => __("After Discount", ud_get_wp_invoice()->domain), "before_discount" => __("Before Discount", ud_get_wp_invoice()->domain))) . "&current_value=" . (!empty($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : "")); ?> </label></li>
+            <li><label for="wpi_tax_method"><?php _e('Calculate Taxable Subtotal', ud_get_wp_invoice()->domain) ?> <?php echo WPI_UI::select("name=tax_method&group=wpi_settings&values=" . serialize(array("after_discount" => __("After Discount", ud_get_wp_invoice()->domain), "before_discount" => __("Before Discount", ud_get_wp_invoice()->domain))) . "&current_value=" . (!empty($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : "")); ?> </label></li>
             <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['use_global_tax'])?$wpi_settings['use_global_tax']:false ) ); ?></li>
             <li class="wpi_advanced_option">
               Tax value: <?php echo WPI_UI::input("type=text&style=width:50px;&name=global_tax&group=wpi_settings&value={$wpi_settings['global_tax']}") ?>%
-              <div class="description wpi_advanced_option"><?php _e("This will make all new invoices have default Tax value which can be changed for different invoice.", WPI) ?></div>
+              <div class="description wpi_advanced_option"><?php _e("This will make all new invoices have default Tax value which can be changed for different invoice.", ud_get_wp_invoice()->domain) ?></div>
             </li>
           </ul>
         </td>
       </tr>
 
       <tr>
-        <th><?php _e("Advanced Settings", WPI) ?></th>
+        <th><?php _e("Advanced Settings", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_settings_list wpi_something_advanced_wrapper">
             <li><?php echo WPI_UI::checkbox("name=allow_deposits&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Allow partial payments.', ud_get_wp_invoice()->domain), $wpi_settings['allow_deposits']); ?></li>
@@ -187,11 +187,11 @@ class WPI_Settings_page {
             <li><?php echo WPI_UI::checkbox("name=force_https&group=wpi_settings&value=true&label=" . __('Enforce HTTPS on invoice pages, if available on this server.', ud_get_wp_invoice()->domain), $wpi_settings['force_https']); ?> </li>
 
             <li>
-              <label for="wpi_user_level"><?php _e("Minimum user level to manage WP-Invoice", WPI) ?> <?php echo WPI_UI::select("name=user_level&group=wpi_settings&values=" . serialize(array("0" => __('Subscriber', ud_get_wp_invoice()->domain), "1" => __('Contributor', ud_get_wp_invoice()->domain), "2" => __('Author', ud_get_wp_invoice()->domain), "5" => __('Editor', ud_get_wp_invoice()->domain), "8" => __('Administrator', ud_get_wp_invoice()->domain))) . "&current_value={$wpi_settings['user_level']}"); ?> </label>
+              <label for="wpi_user_level"><?php _e("Minimum user level to manage WP-Invoice", ud_get_wp_invoice()->domain) ?> <?php echo WPI_UI::select("name=user_level&group=wpi_settings&values=" . serialize(array("0" => __('Subscriber', ud_get_wp_invoice()->domain), "1" => __('Contributor', ud_get_wp_invoice()->domain), "2" => __('Author', ud_get_wp_invoice()->domain), "5" => __('Editor', ud_get_wp_invoice()->domain), "8" => __('Administrator', ud_get_wp_invoice()->domain))) . "&current_value={$wpi_settings['user_level']}"); ?> </label>
             </li>
             <li>
-              <?php _e("Using Godaddy Hosting:", WPI) ?> <?php echo WPI_UI::select("name=using_godaddy&group=wpi_settings&values=yon&current_value={$wpi_settings['using_godaddy']}"); ?>
-              <div class="description"><?php _e("Special proxy must be used to process credit card transactions on GoDaddy servers.", WPI) ?></div>
+              <?php _e("Using Godaddy Hosting:", ud_get_wp_invoice()->domain) ?> <?php echo WPI_UI::select("name=using_godaddy&group=wpi_settings&values=yon&current_value={$wpi_settings['using_godaddy']}"); ?>
+              <div class="description"><?php _e("Special proxy must be used to process credit card transactions on GoDaddy servers.", ud_get_wp_invoice()->domain) ?></div>
             </li>
 
             <li>
@@ -204,16 +204,16 @@ class WPI_Settings_page {
             </li>
             <li class="wpi_use_custom_template_settings" style="<?php echo ( empty($wpi_settings['use_custom_templates']) || $wpi_settings['use_custom_templates'] == 'no' ? 'display:none;' : ''); ?>">
               <?php if (!empty($no_template_folder)) { ?>
-                <span class="wpi_red_notification"><?php _e('Note: Currently there is no "wpi" folder in your active template\'s folder, WP-Invoice will attempt to create it after saving.', WPI) ?></span>
+                <span class="wpi_red_notification"><?php _e('Note: Currently there is no "wpi" folder in your active template\'s folder, WP-Invoice will attempt to create it after saving.', ud_get_wp_invoice()->domain) ?></span>
               <?php } else { ?>
-                <span class="wpi_green_notification"><?php _e('A "wpi" folder has been found, any files with the proper file names will be used instead of the default template files.', WPI) ?></span>
+                <span class="wpi_green_notification"><?php _e('A "wpi" folder has been found, any files with the proper file names will be used instead of the default template files.', ud_get_wp_invoice()->domain) ?></span>
     <?php } ?>
             </li>
-            <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", WPI); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", WPI); ?></li>
+            <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", ud_get_wp_invoice()->domain); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", ud_get_wp_invoice()->domain); ?></li>
             <li class="wpi_install_custom_templates_result" style="display:none;"></li>
             <li>
               <label for="wpi_thousands_separator_symbol">
-                <?php _e('Thousands Separator Symbol', WPI); ?>
+                <?php _e('Thousands Separator Symbol', ud_get_wp_invoice()->domain); ?>
                 <?php
                 echo WPI_UI::select(array(
                     'name' => 'thousands_separator_symbol',
@@ -236,7 +236,7 @@ class WPI_Settings_page {
             </li>
             <li>
               <?php echo WPI_UI::checkbox("name=wpi_settings[turn_off_compatibility_mode]&value=true&label=" . __("Turn off compatibility mode.", ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['turn_off_compatibility_mode'])?$wpi_settings['turn_off_compatibility_mode']:false )); ?>
-              <div class="description"><?php _e( 'By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off.', WPI ); ?></div>
+              <div class="description"><?php _e( 'By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off.', ud_get_wp_invoice()->domain ); ?></div>
             </li>
           </ul>
         </td>
@@ -263,7 +263,7 @@ class WPI_Settings_page {
 
     <table class="form-table">
       <tr>
-        <th><?php _e("When creating an invoice", WPI) ?></th>
+        <th><?php _e("When creating an invoice", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_settings_list">
             <li><?php echo WPI_UI::checkbox("name=increment_invoice_id&group=wpi_settings&value=true&label=" . __('Automatically increment the invoice\'s custom ID by one.', ud_get_wp_invoice()->domain), $wpi_settings['increment_invoice_id']) ?></li>
@@ -272,10 +272,10 @@ class WPI_Settings_page {
       </tr>
 
       <tr>
-        <th><?php _e("When viewing an invoice", WPI) ?></th>
+        <th><?php _e("When viewing an invoice", ud_get_wp_invoice()->domain) ?></th>
         <td><ul class="wpi_settings_list">
             <li>
-              <label for="wpi_settings[web_invoice_page]"><?php _e("Display invoices on the", WPI) ?>
+              <label for="wpi_settings[web_invoice_page]"><?php _e("Display invoices on the", ud_get_wp_invoice()->domain) ?>
                 <select name='wpi_settings[web_invoice_page]'>
                   <option></option>
                   <?php
@@ -289,7 +289,7 @@ class WPI_Settings_page {
                   }
                   echo "</select>";
                   ?>
-    <?php _e("page.", WPI) ?> </label>
+    <?php _e("page.", ud_get_wp_invoice()->domain) ?> </label>
             </li>
             <li><?php echo WPI_UI::checkbox("name=replace_page_title_with_subject&group=wpi_settings&value=true&label=" . __('Replace HTML title with invoice subject when viewing invoice.', ud_get_wp_invoice()->domain), $wpi_settings['replace_page_title_with_subject']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=replace_page_heading_with_subject&group=wpi_settings&value=true&label=" . __('Replace page heading and navigation link title with invoice subject when viewing invoice.', ud_get_wp_invoice()->domain), $wpi_settings['replace_page_heading_with_subject']); ?></li>
@@ -300,13 +300,13 @@ class WPI_Settings_page {
           </ul></td>
       </tr>
       <tr>
-        <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', WPI); ?>">
-    <?php _e('How to Insert Invoice', WPI); ?>
+        <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', ud_get_wp_invoice()->domain); ?>">
+    <?php _e('How to Insert Invoice', ud_get_wp_invoice()->domain); ?>
           </a></th>
-        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', WPI) ?> </td>
+        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?> </td>
       </tr>
       <tr>
-        <th><?php _e("After a payment has been completed", WPI) ?></th>
+        <th><?php _e("After a payment has been completed", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_settings_list">
             <li><?php echo WPI_UI::checkbox("name=send_thank_you_email&group=wpi_settings&value=true&label=" . __('Send email confirmation to the client.', ud_get_wp_invoice()->domain), $wpi_settings['send_thank_you_email']); ?></li>
@@ -318,8 +318,8 @@ class WPI_Settings_page {
       </tr>
       <tr>
         <th>
-          <a class="wp_invoice_tooltip" title="<?php _e("This options allow you to change the default email address that WordPress sends it's mail from, and the name of the sender that the email is from.", WPI); ?>">
-              <?php _e("Mail From options", WPI); ?>
+          <a class="wp_invoice_tooltip" title="<?php _e("This options allow you to change the default email address that WordPress sends it's mail from, and the name of the sender that the email is from.", ud_get_wp_invoice()->domain); ?>">
+              <?php _e("Mail From options", ud_get_wp_invoice()->domain); ?>
           </a>
         </th>
         <td>
@@ -334,7 +334,7 @@ class WPI_Settings_page {
                   'value' => empty($wpi_settings['mail_from_sender_name']) ? 'WordPress' : $wpi_settings['mail_from_sender_name']
               ));
               ?>
-              <div class="description"><?php _e('The sender name that the email is from', WPI); ?></div>
+              <div class="description"><?php _e('The sender name that the email is from', ud_get_wp_invoice()->domain); ?></div>
             </li>
             <li>
               <?php
@@ -346,7 +346,7 @@ class WPI_Settings_page {
                   'value' => empty($wpi_settings['mail_from_user_email']) ? 'wordpress@' . strtolower($_SERVER['SERVER_NAME']) : $wpi_settings['mail_from_user_email']
               ));
               ?>
-              <div class="description"><?php _e('Email address e.g. username@example.com', WPI); ?></div>
+              <div class="description"><?php _e('Email address e.g. username@example.com', ud_get_wp_invoice()->domain); ?></div>
             </li>
             <li>
             <?php
@@ -363,8 +363,8 @@ class WPI_Settings_page {
       </tr>
       <tr>
         <th>
-          <a class="wp_invoice_tooltip" title="<?php _e("If you are using <b>Google Analytics Site Tracking</b> code on your site then you can track WP-Invoice events.", WPI); ?>">
-    <?php _e('Google Analytics Events Tracking', WPI); ?>
+          <a class="wp_invoice_tooltip" title="<?php _e("If you are using <b>Google Analytics Site Tracking</b> code on your site then you can track WP-Invoice events.", ud_get_wp_invoice()->domain); ?>">
+    <?php _e('Google Analytics Events Tracking', ud_get_wp_invoice()->domain); ?>
           </a>
         </th>
         <td>
@@ -376,7 +376,7 @@ class WPI_Settings_page {
             <li class="wpi_ga_events_list" style="<?php echo (empty($wpi_settings['ga_event_tracking']['enabled']) || $wpi_settings['ga_event_tracking']['enabled'] == 'false' ) ? 'display:none;' : ''; ?>">
               <ul>
                 <li>
-                  <strong><?php _e('Track Invoices events:', WPI); ?></strong>
+                  <strong><?php _e('Track Invoices events:', ud_get_wp_invoice()->domain); ?></strong>
                   <ul class="wpi_sublist">
                     <li>
     <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][events][invoices][attempting_pay_invoice]&value=true&label=" . __('Attempting to pay Invoices', ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['ga_event_tracking']['events']['invoices']['attempting_pay_invoice'])?$wpi_settings['ga_event_tracking']['events']['invoices']['attempting_pay_invoice']:false )); ?>
@@ -410,7 +410,7 @@ class WPI_Settings_page {
     ?>
     <table class="form-table">
       <tr>
-        <th><?php _e("Default Currency", WPI); ?></th>
+        <th><?php _e("Default Currency", ud_get_wp_invoice()->domain); ?></th>
         <td><?php echo WPI_UI::select("name=wpi_settings[currency][default_currency_code]&values=" . serialize($wpi_settings['currency']['types']) . "&current_value={$wpi_settings['currency']['default_currency_code']}"); ?></td>
       </tr>
       <tr>
@@ -420,14 +420,14 @@ class WPI_Settings_page {
     <?php $currency_array = apply_filters('wpi_currency', $wpi_settings['currency']); ?>
 
           <div id="currency-list">
-            <h3><a href="#"><?php _e("Currency list", WPI); ?></a></h3>
+            <h3><a href="#"><?php _e("Currency list", ud_get_wp_invoice()->domain); ?></a></h3>
             <div>
               <table class="ud_ui_dynamic_table widefat form-table edit-currency-tab" style="margin-bottom:8px;" auto_increment="true">
                 <thead>
                   <tr>
-                    <th style="width:10%; padding-left: 50px;"><?php _e('Code', WPI); ?></th>
-                    <th style="text-align: center;"><?php _e('Symbol', WPI); ?></th>
-                    <th style="width:40%; text-align: center;"><?php _e('Name', WPI); ?></th>
+                    <th style="width:10%; padding-left: 50px;"><?php _e('Code', ud_get_wp_invoice()->domain); ?></th>
+                    <th style="text-align: center;"><?php _e('Symbol', ud_get_wp_invoice()->domain); ?></th>
+                    <th style="width:40%; text-align: center;"><?php _e('Name', ud_get_wp_invoice()->domain); ?></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -450,7 +450,7 @@ class WPI_Settings_page {
                 <tfoot>
                   <tr>
                     <th colspan="4">
-                      <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e('Add Currency', WPI)); ?>"/>
+                      <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e('Add Currency', ud_get_wp_invoice()->domain)); ?>"/>
                     </th>
                   </tr>
                 </tfoot>
@@ -461,7 +461,7 @@ class WPI_Settings_page {
       </tr>
 
       <tr class="column-payment-method-default">
-        <th><?php _e("Default Payment Method", WPI) ?></th>
+        <th><?php _e("Default Payment Method", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <select id="wp_invoice_payment_method">
             <?php foreach ( (array)$wpi_settings['installed_gateways'] as $key => $payment_option ) { ?>
@@ -473,7 +473,7 @@ class WPI_Settings_page {
       </tr>
 
       <tr class='wpi-payment-setting column-paymenth-method-<?php echo $key; ?>'>
-        <th><?php _e('Payment Gateways', WPI); ?></th>
+        <th><?php _e('Payment Gateways', ud_get_wp_invoice()->domain); ?></th>
         <td>
           <ul>
                   <?php foreach ($wpi_settings['installed_gateways'] as $key => $value) { ?>
@@ -534,12 +534,12 @@ class WPI_Settings_page {
       <tr>
 
         <th>
-      <?php _e("Manual Payment information", WPI) ?>
+      <?php _e("Manual Payment information", ud_get_wp_invoice()->domain) ?>
         </th>
 
         <td>
     <?php echo WPI_UI::textarea("name=manual_payment_info&group=wpi_settings&value=" . (!empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : '')) ?>
-          <div class="description"><?php _e('If an invoice has no payment gateways, this message will be displayed offering the customer guidance on their course of action.', WPI) ?></div>
+          <div class="description"><?php _e('If an invoice has no payment gateways, this message will be displayed offering the customer guidance on their course of action.', ud_get_wp_invoice()->domain) ?></div>
         </td>
 
       </tr>
@@ -560,9 +560,9 @@ class WPI_Settings_page {
     <table class="ud_ui_dynamic_table widefat form-table" style="margin-bottom:8px;" auto_increment="true">
       <thead>
         <tr>
-          <th><?php _e('Name', WPI); ?></th>
-          <th style="width:150px;"><?php _e('Subject', WPI); ?></th>
-          <th style="width:400px;"><?php _e('Content', WPI); ?></th>
+          <th><?php _e('Name', ud_get_wp_invoice()->domain); ?></th>
+          <th style="width:150px;"><?php _e('Subject', ud_get_wp_invoice()->domain); ?></th>
+          <th style="width:400px;"><?php _e('Content', ud_get_wp_invoice()->domain); ?></th>
         </tr>
       </thead>
       <tbody>
@@ -586,7 +586,7 @@ class WPI_Settings_page {
       <tfoot>
         <tr>
           <th colspan="3">
-            <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e('Add Template', WPI)); ?>"/>
+            <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e('Add Template', ud_get_wp_invoice()->domain)); ?>"/>
           </th>
         </tr>
       </tfoot>
@@ -607,8 +607,8 @@ class WPI_Settings_page {
       <table class="form-table widefat" style="margin-bottom:10px;border-collapse:separate;">
         <thead>
           <tr>
-            <th style="width: 200px;"><?php _e('Time', WPI) ?></th>
-            <th style="width: 600px;" ><?php _e('Event', WPI) ?></th>
+            <th style="width: 200px;"><?php _e('Time', ud_get_wp_invoice()->domain) ?></th>
+            <th style="width: 600px;" ><?php _e('Event', ud_get_wp_invoice()->domain) ?></th>
           </tr>
         </thead>
         <tbody>
@@ -621,8 +621,8 @@ class WPI_Settings_page {
         </tbody>
         <tfoot>
           <tr>
-            <th style="width: 200px;"><?php _e('Time', WPI) ?></th>
-            <th><?php _e('Event', WPI) ?></th>
+            <th style="width: 200px;"><?php _e('Time', ud_get_wp_invoice()->domain) ?></th>
+            <th><?php _e('Event', ud_get_wp_invoice()->domain) ?></th>
           </tr>
         </tfoot>
       </table>
@@ -637,7 +637,7 @@ class WPI_Settings_page {
    */
   static function predefined($wpi_settings) {
     ?>
-    <p><?php _e('Setup your common services and products in here to streamline invoice creation.', WPI); ?></p>
+    <p><?php _e('Setup your common services and products in here to streamline invoice creation.', ud_get_wp_invoice()->domain); ?></p>
     <script type="text/javascript">
       jQuery(document).ready( function() {
         wpi_recalc_totals();
@@ -665,11 +665,11 @@ class WPI_Settings_page {
       <table id="itemized_list" class="ud_ui_dynamic_table itemized_list form-table widefat" auto_increment="true">
         <thead>
           <tr>
-            <th style="width:400px;"><?php _e("Name & Description", WPI) ?></th>
-            <th style="width:40px;"><?php _e("Qty.", WPI) ?></th>
-            <th style="width:40px;"><?php _e("Price", WPI) ?></th>
-            <th style="width:40px;"><?php _e("Tax %", WPI) ?></th>
-            <th style="width:40px;"><?php _e("Total", WPI) ?></th>
+            <th style="width:400px;"><?php _e("Name & Description", ud_get_wp_invoice()->domain) ?></th>
+            <th style="width:40px;"><?php _e("Qty.", ud_get_wp_invoice()->domain) ?></th>
+            <th style="width:40px;"><?php _e("Price", ud_get_wp_invoice()->domain) ?></th>
+            <th style="width:40px;"><?php _e("Tax %", ud_get_wp_invoice()->domain) ?></th>
+            <th style="width:40px;"><?php _e("Total", ud_get_wp_invoice()->domain) ?></th>
           </tr>
         </thead>
         <tbody>
@@ -679,7 +679,7 @@ class WPI_Settings_page {
                 <span>
                   <span class="row_delete">&nbsp;</span>
                     <input type="text" class="item_name input_field" name="wpi_settings[predefined_services][<?php echo $slug; ?>][name]" value="<?php echo esc_attr($itemized_item['name']); ?>" />
-                    <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e("Toggle Description", WPI) ?></span></span>
+                    <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e("Toggle Description", ud_get_wp_invoice()->domain) ?></span></span>
                 </span>
                 <div class="flexible_width_holder">
                   <div class="flexible_width_holder_content">
@@ -705,7 +705,7 @@ class WPI_Settings_page {
         <tfoot>
           <tr>
             <th colspan="5">
-              <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e("Add Line Item", WPI)) ?>"/>
+              <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e("Add Line Item", ud_get_wp_invoice()->domain)) ?>"/>
             </th>
           </tr>
         </tfoot>
@@ -736,15 +736,15 @@ class WPI_Settings_page {
     ?>
 
     <div class="wpi_settings_block">
-    <?php _e('Look up the $wpi_settings global settings array:', WPI); ?> <input type="button" class="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', WPI)); ?>">
+    <?php _e('Look up the $wpi_settings global settings array:', ud_get_wp_invoice()->domain); ?> <input type="button" class="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', ud_get_wp_invoice()->domain)); ?>">
       <div class="wpi_settings_row hidden">
     <?php echo WPI_Functions::pretty_print_r($wpi_settings); ?>
       </div>
     </div>
 
     <div class="wpi_settings_block">
-    <?php _e("Restore Backup of WP-Invoice Configuration", WPI); ?>: <input name="wpi_settings[settings_from_backup]" type="file" />
-      <a href="<?php echo wp_nonce_url("admin.php?page=wpi_page_settings&wpi_action=download-wpi-backup", 'download-wpi-backup'); ?>"><?php _e('Download Backup of Current WP-Invoice Configuration.', WPI); ?></a>
+    <?php _e("Restore Backup of WP-Invoice Configuration", ud_get_wp_invoice()->domain); ?>: <input name="wpi_settings[settings_from_backup]" type="file" />
+      <a href="<?php echo wp_nonce_url("admin.php?page=wpi_page_settings&wpi_action=download-wpi-backup", 'download-wpi-backup'); ?>"><?php _e('Download Backup of Current WP-Invoice Configuration.', ud_get_wp_invoice()->domain); ?></a>
     </div>
 
     <?php

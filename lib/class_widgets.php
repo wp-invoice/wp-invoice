@@ -51,11 +51,11 @@ class InvoiceLookupWidget extends WP_Widget {
     $message = esc_attr( isset( $instance[ 'message' ] ) ? $instance[ 'message' ] : '' );
     $button_text = esc_attr( isset( $instance[ 'button_text' ] ) ? $instance[ 'button_text' ] : __('Find', ud_get_wp_invoice()->domain) );
     ?>
-    <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+    <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', ud_get_wp_invoice()->domain ); ?>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/></label></p>
-    <p><label for="<?php echo $this->get_field_id( 'message' ); ?>"><?php _e( 'Message:' ); ?>
+    <p><label for="<?php echo $this->get_field_id( 'message' ); ?>"><?php _e( 'Message:', ud_get_wp_invoice()->domain ); ?>
         <textarea class="widefat" id="<?php echo $this->get_field_id( 'message' ); ?>" name="<?php echo $this->get_field_name( 'message' ); ?>" type="text"><?php echo $message; ?></textarea></label></p>
-    <p><label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:' ); ?>
+    <p><label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:', ud_get_wp_invoice()->domain ); ?>
         <input class="widefat" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" type="text" value="<?php echo $button_text; ?>"/></label></p>
   <?php
   }
@@ -171,12 +171,12 @@ class InvoiceHistoryWidget extends WP_Widget {
 
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', ud_get_wp_invoice()->domain ); ?>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
       </label>
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'allow_types' ); ?>"><?php _e( 'Types to display:' ); ?></label>
+      <label for="<?php echo $this->get_field_id( 'allow_types' ); ?>"><?php _e( 'Types to display:', ud_get_wp_invoice()->domain ); ?></label>
       <ul>
         <?php foreach ( $allow_types as $allow_type ): ?>
           <li><input <?php checked( true, in_array( $allow_type, $types ) ); ?> type="checkbox" name="<?php echo $this->get_field_name( 'allow_types' ); ?>[]" value="<?php echo $allow_type; ?>"/> <?php echo ucfirst( $allow_type ); ?></li>
@@ -184,7 +184,7 @@ class InvoiceHistoryWidget extends WP_Widget {
       </ul>
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'allow_statuses' ); ?>"><?php _e( 'Statuses to display:' ); ?></label>
+      <label for="<?php echo $this->get_field_id( 'allow_statuses' ); ?>"><?php _e( 'Statuses to display:', ud_get_wp_invoice()->domain ); ?></label>
       <ul>
         <?php foreach ( $allow_statuses as $allow_status ): ?>
           <li><input <?php checked( true, in_array( $allow_status, $statuses ) ); ?> type="checkbox" name="<?php echo $this->get_field_name( 'allow_statuses' ); ?>[]" value="<?php echo $allow_status; ?>"/> <?php echo ucfirst( $allow_status ); ?></li>

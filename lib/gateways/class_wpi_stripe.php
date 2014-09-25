@@ -118,17 +118,17 @@ class wpi_stripe extends wpi_gateway_base {
    */
   function recurring_settings($this_invoice) {
       ?>
-      <h4><?php _e('Stripe Subscriptions', WPI); ?></h4>
+      <h4><?php _e('Stripe Subscriptions', ud_get_wp_invoice()->domain); ?></h4>
       <table class="wpi_recurring_bill_settings">
           <tr>
-              <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
+              <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', ud_get_wp_invoice()->domain); ?>"><?php _e('Interval', ud_get_wp_invoice()->domain); ?></th>
               <td>
                   <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", ud_get_wp_invoice()->domain), "month" => __("Month", ud_get_wp_invoice()->domain), "year" => __("Year", ud_get_wp_invoice()->domain)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
               </td>
           </tr>
 
           <tr>
-              <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', WPI); ?>"><?php _e('Interval Count', WPI); ?></th>
+              <th style="cursor:help;" title="<?php _e('The number of the unit specified in the interval parameter. For example, you could specify an interval_count of 3 and an interval of "month" for quarterly billing (every 3 months).', ud_get_wp_invoice()->domain); ?>"><?php _e('Interval Count', ud_get_wp_invoice()->domain); ?></th>
               <td>
                   <?php echo WPI_UI::input("id=stripe_interval_count&name=wpi_invoice[recurring][".$this->type."][interval_count]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval_count'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
               </td>
@@ -154,7 +154,7 @@ class wpi_stripe extends wpi_gateway_base {
           ob_start();
           ?>
           <ul class="wpi_checkout_block">
-            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), WPI); ?></li>
+            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), ud_get_wp_invoice()->domain); ?></li>
             <?php
             $html = ob_get_clean();
             echo $html;
@@ -172,7 +172,7 @@ class wpi_stripe extends wpi_gateway_base {
 
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                      <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                       <div class="controls">
                         <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
                       </div>
@@ -188,7 +188,7 @@ class wpi_stripe extends wpi_gateway_base {
                   ?>
 
                   <li class="wpi_checkout_row">
-                    <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                    <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                     <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
                   </li>
 

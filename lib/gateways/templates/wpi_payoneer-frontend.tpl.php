@@ -10,7 +10,7 @@
           <?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
         
           <ul class="wpi_checkout_block payment_details" style="display: none;">
-            <li class="section_title"><?php _e( "Payment Details", WPI ); ?></li>
+            <li class="section_title"><?php _e( "Payment Details", ud_get_wp_invoice()->domain ); ?></li>
             
             <?php 
             
@@ -21,7 +21,7 @@
                   ?>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "Bank Name", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "Bank Name", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_bank_name']['value'])?$invoice['billing'][$this->type]['settings']['usd_bank_name']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -29,7 +29,7 @@
                   </li>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "Account Number", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "Account Number", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_account_number']['value'])?$invoice['billing'][$this->type]['settings']['usd_account_number']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -37,7 +37,7 @@
                   </li>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "ABA (Bank Routing Number)", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "ABA (Bank Routing Number)", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['usd_bank_routing_number']['value'])?$invoice['billing'][$this->type]['settings']['usd_bank_routing_number']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -52,7 +52,7 @@
                   ?>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "Bank Name", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "Bank Name", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_bank_name']['value'])?$invoice['billing'][$this->type]['settings']['euro_bank_name']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -60,7 +60,7 @@
                   </li>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "BIC", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "BIC", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_bic']['value'])?$invoice['billing'][$this->type]['settings']['euro_bic']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -68,7 +68,7 @@
                   </li>
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label"><?php _e( "IBAN", WPI ); ?>:</label>
+                      <label class="control-label"><?php _e( "IBAN", ud_get_wp_invoice()->domain ); ?>:</label>
                       <label class="controls">
                         <?php echo !empty($invoice['billing'][$this->type]['settings']['euro_iban']['value'])?$invoice['billing'][$this->type]['settings']['euro_iban']['value']:__('Not set', ud_get_wp_invoice()->domain); ?>
                       </label>
@@ -97,7 +97,7 @@
               <li>
                   <div class="wpi-control-group">
                       <div class="controls">
-                          <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payer Information', WPI); ?></button>
+                          <button type="submit" id="cc_pay_button" class="hide_after_success submit_button"><?php _e('Process Payer Information', ud_get_wp_invoice()->domain); ?></button>
                       </div>
                       <img style="display: none;" class="loader-img" src="<?php echo ud_get_wp_invoice()->path( "static/styles/images/processing-ajax.gif", 'url' ); ?>" alt="" />
                   </div>
@@ -106,5 +106,5 @@
 
       </div>
     <?php else: ?>
-      <p><?php _e( 'This payment gateway does not support Recurring Billing. Try another one or contact site Administrator.', WPI ); ?></p>
+      <p><?php _e( 'This payment gateway does not support Recurring Billing. Try another one or contact site Administrator.', ud_get_wp_invoice()->domain ); ?></p>
     <?php endif; ?>

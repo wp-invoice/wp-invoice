@@ -62,7 +62,7 @@
   <div class="clearfix"></div>
   <div class="<?php echo apply_filters('wpi_spc::form_actions_class', 'form-actions', 'wpi_authorize'); ?>">
       <?php $checkout_button_classes = implode(' ', apply_filters('wpi_spc::checkout_button_classes', array("btn", "btn-success", "wpi_checkout_process_payment", "wpi_authorize"))); ?>
-      <input type="submit" class="wpi_checkout_submit_btn <?php echo $checkout_button_classes; ?>" value="<?php esc_attr(_e('Process Payment', WPI)); ?>" />
+      <input type="submit" class="wpi_checkout_submit_btn <?php echo $checkout_button_classes; ?>" value="<?php esc_attr(_e('Process Payment', ud_get_wp_invoice()->domain)); ?>" />
       <span class="total_price">of
         <span class="wpi_checkout_final_price"><?php echo $wpi_settings['currency']['symbol'][$wpi_settings['currency']['default_currency_code']]; ?><span class="wpi_price"><?php echo wp_invoice_currency_format( (float)$total ); ?></span>
           <span class="wpi_fee_amount"></span>

@@ -126,7 +126,7 @@ if ( !function_exists('show_itemized_table') ) {
               set_pay_button_value();
             });
           } else {
-            alert( "<?php _e('Partial payment is not available because of an error.\nContact Administirator for more information.', WPI) ?>" );
+            alert( "<?php _e('Partial payment is not available because of an error.\nContact Administirator for more information.', ud_get_wp_invoice()->domain) ?>" );
           }
         });
       </script>
@@ -164,7 +164,7 @@ if ( !function_exists('show_itemized_table') ) {
             <?php endif; ?>
             <?php if (isset($invoice['itemized_charges']) && is_array($invoice['itemized_charges'])): ?>
             <tr>
-              <th class="title_column"><?php _e('Charges', WPI) ?></th>
+              <th class="title_column"><?php _e('Charges', ud_get_wp_invoice()->domain) ?></th>
         <?php if ($show_quantities): ?>
                 <th class="quantity_column"></th>
             <?php endif; ?>
@@ -195,7 +195,7 @@ if ( !function_exists('show_itemized_table') ) {
             ?>
             <tr class="wpi_subtotal">
               <td class="bottom_line_title" <?php echo $colspan; ?>>
-                <?php _e('Subtotal:', WPI) ?>
+                <?php _e('Subtotal:', ud_get_wp_invoice()->domain) ?>
               </td>
               <td class="wpi_money">
             <?php echo $currency_symbol . wp_invoice_currency_format($invoice['subtotal']); ?></td>
@@ -203,13 +203,13 @@ if ( !function_exists('show_itemized_table') ) {
       <?php endif; ?>
       <?php if (!empty($invoice['total_tax'])): ?>
             <tr class="wpi_subtotal">
-              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Tax:', WPI) ?></td>
+              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Tax:', ud_get_wp_invoice()->domain) ?></td>
               <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['total_tax']); ?></td>
             </tr>
       <?php endif; ?>
       <?php if (!empty($invoice['total_discount'])): ?>
             <tr class="wpi_subtotal">
-              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Discounts:', WPI) ?></td>
+              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Discounts:', ud_get_wp_invoice()->domain) ?></td>
               <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['total_discount']); ?></td>
             </tr>
             <?php if ( !empty( $invoice['discount'][1]['name'] ) ): ?>
@@ -220,19 +220,19 @@ if ( !function_exists('show_itemized_table') ) {
       <?php endif; ?>
       <?php if ($invoice['post_status'] != 'paid' && !empty($invoice['adjustments'])): ?>
             <tr class="wpi_subtotal">
-              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Adjustments:', WPI) ?></td>
+              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Adjustments:', ud_get_wp_invoice()->domain) ?></td>
               <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['adjustments']); ?></td>
             </tr>
       <?php endif; ?>
       <?php if ($invoice['post_status'] == 'paid' && !empty($invoice['total_payments'])): ?>
             <tr class="wpi_subtotal">
-              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Received Payment:', WPI) ?></td>
+              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Received Payment:', ud_get_wp_invoice()->domain) ?></td>
               <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['total_payments']); ?></td>
             </tr>
       <?php endif; ?>
       <?php if (!empty($invoice['net'])): ?>
             <tr class="wpi_subtotal">
-              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Balance:', WPI) ?></td>
+              <td class="bottom_line_title" <?php echo $colspan; ?>><?php _e('Balance:', ud_get_wp_invoice()->domain) ?></td>
               <td class="wpi_money"><?php echo $currency_symbol . wp_invoice_currency_format($invoice['net']); ?></td>
             </tr>
       <?php endif;
@@ -276,8 +276,8 @@ if ( !function_exists('show_invoice_history') ) {
       <table class="invoice_history">
         <thead>
           <tr>
-            <th><?php _e('Time', WPI); ?></th>
-            <th><?php _e('Event', WPI); ?></th>
+            <th><?php _e('Time', ud_get_wp_invoice()->domain); ?></th>
+            <th><?php _e('Event', ud_get_wp_invoice()->domain); ?></th>
           </tr>
         </thead>
 
@@ -374,22 +374,22 @@ if ( !function_exists('show_partial_payments') ) {
         <div class="wpi_checkout_partial_payment wpi_checkout_payment_box">
           <ul class="wpi_checkout_block">
 
-            <li class="section_title"><?php _e('Payment Amount', WPI); ?></li>
+            <li class="section_title"><?php _e('Payment Amount', ud_get_wp_invoice()->domain); ?></li>
 
             <li class="wpi_checkout_row">
-              <label for="wpi_minimum_amount_option"><?php _e("Min. Payment Due:", WPI); ?></label>
+              <label for="wpi_minimum_amount_option"><?php _e("Min. Payment Due:", ud_get_wp_invoice()->domain); ?></label>
               <input type="radio" name="payment_amount" id="wpi_minimum_amount_option" value="<?php echo $invoice['deposit_amount']; ?>" />
               <span><?php echo $currency_symbol . wp_invoice_currency_format($invoice['deposit_amount']); ?></span>
             </li>
 
             <li class="wpi_checkout_row">
-              <label for="wpi_full_amount_option"><?php _e("Statement Balance:", WPI); ?></label>
+              <label for="wpi_full_amount_option"><?php _e("Statement Balance:", ud_get_wp_invoice()->domain); ?></label>
               <input checked="checked" type="radio" name="payment_amount" id="wpi_full_amount_option" value="<?php echo $invoice['net']; ?>" />
               <span><?php echo $currency_symbol . wp_invoice_currency_format($invoice['net']); ?></span>
             </li>
 
             <li class="wpi_checkout_row">
-              <label for="wpi_custom_amount_option"><?php _e("Other", WPI); ?></label>
+              <label for="wpi_custom_amount_option"><?php _e("Other", ud_get_wp_invoice()->domain); ?></label>
               <input type="radio" name="payment_amount" id="wpi_custom_amount_option"  value="<?php echo wp_invoice_currency_format($invoice['net']); ?>" />
 
               <span id="wpi_custom_amount_option_field_wrapper"><?php echo $currency_symbol; ?>

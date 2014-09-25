@@ -80,7 +80,7 @@ $custom = array('obj' => 'spc');
 <?php		endif; ?>
 <?php endforeach; ?>
 <?php if ( !empty( $wpi_checkout['info_block']['billing_information']['amount'] ) ): ?>
-  <input type="hidden" name="item_name_<?php echo $i; ?>" value="<?php _e('Custom Amount', WPI); ?>" />
+  <input type="hidden" name="item_name_<?php echo $i; ?>" value="<?php _e('Custom Amount', ud_get_wp_invoice()->domain); ?>" />
   <input type="hidden" name="item_number_<?php echo $i; ?>" value="<?php echo $i; ?>" />
   <input class="wpi_checkout_hidden_custom_amount" type="hidden" name="amount_<?php echo $i; ?>" value="0" />
   <ul class="wpi_checkout_block wpi_checkout_billing_information">
@@ -122,7 +122,7 @@ $custom = array('obj' => 'spc');
   <div class="clearfix"></div>
   <div class="<?php echo apply_filters('wpi_spc::form_actions_class', 'form-actions', 'wpi_paypal'); ?>">
     <?php $checkout_button_classes = implode(' ', apply_filters('wpi_spc::checkout_button_classes', array("btn", "btn-success", "wpi_checkout_process_payment", "wpi_paypal"))); ?>
-    <input type="submit" class="wpi_checkout_submit_btn <?php echo $checkout_button_classes; ?>" value="<?php esc_attr(_e('Process Payment', WPI)); ?>" />
+    <input type="submit" class="wpi_checkout_submit_btn <?php echo $checkout_button_classes; ?>" value="<?php esc_attr(_e('Process Payment', ud_get_wp_invoice()->domain)); ?>" />
     <span class="total_price">of
       <span class="wpi_checkout_final_price"><?php echo $wpi_settings['currency']['symbol'][$wpi_settings['currency']['default_currency_code']]; ?><span class="wpi_price"><?php echo wp_invoice_currency_format( (float)$total ); ?></span>
         <span class="wpi_fee_amount"></span>

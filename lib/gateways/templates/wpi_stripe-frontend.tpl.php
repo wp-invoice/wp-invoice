@@ -13,11 +13,11 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
 
         <ul class="wpi_checkout_block">
 
-          <li class="section_title"><?php _e('Billing Information', WPI); ?></li>
+          <li class="section_title"><?php _e('Billing Information', ud_get_wp_invoice()->domain); ?></li>
 
           <li class="wpi_checkout_row">
               <div class="control-group">
-                  <label class="control-label" for="card-number"><?php _e('Card Number', WPI); ?></label>
+                  <label class="control-label" for="card-number"><?php _e('Card Number', ud_get_wp_invoice()->domain); ?></label>
                   <div class="controls">
                       <input type="text" autocomplete="off" id="card-number" class="card-number text-input" />
                   </div>
@@ -26,7 +26,7 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
 
           <li class="wpi_checkout_row">
               <div class="control-group">
-                  <label class="control-label" for="card-cvc"><?php _e('CVC', WPI); ?></label>
+                  <label class="control-label" for="card-cvc"><?php _e('CVC', ud_get_wp_invoice()->domain); ?></label>
                   <div class="controls">
                       <input type="text" size="4" autocomplete="off" id="card-cvc" class="card-cvc text-input" />
                   </div>
@@ -35,7 +35,7 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
 
           <li class="wpi_checkout_row">
               <div class="control-group">
-                  <label class="control-label" for="card-expiry-month"><?php _e('Expiration (Month)', WPI); ?></label>
+                  <label class="control-label" for="card-expiry-month"><?php _e('Expiration (Month)', ud_get_wp_invoice()->domain); ?></label>
                   <div class="controls">
                       <input placeholder="MM" type="text" id="card-expiry-month" class="card-expiry-month text-input" />
                   </div>
@@ -44,7 +44,7 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
 
           <li class="wpi_checkout_row">
               <div class="control-group">
-                  <label class="control-label" for="card-expiry-year"><?php _e('Expiration (Year)', WPI); ?></label>
+                  <label class="control-label" for="card-expiry-year"><?php _e('Expiration (Year)', ud_get_wp_invoice()->domain); ?></label>
                   <div class="controls">
                       <input placeholder="YYYY" type="text" id="card-expiry-year" class="card-expiry-year text-input" />
                   </div>

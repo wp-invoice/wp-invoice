@@ -886,24 +886,24 @@ if ( !function_exists( 'wpi_help_api_reference' ) ) {
     global $wpi_xml_rpc_api_reference;
     ?>
     <div class="wpi_settings_block">
-        <?php _e( 'WP-Invoice XML-RPC API Reference', WPI ); ?>
-      <input type="button" class="wpi_settings_view" value="<?php esc_attr( _e( 'Toggle', WPI ) ); ?>">
+        <?php _e( 'WP-Invoice XML-RPC API Reference', ud_get_wp_invoice()->domain ); ?>
+      <input type="button" class="wpi_settings_view" value="<?php esc_attr( _e( 'Toggle', ud_get_wp_invoice()->domain ) ); ?>">
         <div class="wpi_settings_row hidden">
           <div class="wpi_scrollable_content">
             <h2>
-              <?php _e( 'WP-Invoice XML-RPC API Reference', WPI ); ?>
+              <?php _e( 'WP-Invoice XML-RPC API Reference', ud_get_wp_invoice()->domain ); ?>
             </h2>
             <p>
               <?php echo $wpi_xml_rpc_api_reference[ 'namespace' ]->description; ?>
             </p>
             <h2>
-              <?php _e( 'Examples', WPI ); ?>
+              <?php _e( 'Examples', ud_get_wp_invoice()->domain ); ?>
             </h2>
             <p>
               <a target="_blank" href="https://github.com/UsabilityDynamics/wp-invoice/wiki/API#examples">https://github.com/UsabilityDynamics/wp-invoice/wiki/API</a>
             </p>
             <p>
-              <?php _e( 'Below is a list of available functions that current API supports.', WPI ); ?>
+              <?php _e( 'Below is a list of available functions that current API supports.', ud_get_wp_invoice()->domain ); ?>
             </p>
 
             <ul>
@@ -911,7 +911,7 @@ if ( !function_exists( 'wpi_help_api_reference' ) ) {
               <li class="wpi_api_method_wrapper">
                 <code><?php echo $method; ?></code>
                 <p><?php echo $info[ 'description' ]; ?></p>
-                <h4><?php _e( 'Arguments:', WPI ); ?></h4>
+                <h4><?php _e( 'Arguments:', ud_get_wp_invoice()->domain ); ?></h4>
                 <ol>
                   <?php foreach ( $info[ 'args' ] as $arg => $arg_info ): ?>
                     <li><b><?php echo $arg; ?></b>:<?php echo $arg_info[ 'type' ]; ?><?php echo $arg_info[ 'required' ] ? '<sup>*</sup>' : ''; ?>

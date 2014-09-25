@@ -53,7 +53,7 @@ class toplevel_page_wpi_main {
       if ( !empty( $filters['status'] ) && is_array( $filters['status'] ) ) : ?>
 
         <ul class="wpi_overview_filters status">
-          <li class="wpi_filter_section_title"><?php _e('Status', WPI) ?><a class="wpi_filter_show"><?php _e('Hide', WPI) ?></a></li>
+          <li class="wpi_filter_section_title"><?php _e('Status', ud_get_wp_invoice()->domain) ?><a class="wpi_filter_show"><?php _e('Hide', ud_get_wp_invoice()->domain) ?></a></li>
           <li class="all wpi_checkbox_filter" style="display:block;">
             <ul>
               <?php foreach ( $filters['status'] as $item ) : ?>
@@ -68,7 +68,7 @@ class toplevel_page_wpi_main {
       <?php endif; ?>
 
       <ul class="wpi_overview_filters users">
-        <li class="wpi_filter_section_title"><?php _e('Recipient', WPI) ?><a class="wpi_filter_show"><?php _e('Show', WPI) ?></a></li>
+        <li class="wpi_filter_section_title"><?php _e('Recipient', ud_get_wp_invoice()->domain) ?><a class="wpi_filter_show"><?php _e('Show', ud_get_wp_invoice()->domain) ?></a></li>
         <li class="all wpi_checkbox_filter">
           <?php
             wp_enqueue_script('wpi_select2_js');
@@ -78,7 +78,7 @@ class toplevel_page_wpi_main {
             <script type="text/javascript">
               jQuery( document ).ready(function(){
                 jQuery(".wpi_user_email_selection").select2({
-                  placeholder: '<?php _e('Select User', WPI); ?>',
+                  placeholder: '<?php _e('Select User', ud_get_wp_invoice()->domain); ?>',
                   multiple: false,
                   width: '100%',
                   minimumInputLength: 3,
@@ -118,7 +118,7 @@ class toplevel_page_wpi_main {
       <?php $months_dropdown = $wp_list_table->months_dropdown('wpi_object', 'wpi_search[m]', true); ?>
       <?php if (!empty($months_dropdown)) : ?>
       <ul class="wpi_overview_filters month">
-        <li class="wpi_filter_section_title"><?php _e('Date', WPI) ?><a class="wpi_filter_show"><?php _e('Show', WPI) ?></a></li>
+        <li class="wpi_filter_section_title"><?php _e('Date', ud_get_wp_invoice()->domain) ?><a class="wpi_filter_show"><?php _e('Show', ud_get_wp_invoice()->domain) ?></a></li>
         <li class="all wpi_checkbox_filter">
           <?php echo $months_dropdown; ?>
         </li>

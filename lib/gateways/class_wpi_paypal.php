@@ -140,17 +140,17 @@ class wpi_paypal extends wpi_gateway_base {
    */
   function recurring_settings($this_invoice) {
     ?>
-    <h4><?php _e('PayPal Subscriptions', WPI); ?></h4>
+    <h4><?php _e('PayPal Subscriptions', ud_get_wp_invoice()->domain); ?></h4>
     <table class="wpi_recurring_bill_settings">
       <tr>
-        <th><?php _e('Bill Every', WPI); ?></th>
+        <th><?php _e('Bill Every', ud_get_wp_invoice()->domain); ?></th>
         <td>
     <?php echo WPI_UI::input("name=wpi_invoice[recurring][" . $this->type . "][length]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
     <?php echo WPI_UI::select("name=wpi_invoice[recurring][" . $this->type . "][unit]&values=" . serialize(array("days" => __("Day(s)", ud_get_wp_invoice()->domain), "weeks" => __("Week(s)", ud_get_wp_invoice()->domain), "months" => __("Month(s)", ud_get_wp_invoice()->domain), "years" => __("Year(s)", ud_get_wp_invoice()->domain))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
         </td>
       </tr>
       <tr>
-        <th><?php _e('Billing Cycles', WPI); ?></th>
+        <th><?php _e('Billing Cycles', ud_get_wp_invoice()->domain); ?></th>
         <td><?php echo WPI_UI::input("id=wpi_meta_recuring_cycles&name=wpi_invoice[recurring][" . $this->type . "][cycles]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['cycles'] : '') . "&class=wpi_small"); ?></td>
       </tr>
     </table>
@@ -236,7 +236,7 @@ class wpi_paypal extends wpi_gateway_base {
           ob_start();
           ?>
           <ul class="wpi_checkout_block">
-            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), WPI); ?></li>
+            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), ud_get_wp_invoice()->domain); ?></li>
           <?php
           $html = ob_get_contents();
           ob_end_clean();
@@ -280,7 +280,7 @@ class wpi_paypal extends wpi_gateway_base {
 
                     <li class="wpi_checkout_row">
                       <div class="control-group">
-                        <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                        <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                         <div class="controls">
                           <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value']) ? $field_data['value'] : (!empty($invoice['user_data'][$field_slug]) ? $invoice['user_data'][$field_slug] : ''); ?>" />
                         </div>
@@ -299,7 +299,7 @@ class wpi_paypal extends wpi_gateway_base {
                     ?>
 
                     <li class="wpi_checkout_row">
-                      <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                      <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                   <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
                     </li>
 

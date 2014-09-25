@@ -18,7 +18,7 @@
 function message_meta_box($this_invoice) {
   ?>
   <div id="send_notification_box" class="hidden postbox">
-    <h3 class='hndle'><span><?php _e("Send Notification", WPI) ?></span></h3>
+    <h3 class='hndle'><span><?php _e("Send Notification", ud_get_wp_invoice()->domain) ?></span></h3>
     <div class="inside">
       <div id="submitpost" class="submitbox">
         <div id="minor-publishing">
@@ -26,11 +26,11 @@ function message_meta_box($this_invoice) {
             <div id="preview-action" style="text-align: left">
               <table id="wpi_invoice_notification_table">
                 <tr>
-                  <th><?php _e('To:', WPI); ?></th>
+                  <th><?php _e('To:', ud_get_wp_invoice()->domain); ?></th>
                   <td><input id="wpi_notification_send_to" class="input_field"  name="wpi_invoice_notification[email_address]" value="<?php echo $this_invoice['user_data']['user_email']; ?>" /></td>
                 </tr>
                 <tr>
-                  <th><?php _e('Template:', WPI); ?></th>
+                  <th><?php _e('Template:', ud_get_wp_invoice()->domain); ?></th>
                   <td>
                     <select id="wpi_change_notification">
                       <option value="0"></option>
@@ -46,12 +46,12 @@ function message_meta_box($this_invoice) {
                   </td>
                 </tr>
                 <tr>
-                  <th><?php _e('Subject:', WPI); ?></th>
+                  <th><?php _e('Subject:', ud_get_wp_invoice()->domain); ?></th>
                   <td><input id="wpi_notification_subject" class="input_field" name="wpi_invoice_notification[subject]" value="<?php echo!empty($this_invoice['subject']) ? $this_invoice['subject'] : ''; ?>" /></td>
                 </tr>
 
                 <tr>
-                  <th><?php _e('Message:', WPI); ?></th>
+                  <th><?php _e('Message:', ud_get_wp_invoice()->domain); ?></th>
                   <td><textarea id="wpi_notification_message" name="wpi_invoice_notification[notification_message]" class="wpi_notification_message " value=""></textarea></td>
                 </tr>
 
@@ -62,10 +62,10 @@ function message_meta_box($this_invoice) {
         </div>
         <div class="major-publishing-actions clearfix">
           <div class="alignleft">
-            <span class="wpi_cancel" onclick="wpi_show_notification_box();"><?php _e('Cancel'); ?></span>
+            <span class="wpi_cancel" onclick="wpi_show_notification_box();"><?php _e('Cancel', ud_get_wp_invoice()->domain); ?></span>
           </div>
           <div id="wpi_template_loading"  style="display:none;" ></div>
-          <input type="submit" class="alignright button-primary" value="<?php esc_attr(_e('Send Notification', WPI)); ?>" id="wpi_send_notification">
+          <input type="submit" class="alignright button-primary" value="<?php esc_attr(_e('Send Notification', ud_get_wp_invoice()->domain)); ?>" id="wpi_send_notification">
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ function postbox_overview($this_invoice) {
    ?>
     <tr>
       <th>
-        <?php _e('Invoice ID', WPI); ?>
+        <?php _e('Invoice ID', ud_get_wp_invoice()->domain); ?>
       </th>
       <td>
         <?php echo $this_invoice['invoice_id']; ?>
@@ -100,7 +100,7 @@ function postbox_overview($this_invoice) {
     ?>
       <tr>
         <th>
-          <?php _e($title, WPI); ?>
+          <?php _e($title, ud_get_wp_invoice()->domain); ?>
         </th>
         <td>
           <?php echo $value; ?>
@@ -134,12 +134,12 @@ function postbox_publish($this_invoice) {
   <div id="submitpost" class="submitbox">
     <div id="minor-publishing">
       <ul class="wpi_publish_seetings">
-        <li class="wpi_hide_until_saved"><a target="_blank" class="wpi_new_win wpi_update_with_invoice_url" href="<?php echo get_invoice_permalink(!empty($this_invoice['invoice_id']) ? $this_invoice['invoice_id'] : '' ); ?>"><?php _e('View Online', WPI); ?></a></li>
+        <li class="wpi_hide_until_saved"><a target="_blank" class="wpi_new_win wpi_update_with_invoice_url" href="<?php echo get_invoice_permalink(!empty($this_invoice['invoice_id']) ? $this_invoice['invoice_id'] : '' ); ?>"><?php _e('View Online', ud_get_wp_invoice()->domain); ?></a></li>
 
         <?php do_action('wpi_publish_options', $this_invoice); ?>
 
-        <li class="wpi_hide_until_saved"><span onclick="wpi_show_paycharge_box();" class="wpi_link" id="wpi_button_show_paycharge_box"><?php _e('Enter Payment', WPI); ?></span></li>
-        <li class="wpi_hide_until_saved"><span onclick='wpi_show_notification_box();' class="wpi_link" id="wpi_button_show_notification"><?php _e('Send Notification', WPI); ?></span></li>
+        <li class="wpi_hide_until_saved"><span onclick="wpi_show_paycharge_box();" class="wpi_link" id="wpi_button_show_paycharge_box"><?php _e('Enter Payment', ud_get_wp_invoice()->domain); ?></span></li>
+        <li class="wpi_hide_until_saved"><span onclick='wpi_show_notification_box();' class="wpi_link" id="wpi_button_show_notification"><?php _e('Send Notification', ud_get_wp_invoice()->domain); ?></span></li>
 
         <?php if ($wpi_settings['allow_deposits'] == 'true') { ?>
           <li class="wpi_not_for_recurring wpi_hide_deposit_option wpi_not_for_quote">
@@ -148,7 +148,7 @@ function postbox_publish($this_invoice) {
           <li class="wpi_deposit_settings">
             <table class="wpi_deposit_settings">
               <tr>
-                <th><?php _e("Minimum Payment", WPI); ?></th>
+                <th><?php _e("Minimum Payment", ud_get_wp_invoice()->domain); ?></th>
                 <td><?php echo WPI_UI::input("id=wpi_meta_deposit_amount&name=wpi_invoice[deposit_amount]&value=" . (!empty($this_invoice['deposit_amount']) ? $this_invoice['deposit_amount'] : 0)); ?></td>
               </tr>
             </table>
@@ -175,23 +175,23 @@ function postbox_publish($this_invoice) {
       <table class="form-table">
         <thead>
           <th colspan="2">
-            <span id="wpi_button_show_advanced" class="wpi_link"><?php _e('Toggle Advanced', WPI); ?></span>
+            <span id="wpi_button_show_advanced" class="wpi_link"><?php _e('Toggle Advanced', ud_get_wp_invoice()->domain); ?></span>
           </th>
         </thead>
         <tbody>
           <tr class="column-publish-due-date wpi_not_for_recurring wpi_not_for_quote">
-            <th><?php _e('Due Date', WPI); ?></th>
+            <th><?php _e('Due Date', ud_get_wp_invoice()->domain); ?></th>
             <td>
               <div class="timestampdiv" style="display:block;">
                 <?php echo WPI_UI::select("id=due_date_mm&name=wpi_invoice[due_date_month]&values=months&current_value=" . (!empty($this_invoice['due_date_month']) ? $this_invoice['due_date_month'] : '')); ?>
                 <?php echo WPI_UI::input("id=due_date_jj&name=wpi_invoice[due_date_day]&value=" . (!empty($this_invoice['due_date_day']) ? $this_invoice['due_date_day'] : '') . "&special=size='2' maxlength='2' autocomplete='off'") ?>
                 <?php echo WPI_UI::input("id=due_date_aa&name=wpi_invoice[due_date_year]&value=" . (!empty($this_invoice['due_date_year']) ? $this_invoice['due_date_year'] : '') . "&special=size='2' maxlength='4' autocomplete='off'") ?><br />
-                <span onclick="wp_invoice_add_time('due_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', WPI); ?></span> | <span onclick="wp_invoice_add_time('due_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', WPI); ?></span> | <span onclick="wp_invoice_add_time('due_date','clear');" class="wp_invoice_click_me"><?php _e('Clear', WPI); ?></span>
+                <span onclick="wp_invoice_add_time('due_date', 7);" class="wp_invoice_click_me"><?php _e('In One Week', ud_get_wp_invoice()->domain); ?></span> | <span onclick="wp_invoice_add_time('due_date', 30);" class="wp_invoice_click_me"><?php _e('In 30 Days', ud_get_wp_invoice()->domain); ?></span> | <span onclick="wp_invoice_add_time('due_date','clear');" class="wp_invoice_click_me"><?php _e('Clear', ud_get_wp_invoice()->domain); ?></span>
               </div>
             </td>
           </tr>
           <tr class="invoice_main column-publish-invoice_id">
-            <th><?php _e('Invoice ID', WPI); ?> </th>
+            <th><?php _e('Invoice ID', ud_get_wp_invoice()->domain); ?> </th>
             <td>
               <?php
                 $custom_invoice_id = !empty($this_invoice['custom_id']) ? $this_invoice['custom_id'] : '';
@@ -205,18 +205,18 @@ function postbox_publish($this_invoice) {
                 <span class="wp_invoice_custom_invoice_id">
                   <?php echo $this_invoice['invoice_id']; ?>
                 </span>
-                <a onClick="jQuery('.wp_invoice_custom_invoice_id').toggle(); return false;" class="wp_invoice_click_me <?php echo empty($this_invoice['custom_id'])?" wp_invoice_hidden":""; ?>" href="#"><?php _e('Custom Invoice ID', WPI); ?></a>
+                <a onClick="jQuery('.wp_invoice_custom_invoice_id').toggle(); return false;" class="wp_invoice_click_me <?php echo empty($this_invoice['custom_id'])?" wp_invoice_hidden":""; ?>" href="#"><?php _e('Custom Invoice ID', ud_get_wp_invoice()->domain); ?></a>
               <?php } ?>
             </td>
           </tr>
           <tr class="invoice_main column-publish-global_tax">
-            <th><?php _e('Global Tax', WPI); ?></th>
+            <th><?php _e('Global Tax', ud_get_wp_invoice()->domain); ?></th>
             <td>
               <?php echo WPI_UI::input("id=wp_invoice_tax&name=wpi_invoice[meta][tax]&value=" . (!empty($this_invoice['tax']) ? $this_invoice['tax'] : '')) ?>
             </td>
           </tr>
           <tr class="invoice_main column-publish-global_tax">
-            <th><?php _e('Tax Method', WPI); ?></th>
+            <th><?php _e('Tax Method', ud_get_wp_invoice()->domain); ?></th>
             <td>
     <?php $tax_method = !empty($this_invoice['tax_method']) ? $this_invoice['tax_method'] : (isset($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : ''); ?>
     <?php echo WPI_UI::select("id=wpi_tax_method&name=wpi_invoice[tax_method]&values=" . serialize(array('before_discount' => __('Before Discount', ud_get_wp_invoice()->domain), 'after_discount' => __('After Discount', ud_get_wp_invoice()->domain))) . "&current_value={$tax_method}"); ?>
@@ -227,10 +227,10 @@ function postbox_publish($this_invoice) {
     </div>
     <div id="major-publishing-actions" class="clearfix">
       <div id="delete-action" class="wpi_hide_until_saved">
-        <a href="<?php echo admin_url($wpi_settings['links']['overview_page']) . "&action=trash&post=" . (!empty($this_invoice['ID']) ? $this_invoice['ID'] : '') . "&_wpnonce=" . wp_create_nonce('wpi-status-change-' . (!empty($this_invoice['ID']) ? $this_invoice['ID'] : '')); ?>" class="submitdelete deletion"><?php _e('Trash Invoice', WPI); ?></a>
+        <a href="<?php echo admin_url($wpi_settings['links']['overview_page']) . "&action=trash&post=" . (!empty($this_invoice['ID']) ? $this_invoice['ID'] : '') . "&_wpnonce=" . wp_create_nonce('wpi-status-change-' . (!empty($this_invoice['ID']) ? $this_invoice['ID'] : '')); ?>" class="submitdelete deletion"><?php _e('Trash Invoice', ud_get_wp_invoice()->domain); ?></a>
       </div>
       <div id="publishing-action">
-        <input type="submit" class="alignright button-primary" value="<?php esc_attr(_e('Save', WPI)); ?>" id="wpi_save_invoice">
+        <input type="submit" class="alignright button-primary" value="<?php esc_attr(_e('Save', ud_get_wp_invoice()->domain)); ?>" id="wpi_save_invoice">
       </div>
     </div>
   </div>
@@ -246,11 +246,11 @@ function postbox_user_new($this_invoice) {
   global $wpi_settings;
   ?>
   <div class="postbox">
-    <h3 class="hndle"><?php _e('New User Information', WPI); ?></h3>
+    <h3 class="hndle"><?php _e('New User Information', ud_get_wp_invoice()->domain); ?></h3>
     <div class="inside">
       <table class="form-table wp_invoice_new_user">
         <tr>
-          <th><?php _e('Email', WPI); ?></th>
+          <th><?php _e('Email', ud_get_wp_invoice()->domain); ?></th>
           <td id="wpi_user_email"><?php echo $_REQUEST['wpi']['new_invoice']['user_email']; ?>
         <?php echo WPI_UI::input("type=hidden&name=wpi_invoice[user_data][user_email]&value={$_REQUEST['wpi']['new_invoice']['user_email']})") ?>
           </td>
@@ -261,23 +261,23 @@ function postbox_user_new($this_invoice) {
         foreach ($user_information as $field_id => $field_name) {
           ?>
           <tr>
-            <th><?php _e($field_name) ?></th>
+            <th><?php _e($field_name, ud_get_wp_invoice()->domain) ?></th>
             <td><?php echo WPI_UI::input("name=wpi_invoice[user_data][$field_id]&value=" . $this_invoice['user_data'][$field_id]); ?></td>
           </tr>
               <?php } ?>
         <tr>
           <th>
-            <a class="wp_invoice_tooltip" title="<?php _e("If checked a WordPress user account will be created, otherwise the new user will only be visible within WP-Invoice.", WPI) ?>">
-              <?php _e("Create WordPress User Account?", WPI) ?>
+            <a class="wp_invoice_tooltip" title="<?php _e("If checked a WordPress user account will be created, otherwise the new user will only be visible within WP-Invoice.", ud_get_wp_invoice()->domain) ?>">
+              <?php _e("Create WordPress User Account?", ud_get_wp_invoice()->domain) ?>
             </a>
           </th>
           <td><input  onclick="if(jQuery(this).is(':checked')) { jQuery('#wpi_new_user_username input').val('<?php echo $_REQUEST['wpi']['new_invoice']['user_email']; ?>'); jQuery('#wpi_new_user_username').show();} else { jQuery('#wpi_new_user_username input').val('');  jQuery('#wpi_new_user_username').hide();}"  type="checkbox" name='wpi_invoice[user_data][create_wp_account]'>
             <label for="wpi_invoice[user_data][create_wp_account]">
-  <?php _e("Yes", WPI) ?>
+  <?php _e("Yes", ud_get_wp_invoice()->domain) ?>
             </label></td>
         </tr>
         <tr class="hidden" id="wpi_new_user_username">
-          <th><?php _e('Username', WPI); ?></th>
+          <th><?php _e('Username', ud_get_wp_invoice()->domain); ?></th>
           <td><?php echo WPI_UI::input("name=wpi_invoice[user_data][username]"); ?></td>
         </tr>
       </table>
@@ -354,7 +354,7 @@ function postbox_user_existing($this_invoice) {
 
   <?php foreach ($user_information as $field_id => $field_name) { ?>
     <tr>
-      <th><?php _e($field_name) ?></th>
+      <th><?php _e($field_name, ud_get_wp_invoice()->domain) ?></th>
       <td>
         <?php
           echo WPI_UI::input(array(
@@ -384,7 +384,7 @@ function postbox_payment_methods($this_invoice) {
     <table class="form-table">
 
       <tr class="column-payment-method-default wpi_not_for_quote">
-        <th><?php _e("Default Payment Option", WPI) ?></th>
+        <th><?php _e("Default Payment Option", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <select id="wp_invoice_payment_method" data-name="wpi_invoice[default_payment_method]" name="wpi_invoice[default_payment_method]">
             <?php foreach ($this_invoice['billing'] as $key => $payment_option) : ?>
@@ -406,7 +406,7 @@ function postbox_payment_methods($this_invoice) {
       </tr>
 
       <tr class="wpi_not_for_quote wpi-payment-setting column-paymenth-method-<?php echo $key; ?>">
-        <th><?php _e("Accepted Payments", WPI) ?></th>
+        <th><?php _e("Accepted Payments", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_settings_list">
               <?php foreach ($this_invoice['billing'] as $key => $value) : ?>
@@ -422,7 +422,7 @@ function postbox_payment_methods($this_invoice) {
 
 
       <tr class="column-publish-currency">
-        <th><?php _e("Currency", WPI) ?></th>
+        <th><?php _e("Currency", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <select name="wpi_invoice[default_currency_code]">
     <?php foreach ($wpi_settings['currency']['types'] as $value => $currency_x) : ?>
@@ -491,14 +491,14 @@ function postbox_payment_methods($this_invoice) {
 
       <tr>
         <th></th>
-        <td class="wpi_toggle_advanced_payment_options"><span class="wpi_link"><?php _e('Toggle Advanced Payment Options', WPI); ?></span></td>
+        <td class="wpi_toggle_advanced_payment_options"><span class="wpi_link"><?php _e('Toggle Advanced Payment Options', ud_get_wp_invoice()->domain); ?></span></td>
       </tr>
 
     </table>
   <?php } else { ?>
     <table class="form-table">
       <tr>
-        <th><?php _e("Payment Method", WPI) ?></th>
+        <th><?php _e("Payment Method", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <input type="hidden" name="wpi_invoice[default_payment_method]" value="manual" />
           <p><?php echo sprintf(__('To manage payment settings you should accept at least one payment method. Visit <a href="%s">Payment Settings page</a> to setup.', ud_get_wp_invoice()->domain), admin_url('admin.php?page=wpi_page_settings#wpi_tab_payment')); ?></p>
@@ -506,7 +506,7 @@ function postbox_payment_methods($this_invoice) {
         </td>
       </tr>
       <tr class="column-publish-currency">
-        <th><?php _e("Currency", WPI) ?></th>
+        <th><?php _e("Currency", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <select name="wpi_invoice[default_currency_code]">
     <?php foreach ($wpi_settings['currency']['types'] as $value => $currency_x) : ?>
@@ -517,7 +517,7 @@ function postbox_payment_methods($this_invoice) {
       </tr>
       <tr>
         <th></th>
-        <td class="wpi_toggle_advanced_payment_options"><span class="wpi_link"><?php _e('Toggle Advanced Payment Options', WPI); ?></span></td>
+        <td class="wpi_toggle_advanced_payment_options"><span class="wpi_link"><?php _e('Toggle Advanced Payment Options', ud_get_wp_invoice()->domain); ?></span></td>
       </tr>
     </table>
 
@@ -537,35 +537,35 @@ function status_meta_box($this_invoice) {
   }
   ?>
   <div id="postbox_status_and_history" class="postbox <?php echo $hidden; ?>">
-    <h3 class="hndle"><?php _e("Invoice Status and History", WPI) ?></h3>
+    <h3 class="hndle"><?php _e("Invoice Status and History", ud_get_wp_invoice()->domain) ?></h3>
     <div class="inside" style="margin:0;padding:0;">
       <div id="submitbox" class="submitbox" style="overflow: auto; max-height: 150px;">
         <table id="wpi_enter_payments" class="form-table hidden" >
           <tr>
-            <th><?php _e("Event Type", WPI) ?></th>
+            <th><?php _e("Event Type", ud_get_wp_invoice()->domain) ?></th>
             <td>
   <?php echo WPI_UI::select("name=event_type&values=" . serialize(array('add_payment' => __('Receive Payment', ud_get_wp_invoice()->domain), 'add_charge' => __('Add Charge', ud_get_wp_invoice()->domain), 'do_adjustment' => __('Administrative Adjustment', ud_get_wp_invoice()->domain), 'refund' => __('Refund', ud_get_wp_invoice()->domain)))); ?>
-              <span class="wpi_recurring_options"><?php _e('Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments.', WPI); ?></span>
+              <span class="wpi_recurring_options"><?php _e('Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments.', ud_get_wp_invoice()->domain); ?></span>
             </td>
           </tr>
           <tr>
-            <th><?php _e("Event Amount", WPI) ?></th>
+            <th><?php _e("Event Amount", ud_get_wp_invoice()->domain) ?></th>
             <td>
               <?php echo WPI_UI::input("type=text&name=wpi_event_amount&class=wpi_money&special=autocomplete='off'"); ?>
               <span id="event_tax_holder" class="hidden">
-                <b style="padding:5px;"><?php _e("Charge Tax", WPI) ?></b><?php echo WPI_UI::input("type=text&name=wpi_event_tax&class=wpi_money&special=autocomplete='off'"); ?>%
+                <b style="padding:5px;"><?php _e("Charge Tax", ud_get_wp_invoice()->domain) ?></b><?php echo WPI_UI::input("type=text&name=wpi_event_tax&class=wpi_money&special=autocomplete='off'"); ?>%
               </span>
             </td>
           </tr>
           <tr>
-            <th><?php _e("Event Date & Time", WPI) ?></th>
+            <th><?php _e("Event Date & Time", ud_get_wp_invoice()->domain) ?></th>
             <td>
               <?php echo WPI_UI::input("type=text&name=wpi_event_date&class=wpi_date"); ?>
               <?php echo WPI_UI::input("type=text&name=wpi_event_time&class=wpi_time"); ?>
             </td>
           </tr>
           <tr>
-            <th><?php _e("Event Note", WPI) ?></th>
+            <th><?php _e("Event Note", ud_get_wp_invoice()->domain) ?></th>
             <td><?php echo WPI_UI::input("name=wpi_event_note"); ?>
             </td>
           </tr>
@@ -573,8 +573,8 @@ function status_meta_box($this_invoice) {
             <th>&nbsp;</th>
             <td>
               <?php wp_nonce_field('wpi_process_manual_event_nonce', 'wpi_process_manual_event_nonce'); ?>
-              <input type="button" class="button" value="<?php esc_attr(_e('Process Charge / Payment', WPI)); ?>"  id="wpi_process_manual_event" />
-              <input type="button" class="button" value="<?php esc_attr(_e('Cancel', WPI)); ?>" onclick="wpi_show_paycharge_box();" />
+              <input type="button" class="button" value="<?php esc_attr(_e('Process Charge / Payment', ud_get_wp_invoice()->domain)); ?>"  id="wpi_process_manual_event" />
+              <input type="button" class="button" value="<?php esc_attr(_e('Cancel', ud_get_wp_invoice()->domain)); ?>" onclick="wpi_show_paycharge_box();" />
               <span class="wpi_ajax_response"></span>
             </td>
           </tr>
@@ -592,7 +592,7 @@ function status_meta_box($this_invoice) {
         </div>
       </div>
       <div class="footer_functions">
-        <span class="wpi_clickable" onclick="jQuery('.wpi_event_update').toggle();"><?php _e('Toggle History Detail', WPI); ?></span>
+        <span class="wpi_clickable" onclick="jQuery('.wpi_event_update').toggle();"><?php _e('Toggle History Detail', ud_get_wp_invoice()->domain); ?></span>
       </div>
     </div>
   </div>

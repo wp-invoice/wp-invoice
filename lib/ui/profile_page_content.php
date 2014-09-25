@@ -4,12 +4,12 @@
   //$user_information = array_merge($wpi_settings['user_meta']['required'], $custom_user_information);
 ?>
 
-<h3><?php _e('Billing / Invoicing Info', WPI) ?></h3>
+<h3><?php _e('Billing / Invoicing Info', ud_get_wp_invoice()->domain) ?></h3>
 <a name="billing_info"></a>
 <table class="form-table" >
   <?php foreach ($user_information as $field_id => $field_name) { ?>
     <tr>
-      <th><?php _e($field_name, WPI) ?></th>
+      <th><?php _e($field_name, ud_get_wp_invoice()->domain) ?></th>
       <td>
         <?php
         echo WPI_UI::input(array(

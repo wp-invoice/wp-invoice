@@ -7,16 +7,16 @@
         'value' => 'true',
         'group' => 'wpi_settings'
     )); ?>
-    <h2><?php _e('WP-Invoice First-Use Setup', WPI); ?></h2>
+    <h2><?php _e('WP-Invoice First-Use Setup', ud_get_wp_invoice()->domain); ?></h2>
     <div id="wp_invoice_potential_error"></div>
-    <div style="margin: 5px 0 15px 0;"><?php _e('Thank you for installing WP-Invoice.  Please provide the necessary information to complete the first-time setup.', WPI); ?></div>
+    <div style="margin: 5px 0 15px 0;"><?php _e('Thank you for installing WP-Invoice.  Please provide the necessary information to complete the first-time setup.', ud_get_wp_invoice()->domain); ?></div>
     <div id="first_time_setup_accordion" class="">
       <div class="wp_invoice_accordion_section">
-        <h3 id="basic_setup"><a href="#" class="selector"><?php _e('Basic Setup', WPI); ?></a></h3>
+        <h3 id="basic_setup"><a href="#" class="selector"><?php _e('Basic Setup', ud_get_wp_invoice()->domain); ?></a></h3>
         <div>
           <table class="form-table">
             <tr>
-              <th width="200"><?php _e('Business Name:', WPI) ?></th>
+              <th width="200"><?php _e('Business Name:', ud_get_wp_invoice()->domain) ?></th>
               <td>
                 <?php echo WPI_UI::input(array(
                     'type' => 'text',
@@ -28,7 +28,7 @@
             </tr>
             <tr>
               <th width="200">
-                <a class="wp_invoice_tooltip" title="<?php _e('Your clients will have to follow their secure link to this page to see their invoice. Opening this page without following a link will result in the standard page content begin shown.', WPI); ?>"><?php _e('Select a page to display invoices:', WPI); ?></a>
+                <a class="wp_invoice_tooltip" title="<?php _e('Your clients will have to follow their secure link to this page to see their invoice. Opening this page without following a link will result in the standard page content begin shown.', ud_get_wp_invoice()->domain); ?>"><?php _e('Select a page to display invoices:', ud_get_wp_invoice()->domain); ?></a>
               </th>
               <td>
                 <?php wp_dropdown_pages(array(
@@ -39,7 +39,7 @@
               </td>
             </tr>
             <tr>
-              <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', WPI); ?>"><?php _e('How to Insert Invoice:', WPI); ?></a></th>
+              <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', ud_get_wp_invoice()->domain); ?>"><?php _e('How to Insert Invoice:', ud_get_wp_invoice()->domain); ?></a></th>
               <td>
               <?php
                 echo WPI_UI::select(array(
@@ -49,11 +49,11 @@
                   'current_value' => $wpi_settings['where_to_display']
                 ));
               ?>
-              <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', WPI) ?>
+              <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?>
               </td>
             </tr>
             <tr class="column-payment-method-default">
-              <th><?php _e("Default Payment Method:", WPI) ?></th>
+              <th><?php _e("Default Payment Method:", ud_get_wp_invoice()->domain) ?></th>
               <td >
                 <select id="wp_invoice_payment_method">
                   <?php foreach ($wpi_settings['billing'] as $key => $payment_option) { ?>
@@ -63,7 +63,7 @@
               </td>
             </tr>
             <tr class="column-payment-method-change-method">
-              <th><?php _e("Client can change payment method:", WPI) ?></th>
+              <th><?php _e("Client can change payment method:", ud_get_wp_invoice()->domain) ?></th>
               <td>
                 <?php echo WPI_UI::select(array(
                     'name' => 'wpi_settings[globals][client_change_payment_method]',
@@ -75,7 +75,7 @@
             </tr>
             <?php foreach ($wpi_settings['billing'] as $key => $value) { ?>
               <tr class="wpi-payment-setting column-paymenth-method-<?php echo $key; ?>">
-                <th><?php _e("Accept ", WPI) ?><?php echo $value['name']; ?>?</th>
+                <th><?php _e("Accept ", ud_get_wp_invoice()->domain) ?><?php echo $value['name']; ?>?</th>
                 <td>
                   <?php echo WPI_UI::input(array(
                       'type' => 'checkbox',
@@ -86,7 +86,7 @@
                       'class' => 'wpi_billing_section_show',
                       'special' => ($value['allow'] ? 'checked=true ' : '')
                   )); ?>
-                  <div class="wpi_notice"><?php _e("Notice the ", WPI) ?> <span onClick="wpi_focus_payment_method('<?php echo $key; ?>');"><u><?php echo $value['name']; ?> <?php _e(" Tab ", WPI) ?></u></span> <?php _e(" below. ", WPI) ?></div>
+                  <div class="wpi_notice"><?php _e("Notice the ", ud_get_wp_invoice()->domain) ?> <span onClick="wpi_focus_payment_method('<?php echo $key; ?>');"><u><?php echo $value['name']; ?> <?php _e(" Tab ", ud_get_wp_invoice()->domain) ?></u></span> <?php _e(" below. ", ud_get_wp_invoice()->domain) ?></div>
                 </td>
               </tr>
             <?php } ?>
@@ -162,7 +162,7 @@
         <div class="inside">
           <div id="major-publishing-actions">
             <div id="publishing-action">
-              <input type="submit" value="<?php esc_attr(_e('Save All Settings', WPI)) ?>" class="button-primary">
+              <input type="submit" value="<?php esc_attr(_e('Save All Settings', ud_get_wp_invoice()->domain)) ?>" class="button-primary">
             </div>
             <div class="clear"></div>
           </div>

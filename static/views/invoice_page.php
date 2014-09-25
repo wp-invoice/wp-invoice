@@ -15,7 +15,7 @@
         <p><?php wpi_invoice_due_date(); ?></p>
 
         <?php if (is_recurring()): ?>
-          <p><?php _e('This is a recurring bill.', WPI) ?></p>
+          <p><?php _e('This is a recurring bill.', ud_get_wp_invoice()->domain) ?></p>
         <?php endif; ?>
 
       </div>
@@ -24,7 +24,7 @@
       </div>
 
       <?php if (is_payment_made()): ?>
-        <?php _e("You've made payments, but still owe:", WPI) ?> <?php balance_due(); ?>
+        <?php _e("You've made payments, but still owe:", ud_get_wp_invoice()->domain) ?> <?php balance_due(); ?>
       <?php endif; ?>
     </div>
 
@@ -53,7 +53,7 @@
         $method = !empty($invoice['default_payment_method']) ? $invoice['default_payment_method'] : 'manual';
         if ($method == 'manual') {
           ?>
-          <p><strong><?php _e('Manual Payment Information', WPI); ?></strong></p>
+          <p><strong><?php _e('Manual Payment Information', ud_get_wp_invoice()->domain); ?></strong></p>
           <p><?php echo!empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', ud_get_wp_invoice()->domain); ?></p>
           <?php
         } else {

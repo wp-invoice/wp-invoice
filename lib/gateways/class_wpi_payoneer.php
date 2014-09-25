@@ -127,8 +127,8 @@ class wpi_payoneer extends wpi_gateway_base {
    */
   function recurring_settings($invoice) {
     ?>
-    <h4><?php _e('Payoneer Recurring Billing', WPI); ?></h4>
-    <p><?php _e('Currently Payoneer integration is limited and does not support recurring billing', WPI); ?></p>
+    <h4><?php _e('Payoneer Recurring Billing', ud_get_wp_invoice()->domain); ?></h4>
+    <p><?php _e('Currently Payoneer integration is limited and does not support recurring billing', ud_get_wp_invoice()->domain); ?></p>
     <?php
   }
 
@@ -150,7 +150,7 @@ class wpi_payoneer extends wpi_gateway_base {
           ob_start();
           ?>
           <ul class="wpi_checkout_block">
-            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), WPI); ?></li>
+            <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), ud_get_wp_invoice()->domain); ?></li>
             <?php
             $html = ob_get_clean();
             echo $html;
@@ -170,7 +170,7 @@ class wpi_payoneer extends wpi_gateway_base {
 
                   <li class="wpi_checkout_row">
                     <div class="control-group">
-                      <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                      <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                       <div class="controls">
                         <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value']) ? $field_data['value'] : (!empty($invoice['user_data'][$field_slug]) ? $invoice['user_data'][$field_slug] : ''); ?>" />
                       </div>
@@ -186,7 +186,7 @@ class wpi_payoneer extends wpi_gateway_base {
                   ?>
 
                   <li class="wpi_checkout_row">
-                    <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                    <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                     <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
                   </li>
 

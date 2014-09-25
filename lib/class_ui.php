@@ -1238,7 +1238,7 @@ class WPI_UI {
         <input id="<?php echo $row_hash; ?>_no_edit_wpi" value='true'
                type="checkbox"  <?php checked( !empty($wp_crm[ 'data_structure' ][ 'attributes' ][ $slug ][ 'wp_invoice' ])?$wp_crm[ 'data_structure' ][ 'attributes' ][ $slug ][ 'wp_invoice' ]:'false', 'true' ); ?>
                name="wp_crm[data_structure][attributes][<?php echo $slug; ?>][wp_invoice]"/>
-        <label for="<?php echo $row_hash; ?>_no_edit_wpi"><?php _e( 'WP-Invoice custom field', WPI ); ?></label>
+        <label for="<?php echo $row_hash; ?>_no_edit_wpi"><?php _e( 'WP-Invoice custom field', ud_get_wp_invoice()->domain ); ?></label>
       </li>
     <?php
     }

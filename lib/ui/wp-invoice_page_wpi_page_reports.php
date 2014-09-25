@@ -69,7 +69,7 @@ class WPI_Reports_page {
           data.addRows([<?php echo @implode(',', $overall_satus_array); ?>]);
 
           var options = {
-          'title':'<?php _e('Collected and Uncollected Funds', WPI) ?>',
+          'title':'<?php _e('Collected and Uncollected Funds', ud_get_wp_invoice()->domain) ?>',
           'is3D': true,
           'legend': 'none',
           'width': (wpi_graph_wrapper.width / wpi_num_up),
@@ -107,7 +107,7 @@ class WPI_Reports_page {
           data.addRows([<?php echo @implode(',', $mvcs_array); ?>]);
 
           var options = {
-          'title':'<?php _e('Top 10 Most Valuable Clients', WPI) ?>',
+          'title':'<?php _e('Top 10 Most Valuable Clients', ud_get_wp_invoice()->domain) ?>',
           'is3D': true,
           'legend': 'none',
           'width': (wpi_graph_wrapper.width / wpi_num_up),
@@ -155,7 +155,7 @@ class WPI_Reports_page {
           data.addRows([<?php echo @implode(',', $line_items_array); ?>]);
 
           var options = {
-          'title':'<?php _e('Top Grossing Line Items', WPI) ?>',
+          'title':'<?php _e('Top Grossing Line Items', ud_get_wp_invoice()->domain) ?>',
           'is3D': true,
           'legend': 'none',
           'width': (wpi_graph_wrapper.width / wpi_num_up),
@@ -172,7 +172,7 @@ class WPI_Reports_page {
 
     </script>
 
-    <h3 class="section_header"><?php _e('Invoice Statistics', WPI); ?></h3>
+    <h3 class="section_header"><?php _e('Invoice Statistics', ud_get_wp_invoice()->domain); ?></h3>
     <div class="wpi_graph_wrapper">
       <div id="wpi_overall_status" class="wpi_report_block"></div>
       <div id="wpi_mvcs" class="wpi_report_block"></div>
@@ -192,7 +192,7 @@ class WPI_Reports_page {
 </script>
 
 <div class="wrap">
-  <h2><?php _e('Reports', WPI); ?></h2>
+  <h2><?php _e('Reports', ud_get_wp_invoice()->domain); ?></h2>
   <?php WPI_Functions::print_messages(); ?>
 
   <div id="wpi_report_page" class="wpi_sectioned_content">

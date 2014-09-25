@@ -12,10 +12,10 @@
         <?php echo WPI_UI::input("name=wpi[new_invoice][invoice_id]&value=".rand(1000, 90000000)."&type=hidden"); ?>
         <table class="form-table" id="get_user_info">
           <tr class="invoice_main">
-            <th><label for="wp_invoice_userlookup"><?php _e('E-mail Address:', WPI); ?></label></th>
+            <th><label for="wp_invoice_userlookup"><?php _e('E-mail Address:', ud_get_wp_invoice()->domain); ?></label></th>
             <td>
               <?php WPI_UI::draw_user_auto_complete_field(); ?>
-              <input type="submit" class="button" id="wp_invoice_create_new_invoice" value="<?php esc_attr(_e('Create New', WPI)); ?>">
+              <input type="submit" class="button" id="wp_invoice_create_new_invoice" value="<?php esc_attr(_e('Create New', ud_get_wp_invoice()->domain)); ?>">
               <?php if($wpi_settings['total_invoice_count']) : ?>
               <span id="wp_invoice_copy_invoice" class="wp_invoice_click_me">copy from another</span>
               <?php endif; ?>
@@ -23,10 +23,10 @@
           </tr>
           <?php if($wpi_settings['total_invoice_count']) : ?>
           <tr class="wp_invoice_copy_invoice invoice_main">
-            <th><label for="wpi_template_lookup"><?php _e('Existing Invoice:', WPI); ?></label></th>
+            <th><label for="wpi_template_lookup"><?php _e('Existing Invoice:', ud_get_wp_invoice()->domain); ?></label></th>
             <td>
               <?php WPI_UI::draw_template_auto_complete_field(); ?>
-              <input type="submit" class="button" value="<?php esc_attr(_e('New Invoice from Template', WPI)) ?>">
+              <input type="submit" class="button" value="<?php esc_attr(_e('New Invoice from Template', ud_get_wp_invoice()->domain)) ?>">
               <span id="wp_invoice_copy_invoice_cancel" class="wp_invoice_click_me">cancel</span>
             </td>
           </tr>
