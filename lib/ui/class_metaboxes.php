@@ -132,7 +132,7 @@ class toplevel_page_wpi_main {
     <div class="major-publishing-actions">
       <?php do_action( 'wpi_other_actions' ); ?>
       <div class="publishing-action">
-        <?php submit_button( __('Filter Results', WPI), 'button', false, false, array('id' => 'search-submit') ); ?>
+        <?php submit_button( __('Filter Results', ud_get_wp_invoice()->domain), 'button', false, false, array('id' => 'search-submit') ); ?>
       </div>
       <br class='clear' />
     </div>

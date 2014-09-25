@@ -47,9 +47,9 @@ class InvoiceLookupWidget extends WP_Widget {
    * @param type $instance
    */
   function form( $instance ) {
-    $title = esc_attr( isset( $instance[ 'title' ] ) ? $instance[ 'title' ] : __('Search Invoices', WPI) );
+    $title = esc_attr( isset( $instance[ 'title' ] ) ? $instance[ 'title' ] : __('Search Invoices', ud_get_wp_invoice()->domain) );
     $message = esc_attr( isset( $instance[ 'message' ] ) ? $instance[ 'message' ] : '' );
-    $button_text = esc_attr( isset( $instance[ 'button_text' ] ) ? $instance[ 'button_text' ] : __('Find', WPI) );
+    $button_text = esc_attr( isset( $instance[ 'button_text' ] ) ? $instance[ 'button_text' ] : __('Find', ud_get_wp_invoice()->domain) );
     ?>
     <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/></label></p>
@@ -71,8 +71,8 @@ class InvoiceHistoryWidget extends WP_Widget {
    * Construct
    */
   function InvoiceHistoryWidget() {
-    $widget_ops = array( 'classname' => 'widget_invoice_history', 'description' => __( 'User&#8217;s Paid and Pending Invoices' ) );
-    parent::WP_Widget( 'invoice_history', __( 'Invoice History' ), $widget_ops );
+    $widget_ops = array( 'classname' => 'widget_invoice_history', 'description' => __( "User's Paid and Pending Invoices", ud_get_wp_invoice()->domain ) );
+    parent::WP_Widget( 'invoice_history', __( 'Invoice History', ud_get_wp_invoice()->domain ), $widget_ops );
   }
 
   /**

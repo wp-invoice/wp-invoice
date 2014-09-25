@@ -37,7 +37,7 @@ if ( !function_exists('show_itemized_table') ) {
   function show_itemized_table($args = '') {
     global $invoice, $wpi_settings;
 
-    $defaults = array('return' => false, 'item_heading' => __("Item", WPI), 'cost_heading' => __("Cost", WPI), 'show_quantities' => false, 'quantity_heading' => __('Quantity', WPI));
+    $defaults = array('return' => false, 'item_heading' => __("Item", ud_get_wp_invoice()->domain), 'cost_heading' => __("Cost", ud_get_wp_invoice()->domain), 'show_quantities' => false, 'quantity_heading' => __('Quantity', ud_get_wp_invoice()->domain));
 
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
@@ -331,7 +331,7 @@ if ( !function_exists('show_invoice_history') ) {
       </table>
       <?php
     } else {
-      echo __('There are no any actions', WPI);
+      echo __('There are no any actions', ud_get_wp_invoice()->domain);
     }
   }
 }
@@ -398,7 +398,7 @@ if ( !function_exists('show_partial_payments') ) {
             </li>
 
           </ul>
-          <small class="notice"><?php echo apply_filters('wpi_show_partial_payments_message', __('This invoice allows partial payments, please select the amount you would like to pay.', WPI)); ?></small>
+          <small class="notice"><?php echo apply_filters('wpi_show_partial_payments_message', __('This invoice allows partial payments, please select the amount you would like to pay.', ud_get_wp_invoice()->domain)); ?></small>
         </div>
       </form>
     <?php
@@ -419,7 +419,7 @@ if ( !function_exists('show_payment_selection') ) {
     global $invoice, $wpi_settings;
 
     $defaults = array(
-      'title' => __("Payment Method", WPI),
+      'title' => __("Payment Method", ud_get_wp_invoice()->domain),
       'return' => false
     );
 
@@ -795,7 +795,7 @@ if ( !function_exists('wpi_invoice_due_date') ) {
 
     $defaults = array(
         'return' => false,
-        'text'   => __('Due Date: ', WPI),
+        'text'   => __('Due Date: ', ud_get_wp_invoice()->domain),
         'format' => 'd F Y'
     );
 

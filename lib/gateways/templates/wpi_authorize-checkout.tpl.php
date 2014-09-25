@@ -46,7 +46,7 @@
     <ul class="wpi_checkout_block wpi_checkout_terms">
       <li class="wpi_checkout_row_terms wpi_checkout_row">
         <div validation_type="checked" class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
-          <label class="control-label"><?php echo apply_filters('wpi_spc::terms_label', __('Agreement')); ?></label>
+          <label class="control-label"><?php echo apply_filters('wpi_spc::terms_label', __('Agreement', ud_get_wp_invoice()->domain)); ?></label>
           <div class="controls">
             <input type="hidden"  name="wpi_checkout[terms]" value="false" />
             <label class="checkbox" for="wpi_checkout_payment_terms_input">

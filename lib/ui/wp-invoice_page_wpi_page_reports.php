@@ -7,7 +7,7 @@
   //** Hookable array of reporting page sections and their callsback functions */
   $wpi_report_sections = apply_filters('wpi_report_sections', array(
     'overview_reports' => array(
-      'label' => __('Overview'),
+      'label' => __('Overview', ud_get_wp_invoice()->domain),
       'callback' => array('WPI_Reports_page','overview_reports')
     )
   ));
@@ -204,7 +204,7 @@ class WPI_Reports_page {
         if(is_callable($tab['callback'])) {
           call_user_func($tab['callback'], $wpi_settings);
         } else {
-          echo __('Warning:', WPI) . ' ' . implode(':', $tab['callback']) .' ' .  __('not found', WPI) . '.';
+          echo __('Warning:', ud_get_wp_invoice()->domain) . ' ' . implode(':', $tab['callback']) .' ' .  __('not found', ud_get_wp_invoice()->domain) . '.';
         }
         ?>
       </div>

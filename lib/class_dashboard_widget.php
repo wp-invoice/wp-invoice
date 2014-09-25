@@ -54,7 +54,7 @@ if ( !class_exists('WPI_Dashboard_Widget') ) {
      * Config UI output. May be redeclared.
      */
     function config() {
-      echo '<p class="no-options-widget">' . __('There are no options for this widget.') . '</p>';
+      echo '<p class="no-options-widget">' . __('There are no options for this widget.', ud_get_wp_invoice()->domain) . '</p>';
     }
 
     /**

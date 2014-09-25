@@ -5,7 +5,7 @@
     echo WPI_UI::input(array(
       'name' => 'wp_invoice_lookup_input',
       'autocomplete' => 'off',
-      'special' => 'placeholder="'.__( 'Invoice ID', WPI ).'"'
+      'special' => 'placeholder="'.__( 'Invoice ID', ud_get_wp_invoice()->domain ).'"'
     ));
   ?>
   <input type="submit" value="<?php echo $button; ?>" class="wp_invoice_lookup_submit" />

@@ -136,8 +136,6 @@ namespace UsabilityDynamics\WPI {
           wp_schedule_event( time(), 'daily', 'wpi_update' );
         }
 
-        \WPI_Functions::log( __( "Schedule created with plugin activation.", WPI ) );
-
         //** Try to create new schema tables */
         \WPI_Functions::create_new_schema_tables();
 
@@ -145,9 +143,7 @@ namespace UsabilityDynamics\WPI {
         $current_version = get_option( 'wp_invoice_version' );
 
         //** If no version found at all, we do new install */
-        if ( $current_version == WP_INVOICE_VERSION_NUM ) {
-          \WPI_Functions::log( __( "Plugin activated. No older versions found, installing version ", WPI ) . WP_INVOICE_VERSION_NUM . "." );
-        } else if ( (int) $current_version < 3 ) {
+        if ( (int) $current_version < 3 ) {
 
           if ( !class_exists('\WPI_Legacy') ) {
             require_once( ud_get_wp_invoice()->path( 'lib/class_legacy.php', 'dir' ) );
@@ -155,7 +151,6 @@ namespace UsabilityDynamics\WPI {
         
           //** Determine if legacy data exist */
           \WPI_Legacy::init();
-          \WPI_Functions::log( __( "Plugin activated.", WPI ) );
         }
 
         //** Update version */
@@ -170,15 +165,9 @@ namespace UsabilityDynamics\WPI {
        *
        */
       public function deactivate() {
-        
-        if ( !class_exists('\WPI_Functions') ) {
-          require_once( ud_get_wp_invoice()->path( 'lib/class_functions.php', 'dir' ) );
-        }
         wp_clear_scheduled_hook( 'wpi_hourly_event' );
         wp_clear_scheduled_hook( 'wpi_update' );
         wp_clear_scheduled_hook( 'wpi_spc_remove_abandoned_transactions' );
-        \WPI_Functions::log( __( "Plugin deactivated.", WPI ) );
-        
       }
 
     }

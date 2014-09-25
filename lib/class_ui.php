@@ -17,14 +17,14 @@ class WPI_UI {
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), ud_get_wp_invoice()->path( "static/styles/images/wp_invoice.png", 'url' ) );
-    $wpi_settings[ 'pages' ][ 'main' ] = add_submenu_page( 'wpi_main', __( 'View All', WPI ), __( 'View All', WPI ), $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ) );
-    $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', WPI ), __( 'Add New', WPI ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
-    $wpi_settings[ 'pages' ][ 'reports' ] = add_submenu_page( 'wpi_main', __( 'Reports', WPI ), __( 'Reports', WPI ), $capability, 'wpi_page_reports', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'WP-Invoice', ud_get_wp_invoice()->domain ), 'WP-Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), ud_get_wp_invoice()->path( "static/styles/images/wp_invoice.png", 'url' ) );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_submenu_page( 'wpi_main', __( 'View All', ud_get_wp_invoice()->domain ), __( 'View All', ud_get_wp_invoice()->domain ), $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', ud_get_wp_invoice()->domain ), __( 'Add New', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'reports' ] = add_submenu_page( 'wpi_main', __( 'Reports', ud_get_wp_invoice()->domain ), __( 'Reports', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_reports', array( 'WPI_UI', 'page_loader' ) );
 
     $wpi_settings[ 'pages' ] = apply_filters( 'wpi_pages', $wpi_settings[ 'pages' ] );
 
-    $wpi_settings[ 'pages' ][ 'settings' ] = add_submenu_page( 'wpi_main', __( 'Settings', WPI ), __( 'Settings', WPI ), $capability, 'wpi_page_settings', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'settings' ] = add_submenu_page( 'wpi_main', __( 'Settings', ud_get_wp_invoice()->domain ), __( 'Settings', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_settings', array( 'WPI_UI', 'page_loader' ) );
 
     /* Update screens information */
     WPI_Settings::setOption( 'pages', $wpi_settings[ 'pages' ] );
@@ -42,7 +42,7 @@ class WPI_UI {
 
     // Add Filters
     add_filter( 'wpi_page_loader_path', array( 'WPI_UI', "wpi_display_user_selection" ), 0, 3 );
-    add_filter( 'wpi_pre_header_invoice_page_wpi_page_manage_invoice', array( 'WPI_UI', "page_manage_invoice_preprocess" ) );
+    add_filter( 'wpi_pre_header_wp-invoice_page_wpi_page_manage_invoice', array( 'WPI_UI', "page_manage_invoice_preprocess" ) );
   }
 
   /**
@@ -226,10 +226,10 @@ class WPI_UI {
        * and also check that the web_invoice_page is a real page
        */
       if ( empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
-        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', ud_get_wp_invoice()->domain ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
       } else {
         if ( !$wpdb->get_var( "SELECT post_name FROM {$wpdb->posts} WHERE ID = {$wpi_settings['web_invoice_page'] }" ) ) {
-          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', ud_get_wp_invoice()->domain ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
         }
       }
 
@@ -237,7 +237,7 @@ class WPI_UI {
        * Check if curl is installed.
        */
       if ( !function_exists( 'curl_exec' ) ) {
-        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI ) . '</p></div>';
+        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', ud_get_wp_invoice()->domain ) . '</p></div>';
       }
 
       $file_path = apply_filters( 'wpi_page_loader_path', ud_get_wp_invoice()->path( "lib/ui/{$current_screen->base}.php", 'dir' ), $current_screen->base, ud_get_wp_invoice()->path( "lib/ui/", 'dir' ) );
@@ -246,7 +246,7 @@ class WPI_UI {
     if ( file_exists( $file_path ) )
       include $file_path;
     else
-      echo "<div class='wrap'><h2>" . __( 'Error', WPI ) . "</h2><p>" . __( 'Template not found:', WPI ) . $file_path . "</p></div>";
+      echo "<div class='wrap'><h2>" . __( 'Error', ud_get_wp_invoice()->domain ) . "</h2><p>" . __( 'Template not found:', ud_get_wp_invoice()->domain ) . $file_path . "</p></div>";
   }
 
   /**
@@ -271,9 +271,9 @@ class WPI_UI {
     }
 
     //** Default Help items */
-    $contextual_help[ 'Creating New Invoice' ][ ] = '<h3>' . __( 'Creating New Invoice', WPI ) . '</h3>';
-    $contextual_help[ 'Creating New Invoice' ][ ] = '<p>' . __( "Begin typing the recipient's email into the input box, or double-click to view list of possible options.", WPI ) . '</p>';
-    $contextual_help[ 'Creating New Invoice' ][ ] = '<p>' . __( "For new prospects, type in a new email address.", WPI ) . '</p>';
+    $contextual_help[ 'Creating New Invoice' ][ ] = '<h3>' . __( 'Creating New Invoice', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Creating New Invoice' ][ ] = '<p>' . __( "Begin typing the recipient's email into the input box, or double-click to view list of possible options.", ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Creating New Invoice' ][ ] = '<p>' . __( "For new prospects, type in a new email address.", ud_get_wp_invoice()->domain ) . '</p>';
 
     //** Hook this action is you want to add info */
     $contextual_help = apply_filters( 'wpi_edit_page_help', $contextual_help );
@@ -313,15 +313,15 @@ class WPI_UI {
       $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
       //** Add Messages */
       if ( isset( $_REQUEST[ 'trashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s untrashed."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s untrashed."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       }
     }
 
@@ -331,9 +331,9 @@ class WPI_UI {
     }
 
     //** Default Help items */
-    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', WPI ) . '</h3>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', WPI ) . '</p>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', WPI ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', ud_get_wp_invoice()->domain ) . '</p>';
 
     //** Hook this action is you want to add info */
     $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
@@ -349,8 +349,8 @@ class WPI_UI {
   static function pre_load_reports_page() {
 
     //** Default Help items */
-    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'Reports', WPI ) . '</h3>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'This page allows you to manage your sales statistics.', WPI ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'Reports', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'This page allows you to manage your sales statistics.', ud_get_wp_invoice()->domain ) . '</p>';
 
     //** Hook this action is you want to add info */
     $contextual_help = apply_filters( 'wpi_reports_page_help', $contextual_help );
@@ -366,49 +366,49 @@ class WPI_UI {
   static function pre_load_settings_page() {
 
     //** Default Help items */
-    $contextual_help[ 'Main' ][ ] = '<h3>' . __( 'Main', WPI ) . '</h3>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Name</b><br /> Enter your business name here. This field defaults to the blog name you chose during WordPress installation.', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Address</b><br /> Enter your business address here. It will appear on the invoices and quotes you send.', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Phone</b><br /> Enter your business phone here. It will appear on the invoices and quotes you send.', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Email Address</b><br /> Enter your email address here. It will appear on the invoices and quotes you send.', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Display Styles</b><br /> Here you can set, enable or disable the WP-Invoice default style settings. Change the default values only if you are an advanced user who understands CSS styles and is able to create their own stylesheets. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Tax Handling</b><br /> Here you can set when tax calculation is done (depends on your country\'s fiscal system) and you can define a global default tax. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Advanced Settings</b><br /> These settings control advanced features that have to do with billing, installation features, design issues and general actions for administrators and developers. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', WPI ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<h3>' . __( 'Main', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Name</b><br /> Enter your business name here. This field defaults to the blog name you chose during WordPress installation.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Address</b><br /> Enter your business address here. It will appear on the invoices and quotes you send.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Business Phone</b><br /> Enter your business phone here. It will appear on the invoices and quotes you send.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Email Address</b><br /> Enter your email address here. It will appear on the invoices and quotes you send.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Display Styles</b><br /> Here you can set, enable or disable the WP-Invoice default style settings. Change the default values only if you are an advanced user who understands CSS styles and is able to create their own stylesheets. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Tax Handling</b><br /> Here you can set when tax calculation is done (depends on your country\'s fiscal system) and you can define a global default tax. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Main' ][ ] = '<p>' . __( '<b>Advanced Settings</b><br /> These settings control advanced features that have to do with billing, installation features, design issues and general actions for administrators and developers. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Business Process' ][ ] = '<h3>' . __( 'Business Process', WPI ) . '</h3>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>When creating an invoice</b><br />Options for managing invoice creating process. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>When viewing an invoice</b><br />Options for managing invoice view. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>How to insert invoice</b><br />Here you have four choices that will define the way an invoice will appear on the invoice display page you have set before. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>After a payment has been completed</b><br />Here we have options that will create automatic email notifications on successful payment of an invoice (partial or complete). <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>Mail From options</b><br />This options allow you to change the default email address that WordPress sends it\'s mail from, and the name of the sender that the email is from.' ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>Google Analytics Events Tracking</b><br />If you are using <a target="_blank" href="http://code.google.com/intl/en/apis/analytics/docs/tracking/asyncTracking.html">Google Analytics code snippet</a> for tracking site activity then you can do it better with WP-Invoice Event Tracking feature. Tick events you want to track in your Google Analytics account and see where/when/what people do. To view Events activity go to Content -> Events in your Google Analytics account.', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<u>Attempting to pay Invoices</u> - event is triggered on clicking "Process Payment" button on Invoice page.', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<u>View Invoices</u> - event is triggered when Invoice was viewed by the customer.', WPI ) . '</p>';
-    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<i>More Events soon!</i>', WPI ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<h3>' . __( 'Business Process', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>When creating an invoice</b><br />Options for managing invoice creating process. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>When viewing an invoice</b><br />Options for managing invoice view. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>How to insert invoice</b><br />Here you have four choices that will define the way an invoice will appear on the invoice display page you have set before. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>After a payment has been completed</b><br />Here we have options that will create automatic email notifications on successful payment of an invoice (partial or complete). <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-process/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>Mail From options</b><br />This options allow you to change the default email address that WordPress sends it\'s mail from, and the name of the sender that the email is from.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<b>Google Analytics Events Tracking</b><br />If you are using <a target="_blank" href="http://code.google.com/intl/en/apis/analytics/docs/tracking/asyncTracking.html">Google Analytics code snippet</a> for tracking site activity then you can do it better with WP-Invoice Event Tracking feature. Tick events you want to track in your Google Analytics account and see where/when/what people do. To view Events activity go to Content -> Events in your Google Analytics account.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<u>Attempting to pay Invoices</u> - event is triggered on clicking "Process Payment" button on Invoice page.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<u>View Invoices</u> - event is triggered when Invoice was viewed by the customer.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Business Process' ][ ] = '<p>' . __( '<i>More Events soon!</i>', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Payment' ][ ] = '<h3>' . __( 'Payment', WPI ) . '</h3>';
-    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Default Currency</b><br />Sets the default currency you will use in your invoices. Default value is U.S. Dollars.', WPI ) . '</p>';
-    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Currency list</b><br>This expandable area allows you to manage the list of currencies you have. You can add new currencies or remove existing ones.<br>Be aware, if you add a new currency please make sure that it corresponds to ISO 4217 and the currency code can be accepted by the payment services / gateways you are using. Here\'s a <a href="http://en.wikipedia.org/wiki/List_of_circulating_currencies">list of currencies</a> with ISO codes and currency symbols.<br>Note that you cannot delete a currency which has already been used in an existing invoice or that is currently selected as default. To do so, delete any invoices using that currency first.', WPI ) . '</p>';
+    $contextual_help[ 'Payment' ][ ] = '<h3>' . __( 'Payment', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Default Currency</b><br />Sets the default currency you will use in your invoices. Default value is U.S. Dollars.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Currency list</b><br>This expandable area allows you to manage the list of currencies you have. You can add new currencies or remove existing ones.<br>Be aware, if you add a new currency please make sure that it corresponds to ISO 4217 and the currency code can be accepted by the payment services / gateways you are using. Here\'s a <a href="http://en.wikipedia.org/wiki/List_of_circulating_currencies">list of currencies</a> with ISO codes and currency symbols.<br>Note that you cannot delete a currency which has already been used in an existing invoice or that is currently selected as default. To do so, delete any invoices using that currency first.', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Default Payment Method</b><br />Here you can choose what default payment method you want to use for invoice payments.', WPI ) . '</p>';
-    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Payment Gateways</b><br />Here you can specify Gateways which you want to use for your invoices by default. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/">More...</a>', WPI ) . '</p>';
-    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Manual Payment Information</b><br />If you don\'t want to use payment gateways but offline payments, or if an invoice has no payment gateways enabled, the text in this field will appear as a message to the customer, offering guidance on how to pay you. Write a short text with your bank account number or any other way you want to accept the offline payment. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/">More...</a>', WPI ) . '</p>';
+    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Default Payment Method</b><br />Here you can choose what default payment method you want to use for invoice payments.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Payment Gateways</b><br />Here you can specify Gateways which you want to use for your invoices by default. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'Payment' ][ ] = '<p>' . __( '<b>Manual Payment Information</b><br />If you don\'t want to use payment gateways but offline payments, or if an invoice has no payment gateways enabled, the text in this field will appear as a message to the customer, offering guidance on how to pay you. Write a short text with your bank account number or any other way you want to accept the offline payment. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'E-Mail Templates' ][ ] = '<h3>' . __( 'E-Mail Templates', WPI ) . '</h3>';
-    $contextual_help[ 'E-Mail Templates' ][ ] = '<p>' . __( 'You can create as many e-mailed templates as needed, they can later be used to quickly create invoice notifications and reminders, and being sent directly from an invoice page. The following variables can be used within the Subject or the Content of the e-mail templates:', WPI ) . '</p>';
+    $contextual_help[ 'E-Mail Templates' ][ ] = '<h3>' . __( 'E-Mail Templates', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'E-Mail Templates' ][ ] = '<p>' . __( 'You can create as many e-mailed templates as needed, they can later be used to quickly create invoice notifications and reminders, and being sent directly from an invoice page. The following variables can be used within the Subject or the Content of the e-mail templates:', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $email_vars[ 'invoice_id' ] = __( 'Invoice ID', WPI );
-    $email_vars[ 'link' ] = __( 'URL of invoice', WPI );
-    $email_vars[ 'recipient' ] = __( 'Name or business name of receipient', WPI );
-    $email_vars[ 'amount' ] = __( 'Due BalanceID', WPI );
-    $email_vars[ 'subject' ] = __( 'Invoice title', WPI );
-    $email_vars[ 'description' ] = __( 'Description of Invoice', WPI );
-    $email_vars[ 'business_name' ] = __( 'Business Name', WPI );
-    $email_vars[ 'business_email' ] = __( 'Business Email Address', WPI );
-    $email_vars[ 'creator_name' ] = __( 'Name of user who has created invoice', WPI );
-    $email_vars[ 'creator_email' ] = __( 'Email of user who has created invoice', WPI );
-    $email_vars[ 'due_date' ] = __( 'Invoice due date (if presented)', WPI );
-    $email_vars[ 'type' ] = __( 'Replaced by Invoice Type. (invoice, recurring invoice, quote)', WPI );
+    $email_vars[ 'invoice_id' ] = __( 'Invoice ID', ud_get_wp_invoice()->domain );
+    $email_vars[ 'link' ] = __( 'URL of invoice', ud_get_wp_invoice()->domain );
+    $email_vars[ 'recipient' ] = __( 'Name or business name of receipient', ud_get_wp_invoice()->domain );
+    $email_vars[ 'amount' ] = __( 'Due BalanceID', ud_get_wp_invoice()->domain );
+    $email_vars[ 'subject' ] = __( 'Invoice title', ud_get_wp_invoice()->domain );
+    $email_vars[ 'description' ] = __( 'Description of Invoice', ud_get_wp_invoice()->domain );
+    $email_vars[ 'business_name' ] = __( 'Business Name', ud_get_wp_invoice()->domain );
+    $email_vars[ 'business_email' ] = __( 'Business Email Address', ud_get_wp_invoice()->domain );
+    $email_vars[ 'creator_name' ] = __( 'Name of user who has created invoice', ud_get_wp_invoice()->domain );
+    $email_vars[ 'creator_email' ] = __( 'Email of user who has created invoice', ud_get_wp_invoice()->domain );
+    $email_vars[ 'due_date' ] = __( 'Invoice due date (if presented)', ud_get_wp_invoice()->domain );
+    $email_vars[ 'type' ] = __( 'Replaced by Invoice Type. (invoice, recurring invoice, quote)', ud_get_wp_invoice()->domain );
 
     $email_vars = apply_filters( 'wpi_email_template_vars', $email_vars );
 
@@ -420,22 +420,22 @@ class WPI_UI {
       $contextual_help[ 'E-Mail Templates' ][ ] = '</ul>';
     }
 
-    $contextual_help[ 'E-Mail Templates' ][ ] = '<p><a href="https://usabilitydynamics.com/tutorials/wp-invoice/email-templates/" target="_blank">' . __( 'More...', WPI ) . '</a></p>';
+    $contextual_help[ 'E-Mail Templates' ][ ] = '<p><a href="https://usabilitydynamics.com/tutorials/wp-invoice/email-templates/" target="_blank">' . __( 'More...', ud_get_wp_invoice()->domain ) . '</a></p>';
 
-    $contextual_help[ 'Line Items' ][ ] = '<h3>' . __( 'Line Items', WPI ) . '</h3>';
-    $contextual_help[ 'Line Items' ][ ] = '<p>' . __( 'Predefined Line Items are common services and/or products that you can create once and use in your invoices. For example, if you are a Web professional and your usual invoice has at least an hour of Web Design or / and Web Development services, you can create these item entries to save yourself from typing it every time. When you create a new invoice or quote (with the Quotes Premium Feature), or edit an existing one, you will be able to select these items from a list and if you want, edit the name, description, quantity, price and tax. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-predefined-line-items/">More...</a>', WPI ) . '</p>';
+    $contextual_help[ 'Line Items' ][ ] = '<h3>' . __( 'Line Items', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Line Items' ][ ] = '<p>' . __( 'Predefined Line Items are common services and/or products that you can create once and use in your invoices. For example, if you are a Web professional and your usual invoice has at least an hour of Web Design or / and Web Development services, you can create these item entries to save yourself from typing it every time. When you create a new invoice or quote (with the Quotes Premium Feature), or edit an existing one, you will be able to select these items from a list and if you want, edit the name, description, quantity, price and tax. <a target="_blank" href="https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-predefined-line-items/">More...</a>', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Help' ][ ] = '<h3>' . __( 'Help', WPI ) . '</h3>';
-    $contextual_help[ 'Help' ][ ] = '<p>' . __( 'This tab will help you troubleshoot your plugin.', WPI ) . '</p>';
+    $contextual_help[ 'Help' ][ ] = '<h3>' . __( 'Help', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Help' ][ ] = '<p>' . __( 'This tab will help you troubleshoot your plugin.', ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Shortcodes' ][ ] = '<h3>' . __( 'Shortcodes', WPI ) . '</h3>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice History', WPI ) . '</b></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote" allow_statuses="active,paid,pending"]</code></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice History' widget. Shows invoice list for currently logged in users.", WPI ) . '</p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<h3>' . __( 'Shortcodes', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice History', ud_get_wp_invoice()->domain ) . '</b></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', ud_get_wp_invoice()->domain ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote" allow_statuses="active,paid,pending"]</code></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice History' widget. Shows invoice list for currently logged in users.", ud_get_wp_invoice()->domain ) . '</p>';
 
-    $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice Lookup', WPI ) . '</b></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-lookup message="Your Message" button="Your Button"]</code></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice Lookup' widget. Allows you to search your invoices by invoice numbers.", WPI ) . '</p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice Lookup', ud_get_wp_invoice()->domain ) . '</b></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', ud_get_wp_invoice()->domain ) . ' <code>[wp-invoice-lookup message="Your Message" button="Your Button"]</code></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice Lookup' widget. Allows you to search your invoices by invoice numbers.", ud_get_wp_invoice()->domain ) . '</p>';
     //** Hook this action is you want to add info */
     $contextual_help = apply_filters( 'wpi_settings_page_help', $contextual_help );
 
@@ -542,7 +542,7 @@ class WPI_UI {
     switch ( $current_screen->id ) {
 
       //** Reports page */
-      case 'invoice_page_wpi_page_reports':
+      case 'wp-invoice_page_wpi_page_reports':
         wp_enqueue_script( 'jsapi' );
         wp_enqueue_script( 'wp-invoice-events' );
         wp_enqueue_script( 'wp-invoice-functions' );
@@ -551,7 +551,7 @@ class WPI_UI {
       case 'toplevel_page_wpi_main':
         wp_enqueue_script( 'post' );
         wp_enqueue_script( 'postbox' );
-      case 'invoice_page_wpi_page_settings':
+      case 'wp-invoice_page_wpi_page_settings':
         wp_enqueue_script( 'jquery-ui-tabs' );
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'wp-invoice-functions' );
@@ -563,7 +563,7 @@ class WPI_UI {
         wp_enqueue_style( 'wpi-jquery-data-tables' );
         break;
 
-      case 'invoice_page_wpi_page_manage_invoice':
+      case 'wp-invoice_page_wpi_page_manage_invoice':
         wp_enqueue_script( 'postbox' );
         wp_enqueue_script( 'wp-invoice-functions' );
         wp_enqueue_script( 'wp-invoice-events' );
@@ -593,13 +593,13 @@ class WPI_UI {
 
     $overview_columns = apply_filters( 'wpi_overview_columns', array(
       'cb' => '',
-      'post_title' => __( 'Title', WPI ),
-      'total' => __( 'Total Collected', WPI ),
-      'user_email' => __( 'Recipient', WPI ),
-      'post_modified' => __( 'Date', WPI ),
-      'post_status' => __( 'Status', WPI ),
-      'type' => __( 'Type', WPI ),
-      'invoice_id' => __( 'Invoice ID', WPI )
+      'post_title' => __( 'Title', ud_get_wp_invoice()->domain ),
+      'total' => __( 'Total Collected', ud_get_wp_invoice()->domain ),
+      'user_email' => __( 'Recipient', ud_get_wp_invoice()->domain ),
+      'post_modified' => __( 'Date', ud_get_wp_invoice()->domain ),
+      'post_status' => __( 'Status', ud_get_wp_invoice()->domain ),
+      'type' => __( 'Type', ud_get_wp_invoice()->domain ),
+      'invoice_id' => __( 'Invoice ID', ud_get_wp_invoice()->domain )
     ) );
 
     /* We need to grab the columns from the class itself, so we instantiate a new temp object */
@@ -619,14 +619,14 @@ class WPI_UI {
   static function wpi_display_user_selection( $file_path, $screen, $path ) {
     global $wpdb;
 
-    if ( $screen != 'invoice_page_wpi_page_manage_invoice' ) {
+    if ( $screen != 'wp-invoice_page_wpi_page_manage_invoice' ) {
       return $file_path;
     }
     if ( empty( $_REQUEST[ 'wpi' ] ) ) {
       return $path . '/user_selection_form.php';
     }
     if ( WPI_UD_F::is_older_wp_version( '3.4' ) ) {
-      return $path = $path . '/invoice_page_wpi_page_manage_invoice_legacy.php';
+      return $path = $path . '/wp-invoice_page_wpi_page_manage_invoice_legacy.php';
     }
 
     return $file_path;
@@ -702,14 +702,14 @@ class WPI_UI {
       $this_invoice->load_invoice( "id={$ID}" );
     }
 
-    add_meta_box( 'postbox_payment_methods', __( 'Payment Settings', WPI ), 'postbox_payment_methods', $screen_id, 'normal', 'high' );
+    add_meta_box( 'postbox_payment_methods', __( 'Payment Settings', ud_get_wp_invoice()->domain ), 'postbox_payment_methods', $screen_id, 'normal', 'high' );
 
     if ( is_object( $this_invoice ) && isset( $this_invoice->data[ 'type' ] ) && $this_invoice->data[ 'type' ] == 'single_payment' ) {
-      add_meta_box( 'postbox_overview', __( 'Overview', WPI ), 'postbox_overview', $screen_id, 'side', 'high' );
+      add_meta_box( 'postbox_overview', __( 'Overview', ud_get_wp_invoice()->domain ), 'postbox_overview', $screen_id, 'side', 'high' );
     } else {
-      add_meta_box( 'postbox_publish', __( 'Publish', WPI ), 'postbox_publish', $screen_id, 'side', 'high' );
+      add_meta_box( 'postbox_publish', __( 'Publish', ud_get_wp_invoice()->domain ), 'postbox_publish', $screen_id, 'side', 'high' );
     }
-    add_meta_box( 'postbox_user_existing', __( 'User Information', WPI ), 'postbox_user_existing', $screen_id, 'side', 'low' );
+    add_meta_box( 'postbox_user_existing', __( 'User Information', ud_get_wp_invoice()->domain ), 'postbox_user_existing', $screen_id, 'side', 'low' );
   }
 
   // Displays messages. Can be outputted anywhere, WP JavaScript automatically moves it to the top of the page
@@ -780,7 +780,7 @@ class WPI_UI {
         get_current_screen()->add_help_tab(
           array(
             'id' => sanitize_title( $help_tab_title ),
-            'title' => __( $help_tab_title, 'wp_crm' ),
+            'title' => $help_tab_title,
             'content' => implode( "\n", (array) $contextual_help[ $help_tab_title ] ),
           )
         );
@@ -789,15 +789,15 @@ class WPI_UI {
       if ( is_callable( array( 'WP_Screen', 'set_help_sidebar' ) ) ) {
         //** Add help sidebar with More Links */
         get_current_screen()->set_help_sidebar(
-          '<p><strong>' . __( 'For more information:', WPI ) . '</strong></p>' .
-          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Product Page</a>', WPI ) . '</p>' .
-          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/forum/" target="_blank">WP-Invoice Forums</a>', WPI ) . '</p>'
+          '<p><strong>' . __( 'For more information:', ud_get_wp_invoice()->domain ) . '</strong></p>' .
+          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Product Page</a>', ud_get_wp_invoice()->domain ) . '</p>' .
+          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/forum/" target="_blank">WP-Invoice Forums</a>', ud_get_wp_invoice()->domain ) . '</p>'
         );
       }
     } else {
       //** If WP is out of date */
       global $current_screen;
-      add_contextual_help( $current_screen->id, '<p>' . __( 'Please upgrade Wordpress to the latest version for detailed help.', WPI ) . '</p><p>' . __( 'Or visit <a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Help Page</a> on UsabilityDynamics.com', WPI ) . '</p>' );
+      add_contextual_help( $current_screen->id, '<p>' . __( 'Please upgrade Wordpress to the latest version for detailed help.', ud_get_wp_invoice()->domain ) . '</p><p>' . __( 'Or visit <a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Help Page</a> on UsabilityDynamics.com', ud_get_wp_invoice()->domain ) . '</p>' );
     }
   }
 
@@ -1149,10 +1149,10 @@ class WPI_UI {
       $class_from_name = $class;
     $values_array = is_serialized( $values ) ? unserialize( $values ) : $values;
     if ( $values == 'yon' ) {
-      $values_array = array( "yes" => __( "Yes", WPI ), "no" => __( "No", WPI ) );
+      $values_array = array( "yes" => __( "Yes", ud_get_wp_invoice()->domain ), "no" => __( "No", ud_get_wp_invoice()->domain ) );
     }
     if ( $values == 'us_states' ) {
-      $values_array = array( '0' => '--' . __( 'Select' ) . '--' );
+      $values_array = array( '0' => '--' . __( 'Select', ud_get_wp_invoice()->domain ) . '--' );
       $values_array = array_merge( $values_array, $wpi_settings[ 'states' ] );
     }
     if ( $values == 'countries' ) {
@@ -1170,7 +1170,7 @@ class WPI_UI {
       }
     }
     if ( $values == 'months' ) {
-      $values_array = array( "" => "", "01" => __( "Jan", WPI ), "02" => __( "Feb", WPI ), "03" => __( "Mar", WPI ), "04" => __( "Apr", WPI ), "05" => __( "May", WPI ), "06" => __( "Jun", WPI ), "07" => __( "Jul", WPI ), "08" => __( "Aug", WPI ), "09" => __( "Sep", WPI ), "10" => __( "Oct", WPI ), "11" => __( "Nov", WPI ), "12" => __( "Dec", WPI ) );
+      $values_array = array( "" => "", "01" => __( "Jan", ud_get_wp_invoice()->domain ), "02" => __( "Feb", ud_get_wp_invoice()->domain ), "03" => __( "Mar", ud_get_wp_invoice()->domain ), "04" => __( "Apr", ud_get_wp_invoice()->domain ), "05" => __( "May", ud_get_wp_invoice()->domain ), "06" => __( "Jun", ud_get_wp_invoice()->domain ), "07" => __( "Jul", ud_get_wp_invoice()->domain ), "08" => __( "Aug", ud_get_wp_invoice()->domain ), "09" => __( "Sep", ud_get_wp_invoice()->domain ), "10" => __( "Oct", ud_get_wp_invoice()->domain ), "11" => __( "Nov", ud_get_wp_invoice()->domain ), "12" => __( "Dec", ud_get_wp_invoice()->domain ) );
     }
     $output = "<select id='" . ( $id ? $id : $class_from_name ) . "' name='" . ( $group ? $group . "[" . $name . "]" : $name ) . "' class='$class_from_name " . ( $group ? "group_$group" : '' ) . "' $special >";
 
@@ -1182,7 +1182,7 @@ class WPI_UI {
         $output .= ">$value</option>";
       }
     } else {
-      $output .= "<option>" . __( 'Values are empty', WPI ) . "</option>";
+      $output .= "<option>" . __( 'Values are empty', ud_get_wp_invoice()->domain ) . "</option>";
     }
     $output .= "</select>";
     return $output;
@@ -1204,10 +1204,10 @@ class WPI_UI {
     // Determine if WP CRM is installed
     if ( class_exists( 'WP_CRM_Core' ) ) {
 
-      echo '<div class="wpi_crm_link"><a  class="button" target="_blank" href="' . admin_url( 'admin.php?page=wp_crm_add_new&user_id=' . $user_id ) . '">' . __( 'View Profile', WPI ) . '</a></div>';
+      echo '<div class="wpi_crm_link"><a  class="button" target="_blank" href="' . admin_url( 'admin.php?page=wp_crm_add_new&user_id=' . $user_id ) . '">' . __( 'View Profile', ud_get_wp_invoice()->domain ) . '</a></div>';
     } else {
 
-      echo '<div class="wpi_crm_link"><a target="_blank" href="' . admin_url( 'plugin-install.php?tab=search&type=term&s=WP-CRM' ) . '">' . __( 'Get WP-CRM plugin to enhance user management.', WPI ) . '</a></div>';
+      echo '<div class="wpi_crm_link"><a target="_blank" href="' . admin_url( 'plugin-install.php?tab=search&type=term&s=WP-CRM' ) . '">' . __( 'Get WP-CRM plugin to enhance user management.', ud_get_wp_invoice()->domain ) . '</a></div>';
     }
   }
 
@@ -1254,11 +1254,11 @@ class WPI_UI {
    */
   static function wp_crm_contextual_help( $data ) {
 
-    $data[ 'WP-Invoice Integration' ][ ] = __( '<h3>WP-Invoice</h3>', WPI );
-    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>', WPI );
-    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>Works for Authorize.net payment method only for now.</p>', WPI );
-    $data[ 'WP-Invoice Integration' ][ ] = __( '<h3>WP-Invoice Notifications</h3>', WPI );
-    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you can use this shortcodes:</p>', WPI );
+    $data[ 'WP-Invoice Integration' ][ ] = __( '<h3>WP-Invoice</h3>', ud_get_wp_invoice()->domain );
+    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding custom user data fields for payments forms.</p>', ud_get_wp_invoice()->domain );
+    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>Works for Authorize.net payment method only for now.</p>', ud_get_wp_invoice()->domain );
+    $data[ 'WP-Invoice Integration' ][ ] = __( '<h3>WP-Invoice Notifications</h3>', ud_get_wp_invoice()->domain );
+    $data[ 'WP-Invoice Integration' ][ ] = __( '<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you can use this shortcodes:</p>', ud_get_wp_invoice()->domain );
     $data[ 'WP-Invoice Integration' ][ ] = "
         <p>
           <b>[user_email]</b>,
@@ -1294,7 +1294,6 @@ class WPI_UI {
    * @param type $args
    */
   static function draw_template_auto_complete_field( $args = '' ) {
-    global $wpi_settings, $wpdb;
     wp_enqueue_script( 'jquery-ui-autocomplete' );
 
     //** Extract passed args and load defaults */
@@ -1325,42 +1324,4 @@ class WPI_UI {
   <?php
   }
 
-}
-
-function wp_invoice_printYearDropdown( $sel = '' ) {
-  $localDate = getdate();
-  $minYear = $localDate[ "year" ];
-  $maxYear = $minYear + 15;
-  $output = "<option value=''>--</option>";
-  for ( $i = $minYear; $i < $maxYear; $i++ ) {
-    $output .= "<option value='" . substr( $i, 2, 2 ) . "'" . ( $sel == ( substr( $i, 2, 2 ) ) ? ' selected' : '' ) .
-      ">" . $i . "</option>";
-  }
-  return ( $output );
-}
-
-function wp_invoice_printMonthDropdown( $sel = '' ) {
-  $output = "<option value=''>--</option>";
-  $output .= "<option " . ( $sel == 1 ? ' selected' : '' ) . " value='01'>01 - " . __( 'Jan', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 2 ? ' selected' : '' ) . "  value='02'>02 - " . __( 'Feb', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 3 ? ' selected' : '' ) . "  value='03'>03 - " . __( 'Mar', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 4 ? ' selected' : '' ) . "  value='04'>04 - " . __( 'Apr', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 5 ? ' selected' : '' ) . "  value='05'>05 - " . __( 'May', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 6 ? ' selected' : '' ) . "  value='06'>06 - " . __( 'Jun', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 7 ? ' selected' : '' ) . "  value='07'>07 - " . __( 'Jul', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 8 ? ' selected' : '' ) . "  value='08'>08 - " . __( 'Aug', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 9 ? ' selected' : '' ) . "  value='09'>09 - " . __( 'Sep', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 10 ? ' selected' : '' ) . "  value='10'>10 - " . __( 'Oct', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 11 ? ' selected' : '' ) . "  value='11'>11 - " . __( 'Nov', WPI ) . "</option>";
-  $output .= "<option " . ( $sel == 12 ? ' selected' : '' ) . "  value='12'>12 - " . __( 'Dec', WPI ) . "</option>";
-  return ( $output );
-}
-
-function wp_invoice_format_phone( $phone ) {
-  $phone = preg_replace( "/[^0-9]/", "", $phone );
-  if ( strlen( $phone ) == 7 )
-    return preg_replace( "/([0-9]{3})([0-9]{4})/", "$1-$2", $phone );
-  elseif ( strlen( $phone ) == 10 )
-    return preg_replace( "/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $phone ); else
-    return $phone;
 }

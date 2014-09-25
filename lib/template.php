@@ -15,7 +15,7 @@ function get_invoice( $args ) {
   $invoice->load_invoice( "id=$invoice_id" );
 
   if ( !empty( $invoice->error ) && $invoice->error ) {
-    return sprintf( __( "Invoice %s not found.", WPI ), $invoice_id );
+    return sprintf( __( "Invoice %s not found.", ud_get_wp_invoice()->domain ), $invoice_id );
   }
 
   if ( !empty( $return_class ) && $return_class ) {
@@ -41,8 +41,8 @@ function wp_invoice_lookup( $args = '' ) {
   $result = '';
 
   $defaults = array(
-    'message' => __( 'Enter Invoice ID', WPI ),
-    'button' => __( 'Lookup', WPI ),
+    'message' => __( 'Enter Invoice ID', ud_get_wp_invoice()->domain ),
+    'button' => __( 'Lookup', ud_get_wp_invoice()->domain ),
     'return' => true
   );
   extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );

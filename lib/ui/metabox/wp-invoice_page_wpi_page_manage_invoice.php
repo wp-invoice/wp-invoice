@@ -143,7 +143,7 @@ function postbox_publish($this_invoice) {
 
         <?php if ($wpi_settings['allow_deposits'] == 'true') { ?>
           <li class="wpi_not_for_recurring wpi_hide_deposit_option wpi_not_for_quote">
-            <?php $app_title = __("Allow Partial Payment", WPI); ?>
+            <?php $app_title = __("Allow Partial Payment", ud_get_wp_invoice()->domain); ?>
             <?php echo WPI_UI::checkbox("name=wpi_invoice[deposit]&value=true&label={$app_title}", ((!empty($this_invoice['deposit_amount']) && (int) $this_invoice['deposit_amount'] > 0) ? true : (WPI_Functions::is_true( isset($wpi_settings['allow_deposits_by_default'])?$wpi_settings['allow_deposits_by_default']:false ) && !empty($this_invoice['new_invoice']) ? true : false ) )) ?></li>
           <li class="wpi_deposit_settings">
             <table class="wpi_deposit_settings">
@@ -157,7 +157,7 @@ function postbox_publish($this_invoice) {
 
         <?php if ($wpi_settings['show_recurring_billing'] == 'true') { ?>
           <li class="wpi_turn_off_recurring wpi_not_for_quote">
-            <?php echo WPI_UI::checkbox("name=wpi_invoice[recurring][active]&value=true&label=".__('Recurring Bill', WPI), (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['active'] : false)); ?>
+            <?php echo WPI_UI::checkbox("name=wpi_invoice[recurring][active]&value=true&label=".__('Recurring Bill', ud_get_wp_invoice()->domain), (!empty($this_invoice['recurring']) ? $this_invoice['recurring']['active'] : false)); ?>
           </li>
           <li class="wpi_recurring_bill_settings <?php if (!empty($this_invoice['recurring']) && $this_invoice['recurring']['active'] != 'on') {
             ?>hidden<?php } ?>">
@@ -219,7 +219,7 @@ function postbox_publish($this_invoice) {
             <th><?php _e('Tax Method', WPI); ?></th>
             <td>
     <?php $tax_method = !empty($this_invoice['tax_method']) ? $this_invoice['tax_method'] : (isset($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : ''); ?>
-    <?php echo WPI_UI::select("id=wpi_tax_method&name=wpi_invoice[tax_method]&values=" . serialize(array('before_discount' => __('Before Discount', WPI), 'after_discount' => __('After Discount', WPI))) . "&current_value={$tax_method}"); ?>
+    <?php echo WPI_UI::select("id=wpi_tax_method&name=wpi_invoice[tax_method]&values=" . serialize(array('before_discount' => __('Before Discount', ud_get_wp_invoice()->domain), 'after_discount' => __('After Discount', ud_get_wp_invoice()->domain))) . "&current_value={$tax_method}"); ?>
             </td>
           </tr>
         </tbody>
@@ -395,12 +395,12 @@ function postbox_payment_methods($this_invoice) {
           </select>&nbsp;&nbsp;
           <?php
           if (count($this_invoice['billing']) > 1) {
-            echo WPI_UI::checkbox("class=wpi_client_change_payment_method&name=wpi_invoice[client_change_payment_method]&value=true&label=".__('Client can change payment option.', WPI), !empty( $this_invoice['client_change_payment_method'] )? ( $this_invoice['client_change_payment_method'] == 'on' ? true : false ) : false);
+            echo WPI_UI::checkbox("class=wpi_client_change_payment_method&name=wpi_invoice[client_change_payment_method]&value=true&label=".__('Client can change payment option.', ud_get_wp_invoice()->domain), !empty( $this_invoice['client_change_payment_method'] )? ( $this_invoice['client_change_payment_method'] == 'on' ? true : false ) : false);
           }
           ?>
           &nbsp;&nbsp;
           <?php
-          echo WPI_UI::checkbox("class=wpi_use_manual_payment&name=wpi_invoice[use_manual_payment]&value=true&label=".__('Manual Payment only', WPI), !empty( $this_invoice['use_manual_payment'] )? ( $this_invoice['use_manual_payment'] == 'on' ? true : false ) : false);
+          echo WPI_UI::checkbox("class=wpi_use_manual_payment&name=wpi_invoice[use_manual_payment]&value=true&label=".__('Manual Payment only', ud_get_wp_invoice()->domain), !empty( $this_invoice['use_manual_payment'] )? ( $this_invoice['use_manual_payment'] == 'on' ? true : false ) : false);
           ?>
         </td>
       </tr>
@@ -501,8 +501,8 @@ function postbox_payment_methods($this_invoice) {
         <th><?php _e("Payment Method", WPI) ?></th>
         <td>
           <input type="hidden" name="wpi_invoice[default_payment_method]" value="manual" />
-          <p><?php echo sprintf(__('To manage payment settings you should accept at least one payment method. Visit <a href="%s">Payment Settings page</a> to setup.', WPI), admin_url('admin.php?page=wpi_page_settings#wpi_tab_payment')); ?></p>
-          <p><?php echo sprintf(__('If you do not want to use any payment venue then <a href="%s">setup Manual Payment information</a>.', WPI), admin_url('admin.php?page=wpi_page_settings#wpi_tab_payment')); ?></p>
+          <p><?php echo sprintf(__('To manage payment settings you should accept at least one payment method. Visit <a href="%s">Payment Settings page</a> to setup.', ud_get_wp_invoice()->domain), admin_url('admin.php?page=wpi_page_settings#wpi_tab_payment')); ?></p>
+          <p><?php echo sprintf(__('If you do not want to use any payment venue then <a href="%s">setup Manual Payment information</a>.', ud_get_wp_invoice()->domain), admin_url('admin.php?page=wpi_page_settings#wpi_tab_payment')); ?></p>
         </td>
       </tr>
       <tr class="column-publish-currency">
@@ -544,7 +544,7 @@ function status_meta_box($this_invoice) {
           <tr>
             <th><?php _e("Event Type", WPI) ?></th>
             <td>
-  <?php echo WPI_UI::select("name=event_type&values=" . serialize(array('add_payment' => __('Receive Payment', WPI), 'add_charge' => __('Add Charge', WPI), 'do_adjustment' => __('Administrative Adjustment', WPI), 'refund' => __('Refund', WPI)))); ?>
+  <?php echo WPI_UI::select("name=event_type&values=" . serialize(array('add_payment' => __('Receive Payment', ud_get_wp_invoice()->domain), 'add_charge' => __('Add Charge', ud_get_wp_invoice()->domain), 'do_adjustment' => __('Administrative Adjustment', ud_get_wp_invoice()->domain), 'refund' => __('Refund', ud_get_wp_invoice()->domain)))); ?>
               <span class="wpi_recurring_options"><?php _e('Note: Recurring bills cannot have administrative adjustments or additional charges, only received payments.', WPI); ?></span>
             </td>
           </tr>

@@ -27,32 +27,32 @@ class wpi_paypal extends wpi_gateway_base {
         'default_option' => '',
         'settings' => array(
             'paypal_address' => array(
-                'label' => __("PayPal Username", WPI),
+                'label' => __("PayPal Username", ud_get_wp_invoice()->domain),
                 'value' => ''
             ),
             'test_mode' => array(
-                'label' => __("Use in Test Mode", WPI),
-                'description' => __("Use PayPal SandBox for test mode", WPI),
+                'label' => __("Use in Test Mode", ud_get_wp_invoice()->domain),
+                'description' => __("Use PayPal SandBox for test mode", ud_get_wp_invoice()->domain),
                 'type' => 'select',
                 'value' => 'N',
                 'data' => array(
-                    'N' => __("No", WPI),
-                    'Y' => __("Yes", WPI)
+                    'N' => __("No", ud_get_wp_invoice()->domain),
+                    'Y' => __("Yes", ud_get_wp_invoice()->domain)
                 )
             ),
             'ipn' => array(
-                'label' => __("PayPal IPN URL", WPI),
+                'label' => __("PayPal IPN URL", ud_get_wp_invoice()->domain),
                 'type' => "readonly",
-                'description' => __("Once IPN is integrated, sellers can automate their back office so they don't have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings.", WPI)
+                'description' => __("Once IPN is integrated, sellers can automate their back office so they don't have to wait for payments to come in to trigger order fulfillment. Setup this URL into your PayPal Merchant Account Settings.", ud_get_wp_invoice()->domain)
             ),
             'send_notify_url' => array(
-                'label' => __("Send IPN URL with payment request?", WPI),
-                'description' => __('Use this option if you did not set IPN in your PayPal account.', WPI),
+                'label' => __("Send IPN URL with payment request?", ud_get_wp_invoice()->domain),
+                'description' => __('Use this option if you did not set IPN in your PayPal account.', ud_get_wp_invoice()->domain),
                 'type' => "select",
                 'value' => '',
                 'data' => array(
-                    "1" => __("Yes", WPI),
-                    "0" => __("No", WPI)
+                    "1" => __("Yes", ud_get_wp_invoice()->domain),
+                    "0" => __("No", ud_get_wp_invoice()->domain)
                 )
             )
         )
@@ -67,19 +67,19 @@ class wpi_paypal extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'first_name',
-                'label' => __('First Name', WPI)
+                'label' => __('First Name', ud_get_wp_invoice()->domain)
             ),
             'last_name' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'last_name',
-                'label' => __('Last Name', WPI)
+                'label' => __('Last Name', ud_get_wp_invoice()->domain)
             ),
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'email_address',
-                'label' => __('Email Address', WPI)
+                'label' => __('Email Address', ud_get_wp_invoice()->domain)
             ),
             'phonenumber' => array(
                 array(
@@ -102,31 +102,31 @@ class wpi_paypal extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'address1',
-                'label' => __('Address', WPI)
+                'label' => __('Address', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'city',
-                'label' => __('City', WPI)
+                'label' => __('City', ud_get_wp_invoice()->domain)
             ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'state',
-                'label' => __('State/Province', WPI)
+                'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'zip',
-                'label' => __('Zip/Postal Code', WPI)
+                'label' => __('Zip/Postal Code', ud_get_wp_invoice()->domain)
             ),
             'country' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'country',
-                'label' => __('Country', WPI)
+                'label' => __('Country', ud_get_wp_invoice()->domain)
             )
         )
     );
@@ -146,7 +146,7 @@ class wpi_paypal extends wpi_gateway_base {
         <th><?php _e('Bill Every', WPI); ?></th>
         <td>
     <?php echo WPI_UI::input("name=wpi_invoice[recurring][" . $this->type . "][length]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
-    <?php echo WPI_UI::select("name=wpi_invoice[recurring][" . $this->type . "][unit]&values=" . serialize(array("days" => __("Day(s)", WPI), "weeks" => __("Week(s)", WPI), "months" => __("Month(s)", WPI), "years" => __("Year(s)", WPI))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
+    <?php echo WPI_UI::select("name=wpi_invoice[recurring][" . $this->type . "][unit]&values=" . serialize(array("days" => __("Day(s)", ud_get_wp_invoice()->domain), "weeks" => __("Week(s)", ud_get_wp_invoice()->domain), "months" => __("Month(s)", ud_get_wp_invoice()->domain), "years" => __("Year(s)", ud_get_wp_invoice()->domain))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
         </td>
       </tr>
       <tr>
@@ -247,7 +247,7 @@ class wpi_paypal extends wpi_gateway_base {
             // If field is set of 3 fields for paypal phone number
             if ($field_slug == 'phonenumber') {
 
-              echo '<li class="wpi_checkout_row"><div class="control-group"><label class="control-label">' . __('Phone Number', WPI) . '</label><div class="controls">';
+              echo '<li class="wpi_checkout_row"><div class="control-group"><label class="control-label">' . __('Phone Number', ud_get_wp_invoice()->domain) . '</label><div class="controls">';
 
               $phonenumber = !empty($invoice['user_data']['phonenumber']) ? $invoice['user_data']['phonenumber'] : "---";
               $phone_array = preg_split('/-/', $phonenumber);
@@ -330,7 +330,7 @@ class wpi_paypal extends wpi_gateway_base {
     static function server_callback() {
 
       if (empty($_POST))
-        die(__('Direct access not allowed', WPI));
+        die(__('Direct access not allowed', ud_get_wp_invoice()->domain));
 
       $invoice = new WPI_Invoice();
       $invoice->load_invoice("id={$_POST['invoice']}");
@@ -342,20 +342,20 @@ class wpi_paypal extends wpi_gateway_base {
           /** New PayPal Subscription */
           case 'subscr_signup':
             /** PayPal Subscription created */
-            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription created', WPI));
+            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription created', ud_get_wp_invoice()->domain));
             wp_invoice_mark_as_pending($_POST['invoice']);
             do_action('wpi_paypal_subscr_signup_ipn', $_POST);
             break;
 
           case 'subscr_cancel':
             /** PayPal Subscription cancelled */
-            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription cancelled', WPI));
+            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription cancelled', ud_get_wp_invoice()->domain));
             do_action('wpi_paypal_subscr_cancel_ipn', $_POST);
             break;
 
           case 'subscr_failed':
             /** PayPal Subscription failed */
-            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription payment failed', WPI));
+            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription payment failed', ud_get_wp_invoice()->domain));
             do_action('wpi_paypal_subscr_failed_ipn', $_POST);
             break;
 
@@ -364,7 +364,7 @@ class wpi_paypal extends wpi_gateway_base {
             switch ($_POST['payment_status']) {
               case 'Completed':
                 /** Add payment amount */
-                $event_note = sprintf(__('%1s paid for subscription %2s', WPI), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']), $_POST['subscr_id']);
+                $event_note = sprintf(__('%1s paid for subscription %2s', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']), $_POST['subscr_id']);
                 $event_amount = (float) $_POST['mc_gross'];
                 $event_type = 'add_payment';
                 /** Log balance changes */
@@ -381,14 +381,14 @@ class wpi_paypal extends wpi_gateway_base {
 
           case 'subscr_eot':
             /** PayPal Subscription end of term */
-            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription term is finished', WPI));
+            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription term is finished', ud_get_wp_invoice()->domain));
             wp_invoice_mark_as_paid($_POST['invoice'], $check = false);
             do_action('wpi_paypal_subscr_eot_ipn', $_POST);
             break;
 
           case 'subscr_modify':
             /** PayPal Subscription modified */
-            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription modified', WPI));
+            WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['invoice']), 'invoice', 'update', '', __('PayPal Subscription modified', ud_get_wp_invoice()->domain));
             do_action('wpi_paypal_subscr_modify_ipn', $_POST);
             break;
 
@@ -404,13 +404,13 @@ class wpi_paypal extends wpi_gateway_base {
 
               case 'Completed':
                 /** Add payment amount */
-                $event_note = sprintf(__('%s paid via PayPal', WPI), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']));
+                $event_note = sprintf(__('%s paid via PayPal', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']));
                 $event_amount = (float) $_POST['mc_gross'];
                 $event_type = 'add_payment';
                 /** Log balance changes */
                 $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
                 /** Log payer email */
-                $payer_email = sprintf(__("PayPal Payer email: %s", WPI), $_POST['payer_email']);
+                $payer_email = sprintf(__("PayPal Payer email: %s", ud_get_wp_invoice()->domain), $_POST['payer_email']);
                 $invoice->add_entry("attribute=invoice&note=$payer_email&type=update");
                 $invoice->save_invoice();
                 /** ... and mark invoice as paid */
@@ -433,13 +433,13 @@ class wpi_paypal extends wpi_gateway_base {
                 break;
               case 'Completed':
                 /** Add payment amount */
-                $event_note = sprintf(__('%s paid via PayPal', WPI), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']));
+                $event_note = sprintf(__('%s paid via PayPal', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_POST['mc_gross']), $_POST['invoice']));
                 $event_amount = (float) $_POST['mc_gross'];
                 $event_type = 'add_payment';
                 /** Log balance changes */
                 $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
                 /** Log payer email */
-                $payer_email = sprintf(__("PayPal Payer email: %s", WPI), $_POST['payer_email']);
+                $payer_email = sprintf(__("PayPal Payer email: %s", ud_get_wp_invoice()->domain), $_POST['payer_email']);
                 $invoice->add_entry("attribute=invoice&note=$payer_email&type=update");
                 $invoice->save_invoice();
                 /** ... and mark invoice as paid */

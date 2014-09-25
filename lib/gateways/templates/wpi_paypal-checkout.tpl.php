@@ -84,7 +84,7 @@ $custom = array('obj' => 'spc');
   <input type="hidden" name="item_number_<?php echo $i; ?>" value="<?php echo $i; ?>" />
   <input class="wpi_checkout_hidden_custom_amount" type="hidden" name="amount_<?php echo $i; ?>" value="0" />
   <ul class="wpi_checkout_block wpi_checkout_billing_information">
-    <li class="section_title"><?php echo apply_filters('wpi_spc::paypal_custom_amount_title', __('Your Amount', WPI)); ?></li>
+    <li class="section_title"><?php echo apply_filters('wpi_spc::paypal_custom_amount_title', __('Your Amount', ud_get_wp_invoice()->domain)); ?></li>
     <li class="wpi_checkout_row_amount wpi_checkout_row">
 <?php
       $group_control_attrs = apply_filters('wpi_spc::group_control_attrs', array(), 'amount', array());
@@ -96,7 +96,7 @@ $custom = array('obj' => 'spc');
 ?>
       <div <?php echo $attrs; ?> class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
         <?php $input_classes = implode(' ', apply_filters('wpi_spc::form_input_classes', array("input-large", "text-input", "wpi_checkout_payment_amount_input"), 'amount', array(), 'wpi_paypal') ); ?>
-        <?php echo apply_filters("wpi_spc::input_amount", "<label class='control-label' for='wpi_checkout_payment_amount'>".__('Enter Amount', WPI)."</label><div class='controls'><input type='text' value='". (!empty($atts['amount'])?$atts['amount']:'') ."' name='wpi_checkout[billing][amount]' class='{$input_classes}' /><span class='help-inline validation'></span></div>", 'amount', array()); ?>
+        <?php echo apply_filters("wpi_spc::input_amount", "<label class='control-label' for='wpi_checkout_payment_amount'>".__('Enter Amount', ud_get_wp_invoice()->domain)."</label><div class='controls'><input type='text' value='". (!empty($atts['amount'])?$atts['amount']:'') ."' name='wpi_checkout[billing][amount]' class='{$input_classes}' /><span class='help-inline validation'></span></div>", 'amount', array()); ?>
       </div>
     </li>
   </ul>
@@ -106,7 +106,7 @@ $custom = array('obj' => 'spc');
         <ul class="wpi_checkout_block wpi_checkout_terms">
           <li class="wpi_checkout_row_terms wpi_checkout_row">
             <div validation_type="checked" class="<?php echo apply_filters('wpi_spc::group_coltrol_class', 'control-group'); ?>">
-              <label class="control-label"><?php echo apply_filters('wpi_spc::terms_label', __('Agreement')); ?></label>
+              <label class="control-label"><?php echo apply_filters('wpi_spc::terms_label', __('Agreement', ud_get_wp_invoice()->domain)); ?></label>
               <div class="controls">
                 <input type="hidden"  name="wpi_checkout[terms]" value="false" />
                 <label class="checkbox styled" for="wpi_checkout_payment_terms_input">

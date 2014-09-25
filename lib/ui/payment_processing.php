@@ -57,7 +57,7 @@
             </tr>
             <tr class="advanced_gateway_info">
                     <th><?php _e('Email Customer (on success):', WPI); ?></th>
-                    <td><?php echo WPI_UI::draw_select('wp_invoice_gateway_email_customer',array("TRUE" => __("Yes", WPI),"FALSE" => __("No", WPI)), $wp_invoice_gateway_test_mode); ?></td>
+                    <td><?php echo WPI_UI::draw_select('wp_invoice_gateway_email_customer',array("TRUE" => __("Yes", ud_get_wp_invoice()->domain),"FALSE" => __("No", ud_get_wp_invoice()->domain)), $wp_invoice_gateway_test_mode); ?></td>
             </tr>
             <tr class="advanced_gateway_info">
                     <th width="300"><?php _e('Customer Receipt Email Header', WPI); ?></th>
@@ -69,7 +69,7 @@
             </tr>
             <tr class="advanced_gateway_info">
                     <th><?php _e('Delim Data:', WPI); ?></th>
-                    <td><?php echo WPI_UI::draw_select('wp_invoice_gateway_delim_data',array("TRUE" => __("True", WPI),"FALSE" => __("False", WPI)), $wp_invoice_gateway_delim_data); ?></td>
+                    <td><?php echo WPI_UI::draw_select('wp_invoice_gateway_delim_data',array("TRUE" => __("True", ud_get_wp_invoice()->domain),"FALSE" => __("False", ud_get_wp_invoice()->domain)), $wp_invoice_gateway_delim_data); ?></td>
             </tr>
             <tr class="">
                     <th width="300">&nbsp;</th>

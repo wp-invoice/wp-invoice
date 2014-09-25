@@ -330,33 +330,33 @@ class WPI_XMLRPC_API {
     extract( $args = wp_parse_args( $args, $defaults ) );
 
     //** If empty subject - return error */
-    if ( !$subject ) return new WP_Error( 'wp.invoice', __( 'Method requires "subject" argument to be passed.', WPI ), $args );
+    if ( !$subject ) return new WP_Error( 'wp.invoice', __( 'Method requires "subject" argument to be passed.', ud_get_wp_invoice()->domain ), $args );
 
     //** If empty user_email - return error */
-    if ( !$user_data[ 'user_email' ] ) return new WP_Error( 'wp.invoice', __( 'Method requires "user_email" in "user_data" argument to be passed.', WPI ), $args );
-    if ( !filter_var( $user_data[ 'user_email' ], FILTER_VALIDATE_EMAIL ) ) return new WP_Error( 'wp.invoice', __( 'User Email is malformed.', WPI ), $args );
+    if ( !$user_data[ 'user_email' ] ) return new WP_Error( 'wp.invoice', __( 'Method requires "user_email" in "user_data" argument to be passed.', ud_get_wp_invoice()->domain ), $args );
+    if ( !filter_var( $user_data[ 'user_email' ], FILTER_VALIDATE_EMAIL ) ) return new WP_Error( 'wp.invoice', __( 'User Email is malformed.', ud_get_wp_invoice()->domain ), $args );
 
     //** Items/Charges check */
-    if ( empty( $items ) && empty( $charges ) ) return new WP_Error( 'wp.invoice', __( 'Method requires "items" or "charges" argument to be passed.', WPI ), $args );
+    if ( empty( $items ) && empty( $charges ) ) return new WP_Error( 'wp.invoice', __( 'Method requires "items" or "charges" argument to be passed.', ud_get_wp_invoice()->domain ), $args );
 
     //** If type is registered */
-    if ( !array_key_exists( $type, $wpi_settings[ 'types' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice type.', WPI ), $args );
+    if ( !array_key_exists( $type, $wpi_settings[ 'types' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice type.', ud_get_wp_invoice()->domain ), $args );
 
     //** If recurring */
     if ( $type == 'recurring' ) {
       $recurring = array_filter( $recurring );
-      if ( empty( $recurring[ 'unit' ] ) || empty( $recurring[ 'cycles' ] ) ) return new WP_Error( 'wp.invoice', __( 'Method requires correct "recurring" argument if "type" is recurring.', WPI ), $args );
-      if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "recurring" type.', WPI ), $args );
+      if ( empty( $recurring[ 'unit' ] ) || empty( $recurring[ 'cycles' ] ) ) return new WP_Error( 'wp.invoice', __( 'Method requires correct "recurring" argument if "type" is recurring.', ud_get_wp_invoice()->domain ), $args );
+      if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "recurring" type.', ud_get_wp_invoice()->domain ), $args );
     }
 
     //** If quote */
     if ( $type == 'quote' ) {
-      if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "quote" type.', WPI ), $args );
+      if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "quote" type.', ud_get_wp_invoice()->domain ), $args );
     }
 
     //** Check status */
-    if ( !$status ) return new WP_Error( 'wp.invoice', __( 'Method requires "status" argument to be passed.', WPI ), $args );
-    if ( !array_key_exists( $status, $wpi_settings[ 'invoice_statuses' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice status.', WPI ), $args );
+    if ( !$status ) return new WP_Error( 'wp.invoice', __( 'Method requires "status" argument to be passed.', ud_get_wp_invoice()->domain ), $args );
+    if ( !array_key_exists( $status, $wpi_settings[ 'invoice_statuses' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice status.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -422,9 +422,9 @@ class WPI_XMLRPC_API {
     //** Discount */
     $discount = array_filter( $discount );
     if ( !empty( $discount ) ) {
-      if ( empty( $discount[ 'name' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount name is required.', WPI ), $args );
-      if ( empty( $discount[ 'type' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount type is required. ("amount" or "percent").', WPI ), $args );
-      if ( empty( $discount[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount amount is required.', WPI ), $args );
+      if ( empty( $discount[ 'name' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount name is required.', ud_get_wp_invoice()->domain ), $args );
+      if ( empty( $discount[ 'type' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount type is required. ("amount" or "percent").', ud_get_wp_invoice()->domain ), $args );
+      if ( empty( $discount[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount amount is required.', ud_get_wp_invoice()->domain ), $args );
       $invoice->add_discount( $discount );
     }
 
@@ -435,17 +435,17 @@ class WPI_XMLRPC_API {
         empty( $item[ 'quantity' ] ) ||
         empty( $item[ 'price' ] )
       ) {
-        return new WP_Error( 'wp.invoice', __( 'One or more "items" have malformed structure. Cannot create Invoice.', WPI ), $args );
+        return new WP_Error( 'wp.invoice', __( 'One or more "items" have malformed structure. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       }
 
       //** Global tax has higher priority */
       if ( !empty( $tax ) ) $item[ 'tax_rate' ] = $tax;
 
       //** Check types */
-      if ( !is_numeric( $item[ 'quantity' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "quantity" value. Cannot create Invoice.', WPI ), $args );
-      if ( !is_numeric( $item[ 'price' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "price" value. Cannot create Invoice.', WPI ), $args );
+      if ( !is_numeric( $item[ 'quantity' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "quantity" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
+      if ( !is_numeric( $item[ 'price' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "price" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       if ( !empty( $item[ 'tax_rate' ] ) ) {
-        if ( !is_numeric( $item[ 'tax_rate' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "tax_rate" value. Cannot create Invoice.', WPI ), $args );
+        if ( !is_numeric( $item[ 'tax_rate' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "tax_rate" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       }
 
       //** If passed validation - save item */
@@ -458,16 +458,16 @@ class WPI_XMLRPC_API {
       if ( empty( $charge[ 'name' ] ) ||
         empty( $charge[ 'amount' ] )
       ) {
-        return new WP_Error( 'wp.invoice', __( 'One or more "charges" have malformed structure. Cannot create Invoice.', WPI ), $args );
+        return new WP_Error( 'wp.invoice', __( 'One or more "charges" have malformed structure. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       }
 
       //** Global tax has higher priority */
       if ( !empty( $tax ) ) $charge[ 'tax' ] = $tax;
 
       //** Check types */
-      if ( !is_numeric( $charge[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "amount" value. Cannot create Invoice.', WPI ), $args );
+      if ( !is_numeric( $charge[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "amount" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       if ( !empty( $charge[ 'tax' ] ) ) {
-        if ( !is_numeric( $charge[ 'tax' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "tax" value. Cannot create Invoice.', WPI ), $args );
+        if ( !is_numeric( $charge[ 'tax' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "tax" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
       }
 
       //** If passed validation - save item */
@@ -477,7 +477,7 @@ class WPI_XMLRPC_API {
     //** Set tax method */
     if ( !empty( $tax_method ) ) {
       if ( $tax_method != 'before_discount' && $tax_method != 'after_discount' ) {
-        return new WP_Error( 'wp.invoice', __( 'Unknown "tax_method".', WPI ), $args );
+        return new WP_Error( 'wp.invoice', __( 'Unknown "tax_method".', ud_get_wp_invoice()->domain ), $args );
       }
     }
     $invoice->set( array( 'tax_method' => $tax_method ) );
@@ -506,7 +506,7 @@ class WPI_XMLRPC_API {
     extract( wp_parse_args( $args, $defaults ) );
 
     //** Check */
-    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -515,10 +515,10 @@ class WPI_XMLRPC_API {
     $invoice->load_invoice( array( 'id' => $ID ) );
 
     //** Check */
-    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', ud_get_wp_invoice()->domain ), $args );
 
     //** Do refund if it has payments */
-    if ( empty( $invoice->data[ 'total_payments' ] ) ) return new WP_Error( 'wp.invoice', __( 'Cannot be refunded. No payments found.', WPI ), $args );
+    if ( empty( $invoice->data[ 'total_payments' ] ) ) return new WP_Error( 'wp.invoice', __( 'Cannot be refunded. No payments found.', ud_get_wp_invoice()->domain ), $args );
 
     $insert_id = $invoice->add_entry( array(
       'attribute' => 'balance',
@@ -526,7 +526,7 @@ class WPI_XMLRPC_API {
       'amount' => (float) $invoice->data[ 'total_payments' ],
       'type' => 'refund'
     ) );
-    if ( !$insert_id ) return new WP_Error( 'wp.invoice', __( 'Could not refund due to unknown error.', WPI ), $args );
+    if ( !$insert_id ) return new WP_Error( 'wp.invoice', __( 'Could not refund due to unknown error.', ud_get_wp_invoice()->domain ), $args );
 
     $invoice->save_invoice();
 
@@ -555,9 +555,9 @@ class WPI_XMLRPC_API {
     extract( wp_parse_args( $args, $defaults ) );
 
     //** Check */
-    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
-    if ( !$amount ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is required.', WPI ), $args );
-    if ( !is_numeric( $amount ) ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is malformed.', WPI ), $args );
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', ud_get_wp_invoice()->domain ), $args );
+    if ( !$amount ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is required.', ud_get_wp_invoice()->domain ), $args );
+    if ( !is_numeric( $amount ) ) return new WP_Error( 'wp.invoice', __( 'Argument "amount" is malformed.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -566,19 +566,19 @@ class WPI_XMLRPC_API {
     $invoice->load_invoice( array( 'id' => $ID ) );
 
     //** Check */
-    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+    if ( !empty( $invoice->error ) ) return new WP_Error( 'wp.invoice', __( 'Invoice not found', ud_get_wp_invoice()->domain ), $args );
 
     //** Pay only if status if not paid */
-    if ( $invoice->data[ 'post_status' ] == 'paid' ) return new WP_Error( 'wp.invoice', __( 'Invoice is completely paid. Payments are not acceptable anymore.', WPI ), $args );
+    if ( $invoice->data[ 'post_status' ] == 'paid' ) return new WP_Error( 'wp.invoice', __( 'Invoice is completely paid. Payments are not acceptable anymore.', ud_get_wp_invoice()->domain ), $args );
 
     //** Check amount */
-    if ( (float) $invoice->data[ 'net' ] < (float) $amount ) return new WP_Error( 'wp.invoice', __( 'Cannot pay more that the balance is. Maximum is ' . $invoice->data[ 'net' ], WPI ), $args );
+    if ( (float) $invoice->data[ 'net' ] < (float) $amount ) return new WP_Error( 'wp.invoice', __( 'Cannot pay more that the balance is. Maximum is ' . $invoice->data[ 'net' ], ud_get_wp_invoice()->domain ), $args );
 
     //** Handle partial */
     if ( (float) $invoice->data[ 'net' ] > (float) $amount ) {
-      if ( empty( $invoice->data[ 'deposit_amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Partial payments are not allowed. Pay minimum is ' . $invoice->data[ 'net' ], WPI ), $args );
+      if ( empty( $invoice->data[ 'deposit_amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Partial payments are not allowed. Pay minimum is ' . $invoice->data[ 'net' ], ud_get_wp_invoice()->domain ), $args );
       if ( (float) $amount < (float) $invoice->data[ 'deposit_amount' ] ) {
-        return new WP_Error( 'wp.invoice', __( 'Minimum allowed payment is ' . $invoice->data[ 'deposit_amount' ], WPI ), $args );
+        return new WP_Error( 'wp.invoice', __( 'Minimum allowed payment is ' . $invoice->data[ 'deposit_amount' ], ud_get_wp_invoice()->domain ), $args );
       }
     }
 
@@ -615,7 +615,7 @@ class WPI_XMLRPC_API {
     extract( wp_parse_args( $args, $defaults ) );
 
     //** Check */
-    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -642,7 +642,7 @@ class WPI_XMLRPC_API {
     extract( wp_parse_args( $args, $defaults ) );
 
     //** Check */
-    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -651,7 +651,7 @@ class WPI_XMLRPC_API {
     $invoice->load_invoice( array( 'id' => $ID ) );
 
     //** Return ready object */
-    return empty( $invoice->error ) ? $invoice : new WP_Error( 'wp.invoice', __( 'Invoice not found', WPI ), $args );
+    return empty( $invoice->error ) ? $invoice : new WP_Error( 'wp.invoice', __( 'Invoice not found', ud_get_wp_invoice()->domain ), $args );
   }
 
   /**
@@ -686,7 +686,7 @@ class WPI_XMLRPC_API {
     extract( $args = wp_parse_args( $args, $defaults ) );
 
     //** Check */
-    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', WPI ), $args );
+    if ( !$ID ) return new WP_Error( 'wp.invoice', __( 'Argument "ID" is required.', ud_get_wp_invoice()->domain ), $args );
 
     //** New Invoice object */
     $invoice = new WPI_Invoice();
@@ -715,18 +715,18 @@ class WPI_XMLRPC_API {
 
     if ( $type ) {
       //** If type is registered */
-      if ( !array_key_exists( $type, $wpi_settings[ 'types' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice type.', WPI ), $args );
+      if ( !array_key_exists( $type, $wpi_settings[ 'types' ] ) ) return new WP_Error( 'wp.invoice', __( 'Unknown invoice type.', ud_get_wp_invoice()->domain ), $args );
 
       //** If recurring */
       if ( $type == 'recurring' ) {
         $recurring = array_filter( $recurring );
-        if ( empty( $recurring[ 'unit' ] ) || empty( $recurring[ 'cycles' ] ) ) return new WP_Error( 'wp.invoice', __( 'Method requires correct "recurring" argument if "type" is recurring.', WPI ), $args );
-        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "recurring" type.', WPI ), $args );
+        if ( empty( $recurring[ 'unit' ] ) || empty( $recurring[ 'cycles' ] ) ) return new WP_Error( 'wp.invoice', __( 'Method requires correct "recurring" argument if "type" is recurring.', ud_get_wp_invoice()->domain ), $args );
+        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "recurring" type.', ud_get_wp_invoice()->domain ), $args );
       }
 
       //** If quote */
       if ( $type == 'quote' ) {
-        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "quote" type.', WPI ), $args );
+        if ( !empty( $deposit ) ) return new WP_Error( 'wp.invoice', __( 'Cannot use "deposit" with "quote" type.', ud_get_wp_invoice()->domain ), $args );
       }
 
       $set[ 'type' ] = $type;
@@ -760,15 +760,15 @@ class WPI_XMLRPC_API {
 
     if ( $tax_method ) {
       if ( $tax_method != 'before_discount' && $tax_method != 'after_discount' ) {
-        return new WP_Error( 'wp.invoice', __( 'Unknown "tax_method".', WPI ), $args );
+        return new WP_Error( 'wp.invoice', __( 'Unknown "tax_method".', ud_get_wp_invoice()->domain ), $args );
       }
       $set[ 'tax_method' ] = $tax_method;
     }
 
     if ( $discount ) {
-      if ( empty( $discount[ 'name' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount name is required.', WPI ), $args );
-      if ( empty( $discount[ 'type' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount type is required. ("amount" or "percent").', WPI ), $args );
-      if ( empty( $discount[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount amount is required.', WPI ), $args );
+      if ( empty( $discount[ 'name' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount name is required.', ud_get_wp_invoice()->domain ), $args );
+      if ( empty( $discount[ 'type' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount type is required. ("amount" or "percent").', ud_get_wp_invoice()->domain ), $args );
+      if ( empty( $discount[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'Discount amount is required.', ud_get_wp_invoice()->domain ), $args );
       $invoice->data[ 'discount' ] = array();
       $invoice->add_discount( $discount );
     }
@@ -781,17 +781,17 @@ class WPI_XMLRPC_API {
           empty( $item[ 'quantity' ] ) ||
           empty( $item[ 'price' ] )
         ) {
-          return new WP_Error( 'wp.invoice', __( 'One or more "items" have malformed structure. Cannot create Invoice.', WPI ), $args );
+          return new WP_Error( 'wp.invoice', __( 'One or more "items" have malformed structure. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         }
 
         //** Global tax has higher priority */
         if ( !empty( $tax ) ) $item[ 'tax_rate' ] = $tax;
 
         //** Check types */
-        if ( !is_numeric( $item[ 'quantity' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "quantity" value. Cannot create Invoice.', WPI ), $args );
-        if ( !is_numeric( $item[ 'price' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "price" value. Cannot create Invoice.', WPI ), $args );
+        if ( !is_numeric( $item[ 'quantity' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "quantity" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
+        if ( !is_numeric( $item[ 'price' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "price" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         if ( !empty( $item[ 'tax_rate' ] ) ) {
-          if ( !is_numeric( $item[ 'tax_rate' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "tax_rate" value. Cannot create Invoice.', WPI ), $args );
+          if ( !is_numeric( $item[ 'tax_rate' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "items" have wrong "tax_rate" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         }
       }
     }
@@ -803,16 +803,16 @@ class WPI_XMLRPC_API {
         if ( empty( $charge[ 'name' ] ) ||
           empty( $charge[ 'amount' ] )
         ) {
-          return new WP_Error( 'wp.invoice', __( 'One or more "charges" have malformed structure. Cannot create Invoice.', WPI ), $args );
+          return new WP_Error( 'wp.invoice', __( 'One or more "charges" have malformed structure. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         }
 
         //** Global tax has higher priority */
         if ( !empty( $tax ) ) $charge[ 'tax' ] = $tax;
 
         //** Check types */
-        if ( !is_numeric( $charge[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "amount" value. Cannot create Invoice.', WPI ), $args );
+        if ( !is_numeric( $charge[ 'amount' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "amount" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         if ( !empty( $charge[ 'tax' ] ) ) {
-          if ( !is_numeric( $charge[ 'tax' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "tax" value. Cannot create Invoice.', WPI ), $args );
+          if ( !is_numeric( $charge[ 'tax' ] ) ) return new WP_Error( 'wp.invoice', __( 'One or more "charges" have wrong "tax" value. Cannot create Invoice.', ud_get_wp_invoice()->domain ), $args );
         }
       }
     }
@@ -866,15 +866,15 @@ if ( !function_exists( 'wpi_xmlrpc_request' ) ) {
     if ( !$user = $wp_xmlrpc_server->login( $credentials[ 0 ], $credentials[ 1 ] ) )
       return $wp_xmlrpc_server->error;
 
-    if ( !current_user_can_for_blog( $blog, 'manage_options' ) ) return new WP_Error( 'wp.invoice', __( 'Access denied. Do not have rights.', WPI ), $args );
+    if ( !current_user_can_for_blog( $blog, 'manage_options' ) ) return new WP_Error( 'wp.invoice', __( 'Access denied. Do not have rights.', ud_get_wp_invoice()->domain ), $args );
 
     //** Check for reference */
-    if ( !array_key_exists( $method, $wpi_xml_rpc_api_reference[ 'methods' ] ) ) return new WP_Error( 'wp.invoice', __( 'Requested method is absent in API Reference', WPI ), $args );
+    if ( !array_key_exists( $method, $wpi_xml_rpc_api_reference[ 'methods' ] ) ) return new WP_Error( 'wp.invoice', __( 'Requested method is absent in API Reference', ud_get_wp_invoice()->domain ), $args );
 
     //** Return result of calling requested method */
     return is_callable( array( $wpi_xml_rpc_api_reference[ 'namespace' ], $method ) )
       ? call_user_func( array( $wpi_xml_rpc_api_reference[ 'namespace' ], $method ), $args )
-      : new WP_Error( 'wp.invoice', __( 'Unknown method', WPI ), $method );
+      : new WP_Error( 'wp.invoice', __( 'Unknown method', ud_get_wp_invoice()->domain ), $method );
   }
 }
 

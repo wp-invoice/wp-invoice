@@ -87,7 +87,7 @@
 
 <?php if( !empty($this_invoice->data['post_status']) && $this_invoice->data['post_status'] == 'paid') : ?>
   <div class="wpi_invoice_paid">
-    <?php echo apply_filters('wpi_object_paid_message', __('Invoice paid in full.', WPI), $this_invoice); ?>
+    <?php echo apply_filters('wpi_object_paid_message', __('Invoice paid in full.', ud_get_wp_invoice()->domain), $this_invoice); ?>
   </div>
 <?php endif; ?>
 
@@ -262,7 +262,7 @@
             $no_discounts = true;
             $this_invoice->data['discount'][1] = true;
           }
-          $discount_types = serialize(array('amount' => __('Amount Discount', WPI), 'percent' => __('Percent Discount', WPI)));
+          $discount_types = serialize(array('amount' => __('Amount Discount', ud_get_wp_invoice()->domain), 'percent' => __('Percent Discount', ud_get_wp_invoice()->domain)));
           ?>
           <?php $counter = 1; ?>
           <?php foreach($this_invoice->data['discount'] as $key => $discount_item) : ?>
@@ -325,7 +325,7 @@
             <?php
             if(is_array($wpi_settings['predefined_services'])) {
               //** Convert predefined services into special array */
-              $services_array[""] = __("Insert a predefined line item", WPI);
+              $services_array[""] = __("Insert a predefined line item", ud_get_wp_invoice()->domain);
               foreach($wpi_settings['predefined_services'] as $service) {
                 //** skip blanks */
                 if( empty($service['name']) ) {

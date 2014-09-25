@@ -20,32 +20,32 @@ class wpi_twocheckout extends wpi_gateway_base {
     parent::__construct();
     
     $this->options = array(
-        'name' => __( '2Checkout', WPI ),
+        'name' => __( '2Checkout', ud_get_wp_invoice()->domain ),
         'allow' => '',
         'default_option' => '',
         'settings' => array(
             'twocheckout_sid' => array(
-                'label' => __( "2Checkout Seller ID", WPI ),
+                'label' => __( "2Checkout Seller ID", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'twocheckout_secret' => array(
-                'label' => __( "2Checkout Secret Word", WPI ),
+                'label' => __( "2Checkout Secret Word", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'test_mode' => array(
-                'label' => __( "Demo Mode", WPI ),
-                'description' => __( "Use 2Checkout Demo Mode", WPI ),
+                'label' => __( "Demo Mode", ud_get_wp_invoice()->domain ),
+                'description' => __( "Use 2Checkout Demo Mode", ud_get_wp_invoice()->domain ),
                 'type' => 'select',
                 'value' => 'N',
                 'data' => array(
-                    'N' => __( "No", WPI ),
-                    'Y' => __( "Yes", WPI )
+                    'N' => __( "No", ud_get_wp_invoice()->domain ),
+                    'Y' => __( "Yes", ud_get_wp_invoice()->domain )
                 )
             ),
             'passback' => array(
-                'label' => __( "2Checkout Approved URL/INS URL", WPI ),
+                'label' => __( "2Checkout Approved URL/INS URL", ud_get_wp_invoice()->domain ),
                 'type' => "readonly",
-                'description' => __( "Set this URL as your Approved URL in your 2Checkout Site Management page and Notification URL under your 2Checkout Notification page.", WPI )
+                'description' => __( "Set this URL as your Approved URL in your 2Checkout Site Management page and Notification URL under your 2Checkout Notification page.", ud_get_wp_invoice()->domain )
             )
         )
     );
@@ -57,55 +57,55 @@ class wpi_twocheckout extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'first_name',
-                'label' => __('First Name', WPI)
+                'label' => __('First Name', ud_get_wp_invoice()->domain)
             ),
             'last_name' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'last_name',
-                'label' => __('Last Name', WPI)
+                'label' => __('Last Name', ud_get_wp_invoice()->domain)
             ),
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'email',
-                'label' => __('Email Address', WPI)
+                'label' => __('Email Address', ud_get_wp_invoice()->domain)
             ),
             'phonenumber' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'phonenumber',
-                'label' => __('Phone', WPI)
+                'label' => __('Phone', ud_get_wp_invoice()->domain)
             ),
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'street_address',
-                'label' => __('Address', WPI)
+                'label' => __('Address', ud_get_wp_invoice()->domain)
             ),
             'country' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'country',
-                'label' => __('Country', WPI)
+                'label' => __('Country', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'city',
-                'label' => __('City', WPI)
+                'label' => __('City', ud_get_wp_invoice()->domain)
             ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'state',
-                'label' => __('State/Province', WPI)
+                'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'zip',
-                'label' => __('Zip/Postal Code', WPI)
+                'label' => __('Zip/Postal Code', ud_get_wp_invoice()->domain)
             )
         )
     );
@@ -127,14 +127,14 @@ class wpi_twocheckout extends wpi_gateway_base {
             <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
             <td>
               <?php echo WPI_UI::input("id=2co_recurrence_interval&name=wpi_invoice[recurring][".$this->type."][recurrence_interval]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['recurrence_interval'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
-              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][recurrence_period]&values=" . serialize(apply_filters('wpi_2co_recurrence_period', array("Week" => __("Week", WPI), "Month" => __("Month", WPI), "Year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['recurrence_period'] : '')); ?>
+              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][recurrence_period]&values=" . serialize(apply_filters('wpi_2co_recurrence_period', array("Week" => __("Week", ud_get_wp_invoice()->domain), "Month" => __("Month", ud_get_wp_invoice()->domain), "Year" => __("Year", ud_get_wp_invoice()->domain)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['recurrence_period'] : '')); ?>
             </td>
         </tr>
         <tr>
             <th style="cursor:help;" title="<?php _e('Specifies billing duration.', WPI); ?>"><?php _e('Duration', WPI); ?></th>
             <td>
               <?php echo WPI_UI::input("id=2co_duration_interval&name=wpi_invoice[recurring][".$this->type."][duration_interval]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['duration_interval'] : '') . "&special=size='2' maxlength='4' autocomplete='off'"); ?>
-              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][duration_period]&values=" . serialize(apply_filters('wpi_2co_duration_period', array("Week" => __("Week", WPI), "Month" => __("Month", WPI), "Year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['duration_period'] : '')); ?>
+              <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][duration_period]&values=" . serialize(apply_filters('wpi_2co_duration_period', array("Week" => __("Week", ud_get_wp_invoice()->domain), "Month" => __("Month", ud_get_wp_invoice()->domain), "Year" => __("Year", ud_get_wp_invoice()->domain)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['duration_period'] : '')); ?>
             </td>
         </tr>
     </table>
@@ -268,7 +268,7 @@ class wpi_twocheckout extends wpi_gateway_base {
     static function server_callback() {
 
       if (empty($_REQUEST)) {
-        die(__('Direct access not allowed', WPI));
+        die(__('Direct access not allowed', ud_get_wp_invoice()->domain));
       }
 
       $invoice = new WPI_Invoice();
@@ -277,13 +277,13 @@ class wpi_twocheckout extends wpi_gateway_base {
       /** Verify callback request */
       if ( self::_ipn_verified($invoice) ) {
         if ($_REQUEST['key']) {
-          $event_note = sprintf(__('%s paid via 2Checkout', WPI), WPI_Functions::currency_format(abs($_REQUEST['total']), $_REQUEST['merchant_order_id']));
+          $event_note = sprintf(__('%s paid via 2Checkout', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_REQUEST['total']), $_REQUEST['merchant_order_id']));
           $event_amount = (float) $_REQUEST['total'];
           $event_type = 'add_payment';
           /** Log balance changes */
           $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
           /** Log payer email */
-          $payer_email = sprintf(__("2Checkout buyer email: %s", WPI), $_REQUEST['email']);
+          $payer_email = sprintf(__("2Checkout buyer email: %s", ud_get_wp_invoice()->domain), $_REQUEST['email']);
           $invoice->add_entry("attribute=invoice&note=$payer_email&type=update");
           $invoice->save_invoice();
           /** ... and mark invoice as paid */
@@ -298,23 +298,23 @@ class wpi_twocheckout extends wpi_gateway_base {
 
             case 'FRAUD_STATUS_CHANGED':
               if ($_POST['fraud_status'] == 'pass') {
-                WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Passed 2Checkout fraud review.', WPI));
+                WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Passed 2Checkout fraud review.', ud_get_wp_invoice()->domain));
               } elseif (condition) {
-                WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Failed 2Checkout fraud review.', WPI));
+                WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Failed 2Checkout fraud review.', ud_get_wp_invoice()->domain));
                 wp_invoice_mark_as_pending($_POST['vendor_order_id']);
               }
               break;
 
             case 'RECURRING_STOPPED':
-              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring billing stopped.', WPI));
+              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring billing stopped.', ud_get_wp_invoice()->domain));
               break;
 
             case 'RECURRING_INSTALLMENT_FAILED':
-              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring installment failed.', WPI));
+              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring installment failed.', ud_get_wp_invoice()->domain));
               break;
 
             case 'RECURRING_INSTALLMENT_SUCCESS':
-              $event_note = sprintf(__('%1s paid for subscription %2s', WPI), WPI_Functions::currency_format(abs($_POST['item_rec_list_amount_1']), $_POST['vendor_order_id']), $_POST['sale_id']);
+              $event_note = sprintf(__('%1s paid for subscription %2s', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_POST['item_rec_list_amount_1']), $_POST['vendor_order_id']), $_POST['sale_id']);
               $event_amount = (float) $_POST['item_rec_list_amount_1'];
               $event_type = 'add_payment';
               $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
@@ -323,12 +323,12 @@ class wpi_twocheckout extends wpi_gateway_base {
               break;
 
             case 'RECURRING_COMPLETE':
-              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring installments completed.', WPI));
+              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring installments completed.', ud_get_wp_invoice()->domain));
               wp_invoice_mark_as_paid($_POST['invoice'], $check = false);
               break;
 
             case 'RECURRING_RESTARTED':
-              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring sale restarted.', WPI));
+              WPI_Functions::log_event(wpi_invoice_id_to_post_id($_POST['vendor_order_id']), 'invoice', 'update', '', __('Recurring sale restarted.', ud_get_wp_invoice()->domain));
               break;
 
             default:

@@ -22,21 +22,21 @@ class wpi_interkassa extends wpi_gateway_base {
         'default_option' => '',
         'settings' => array(
             'ik_shop_id' => array(
-                'label' => __("Shop ID", WPI),
+                'label' => __("Shop ID", ud_get_wp_invoice()->domain),
                 'value' => ''
             ),
             'secret_key' => array(
-                'label' => __("Secret Key", WPI),
+                'label' => __("Secret Key", ud_get_wp_invoice()->domain),
                 'value' => ''
             ),
             'test_key' => array(
-                'label' => __("Test Key", WPI),
+                'label' => __("Test Key", ud_get_wp_invoice()->domain),
                 'value' => ''
             ),
             'ipn' => array(
-                'label' => __("Status URL", WPI),
+                'label' => __("Status URL", ud_get_wp_invoice()->domain),
                 'type' => "readonly",
-                'description' => __("Use this URL as Status URL in Merchant settings to get notified once payments made.", WPI)
+                'description' => __("Use this URL as Status URL in Merchant settings to get notified once payments made.", ud_get_wp_invoice()->domain)
             )
         )
     );
@@ -48,49 +48,49 @@ class wpi_interkassa extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'first_name',
-                'label' => __('First Name', WPI)
+                'label' => __('First Name', ud_get_wp_invoice()->domain)
             ),
             'last_name' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'last_name',
-                'label' => __('Last Name', WPI)
+                'label' => __('Last Name', ud_get_wp_invoice()->domain)
             ),
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'email_address',
-                'label' => __('Email Address', WPI)
+                'label' => __('Email Address', ud_get_wp_invoice()->domain)
             ),
             'phonenumber' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'phonenumber',
-                'label' => __('Phone', WPI)
+                'label' => __('Phone', ud_get_wp_invoice()->domain)
             ),
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'address1',
-                'label' => __('Address', WPI)
+                'label' => __('Address', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'city',
-                'label' => __('City', WPI)
+                'label' => __('City', ud_get_wp_invoice()->domain)
             ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'state',
-                'label' => __('State/Province', WPI)
+                'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'zip',
-                'label' => __('Zip/Postal Code', WPI)
+                'label' => __('Zip/Postal Code', ud_get_wp_invoice()->domain)
             )
         )
     );
@@ -187,7 +187,7 @@ class wpi_interkassa extends wpi_gateway_base {
   static function server_callback() {
 
     if (empty($_POST))
-      die(__('Direct access not allowed', WPI));
+      die(__('Direct access not allowed', ud_get_wp_invoice()->domain));
 
     $invoice = new WPI_Invoice();
     $invoice->load_invoice("id={$_POST['ik_pm_no']}");
@@ -210,7 +210,7 @@ class wpi_interkassa extends wpi_gateway_base {
     update_post_meta($invoice->data['ID'], 'wpi_processed_by_interkassa', 'true');
 
     /** Add payment amount */
-    $event_note = sprintf(__('%s paid via InterKassa [%s]', WPI), WPI_Functions::currency_format(abs($_POST['ik_am']), $_POST['ik_pm_no']), $_POST['ik_pw_via']);
+    $event_note = sprintf(__('%s paid via InterKassa [%s]', ud_get_wp_invoice()->domain), WPI_Functions::currency_format(abs($_POST['ik_am']), $_POST['ik_pm_no']), $_POST['ik_pw_via']);
     $event_amount = (float) $_POST['ik_am'];
     $event_type = 'add_payment';
 
@@ -218,7 +218,7 @@ class wpi_interkassa extends wpi_gateway_base {
     $invoice->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
 
     //** Log payer email */
-    $trans_id = sprintf(__("Transaction ID: %s", WPI), $_POST['ik_trn_id']);
+    $trans_id = sprintf(__("Transaction ID: %s", ud_get_wp_invoice()->domain), $_POST['ik_trn_id']);
     $invoice->add_entry("attribute=invoice&note=$trans_id&type=update");
     $invoice->save_invoice();
 

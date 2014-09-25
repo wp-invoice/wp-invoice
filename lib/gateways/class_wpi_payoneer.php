@@ -23,45 +23,45 @@ class wpi_payoneer extends wpi_gateway_base {
         'settings' => array(
             'sign_up_text' => array(
                 'type' => "static",
-                'data' => __("Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-invoice/' target='_blank'>Sign up now</a>", WPI)
+                'data' => __("Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-invoice/' target='_blank'>Sign up now</a>", ud_get_wp_invoice()->domain)
             ),
             'usd_details' => array(
                 'type' => "static",
-                'label' => __("USD Payment service details", WPI )
+                'label' => __("USD Payment service details", ud_get_wp_invoice()->domain )
             ),
             'usd_bank_name' => array(
-                'label' => __("Bank Name"),
+                'label' => __("Bank Name", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'The name of the bank of your US collection account (i.e.: Bank of America)', WPI )
+                'description' => __( 'The name of the bank of your US collection account (i.e.: Bank of America)', ud_get_wp_invoice()->domain )
             ),
             'usd_account_number' => array(
-                'label' => __("Account Number"),
+                'label' => __("Account Number", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'The 13 digit number of your US collection account', WPI )
+                'description' => __( 'The 13 digit number of your US collection account', ud_get_wp_invoice()->domain )
             ),
             'usd_bank_routing_number' => array(
-                'label' => __("ABA (Bank Routing Number)"),
+                'label' => __("ABA (Bank Routing Number)", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'The 9 digit bank routing number', WPI )
+                'description' => __( 'The 9 digit bank routing number', ud_get_wp_invoice()->domain )
             ),
             'euro_details' => array(
                 'type' => "static",
-                'label' => __("EURO Payment service details", WPI )
+                'label' => __("EURO Payment service details", ud_get_wp_invoice()->domain )
             ),
             'euro_bank_name' => array(
-                'label' => __("Bank Name"),
+                'label' => __("Bank Name", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'The name of the bank of your EUR collection account (i.e.: WireCard)', WPI )
+                'description' => __( 'The name of the bank of your EUR collection account (i.e.: WireCard)', ud_get_wp_invoice()->domain )
             ),
             'euro_bic' => array(
-                'label' => __("BIC"),
+                'label' => __("BIC", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'Business Identifier Code (I.E WIREDEMM)', WPI )
+                'description' => __( 'Business Identifier Code (I.E WIREDEMM)', ud_get_wp_invoice()->domain )
             ),
             'euro_iban' => array(
-                'label' => __("IBAN"),
+                'label' => __("IBAN", ud_get_wp_invoice()->domain),
                 'value' => '',
-                'description' => __( 'The 22 digit International Bank Account Number (I.E DExxxxxxxxxxxxx)', WPI )
+                'description' => __( 'The 22 digit International Bank Account Number (I.E DExxxxxxxxxxxxx)', ud_get_wp_invoice()->domain )
             )
         )
     );
@@ -73,49 +73,49 @@ class wpi_payoneer extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'first_name',
-                'label' => __('First Name', WPI)
+                'label' => __('First Name', ud_get_wp_invoice()->domain)
             ),
             'last_name' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'last_name',
-                'label' => __('Last Name', WPI)
+                'label' => __('Last Name', ud_get_wp_invoice()->domain)
             ),
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'email_address',
-                'label' => __('Email Address', WPI)
+                'label' => __('Email Address', ud_get_wp_invoice()->domain)
             ),
             'phonenumber' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'phonenumber',
-                'label' => __('Phone', WPI)
+                'label' => __('Phone', ud_get_wp_invoice()->domain)
             ),
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'address1',
-                'label' => __('Address', WPI)
+                'label' => __('Address', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'city',
-                'label' => __('City', WPI)
+                'label' => __('City', ud_get_wp_invoice()->domain)
             ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'state',
-                'label' => __('State/Province', WPI)
+                'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'zip',
-                'label' => __('Zip/Postal Code', WPI)
+                'label' => __('Zip/Postal Code', ud_get_wp_invoice()->domain)
             )
         )
     );

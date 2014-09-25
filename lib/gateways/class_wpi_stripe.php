@@ -23,49 +23,49 @@ class wpi_stripe extends wpi_gateway_base {
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'first_name',
-                'label' => __('First Name', WPI)
+                'label' => __('First Name', ud_get_wp_invoice()->domain)
             ),
             'last_name' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'last_name',
-                'label' => __('Last Name', WPI)
+                'label' => __('Last Name', ud_get_wp_invoice()->domain)
             ),
             'user_email' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'email_address',
-                'label' => __('Email Address', WPI)
+                'label' => __('Email Address', ud_get_wp_invoice()->domain)
             ),
             'phonenumber' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'phonenumber',
-                'label' => __('Phone', WPI)
+                'label' => __('Phone', ud_get_wp_invoice()->domain)
             ),
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'address1',
-                'label' => __('Address', WPI)
+                'label' => __('Address', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'city',
-                'label' => __('City', WPI)
+                'label' => __('City', ud_get_wp_invoice()->domain)
             ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'state',
-                'label' => __('State/Province', WPI)
+                'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'zip',
-                'label' => __('Zip/Postal Code', WPI)
+                'label' => __('Zip/Postal Code', ud_get_wp_invoice()->domain)
             )
         )
     );
@@ -76,23 +76,23 @@ class wpi_stripe extends wpi_gateway_base {
         'default_option' => '',
         'settings' => array(
             'test_secret_key' => array(
-                'label' => "Test Secret Key",
+                'label' => __( "Test Secret Key", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'test_publishable_key' => array(
-                'label' => "Test Publishable Key",
+                'label' => __( "Test Publishable Key", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'live_secret_key' => array(
-                'label' => "Live Secret Key",
+                'label' => __( "Live Secret Key", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'live_publishable_key' => array(
-                'label' => "Live Publishable Key",
+                'label' => __( "Live Publishable Key", ud_get_wp_invoice()->domain ),
                 'value' => ''
             ),
             'mode' => array(
-                'label' => __("Mode", WPI),
+                'label' => __("Mode", ud_get_wp_invoice()->domain),
                 'description' => "Stripe payment mode",
                 'type' => 'select',
                 'value' => 'test',
@@ -102,10 +102,10 @@ class wpi_stripe extends wpi_gateway_base {
                 )
             ),
             'webhook_url' => array(
-                'label' => __( "Webhook URL", WPI ),
+                'label' => __( "Webhook URL", ud_get_wp_invoice()->domain ),
                 'type' => "readonly",
                 'value' => admin_url('admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_stripe'),
-                'description' => __( "Use webhooks to be notified about events that happen in your Stripe account.", WPI )
+                'description' => __( "Use webhooks to be notified about events that happen in your Stripe account.", ud_get_wp_invoice()->domain )
             )
         )
     );
@@ -123,7 +123,7 @@ class wpi_stripe extends wpi_gateway_base {
           <tr>
               <th style="cursor:help;" title="<?php _e('Specifies billing frequency.', WPI); ?>"><?php _e('Interval', WPI); ?></th>
               <td>
-                  <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", WPI), "month" => __("Month", WPI), "year" => __("Year", WPI)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
+                  <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][interval]&values=" . serialize(apply_filters('wpi_stripe_interval', array("week" => __("Week", ud_get_wp_invoice()->domain), "month" => __("Month", ud_get_wp_invoice()->domain), "year" => __("Year", ud_get_wp_invoice()->domain)))) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['interval'] : '')); ?>
               </td>
           </tr>
 
@@ -229,7 +229,7 @@ class wpi_stripe extends wpi_gateway_base {
         $token = $_POST['stripeToken'];
       } else {
         $response['error'] = true;
-        $data['messages'][] = __('The order cannot be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.', WPI);
+        $data['messages'][] = __('The order cannot be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.', ud_get_wp_invoice()->domain);
 
         $response['data'] = $data;
         die(json_encode($response));
@@ -268,18 +268,18 @@ class wpi_stripe extends wpi_gateway_base {
 
               $invoice_obj = new WPI_Invoice();
               $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
-              $log = sprintf( __( "Subscription has been initiated. Plan: %s, Customer: %s", WPI ), $plan->id, $customer->id );
+              $log = sprintf( __( "Subscription has been initiated. Plan: %s, Customer: %s", ud_get_wp_invoice()->domain ), $plan->id, $customer->id );
               $invoice_obj->add_entry("attribute=invoice&note=$log&type=update");
               $invoice_obj->save_invoice();
 
               update_post_meta( wpi_invoice_id_to_post_id( $invoice['invoice_id'] ), '_stripe_customer_id', $customer->id );
 
-              $data['messages'][] = __( 'Stripe Subscription has been initiated. Do not pay this invoice again. Thank you.', WPI );
+              $data['messages'][] = __( 'Stripe Subscription has been initiated. Do not pay this invoice again. Thank you.', ud_get_wp_invoice()->domain );
               $response['success'] = true;
               $response['error'] = false;
             } else {
 
-              $data['messages'][] = __( 'Could not initiate Stripe Subscription. Contact site Administrator please.', WPI );
+              $data['messages'][] = __( 'Could not initiate Stripe Subscription. Contact site Administrator please.', ud_get_wp_invoice()->domain );
               $response['success'] = false;
               $response['error'] = true;
             }
@@ -333,7 +333,7 @@ class wpi_stripe extends wpi_gateway_base {
 
               $amount = (float)($charge->amount/100);
               //** Add payment amount */
-              $event_note = WPI_Functions::currency_format((float)$amount, $invoice['invoice_id']) . __(" paid via STRIPE", WPI);
+              $event_note = WPI_Functions::currency_format((float)$amount, $invoice['invoice_id']) . __(" paid via STRIPE", ud_get_wp_invoice()->domain);
               $event_amount = $amount;
               $event_type = 'add_payment';
 
@@ -341,10 +341,10 @@ class wpi_stripe extends wpi_gateway_base {
               //** Log balance changes */
               $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
               //** Log client IP */
-              $success = __("Successfully processed by ", WPI).$_SERVER['REMOTE_ADDR'];
+              $success = __("Successfully processed by ", ud_get_wp_invoice()->domain).$_SERVER['REMOTE_ADDR'];
               $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
               //** Log payer */
-              $payer_card = __("STRIPE Card ID: ", WPI).$charge->card->id;
+              $payer_card = __("STRIPE Card ID: ", ud_get_wp_invoice()->domain).$charge->card->id;
               $invoice_obj->add_entry("attribute=invoice&note=$payer_card&type=update");
 
               $invoice_obj->save_invoice();
@@ -353,7 +353,7 @@ class wpi_stripe extends wpi_gateway_base {
 
               send_notification( $invoice );
 
-              $data['messages'][] = __( 'Successfully paid. Thank you.', WPI );
+              $data['messages'][] = __( 'Successfully paid. Thank you.', ud_get_wp_invoice()->domain );
               $response['success'] = true;
               $response['error'] = false;
             } else {
@@ -380,15 +380,15 @@ class wpi_stripe extends wpi_gateway_base {
       } catch (Stripe_ApiConnectionError $e) {
 
         $response['error'] = true;
-        $data['messages'][] = __( 'Service is currently unavailable. Please try again later.', WPI );
+        $data['messages'][] = __( 'Service is currently unavailable. Please try again later.', ud_get_wp_invoice()->domain );
       } catch (Stripe_InvalidRequestError $e) {
 
         $response['error'] = true;
-        $data['messages'][] = __( 'Unknown error occured. Please contact site administrator.', WPI );
+        $data['messages'][] = __( 'Unknown error occured. Please contact site administrator.', ud_get_wp_invoice()->domain );
       } catch (Stripe_ApiError $e) {
 
         $response['error'] = true;
-        $data['messages'][] = __( 'Stripe server is down! Try again later.', WPI );
+        $data['messages'][] = __( 'Stripe server is down! Try again later.', ud_get_wp_invoice()->domain );
       } catch (Exception $e) {
 
         $response['error'] = true;
@@ -438,7 +438,7 @@ class wpi_stripe extends wpi_gateway_base {
 
           if ($event->data->object->paid == 1) {
             $event_amount = (float) ($event->data->object->amount / 100);
-            $event_note = WPI_Functions::currency_format(abs($event_amount), $invoice_object->data['invoice_id']) . ' ' . __('Stripe Subscription Payment', WPI);
+            $event_note = WPI_Functions::currency_format(abs($event_amount), $invoice_object->data['invoice_id']) . ' ' . __('Stripe Subscription Payment', ud_get_wp_invoice()->domain);
             $event_type = 'add_payment';
 
             $invoice_object->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
@@ -470,7 +470,7 @@ class wpi_stripe extends wpi_gateway_base {
           $event = Stripe_Event::retrieve($event_object->id);
 
           if ( $event->data->object->status == 'canceled' ) {
-            $invoice_object->add_entry("attribute=invoice&note=".__('Stripe Subscription has been canceled', WPI)."&type=update");
+            $invoice_object->add_entry("attribute=invoice&note=".__('Stripe Subscription has been canceled', ud_get_wp_invoice()->domain)."&type=update");
             $invoice_object->save_invoice();
             wp_invoice_mark_as_paid($invoice_object->data['invoice_id']);
           }

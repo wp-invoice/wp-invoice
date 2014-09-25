@@ -26,19 +26,19 @@ class wpi_authorize extends wpi_gateway_base {
         'default_option' => '',
         'settings' => array(
             'gateway_username' => array(
-                'label' => __( "Gateway Username", WPI ),
+                'label' => __( "Gateway Username", ud_get_wp_invoice()->domain ),
                 'value' => '',
-                'description' => __( "Your credit card processor will provide you with a gateway username.", WPI )
+                'description' => __( "Your credit card processor will provide you with a gateway username.", ud_get_wp_invoice()->domain )
             ),
             'gateway_tran_key' => array(
-                'label' => __( "Gateway Transaction Key", WPI ),
+                'label' => __( "Gateway Transaction Key", ud_get_wp_invoice()->domain ),
                 'value' => "",
-                'description' => __( "You will be able to generate this in your credit card processor's control panel.", WPI )
+                'description' => __( "You will be able to generate this in your credit card processor's control panel.", ud_get_wp_invoice()->domain )
             ),
             'gateway_url' => array(
-                'label' => __( "Gateway URL", WPI ),
+                'label' => __( "Gateway URL", ud_get_wp_invoice()->domain ),
                 'value' => "",
-                'description' => __( "This is the URL provided to you by your credit card processing company.", WPI ),
+                'description' => __( "This is the URL provided to you by your credit card processing company.", ud_get_wp_invoice()->domain ),
                 'special' => array(
                     'MerchantPlus' => 'https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi',
                     'Authorize.Net' => 'https://secure.authorize.net/gateway/transact.dll',
@@ -46,68 +46,68 @@ class wpi_authorize extends wpi_gateway_base {
                 )
             ),
             'recurring_gateway_url' => array(
-                'label' => __( "Recurring Billing Gateway URL", WPI ),
+                'label' => __( "Recurring Billing Gateway URL", ud_get_wp_invoice()->domain ),
                 'value' => "",
-                'description' => __( "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.", WPI ),
+                'description' => __( "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.", ud_get_wp_invoice()->domain ),
                 'special' => array(
                     'Authorize.net ARB' => 'https://api.authorize.net/xml/v1/request.api',
                     'Authorize.Net ARB Testing' => 'https://apitest.authorize.net/xml/v1/request.api'
                 )
             ),
             'gateway_test_mode' => array(
-                'label' => __( "Test / Live Mode", WPI ),
+                'label' => __( "Test / Live Mode", ud_get_wp_invoice()->domain ),
                 'type' => "select",
                 'data' => array(
-                    "TRUE" => __( "Test - Do Not Process Transactions", WPI ),
-                    "FALSE" => __( "Live - Process Transactions", WPI )
+                    "TRUE" => __( "Test - Do Not Process Transactions", ud_get_wp_invoice()->domain ),
+                    "FALSE" => __( "Live - Process Transactions", ud_get_wp_invoice()->domain )
                 )
             ),
             'gateway_delim_char' => array(
-                'label' => __( "Delimiter Character", WPI ),
+                'label' => __( "Delimiter Character", ud_get_wp_invoice()->domain ),
                 'value' => ",",
-                'description' => __( "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong.", WPI )
+                'description' => __( "Get this from your credit card processor. If the transactions are not going through, this character is most likely wrong.", ud_get_wp_invoice()->domain )
             ),
             'gateway_encap_char' => array(
-                'label' => __( "Encapsulation Character", WPI ),
+                'label' => __( "Encapsulation Character", ud_get_wp_invoice()->domain ),
                 'value' => "",
-                'description' => __( "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong.", WPI )
+                'description' => __( "Authorize.net default is blank. Otherwise, get this from your credit card processor. If the transactions are going through, but getting strange responses, this character is most likely wrong.", ud_get_wp_invoice()->domain )
             ),
             'gateway_email_customer' => array(
-                'label' => __( "Email Customer (on success)", WPI ),
+                'label' => __( "Email Customer (on success)", ud_get_wp_invoice()->domain ),
                 'type' => "select",
                 'value' => '',
                 'data' => array(
-                    "TRUE" => __( "Yes", WPI ),
-                    "FALSE" => __( "No", WPI )
+                    "TRUE" => __( "Yes", ud_get_wp_invoice()->domain ),
+                    "FALSE" => __( "No", ud_get_wp_invoice()->domain )
                 )
             ),
             'gateway_merchant_email' => array(
-                'label' => __( "Merchant Email", WPI ),
+                'label' => __( "Merchant Email", ud_get_wp_invoice()->domain ),
                 'value' => "",
-                'description' => __( "Email address to which the merchant's copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface.", WPI )
+                'description' => __( "Email address to which the merchant's copy of the customer confirmation email should be sent. If a value is submitted, an email will be sent to this address as well as the address(es) configured in the Merchant Interface.", ud_get_wp_invoice()->domain )
             ),
             'gateway_header_email_receipt' => array(
-                'label' => __( "Customer Receipt Email Header", WPI ),
+                'label' => __( "Customer Receipt Email Header", ud_get_wp_invoice()->domain ),
                 'value' => ""
             ),
             'gateway_MD5Hash' => array(
-                'label' => __( "Security: MD5 Hash", WPI ),
+                'label' => __( "Security: MD5 Hash", ud_get_wp_invoice()->domain ),
                 'value' => ""
             ),
             'gateway_delim_data' => array(
-                'label' => __( "Delim Data", WPI ),
+                'label' => __( "Delim Data", ud_get_wp_invoice()->domain ),
                 'type' => "select",
                 'value' => '',
                 'data' => array(
-                    "TRUE" => __( "Yes", WPI ),
-                    "FALSE" => __( "No", WPI )
+                    "TRUE" => __( "Yes", ud_get_wp_invoice()->domain ),
+                    "FALSE" => __( "No", ud_get_wp_invoice()->domain )
                 )
             ),
             'silent_post_url' => array(
-                'label' => __( "Silent Post URL", WPI ),
+                'label' => __( "Silent Post URL", ud_get_wp_invoice()->domain ),
                 'type' => "readonly",
                 'value' => "",
-                'description' => __( "Silent Post responses are returned in real-time, meaning as soon as the transaction processes the Silent Post is sent to your specified URL. Go to https://account.authorize.net -> Settings -> Silent Post URL and copy this URL to input field. Required only for Recurring Billing and not for all Merchants.", WPI )
+                'description' => __( "Silent Post responses are returned in real-time, meaning as soon as the transaction processes the Silent Post is sent to your specified URL. Go to https://account.authorize.net -> Settings -> Silent Post URL and copy this URL to input field. Required only for Recurring Billing and not for all Merchants.", ud_get_wp_invoice()->domain )
             )
         )
     );
@@ -123,63 +123,63 @@ class wpi_authorize extends wpi_gateway_base {
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[first_name]',
-          'label' => __( 'First Name', WPI )
+          'label' => __( 'First Name', ud_get_wp_invoice()->domain )
         ),
 
         'last_name'   => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[last_name]',
-          'label' => __( 'Last Name', WPI )
+          'label' => __( 'Last Name', ud_get_wp_invoice()->domain )
         ),
 
         'user_email'  => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[user_email]',
-          'label' => __( 'User Email', WPI )
+          'label' => __( 'User Email', ud_get_wp_invoice()->domain )
         ),
 
         'phonenumber' => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[phonenumber]',
-          'label' => __( 'Phone Number', WPI )
+          'label' => __( 'Phone Number', ud_get_wp_invoice()->domain )
         ),
 
         'streetaddress'     => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[streetaddress]',
-          'label' => __( 'Address', WPI )
+          'label' => __( 'Address', ud_get_wp_invoice()->domain )
         ),
 
         'city'        => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[city]',
-          'label' => __( 'City', WPI )
+          'label' => __( 'City', ud_get_wp_invoice()->domain )
         ),
 
         'state'       => array(
           'type'   => 'text',
           'class'  => 'text-input',
           'name'   => 'cc_data[state]',
-          'label'  => __( 'State', WPI )
+          'label'  => __( 'State', ud_get_wp_invoice()->domain )
         ),
 
         'zip'         => array(
           'type'  => 'text',
           'class' => 'text-input',
           'name'  => 'cc_data[zip]',
-          'label' => __( 'Zip', WPI )
+          'label' => __( 'Zip', ud_get_wp_invoice()->domain )
         ),
 
         'country'     => array(
           'type'   => 'text',
           'class'  => 'text-input',
           'name'   => 'cc_data[country]',
-          'label'  => __( 'Country', WPI )
+          'label'  => __( 'Country', ud_get_wp_invoice()->domain )
         )
 
       ),
@@ -190,28 +190,28 @@ class wpi_authorize extends wpi_gateway_base {
           'type'   => 'text',
           'class'  => 'credit_card_number input_field text-input',
           'name'   => 'cc_data[card_num]',
-          'label'  => __( 'Card Number', WPI )
+          'label'  => __( 'Card Number', ud_get_wp_invoice()->domain )
         ),
 
         'exp_month'   => array(
           'type'   => 'text',
           'class'  => 'text-input exp_month',
           'name'   => 'cc_data[exp_month]',
-          'label'  => __( 'Expiration Month', WPI )
+          'label'  => __( 'Expiration Month', ud_get_wp_invoice()->domain )
         ),
 
         'exp_year'    => array(
           'type'   => 'text',
           'class'  => 'text-input exp_year',
           'name'   => 'cc_data[exp_year]',
-          'label'  => __( 'Expiration Year', WPI )
+          'label'  => __( 'Expiration Year', ud_get_wp_invoice()->domain )
         ),
 
         'card_code'   => array(
           'type'   => 'text',
           'class'  => 'text-input',
           'name'   => 'cc_data[card_code]',
-          'label'  => __( 'Card Code', WPI )
+          'label'  => __( 'Card Code', ud_get_wp_invoice()->domain )
         )
 
       )
@@ -235,7 +235,7 @@ class wpi_authorize extends wpi_gateway_base {
         <th><?php _e( 'Bill Every', WPI ); ?></th>
         <td>
           <?php echo WPI_UI::input("name=wpi_invoice[recurring][".$this->type."][length]&value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['length'] : '') . "&class=wpi_small wpi_bill_every_length"); ?>
-          <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][unit]&values=" . serialize(array( "days" => __("Day(s)", WPI), "months" => __("Month(s)", WPI) )) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
+          <?php echo WPI_UI::select("name=wpi_invoice[recurring][".$this->type."][unit]&values=" . serialize(array( "days" => __("Day(s)", ud_get_wp_invoice()->domain), "months" => __("Month(s)", ud_get_wp_invoice()->domain) )) . "&current_value=" . (!empty($this_invoice['recurring'][$this->type]) ? $this_invoice['recurring'][$this->type]['unit'] : '')); ?>
         </td>
       </tr>
       <tr>
@@ -255,7 +255,7 @@ class wpi_authorize extends wpi_gateway_base {
               }
             });
           </script>
-          <?php echo WPI_UI::checkbox("special=data-type='{$this->type}'&id=wpi_wpi_invoice_recurring_send_invoice_automatically_{$this->type}&class=wpi_wpi_invoice_recurring_send_invoice_automatically {$this->type}&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', WPI), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
+          <?php echo WPI_UI::checkbox("special=data-type='{$this->type}'&id=wpi_wpi_invoice_recurring_send_invoice_automatically_{$this->type}&class=wpi_wpi_invoice_recurring_send_invoice_automatically {$this->type}&name=wpi_invoice[recurring][".$this->type."][send_invoice_automatically]&value=true&label=".__('Automatically.', ud_get_wp_invoice()->domain), !empty($this_invoice['recurring'][$this->type]['send_invoice_automatically']) ? $this_invoice['recurring'][$this->type]['send_invoice_automatically'] : 'on'); ?>
         </td>
       </tr>
       <tr class="wpi_recurring_start_date <?php echo $this->type; ?>" style="display:<?php echo !empty($this_invoice['recurring'][$this->type]) && $this_invoice['recurring'][$this->type]['send_invoice_automatically'] == 'on' ? 'none;' : ''; ?>">
@@ -523,17 +523,17 @@ class wpi_authorize extends wpi_gateway_base {
 
         if ($arb->isSuccessful()) {
           update_post_meta($post_id, 'subscription_id', $arb->getSubscriberID());
-          WPI_Functions::log_event($post_id, 'invoice', 'update', '', __('Subscription initiated, Subcription ID', WPI).' - ' . $arb->getSubscriberID());
+          WPI_Functions::log_event($post_id, 'invoice', 'update', '', __('Subscription initiated, Subcription ID', ud_get_wp_invoice()->domain).' - ' . $arb->getSubscriberID());
           $data['messages'][] = "Recurring Billing Subscription initiated";
           $response['success'] = true;
           $response['error'] = false;
         }
 
         if ($arb->isError()) {
-          $data['messages'][] = __('One-time credit card payment is processed successfully. However, recurring billing setup failed. ', WPI) . $arb->getResponse();
+          $data['messages'][] = __('One-time credit card payment is processed successfully. However, recurring billing setup failed. ', ud_get_wp_invoice()->domain) . $arb->getResponse();
           $response['success'] = false;
           $response['error'] = true;
-          WPI_Functions::log_event($post_id, 'invoice', 'update', '', __('Response Code: ', WPI) . $arb->getResponseCode() . ' | '.__('Subscription error', WPI).' - ' . $arb->getResponse());
+          WPI_Functions::log_event($post_id, 'invoice', 'update', '', __('Response Code: ', ud_get_wp_invoice()->domain) . $arb->getResponseCode() . ' | '.__('Subscription error', ud_get_wp_invoice()->domain).' - ' . $arb->getResponse());
         }
       }
     } else {
@@ -581,7 +581,7 @@ class wpi_authorize extends wpi_gateway_base {
 
       // Complete subscription if last payment done
       if ($invoice_obj->data['recurring']['wpi_authorize']['cycles'] <= $paynum) {
-        WPI_Functions::log_event(wpi_invoice_id_to_post_id($invoice_id), 'invoice', 'update', '', __('Subscription completely paid', WPI));
+        WPI_Functions::log_event(wpi_invoice_id_to_post_id($invoice_id), 'invoice', 'update', '', __('Subscription completely paid', ud_get_wp_invoice()->domain));
         wp_invoice_mark_as_paid($invoice_id);
       }
 

@@ -137,7 +137,7 @@
 
   <div class="wpi_invoice_paid">
 
-    <?php echo apply_filters('wpi_object_paid_message', __('Invoice paid in full.', WPI), $this_invoice); ?>
+    <?php echo apply_filters('wpi_object_paid_message', __('Invoice paid in full.', ud_get_wp_invoice()->domain), $this_invoice); ?>
 
   </div>
 
@@ -439,7 +439,7 @@
 
     }
 
-    $discount_types = serialize(array('amount' => __('Amount Discount', WPI), 'percent' => __('Percent Discount', WPI)));
+    $discount_types = serialize(array('amount' => __('Amount Discount', ud_get_wp_invoice()->domain), 'percent' => __('Percent Discount', ud_get_wp_invoice()->domain)));
 
     ?>
 
@@ -515,7 +515,7 @@
 
        // Convert predefined services into special array
 
-      $services_array[""] = __("Insert a predefined line item", WPI);
+      $services_array[""] = __("Insert a predefined line item", ud_get_wp_invoice()->domain);
 
       foreach($wpi_settings['predefined_services'] as $service) {
 

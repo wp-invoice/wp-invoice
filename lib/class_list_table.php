@@ -433,7 +433,7 @@ class WPI_List_Table extends WP_List_Table {
   function no_items() {
     //** DataTables expects a set number of columns */
     $result[ 0 ] = '';
-    $result[ 1 ] = __( 'Nothing found.' );
+    $result[ 1 ] = __( 'Nothing found.', ud_get_wp_invoice()->domain );
 
     if ( count( $result ) < $this->_args[ 'iColumns' ] ) {
       $add_columns = ( $this->_args[ 'iColumns' ] - count( $result ) );
@@ -552,7 +552,7 @@ class WPI_List_Table extends WP_List_Table {
       return;
 
     echo "<select name='action$two'>\n";
-    echo "<option value='-1' selected='selected'>" . __('Bulk Actions') . "</option>\n";
+    echo "<option value='-1' selected='selected'>" . __('Bulk Actions', ud_get_wp_invoice()->domain) . "</option>\n";
 
     foreach ($this->_actions as $name => $title) {
       $class = 'edit' == $name ? ' class="hide-if-no-js"' : '';
@@ -562,7 +562,7 @@ class WPI_List_Table extends WP_List_Table {
 
     echo "</select>\n";
 
-    submit_button(__('Apply'), 'action', false, false, array('id' => "doaction$two"));
+    submit_button(__('Apply', ud_get_wp_invoice()->domain), 'action', false, false, array('id' => "doaction$two"));
     echo "\n";
   }
 }

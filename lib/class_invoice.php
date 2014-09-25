@@ -742,7 +742,7 @@ class WPI_Invoice {
         $this->data['subtotal'] > 0 &&
         $this->data['net'] <= 0) {
           $data['post_status'] = 'paid';
-          $this->add_entry("type=update&amount=paid&note=".__("Status of invoice was changed to 'Paid'.", WPI));
+          $this->add_entry("type=update&amount=paid&note=".__("Status of invoice was changed to 'Paid'.", ud_get_wp_invoice()->domain));
     } else {
       $data['post_status'] = (!empty($this->data['post_status']) ? $this->data['post_status'] : 'active');
     }
@@ -759,24 +759,24 @@ class WPI_Invoice {
     if(empty($data['ID'])) {
       $creator = '';
       if ( !empty( $this->data['created_by'] ) ) {
-        $creator = __("Created from ", WPI).$this->data['created_by'];
+        $creator = __("Created from ", ud_get_wp_invoice()->domain).$this->data['created_by'];
       } else {
         $current_user = wp_get_current_user();
-        $creator = __("Created by ", WPI).$current_user->display_name;
+        $creator = __("Created by ", ud_get_wp_invoice()->domain).$current_user->display_name;
       }
       $this->data['ID'] = wp_insert_post($data);
       $this->add_entry("type=create&note=".$creator);
     } else {
       $this->data['ID'] = wp_update_post($data);
       if (!empty($this->is_recurring) && $this->is_recurring) {
-        $this->add_entry("attribute=invoice&type=update&note=".__("Recurring invoice updated.", WPI));
+        $this->add_entry("attribute=invoice&type=update&note=".__("Recurring invoice updated.", ud_get_wp_invoice()->domain));
       } else if (!empty($this->is_quote) && $this->is_quote) {
-        $this->add_entry("attribute=quote&type=update&note=".__("Quote updated.", WPI));
+        $this->add_entry("attribute=quote&type=update&note=".__("Quote updated.", ud_get_wp_invoice()->domain));
       } else {
         if ( $this->data['type'] == 'single_payment' ) {
 
         } else {
-          $this->add_entry("type=update&note=".__("Updated.", WPI));
+          $this->add_entry("type=update&note=".__("Updated.", ud_get_wp_invoice()->domain));
         }
       }
     }

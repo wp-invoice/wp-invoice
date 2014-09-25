@@ -103,7 +103,6 @@ class WPI_Legacy {
     if ( !empty( $legacy_settings ) ) {
       $core->Settings->SaveSettings( $legacy_settings );
       self::clean_up( 'settings' );
-      $core->Functions->log( __( "Global WP-Invoice Settings were successfully migrated to the new version.", WPI ) );
     }
 
     /* Creates schema tables if it doesn't exist. */
@@ -143,7 +142,7 @@ class WPI_Legacy {
             } else {
               $event_amount = $i[ 'amount' ];
             }
-            $event_note = __( "Automatically created using legacy data", WPI );
+            $event_note = __( "Automatically created using legacy data", ud_get_wp_invoice()->domain );
             $event_note = $core->Functions->currency_format( abs( $event_amount ), $invoice_id ) . " paid in - $event_note";
             $timestamp = time();
 
@@ -155,21 +154,11 @@ class WPI_Legacy {
         }
       }
       self::clean_up( 'invoices' );
-      if ( $errors == true ) {
-        $core->Functions->log( __( "Invoices were migrated to the new version with errors.", WPI ) );
-      } else {
-        $core->Functions->log( __( "Invoices were successfully migrated to the new version.", WPI ) );
-      }
     }
 
     if ( $legacy_logs ) {
       /* Clean up Database. */
       self::clean_up( 'logs' );
-      if ( $legacy_logs_import_error == false ) {
-        $core->Functions->log( __( "Log data were successfully migrated to the new version.", WPI ) );
-      } else {
-        $core->Functions->log( __( "Log data were migrated to the new version with errors.", WPI ) );
-      }
     }
 
     /* Set plugin to the latest version */
@@ -187,7 +176,6 @@ class WPI_Legacy {
     $version = get_option( 'wp_invoice_version' );
 
     if ( !empty( $version ) && (int) $version < 3 && (int) $version != 0 ) {
-      WPI_Functions::log( sprintf( __( "Old WP-Invoice version %s was found.", WPI ), $version ) );
       return true;
     }
 
@@ -394,21 +382,21 @@ class WPI_Legacy {
     /* Get Notification E-Mail Templates */
     $option = get_option( 'wp_invoice_email_send_invoice_subject' );
     if ( $option !== false ) {
-      $data[ 'notification' ][ 1 ][ 'name' ] = __( 'Invoice Notification', WPI );
+      $data[ 'notification' ][ 1 ][ 'name' ] = __( 'Invoice Notification', ud_get_wp_invoice()->domain );
       $data[ 'notification' ][ 1 ][ 'subject' ] = $option;
       $data[ 'notification' ][ 1 ][ 'content' ] = get_option( 'wp_invoice_email_send_invoice_content', '' );
     }
 
     $option = get_option( 'wp_invoice_email_send_reminder_subject' );
     if ( $option !== false ) {
-      $data[ 'notification' ][ 2 ][ 'name' ] = __( 'Reminder', WPI );
+      $data[ 'notification' ][ 2 ][ 'name' ] = __( 'Reminder', ud_get_wp_invoice()->domain );
       $data[ 'notification' ][ 2 ][ 'subject' ] = $option;
       $data[ 'notification' ][ 2 ][ 'content' ] = get_option( 'wp_invoice_email_send_reminder_content', '' );
     }
 
     $option = get_option( 'wp_invoice_email_send_receipt_subject' );
     if ( $option !== false ) {
-      $data[ 'notification' ][ 3 ][ 'name' ] = __( 'Receipt', WPI );
+      $data[ 'notification' ][ 3 ][ 'name' ] = __( 'Receipt', ud_get_wp_invoice()->domain );
       $data[ 'notification' ][ 3 ][ 'subject' ] = $option;
       $data[ 'notification' ][ 3 ][ 'content' ] = get_option( 'wp_invoice_email_send_receipt_content', '' );
     }
@@ -682,7 +670,7 @@ class WPI_Legacy {
               'attribute' => 'invoice',
               'action' => $action,
               'value' => '',
-              'text' => trim( $log[ 'value' ] ) . ' (' . __( 'Imported Log from old WPI Version', WPI ) . ')',
+              'text' => trim( $log[ 'value' ] ) . ' (' . __( 'Imported Log from old WPI Version', ud_get_wp_invoice()->domain ) . ')',
               'time' => strtotime( $log[ 'time_stamp' ] )
             );
           }
@@ -1038,7 +1026,6 @@ class WPI_Web_Invoice_Importer {
 
     if ( !empty( $legacy_settings ) ) {
       $core->Settings->SaveSettings( $legacy_settings );
-      $core->Functions->log( __( "Web Invoice setting options were successfully imported.", WPI ) );
     }
 
     /* Boolean variables which show 'legacy logs' data migration's status */
@@ -1085,20 +1072,6 @@ class WPI_Web_Invoice_Importer {
         } else {
           $errors = true;
         }
-      }
-
-      if ( $errors == true ) {
-        $core->Functions->log( __( "Invoices from Web Invoice plugin were migrated with errors.", WPI ) );
-      } else {
-        $core->Functions->log( __( "Invoices from Web Invoice plugin were successfully migrated.", WPI ) );
-      }
-    }
-
-    if ( $legacy_logs == true ) {
-      if ( $legacy_logs_import_error == false ) {
-        $core->Functions->log( __( "Log data from Web Invoice plugin were successfully migrated.", WPI ) );
-      } else {
-        $core->Functions->log( __( "Log data from Web Invoice plugin were migrated with errors.", WPI ) );
       }
     }
 
@@ -1617,7 +1590,7 @@ class WPI_Web_Invoice_Importer {
               'attribute' => 'invoice',
               'action' => $action,
               'value' => '',
-              'text' => trim( $log[ 'value' ] ) . ' (' . __( 'Imported Log from Web Invoice plugin', WPI ) . ')',
+              'text' => trim( $log[ 'value' ] ) . ' (' . __( 'Imported Log from Web Invoice plugin', ud_get_wp_invoice()->domain ) . ')',
               'time' => strtotime( $log[ 'time_stamp' ] )
             );
           }

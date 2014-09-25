@@ -1,9 +1,5 @@
 <?php
 
-if(isset($_REQUEST['message']) && $_REQUEST['message'] == 'user_deleted') {
-  //WP_wpi_F::add_message(__('User has been deleted.'));
-}
-
 require_once( ud_get_wp_invoice()->path( "lib/ui/class_wpi_object_list_table.php", 'dir' ) );
 
 $wp_list_table = new WPI_Object_List_Table("per_page=25");

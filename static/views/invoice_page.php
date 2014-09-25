@@ -1,15 +1,15 @@
 <div id="invoice_page" class="wpi_invoice_form wpi_payment_form clearfix">
   <div class="wpi_left_col">
-    <h3 class="wpi_greeting"><?php echo sprintf(__('Welcome, %s!', WPI), recipients_name(array('return' => true))) ?></h3>
+    <h3 class="wpi_greeting"><?php echo sprintf(__('Welcome, %s!', ud_get_wp_invoice()->domain), recipients_name(array('return' => true))) ?></h3>
 
     <div class="invoice_description">
       <div class="invoice_top_message">
         <?php if (is_quote()) : ?>
-          <p><?php echo sprintf(__('We have sent you a quote in the amount of %s.', WPI), balance_due(array('return' => true))) ?></p>
+          <p><?php echo sprintf(__('We have sent you a quote in the amount of %s.', ud_get_wp_invoice()->domain), balance_due(array('return' => true))) ?></p>
         <?php endif; ?>
 
         <?php if (!is_quote()) : ?>
-          <p><?php echo sprintf(__('We have sent you invoice %1s with a balance of %2s.', WPI), invoice_id(array('return' => true)), balance_due(array('return' => true))); ?></p>
+          <p><?php echo sprintf(__('We have sent you invoice %1s with a balance of %2s.', ud_get_wp_invoice()->domain), invoice_id(array('return' => true)), balance_due(array('return' => true))); ?></p>
         <?php endif; ?>
 
         <p><?php wpi_invoice_due_date(); ?></p>
@@ -54,7 +54,7 @@
         if ($method == 'manual') {
           ?>
           <p><strong><?php _e('Manual Payment Information', WPI); ?></strong></p>
-          <p><?php echo!empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', WPI); ?></p>
+          <p><?php echo!empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', ud_get_wp_invoice()->domain); ?></p>
           <?php
         } else {
           $wpi_settings['installed_gateways'][$method]['object']->frontend_display($invoice);

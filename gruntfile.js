@@ -49,9 +49,8 @@ module.exports = function build( grunt ) {
         },
         files: {
           'static/styles/ie7.css': 'static/styles/src/ie7.less',
-          'static/styles/invoice_page_wpi_page_manage_invoice.css': 'static/styles/src/invoice_page_wpi_page_manage_invoice.less',
-          'static/styles/invoice_page_wpi_page_settings.css': 'static/styles/src/invoice_page_wpi_page_settings.less',
-          'static/styles/invoice_page_wpi_spc.css': 'static/styles/src/invoice_page_wpi_spc.less',
+          'static/styles/wp-invoice_page_wpi_page_manage_invoice.css': 'static/styles/src/wp-invoice_page_wpi_page_manage_invoice.less',
+          'static/styles/wp-invoice_page_wpi_page_settings.css': 'static/styles/src/wp-invoice_page_wpi_page_settings.less',
           'static/styles/jquery-ui-1.8.21.custom.css': 'static/styles/src/jquery-ui-1.8.21.custom.less',
           'static/styles/toplevel_page_wpi_main.css': 'static/styles/src/toplevel_page_wpi_main.less',
           'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less',
@@ -64,9 +63,8 @@ module.exports = function build( grunt ) {
         },
         files: {
           'static/styles/ie7.css': 'static/styles/src/ie7.less',
-          'static/styles/invoice_page_wpi_page_manage_invoice.css': 'static/styles/src/invoice_page_wpi_page_manage_invoice.less',
-          'static/styles/invoice_page_wpi_page_settings.css': 'static/styles/src/invoice_page_wpi_page_settings.less',
-          'static/styles/invoice_page_wpi_spc.css': 'static/styles/src/invoice_page_wpi_spc.less',
+          'static/styles/wp-invoice_page_wpi_page_manage_invoice.css': 'static/styles/src/wp-invoice_page_wpi_page_manage_invoice.less',
+          'static/styles/wp-invoice_page_wpi_page_settings.css': 'static/styles/src/wp-invoice_page_wpi_page_settings.less',
           'static/styles/jquery-ui-1.8.21.custom.css': 'static/styles/src/jquery-ui-1.8.21.custom.less',
           'static/styles/toplevel_page_wpi_main.css': 'static/styles/src/toplevel_page_wpi_main.less',
           'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less',
@@ -131,7 +129,9 @@ module.exports = function build( grunt ) {
       ],
       all: [
         "vendor",
-        "composer.lock"
+        "composer.lock",
+        "static/styles/*.css",
+        "static/scripts/*.js"
       ]
     },
 

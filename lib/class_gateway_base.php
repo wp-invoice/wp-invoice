@@ -21,7 +21,7 @@ abstract class wpi_gateway_base {
   function __construct() {
     //** Set the class name */
     $this->type = get_class($this);
-    __('Customer Information', WPI);
+    __('Customer Information', ud_get_wp_invoice()->domain);
     add_filter('sync_billing_update', array('wpi_gateway_base', 'sync_billing_filter'), 10, 3);
     add_filter('wpi_recurring_settings', create_function(' $gateways ', ' $gateways[] = "' . $this->type . '"; return $gateways; '));
     add_action('wpi_recurring_settings_' . $this->type, array($this, 'recurring_settings'));
