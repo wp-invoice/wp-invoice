@@ -1,26 +1,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP-Invoice\n"
-"POT-Creation-Date: 2014-09-25 17:04+0200\n"
-"PO-Revision-Date: 2014-09-25 17:43+0200\n"
+"POT-Creation-Date: 2014-09-25 17:45+0200\n"
+"PO-Revision-Date: 2014-09-25 17:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: Usability Dynamics, inc. <anton.korotkov@usabilitydynamics."
 "com>\n"
-"Language: ru_RU\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.7\n"
 "X-Poedit-Basepath: ../../\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: /.git\n"
 
 #: lib/class_ajax.php:186
 msgid "Please enter a note and numeric amount."
-msgstr "Укажите назначение и сумму."
+msgstr ""
 
 #: lib/class_ajax.php:193
 msgid "paid in"
@@ -1796,7 +1795,7 @@ msgstr ""
 
 #: lib/class_ui.php:21
 msgid "View All"
-msgstr "Счета"
+msgstr ""
 
 #: lib/class_ui.php:23 lib/class_ui.php:352
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:195
@@ -4404,7 +4403,7 @@ msgstr ""
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:61
 #, php-format
 msgid "No active %s plugins found."
-msgstr "Не найдено активных плагинов для %s."
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:99
 msgid "Product"
@@ -4916,7 +4915,7 @@ msgstr ""
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:307
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:402
 msgid "Activate"
-msgstr "Активировать"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:364
 #, php-format
@@ -4927,28 +4926,28 @@ msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:380
 msgid "Plugin"
-msgstr "Плагин"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:381
 msgid "Source"
-msgstr "Источник"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:177
 msgid "Install Required Plugins"
-msgstr "Установить необходимые плагины"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:178
 msgid "Install Plugins"
-msgstr "Установить плагины"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:179
 #, php-format
 msgid "Installing Plugin: %s"
-msgstr "Установка плагина: %s"
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:180
 msgid "Something went wrong."
-msgstr "Что-то пошло не так."
+msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:191
 msgid "Return to Required Plugins Installer"
