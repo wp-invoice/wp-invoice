@@ -431,12 +431,18 @@ class WPI_Functions {
    */
   static function currency_format( $amount, $invoice_id = false ) {
     global $wpi_settings;
+    
+    $invoice = false;
 
     if ( $invoice_id ) {
       $invoice = get_invoice( $invoice_id );
     }
-
-    $currency_symbol = !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : '$';
+    
+    if ( $invoice ) {
+      $currency_symbol = !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : '$';
+    } else {
+      $currency_symbol = $wpi_settings[ 'currency' ][ 'symbol' ][ $wpi_settings[ 'currency' ][ 'default_currency_code' ] ];
+    }
 
     $amount = (float) $amount;
 
