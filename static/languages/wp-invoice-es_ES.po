@@ -1,133 +1,139 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Invoice\n"
+"Project-Id-Version: WPI\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-29 14:59+0200\n"
-"PO-Revision-Date: 2014-09-29 14:59+0200\n"
-"Last-Translator: \n"
-"Language-Team: Usability Dynamics, inc. <anton.korotkov@usabilitydynamics."
-"com>\n"
-"Language: en\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.7\n"
+"X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../../\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: /.git\n"
 
 #: lib/class_ajax.php:186
 msgid "Please enter a note and numeric amount."
-msgstr ""
+msgstr "Ingrese una nota y una cantidad numérica."
 
 #: lib/class_ajax.php:193
 msgid "paid in"
-msgstr ""
+msgstr "pagado en"
 
 #: lib/class_ajax.php:200
 msgid "charge added"
-msgstr ""
+msgstr "cargo agregado"
 
 #: lib/class_ajax.php:208
 msgid "adjusted"
-msgstr ""
+msgstr "ajustado"
 
 #: lib/class_ajax.php:215
 msgid "refunded"
-msgstr ""
+msgstr "reembolsado"
 
 #: lib/class_ajax.php:234
 #, php-format
 msgid "Event Added: %1s."
-msgstr ""
+msgstr "Evento agregado: %1s"
 
 #: lib/class_ajax.php:236
 #, php-format
 msgid "Could not save entry in invoice log. %1s"
-msgstr ""
+msgstr "No se ha podido guardar la entrada en el registro de factura. %1s"
 
 #: lib/class_ajax.php:271
 msgid "Due date is not set"
-msgstr ""
+msgstr "La fecha límite no está asignada"
 
 #: lib/class_ajax.php:274 lib/class_ajax.php:275
+#, fuzzy
 msgid "invoice"
-msgstr ""
+msgstr "FACTURA"
 
 #: lib/class_ajax.php:289
 msgid "No description given."
-msgstr ""
+msgstr "No se ha asignado una descripción."
 
 #: lib/class_ajax.php:365
 msgid ""
 "The fields should not be empty. Please, check the fields data and try to "
 "send notification again."
 msgstr ""
+"Los campos no deben estar vacíos. Por favor revisa los campos de datos e "
+"intenta enviar la notificación nuevamente."
 
 #: lib/class_ajax.php:376
 msgid "Notification Sent"
-msgstr ""
+msgstr "Notificación enviada."
 
 #: lib/class_ajax.php:376
 msgid "to"
-msgstr ""
+msgstr "a"
 
 #: lib/class_ajax.php:376
 msgid "at"
-msgstr ""
+msgstr "en"
 
 #: lib/class_ajax.php:379
 msgid "Successfully sent the invoice notification!"
-msgstr ""
+msgstr "Se ha enviado la notificación de factura satisfactoriamente."
 
 #: lib/class_ajax.php:382
 msgid "Unable to send the e-mail. Please, try again later."
 msgstr ""
+"No se ha podido mandar el correo electrónico. Por favor intenta más tarde."
 
 #: lib/class_ajax.php:391
 #, php-format
 msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
-msgstr ""
+msgstr "Guardado. <a target='_blank' href='%s'>Ver factura</a>"
 
 #: lib/class_ajax.php:391
 msgid "Invoice id #"
-msgstr ""
+msgstr "ID de factura #"
 
 #: lib/class_ajax.php:393
 msgid ""
 "There was a problem with saving the invoice. Reference the log for "
 "troubleshooting."
 msgstr ""
+"Hubo un problema guardando la factura. Revisa el archivo de registro para "
+"ver el problema."
 
 #: lib/class_ajax.php:422
 msgid "Please enter an invoice id."
-msgstr ""
+msgstr "Por favor ingresa un ID de factura."
 
 #: lib/class_ajax.php:443
 msgid "Unable to create 'wpi' folder in template folder. "
-msgstr ""
+msgstr "No se ha podido crear la carpeta 'wpi' en la carpeta del tema.␣"
 
 #: lib/class_ajax.php:460
 msgid "Unable to open 'wpi' folder in template folder."
-msgstr ""
+msgstr "No se ha podido crear la carpeta 'wpi' en la carpeta del tema."
 
 #: lib/class_ajax.php:465
 #, php-format
 msgid "Success, (%s) template file(s) copied."
-msgstr ""
+msgstr "Listo, (%s) archivo(s) del tema copiado."
 
 #: lib/class_ajax.php:468
 msgid "No template files copied."
-msgstr ""
+msgstr "No se copiaron archivos del tema."
 
 #: lib/class_dashboard_widget.php:57
+#, fuzzy
 msgid "There are no options for this widget."
-msgstr ""
+msgstr "Opciones"
 
 #: lib/class_functions.php:354 lib/class_list_table.php:124
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #: lib/class_functions.php:673
 #, php-format
@@ -149,28 +155,28 @@ msgstr ""
 
 #: lib/class_functions.php:1274
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 #: lib/class_functions.php:1276
 msgid " Tomorrow "
-msgstr ""
+msgstr "␣Mañana␣"
 
 #: lib/class_functions.php:1276
 msgid " Yesterday "
-msgstr ""
+msgstr "␣Ayer␣"
 
 #: lib/class_functions.php:1278
 #, php-format
 msgid " in %s days "
-msgstr ""
+msgstr "␣en %s días␣"
 
 #: lib/class_functions.php:1278
 msgid "days ago"
-msgstr ""
+msgstr "días"
 
 #: lib/class_functions.php:1603
 msgid "Invoice #[invoice_id] has been paid"
-msgstr ""
+msgstr "Factura #[invoice_id] ha sido pagado"
 
 #: lib/class_functions.php:1607
 msgid ""
@@ -185,10 +191,21 @@ msgid ""
 "Best regards,\n"
 "[business_name] ([from])"
 msgstr ""
+"Estimado [user_name],\n"
+"[business_name] ha recibido su pago por la factura.\n"
+"\n"
+"Puede revisar el estado de su factura y el historial de pagos haciendo click "
+"en este link:\n"
+"[permalink]\n"
+"\n"
+"Gracias por su atención.\n"
+"\n"
+"Saludos,\n"
+"[business_name] ([from])"
 
 #: lib/class_functions.php:1612 lib/class_functions.php:1621
 msgid "Invoice #[invoice_id] has been paid by [user_name]"
-msgstr ""
+msgstr "Factura #[invoice_id] ha sido pagado por [user_name]"
 
 #: lib/class_functions.php:1616
 msgid ""
@@ -209,6 +226,23 @@ msgid ""
 "--------------------\n"
 "[site]"
 msgstr ""
+"[user_name[ ha pagado la factura #[invoice_id].\n"
+"[invoice_title]\n"
+"Total de pagos: [default_currency_code] [total_payments] de "
+"[default_currency_code] [total].\n"
+"\n"
+"Usted puede revisar el estatus y el historial de pagos haciendo click en "
+"este link:\n"
+"[permalink]\n"
+"\n"
+"Información del usuario:\n"
+"\n"
+"ID: [user_id]\n"
+"Nombre: [user_name]\n"
+"Correo electrónico: [user_email]\n"
+"\n"
+"-------------------\n"
+"[site]"
 
 #: lib/class_functions.php:1625
 msgid ""
@@ -231,52 +265,71 @@ msgid ""
 "--------------------\n"
 "[site]"
 msgstr ""
+"Estimado [creator_name],\n"
+"[user_name] ha pagado la factura #[invoice_id].\n"
+"\n"
+"[invoice_title]\n"
+"Total de pagos: [default_currency_code] [total_payments] de "
+"[default_currency_code] [total].\n"
+"\n"
+"Usted puede revisar el estatus y el historial de pagos haciendo click en "
+"este link:\n"
+"[permalink]\n"
+"\n"
+"Información del usuario:\n"
+"\n"
+"ID: [user_id]\n"
+"Nombre: [user_name]\n"
+"Correo electrónico: [user_email]\n"
+"\n"
+"-------------------\n"
+"[site]"
 
 #: lib/class_functions.php:1670
 msgid "Invoices"
-msgstr ""
+msgstr "Facturas"
 
 #: lib/class_functions.php:1671 lib/class_functions.php:1686
 #: lib/class_settings.php:42
 msgid "Invoice"
-msgstr ""
+msgstr "Factura"
 
 #: lib/class_functions.php:1672 lib/class_ui.php:22
 #: lib/ui/toplevel_page_wpi_main.php:15
 msgid "Add New"
-msgstr ""
+msgstr "Agregar Nuevo"
 
 #: lib/class_functions.php:1673
 msgid "Add New Invoice"
-msgstr ""
+msgstr "Agregar nueva factura"
 
 #: lib/class_functions.php:1674
 msgid "Edit Invoice"
-msgstr ""
+msgstr "Editar factura"
 
 #: lib/class_functions.php:1675 lib/class_settings.php:421
 msgid "New Invoice"
-msgstr ""
+msgstr "Nueva Factura"
 
 #: lib/class_functions.php:1676
 msgid "View Invoice"
-msgstr ""
+msgstr "Ver factura"
 
 #: lib/class_functions.php:1677 lib/class_widgets.php:50
 msgid "Search Invoices"
-msgstr ""
+msgstr "Buscar factura"
 
 #: lib/class_functions.php:1678
 msgid "No invoices found"
-msgstr ""
+msgstr "No se encontraron facturas"
 
 #: lib/class_functions.php:1679
 msgid "No invoices found in Trash"
-msgstr ""
+msgstr "No hay facturas en la basura"
 
 #: lib/class_functions.php:2056
 msgid "WP-Invoice Notification"
-msgstr ""
+msgstr "Notificación de WP-Invoice."
 
 #: lib/class_functions.php:2114
 #, php-format
@@ -284,51 +337,59 @@ msgid ""
 "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target="
 "\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
 msgstr ""
+"Averigua cómo <a target=\"_blank\" href=\"%s\">Extender</a> su <a target="
+"\"_blank\" href=\"%s\">WP-Invoice</a>."
 
 #: lib/class_functions.php:2118
 msgid "Premium Features"
-msgstr ""
+msgstr "Funciones Premium"
 
 #: lib/class_functions.php:2120
+#, fuzzy
 msgid "Support Forum"
-msgstr ""
+msgstr "Foro de Participación"
 
 #: lib/class_functions.php:2123
+#, fuzzy
 msgid "User Guide"
-msgstr ""
+msgstr "Usuario"
 
 #: lib/class_functions.php:2201 lib/class_functions.php:2221
 msgid "Payment status: Complete"
-msgstr ""
+msgstr "Estatus del pago: Completo"
 
 #: lib/class_functions.php:2245
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 #: lib/class_functions.php:2305 lib/class_functions.php:2355
 #: lib/class_functions.php:2404
 #, php-format
 msgid "Invoice #%s has been paid"
-msgstr ""
+msgstr "Factura #%s ha sido pagada."
 
 #: lib/class_functions.php:2311
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can "
 "overview invoice status and payment history by clicking this link:<br>"
 "%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,<br>"
 "%4s (%5s)"
 msgstr ""
+"Estimado %1s, <br>%2s ha recibido su pago por la factura.<br><br>Usted puede "
+"revisar el estatus de su factura y el historial de pago haciendo click en el "
+"siguiente link: <br>%3<br><br>Muchas gracias por su patrocinio."
+"<br><br>Saludos,<br>%4s (%5)"
 
 #: lib/class_functions.php:2325 lib/class_functions.php:2376
 #: lib/class_functions.php:2424
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
-msgstr ""
+msgstr "WP-Invoice: Mensaje con el asunto '%1s' ha sido enviado"
 
 #: lib/class_functions.php:2331
 msgid "Receipt eMailed"
-msgstr ""
+msgstr "Recibo enviado"
 
 #: lib/class_functions.php:2358
 #, php-format
@@ -338,6 +399,11 @@ msgid ""
 "link:<br>%8s<br><br>User information:<br><br>ID: %9s<br>Name: %10s<br>Email: "
 "%11s<br><br>--------------------<br>%12s"
 msgstr ""
+"%1s ha pagado la factura #%2s.<br><br>%3s<br>Total de pagos: %4s %5s de %6s "
+"%7s.<br><br>Usted puede revisar el estatus de su factura y el historial de "
+"pago haciendo click en el siguiente link:<br>%8s<br><br>Información de "
+"usuario:<br><br>ID: %9s<br>Nombre: %10s<br>Correo Electrónico: "
+"%11s<br><br>--------------------<br>%12s"
 
 #: lib/class_functions.php:2406
 #, php-format
@@ -347,86 +413,96 @@ msgid ""
 "history by clicking this link:<br>%9s<br><br>User information:<br><br>ID: "
 "%10s<br>Name: %11s<br>Email: %12s<br><br>--------------------<br>%13s"
 msgstr ""
+"Hola %1s,<br><br>%2s ha pagado la factura #%3s.<br><br>%4s<br>Total de "
+"pagos: %5s %6s de %7s %8s.<br><br>Usted puede revisar el estatus de su "
+"factura y el historial de pago haciendo click en el siguiente link:<br>"
+"%9s<br><br>Información de usuario:<br><br>ID: %10s<br>Nombre: %11s<br>Correo "
+"Electrónico: %12s<br><br>--------------------<br>%13s"
 
 #: lib/class_gateway_base.php:24
+#, fuzzy
 msgid "Customer Information"
-msgstr ""
+msgstr "Información"
 
 #: lib/class_invoice.php:745
 msgid "Status of invoice was changed to 'Paid'."
-msgstr ""
+msgstr "Estatus de la factura se ha cambiado a 'Pagado'."
 
 #: lib/class_invoice.php:762
 msgid "Created from "
-msgstr ""
+msgstr "Creado de "
 
 #: lib/class_invoice.php:765
 msgid "Created by "
-msgstr ""
+msgstr "Creado por "
 
 #: lib/class_invoice.php:772
 msgid "Recurring invoice updated."
-msgstr ""
+msgstr "Factura recurrente actualizada."
 
 #: lib/class_invoice.php:774
 msgid "Quote updated."
-msgstr ""
+msgstr "Cotización actualizada."
 
 #: lib/class_invoice.php:779
 msgid "Updated."
-msgstr ""
+msgstr "Actualizado."
 
 #: lib/class_legacy.php:145
 msgid "Automatically created using legacy data"
-msgstr ""
+msgstr "Se creó automáticamente usando preferencias antiguas."
 
 #: lib/class_legacy.php:385
 msgid "Invoice Notification"
-msgstr ""
+msgstr "Notificación de factura."
 
 #: lib/class_legacy.php:392 lib/class_settings.php:425
 msgid "Reminder"
-msgstr ""
+msgstr "Recordatorio"
 
 #: lib/class_legacy.php:399
 msgid "Receipt"
-msgstr ""
+msgstr "Recibo"
 
 #: lib/class_legacy.php:673
 msgid "Imported Log from old WPI Version"
-msgstr ""
+msgstr "Archivo de registro importado de la versión antigua de WPI."
 
 #: lib/class_legacy.php:1593
 msgid "Imported Log from Web Invoice plugin"
-msgstr ""
+msgstr "Archivo de registro importado del plugin de Web Invoice."
 
 #: lib/class_list_table.php:124
+#, fuzzy
 msgid "Display"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #: lib/class_list_table.php:124
 msgid "records"
 msgstr ""
 
 #: lib/class_list_table.php:296
+#, fuzzy
 msgid "Show all dates"
-msgstr ""
+msgstr "Mostrar"
 
 #: lib/class_list_table.php:436
 msgid "Nothing found."
-msgstr ""
+msgstr "No se encontraron resultados!"
 
 #: lib/class_list_table.php:555
+#, fuzzy
 msgid "Bulk Actions"
-msgstr ""
+msgstr "Acciones en bloque"
 
 #: lib/class_list_table.php:565
+#, fuzzy
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: lib/class_settings.php:43
 msgid "Recurring"
-msgstr ""
+msgstr "Recurrente"
 
 #: lib/class_settings.php:47
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:186
@@ -434,19 +510,19 @@ msgstr ""
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:276
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:352
 msgid "Tax"
-msgstr ""
+msgstr "Impuesto"
 
 #: lib/class_settings.php:50
 msgid "Pay Your Invoice"
-msgstr ""
+msgstr "Pagar factura"
 
 #: lib/class_settings.php:51 lib/template.php:45
 msgid "Lookup"
-msgstr ""
+msgstr "Buscar"
 
 #: lib/class_settings.php:55
 msgid "Dropdown"
-msgstr ""
+msgstr "Desplegable"
 
 #: lib/class_settings.php:92 lib/gateways/class_wpi_authorize.php:126
 #: lib/gateways/class_wpi_interkassa.php:51
@@ -454,7 +530,7 @@ msgstr ""
 #: lib/gateways/class_wpi_stripe.php:26
 #: lib/gateways/class_wpi_twocheckout.php:60
 msgid "First Name"
-msgstr ""
+msgstr "Nombre"
 
 #: lib/class_settings.php:93 lib/gateways/class_wpi_authorize.php:133
 #: lib/gateways/class_wpi_interkassa.php:57
@@ -462,20 +538,20 @@ msgstr ""
 #: lib/gateways/class_wpi_stripe.php:32
 #: lib/gateways/class_wpi_twocheckout.php:66
 msgid "Last Name"
-msgstr ""
+msgstr "Apellido"
 
 #: lib/class_settings.php:94
 msgid "Company Name"
-msgstr ""
+msgstr "Nombre de Compañía"
 
 #: lib/class_settings.php:95 lib/gateways/class_wpi_authorize.php:147
 #: lib/gateways/class_wpi_paypal.php:250
 msgid "Phone Number"
-msgstr ""
+msgstr "Teléfono"
 
 #: lib/class_settings.php:96
 msgid "Street Address"
-msgstr ""
+msgstr "Calle"
 
 #: lib/class_settings.php:97 lib/gateways/class_wpi_authorize.php:161
 #: lib/gateways/class_wpi_interkassa.php:81
@@ -483,1145 +559,1146 @@ msgstr ""
 #: lib/gateways/class_wpi_paypal.php:111 lib/gateways/class_wpi_stripe.php:56
 #: lib/gateways/class_wpi_twocheckout.php:96
 msgid "City"
-msgstr ""
+msgstr "Ciudad"
 
 #: lib/class_settings.php:98 lib/gateways/class_wpi_authorize.php:168
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: lib/class_settings.php:99
 msgid "ZIP"
-msgstr ""
+msgstr "Código Postal"
 
 #: lib/class_settings.php:102
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #: lib/class_settings.php:103
 msgid "Archived"
-msgstr ""
+msgstr "Archivado"
 
 #: lib/class_settings.php:104
 msgid "Trashed"
-msgstr ""
+msgstr "Borrado"
 
 #: lib/class_settings.php:105
 msgid "Paid"
-msgstr ""
+msgstr "Pagado"
 
 #: lib/class_settings.php:107
 msgid "United States"
-msgstr ""
+msgstr "Estados Unidos"
 
 #: lib/class_settings.php:108
 msgid "Albania"
-msgstr ""
+msgstr "Albania"
 
 #: lib/class_settings.php:109
 msgid "Algeria"
-msgstr ""
+msgstr "Argelia"
 
 #: lib/class_settings.php:110
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 #: lib/class_settings.php:111
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 #: lib/class_settings.php:112
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 #: lib/class_settings.php:113
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua y Barbuda"
 
 #: lib/class_settings.php:114
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 #: lib/class_settings.php:115
 msgid "Armenia"
-msgstr ""
+msgstr "Armenia"
 
 #: lib/class_settings.php:116
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 #: lib/class_settings.php:117
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 #: lib/class_settings.php:118
 msgid "Austria"
-msgstr ""
+msgstr "Austria"
 
 #: lib/class_settings.php:119
 msgid "Azerbaijan Republic"
-msgstr ""
+msgstr "República de Azerbaiyán"
 
 #: lib/class_settings.php:120
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 #: lib/class_settings.php:121
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrein"
 
 #: lib/class_settings.php:122
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #: lib/class_settings.php:123
 msgid "Belgium"
-msgstr ""
+msgstr "Bélgica"
 
 #: lib/class_settings.php:124
 msgid "Belize"
-msgstr ""
+msgstr "Belice"
 
 #: lib/class_settings.php:125
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 #: lib/class_settings.php:126
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 #: lib/class_settings.php:127
 msgid "Bhutan"
-msgstr ""
+msgstr "Bhutan"
 
 #: lib/class_settings.php:128
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 #: lib/class_settings.php:129
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnia y Herzegovina"
 
 #: lib/class_settings.php:130
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #: lib/class_settings.php:131
 msgid "Brazil"
-msgstr ""
+msgstr "Brasil"
 
 #: lib/class_settings.php:132
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "Islas Vírgenes Británicas"
 
 #: lib/class_settings.php:133
 msgid "Brunei"
-msgstr ""
+msgstr "Brunéi"
 
 #: lib/class_settings.php:134
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgaria"
 
 #: lib/class_settings.php:135
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 #: lib/class_settings.php:136
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 #: lib/class_settings.php:137
 msgid "Cambodia"
-msgstr ""
+msgstr "Camboya"
 
 #: lib/class_settings.php:138
 msgid "Canada"
-msgstr ""
+msgstr "Canadá"
 
 #: lib/class_settings.php:139
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cabo Verde"
 
 #: lib/class_settings.php:140
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Islas Caimán"
 
 #: lib/class_settings.php:141
 msgid "Chad"
-msgstr ""
+msgstr "Chad"
 
 #: lib/class_settings.php:142
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #: lib/class_settings.php:143
 msgid "China"
-msgstr ""
+msgstr "China"
 
 #: lib/class_settings.php:144
 msgid "Colombia"
-msgstr ""
+msgstr "Colombia"
 
 #: lib/class_settings.php:145
 msgid "Comoros"
-msgstr ""
+msgstr "Comoras"
 
 #: lib/class_settings.php:146
 msgid "Cook Islands"
-msgstr ""
+msgstr "Islas Cook"
 
 #: lib/class_settings.php:147
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: lib/class_settings.php:148
 msgid "Croatia"
-msgstr ""
+msgstr "Croacia"
 
 #: lib/class_settings.php:149
 msgid "Cyprus"
-msgstr ""
+msgstr "Chipre"
 
 #: lib/class_settings.php:150
 msgid "Czech Republic"
-msgstr ""
+msgstr "República Checa"
 
 #: lib/class_settings.php:151
 msgid "Democratic Republic of the Congo"
-msgstr ""
+msgstr "República Democrática del Congo"
 
 #: lib/class_settings.php:152
 msgid "Denmark"
-msgstr ""
+msgstr "Dinamarca"
 
 #: lib/class_settings.php:153
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 #: lib/class_settings.php:154
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 #: lib/class_settings.php:155
 msgid "Dominican Republic"
-msgstr ""
+msgstr "República Dominicana"
 
 #: lib/class_settings.php:156
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: lib/class_settings.php:157
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 #: lib/class_settings.php:158
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 #: lib/class_settings.php:159
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 #: lib/class_settings.php:160
 msgid "Ethiopia"
-msgstr ""
+msgstr "Etiopía"
 
 #: lib/class_settings.php:161
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Islas Malvinas"
 
 #: lib/class_settings.php:162
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Islas Feroe"
 
 #: lib/class_settings.php:163 lib/class_settings.php:308
 msgid "Federated States of Micronesia"
-msgstr ""
+msgstr "Estados Federados de Micronesia"
 
 #: lib/class_settings.php:164
 msgid "Fiji"
-msgstr ""
+msgstr "Fiji"
 
 #: lib/class_settings.php:165
 msgid "Finland"
-msgstr ""
+msgstr "Finlandia"
 
 #: lib/class_settings.php:166
 msgid "France"
-msgstr ""
+msgstr "Francia"
 
 #: lib/class_settings.php:167
 msgid "French Guiana"
-msgstr ""
+msgstr "Guiana francés"
 
 #: lib/class_settings.php:168
 msgid "French Polynesia"
-msgstr ""
+msgstr "Polinesia francés"
 
 #: lib/class_settings.php:169
 msgid "Gabon Republic"
-msgstr ""
+msgstr "República Gabón"
 
 #: lib/class_settings.php:170
 msgid "Gambia"
-msgstr ""
+msgstr "Gambia"
 
 #: lib/class_settings.php:171
 msgid "Germany"
-msgstr ""
+msgstr "Alemania"
 
 #: lib/class_settings.php:172
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 #: lib/class_settings.php:173
 msgid "Greece"
-msgstr ""
+msgstr "Grecia"
 
 #: lib/class_settings.php:174
 msgid "Greenland"
-msgstr ""
+msgstr "Groenlandia"
 
 #: lib/class_settings.php:175
 msgid "Grenada"
-msgstr ""
+msgstr "Granada"
 
 #: lib/class_settings.php:176
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadalupe"
 
 #: lib/class_settings.php:177
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: lib/class_settings.php:178
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 #: lib/class_settings.php:179
 msgid "Guinea Bissau"
-msgstr ""
+msgstr "Guinea Bissau"
 
 #: lib/class_settings.php:180
 msgid "Guyana"
-msgstr ""
+msgstr "Guayana"
 
 #: lib/class_settings.php:181
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 #: lib/class_settings.php:182
 msgid "Hong Kong"
-msgstr ""
+msgstr "Hong Kong"
 
 #: lib/class_settings.php:183
 msgid "Hungary"
-msgstr ""
+msgstr "Hungría"
 
 #: lib/class_settings.php:184
 msgid "Iceland"
-msgstr ""
+msgstr "Islandia"
 
 #: lib/class_settings.php:185
 msgid "India"
-msgstr ""
+msgstr "India"
 
 #: lib/class_settings.php:186
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 #: lib/class_settings.php:187
 msgid "Ireland"
-msgstr ""
+msgstr "Irlanda"
 
 #: lib/class_settings.php:188
 msgid "Israel"
-msgstr ""
+msgstr "Israel"
 
 #: lib/class_settings.php:189
 msgid "Italy"
-msgstr ""
+msgstr "Italia"
 
 #: lib/class_settings.php:190
 msgid "Jamaica"
-msgstr ""
+msgstr "Jamaica"
 
 #: lib/class_settings.php:191
 msgid "Japan"
-msgstr ""
+msgstr "Japón"
 
 #: lib/class_settings.php:192
 msgid "Jordan"
-msgstr ""
+msgstr "Jordania"
 
 #: lib/class_settings.php:193
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kazajstán"
 
 #: lib/class_settings.php:194
 msgid "Kenya"
-msgstr ""
+msgstr "Kenia"
 
 #: lib/class_settings.php:195
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 #: lib/class_settings.php:196
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuwait"
 
 #: lib/class_settings.php:197
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kirguistán"
 
 #: lib/class_settings.php:198
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 #: lib/class_settings.php:199
 msgid "Latvia"
-msgstr ""
+msgstr "Letonia"
 
 #: lib/class_settings.php:200
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesoto"
 
 #: lib/class_settings.php:201
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 #: lib/class_settings.php:202
 msgid "Lithuania"
-msgstr ""
+msgstr "Lituania"
 
 #: lib/class_settings.php:203
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburgo"
 
 #: lib/class_settings.php:204
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagascar"
 
 #: lib/class_settings.php:205
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 #: lib/class_settings.php:206
 msgid "Malaysia"
-msgstr ""
+msgstr "Malasia"
 
 #: lib/class_settings.php:207
 msgid "Maldives"
-msgstr ""
+msgstr "Maldivas"
 
 #: lib/class_settings.php:208
 msgid "Mali"
-msgstr ""
+msgstr "Malí"
 
 #: lib/class_settings.php:209
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 #: lib/class_settings.php:210 lib/class_settings.php:321
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Islas Marshall"
 
 #: lib/class_settings.php:211
 msgid "Martinique"
-msgstr ""
+msgstr "Martinica"
 
 #: lib/class_settings.php:212
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 #: lib/class_settings.php:213
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauricio"
 
 #: lib/class_settings.php:214
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 #: lib/class_settings.php:215
 msgid "Mexico"
-msgstr ""
+msgstr "México"
 
 #: lib/class_settings.php:216
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolia"
 
 #: lib/class_settings.php:217
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrat"
 
 #: lib/class_settings.php:218
 msgid "Morocco"
-msgstr ""
+msgstr "Marruecos"
 
 #: lib/class_settings.php:219
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambique"
 
 #: lib/class_settings.php:220
 msgid "Namibia"
-msgstr ""
+msgstr "Namibia"
 
 #: lib/class_settings.php:221
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 #: lib/class_settings.php:222
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 #: lib/class_settings.php:223
 msgid "Netherlands"
-msgstr ""
+msgstr "Países Bajos"
 
 #: lib/class_settings.php:224
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "Antillas Holandesas"
 
 #: lib/class_settings.php:225
 msgid "New Caledonia"
-msgstr ""
+msgstr "Nueva Caledonia"
 
 #: lib/class_settings.php:226
 msgid "New Zealand"
-msgstr ""
+msgstr "Nueva Zelandia"
 
 #: lib/class_settings.php:227
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 #: lib/class_settings.php:228
 msgid "Niger"
-msgstr ""
+msgstr "Níger"
 
 #: lib/class_settings.php:229
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 #: lib/class_settings.php:230
 msgid "Norfolk Island"
-msgstr ""
+msgstr "Isla Norfolk"
 
 #: lib/class_settings.php:231
 msgid "Norway"
-msgstr ""
+msgstr "Noruega"
 
 #: lib/class_settings.php:232
 msgid "Oman"
-msgstr ""
+msgstr "Omán"
 
 #: lib/class_settings.php:233 lib/class_settings.php:341
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 #: lib/class_settings.php:234
 msgid "Panama"
-msgstr ""
+msgstr "Panamá"
 
 #: lib/class_settings.php:235
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papúa Nueva Guinea"
 
 #: lib/class_settings.php:236
 msgid "Peru"
-msgstr ""
+msgstr "Perú"
 
 #: lib/class_settings.php:237
 msgid "Philippines"
-msgstr ""
+msgstr "Filipinas"
 
 #: lib/class_settings.php:238
 msgid "Pitcairn Islands"
-msgstr ""
+msgstr "Islas Pitcairn"
 
 #: lib/class_settings.php:239
 msgid "Poland"
-msgstr ""
+msgstr "Polonia"
 
 #: lib/class_settings.php:240
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #: lib/class_settings.php:241
 msgid "Qatar"
-msgstr ""
+msgstr "Katar"
 
 #: lib/class_settings.php:242
 msgid "Republic of the Congo"
-msgstr ""
+msgstr "República del Congo"
 
 #: lib/class_settings.php:243
 msgid "Reunion"
-msgstr ""
+msgstr "Reunión"
 
 #: lib/class_settings.php:244
 msgid "Romania"
-msgstr ""
+msgstr "Rumania"
 
 #: lib/class_settings.php:245
 msgid "Russia"
-msgstr ""
+msgstr "Rusia"
 
 #: lib/class_settings.php:246
 msgid "Rwanda"
-msgstr ""
+msgstr "Ruanda"
 
 #: lib/class_settings.php:247
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "San Vicente y las Granadinas"
 
 #: lib/class_settings.php:248
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 #: lib/class_settings.php:249
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 #: lib/class_settings.php:250
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tomé y Príncipe"
 
 #: lib/class_settings.php:251
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Arabia Saudita"
 
 #: lib/class_settings.php:252
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 #: lib/class_settings.php:253
 msgid "Seychelles"
-msgstr ""
+msgstr "Seychelles"
 
 #: lib/class_settings.php:254
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leona"
 
 #: lib/class_settings.php:255
 msgid "Singapore"
-msgstr ""
+msgstr "Singapur"
 
 #: lib/class_settings.php:256
 msgid "Slovakia"
-msgstr ""
+msgstr "Eslovaquia"
 
 #: lib/class_settings.php:257
 msgid "Slovenia"
-msgstr ""
+msgstr "Eslovenia"
 
 #: lib/class_settings.php:258
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Islas Salomón"
 
 #: lib/class_settings.php:259
 msgid "Somalia"
-msgstr ""
+msgstr "Somalia"
 
 #: lib/class_settings.php:260
 msgid "South Africa"
-msgstr ""
+msgstr "Sudáfrica"
 
 #: lib/class_settings.php:261
 msgid "South Korea"
-msgstr ""
+msgstr "Corea del Sur"
 
 #: lib/class_settings.php:262
 msgid "Spain"
-msgstr ""
+msgstr "España"
 
 #: lib/class_settings.php:263
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 #: lib/class_settings.php:264
 msgid "St. Helena"
-msgstr ""
+msgstr "St. Helena"
 
 #: lib/class_settings.php:265
 msgid "St. Kitts and Nevis"
-msgstr ""
+msgstr "St. Kitts y Nevis"
 
 #: lib/class_settings.php:266
 msgid "St. Lucia"
-msgstr ""
+msgstr "St. Lucia"
 
 #: lib/class_settings.php:267
 msgid "St. Pierre and Miquelon"
-msgstr ""
+msgstr "St. Pierre and Miquelon"
 
 #: lib/class_settings.php:268
 msgid "Suriname"
-msgstr ""
+msgstr "Suriname"
 
 #: lib/class_settings.php:269
 msgid "Svalbard and Jan Mayen Islands"
-msgstr ""
+msgstr "Islas Svalbard y Jan Mayen"
 
 #: lib/class_settings.php:270
 msgid "Swaziland"
-msgstr ""
+msgstr "Swazilandia"
 
 #: lib/class_settings.php:271
 msgid "Sweden"
-msgstr ""
+msgstr "Suecia"
 
 #: lib/class_settings.php:272
 msgid "Switzerland"
-msgstr ""
+msgstr "Suiza"
 
 #: lib/class_settings.php:273
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #: lib/class_settings.php:274
 msgid "Tajikistan"
-msgstr ""
+msgstr "Tayikistán"
 
 #: lib/class_settings.php:275
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzania"
 
 #: lib/class_settings.php:276
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandia"
 
 #: lib/class_settings.php:277
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 #: lib/class_settings.php:278
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 #: lib/class_settings.php:279
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad y Tobago"
 
 #: lib/class_settings.php:280
 msgid "Tunisia"
-msgstr ""
+msgstr "Túnez"
 
 #: lib/class_settings.php:281
 msgid "Turkey"
-msgstr ""
+msgstr "Turquía"
 
 #: lib/class_settings.php:282
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Turkmenistán"
 
 #: lib/class_settings.php:283
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "Islas Turcas y Caicos"
 
 #: lib/class_settings.php:284
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 #: lib/class_settings.php:285
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 #: lib/class_settings.php:286
 msgid "Ukraine"
-msgstr ""
+msgstr "Ucrania"
 
 #: lib/class_settings.php:287
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Emiratos Árabes Unidos"
 
 #: lib/class_settings.php:288
 msgid "United Kingdom"
-msgstr ""
+msgstr "Reino Unido"
 
 #: lib/class_settings.php:289
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 #: lib/class_settings.php:290
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #: lib/class_settings.php:291
 msgid "Vatican City State"
-msgstr ""
+msgstr "Ciudad del Vaticano"
 
 #: lib/class_settings.php:292
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 #: lib/class_settings.php:293
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 #: lib/class_settings.php:294
 msgid "Wallis and Futuna Islands"
-msgstr ""
+msgstr "Wallis y Futuna"
 
 #: lib/class_settings.php:295
 msgid "Yemen"
-msgstr ""
+msgstr "Yemen"
 
 #: lib/class_settings.php:296
 msgid "Zambia"
-msgstr ""
+msgstr "Zambia"
 
 #: lib/class_settings.php:298
 msgid "Alabama"
-msgstr ""
+msgstr "Alabama"
 
 #: lib/class_settings.php:299
 msgid "Alaska"
-msgstr ""
+msgstr "Alaska"
 
 #: lib/class_settings.php:300
 msgid "American Samoa"
-msgstr ""
+msgstr "Samoa Americana"
 
 #: lib/class_settings.php:301
 msgid "Arizona"
-msgstr ""
+msgstr "Arizona"
 
 #: lib/class_settings.php:302
 msgid "Arkansas"
-msgstr ""
+msgstr "Arkansas"
 
 #: lib/class_settings.php:303
 msgid "California"
-msgstr ""
+msgstr "California"
 
 #: lib/class_settings.php:304
 msgid "Colorado"
-msgstr ""
+msgstr "Colorado"
 
 #: lib/class_settings.php:305
 msgid "Connecticut"
-msgstr ""
+msgstr "Connecticut"
 
 #: lib/class_settings.php:306
 msgid "Delaware"
-msgstr ""
+msgstr "Delaware"
 
 #: lib/class_settings.php:307
 msgid "District of Columbia"
-msgstr ""
+msgstr "Distrito de Columbia"
 
 #: lib/class_settings.php:309
 msgid "Florida"
-msgstr ""
+msgstr "Florida"
 
 #: lib/class_settings.php:310
 msgid "Georgia"
-msgstr ""
+msgstr "Georgia"
 
 #: lib/class_settings.php:311
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 #: lib/class_settings.php:312
 msgid "Hawaii"
-msgstr ""
+msgstr "Hawai"
 
 #: lib/class_settings.php:313
 msgid "Idaho"
-msgstr ""
+msgstr "Idaho"
 
 #: lib/class_settings.php:314
 msgid "Illinois"
-msgstr ""
+msgstr "Illinois"
 
 #: lib/class_settings.php:315
 msgid "Indiana"
-msgstr ""
+msgstr "Indiana"
 
 #: lib/class_settings.php:316
 msgid "Iowa"
-msgstr ""
+msgstr "Iowa"
 
 #: lib/class_settings.php:317
 msgid "Kansas"
-msgstr ""
+msgstr "Kansas"
 
 #: lib/class_settings.php:318
 msgid "Kentucky"
-msgstr ""
+msgstr "Kentucky"
 
 #: lib/class_settings.php:319
 msgid "Louisiana"
-msgstr ""
+msgstr "Luisiana"
 
 #: lib/class_settings.php:320
 msgid "Maine"
-msgstr ""
+msgstr "Maine"
 
 #: lib/class_settings.php:322
 msgid "Maryland"
-msgstr ""
+msgstr "Maryland"
 
 #: lib/class_settings.php:323
 msgid "Massachusetts"
-msgstr ""
+msgstr "Massachusetts"
 
 #: lib/class_settings.php:324
 msgid "Michigan"
-msgstr ""
+msgstr "Michigan"
 
 #: lib/class_settings.php:325
 msgid "Minnesota"
-msgstr ""
+msgstr "Minnesota"
 
 #: lib/class_settings.php:326
 msgid "Mississippi"
-msgstr ""
+msgstr "Misisipí"
 
 #: lib/class_settings.php:327
 msgid "Missouri"
-msgstr ""
+msgstr "Misuri"
 
 #: lib/class_settings.php:328
 msgid "Montana"
-msgstr ""
+msgstr "Montana"
 
 #: lib/class_settings.php:329
 msgid "Nebraska"
-msgstr ""
+msgstr "Nebraska"
 
 #: lib/class_settings.php:330
 msgid "Nevada"
-msgstr ""
+msgstr "Nevada"
 
 #: lib/class_settings.php:331
 msgid "New Hampshire"
-msgstr ""
+msgstr "New Hampshire"
 
 #: lib/class_settings.php:332
 msgid "New Jersey"
-msgstr ""
+msgstr "Nueva Jersey"
 
 #: lib/class_settings.php:333
 msgid "New Mexico"
-msgstr ""
+msgstr "Nuevo Mexico"
 
 #: lib/class_settings.php:334
 msgid "New York"
-msgstr ""
+msgstr "Nueva York"
 
 #: lib/class_settings.php:335
 msgid "North Carolina"
-msgstr ""
+msgstr "Carolina del Norte"
 
 #: lib/class_settings.php:336
 msgid "North Dakota"
-msgstr ""
+msgstr "Dakota del Norte"
 
 #: lib/class_settings.php:337
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Islas Marianas del Norte"
 
 #: lib/class_settings.php:338
 msgid "Ohio"
-msgstr ""
+msgstr "Ohio"
 
 #: lib/class_settings.php:339
 msgid "Oklahoma"
-msgstr ""
+msgstr "Oklahoma"
 
 #: lib/class_settings.php:340
 msgid "Oregon"
-msgstr ""
+msgstr "Oregón"
 
 #: lib/class_settings.php:342
 msgid "Pennsylvania"
-msgstr ""
+msgstr "Pensilvania"
 
 #: lib/class_settings.php:343
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Puerto Rico"
 
 #: lib/class_settings.php:344
 msgid "Rhode Island"
-msgstr ""
+msgstr "Rhode Island"
 
 #: lib/class_settings.php:345
 msgid "South Carolina"
-msgstr ""
+msgstr "Carolina del Sur"
 
 #: lib/class_settings.php:346
 msgid "South Dakota"
-msgstr ""
+msgstr "Dakota del Sur"
 
 #: lib/class_settings.php:347
 msgid "Tennessee"
-msgstr ""
+msgstr "Tennesse"
 
 #: lib/class_settings.php:348
 msgid "Texas"
-msgstr ""
+msgstr "Texas"
 
 #: lib/class_settings.php:349
 msgid "Utah"
-msgstr ""
+msgstr "Utah"
 
 #: lib/class_settings.php:350
 msgid "Vermont"
-msgstr ""
+msgstr "Vermont"
 
 #: lib/class_settings.php:351
 msgid "Virgin Islands"
-msgstr ""
+msgstr "Islas Vírgenes"
 
 #: lib/class_settings.php:352
 msgid "Virginia"
-msgstr ""
+msgstr "Virginia"
 
 #: lib/class_settings.php:353
 msgid "Washington"
-msgstr ""
+msgstr "Washington"
 
 #: lib/class_settings.php:354
 msgid "West Virginia"
-msgstr ""
+msgstr "Virginia Occidental"
 
 #: lib/class_settings.php:355
 msgid "Wisconsin"
-msgstr ""
+msgstr "Wisconsin"
 
 #: lib/class_settings.php:356
 msgid "Wyoming"
-msgstr ""
+msgstr "Wyoming"
 
 #: lib/class_settings.php:357
 msgid "Alberta"
-msgstr ""
+msgstr "Alberta"
 
 #: lib/class_settings.php:358
 msgid "British Columbia"
-msgstr ""
+msgstr "Colombia Británica"
 
 #: lib/class_settings.php:359
 msgid "Manitoba"
-msgstr ""
+msgstr "Manitoba"
 
 #: lib/class_settings.php:360
 msgid "New Brunswick"
-msgstr ""
+msgstr "Nuevo Brunswick"
 
 #: lib/class_settings.php:361
 msgid "Newfoundland"
-msgstr ""
+msgstr "Terranova"
 
 #: lib/class_settings.php:362
 msgid "Northwest Territory"
-msgstr ""
+msgstr "Territorio del Noroeste"
 
 #: lib/class_settings.php:363
 msgid "Nova Scotia"
-msgstr ""
+msgstr "Nueva Escocia"
 
 #: lib/class_settings.php:364
 msgid "Ontario"
-msgstr ""
+msgstr "Ontario"
 
 #: lib/class_settings.php:365
 msgid "Prince Edward Island"
-msgstr ""
+msgstr "Isla del Príncipe Eduardo"
 
 #: lib/class_settings.php:366
 msgid "Quebec"
-msgstr ""
+msgstr "Quebec"
 
 #: lib/class_settings.php:367
 msgid "Saskatchewan"
-msgstr ""
+msgstr "Saskatchewan"
 
 #: lib/class_settings.php:368
 msgid "Yukon Territory"
-msgstr ""
+msgstr "Territorio del Yukón"
 
 #: lib/class_settings.php:370
 msgid "Australian Dollars"
-msgstr ""
+msgstr "Dólares australianos"
 
 #: lib/class_settings.php:371
 msgid "Canadian Dollars"
-msgstr ""
+msgstr "Dólares canadienses"
 
 #: lib/class_settings.php:372
 msgid "Euro"
-msgstr ""
+msgstr "Euro"
 
 #: lib/class_settings.php:373
 msgid "Pounds Sterling"
-msgstr ""
+msgstr "Libras Esterlinas"
 
 #: lib/class_settings.php:374
 msgid "Yen"
-msgstr ""
+msgstr "Yen"
 
 #: lib/class_settings.php:375
 msgid "U.S. Dollars"
-msgstr ""
+msgstr "Dólares"
 
 #: lib/class_settings.php:376
 msgid "New Zealand Dollar"
-msgstr ""
+msgstr "Dólar de Nueva Zelanda"
 
 #: lib/class_settings.php:377
 msgid "Swiss Franc"
-msgstr ""
+msgstr "Franco suizo"
 
 #: lib/class_settings.php:378
 msgid "Hong Kong Dollar"
-msgstr ""
+msgstr "Dólar de Hong Kong"
 
 #: lib/class_settings.php:379
 msgid "Singapore Dollar"
-msgstr ""
+msgstr "Dólar de Singapur"
 
 #: lib/class_settings.php:380
 msgid "Swedish Krona"
-msgstr ""
+msgstr "Corona sueca"
 
 #: lib/class_settings.php:381
 msgid "Danish Krone"
-msgstr ""
+msgstr "Corona danesa"
 
 #: lib/class_settings.php:382
 msgid "Polish Zloty"
-msgstr ""
+msgstr "Zloty polaco"
 
 #: lib/class_settings.php:383
 msgid "Norwegian Krone"
-msgstr ""
+msgstr "Corona noruega"
 
 #: lib/class_settings.php:384
 msgid "Hungarian Forint"
-msgstr ""
+msgstr "Florín húngaro"
 
 #: lib/class_settings.php:385
 msgid "Czech Koruna"
-msgstr ""
+msgstr "Corona checa"
 
 #: lib/class_settings.php:386
 msgid "Israeli Shekel"
-msgstr ""
+msgstr "Shekel israelí"
 
 #: lib/class_settings.php:387
 msgid "Mexican Peso"
-msgstr ""
+msgstr "Peso mejicano"
 
 #: lib/class_settings.php:388
 msgid "South African Rand"
-msgstr ""
+msgstr "Rand sudafricano"
 
 #: lib/class_settings.php:422
 msgid "[New Invoice] %subject%"
-msgstr ""
+msgstr "[New Invoice] %subject%"
 
 #: lib/class_settings.php:423
+#, fuzzy
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1636,12 +1713,26 @@ msgid ""
 "Best regards, \n"
 "%business_name% (%business_email%)"
 msgstr ""
+"Estimado %recipient%,\n"
+"\n"
+"%business_name% le ha mandado la %recurring% factura por la cantidad de "
+"%amount%.\n"
+"\n"
+"%description%\n"
+"\n"
+"Usted puede pagar, ver e imprimir la factura en línea visitando el siguiente "
+"link:\n"
+"%link%\n"
+"\n"
+"Saludos,\n"
+"%business_name% (%business_email%)"
 
 #: lib/class_settings.php:426
 msgid "[Reminder] %subject%"
-msgstr ""
+msgstr "[Reminder] %subject%"
 
 #: lib/class_settings.php:427
+#, fuzzy
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1657,16 +1748,30 @@ msgid ""
 "Best regards, \n"
 "%business_name% (%business_email%)"
 msgstr ""
+"Estimado %recipient%,\n"
+"\n"
+"%business_name% le ha mandado un recordatorio de la %recurring% factura por "
+"la cantidad de %amount%.\n"
+"\n"
+"%description%\n"
+"\n"
+"Usted puede pagar, ver e imprimir la factura en línea visitando el siguiente "
+"link:\n"
+"%link%\n"
+"\n"
+"Saludos,\n"
+"%business_name% (%business_email%)"
 
 #: lib/class_settings.php:429
 msgid "Send Receipt"
-msgstr ""
+msgstr "Mandar recibo"
 
 #: lib/class_settings.php:430
 msgid "[Payment Received] %subject%"
-msgstr ""
+msgstr "[Payment Received] %subject%"
 
 #: lib/class_settings.php:431
+#, fuzzy
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1678,30 +1783,40 @@ msgid ""
 "Best regards, \n"
 "%business_name% (%business_email%)"
 msgstr ""
+"Estimado %recipient%,\n"
+"\n"
+"%business_name% ha recibido su pago por la %recurring% factura con la "
+"cantidad de %amount%\n"
+"\n"
+"Muchas gracias por su patrocinio.\n"
+"\n"
+"Saludos,\n"
+"%business_name% (%business_email%)"
 
 #: lib/class_settings.php:457
 msgid "Web Design Services"
-msgstr ""
+msgstr "Servicios de Diseño Web"
 
 #: lib/class_settings.php:460
 msgid "Web Development Services"
-msgstr ""
+msgstr "Servicios de Desarrollo Web"
 
 #: lib/class_settings.php:603
 msgid "old options found, converted into new format, and deleted."
 msgstr ""
+"opciones antiguas encontradas, convertidas en un nuevo formato, y borrado."
 
 #: lib/class_template_functions.php:40
 msgid "Item"
-msgstr ""
+msgstr "Artículo"
 
 #: lib/class_template_functions.php:40
 msgid "Cost"
-msgstr ""
+msgstr "Costo"
 
 #: lib/class_template_functions.php:40
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #: lib/class_template_functions.php:129
 msgid ""
@@ -1710,101 +1825,129 @@ msgid ""
 msgstr ""
 
 #: lib/class_template_functions.php:167
+#, fuzzy
 msgid "Charges"
-msgstr ""
+msgstr "Añadir Charge"
 
 #: lib/class_template_functions.php:198
 msgid "Subtotal:"
 msgstr ""
 
 #: lib/class_template_functions.php:206
+#, fuzzy
 msgid "Tax:"
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/class_template_functions.php:212
+#, fuzzy
 msgid "Discounts:"
-msgstr ""
+msgstr "Después de Descuento"
 
 #: lib/class_template_functions.php:223
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:312
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:490
+#, fuzzy
 msgid "Adjustments:"
-msgstr ""
+msgstr "ajustado"
 
 #: lib/class_template_functions.php:229
+#, fuzzy
 msgid "Received Payment:"
 msgstr ""
+"Estimado [user_name],\n"
+"[business_name] ha recibido su pago por la factura.\n"
+"\n"
+"Puede revisar el estado de su factura y el historial de pagos haciendo click "
+"en este link:\n"
+"[permalink]\n"
+"\n"
+"Gracias por su atención.\n"
+"\n"
+"Saludos,\n"
+"[business_name] ([from])"
 
 #: lib/class_template_functions.php:235
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:318
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:502
+#, fuzzy
 msgid "Balance:"
-msgstr ""
+msgstr "BALANCE"
 
 #: lib/class_template_functions.php:279
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:610
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:624
+#, fuzzy
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 #: lib/class_template_functions.php:280
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:611
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:625
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2048
+#, fuzzy
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #: lib/class_template_functions.php:334
 msgid "There are no any actions"
-msgstr ""
+msgstr "No hay acciones"
 
 #: lib/class_template_functions.php:377
+#, fuzzy
 msgid "Payment Amount"
 msgstr ""
+"Ejemplo: <b> [wpi_checkout title=\"Pago de Agua\" custom_amount = \"true\" "
+"fee = \"5%\"] </ b>"
 
 #: lib/class_template_functions.php:380
+#, fuzzy
 msgid "Min. Payment Due:"
-msgstr ""
+msgstr "FECHA DE VENCIMIENTO"
 
 #: lib/class_template_functions.php:386
+#, fuzzy
 msgid "Statement Balance:"
-msgstr ""
+msgstr "BALANCE"
 
 #: lib/class_template_functions.php:392
+#, fuzzy
 msgid "Other"
-msgstr ""
+msgstr "otros mensajes,"
 
 #: lib/class_template_functions.php:401
 msgid ""
 "This invoice allows partial payments, please select the amount you would "
 "like to pay."
 msgstr ""
+"Esta factura admite pagos parciales, por favor selecciona la cantidad que "
+"desea pagar."
 
 #: lib/class_template_functions.php:422
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:501
 msgid "Payment Method"
-msgstr ""
+msgstr "Método de pago"
 
 #: lib/class_template_functions.php:798
 msgid "Due Date: "
-msgstr ""
+msgstr "Fecha límite: "
 
 #: lib/class_ui.php:20
+#, fuzzy
 msgid "WP-Invoice"
-msgstr ""
+msgstr "Notificación de WP-Invoice."
 
 #: lib/class_ui.php:21
 msgid "View All"
-msgstr ""
+msgstr "Ver todo"
 
 #: lib/class_ui.php:23 lib/class_ui.php:352
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:195
 msgid "Reports"
-msgstr ""
+msgstr "Reportes"
 
 #: lib/class_ui.php:27
 msgid "Settings"
-msgstr ""
+msgstr "Configuraciones"
 
 #: lib/class_ui.php:229
 #, php-format
@@ -1813,6 +1956,10 @@ msgid ""
 "- Business Process</i></strong> and set <b><i>Display invoice page</i></b> "
 "under <strong><i>When viewing an invoice</i></strong> section."
 msgstr ""
+"Página de factura no seleccionada. Visita <strong><i><a href=\"%s"
+"\">Configuraciones</a> - Proceso de Negocio</i></strong> y define "
+"<b><i>Mostrar página de factura</i></b> debajo de la sección "
+"<strong><i>Cuando veas una factura</i></strong>."
 
 #: lib/class_ui.php:232
 #, php-format
@@ -1822,105 +1969,121 @@ msgid ""
 "invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> "
 "section."
 msgstr ""
+"Página de factura seleccionada no existe. Visita <strong><i><a href=\"%s"
+"\">Configuraciones</a> - Proceso de Negocio</i></strong> y define "
+"<b><i>Mostrar página de factura</i></b> debajo de la sección "
+"<strong><i>Cuando veas una factura</i></strong>."
 
 #: lib/class_ui.php:240
 msgid ""
 "Your server does not support cURL. Payments could not be processed. Contact "
 "your server administrator."
 msgstr ""
+"Tu servidor no soporta cURL. Los pagos no pueden ser procesados. Contacta a "
+"tu administrador de servidor."
 
 #: lib/class_ui.php:249
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: lib/class_ui.php:249
 msgid "Template not found:"
-msgstr ""
+msgstr "Tema no encontrado:"
 
 #: lib/class_ui.php:274
 msgid "Creating New Invoice"
-msgstr ""
+msgstr "Creando nueva factura"
 
 #: lib/class_ui.php:275
 msgid ""
 "Begin typing the recipient's email into the input box, or double-click to "
 "view list of possible options."
 msgstr ""
+"Empieza escribiendo el correo de los remitentes, o haz doble click para ver "
+"la lista de posibles opciones."
 
 #: lib/class_ui.php:276
 msgid "For new prospects, type in a new email address."
-msgstr ""
+msgstr "Para nuevo prospecto, escribe un nuevo correo."
 
 #: lib/class_ui.php:316
 #, php-format
 msgid "\"Invoice(s) %s trashed.\""
-msgstr ""
+msgstr "\"Factura(s) %s borradas.\""
 
 #: lib/class_ui.php:318
 #, php-format
 msgid "\"Invoice(s) %s untrashed.\""
-msgstr ""
+msgstr "\"Factura(s) %s recuperadas.\""
 
 #: lib/class_ui.php:320
 #, php-format
 msgid "\"Invoice(s) %s deleted.\""
-msgstr ""
+msgstr "\"Factura(s) %s borradas.\""
 
 #: lib/class_ui.php:322
 #, php-format
 msgid "\"Invoice(s) %s unarchived.\""
-msgstr ""
+msgstr "\"Factura(s) %s desarchivadas.\""
 
 #: lib/class_ui.php:324
 #, php-format
 msgid "\"Invoice(s) %s archived.\""
-msgstr ""
+msgstr "\"Factura(s) %s archivadas.\""
 
 #: lib/class_ui.php:334
 msgid "General Information"
-msgstr ""
+msgstr "Información general"
 
 #: lib/class_ui.php:335
 msgid ""
 "You are on the page which lists your invoices and other item types that you "
 "are using."
 msgstr ""
+"Usted está en la página que lista sus facturas y otros tipos de elementos "
+"que está utilizando."
 
 #: lib/class_ui.php:336
 msgid "Use filter box to find items you need."
-msgstr ""
+msgstr "Usa el filtro para encontrar artículos que necesita."
 
 #: lib/class_ui.php:353
 msgid "This page allows you to manage your sales statistics."
-msgstr ""
+msgstr "Esta página permite administrar tus estadísticas de venta."
 
 #: lib/class_ui.php:369 lib/ui/wp-invoice_page_wpi_page_settings.php:6
 msgid "Main"
-msgstr ""
+msgstr "Principal"
 
 #: lib/class_ui.php:370
 msgid ""
 "<b>Business Name</b><br /> Enter your business name here. This field "
 "defaults to the blog name you chose during WordPress installation."
-msgstr ""
+msgstr "<b>Nombre de Negocio</b><br/> Ingrese su nombre de negocio aquí."
 
 #: lib/class_ui.php:371
 msgid ""
 "<b>Business Address</b><br /> Enter your business address here. It will "
 "appear on the invoices and quotes you send."
 msgstr ""
+"<b>Dirección de Negocio</b><br /> Ingrese su dirección de negocio aquí. Esto "
+"aparecerá en las facturas y cotizaciones que envíes."
 
 #: lib/class_ui.php:372
 msgid ""
 "<b>Business Phone</b><br /> Enter your business phone here. It will appear "
 "on the invoices and quotes you send."
 msgstr ""
+"<b>Teléfono del Negocio</b><br /> Ingrese su teléfono del negocio aquí. Esto "
+"aparecerá en las facturas y cotizaciones que envíes."
 
 #: lib/class_ui.php:373
 msgid ""
 "<b>Email Address</b><br /> Enter your email address here. It will appear on "
 "the invoices and quotes you send."
 msgstr ""
+"<b>Correo Electrónico</b><br /> Ingrese su correo electrónico aquí. Esto "
+"aparecerá en las facturas y cotizaciones que envíes."
 
 #: lib/class_ui.php:374
 msgid ""
@@ -1930,6 +2093,10 @@ msgid ""
 "stylesheets. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
 msgstr ""
+"<b>Mostrar Estilos</b><br /> Aquí puedes definir, habilitar o deshabilitar "
+"el estilo por defecto de las configuraciones de WP-Invoice <a target=\"_blank"
+"\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+"settings-main/\">Más...</a>"
 
 #: lib/class_ui.php:375
 msgid ""
@@ -1938,6 +2105,10 @@ msgid ""
 "default tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
 msgstr ""
+"<b>Manejo de Impuestos</b><br /> Aquí puedes definir cuando el cálculo de "
+"impuestos está terminado (dependiendo del sistema fiscal de tu país) <a "
+"target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
+"wp-invoice-settings-main/\">Más...</a>"
 
 #: lib/class_ui.php:376
 msgid ""
@@ -1947,10 +2118,15 @@ msgid ""
 "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
 "main/\">More...</a>"
 msgstr ""
+"<b>Configuración Avanzada</b><br /> Estos ajustes controlan las funciones "
+"avanzadas que tienen que ver con la facturación, funciones de instalación, "
+"problemas de diseño y medidas generales para los administradores y "
+"desarrolladores. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-main/\">Más...</a>"
 
 #: lib/class_ui.php:378 lib/ui/wp-invoice_page_wpi_page_settings.php:11
 msgid "Business Process"
-msgstr ""
+msgstr "Proceso de Negocio"
 
 #: lib/class_ui.php:379
 msgid ""
@@ -1958,6 +2134,10 @@ msgid ""
 "process. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/"
 "wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
+"<b> Al crear una factura </ b> <br /> Las opciones para la gestión de "
+"facturas proceso de creación. <a target = \"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">Más...</a>"
 
 #: lib/class_ui.php:380
 msgid ""
@@ -1965,6 +2145,9 @@ msgid ""
 "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
 "wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
+"<b> Al visualizar una factura </ b> <br /> Las opciones para la gestión de "
+"vista de factura. <a target = \"_blank\" href=\"https://usabilitydynamics."
+"com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">Más...</a>"
 
 #: lib/class_ui.php:381
 msgid ""
@@ -1973,6 +2156,11 @@ msgid ""
 "set before. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</a>"
 msgstr ""
+"<b> Cómo insertar factura </ b> <br /> Aquí tienes cuatro opciones que "
+"definirán la forma en la factura aparecerá en la página de presentación de "
+"factura que usted ha puesto delante. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">Más...</a>"
 
 #: lib/class_ui.php:382
 msgid ""
@@ -1982,6 +2170,11 @@ msgid ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
 "process/\">More...</a>"
 msgstr ""
+"<b> Después de que un pago se ha completado </ b> <br /> Aquí tenemos "
+"opciones que va a crear notificaciones automáticas por correo electrónico en "
+"el pago con éxito de una factura (parcial o total). <a target = \"_blank\" "
+"href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+"settings-business-process/\">Más...</a>"
 
 #: lib/class_ui.php:383
 msgid ""
@@ -1989,6 +2182,9 @@ msgid ""
 "email address that WordPress sends it's mail from, and the name of the "
 "sender that the email is from."
 msgstr ""
+"<b> Correo de opciones </ b> <br /> Esta opción le permite cambiar la "
+"dirección de correo electrónico predeterminada que WordPress envía su "
+"correo, y el nombre del remitente del correo electrónico."
 
 #: lib/class_ui.php:384
 msgid ""
@@ -2000,32 +2196,47 @@ msgid ""
 "see where/when/what people do. To view Events activity go to Content -> "
 "Events in your Google Analytics account."
 msgstr ""
+"<b> Google Analytics Events Tracking </ b> <br /> Si está utilizando <a "
+"target = \"_blank\" href = \"http://code.google.com/intl/en/apis/analytics/"
+"docs/tracking / asyncTracking.html \"> Google Analytics fragmento de código "
+"</ a> para el seguimiento de la actividad del sitio, usted puede hacerlo "
+"mejor con la función de seguimiento de eventos de WP-Invoice. Marque los "
+"eventos que desea seguir de su cuenta de Google Analytics y ver dónde / "
+"cuándo / qué hace la gente. Para ver la actividad de eventos Ir al contenido "
+"-> Eventos en tu cuenta de Google Analytics."
 
 #: lib/class_ui.php:385
 msgid ""
 "<u>Attempting to pay Invoices</u> - event is triggered on clicking \"Process "
 "Payment\" button on Invoice page."
 msgstr ""
+"<u>Intentando pagar la factura </u> - el evento se activa seleccionando en "
+"el botón \"Proceso del Pago\" en la página de la factura."
 
 #: lib/class_ui.php:386
 msgid ""
 "<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
 "customer."
 msgstr ""
+"<u>Ver facturas</u> - el evento se activa cuando la factura es vista por el "
+"cliente."
 
 #: lib/class_ui.php:387
 msgid "<i>More Events soon!</i>"
-msgstr ""
+msgstr "<i>¡Más eventos pronto!</i>"
 
 #: lib/class_ui.php:389 lib/ui/wp-invoice_page_wpi_page_settings.php:16
 msgid "Payment"
-msgstr ""
+msgstr "Pago"
 
 #: lib/class_ui.php:390
 msgid ""
 "<b>Default Currency</b><br />Sets the default currency you will use in your "
 "invoices. Default value is U.S. Dollars."
 msgstr ""
+"<b> Moneda predeterminada </ b> <br /> Establece la moneda por defecto que "
+"va a utilizar en las facturas. El valor por defecto es el dólar "
+"estadounidense."
 
 #: lib/class_ui.php:391
 msgid ""
@@ -2039,12 +2250,25 @@ msgid ""
 "already been used in an existing invoice or that is currently selected as "
 "default. To do so, delete any invoices using that currency first."
 msgstr ""
+"<b> Lista de Moneda </ b> <br> Esta zona ampliable le permite administrar la "
+"lista de monedas que tiene. Usted puede agregar nuevas monedas o eliminar "
+"las existentes. <br> Tenga en cuenta, si se agrega una nueva moneda por "
+"favor asegúrese de que se cumplen las normas ISO 4217 y el código de moneda "
+"puede ser aceptada por los servicios / gateways que está utilizando de pago. "
+"Aquí hay una <a href=\"http://en.wikipedia.org/wiki/"
+"List_of_circulating_currencies\"> lista de monedas </ a> con los códigos ISO "
+"y símbolos de moneda. <br> Tenga en cuenta que no se puede eliminar una "
+"moneda que ya ha sido utilizado en una factura existente o que esté "
+"seleccionado como predeterminado. Para ello, elimine las facturas utilizando "
+"esa moneda primero."
 
 #: lib/class_ui.php:393
 msgid ""
 "<b>Default Payment Method</b><br />Here you can choose what default payment "
 "method you want to use for invoice payments."
 msgstr ""
+"<b> Método de Pago Predeterminado </ b> <br /> Aquí puede elegir qué método "
+"de pago predeterminado que desea utilizar para el pago de facturas."
 
 #: lib/class_ui.php:394
 msgid ""
@@ -2053,6 +2277,9 @@ msgid ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/"
 "\">More...</a>"
 msgstr ""
+"<b>Formas de pago</ b> <br /> Especifique las opciones de pago disponibles "
+"para el cliente.<a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-payment/\"> Más ... </ a>"
 
 #: lib/class_ui.php:395
 msgid ""
@@ -2064,10 +2291,18 @@ msgid ""
 "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
 "wp-invoice-settings-payment/\">More...</a>"
 msgstr ""
+"<b> Información sobre el pago manual </ b> <br /> Si no desea utilizar "
+"gateways de pago, pero los pagos en línea, o si una factura no tiene "
+"gateways de pago habilitado, el texto de este campo aparecerá como un "
+"mensaje al cliente, ofreciendo orientación sobre cómo pagarle. Escribie un "
+"texto corto con su número de cuenta bancaria o cualquier otra forma en que "
+"desea aceptar el pago en línea. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\"> "
+"Más ... </ a>"
 
 #: lib/class_ui.php:397 lib/ui/wp-invoice_page_wpi_page_settings.php:21
 msgid "E-Mail Templates"
-msgstr ""
+msgstr "Platillas E-Mail"
 
 #: lib/class_ui.php:398
 msgid ""
@@ -2076,53 +2311,58 @@ msgid ""
 "directly from an invoice page. The following variables can be used within "
 "the Subject or the Content of the e-mail templates:"
 msgstr ""
+"Puedes crear tantas plantillas enviadas por correo electrónico, según sea "
+"necesario, que luego se pueden utilizar para crear rápidamente las "
+"notificaciones de facturas y recordatorios, y se envían directamente desde "
+"una página de la factura. Las siguientes variables se pueden utilizar en el "
+"asunto o el contenido de las plantillas de correo electrónico:"
 
 #: lib/class_ui.php:400 lib/class_ui.php:602
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:89
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:194
 #: static/views/invoice_lookup.php:8
 msgid "Invoice ID"
-msgstr ""
+msgstr "ID de factura"
 
 #: lib/class_ui.php:401
 msgid "URL of invoice"
-msgstr ""
+msgstr "URL de la factura"
 
 #: lib/class_ui.php:402
 msgid "Name or business name of receipient"
-msgstr ""
+msgstr "Nombre o nombre del negocio como remitente"
 
 #: lib/class_ui.php:403
 msgid "Due BalanceID"
-msgstr ""
+msgstr "Debido ID de Balance"
 
 #: lib/class_ui.php:404
 msgid "Invoice title"
-msgstr ""
+msgstr "Título de Factura"
 
 #: lib/class_ui.php:405
 msgid "Description of Invoice"
-msgstr ""
+msgstr "Descripción de Factura"
 
 #: lib/class_ui.php:406 lib/ui/wp-invoice_page_wpi_page_settings.php:133
 msgid "Business Name"
-msgstr ""
+msgstr "Nombre del Negocio"
 
 #: lib/class_ui.php:407
 msgid "Business Email Address"
-msgstr ""
+msgstr "Correo del Negocio"
 
 #: lib/class_ui.php:408
 msgid "Name of user who has created invoice"
-msgstr ""
+msgstr "Nombre del usuario que ha creado la factura"
 
 #: lib/class_ui.php:409
 msgid "Email of user who has created invoice"
-msgstr ""
+msgstr "Correo del usuario que ha creado la factura"
 
 #: lib/class_ui.php:410
 msgid "Invoice due date (if presented)"
-msgstr ""
+msgstr "Fecha límite de la Factura (Si se presenta)"
 
 #: lib/class_ui.php:411
 msgid "Replaced by Invoice Type. (invoice, recurring invoice, quote)"
@@ -2130,11 +2370,11 @@ msgstr ""
 
 #: lib/class_ui.php:423
 msgid "More..."
-msgstr ""
+msgstr "Más..."
 
 #: lib/class_ui.php:425 lib/ui/wp-invoice_page_wpi_page_settings.php:26
 msgid "Line Items"
-msgstr ""
+msgstr "Elementos de línea"
 
 #: lib/class_ui.php:426
 msgid ""
@@ -2149,113 +2389,137 @@ msgid ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-predefined-"
 "line-items/\">More...</a>"
 msgstr ""
+"Predefinidos de partidas son servicios comunes y / o productos que se pueden "
+"crear una vez y utilizar en tus facturas. Por ejemplo, si usted es un "
+"profesional de la Web y su factura habitual tiene por lo menos una hora de "
+"Diseño Web y / o servicios de desarrollo web, puede crear estos registros de "
+"artículos para ahorrar tener que escribir cada vez. Cuando se crea una nueva "
+"factura o cotización (con las comillas función Premium), o editar una "
+"existente, usted será capaz de seleccionar los elementos de una lista y, si "
+"lo desea, edite el nombre, descripción, cantidad, precio y los impuestos. <a "
+"target = \"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+"invoice/wp-invoice-settings-predefined-line-items/\">Más...</a>"
 
 #: lib/class_ui.php:428 lib/ui/wp-invoice_page_wpi_page_settings.php:31
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: lib/class_ui.php:429
+#, fuzzy
 msgid "This tab will help you troubleshoot your plugin."
 msgstr ""
+"Esta ficha le ayudará a solucionar su plugin y comprobar si hay "
+"actualizaciones para Opciones Premium"
 
 #: lib/class_ui.php:431
 msgid "Shortcodes"
-msgstr ""
+msgstr "Accesos Directos"
 
 #: lib/class_ui.php:432 lib/class_widgets.php:75
 msgid "Invoice History"
-msgstr ""
+msgstr "Historial de Factura"
 
 #: lib/class_ui.php:433 lib/class_ui.php:437
 msgid "Shortcode:"
-msgstr ""
+msgstr "Acceso Directo:"
 
 #: lib/class_ui.php:434
 msgid ""
 "Works the same way as 'Invoice History' widget. Shows invoice list for "
 "currently logged in users."
 msgstr ""
+"Funciona de la misma manera que tu currículum \"del historial de facturas\". "
+"Muestra la lista de facturas de los usuarios actualmente conectados."
 
 #: lib/class_ui.php:436
 msgid "Invoice Lookup"
-msgstr ""
+msgstr "Buscar Factura"
 
 #: lib/class_ui.php:438
 msgid ""
 "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
 "invoices by invoice numbers."
 msgstr ""
+"Funciona de la misma manera que tu currículum 'Buscar factura. Permite "
+"buscar sus facturas por el número de factura."
 
 #: lib/class_ui.php:596
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: lib/class_ui.php:597
 msgid "Total Collected"
-msgstr ""
+msgstr "Total Recaudado"
 
 #: lib/class_ui.php:598 lib/ui/class_metaboxes.php:71
 msgid "Recipient"
-msgstr ""
+msgstr "Recibidor"
 
 #: lib/class_ui.php:599 lib/gateways/class_wpi_authorize.php:262
 #: lib/ui/class_metaboxes.php:121
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: lib/class_ui.php:600 lib/ui/class_metaboxes.php:56
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:383
 msgid "Status"
-msgstr ""
+msgstr "Estatus"
 
 #: lib/class_ui.php:601
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2047
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:382
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: lib/class_ui.php:705
 msgid "Payment Settings"
-msgstr ""
+msgstr "Configuraciones de Pago"
 
 #: lib/class_ui.php:708 lib/ui/toplevel_page_wpi_main.php:15
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:10
 msgid "Overview"
-msgstr ""
+msgstr "Vista General"
 
 #: lib/class_ui.php:710
 msgid "Publish"
-msgstr ""
+msgstr "Publicar"
 
 #: lib/class_ui.php:712
 msgid "User Information"
-msgstr ""
+msgstr "Información del Usuario"
 
 #: lib/class_ui.php:792
 msgid "For more information:"
-msgstr ""
+msgstr "Para más información:"
 
 #: lib/class_ui.php:793
 msgid ""
 "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
 "\"_blank\">WP-Invoice Product Page</a>"
 msgstr ""
+"<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+"\"_blank\">Página del Producto WP-Invoice </a>"
 
 #: lib/class_ui.php:794
 msgid ""
 "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target="
 "\"_blank\">WP-Invoice Forums</a>"
 msgstr ""
+"<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target="
+"\"_blank\">Foro de WP-Invoice</a>"
 
 #: lib/class_ui.php:800
 msgid "Please upgrade Wordpress to the latest version for detailed help."
-msgstr ""
+msgstr "Por favor actualiza Wordpress a la última versión para más ayuda."
 
 #: lib/class_ui.php:800
 msgid ""
 "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
 "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
 msgstr ""
+"O visita <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+"target=\"_blank\">La página de ayuda de WP-Invoice</a> en UsabilityDynamics."
+"com"
 
 #: lib/class_ui.php:1152 lib/gateways/class_wpi_authorize.php:80
 #: lib/gateways/class_wpi_authorize.php:102
@@ -2264,100 +2528,105 @@ msgstr ""
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:276
 #: lib/ui/payment_processing.php:60
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: lib/class_ui.php:1152 lib/gateways/class_wpi_authorize.php:81
 #: lib/gateways/class_wpi_authorize.php:103
 #: lib/gateways/class_wpi_paypal.php:39 lib/gateways/class_wpi_paypal.php:55
 #: lib/gateways/class_wpi_twocheckout.php:41 lib/ui/payment_processing.php:60
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: lib/class_ui.php:1155
 msgid "Select"
-msgstr ""
+msgstr "Selecciona"
 
 #: lib/class_ui.php:1173
 msgid "Jan"
-msgstr ""
+msgstr "Ene"
 
 #: lib/class_ui.php:1173
 msgid "Feb"
-msgstr ""
+msgstr "Feb"
 
 #: lib/class_ui.php:1173
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #: lib/class_ui.php:1173
 msgid "Apr"
-msgstr ""
+msgstr "Abr"
 
 #: lib/class_ui.php:1173
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #: lib/class_ui.php:1173
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
 #: lib/class_ui.php:1173
 msgid "Jul"
-msgstr ""
+msgstr "Jul"
 
 #: lib/class_ui.php:1173
 msgid "Aug"
-msgstr ""
+msgstr "Ago"
 
 #: lib/class_ui.php:1173
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
 #: lib/class_ui.php:1173
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: lib/class_ui.php:1173
 msgid "Nov"
-msgstr ""
+msgstr "Nov"
 
 #: lib/class_ui.php:1173
 msgid "Dec"
-msgstr ""
+msgstr "Dic"
 
 #: lib/class_ui.php:1185
 msgid "Values are empty"
-msgstr ""
+msgstr "Los valores están vacíos"
 
 #: lib/class_ui.php:1207
 msgid "View Profile"
-msgstr ""
+msgstr "Ver Perfil"
 
 #: lib/class_ui.php:1210
 msgid "Get WP-CRM plugin to enhance user management."
-msgstr ""
+msgstr "Obtén el plugin WP-CRM para mejorar la administración del usuario."
 
 #: lib/class_ui.php:1241
+#, fuzzy
 msgid "WP-Invoice custom field"
 msgstr ""
+"<p>Opción Avanzada<b>Campo PersonalizadoWP-Invoice</b> puede ser usado para "
+"agregar un usuario personalizado para formas de pago.</p>"
 
 #: lib/class_ui.php:1257
 msgid "<h3>WP-Invoice</h3>"
-msgstr ""
+msgstr "<h3>WP-Invoice</h3>"
 
 #: lib/class_ui.php:1258
 msgid ""
 "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
 "custom user data fields for payments forms.</p>"
 msgstr ""
+"<p>Opción Avanzada<b>Campo PersonalizadoWP-Invoice</b> puede ser usado para "
+"agregar un usuario personalizado para formas de pago.</p>"
 
 #: lib/class_ui.php:1259
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
-msgstr ""
+msgstr "<p>Obras para el método de pago Authorize.net sólo por ahora.</p>"
 
 #: lib/class_ui.php:1260
 msgid "<h3>WP-Invoice Notifications</h3>"
-msgstr ""
+msgstr "<h3>Notificaciones de WP-Invoice</h3>"
 
 #: lib/class_ui.php:1261
 msgid ""
@@ -2366,35 +2635,46 @@ msgid ""
 "Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you "
 "can use this shortcodes:</p>"
 msgstr ""
+"<p> Para las notificaciones en cualquiera de estas acciones - <i> WPI: "
+"Factura de pago (recibo del cliente) </ i>, <i> WPI: Factura de pago "
+"(Notificar al Administrator) </ i>, <i> WPI : Factura de pago (Avisar al "
+"Creador) </ i> - puede utilizar estos accesos directos: </ p>"
 
 #: lib/class_widgets.php:52
+#, fuzzy
 msgid "Find"
-msgstr ""
+msgstr "El producto Chargify no se ha encontrado."
 
 #: lib/class_widgets.php:54 lib/class_widgets.php:174
+#, fuzzy
 msgid "Title:"
-msgstr ""
+msgstr "Título:"
 
 #: lib/class_widgets.php:56
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:54
+#, fuzzy
 msgid "Message:"
-msgstr ""
+msgstr " - No hay ningún mensaje. -"
 
 #: lib/class_widgets.php:58
+#, fuzzy
 msgid "Button Text:"
-msgstr ""
+msgstr "Línea de texto"
 
 #: lib/class_widgets.php:74
+#, fuzzy
 msgid "User's Paid and Pending Invoices"
-msgstr ""
+msgstr "User&#8217;s Pagos y Facturas Pendientes"
 
 #: lib/class_widgets.php:179
+#, fuzzy
 msgid "Types to display:"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #: lib/class_widgets.php:187
+#, fuzzy
 msgid "Statuses to display:"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #: lib/class_xmlrpc_api.php:333
 msgid "Method requires \"subject\" argument to be passed."
@@ -2405,16 +2685,18 @@ msgid "Method requires \"user_email\" in \"user_data\" argument to be passed."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:337
+#, fuzzy
 msgid "User Email is malformed."
-msgstr ""
+msgstr "user_email actualizado."
 
 #: lib/class_xmlrpc_api.php:340
 msgid "Method requires \"items\" or \"charges\" argument to be passed."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:343 lib/class_xmlrpc_api.php:718
+#, fuzzy
 msgid "Unknown invoice type."
-msgstr ""
+msgstr "Tipo"
 
 #: lib/class_xmlrpc_api.php:348 lib/class_xmlrpc_api.php:723
 msgid ""
@@ -2434,20 +2716,23 @@ msgid "Method requires \"status\" argument to be passed."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:359
+#, fuzzy
 msgid "Unknown invoice status."
-msgstr ""
+msgstr "Estatus de la factura se ha cambiado a 'Pagado'."
 
 #: lib/class_xmlrpc_api.php:425 lib/class_xmlrpc_api.php:769
+#, fuzzy
 msgid "Discount name is required."
-msgstr ""
+msgstr "Necesario"
 
 #: lib/class_xmlrpc_api.php:426 lib/class_xmlrpc_api.php:770
 msgid "Discount type is required. (\"amount\" or \"percent\")."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:427 lib/class_xmlrpc_api.php:771
+#, fuzzy
 msgid "Discount amount is required."
-msgstr ""
+msgstr "Descuento Importe"
 
 #: lib/class_xmlrpc_api.php:438 lib/class_xmlrpc_api.php:784
 msgid "One or more \"items\" have malformed structure. Cannot create Invoice."
@@ -2484,35 +2769,42 @@ msgid ""
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:480 lib/class_xmlrpc_api.php:763
+#, fuzzy
 msgid "Unknown \"tax_method\"."
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/class_xmlrpc_api.php:509 lib/class_xmlrpc_api.php:558
 #: lib/class_xmlrpc_api.php:618 lib/class_xmlrpc_api.php:645
 #: lib/class_xmlrpc_api.php:689
+#, fuzzy
 msgid "Argument \"ID\" is required."
-msgstr ""
+msgstr "Necesario"
 
 #: lib/class_xmlrpc_api.php:518 lib/class_xmlrpc_api.php:569
 #: lib/class_xmlrpc_api.php:654
+#, fuzzy
 msgid "Invoice not found"
 msgstr ""
+"función ejecutada, no se encontró ID de factura, asumiendo nueva factura."
 
 #: lib/class_xmlrpc_api.php:521
+#, fuzzy
 msgid "Cannot be refunded. No payments found."
-msgstr ""
+msgstr "El cliente no se ha encontrado."
 
 #: lib/class_xmlrpc_api.php:529
 msgid "Could not refund due to unknown error."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:559
+#, fuzzy
 msgid "Argument \"amount\" is required."
-msgstr ""
+msgstr "Necesario"
 
 #: lib/class_xmlrpc_api.php:560
+#, fuzzy
 msgid "Argument \"amount\" is malformed."
-msgstr ""
+msgstr "CANTIDAD"
 
 #: lib/class_xmlrpc_api.php:572
 msgid "Invoice is completely paid. Payments are not acceptable anymore."
@@ -2527,8 +2819,9 @@ msgid "Partial payments are not allowed. Pay minimum is "
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:581
+#, fuzzy
 msgid "Minimum allowed payment is "
-msgstr ""
+msgstr "Acceso Directo no permitido"
 
 #: lib/class_xmlrpc_api.php:869
 msgid "Access denied. Do not have rights."
@@ -2539,16 +2832,18 @@ msgid "Requested method is absent in API Reference"
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:877
+#, fuzzy
 msgid "Unknown method"
-msgstr ""
+msgstr "Método:"
 
 #: lib/class_xmlrpc_api.php:889 lib/class_xmlrpc_api.php:894
 msgid "WP-Invoice XML-RPC API Reference"
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:890
+#, fuzzy
 msgid "Toggle"
-msgstr ""
+msgstr "Toggle Settings"
 
 #: lib/class_xmlrpc_api.php:900
 msgid "Examples"
@@ -2559,13 +2854,15 @@ msgid "Below is a list of available functions that current API supports."
 msgstr ""
 
 #: lib/class_xmlrpc_api.php:914
+#, fuzzy
 msgid "Arguments:"
-msgstr ""
+msgstr "Argentina"
 
 #: lib/gateways/class_wpi_authorize.php:29 lib/ui/payment_accordion.php:29
 #: lib/ui/payment_processing.php:19
+#, fuzzy
 msgid "Gateway Username"
-msgstr ""
+msgstr "Google Nombre de usuario:"
 
 #: lib/gateways/class_wpi_authorize.php:31 lib/ui/payment_accordion.php:29
 #: lib/ui/payment_processing.php:19
@@ -2574,8 +2871,9 @@ msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:34 lib/ui/payment_accordion.php:34
 #: lib/ui/payment_processing.php:24
+#, fuzzy
 msgid "Gateway Transaction Key"
-msgstr ""
+msgstr "# Transacción"
 
 #: lib/gateways/class_wpi_authorize.php:36 lib/ui/payment_accordion.php:34
 #: lib/ui/payment_processing.php:24
@@ -2586,8 +2884,9 @@ msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:39 lib/ui/payment_accordion.php:38
 #: lib/ui/payment_processing.php:28
+#, fuzzy
 msgid "Gateway URL"
-msgstr ""
+msgstr "URL de la factura"
 
 #: lib/gateways/class_wpi_authorize.php:41 lib/ui/payment_accordion.php:38
 #: lib/ui/payment_processing.php:28
@@ -2596,8 +2895,9 @@ msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:49 lib/ui/payment_accordion.php:46
 #: lib/ui/payment_processing.php:36
+#, fuzzy
 msgid "Recurring Billing Gateway URL"
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_authorize.php:51 lib/ui/payment_accordion.php:46
 #: lib/ui/payment_processing.php:36
@@ -2608,16 +2908,18 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:58
+#, fuzzy
 msgid "Test / Live Mode"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_authorize.php:61
 msgid "Test - Do Not Process Transactions"
 msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:62
+#, fuzzy
 msgid "Live - Process Transactions"
-msgstr ""
+msgstr "Proceso de Negocio"
 
 #: lib/gateways/class_wpi_authorize.php:66 lib/ui/payment_processing.php:47
 msgid "Delimiter Character"
@@ -2641,13 +2943,15 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:76
+#, fuzzy
 msgid "Email Customer (on success)"
-msgstr ""
+msgstr "Email"
 
 #: lib/gateways/class_wpi_authorize.php:85 lib/ui/payment_accordion.php:25
 #: lib/ui/payment_processing.php:55
+#, fuzzy
 msgid "Merchant Email"
-msgstr ""
+msgstr "ID Merchant"
 
 #: lib/gateways/class_wpi_authorize.php:87
 msgid ""
@@ -2665,12 +2969,14 @@ msgid "Security: MD5 Hash"
 msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:98
+#, fuzzy
 msgid "Delim Data"
-msgstr ""
+msgstr "Datos"
 
 #: lib/gateways/class_wpi_authorize.php:107
+#, fuzzy
 msgid "Silent Post URL"
-msgstr ""
+msgstr "URL de la factura"
 
 #: lib/gateways/class_wpi_authorize.php:110
 msgid ""
@@ -2682,8 +2988,9 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:140
+#, fuzzy
 msgid "User Email"
-msgstr ""
+msgstr "user_email actualizado."
 
 #: lib/gateways/class_wpi_authorize.php:154
 #: lib/gateways/class_wpi_interkassa.php:75
@@ -2691,34 +2998,38 @@ msgstr ""
 #: lib/gateways/class_wpi_paypal.php:105 lib/gateways/class_wpi_stripe.php:50
 #: lib/gateways/class_wpi_twocheckout.php:84
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: lib/gateways/class_wpi_authorize.php:175
+#, fuzzy
 msgid "Zip"
-msgstr ""
+msgstr "Código Postal"
 
 #: lib/gateways/class_wpi_authorize.php:182
 #: lib/gateways/class_wpi_paypal.php:129
 #: lib/gateways/class_wpi_twocheckout.php:90
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: lib/gateways/class_wpi_authorize.php:193
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:20
+#, fuzzy
 msgid "Card Number"
-msgstr ""
+msgstr "Debe ingresar un número de tarjeta de crédito válida."
 
 #: lib/gateways/class_wpi_authorize.php:200
+#, fuzzy
 msgid "Expiration Month"
-msgstr ""
+msgstr "Mes (s)"
 
 #: lib/gateways/class_wpi_authorize.php:207
+#, fuzzy
 msgid "Expiration Year"
-msgstr ""
+msgstr "Fecha de vencimiento"
 
 #: lib/gateways/class_wpi_authorize.php:214
 msgid "Card Code"
-msgstr ""
+msgstr "Código de Tarjeta"
 
 #: lib/gateways/class_wpi_authorize.php:232
 msgid "Authorize.net ARB"
@@ -2726,84 +3037,96 @@ msgstr ""
 
 #: lib/gateways/class_wpi_authorize.php:235
 #: lib/gateways/class_wpi_paypal.php:146
+#, fuzzy
 msgid "Bill Every"
-msgstr ""
+msgstr "PROYECTO DE LEY DE"
 
 #: lib/gateways/class_wpi_authorize.php:238
 #: lib/gateways/class_wpi_paypal.php:149
 msgid "Day(s)"
-msgstr ""
+msgstr "Día (s)"
 
 #: lib/gateways/class_wpi_authorize.php:238
 #: lib/gateways/class_wpi_paypal.php:149
 msgid "Month(s)"
-msgstr ""
+msgstr "Mes (s)"
 
 #: lib/gateways/class_wpi_authorize.php:242
 #: lib/gateways/class_wpi_paypal.php:153
+#, fuzzy
 msgid "Billing Cycles"
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_authorize.php:246
+#, fuzzy
 msgid "Payment Date"
-msgstr ""
+msgstr "Fecha:"
 
 #: lib/gateways/class_wpi_authorize.php:258
 msgid "Automatically."
-msgstr ""
+msgstr "Automáticamente."
 
 #: lib/gateways/class_wpi_authorize.php:268
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#, fuzzy
 msgid "In One Week"
-msgstr ""
+msgstr "Última semana"
 
 #: lib/gateways/class_wpi_authorize.php:268
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#, fuzzy
 msgid "In 30 Days"
-msgstr ""
+msgstr " en %d días"
 
 #: lib/gateways/class_wpi_authorize.php:268
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: lib/gateways/class_wpi_authorize.php:526
 msgid "Subscription initiated, Subcription ID"
-msgstr ""
+msgstr "Suscripción iniciada, ID de Suscripción"
 
 #: lib/gateways/class_wpi_authorize.php:533
 msgid ""
 "One-time credit card payment is processed successfully. However, recurring "
 "billing setup failed. "
 msgstr ""
+"Una vez el pago de tarjeta de crédito es procesada con éxito. Sin embargo, "
+"la configuración de facturación recurrente falló.␣"
 
 #: lib/gateways/class_wpi_authorize.php:536
 msgid "Response Code: "
-msgstr ""
+msgstr "Código de Respuesta: "
 
 #: lib/gateways/class_wpi_authorize.php:536
 msgid "Subscription error"
-msgstr ""
+msgstr "Error de Suscripción"
 
 #: lib/gateways/class_wpi_authorize.php:584
 msgid "Subscription completely paid"
-msgstr ""
+msgstr "Pago completo de suscripción"
 
 #: lib/gateways/class_wpi_interkassa.php:25
+#, fuzzy
 msgid "Shop ID"
-msgstr ""
+msgstr "ID Merchant"
 
 #: lib/gateways/class_wpi_interkassa.php:29
+#, fuzzy
 msgid "Secret Key"
-msgstr ""
+msgstr "La llave API no se ha podido generar."
 
 #: lib/gateways/class_wpi_interkassa.php:33
+#, fuzzy
 msgid "Test Key"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_interkassa.php:37
+#, fuzzy
 msgid "Status URL"
-msgstr ""
+msgstr "Estado"
 
 #: lib/gateways/class_wpi_interkassa.php:39
 msgid ""
@@ -2817,31 +3140,32 @@ msgstr ""
 #: lib/gateways/class_wpi_twocheckout.php:72
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:145
 msgid "Email Address"
-msgstr ""
+msgstr "Correo Electrónico"
 
 #: lib/gateways/class_wpi_interkassa.php:69
 #: lib/gateways/class_wpi_payoneer.php:94 lib/gateways/class_wpi_stripe.php:44
 #: lib/gateways/class_wpi_twocheckout.php:78
 msgid "Phone"
-msgstr ""
+msgstr "Teléfono"
 
 #: lib/gateways/class_wpi_interkassa.php:87
 #: lib/gateways/class_wpi_payoneer.php:112
 #: lib/gateways/class_wpi_paypal.php:117 lib/gateways/class_wpi_stripe.php:62
 #: lib/gateways/class_wpi_twocheckout.php:102
 msgid "State/Province"
-msgstr ""
+msgstr "Estado/Provincia"
 
 #: lib/gateways/class_wpi_interkassa.php:93
 #: lib/gateways/class_wpi_payoneer.php:118
 #: lib/gateways/class_wpi_paypal.php:123 lib/gateways/class_wpi_stripe.php:68
 #: lib/gateways/class_wpi_twocheckout.php:108
 msgid "Zip/Postal Code"
-msgstr ""
+msgstr "Código Postal"
 
 #: lib/gateways/class_wpi_interkassa.php:107
+#, fuzzy
 msgid "InterKassa Recurring Billing"
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_interkassa.php:108
 msgid "Currently InterKassa gateway does not support Recurring Billing"
@@ -2851,17 +3175,17 @@ msgstr ""
 #: lib/gateways/class_wpi_paypal.php:333
 #: lib/gateways/class_wpi_twocheckout.php:271
 msgid "Direct access not allowed"
-msgstr ""
+msgstr "Acceso Directo no permitido"
 
 #: lib/gateways/class_wpi_interkassa.php:213
-#, php-format
+#, fuzzy, php-format
 msgid "%s paid via InterKassa [%s]"
-msgstr ""
+msgstr "Factura #%s ha sido pagada."
 
 #: lib/gateways/class_wpi_interkassa.php:221
-#, php-format
+#, fuzzy, php-format
 msgid "Transaction ID: %s"
-msgstr ""
+msgstr "Transacción #% s ha sido completada con éxito."
 
 #: lib/gateways/class_wpi_payoneer.php:26
 msgid ""
@@ -2877,8 +3201,9 @@ msgstr ""
 #: lib/gateways/class_wpi_payoneer.php:52
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:24
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:55
+#, fuzzy
 msgid "Bank Name"
-msgstr ""
+msgstr "Nombre"
 
 #: lib/gateways/class_wpi_payoneer.php:35
 msgid ""
@@ -2887,8 +3212,17 @@ msgstr ""
 
 #: lib/gateways/class_wpi_payoneer.php:38
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:32
+#, fuzzy
 msgid "Account Number"
 msgstr ""
+"<b> Información sobre el pago manual </ b> <br /> Si no desea utilizar "
+"gateways de pago, pero los pagos en línea, o si una factura no tiene "
+"gateways de pago habilitado, el texto de este campo aparecerá como un "
+"mensaje al cliente, ofreciendo orientación sobre cómo pagarle. Escribie un "
+"texto corto con su número de cuenta bancaria o cualquier otra forma en que "
+"desea aceptar el pago en línea. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\"> "
+"Más ... </ a>"
 
 #: lib/gateways/class_wpi_payoneer.php:40
 msgid "The 13 digit number of your US collection account"
@@ -2930,8 +3264,9 @@ msgid "The 22 digit International Bank Account Number (I.E DExxxxxxxxxxxxx)"
 msgstr ""
 
 #: lib/gateways/class_wpi_payoneer.php:130
+#, fuzzy
 msgid "Payoneer Recurring Billing"
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_payoneer.php:131
 msgid ""
@@ -2941,20 +3276,23 @@ msgstr ""
 
 #: lib/gateways/class_wpi_paypal.php:30 lib/ui/payment_accordion.php:8
 #: lib/ui/payment_processing.php:6
+#, fuzzy
 msgid "PayPal Username"
-msgstr ""
+msgstr "Google Nombre de usuario:"
 
 #: lib/gateways/class_wpi_paypal.php:34
 msgid "Use in Test Mode"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_paypal.php:35
+#, fuzzy
 msgid "Use PayPal SandBox for test mode"
-msgstr ""
+msgstr "Usar Google SandBox para modo de prueba"
 
 #: lib/gateways/class_wpi_paypal.php:44
+#, fuzzy
 msgid "PayPal IPN URL"
-msgstr ""
+msgstr "URL de la factura"
 
 #: lib/gateways/class_wpi_paypal.php:46
 msgid ""
@@ -2972,76 +3310,85 @@ msgid "Use this option if you did not set IPN in your PayPal account."
 msgstr ""
 
 #: lib/gateways/class_wpi_paypal.php:143
+#, fuzzy
 msgid "PayPal Subscriptions"
-msgstr ""
+msgstr "Suscripciones disponibles."
 
 #: lib/gateways/class_wpi_paypal.php:149
+#, fuzzy
 msgid "Week(s)"
-msgstr ""
+msgstr "Última semana"
 
 #: lib/gateways/class_wpi_paypal.php:149
+#, fuzzy
 msgid "Year(s)"
-msgstr ""
+msgstr "\"Factura(s) %s borradas.\""
 
 #: lib/gateways/class_wpi_paypal.php:345
 msgid "PayPal Subscription created"
-msgstr ""
+msgstr "Suscripción de PayPal creada"
 
 #: lib/gateways/class_wpi_paypal.php:352
 msgid "PayPal Subscription cancelled"
-msgstr ""
+msgstr "Suscripción de PayPal cancelada"
 
 #: lib/gateways/class_wpi_paypal.php:358
 msgid "PayPal Subscription payment failed"
-msgstr ""
+msgstr "El pago de la Suscripción de PayPal falló"
 
 #: lib/gateways/class_wpi_paypal.php:367
 #: lib/gateways/class_wpi_twocheckout.php:317
 #, php-format
 msgid "%1s paid for subscription %2s"
-msgstr ""
+msgstr "%1s pagó por la suscripción %2s"
 
 #: lib/gateways/class_wpi_paypal.php:384
 msgid "PayPal Subscription term is finished"
-msgstr ""
+msgstr "El plazo de la suscripción de PayPal ha terminado"
 
 #: lib/gateways/class_wpi_paypal.php:391
 msgid "PayPal Subscription modified"
-msgstr ""
+msgstr "Suscripción de PayPal modificada"
 
 #: lib/gateways/class_wpi_paypal.php:407 lib/gateways/class_wpi_paypal.php:436
-#, php-format
+#, fuzzy, php-format
 msgid "%s paid via PayPal"
-msgstr ""
+msgstr "Email Pagador PayPal:% s"
 
 #: lib/gateways/class_wpi_paypal.php:413 lib/gateways/class_wpi_paypal.php:442
 #, php-format
 msgid "PayPal Payer email: %s"
-msgstr ""
+msgstr "Email Pagador PayPal:% s"
 
 #: lib/gateways/class_wpi_stripe.php:79
+#, fuzzy
 msgid "Test Secret Key"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_stripe.php:83
+#, fuzzy
 msgid "Test Publishable Key"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_stripe.php:87
+#, fuzzy
 msgid "Live Secret Key"
-msgstr ""
+msgstr "La llave API no se ha podido generar."
 
 #: lib/gateways/class_wpi_stripe.php:91
+#, fuzzy
 msgid "Live Publishable Key"
-msgstr ""
+msgstr "La llave API no se ha podido generar."
 
 #: lib/gateways/class_wpi_stripe.php:95
+#, fuzzy
 msgid "Mode"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_stripe.php:105
+#, fuzzy
 msgid "Webhook URL"
-msgstr ""
+msgstr "URL de la factura"
 
 #: lib/gateways/class_wpi_stripe.php:108
 msgid ""
@@ -3049,36 +3396,42 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_stripe.php:121
+#, fuzzy
 msgid "Stripe Subscriptions"
-msgstr ""
+msgstr "Suscripciones disponibles."
 
 #: lib/gateways/class_wpi_stripe.php:124
 #: lib/gateways/class_wpi_twocheckout.php:127
+#, fuzzy
 msgid "Specifies billing frequency."
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_stripe.php:124
 #: lib/gateways/class_wpi_twocheckout.php:127
+#, fuzzy
 msgid "Interval"
-msgstr ""
+msgstr "Italia"
 
 #: lib/gateways/class_wpi_stripe.php:126
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
+#, fuzzy
 msgid "Week"
-msgstr ""
+msgstr "Última semana"
 
 #: lib/gateways/class_wpi_stripe.php:126
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
+#, fuzzy
 msgid "Month"
-msgstr ""
+msgstr "Mes (s)"
 
 #: lib/gateways/class_wpi_stripe.php:126
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
+#, fuzzy
 msgid "Year"
-msgstr ""
+msgstr "Anual"
 
 #: lib/gateways/class_wpi_stripe.php:131
 msgid ""
@@ -3088,8 +3441,9 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_stripe.php:131
+#, fuzzy
 msgid "Interval Count"
-msgstr ""
+msgstr "Ingresar el importe de"
 
 #: lib/gateways/class_wpi_stripe.php:232
 msgid ""
@@ -3098,9 +3452,9 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_stripe.php:271
-#, php-format
+#, fuzzy, php-format
 msgid "Subscription has been initiated. Plan: %s, Customer: %s"
-msgstr ""
+msgstr "Suscripción iniciada, ID de Suscripción"
 
 #: lib/gateways/class_wpi_stripe.php:277
 msgid ""
@@ -3114,24 +3468,30 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_stripe.php:336
+#, fuzzy
 msgid " paid via STRIPE"
-msgstr ""
+msgstr "pagado en"
 
 #: lib/gateways/class_wpi_stripe.php:344
+#, fuzzy
 msgid "Successfully processed by "
-msgstr ""
+msgstr "Se ha archivado satisfactoriamente."
 
 #: lib/gateways/class_wpi_stripe.php:347
+#, fuzzy
 msgid "STRIPE Card ID: "
-msgstr ""
+msgstr "Código de Tarjeta"
 
 #: lib/gateways/class_wpi_stripe.php:356
+#, fuzzy
 msgid "Successfully paid. Thank you."
-msgstr ""
+msgstr "Se ha archivado satisfactoriamente."
 
 #: lib/gateways/class_wpi_stripe.php:383
+#, fuzzy
 msgid "Service is currently unavailable. Please try again later."
 msgstr ""
+"No se ha podido mandar el correo electrónico. Por favor intenta más tarde."
 
 #: lib/gateways/class_wpi_stripe.php:387
 msgid "Unknown error occured. Please contact site administrator."
@@ -3142,32 +3502,37 @@ msgid "Stripe server is down! Try again later."
 msgstr ""
 
 #: lib/gateways/class_wpi_stripe.php:441
+#, fuzzy
 msgid "Stripe Subscription Payment"
-msgstr ""
+msgstr "El pago de la Suscripción de PayPal falló"
 
 #: lib/gateways/class_wpi_stripe.php:473
+#, fuzzy
 msgid "Stripe Subscription has been canceled"
-msgstr ""
+msgstr "Suscripción de PayPal cancelada"
 
 #: lib/gateways/class_wpi_twocheckout.php:23
 msgid "2Checkout"
 msgstr ""
 
 #: lib/gateways/class_wpi_twocheckout.php:28
+#, fuzzy
 msgid "2Checkout Seller ID"
-msgstr ""
+msgstr "ID Merchant"
 
 #: lib/gateways/class_wpi_twocheckout.php:32
 msgid "2Checkout Secret Word"
 msgstr ""
 
 #: lib/gateways/class_wpi_twocheckout.php:36
+#, fuzzy
 msgid "Demo Mode"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_twocheckout.php:37
+#, fuzzy
 msgid "Use 2Checkout Demo Mode"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/gateways/class_wpi_twocheckout.php:46
 msgid "2Checkout Approved URL/INS URL"
@@ -3180,26 +3545,29 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/class_wpi_twocheckout.php:124
+#, fuzzy
 msgid "2Checkout Recurring Billing"
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_twocheckout.php:134
+#, fuzzy
 msgid "Specifies billing duration."
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_twocheckout.php:134
+#, fuzzy
 msgid "Duration"
-msgstr ""
+msgstr "Descripción"
 
 #: lib/gateways/class_wpi_twocheckout.php:280
-#, php-format
+#, fuzzy, php-format
 msgid "%s paid via 2Checkout"
-msgstr ""
+msgstr "Factura #%s ha sido pagada."
 
 #: lib/gateways/class_wpi_twocheckout.php:286
-#, php-format
+#, fuzzy, php-format
 msgid "2Checkout buyer email: %s"
-msgstr ""
+msgstr "ID de Google Buyer: %s"
 
 #: lib/gateways/class_wpi_twocheckout.php:301
 msgid "Passed 2Checkout fraud review."
@@ -3210,42 +3578,48 @@ msgid "Failed 2Checkout fraud review."
 msgstr ""
 
 #: lib/gateways/class_wpi_twocheckout.php:309
+#, fuzzy
 msgid "Recurring billing stopped."
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/gateways/class_wpi_twocheckout.php:313
+#, fuzzy
 msgid "Recurring installment failed."
-msgstr ""
+msgstr "Factura recurrente actualizada."
 
 #: lib/gateways/class_wpi_twocheckout.php:326
+#, fuzzy
 msgid "Recurring installments completed."
-msgstr ""
+msgstr "Recurrente"
 
 #: lib/gateways/class_wpi_twocheckout.php:331
+#, fuzzy
 msgid "Recurring sale restarted."
-msgstr ""
+msgstr "Recurrente"
 
 #: lib/gateways/templates/wpi_authorize-checkout.tpl.php:49
 #: lib/gateways/templates/wpi_paypal-checkout.tpl.php:109
 msgid "Agreement"
-msgstr ""
+msgstr "Acuerdo"
 
 #: lib/gateways/templates/wpi_authorize-checkout.tpl.php:65
 #: lib/gateways/templates/wpi_paypal-checkout.tpl.php:125
+#, fuzzy
 msgid "Process Payment"
-msgstr ""
+msgstr "Proceso de pago de% s"
 
 #: lib/gateways/templates/wpi_authorize-frontend.tpl.php:18
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:60
 #, php-format
 msgid "Process Payment of %s"
-msgstr ""
+msgstr "Proceso de pago de% s"
 
 #: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:22
 #: lib/gateways/templates/wpi_paypal-frontend.tpl.php:58
 #: lib/gateways/templates/wpi_twocheckout-frontend.tpl.php:34
+#, fuzzy
 msgid "Process Payment of "
-msgstr ""
+msgstr "Proceso de pago de% s"
 
 #: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:31
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:109
@@ -3255,8 +3629,9 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:13
+#, fuzzy
 msgid "Payment Details"
-msgstr ""
+msgstr "Pago"
 
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:26
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:34
@@ -3264,8 +3639,9 @@ msgstr ""
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:57
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:65
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:73
+#, fuzzy
 msgid "Not set"
-msgstr ""
+msgstr "Establecer Contraseña:"
 
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:85
 #, php-format
@@ -3275,140 +3651,152 @@ msgid ""
 msgstr ""
 
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:100
+#, fuzzy
 msgid "Process Payer Information"
-msgstr ""
+msgstr "Email Pagador PayPal:% s"
 
 #: lib/gateways/templates/wpi_paypal-checkout.tpl.php:83
+#, fuzzy
 msgid "Custom Amount"
-msgstr ""
+msgstr "Importe Personalizado:"
 
 #: lib/gateways/templates/wpi_paypal-checkout.tpl.php:87
 msgid "Your Amount"
-msgstr ""
+msgstr "Su cantidad"
 
 #: lib/gateways/templates/wpi_paypal-checkout.tpl.php:99
 msgid "Enter Amount"
-msgstr ""
+msgstr "Ingresar el importe de"
 
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:16
+#, fuzzy
 msgid "Billing Information"
-msgstr ""
+msgstr "Información"
 
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:29
 msgid "CVC"
 msgstr ""
 
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:38
+#, fuzzy
 msgid "Expiration (Month)"
-msgstr ""
+msgstr "Mes (s)"
 
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:47
+#, fuzzy
 msgid "Expiration (Year)"
-msgstr ""
+msgstr "Fecha de vencimiento"
 
 #: lib/template.php:18
 #, php-format
 msgid "Invoice %s not found."
-msgstr ""
+msgstr "No se encontró la factura %s."
 
 #: lib/template.php:44
 msgid "Enter Invoice ID"
-msgstr ""
+msgstr "Ingresa el ID de la factura"
 
 #: lib/ui/class_metaboxes.php:56
+#, fuzzy
 msgid "Hide"
-msgstr ""
+msgstr "Ocultar cabecera de página y el vínculo de navegación completo."
 
 #: lib/ui/class_metaboxes.php:71 lib/ui/class_metaboxes.php:121
+#, fuzzy
 msgid "Show"
-msgstr ""
+msgstr "Mostrar"
 
 #: lib/ui/class_metaboxes.php:81
+#, fuzzy
 msgid "Select User"
 msgstr ""
+"Con el fin de la opción que haya seleccionado anteriormente, usted será "
+"capaz de seleccionar <i> usuario Rol '</ i> o <i> Especifique Destinatario "
+"(e-mail)' </ i>."
 
 #: lib/ui/class_metaboxes.php:135
 msgid "Filter Results"
-msgstr ""
+msgstr "Filtrar resultados"
 
 #: lib/ui/class_wpi_object_list_table.php:64
 #: lib/ui/class_wpi_object_list_table.php:141
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #: lib/ui/class_wpi_object_list_table.php:65
 #: lib/ui/class_wpi_object_list_table.php:136
 msgid "Archive"
-msgstr ""
+msgstr "Archivo"
 
 #: lib/ui/class_wpi_object_list_table.php:66
 #: lib/ui/class_wpi_object_list_table.php:147
 msgid "Delete Permanently"
-msgstr ""
+msgstr "Eliminar permanentemente"
 
 #: lib/ui/class_wpi_object_list_table.php:67
 msgid "Move to Trash"
-msgstr ""
+msgstr "Mover a la papelera"
 
 #: lib/ui/class_wpi_object_list_table.php:68
 #: lib/ui/class_wpi_object_list_table.php:134
 msgid "Un-Archive"
-msgstr ""
+msgstr "Un-Archivo"
 
 #: lib/ui/class_wpi_object_list_table.php:122
 #, php-format
 msgid "Edit &#8220;%s&#8221;"
-msgstr ""
+msgstr "Editar &#8220;%s&#8221;"
 
 #: lib/ui/class_wpi_object_list_table.php:130
 msgid "Edit this item"
-msgstr ""
+msgstr "Editar este artículo"
 
 #: lib/ui/class_wpi_object_list_table.php:130
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: lib/ui/class_wpi_object_list_table.php:134
 msgid "Un-Archive this item"
-msgstr ""
+msgstr "Un-Archive este artículo"
 
 #: lib/ui/class_wpi_object_list_table.php:136
 msgid "Archive this item"
-msgstr ""
+msgstr "Archive este artículo"
 
 #: lib/ui/class_wpi_object_list_table.php:141
 msgid "Restore this item from the Trash"
-msgstr ""
+msgstr "Restaurar este elemento de la Papelera"
 
 #: lib/ui/class_wpi_object_list_table.php:143
 msgid "Move this item to the Trash"
-msgstr ""
+msgstr "Mover este tema a la papelera"
 
 #: lib/ui/class_wpi_object_list_table.php:143
 msgid "Trash"
-msgstr ""
+msgstr "Papelera"
 
 #: lib/ui/class_wpi_object_list_table.php:147
 msgid "Delete this item permanently"
-msgstr ""
+msgstr "Eliminar este artículo de forma permanente"
 
 #: lib/ui/class_wpi_object_list_table.php:152
 #, php-format
 msgid "View &#8220;%s&#8221;"
-msgstr ""
+msgstr "Ver &#8220;%s&#8221;"
 
 #: lib/ui/class_wpi_object_list_table.php:152
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: lib/ui/class_wpi_object_list_table.php:162
 #: lib/ui/class_wpi_object_list_table.php:164
+#, fuzzy
 msgid " ago"
-msgstr ""
+msgstr "hace"
 
 #: lib/ui/class_wpi_object_list_table.php:211
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #: lib/ui/first_time_setup.php:10
 msgid "WP-Invoice First-Use Setup"
@@ -3425,8 +3813,9 @@ msgid "Basic Setup"
 msgstr ""
 
 #: lib/ui/first_time_setup.php:19
+#, fuzzy
 msgid "Business Name:"
-msgstr ""
+msgstr "Nombre del Negocio"
 
 #: lib/ui/first_time_setup.php:31
 msgid ""
@@ -3436,8 +3825,9 @@ msgid ""
 msgstr ""
 
 #: lib/ui/first_time_setup.php:31
+#, fuzzy
 msgid "Select a page to display invoices:"
-msgstr ""
+msgstr "El intento de pagar las facturas"
 
 #: lib/ui/first_time_setup.php:42
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:303
@@ -3447,28 +3837,34 @@ msgid ""
 msgstr ""
 
 #: lib/ui/first_time_setup.php:42
+#, fuzzy
 msgid "How to Insert Invoice:"
 msgstr ""
+"<b> Cómo insertar factura </ b> <br /> Aquí tienes cuatro opciones que "
+"definirán la forma en la factura aparecerá en la página de presentación de "
+"factura que usted ha puesto delante. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">Más...</a>"
 
 #: lib/ui/first_time_setup.php:48
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:306
 msgid "Overwrite All Page Content"
-msgstr ""
+msgstr "Sobre escribe todo el contenido de la página"
 
 #: lib/ui/first_time_setup.php:48
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:306
 msgid "Place Below Content"
-msgstr ""
+msgstr "Lugar Abajo del contenido"
 
 #: lib/ui/first_time_setup.php:48
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:306
 msgid "Above Content"
-msgstr ""
+msgstr "Por encima de Contenido"
 
 #: lib/ui/first_time_setup.php:48
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:306
 msgid "Replace [wp-invoice] Tag"
-msgstr ""
+msgstr "Reemplaza etiqueta [wp-invoice]"
 
 #: lib/ui/first_time_setup.php:52
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:306
@@ -3478,122 +3874,150 @@ msgid ""
 msgstr ""
 
 #: lib/ui/first_time_setup.php:56
+#, fuzzy
 msgid "Default Payment Method:"
 msgstr ""
+"<b> Método de Pago Predeterminado </ b> <br /> Aquí puede elegir qué método "
+"de pago predeterminado que desea utilizar para el pago de facturas."
 
 #: lib/ui/first_time_setup.php:66
+#, fuzzy
 msgid "Client can change payment method:"
-msgstr ""
+msgstr "El cliente puede cambiar de opción de pago."
 
 #: lib/ui/first_time_setup.php:78
+#, fuzzy
 msgid "Accept "
 msgstr ""
+"Acepto las <a href=\"%s\" target=\"_blank\"> términos y condiciones </ a>."
 
 #: lib/ui/first_time_setup.php:89
 msgid "Notice the "
 msgstr ""
 
 #: lib/ui/first_time_setup.php:89
+#, fuzzy
 msgid " Tab "
 msgstr ""
+"Advertencia: no hay ningún campo con etiqueta '%s' en la lista de atributos "
+"de usuario en la ficha de datos."
 
 #: lib/ui/first_time_setup.php:89
+#, fuzzy
 msgid " below. "
-msgstr ""
+msgstr "Lugar Abajo del contenido"
 
 #: lib/ui/first_time_setup.php:165
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:105
+#, fuzzy
 msgid "Save All Settings"
-msgstr ""
+msgstr "Guardar"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:21
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:68
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:142
+#, fuzzy
 msgid "Send Notification"
 msgstr ""
+"Los campos no deben estar vacíos. Por favor revisa los campos de datos e "
+"intenta enviar la notificación nuevamente."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:29
 msgid "To:"
 msgstr ""
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:33
+#, fuzzy
 msgid "Template:"
-msgstr ""
+msgstr "Plantilla:"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:49
+#, fuzzy
 msgid "Subject:"
-msgstr ""
+msgstr "Asunto:"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:65
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:577
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:137
+#, fuzzy
 msgid "View Online"
-msgstr ""
+msgstr "Ver"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:141
+#, fuzzy
 msgid "Enter Payment"
-msgstr ""
+msgstr "Pago"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:146
 msgid "Allow Partial Payment"
-msgstr ""
+msgstr "Permitir el pago parcial"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:151
+#, fuzzy
 msgid "Minimum Payment"
-msgstr ""
+msgstr "Pago"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:160
 msgid "Recurring Bill"
-msgstr ""
+msgstr "Bill recurrente"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:178
+#, fuzzy
 msgid "Toggle Advanced"
-msgstr ""
+msgstr "Toggle Avanzada"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:183
+#, fuzzy
 msgid "Due Date"
-msgstr ""
+msgstr "FECHA DE VENCIMIENTO"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:208
+#, fuzzy
 msgid "Custom Invoice ID"
-msgstr ""
+msgstr "ID de factura"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:213
+#, fuzzy
 msgid "Global Tax"
-msgstr ""
+msgstr "Impuesto de uso global."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:219
+#, fuzzy
 msgid "Tax Method"
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:168
 msgid "Before Discount"
-msgstr ""
+msgstr "Antes de Descuento"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:168
 msgid "After Discount"
-msgstr ""
+msgstr "Después de Descuento"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:230
+#, fuzzy
 msgid "Trash Invoice"
-msgstr ""
+msgstr "Papelera"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:233
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:249
+#, fuzzy
 msgid "New User Information"
-msgstr ""
+msgstr "Información del Usuario"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:253
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:270
 msgid ""
@@ -3606,35 +4030,44 @@ msgid "Create WordPress User Account?"
 msgstr ""
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:280
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Google Nombre de usuario:"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:387
+#, fuzzy
 msgid "Default Payment Option"
-msgstr ""
+msgstr "El cliente puede cambiar de opción de pago."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:398
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:471
 msgid "Client can change payment option."
-msgstr ""
+msgstr "El cliente puede cambiar de opción de pago."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:403
+#, fuzzy
 msgid "Manual Payment only"
-msgstr ""
+msgstr "De pago único"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:409
+#, fuzzy
 msgid "Accepted Payments"
-msgstr ""
+msgstr "Los términos deben ser aceptadas."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:425
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:509
+#, fuzzy
 msgid "Currency"
 msgstr ""
+"<b> Moneda predeterminada </ b> <br /> Establece la moneda por defecto que "
+"va a utilizar en las facturas. El valor por defecto es el dólar "
+"estadounidense."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:494
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:520
+#, fuzzy
 msgid "Toggle Advanced Payment Options"
-msgstr ""
+msgstr "Toggle Avanzada"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:504
 #, php-format
@@ -3642,6 +4075,9 @@ msgid ""
 "To manage payment settings you should accept at least one payment method. "
 "Visit <a href=\"%s\">Payment Settings page</a> to setup."
 msgstr ""
+"Para administrar la configuración de pago debe aceptar al menos un método de "
+"pago. Visite <a href=\"%s\"> página Configuración de pago </ a> para la "
+"instalación."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:505
 #, php-format
@@ -3649,30 +4085,34 @@ msgid ""
 "If you do not want to use any payment venue then <a href=\"%s\">setup Manual "
 "Payment information</a>."
 msgstr ""
+"Si no desea utilizar ningún lugar de pago y luego <a href=\"%s\"> "
+"configuración de la información de pagos manuales </ a>."
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:540
+#, fuzzy
 msgid "Invoice Status and History"
-msgstr ""
+msgstr "Historial de Factura"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:545
+#, fuzzy
 msgid "Event Type"
-msgstr ""
+msgstr "Evento"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
 msgid "Receive Payment"
-msgstr ""
+msgstr "Recibe Pago"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
 msgid "Add Charge"
-msgstr ""
+msgstr "Añadir Charge"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
 msgid "Administrative Adjustment"
-msgstr ""
+msgstr "Ajuste Administrativo"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
 msgid "Refund"
-msgstr ""
+msgstr "Devolución"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:548
 msgid ""
@@ -3681,256 +4121,327 @@ msgid ""
 msgstr ""
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:552
+#, fuzzy
 msgid "Event Amount"
-msgstr ""
+msgstr "Evento"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:556
+#, fuzzy
 msgid "Charge Tax"
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:561
+#, fuzzy
 msgid "Event Date & Time"
-msgstr ""
+msgstr "Tiempo"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:568
+#, fuzzy
 msgid "Event Note"
-msgstr ""
+msgstr "Nota"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:576
+#, fuzzy
 msgid "Process Charge / Payment"
-msgstr ""
+msgstr "Proceso de pago de% s"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:595
+#, fuzzy
 msgid "Toggle History Detail"
-msgstr ""
+msgstr "Toggle Settings"
 
 #: lib/ui/payment_accordion.php:4
+#, fuzzy
 msgid "PayPal Setup"
-msgstr ""
+msgstr "Suscripción de PayPal creada"
 
 #: lib/ui/payment_accordion.php:12 lib/ui/payment_processing.php:10
 msgid "PayPal Pay Button URL"
 msgstr ""
 
 #: lib/ui/payment_accordion.php:21
+#, fuzzy
 msgid "Credit Card Setup"
-msgstr ""
+msgstr "Tarjeta de crédito"
 
 #: lib/ui/payment_processing.php:2
+#, fuzzy
 msgid "PayPal"
-msgstr ""
+msgstr "Suscripción de PayPal creada"
 
 #: lib/ui/payment_processing.php:15
 msgid "Credit Card"
-msgstr ""
+msgstr "Tarjeta de crédito"
 
 #: lib/ui/payment_processing.php:43
+#, fuzzy
 msgid "Test / Live Mode:"
-msgstr ""
+msgstr "Usar en Modo de Prueba"
 
 #: lib/ui/payment_processing.php:59
+#, fuzzy
 msgid "Email Customer (on success):"
-msgstr ""
+msgstr "Email"
 
 #: lib/ui/payment_processing.php:71
+#, fuzzy
 msgid "Delim Data:"
-msgstr ""
+msgstr "Datos"
 
 #: lib/ui/payment_processing.php:72
 msgid "True"
-msgstr ""
+msgstr "Verdadero"
 
 #: lib/ui/payment_processing.php:72
 msgid "False"
-msgstr ""
+msgstr "Falso"
 
 #: lib/ui/payment_processing.php:76
+#, fuzzy
 msgid "Toggle Advanced Options"
-msgstr ""
+msgstr "Toggle Avanzada"
 
 #: lib/ui/profile_page_content.php:7
 msgid "Billing / Invoicing Info"
 msgstr ""
 
 #: lib/ui/user_selection_form.php:15
+#, fuzzy
 msgid "E-mail Address:"
-msgstr ""
+msgstr "Se requiere una dirección de correo electrónico."
 
 #: lib/ui/user_selection_form.php:18
+#, fuzzy
 msgid "Create New"
-msgstr ""
+msgstr "Crear nueva destinatario"
 
 #: lib/ui/user_selection_form.php:26
+#, fuzzy
 msgid "Existing Invoice:"
 msgstr ""
+"<b> Lista de Moneda </ b> <br> Esta zona ampliable le permite administrar la "
+"lista de monedas que tiene. Usted puede agregar nuevas monedas o eliminar "
+"las existentes. <br> Tenga en cuenta, si se agrega una nueva moneda por "
+"favor asegúrese de que se cumplen las normas ISO 4217 y el código de moneda "
+"puede ser aceptada por los servicios / gateways que está utilizando de pago. "
+"Aquí hay una <a href=\"http://en.wikipedia.org/wiki/"
+"List_of_circulating_currencies\"> lista de monedas </ a> con los códigos ISO "
+"y símbolos de moneda. <br> Tenga en cuenta que no se puede eliminar una "
+"moneda que ya ha sido utilizado en una factura existente o que esté "
+"seleccionado como predeterminado. Para ello, elimine las facturas utilizando "
+"esa moneda primero."
 
 #: lib/ui/user_selection_form.php:29
+#, fuzzy
 msgid "New Invoice from Template"
-msgstr ""
+msgstr "Nueva Factura"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:85
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:132
+#, fuzzy
 msgid "Add Payment / Charge"
-msgstr ""
+msgstr "Añadir Charge"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:90
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:140
 msgid "Invoice paid in full."
-msgstr ""
+msgstr "Factura pagada en su totalidad."
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:182
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:268
+#, fuzzy
 msgid "Charge Name"
-msgstr ""
+msgstr " El valor del cargo:"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:185
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:274
 msgid "Amount"
-msgstr ""
+msgstr "Cantidad"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:187
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:354
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:672
+#, fuzzy
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:216
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:342
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:430
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:563
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:219
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:348
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:669
+#, fuzzy
 msgid "Qty."
-msgstr ""
+msgstr "CANT"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:220
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:350
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:670
+#, fuzzy
 msgid "Price"
 msgstr ""
+"Predefinidos de partidas son servicios comunes y / o productos que se pueden "
+"crear una vez y utilizar en tus facturas. Por ejemplo, si usted es un "
+"profesional de la Web y su factura habitual tiene por lo menos una hora de "
+"Diseño Web y / o servicios de desarrollo web, puede crear estos registros de "
+"artículos para ahorrar tener que escribir cada vez. Cuando se crea una nueva "
+"factura o cotización (con las comillas función Premium), o editar una "
+"existente, usted será capaz de seleccionar los elementos de una lista y, si "
+"lo desea, edite el nombre, descripción, cantidad, precio y los impuestos. <a "
+"target = \"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+"invoice/wp-invoice-settings-predefined-line-items/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:243
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:392
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:682
+#, fuzzy
 msgid "Toggle Description"
-msgstr ""
+msgstr "DESCRIPCIÓN"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:265
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:442
 msgid "Amount Discount"
-msgstr ""
+msgstr "Descuento Importe"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:265
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:442
 msgid "Percent Discount"
-msgstr ""
+msgstr "Porcentaje de descuento"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:310
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:486
+#, fuzzy
 msgid "Subtotal Excluding Tax:"
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:314
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:494
+#, fuzzy
 msgid "Discount:"
-msgstr ""
+msgstr "DESCUENTO"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:316
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:498
+#, fuzzy
 msgid "Sales Tax:"
-msgstr ""
+msgstr "Venta"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:323
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:512
+#, fuzzy
 msgid "Add Line"
-msgstr ""
+msgstr "Elementos de línea"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:328
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:518
 msgid "Insert a predefined line item"
-msgstr ""
+msgstr "Insertar una línea predefinida"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:353
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:552
+#, fuzzy
 msgid "Add Discount"
-msgstr ""
+msgstr "DESCUENTO"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:220
 msgid "Click to view full link"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:220
+#, fuzzy
 msgid "Invoice Link"
-msgstr ""
+msgstr "Buscar Factura"
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:72
+#, fuzzy
 msgid "Collected and Uncollected Funds"
-msgstr ""
+msgstr "Total Recaudado"
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:110
 msgid "Top 10 Most Valuable Clients"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:158
+#, fuzzy
 msgid "Top Grossing Line Items"
-msgstr ""
+msgstr "Elementos de línea"
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:175
+#, fuzzy
 msgid "Invoice Statistics"
-msgstr ""
+msgstr "Título de Factura"
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:207
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:93
 msgid "Warning:"
-msgstr ""
+msgstr "Advertencia:"
 
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:207
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:93
 msgid "not found"
-msgstr ""
+msgstr "que no se encuentra"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:46
 msgid "Settings updated."
-msgstr ""
+msgstr "Configuración actualizado."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:75
+#, fuzzy
 msgid "WP-Invoice Global Settings"
-msgstr ""
+msgstr "Notificación de WP-Invoice."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:137
+#, fuzzy
 msgid "Business Address"
 msgstr ""
+"<b>Dirección de Negocio</b><br /> Ingrese su dirección de negocio aquí. Esto "
+"aparecerá en las facturas y cotizaciones que envíes."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:141
+#, fuzzy
 msgid "Business Phone"
 msgstr ""
+"<b>Teléfono del Negocio</b><br /> Ingrese su teléfono del negocio aquí. Esto "
+"aparecerá en las facturas y cotizaciones que envíes."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:150
+#, fuzzy
 msgid "Display Styles"
 msgstr ""
+"<b>Mostrar Estilos</b><br /> Aquí puedes definir, habilitar o deshabilitar "
+"el estilo por defecto de las configuraciones de WP-Invoice <a target=\"_blank"
+"\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+"settings-main/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:155
 msgid "Do <b>not</b> load theme specific styles."
-msgstr ""
+msgstr "Haga <b> no </ b> tema estilos específicos de carga."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:156
 #, php-format
 msgid "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
 msgstr ""
+"WP-Invoice se suministra con una hoja de estilos diseñados para <b>% s </ b>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:159
 msgid "Load default CSS styles on the front-end"
-msgstr ""
+msgstr "Cargar predeterminados estilos CSS en el front-end"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:165
+#, fuzzy
 msgid "Tax Handling"
 msgstr ""
+"<b>Manejo de Impuestos</b><br /> Aquí puedes definir cuando el cálculo de "
+"impuestos está terminado (dependiendo del sistema fiscal de tu país) <a "
+"target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
+"wp-invoice-settings-main/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:168
 msgid "Calculate Taxable Subtotal"
@@ -3938,7 +4449,7 @@ msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:169
 msgid "Use global tax."
-msgstr ""
+msgstr "Impuesto de uso global."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:172
 msgid ""
@@ -3947,24 +4458,33 @@ msgid ""
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:179
+#, fuzzy
 msgid "Advanced Settings"
 msgstr ""
+"<b>Configuración Avanzada</b><br /> Estos ajustes controlan las funciones "
+"avanzadas que tienen que ver con la facturación, funciones de instalación, "
+"problemas de diseño y medidas generales para los administradores y "
+"desarrolladores. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/wp-invoice-settings-main/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:182
 msgid "Allow partial payments."
-msgstr ""
+msgstr "Permitir pagos parciales."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:184
+#, fuzzy
 msgid "Partial payments allowed by default."
-msgstr ""
+msgstr "Permitir pagos parciales."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:186
 msgid "Show recurring billing options."
-msgstr ""
+msgstr "Mostrar opciones de facturación recurrente."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:187
 msgid "Enforce HTTPS on invoice pages, if available on this server."
 msgstr ""
+"Hacer cumplir HTTPS en las páginas de factura, si está disponible en este "
+"servidor."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Minimum user level to manage WP-Invoice"
@@ -3972,27 +4492,28 @@ msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Subscriber"
-msgstr ""
+msgstr "Suscriptor"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Contributor"
-msgstr ""
+msgstr "Contribuyente"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:190
 msgid "Administrator"
-msgstr ""
+msgstr "Administrador"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:193
+#, fuzzy
 msgid "Using Godaddy Hosting:"
-msgstr ""
+msgstr "Característica instalada, utilizando la versión"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:194
 msgid ""
@@ -4005,6 +4526,8 @@ msgid ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
 msgstr ""
+"Use plantillas personalizadas. Si se marca, WP-Invoice usará plantillas en "
+"la carpeta 'spi' en la carpeta de tu tema activo."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:207
 msgid ""
@@ -4021,14 +4544,18 @@ msgstr ""
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:212
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:284
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:401
+#, fuzzy
 msgid "Install"
-msgstr ""
+msgstr "Italia"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:212
+#, fuzzy
 msgid ""
 "the custom templates inside the <b>wpi</b> folder in your active theme's "
 "folder."
 msgstr ""
+"Use plantillas personalizadas. Si se marca, WP-Invoice usará plantillas en "
+"la carpeta 'spi' en la carpeta de tu tema activo."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:216
 msgid "Thousands Separator Symbol"
@@ -4037,7 +4564,7 @@ msgstr ""
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:222
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2060
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:232
 msgid "Show invoices only for logged in recipients."
@@ -4058,58 +4585,80 @@ msgid ""
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:266
+#, fuzzy
 msgid "When creating an invoice"
 msgstr ""
+"<b> Al crear una factura </ b> <br /> Las opciones para la gestión de "
+"facturas proceso de creación. <a target = \"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:269
 msgid "Automatically increment the invoice's custom ID by one."
-msgstr ""
+msgstr "Incrementar automáticamente la factura de encargo ID por uno."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:275
+#, fuzzy
 msgid "When viewing an invoice"
-msgstr ""
+msgstr "Cambie el título HTML con objeto factura al ver la factura."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:278
+#, fuzzy
 msgid "Display invoices on the"
-msgstr ""
+msgstr "Facturas"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:292
+#, fuzzy
 msgid "page."
-msgstr ""
+msgstr "Página de Log para"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:294
 msgid "Replace HTML title with invoice subject when viewing invoice."
-msgstr ""
+msgstr "Cambie el título HTML con objeto factura al ver la factura."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:295
 msgid ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
 msgstr ""
+"Reemplace encabezamiento de página y la navegación título del enlace con el "
+"tema factura al ver la factura."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:296
 msgid "Hide page heading and navigation link completely."
-msgstr ""
+msgstr "Ocultar cabecera de página y el vínculo de navegación completo."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:298
 msgid "Show my business name and address."
-msgstr ""
+msgstr "Mostrar mi nombre de la empresa y la dirección."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:299
 msgid "Show quantity breakdowns in the itemized list."
-msgstr ""
+msgstr "Mostrar averías cantidad en la lista detallada."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:304
+#, fuzzy
 msgid "How to Insert Invoice"
 msgstr ""
+"<b> Cómo insertar factura </ b> <br /> Aquí tienes cuatro opciones que "
+"definirán la forma en la factura aparecerá en la página de presentación de "
+"factura que usted ha puesto delante. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+"process/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:309
+#, fuzzy
 msgid "After a payment has been completed"
 msgstr ""
+"<b> Después de que un pago se ha completado </ b> <br /> Aquí tenemos "
+"opciones que va a crear notificaciones automáticas por correo electrónico en "
+"el pago con éxito de una factura (parcial o total). <a target = \"_blank\" "
+"href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+"settings-business-process/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:312
 msgid "Send email confirmation to the client."
-msgstr ""
+msgstr "Enviar correo electrónico de confirmación al cliente."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:313
 #, php-format
@@ -4117,14 +4666,16 @@ msgid ""
 "Send email notification to the address set for administrative purposes from "
 "<a href=\"%s\">General Settings</a>"
 msgstr ""
+"Enviar notificación por correo electrónico a la dirección indicada a efectos "
+"administrativos desde <a href=\"%s\"> Ajustes general </ a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:314
 msgid "Send email notification to invoice creator."
-msgstr ""
+msgstr "Enviar notificación por correo electrónico al creador factura."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid "Use CRM to send notifications"
-msgstr ""
+msgstr "Utilice CRM para enviar notificaciones"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 #, php-format
@@ -4132,20 +4683,30 @@ msgid ""
 "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
 "management."
 msgstr ""
+"Obtener <a class=\"small\" href=\"%s\"> plugin WP-CRM </ a> para mejorar la "
+"gestión de notificación."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:321
+#, fuzzy
 msgid ""
 "This options allow you to change the default email address that WordPress "
 "sends it's mail from, and the name of the sender that the email is from."
 msgstr ""
+"<b> Correo de opciones </ b> <br /> Esta opción le permite cambiar la "
+"dirección de correo electrónico predeterminada que WordPress envía su "
+"correo, y el nombre del remitente del correo electrónico."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:322
+#, fuzzy
 msgid "Mail From options"
 msgstr ""
+"<b> Correo de opciones </ b> <br /> Esta opción le permite cambiar la "
+"dirección de correo electrónico predeterminada que WordPress envía su "
+"correo, y el nombre del remitente del correo electrónico."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:330
 msgid "Sender Name"
-msgstr ""
+msgstr "Nombre del remitente"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:337
 msgid "The sender name that the email is from"
@@ -4153,15 +4714,16 @@ msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:342
 msgid "User E-mail"
-msgstr ""
+msgstr "Usuario E-mail"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:349
+#, fuzzy
 msgid "Email address e.g. username@example.com"
-msgstr ""
+msgstr "Correo Electrónico"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:354
 msgid "Apply 'Mail From' settings."
-msgstr ""
+msgstr "Aplicar 'Correo de' ajustes."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:366
 msgid ""
@@ -4170,56 +4732,99 @@ msgid ""
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:367
+#, fuzzy
 msgid "Google Analytics Events Tracking"
 msgstr ""
+"<b> Google Analytics Events Tracking </ b> <br /> Si está utilizando <a "
+"target = \"_blank\" href = \"http://code.google.com/intl/en/apis/analytics/"
+"docs/tracking / asyncTracking.html \"> Google Analytics fragmento de código "
+"</ a> para el seguimiento de la actividad del sitio, usted puede hacerlo "
+"mejor con la función de seguimiento de eventos de WP-Invoice. Marque los "
+"eventos que desea seguir de su cuenta de Google Analytics y ver dónde / "
+"cuándo / qué hace la gente. Para ver la actividad de eventos Ir al contenido "
+"-> Eventos en tu cuenta de Google Analytics."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:374
 msgid "I want to track events."
-msgstr ""
+msgstr "Quiero seguimiento de los eventos."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:379
+#, fuzzy
 msgid "Track Invoices events:"
-msgstr ""
+msgstr "Quiero seguimiento de los eventos."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:382
 msgid "Attempting to pay Invoices"
-msgstr ""
+msgstr "El intento de pagar las facturas"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:385
 msgid "View Invoices"
-msgstr ""
+msgstr "Ver Facturas"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:413
+#, fuzzy
 msgid "Default Currency"
 msgstr ""
+"<b> Moneda predeterminada </ b> <br /> Establece la moneda por defecto que "
+"va a utilizar en las facturas. El valor por defecto es el dólar "
+"estadounidense."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:423
+#, fuzzy
 msgid "Currency list"
 msgstr ""
+"<b> Lista de Moneda </ b> <br> Esta zona ampliable le permite administrar la "
+"lista de monedas que tiene. Usted puede agregar nuevas monedas o eliminar "
+"las existentes. <br> Tenga en cuenta, si se agrega una nueva moneda por "
+"favor asegúrese de que se cumplen las normas ISO 4217 y el código de moneda "
+"puede ser aceptada por los servicios / gateways que está utilizando de pago. "
+"Aquí hay una <a href=\"http://en.wikipedia.org/wiki/"
+"List_of_circulating_currencies\"> lista de monedas </ a> con los códigos ISO "
+"y símbolos de moneda. <br> Tenga en cuenta que no se puede eliminar una "
+"moneda que ya ha sido utilizado en una factura existente o que esté "
+"seleccionado como predeterminado. Para ello, elimine las facturas utilizando "
+"esa moneda primero."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:428
+#, fuzzy
 msgid "Code"
-msgstr ""
+msgstr "Código de Tarjeta"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:429
 msgid "Symbol"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:453
+#, fuzzy
 msgid "Add Currency"
-msgstr ""
+msgstr "Añadir Charge"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:464
+#, fuzzy
 msgid "Default Payment Method"
 msgstr ""
+"<b> Método de Pago Predeterminado </ b> <br /> Aquí puede elegir qué método "
+"de pago predeterminado que desea utilizar para el pago de facturas."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:476
+#, fuzzy
 msgid "Payment Gateways"
 msgstr ""
+"<b> Información sobre el pago manual </ b> <br /> Si no desea utilizar "
+"gateways de pago, pero los pagos en línea, o si una factura no tiene "
+"gateways de pago habilitado, el texto de este campo aparecerá como un "
+"mensaje al cliente, ofreciendo orientación sobre cómo pagarle. Escribie un "
+"texto corto con su número de cuenta bancaria o cualquier otra forma en que "
+"desea aceptar el pago en línea. <a target=\"_blank\" href=\"https://"
+"usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\"> "
+"Más ... </ a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:537
+#, fuzzy
 msgid "Manual Payment information"
 msgstr ""
+"Si no desea utilizar ningún lugar de pago y luego <a href=\"%s\"> "
+"configuración de la información de pagos manuales </ a>."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:542
 msgid ""
@@ -4228,16 +4833,19 @@ msgid ""
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:564
+#, fuzzy
 msgid "Subject"
-msgstr ""
+msgstr "Asunto:"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:565
+#, fuzzy
 msgid "Content"
-msgstr ""
+msgstr "Por encima de Contenido"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:589
+#, fuzzy
 msgid "Add Template"
-msgstr ""
+msgstr "Plantilla:"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:640
 msgid ""
@@ -4246,32 +4854,48 @@ msgid ""
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:668
+#, fuzzy
 msgid "Name & Description"
 msgstr ""
+"Predefinidos de partidas son servicios comunes y / o productos que se pueden "
+"crear una vez y utilizar en tus facturas. Por ejemplo, si usted es un "
+"profesional de la Web y su factura habitual tiene por lo menos una hora de "
+"Diseño Web y / o servicios de desarrollo web, puede crear estos registros de "
+"artículos para ahorrar tener que escribir cada vez. Cuando se crea una nueva "
+"factura o cotización (con las comillas función Premium), o editar una "
+"existente, usted será capaz de seleccionar los elementos de una lista y, si "
+"lo desea, edite el nombre, descripción, cantidad, precio y los impuestos. <a "
+"target = \"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+"invoice/wp-invoice-settings-predefined-line-items/\">Más...</a>"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:671
+#, fuzzy
 msgid "Tax %"
-msgstr ""
+msgstr "IMPUESTO"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:708
+#, fuzzy
 msgid "Add Line Item"
-msgstr ""
+msgstr "Insertar una línea predefinida"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:739
 msgid "Look up the $wpi_settings global settings array:"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:739
+#, fuzzy
 msgid "Toggle $wpi_settings"
-msgstr ""
+msgstr "Toggle Settings"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:746
+#, fuzzy
 msgid "Restore Backup of WP-Invoice Configuration"
-msgstr ""
+msgstr "Restaurar copia de seguridad de configuración WP-CRM"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:747
+#, fuzzy
 msgid "Download Backup of Current WP-Invoice Configuration."
-msgstr ""
+msgstr "Descargar copia de seguridad de configuración WP-CRM actual."
 
 #: static/splashes/install.php:7
 msgid ""
@@ -4291,51 +4915,61 @@ msgid "New license management system"
 msgstr ""
 
 #: static/splashes/install.php:45
+#, fuzzy
 msgid "Some another feature"
-msgstr ""
+msgstr "Añadir otro"
 
 #: static/views/invoice_page.php:3
 #, php-format
 msgid "Welcome, %s!"
-msgstr ""
+msgstr "Bienvenido,% s!"
 
 #: static/views/invoice_page.php:8
 #, php-format
 msgid "We have sent you a quote in the amount of %s."
-msgstr ""
+msgstr "Te hemos enviado un presupuesto por valor de% s."
 
 #: static/views/invoice_page.php:12
 #, php-format
 msgid "We have sent you invoice %1s with a balance of %2s."
-msgstr ""
+msgstr "Hemos enviado la factura% 1s con un saldo de% 2s."
 
 #: static/views/invoice_page.php:18
+#, fuzzy
 msgid "This is a recurring bill."
-msgstr ""
+msgstr "Bill recurrente"
 
 #: static/views/invoice_page.php:27 static/views/receipt_page.php:18
 msgid "You've made payments, but still owe:"
 msgstr ""
 
 #: static/views/invoice_page.php:56
+#, fuzzy
 msgid "Manual Payment Information"
 msgstr ""
+"Si no desea utilizar ningún lugar de pago y luego <a href=\"%s\"> "
+"configuración de la información de pagos manuales </ a>."
 
 #: static/views/invoice_page.php:57
 msgid "Contact site Administrator for payment information please."
 msgstr ""
+"Contacto con el administrador del sitio para obtener más información por "
+"favor el pago."
 
 #: static/views/receipt_page.php:3
+#, fuzzy
 msgid "Payment Receipt"
-msgstr ""
+msgstr "RECIBO"
 
 #: static/views/receipt_page.php:9
+#, fuzzy
 msgid "We have sent you invoice"
-msgstr ""
+msgstr "Hemos enviado la factura% 1s con un saldo de% 2s."
 
 #: static/views/receipt_page.php:9
+#, fuzzy
 msgid "was paid."
-msgstr ""
+msgstr "pagado en"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:83
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:120
@@ -4344,8 +4978,9 @@ msgid "Licenses"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:84
+#, fuzzy
 msgid "More Products"
-msgstr ""
+msgstr "Más..."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:613
 #, php-format
@@ -4355,33 +4990,36 @@ msgid ""
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:615
-#, php-format
+#, fuzzy, php-format
 msgid "%s License is not active."
-msgstr ""
+msgstr "Activo"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:669
 msgid "No license keys were specified for activation."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:674
+#, fuzzy
 msgid "Product deactivated successfully."
-msgstr ""
+msgstr "Plugin desactivado."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:676
 msgid "There was an error while deactivating the product."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:682
+#, fuzzy
 msgid "Products activated successfully."
-msgstr ""
+msgstr "Plugin activado."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:684
 msgid "There was an error and not all products were activated."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:82
+#, fuzzy
 msgid "UsabilityDynamics Product"
-msgstr ""
+msgstr "Página del Producto WP-CRM"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:98
 #, php-format
@@ -4396,30 +5034,35 @@ msgid "There was an error making %s request for %s, please try again"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:106
-#, php-format
+#, fuzzy, php-format
 msgid "There was an error making %s request for %s: %s."
-msgstr ""
+msgstr "Error guardando usuario: %s"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:61
-#, php-format
+#, fuzzy, php-format
 msgid "No active %s plugins found."
-msgstr ""
+msgstr "No suscripciones activas encontradas para el usuario."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:99
+#, fuzzy
 msgid "Product"
-msgstr ""
+msgstr "Página del Producto WP-CRM"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:100
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:101
+#, fuzzy
 msgid "Activation Status"
-msgstr ""
+msgstr "Programación creada con la activación del plugin."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:142
+#, fuzzy
 msgid "Deactivate"
 msgstr ""
+"Las tablas de la base de datos del plugin se han borrado, desactiva y vuelve "
+"a activar el plugin para volver a crearlos."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:145
 msgid "Place License Key here"
@@ -4430,8 +5073,11 @@ msgid "Place Activation Email here"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:68
+#, fuzzy
 msgid "Try again"
 msgstr ""
+"Hubo un problema al actualizar algunos de sus datos de perfil, por favor "
+"intente de nuevo."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:70
 #, php-format
@@ -4439,8 +5085,9 @@ msgid "No More Available Products for %s"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:119
+#, fuzzy
 msgid "More Details"
-msgstr ""
+msgstr "Más..."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:149
 msgid "<strong>Untested</strong> with your version of WordPress"
@@ -4565,12 +5212,14 @@ msgid ""
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:5
+#, fuzzy
 msgid "Check for Updates"
-msgstr ""
+msgstr "Comprobar actualizaciones"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:21
+#, fuzzy
 msgid "Activate Products"
-msgstr ""
+msgstr "Actualizado."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:26
 msgid "Could not create index on your posts table for the `guid` column"
@@ -4615,26 +5264,27 @@ msgid ""
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:86
+#, fuzzy
 msgid "Fix Your GUIDs"
-msgstr ""
+msgstr "¡Gracias por su mensaje!"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:100
 msgid "You should not be here."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:138
-#, php-format
+#, fuzzy, php-format
 msgid "Job %s"
-msgstr ""
+msgstr "\"Factura(s) %s borradas.\""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:197
 msgid "Could not load job with unknown ID."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:252
-#, php-format
+#, fuzzy, php-format
 msgid "Job Batch %s"
-msgstr ""
+msgstr "\"Factura(s) %s borradas.\""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:382
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:383
@@ -4643,12 +5293,14 @@ msgid "Jobs"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:384
+#, fuzzy
 msgid "New Job"
-msgstr ""
+msgstr "Nuevo"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:385
+#, fuzzy
 msgid "View Job"
-msgstr ""
+msgstr "Ver"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:388
 msgid "UsabilityDynamics Jobs."
@@ -4656,16 +5308,19 @@ msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:187
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:219
+#, fuzzy
 msgid "Required file not found."
-msgstr ""
+msgstr "Necesario"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:868
+#, fuzzy
 msgid "Invalid file type."
-msgstr ""
+msgstr "Correo electrónico inválido"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:877
+#, fuzzy
 msgid "Could not create mentioned directory."
-msgstr ""
+msgstr "No se ha podido crear la suscripción."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:916
 msgid "Zero size file downloaded"
@@ -4677,40 +5332,46 @@ msgid "Could not get image dimensions (headers)"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1534
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You cannot call UD\\Utility::log() before the %1$s hook, since the current "
 "user is not yet known."
 msgstr ""
+"No se puede llamar UD_API :: log () antes de que el %1$s gancho, ya que el "
+"usuario actual no se conoce todavía."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1547
 msgid "Log Started."
-msgstr ""
+msgstr "Registro empezado."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2015
-#, php-format
+#, fuzzy, php-format
 msgid "You cannot call UD\\Utility::add_log_page() after the %1$s hook."
-msgstr ""
+msgstr "No puedes llamar a UD_API::add_log_page() despues del hook %1$s"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2042
+#, fuzzy
 msgid "Log Page for"
-msgstr ""
+msgstr "Página de Log para"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2043
 msgid "Clear Log"
-msgstr ""
+msgstr "Limpiar registro"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2046
+#, fuzzy
 msgid "Timestamp"
-msgstr ""
+msgstr "Marca de tiempo"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2049
+#, fuzzy
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2050
+#, fuzzy
 msgid "Related Object"
-msgstr ""
+msgstr "Objeto relacionado"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:328
 msgid ""
@@ -4753,8 +5414,9 @@ msgid "Welcome to Usability Dynamics, Inc."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
+#, fuzzy
 msgid "UD Notices"
-msgstr ""
+msgstr "UD Error"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:103
 msgid "Usability Dynamics, Inc. Dashboard"
@@ -4785,8 +5447,9 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:285
+#, fuzzy
 msgid "Install package not available."
-msgstr ""
+msgstr " Los valores disponibles:"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:286
 #, php-format
@@ -4802,21 +5465,24 @@ msgid "Installing the plugin&#8230;"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:289
+#, fuzzy
 msgid "Plugin install failed."
-msgstr ""
+msgstr "Google Contactos Error en la sincronización."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:290
 msgid "Plugin installed successfully."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:301
+#, fuzzy
 msgid "Plugin activation failed."
-msgstr ""
+msgstr "Programación creada con la activación del plugin."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:302
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:193
+#, fuzzy
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Plugin activado."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:415
 msgid ""
@@ -4831,8 +5497,9 @@ msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
+#, fuzzy
 msgid "Show Details"
-msgstr ""
+msgstr "Mostrar"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
@@ -4865,9 +5532,9 @@ msgid "The installation of %1$s failed."
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s installed successfully."
-msgstr ""
+msgstr "Transacción #% s ha sido completada con éxito."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:426
 msgid "All installations have been completed."
@@ -4893,29 +5560,36 @@ msgid "Pre-Packaged"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:162
+#, fuzzy
 msgid "WordPress Repository"
-msgstr ""
+msgstr "Generado automaticamente por WordPress"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
+#, fuzzy
 msgid "Required"
-msgstr ""
+msgstr "Necesario"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
+#, fuzzy
 msgid "Recommended"
 msgstr ""
+"Es muy recomendable que utilice una contraseña específica de la aplicación."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:169
+#, fuzzy
 msgid "Not Installed"
-msgstr ""
+msgstr "Característica instalada, utilizando la versión"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:171
+#, fuzzy
 msgid "Installed But Not Activated"
-msgstr ""
+msgstr "Plugin activado."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:307
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:402
+#, fuzzy
 msgid "Activate"
-msgstr ""
+msgstr "Activo"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:364
 #, php-format
@@ -4925,20 +5599,23 @@ msgid ""
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:380
+#, fuzzy
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin activado."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:381
 msgid "Source"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:177
+#, fuzzy
 msgid "Install Required Plugins"
-msgstr ""
+msgstr "Necesario"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:178
+#, fuzzy
 msgid "Install Plugins"
-msgstr ""
+msgstr "Italia"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:179
 #, php-format
@@ -4946,8 +5623,11 @@ msgid "Installing Plugin: %s"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:180
+#, fuzzy
 msgid "Something went wrong."
 msgstr ""
+"Algo salió mal en el proceso de exportación. Compruebe si Codificación XML "
+"que ha seleccionado es compatible."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:191
 msgid "Return to Required Plugins Installer"
@@ -4958,8 +5638,9 @@ msgid "Return to the dashboard"
 msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:194
+#, fuzzy
 msgid "The following plugin was activated successfully:"
-msgstr ""
+msgstr "Plugin activado."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:195
 #, php-format
@@ -4994,3 +5675,1028 @@ msgstr ""
 #, php-format
 msgid "<p><b>%s</b> can not be initialized. %s</p>"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Google Wallet"
+#~ msgstr "Google Checkout"
+
+#~ msgid "Merchant ID"
+#~ msgstr "ID Merchant"
+
+#~ msgid "Use Google SandBox for test mode"
+#~ msgstr "Usar Google SandBox para modo de prueba"
+
+#~ msgid "API callback URL"
+#~ msgstr "Devolución de API URL"
+
+#~ msgid ""
+#~ "Specify a URL for Google to notify you of new orders and changes in order "
+#~ "state."
+#~ msgstr ""
+#~ "Especifica un URL para que Google te notifique nuevas órdenes y cambios "
+#~ "en el estado de orden."
+
+#, fuzzy
+#~ msgid "Google Wallet Subscriptions"
+#~ msgstr "Suscripciones disponibles."
+
+#~ msgid "Daily"
+#~ msgstr "Dirario"
+
+#~ msgid "Weekly"
+#~ msgstr "Semanal"
+
+#~ msgid "Semi Monthly"
+#~ msgstr "Semi Mensual"
+
+#~ msgid "Monthly"
+#~ msgstr "Mensual"
+
+#~ msgid "Every Two Months"
+#~ msgstr "Cada Dos Meses"
+
+#~ msgid "Quarterly"
+#~ msgstr "Trimestral"
+
+#~ msgid "Yearly"
+#~ msgstr "Anual"
+
+#, fuzzy
+#~ msgid "No Charge After"
+#~ msgstr " El valor del cargo:"
+
+#, fuzzy
+#~ msgid "%s paid via Google Wallet"
+#~ msgstr "%s pagado vía Google Checkout"
+
+#~ msgid "Google Buyer ID: %s"
+#~ msgstr "ID de Google Buyer: %s"
+
+#, fuzzy
+#~ msgid "Total Discount"
+#~ msgstr "Descuento Importe"
+
+#~ msgid "View PDF"
+#~ msgstr "Ver PDF"
+
+#~ msgid "Download PDF"
+#~ msgstr "Descargar PDF"
+
+#~ msgid "PDF"
+#~ msgstr "PDF"
+
+#~ msgid "Do not automatically insert PDF link on bottom of invoices."
+#~ msgstr ""
+#~ "No inserte automáticamente enlace PDF en la parte inferior de las "
+#~ "facturas."
+
+#~ msgid "Display logo in the PDF."
+#~ msgstr "Mostrar el logotipo en el PDF."
+
+#, fuzzy
+#~ msgid "Header Settings"
+#~ msgstr "Configuraciones de Pago"
+
+#, fuzzy
+#~ msgid "Display recipient name and address."
+#~ msgstr "Mostrar los bussines nombre y dirección."
+
+#~ msgid "Display invoice description."
+#~ msgstr "Mostrar descripción de la factura."
+
+#, fuzzy
+#~ msgid "Default Font"
+#~ msgstr "Formulario de comprobación por defecto"
+
+#, fuzzy
+#~ msgid "Terms &amp; Conditions:"
+#~ msgstr "Mostrar Términos y Condiciones"
+
+#~ msgid "Display Terms and Conditions"
+#~ msgstr "Mostrar Términos y Condiciones"
+
+#, fuzzy
+#~ msgid "Notes"
+#~ msgstr "No hay elementos"
+
+#~ msgid "PDF Invoice"
+#~ msgstr "Factura PDF"
+
+#~ msgid "RECEIPT"
+#~ msgstr "RECIBO"
+
+#~ msgid "QUOTE"
+#~ msgstr "CITA"
+
+#~ msgid "INVOICE"
+#~ msgstr "FACTURA"
+
+#~ msgid "There is not enough quantifiable data to generate any graphs."
+#~ msgstr "No hay suficientes datos cuantificables para generar los gráficos."
+
+#, fuzzy
+#~ msgid "Daily Sales"
+#~ msgstr "Dirario"
+
+#~ msgid "Import/Export"
+#~ msgstr "Importar / Exportar"
+
+#, fuzzy
+#~ msgid "Export Options"
+#~ msgstr "<b> Opciones de exportación </ b>"
+
+#, fuzzy
+#~ msgid "Default Format"
+#~ msgstr "Formulario de comprobación por defecto"
+
+#~ msgid "JSON"
+#~ msgstr "JSON"
+
+#~ msgid "XML"
+#~ msgstr "XML"
+
+#~ msgid "Use default blog's charset. It is %s. <i>(Recommended)</i>"
+#~ msgstr ""
+#~ "Utilice charset del blog de forma predeterminada. Se trata de% s. <i> "
+#~ "(recomendado) </ i>"
+
+#, fuzzy
+#~ msgid "Custom Charset:"
+#~ msgstr "Importe Personalizado:"
+
+#, fuzzy
+#~ msgid "XML Version"
+#~ msgstr "Versión"
+
+#, fuzzy
+#~ msgid "Log History"
+#~ msgstr "Historial de Factura"
+
+#~ msgid "Export Invoice log history."
+#~ msgstr "Exportar historial de registro de facturas."
+
+#, fuzzy
+#~ msgid "Import Options"
+#~ msgstr "<b> opciones de importación </ b>"
+
+#~ msgid "Add import log item."
+#~ msgstr "Añadir elemento del registro de importación."
+
+#, fuzzy
+#~ msgid "Recipients"
+#~ msgstr "Recibidor"
+
+#~ msgid "Override Recipient information if already exists."
+#~ msgstr "Reemplazar la información del destinatario, si ya existe."
+
+#, fuzzy
+#~ msgid "If Recipient does not exist:"
+#~ msgstr "La suscripción no existe."
+
+#~ msgid "Create new Recipient"
+#~ msgstr "Crear nueva destinatario"
+
+#~ msgid "Use existing one for all imported invoices"
+#~ msgstr "Utilice uno existente para todas las facturas importadas"
+
+#~ msgid "Export Invoices"
+#~ msgstr "Las facturas de exportación"
+
+#~ msgid ""
+#~ "Something went wrong with exporting process. Check if XML Encoding you "
+#~ "selected is supported."
+#~ msgstr ""
+#~ "Algo salió mal en el proceso de exportación. Compruebe si Codificación "
+#~ "XML que ha seleccionado es compatible."
+
+#~ msgid "Import Invoices"
+#~ msgstr "Las facturas de importación"
+
+#~ msgid "Invoice Import"
+#~ msgstr "Importación de facturas"
+
+#~ msgid "Invoice Export"
+#~ msgstr "Factura de Exportación"
+
+#~ msgid "Import"
+#~ msgstr "Importar"
+
+#, fuzzy
+#~ msgid "Download Export File"
+#~ msgstr "Descargar PDF"
+
+#~ msgid "Export/Import Invoices"
+#~ msgstr "Exportación / Importación de facturas"
+
+#~ msgid "<b>Export Options</b>"
+#~ msgstr "<b> Opciones de exportación </ b>"
+
+#~ msgid ""
+#~ "<u>Default Format</u> - format that will be used for generating export "
+#~ "file dump. You can specify format using dropdown next to \"Export\" "
+#~ "button."
+#~ msgstr ""
+#~ "<u> Formato Predeterminado </ u> - formato que se utilizará para la "
+#~ "generación de volcado de archivo de exportación. Puede especificar "
+#~ "formato utilizando desplegable al lado del botón \"Exportar\"."
+
+#~ msgid ""
+#~ "<u>XML Charset</u> - the charset of the dump file content. It is "
+#~ "recommended to use default but you can change it to some supported "
+#~ "charset. Note that unsupported charsets can make export failed."
+#~ msgstr ""
+#~ "<u> XML Charset </ u> - el juego de caracteres del contenido del archivo "
+#~ "de volcado. Se recomienda usar por defecto, pero se puede cambiar a algún "
+#~ "juego de caracteres admitidos. Tenga en cuenta que los conjuntos de "
+#~ "caracteres no compatibles pueden no exportación."
+
+#~ msgid ""
+#~ "<u>XML Version</u> - the value which is used for XML formatted dump "
+#~ "files. Usually is \"1.0\""
+#~ msgstr ""
+#~ "<u> Versión XML </ u> - el valor que se utiliza para los archivos de "
+#~ "volcado XML formateados. Por lo general es \"1.0\""
+
+#~ msgid ""
+#~ "<u>Log History</u> - options for log history exports. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u> Log History </ u> - opciones para la exportación de historia de "
+#~ "registro. Vea las descripciones a continuación:"
+
+#~ msgid "whether or not to export history logs for every invoice object."
+#~ msgstr "si o no exportar registros de la historia de cada objeto factura."
+
+#~ msgid ""
+#~ "<u>Filename Format</u> - specify pattern for dump filename to use. Use "
+#~ "allowed tags below."
+#~ msgstr ""
+#~ "<u> formato de fichero </ u> - especificar patrón de nombre de archivo de "
+#~ "volcado de usar. Utilice etiquetas permitidas a continuación."
+
+#~ msgid ""
+#~ "<u>Advanced Options</u> - some advanced useful options. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u> Opciones avanzadas </ u> - algunas opciones útiles avanzados. Vea las "
+#~ "descripciones a continuación:"
+
+#~ msgid "Delete exported Objects (Invoices) after export."
+#~ msgstr "Eliminar objetos exportados (Facturas) después de la exportación."
+
+#~ msgid ""
+#~ "if you are SURE that you don't need your invoice objects any more then "
+#~ "this option will delete invoices after export is done. Note that you "
+#~ "won't be able to restore them."
+#~ msgstr ""
+#~ "Si está seguro de que usted no necesita los objetos de factura más, esta "
+#~ "opción eliminará las facturas después de que se realiza la exportación. "
+#~ "Tenga en cuenta que usted no será capaz de restaurarlos."
+
+#~ msgid "<b>Import Options</b>"
+#~ msgstr "<b> opciones de importación </ b>"
+
+#~ msgid ""
+#~ "<u>Log History</u> - options for log history imports. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u>Historial de Registro</ u> - opciones para la importación de historia "
+#~ "de registro. Vea las descripciones a continuación:"
+
+#~ msgid ""
+#~ "whether or not to add log item with information about importing invoice "
+#~ "object."
+#~ msgstr ""
+#~ "si desea añadir el artículo log con información sobre la importación "
+#~ "objeto factura."
+
+#~ msgid ""
+#~ "<u>Recipients</u> - options for management recipients. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u> Destinatarios </ u> - opciones para la gestión de los destinatarios. "
+#~ "Vea las descripciones a continuación:"
+
+#~ msgid "whether or not to replace existing user's information."
+#~ msgstr "si o no para reemplazar la información del usuario existente."
+
+#~ msgid ""
+#~ "You can decide what to do if user doesn't exist using the dropdown <i>'If "
+#~ "Recipient does not exist'.</i>"
+#~ msgstr ""
+#~ "Usted puede decidir qué hacer si el usuario no existe utilizando la <i> "
+#~ "desplegable 'Si destinatario no existe'. </ I>"
+
+#~ msgid ""
+#~ "In order to the option that you have selected above, you'll be able to "
+#~ "select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
+#~ msgstr ""
+#~ "Con el fin de la opción que haya seleccionado anteriormente, usted será "
+#~ "capaz de seleccionar <i> usuario Rol '</ i> o <i> Especifique "
+#~ "Destinatario (e-mail)' </ i>."
+
+#, fuzzy
+#~ msgid "Quotes"
+#~ msgstr "No hay elementos"
+
+#, fuzzy
+#~ msgid "I accept <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>"
+#~ msgstr ""
+#~ "Acepto las <a href=\"%s\" target=\"_blank\"> términos y condiciones </ a>."
+
+#, fuzzy
+#~ msgid "You have to accept Terms &amp; Conditions."
+#~ msgstr "Mostrar Términos y Condiciones"
+
+#~ msgid "Reply to this comment"
+#~ msgstr "Responder a este comentario"
+
+#~ msgid "Reply"
+#~ msgstr "Responder"
+
+#~ msgid "Delete"
+#~ msgstr "Borrar"
+
+#~ msgid "Response:"
+#~ msgstr "Respuesta:"
+
+#~ msgid "Send Response"
+#~ msgstr "Enviar respuesta"
+
+#~ msgid "Have a question?"
+#~ msgstr "¿Tiene alguna pregunta?"
+
+#~ msgid "Send Question"
+#~ msgstr "Enviar pregunta"
+
+#, fuzzy
+#~ msgid "Reply to Comment"
+#~ msgstr "Responder a este comentario"
+
+#, fuzzy
+#~ msgid "E-mail"
+#~ msgstr "Email"
+
+#~ msgid "Expiration Date"
+#~ msgstr "Fecha de vencimiento"
+
+#~ msgid "Every 10 Minutes"
+#~ msgstr "Cada 10 Minutos"
+
+#~ msgid "Transaction complete."
+#~ msgstr "Transacción completa."
+
+#~ msgid ""
+#~ "<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout "
+#~ "Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/single-page-checkout/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Página de Checkout </ b> <br /> configuraciones principales para sola "
+#~ "página Checkout función Premium. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/single-page-checkout/\"> "
+#~ "Más ... </ a>"
+
+#~ msgid "Single Page Checkout"
+#~ msgstr "Pedido sola página"
+
+#~ msgid ""
+#~ "Create single page checkout forms that are then visible in the \"Invoice"
+#~ "\" overview."
+#~ msgstr ""
+#~ "Crear formularios cajas de una sola página que luego visible en el "
+#~ "resumen de \"Factura\"."
+
+#~ msgid ""
+#~ "You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</"
+#~ "b>. Options:"
+#~ msgstr ""
+#~ "Puede crear Pedido sola página utilizando shortcode <b> [wpi_checkout] </ "
+#~ "b>. Opciones:"
+
+#~ msgid "The title that will be displayed in control panel overview."
+#~ msgstr "El título que se mostrará en el resumen del panel de control."
+
+#~ msgid ""
+#~ "ID of page that has sales terms, inserts a link into SPC to the page."
+#~ msgstr ""
+#~ "ID de la página que tiene las condiciones de venta, inserta un enlace a "
+#~ "SPC a la página."
+
+#~ msgid "A comma separated list of items that the SPC is for."
+#~ msgstr "Una lista separada por comas de elementos que el SPC es para."
+
+#~ msgid "PHP function to be executed when transaction is complete."
+#~ msgstr ""
+#~ "Función de PHP que se ejecuta cuando la transacción se ha completado."
+
+#~ msgid "A CSV list of Title of any custom attributes for the checkout."
+#~ msgstr ""
+#~ "Una lista CSV del título de los atributos personalizados para el pago y "
+#~ "envío."
+
+#~ msgid ""
+#~ "`true/false` value. If true then custom amount field will appear on SPC. "
+#~ "Do not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+#~ msgstr ""
+#~ "`True / false valor`. Si esto es cierto entonces campo de importe "
+#~ "personalizada aparecerá en SPC. No utilice <u> tarifa </ u> y <u> "
+#~ "artículos </ u> en caso de custom_amount es cierto."
+
+#~ msgid ""
+#~ "Disabled the checkout items, only use this if you are using some sort of "
+#~ "JS script to enable them back on."
+#~ msgstr ""
+#~ "Disabled los artículos Checkout, use solamente esto si usted está usando "
+#~ "algún tipo de JS script para que puedan de nuevo."
+
+#~ msgid ""
+#~ "Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
+#~ msgstr ""
+#~ "Valor porcentual de la tarifa aplicada a artículos cantidades (por "
+#~ "ejemplo, tasa = 2 o cuota = \"2%\")"
+
+#~ msgid "CSV list of gateways available for payment."
+#~ msgstr "CSV lista de puertas de enlace disponibles para el pago."
+
+#~ msgid " Available values: "
+#~ msgstr " Los valores disponibles:"
+
+#~ msgid ""
+#~ "Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount="
+#~ "\"true\" fee=\"5%\"]</b>"
+#~ msgstr ""
+#~ "Ejemplo: <b> [wpi_checkout title=\"Pago de Agua\" custom_amount = \"true"
+#~ "\" fee = \"5%\"] </ b>"
+
+#~ msgid "Terms must be accepted."
+#~ msgstr "Los términos deben ser aceptadas."
+
+#~ msgid "An e-mail address is required."
+#~ msgstr "Se requiere una dirección de correo electrónico."
+
+#~ msgid "You must enter a name."
+#~ msgstr "Debe introducir un nombre."
+
+#~ msgid "You must enter a valid credit card number."
+#~ msgstr "Debe ingresar un número de tarjeta de crédito válida."
+
+#~ msgid "You must enter an expiration date."
+#~ msgstr "Debe introducir una fecha de caducidad."
+
+#~ msgid "No items"
+#~ msgstr "No hay elementos"
+
+#~ msgid "Thank you. Your payment has been processed."
+#~ msgstr "Gracias. Su pago ha sido procesado."
+
+#~ msgid "Transaction Error: "
+#~ msgstr "Transacción de error:"
+
+#~ msgid ""
+#~ "There was an error with the transaction. Please select another payment "
+#~ "venue, or contact support."
+#~ msgstr ""
+#~ "Se ha producido un error en la transacción. Por favor seleccione otro "
+#~ "lugar de pago, o contacte con Atención."
+
+#~ msgid "Custom Amount: "
+#~ msgstr "Importe Personalizado:"
+
+#~ msgid "Items: "
+#~ msgstr "Artículos:"
+
+#~ msgid " of fee."
+#~ msgstr " de la tarifa."
+
+#~ msgid "Transaction #"
+#~ msgstr "# Transacción"
+
+#~ msgid "Default Checkout Form"
+#~ msgstr "Formulario de comprobación por defecto"
+
+#~ msgid "Custom amount from SPC"
+#~ msgstr "Cantidad personalizada de SPC"
+
+#~ msgid "Transaction #%s was successfully completed."
+#~ msgstr "Transacción #% s ha sido completada con éxito."
+
+#~ msgid ""
+#~ " was successfully completed, but invoice of the current transaction could "
+#~ "not be saved. We advise You to add transaction's invoice manually."
+#~ msgstr ""
+#~ " se completó con éxito, pero la factura de la transacción actual no se "
+#~ "pudo guardar. Le aconsejamos que añadir la factura de transacciones "
+#~ "manualmente."
+
+#~ msgid " Charge Amount: "
+#~ msgstr " El valor del cargo:"
+
+#~ msgid "Items of Transaction:"
+#~ msgstr "Artículos de Transacción:"
+
+#~ msgid ""
+#~ "I accept the <a href=\"%s\" target=\"_blank\">terms and conditions</a>."
+#~ msgstr ""
+#~ "Acepto las <a href=\"%s\" target=\"_blank\"> términos y condiciones </ a>."
+
+#~ msgid "Single Payment"
+#~ msgstr "De pago único"
+
+#~ msgid "Enforce SSL on checkout pages."
+#~ msgstr "Forzar SSL en las páginas de pago."
+
+#~ msgid "Archived."
+#~ msgstr "Archivado."
+
+#~ msgid "Successfully archived."
+#~ msgstr "Se ha archivado satisfactoriamente."
+
+#~ msgid "DUE DATE"
+#~ msgstr "FECHA DE VENCIMIENTO"
+
+#~ msgid "AMOUNT"
+#~ msgstr "CANTIDAD"
+
+#~ msgid "ATTN"
+#~ msgstr "ATN"
+
+#~ msgid "BILL TO"
+#~ msgstr "PROYECTO DE LEY DE"
+
+#~ msgid "ADDRESS"
+#~ msgstr "DIRECCIÓN"
+
+#~ msgid "TELEPHONE"
+#~ msgstr "TELÉFONO"
+
+#~ msgid "TOTAL"
+#~ msgstr "Total"
+
+#~ msgid "TAX"
+#~ msgstr "IMPUESTO"
+
+#~ msgid "DISCOUNT"
+#~ msgstr "DESCUENTO"
+
+#~ msgid "BALANCE"
+#~ msgstr "BALANCE"
+
+#~ msgid "TERMS &amp; CONDITIONS"
+#~ msgstr "TÉRMINOS Y CONDICIONES"
+
+#~ msgid "NOTES"
+#~ msgstr "NOTAS"
+
+#~ msgid "DESCRIPTION"
+#~ msgstr "DESCRIPCIÓN"
+
+#, fuzzy
+#~ msgid "ITEMS"
+#~ msgstr "NOTAS"
+
+#~ msgid "QUANTITY"
+#~ msgstr "CANTIDAD"
+
+#~ msgid "AMOUNT DUE"
+#~ msgstr "CANTIDAD DEBIDA"
+
+#~ msgid "QTY"
+#~ msgstr "CANT"
+
+#~ msgid "SUM"
+#~ msgstr "SUM"
+
+#, fuzzy
+#~ msgid "Method"
+#~ msgstr "Lesoto"
+
+#~ msgid "API service not specified."
+#~ msgstr "Servicio de API no especificado."
+
+#~ msgid "API Failure: %1s."
+#~ msgstr "Error de API: %1s."
+
+#~ msgid "UD Error"
+#~ msgstr "Error UD"
+
+#~ msgid "Unknown error."
+#~ msgstr "Error desconocido."
+
+#~ msgid "Disable automatic Premium Feature updates."
+#~ msgstr ""
+#~ "Desactivar las actualizaciones automáticas de características de primera "
+#~ "calidad."
+
+#, fuzzy
+#~ msgid "Subscription Payments"
+#~ msgstr "Error de Suscripción"
+
+#, fuzzy
+#~ msgid "Your Domain"
+#~ msgstr "Su cantidad"
+
+#, fuzzy
+#~ msgid "WP-Invoice API Key"
+#~ msgstr "ID de factura"
+
+#, fuzzy
+#~ msgid ""
+#~ "This feature is disabled because it requires WP-Invoice %1$s or higher."
+#~ msgstr ""
+#~ "Esta función está desactivada porque requiere WP-Invoice% 1 $ s o "
+#~ "superior."
+
+#~ msgid "Disable premium feature."
+#~ msgstr "Desactivar la característica premium."
+
+#~ msgid ""
+#~ "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this "
+#~ "feature."
+#~ msgstr ""
+#~ "Por favor, visite <a href=\"%s\"> UsabilityDynamics.com </ a> para "
+#~ "comprar esta característica."
+
+#~ msgid "Cheatin&#8217; uh?"
+#~ msgstr "Cheatin&#8217; uh?"
+
+#, fuzzy
+#~ msgid "Sales Log"
+#~ msgstr "Limpiar registro"
+
+#, fuzzy
+#~ msgid "An error occurred during premium feature check: <b> %s </b>."
+#~ msgstr ""
+#~ "Ha ocurrido un error durante la revisión de la característica premium: "
+#~ "<b> %s </b>."
+
+#~ msgid "per unit"
+#~ msgstr "por unidad"
+
+#~ msgid "quantity based"
+#~ msgstr "basado en cantidad"
+
+#~ msgid "metered"
+#~ msgstr "medido"
+
+#, fuzzy
+#~ msgid "Domain"
+#~ msgstr "Dominica"
+
+#, fuzzy
+#~ msgid "Management Shortcode"
+#~ msgstr "Accesos Directos"
+
+#, fuzzy
+#~ msgid "Trial"
+#~ msgstr "Título"
+
+#, fuzzy
+#~ msgid "<a href=\"#\" target=\"_blank\">Tell Me More</a>"
+#~ msgstr ""
+#~ "Acepto las <a href=\"%s\" target=\"_blank\"> términos y condiciones </ a>."
+
+#~ msgid ""
+#~ "Oops, something is wrong with the API. Did you remember to save the WPI "
+#~ "settings first?"
+#~ msgstr ""
+#~ "Oops, ha salido algo mal con el API. ¿Recuerdas haber guardado primero "
+#~ "las configuraciones del WPI?"
+
+#~ msgid "This is a subscription based product. "
+#~ msgstr "Esta es una suscripción basada en el producto.␣"
+
+#~ msgid ""
+#~ "Products updated. Please <a href=\"javascript:window.location.reload();"
+#~ "\">refresh</a>."
+#~ msgstr ""
+#~ "Productos actualizados. Por favor <a href=\"javascript:window.location."
+#~ "reload();\">actualiza la página</a>."
+
+#~ msgid "You must enter your first name."
+#~ msgstr "Debes ingresar tu nombre."
+
+#~ msgid "You must enter your last name."
+#~ msgstr "Debes ingresar tu apellido."
+
+#~ msgid "You must enter your e-mail."
+#~ msgstr "Debes ingresar tu correo electrónico."
+
+#~ msgid "You must enter your credit card number."
+#~ msgstr "Debes ingresar tu número de tarjeta de crédito."
+
+#~ msgid "You must enter your credit card expiration date."
+#~ msgstr "Debes ingresar tu fecha de expiración de la tarjeta de crédito."
+
+#~ msgid "You must enter your credit card CVV code."
+#~ msgstr "Debes ingresar el código CVV de tu tarjeta de crédito."
+
+#~ msgid "You must enter your city."
+#~ msgstr "Debes ingresar tu ciudad."
+
+#~ msgid "You must enter your state."
+#~ msgstr "Debes ingresar tu estado."
+
+#~ msgid "You must enter your address."
+#~ msgstr "Debes ingresar tu dirección."
+
+#~ msgid "You must enter your country."
+#~ msgstr "Debes ingresar tu país."
+
+#~ msgid "You must enter your zip."
+#~ msgstr "Debes ingresar tu código postal."
+
+#~ msgid "Please input the credit card expiration date as \"MM/YYYY\"."
+#~ msgstr ""
+#~ "Por favor ingresa la expiración de tu tarjeta de crédito así \"MM/AAAA\"."
+
+#~ msgid "The Chargify API is not enabled."
+#~ msgstr "La API de Chargify no está habilitada."
+
+#~ msgid "Customer cannot be found."
+#~ msgstr "El cliente no se ha encontrado."
+
+#~ msgid "Cannot cancel, you're no longer logged in."
+#~ msgstr "No se puede cancelar, tu sesión ya no está iniciada."
+
+#~ msgid "This subscription does not exist."
+#~ msgstr "La suscripción no existe."
+
+#~ msgid "This is not your subscription."
+#~ msgstr "Esta no es tu suscripción."
+
+#~ msgid "Could not remove subscription."
+#~ msgstr "No se puede quitar la suscripción."
+
+#~ msgid "Subscription # %s successfully canceled."
+#~ msgstr "Suscripción # %s cancelada satisfactoriamente."
+
+#~ msgid "Could not find this Chargify product."
+#~ msgstr "El producto Chargify no se ha encontrado."
+
+#, fuzzy
+#~ msgid "Pricing"
+#~ msgstr "recurrente"
+
+#, fuzzy
+#~ msgid "Full Cost"
+#~ msgstr "Costo"
+
+#~ msgid "Available Subscriptions"
+#~ msgstr "Suscripciones disponibles."
+
+#~ msgid "My Subscriptions"
+#~ msgstr "Mis suscripciones."
+
+#, fuzzy
+#~ msgid "Card"
+#~ msgstr "Chad"
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "Actualizado."
+
+#, fuzzy
+#~ msgid "Plan"
+#~ msgstr "Polonia"
+
+#, fuzzy
+#~ msgid "Subscribe"
+#~ msgstr "Suscriptor"
+
+#, fuzzy
+#~ msgid "About"
+#~ msgstr "Cantidad"
+
+#, fuzzy
+#~ msgid "Subscribe to"
+#~ msgstr "Suscriptor"
+
+#~ msgid "N/A"
+#~ msgstr "N/A"
+
+#~ msgid "Schedule created with plugin activation."
+#~ msgstr "Programación creada con la activación del plugin."
+
+#~ msgid "Plugin activated. No older versions found, installing version "
+#~ msgstr ""
+#~ "Plugin activado. No se han encontrado versiones antiguas, instalando "
+#~ "versión␣"
+
+#~ msgid "Plugin deactivated."
+#~ msgstr "Plugin desactivado."
+
+#~ msgid "user_email changed."
+#~ msgstr "user_email actualizado."
+
+#~ msgid ""
+#~ "The plugin database tables are gone, deactivate and reactivate plugin to "
+#~ "re-create them."
+#~ msgstr ""
+#~ "Las tablas de la base de datos del plugin se han borrado, desactiva y "
+#~ "vuelve a activar el plugin para volver a crearlos."
+
+#~ msgid "The API key could not be generated."
+#~ msgstr "La llave API no se ha podido generar."
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred during premium feature check. API Key '<b>%s</b>' is "
+#~ "incorrect."
+#~ msgstr ""
+#~ "Ha ocurrido un error durante la revisión de la característica premium: <b>"
+#~ "%s</b>."
+
+#, fuzzy
+#~ msgid "Could not do remote request."
+#~ msgstr "No se puede quitar la suscripción."
+
+#, fuzzy
+#~ msgid "There are no available premium features."
+#~ msgstr "Desactivar la característica premium."
+
+#, fuzzy
+#~ msgid ""
+#~ "No premium features were downloaded because the setting is disabled. "
+#~ "Enable in the \"Main\" tab."
+#~ msgstr ""
+#~ "La actualización se realizó satisfactoriamente pero ni una característica "
+#~ "se descargó porque la configuración está deshabilitada. Habilítela en la "
+#~ "pestaña \"Principal\"."
+
+#, fuzzy
+#~ msgid "WP-Invoice Premium Feature: %s"
+#~ msgstr "Funciones Premium"
+
+#~ msgid "Loaded user from passed ID."
+#~ msgstr "Usuario cargado desde el ID pasado."
+
+#~ msgid "Loaded user from e-mail."
+#~ msgstr "Usuario cargado desde el correo electrónico."
+
+#~ msgid "User info not, found - assuming new user."
+#~ msgstr "Información del usuario no encontrado - asumiendo nuevo usuario."
+
+#~ msgid "function executed, no invoice ID found, assuming new invoice."
+#~ msgstr ""
+#~ "función ejecutada, no se encontró ID de factura, asumiendo nueva factura."
+
+#~ msgid "function executed, invoice_id: "
+#~ msgstr "función ejecutada, invoice_id: "
+
+#~ msgid "Warning: no user information loaded for this invoice."
+#~ msgstr ""
+#~ "Precaución: no se cargó la información del usuario para esta factura."
+
+#~ msgid "Error saving invoice. Subject (Title) cannot be empty."
+#~ msgstr ""
+#~ "Error guardando la factura. El asunto (Título) no puede estar vacío."
+
+#~ msgid "Error saving invoice. Query used: "
+#~ msgstr "Error guardando factura. Query usada: "
+
+#~ msgid ""
+#~ "This tab show a list of the premium features which are available for "
+#~ "purchase and those which you have purchased for WP-Invoice. You can see a "
+#~ "list of features available for purchase in the WP-Invoice Premium "
+#~ "Features section of our website. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-premium-"
+#~ "features/\">More...</a>"
+#~ msgstr ""
+#~ "Esta pestaña muestra una lista de las funciones de calidad que están "
+#~ "disponibles para su compra y los que usted ha comprado para WP-Invoice. "
+#~ "Usted puede ver una lista de funciones disponibles para su compra en la "
+#~ "sección Opciones Premium WP-Invoice de nuestra página web. <a target = "
+#~ "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
+#~ "invoice-settings-premium-features/\">Más...</a>"
+
+#, fuzzy
+#~ msgid "Active Invoice(s)"
+#~ msgstr "Ver Facturas"
+
+#, fuzzy
+#~ msgid "Paid Invoice(s)"
+#~ msgstr "Ver Facturas"
+
+#, fuzzy
+#~ msgid "You currently do not have any invoices"
+#~ msgstr "No se ha podido guardar la entrada en el registro de factura. %1s"
+
+#~ msgid ""
+#~ "Global WP-Invoice Settings were successfully migrated to the new version."
+#~ msgstr ""
+#~ "La configuración general de facturas se ha importado a la nueva versión "
+#~ "exitosamente!"
+
+#~ msgid "Invoices were migrated to the new version with errors."
+#~ msgstr ""
+#~ "Oops!, las facturas fueron importadas a la nueva versión con algunos "
+#~ "errores."
+
+#~ msgid "Invoices were successfully migrated to the new version."
+#~ msgstr "Las facturas fueron importadas a la nueva versión exitosamente."
+
+#~ msgid "Log data were successfully migrated to the new version."
+#~ msgstr "El archivo de registros ha sido enviado a la nueva versión."
+
+#~ msgid "Log data were migrated to the new version with errors."
+#~ msgstr ""
+#~ "Oops!,El archivo de registros ha sido enviado a la nueva versión con "
+#~ "algunos errores."
+
+#~ msgid "Old WP-Invoice version %s was found."
+#~ msgstr "La antigua versión %s de WP-Facturas ha sido encontrada."
+
+#~ msgid "Web Invoice setting options were successfully imported."
+#~ msgstr ""
+#~ "Las preferencias de Web Invoice han sido importadas satisfactoriamente."
+
+#~ msgid "Invoices from Web Invoice plugin were migrated with errors."
+#~ msgstr "Las facturas de Web Invoice se han importado con errores."
+
+#~ msgid "Invoices from Web Invoice plugin were successfully migrated."
+#~ msgstr "Las facturas de Web Invoice se han importado satisfactoriamente."
+
+#~ msgid "Log data from Web Invoice plugin were successfully migrated."
+#~ msgstr ""
+#~ "El archivo de registros de Web Invoice ha sido importado exitosamente!"
+
+#~ msgid "Log data from Web Invoice plugin were migrated with errors."
+#~ msgstr ""
+#~ "Oops!,El archivo de registros de Web Invoice ha sido importado con "
+#~ "errores."
+
+#, fuzzy
+#~ msgid "Last Day"
+#~ msgstr "Apellido"
+
+#, fuzzy
+#~ msgid "Last Week"
+#~ msgstr "Apellido"
+
+#, fuzzy
+#~ msgid "My Invoice Statistics"
+#~ msgstr "Título de Factura"
+
+#, fuzzy
+#~ msgid "My Invoices"
+#~ msgstr "Facturas"
+
+#, fuzzy
+#~ msgid "No invoices"
+#~ msgstr "No se encontraron facturas"
+
+#, fuzzy
+#~ msgid "Total invoices"
+#~ msgstr "Las facturas de importación"
+
+#, fuzzy
+#~ msgid "Total dept"
+#~ msgstr "Total Recaudado"
+
+#, fuzzy
+#~ msgid "Total balance"
+#~ msgstr "Total Recaudado"
+
+#~ msgid "Branded Billing"
+#~ msgstr "Facturación de marca"
+
+#, fuzzy
+#~ msgid "Goals"
+#~ msgstr "Falso"
+
+#, fuzzy
+#~ msgid "Show Goal lines"
+#~ msgstr "Mostrar todos los usuarios"
+
+#, fuzzy
+#~ msgid "Week Goal"
+#~ msgstr "Semanal"
+
+#, fuzzy
+#~ msgid "Month Goal"
+#~ msgstr "Mensual"
+
+#, fuzzy
+#~ msgid "Send Invoice"
+#~ msgstr "Nueva Factura"
+
+#~ msgid "Minimum Core Version"
+#~ msgstr "Versión mínima del núcleo"
+
+#~ msgid "Feature Name"
+#~ msgstr "Nombre de Característica"
+
+#~ msgid "Show checkbox for mandatory terms acceptance."
+#~ msgstr "Mostrar casilla de términos obligatoria aceptación."
+
+#~ msgid "Week(s) [PayPal only]"
+#~ msgstr "Semana (s) [PayPal solamente]"
+
+#~ msgid "Year(s) [PayPal only]"
+#~ msgstr "Año (s) [PayPal solamente]"
+
+#~ msgid "month(s)"
+#~ msgstr "mes(es)"
+
+#~ msgid "days"
+#~ msgstr "días"
