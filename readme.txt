@@ -81,6 +81,9 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 == Upgrade Notice ==
 
+= Version 4.0.0 =
+* Refactoring
+
 = Version 3.09.5 =
 * WordPress 4.0 compatibility.
 
