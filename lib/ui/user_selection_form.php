@@ -17,7 +17,7 @@
               <?php WPI_UI::draw_user_auto_complete_field(); ?>
               <input type="submit" class="button" id="wp_invoice_create_new_invoice" value="<?php esc_attr(_e('Create New', ud_get_wp_invoice()->domain)); ?>">
               <?php if($wpi_settings['total_invoice_count']) : ?>
-              <span id="wp_invoice_copy_invoice" class="wp_invoice_click_me">copy from another</span>
+              <span id="wp_invoice_copy_invoice" class="wp_invoice_click_me"><?php _e( 'copy from another', ud_get_wp_invoice()->domain ) ?></span>
               <?php endif; ?>
             </td>
           </tr>
@@ -27,7 +27,7 @@
             <td>
               <?php WPI_UI::draw_template_auto_complete_field(); ?>
               <input type="submit" class="button" value="<?php esc_attr(_e('New Invoice from Template', ud_get_wp_invoice()->domain)) ?>">
-              <span id="wp_invoice_copy_invoice_cancel" class="wp_invoice_click_me">cancel</span>
+              <span id="wp_invoice_copy_invoice_cancel" class="wp_invoice_click_me"><?php _e( 'cancel', ud_get_wp_invoice()->domain ) ?></span>
             </td>
           </tr>
           <?php endif; ?>
