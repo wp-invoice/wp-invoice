@@ -8,7 +8,7 @@ namespace UsabilityDynamics\WPI {
 
   if( !class_exists( 'UsabilityDynamics\WPI\WPI_Bootstrap' ) ) {
 
-    final class WPI_Bootstrap extends \UsabilityDynamics\WP\Bootstrap {
+    final class WPI_Bootstrap extends \UsabilityDynamics\WP\Bootstrap_Plugin {
       
       /**
        * Singleton Instance Reference.
@@ -24,11 +24,6 @@ namespace UsabilityDynamics\WPI {
        * Instantaite class.
        */
       public function init() {
-        //** Be sure we do not have errors. Do not initialize plugin if we have them. */
-        if( $this->has_errors() ) {
-          return null;
-        }
-        
         add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
         add_filter( "option_wpi_options", array( 'WPI_Functions', 'option_wpi_options' ) );
 
@@ -158,6 +153,19 @@ namespace UsabilityDynamics\WPI {
 
         update_option( 'wpi_activation_time', time() );
         
+      }
+      
+      /**
+       * Return localization's list.
+       *
+       * @author peshkov@UD
+       * @return array
+       */
+      public function get_localization() {
+        return apply_filters( 'wpp::get_localization', array(
+          'licenses_menu_title' => __( 'Add-ons', $this->domain ),
+          'licenses_page_title' => __( 'WP-Invoice Add-ons Manager', $this->domain ),
+        ) );
       }
       
       /**
