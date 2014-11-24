@@ -29,6 +29,7 @@
   <div class="wpi_right_col">
     <?php show_invoice_history(); ?>
     <?php do_action('wpi_front_end_right_col_bottom'); ?>
+    <?php apply_filters("wpi_closed_comments", $invoice); ?>
   </div>
 
 </div>

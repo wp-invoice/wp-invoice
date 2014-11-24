@@ -1,17 +1,20 @@
 <?php
 
+/**
+ * Define default event types
+ */
 define( 'WPI_EVENT_TYPE_ADD_PAYMENT', 'add_payment' );
 define( 'WPI_EVENT_TYPE_ADD_CHARGE', 'add_charge' );
 define( 'WPI_EVENT_TYPE_ADD_ADJUSTMENT', 'do_adjustment' );
 define( 'WPI_EVENT_TYPE_ADD_REFUND', 'refund' );
 
+/**
+ * WP-Invoice AJAX Handler
+ */
 class WPI_Ajax {
 
   /**
    * Check for availability of premium features and download them
-   *
-   * @since 3.01
-   *
    */
   static function check_plugin_updates() {
 
@@ -29,7 +32,7 @@ class WPI_Ajax {
    * Search user for invoice page metabox
    * @global object $wpdb
    */
-  function search_email() {
+  static function search_email() {
     global $wpdb, $blog_id;
 
     $users_found = $wpdb->get_results( "SELECT `u`.`user_email` as `id`, `u`.`user_email` as `title`
@@ -49,7 +52,7 @@ class WPI_Ajax {
    * Search users for filter invoice section
    * @global object $wpdb
    */
-  function search_recipient() {
+  static function search_recipient() {
     global $wpdb, $blog_id;
 
     $users_found = $wpdb->get_results( "SELECT `u`.`ID` as `id`, CONCAT(`u`.`display_name`, ' (', `u`.`user_email`, ')') as `title`
@@ -72,8 +75,7 @@ class WPI_Ajax {
    * @since 3.0
    *
    */
-  function get_user_date( $user_email = false ) {
-    global $wpdb;
+  static function get_user_date( $user_email = false ) {
 
     if ( !$user_email ) {
       return;
@@ -101,11 +103,6 @@ class WPI_Ajax {
 
   /**
    * Function for displaying WPI Data Table rows
-   *
-   * Ported from WP-CRM
-   *
-   * @since 3.0
-   *
    */
   static function wpi_list_table() {
     global $wpi_settings;
@@ -128,7 +125,7 @@ class WPI_Ajax {
 
     $sColumns = explode( ",", $sColumns );
 
-    //* Init table object */
+    //** Init table object */
     $wp_list_table = new WPI_Object_List_Table( array(
       "ajax" => true,
       "per_page" => $per_page,
@@ -157,35 +154,38 @@ class WPI_Ajax {
     return json_encode( array(
       'sEcho' => $sEcho,
       'iTotalRecords' => count( $wp_list_table->all_items ),
-      // @TODO: Why iTotalDisplayRecords has $wp_list_table->all_items value ? Maxim Peshkov
       'iTotalDisplayRecords' => count( $wp_list_table->all_items ),
       'aaData' => $data
     ) );
   }
 
   /**
-  Updates usermeta - mostly for updating screen options
+   * Updates usermeta - mostly for updating screen options
+   * @global type $user_ID
    */
-  function update_user_option() {
+  static function update_user_option() {
     global $user_ID;
-    if ( !isset( $user_ID ) )
+    
+    if ( !isset( $user_ID ) ) {
       die();
+    }
+    
     $meta_key = $_REQUEST[ 'meta_key' ];
     $meta_value = $_REQUEST[ 'meta_value' ];
-    if ( empty( $meta_value ) )
+    
+    if ( empty( $meta_value ) ) {
       $meta_value = false;
+    }
+    
     update_user_option( $user_ID, $meta_key, $meta_value, true );
     die();
   }
 
   /**
    * Process special invoice-related event
-   *
-   * @global object $wpdb
    */
-  function process_manual_event() {
-    global $wpdb;
-
+  static function process_manual_event() {
+    
     $invoice_id = $_REQUEST[ 'invoice_id' ];
     $event_type = $_REQUEST[ 'event_type' ];
     $event_amount = $_REQUEST[ 'event_amount' ];
@@ -264,8 +264,8 @@ class WPI_Ajax {
    * @global object $wpdb
    * @global array $wpi_settings
    */
-  function get_notification_email() {
-    global $wpdb, $wpi_settings, $invoice;
+  static function get_notification_email() {
+    global $wpi_settings, $invoice;
 
     require_once WPI_Path . '/core/wpi_template_functions.php';
 
@@ -359,10 +359,8 @@ class WPI_Ajax {
 
   /**
    * This function sends our our notifications from the admin screen
-   *
-   * @since 3.0
    */
-  function send_notification() {
+  static function send_notification() {
     global $wpi_settings;
 
     //** Start buffering to avoid appearing any errors in response */
@@ -400,7 +398,7 @@ class WPI_Ajax {
   /**
    * Save invoice from Ajax
    */
-  function save_invoice() {
+  static function save_invoice() {
     $invoice_id = WPI_Functions::save_invoice( $_REQUEST[ 'wpi_invoice' ] );
     if ( $invoice_id ) {
       echo sprintf( __( "Saved. <a target='_blank' href='%s'>View Invoice</a>", WPI ), get_invoice_permalink( $invoice_id ) ) . ". " . __( 'Invoice id #', WPI ) . "<span id='new_invoice_id'>$invoice_id</span>.";
@@ -411,62 +409,45 @@ class WPI_Ajax {
   }
 
   /**
-  Returns invoice status using the get_status function, then dies.
+   * Returns invoice status using the get_status function, then dies.
    */
-  function show_invoice_status() {
+  static function show_invoice_status() {
     $invoice_id = intval( $_REQUEST[ 'invoice_id' ] );
     WPI_Functions::get_status( wpi_invoice_id_to_post_id( $invoice_id ) );
     die();
   }
 
-  function show_invoice_charges() {
+  /**
+   * Invoice charges
+   */
+  static function show_invoice_charges() {
     $invoice_id = intval( $_REQUEST[ 'invoice_id' ] );
     WPI_Functions::get_charges( wpi_invoice_id_to_post_id( $invoice_id ) );
     die();
   }
 
   /**
-  Used to save hidden columns.
-  May not be necessary with newer version of WP
-   */
-  function wpi_columns() {
-    global $user_ID;
-    if ( isset( $_POST[ 'columns' ] ) ) {
-      $temp_columns = explode( ',', $_POST[ 'columns' ] );
-      foreach ( $temp_columns as $key => $value ) {
-        $settings[ 'columns' ][ $value ] = 'hidden';
-      }
-    }
-    // save all settings to user settings
-    update_user_meta( $user_ID, $_POST[ 'page' ], $settings );
-    echo 1;
-    exit;
-  }
-
-  /**
    * This function prints out our invoice data for debugging purposes
-   *
-   * @since 3.0
    */
-  function debug_get_invoice() {
-    global $wpi_settings;
-    if ( !isset( $_REQUEST[ 'invoice_id' ] ) )
+  static function debug_get_invoice() {
+
+    if ( !isset( $_REQUEST[ 'invoice_id' ] ) ) {
       die( __( "Please enter an invoice id.", WPI ) );
+    }
+    
     $this_invoice = new WPI_Invoice();
     $this_invoice->load_invoice( "id=" . $_REQUEST[ 'invoice_id' ] );
     echo WPI_Functions::pretty_print_r( $this_invoice->data );
+    
     die();
   }
 
   /**
    * Install templates for WPI
-   *
-   * @return null
    */
-  function install_templates() {
+  static function install_templates() {
 
     $errors = array();
-
     $custom_template_path = STYLESHEETPATH . "/wpi";
     $original_template_path = dirname( __FILE__ ) . "/template";
 
@@ -530,7 +511,7 @@ class WPI_Ajax {
    * @global object $wpdb
    * @author korotkov@ud
    */
-  function template_autocomplete_handler() {
+  static function template_autocomplete_handler() {
     global $wpdb;
 
     $invoices_found = $wpdb->get_results( "SELECT `post_title` as `label`,`ID` as `value`

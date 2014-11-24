@@ -245,6 +245,8 @@ class WPI_Functions {
    */
   static function get_sales_by( $search_vars = false, $interval = "weekly" ) {
     global $wpdb;
+    
+    $sql = '';
 
     switch ( $interval ) {
       case "weekly":
@@ -701,7 +703,7 @@ class WPI_Functions {
    *
    * @since 3.0
    */
-  function update_user( $userdata ) {
+  static function update_user( $userdata ) {
 
     $user_id = email_exists( $userdata[ 'user_email' ] );
 
@@ -823,7 +825,7 @@ class WPI_Functions {
    * @since 3.0
    *
    */
-  function the_post( &$post ) {
+  static function the_post( &$post ) {
     global $post;
 
     if ( $post->post_type == 'wpi_object' ) {
@@ -868,7 +870,7 @@ class WPI_Functions {
   /**
    * Figure out current page for front-end AJAX function
    */
-  function current_page() {
+  static function current_page() {
     $pageURL = 'http';
     if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
       $pageURL .= "s";
@@ -891,45 +893,50 @@ class WPI_Functions {
    *
    * @return boolean|\WPI_Invoice
    */
-  function get_user_invoices( $args ) {
-    global $wpdb;
-
-    $defaults = array( 'user_id' => false, 'status' => false );
+  static function get_user_invoices( $args ) {
+    
+    $defaults = array( 'user_id' => false, 'status' => false, 'type' => false );
     extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
 
-    // User email and id are the same thing
-    if ( !$user_id && isset( $user_email ) )
+    //** User email and id are the same thing */
+    if ( !$user_id && isset( $user_email ) ) {
       $user_id = $user_email;
+    }
 
-    // If nothing is set, nothing we can do
-    if ( !isset( $user_id ) )
+    //** If nothing is set, nothing we can do */
+    if ( !isset( $user_id ) ) {
       return;
+    }
+          
+    $query_invoices = new WP_Query(array(
+      'post_type' => 'wpi_object',
+      'post_status' => $status,
+      'meta_query' => array(
+		array(
+          'key'     => 'user_email',
+          'value'   => $user_id
+		),
+        array(
+          'key'   => 'type',
+          'value' => $type
+        )
+      ),
+      'posts_per_page' => -1
+    ));
 
-    $users_invoices = $wpdb->get_col( "
-          SELECT post_id
-          FROM {$wpdb->postmeta} postmeta
-          JOIN {$wpdb->posts} posts ON posts.ID = postmeta.post_id
-          WHERE postmeta.meta_key = 'user_email'
-            AND postmeta.meta_value = '" . $user_id . "'
-            AND posts.post_type = 'wpi_object'
-            AND posts.post_status = '$status'
-        " );
-
-    // Nothing found
-    if ( !is_array( $users_invoices ) )
-      return false;
+    //** Nothing found */
+    if ( empty( $query_invoices->posts ) ) {
+      return array();
+    }
 
     $return = array();
 
-    foreach ( $users_invoices as $post_id ) {
+    foreach ( $query_invoices->posts as $_post ) {
 
-      $invoice_id = wpi_post_id_to_invoice_id( $post_id );
+      $invoice_id = wpi_post_id_to_invoice_id( $_post->ID );
 
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id={$invoice_id}" );
-
-      if ( !empty( $status ) && $status != $this_invoice->data[ 'post_status' ] )
-        continue;
 
       $return[ ] = $this_invoice;
     }
@@ -938,12 +945,13 @@ class WPI_Functions {
   }
 
   /**
-  Add message to notice queve
+   * Add message to notice queue
    */
-  function add_message( $message, $type = 'good', $class = '' ) {
+  static function add_message( $message, $type = 'good', $class = '' ) {
     global $wpi_messages;
-    if ( !is_array( $wpi_messages ) )
+    if ( !is_array( $wpi_messages ) ) {
       $wpi_messages = array();
+    }
 
     array_push( $wpi_messages, array( 'message' => $message, 'type' => $type, 'class' => $class ) );
   }
@@ -956,13 +964,14 @@ class WPI_Functions {
   static function print_messages() {
     global $wpi_messages;
 
-    if ( count( $wpi_messages ) < 1 )
+    if ( count( $wpi_messages ) < 1 ) {
       return;
+    }
 
     $update_messages = array();
     $warning_messages = array();
 
-    echo "<div id='wpi_message_stack'>";
+    echo '<div id="wpi_message_stack">';
 
     foreach ( $wpi_messages as $message ) {
 
@@ -1001,7 +1010,7 @@ class WPI_Functions {
    *
    * @return type
    */
-  function wpi_use_custom_template( $template ) {
+  static function wpi_use_custom_template( $template ) {
     global $wpi_settings;
 
     /* if custom templates are turned off, don't bother checking */
@@ -1036,7 +1045,7 @@ class WPI_Functions {
    *
    * @param type $invoice_id
    */
-  function get_status( $invoice_id ) {
+  static function get_status( $invoice_id ) {
 
     $this_invoice = new WPI_Invoice();
     $this_invoice->load_invoice( "id=$invoice_id" );
@@ -1072,7 +1081,7 @@ class WPI_Functions {
    *
    * @param int $post_id
    */
-  function get_charges( $post_id ) {
+  static function get_charges( $post_id ) {
 
     $charges_list = get_post_meta( $post_id, 'itemized_charges', true );
 
@@ -1150,11 +1159,13 @@ class WPI_Functions {
    * @author korotkov@ud
    */
   function remove_blank_values( $array ) {
-    if ( !is_array( $array ) )
+    if ( !is_array( $array ) ) {
       return false;
+    }
     foreach ( $array as $key => $value ) {
-      if ( !empty( $value ) )
+      if ( !empty( $value ) ) {
         $return[ $key ] = $value;
+      }
     }
     return $return;
   }
@@ -1163,36 +1174,39 @@ class WPI_Functions {
    * Run when a plugin is being activated
    * Handles the task of migrating from old version of WPI to new
    */
-  function Activate() {
-    global $wpdb, $wpi_settings;
-    /* check if scheduler already sheduled */
+  static function Activate() {
+
+    //** check if scheduler already sheduled */
     if ( !wp_next_scheduled( 'wpi_hourly_event' ) ) {
-      /* Setup WPI schedule to handle recurring invoices */
+      
+      //** Setup WPI schedule to handle recurring invoices */
       wp_schedule_event( time(), 'hourly', 'wpi_hourly_event' );
     }
     if ( !wp_next_scheduled( 'wpi_update' ) ) {
-      /* Scheduling daily update event */
+      
+      //** Scheduling daily update event */
       wp_schedule_event( time(), 'daily', 'wpi_update' );
     }
 
     WPI_Functions::log( __( "Schedule created with plugin activation.", WPI ) );
 
-    /* Try to create new schema tables */
+    //** Try to create new schema tables */
     WPI_Functions::create_new_schema_tables();
 
-    /* Get previous activated version */
+    //** Get previous activated version */
     $current_version = get_option( 'wp_invoice_version' );
 
-    /* If no version found at all, we do new install */
+    //** If no version found at all, we do new install */
     if ( $current_version == WP_INVOICE_VERSION_NUM ) {
       WPI_Functions::log( __( "Plugin activated. No older versions found, installing version ", WPI ) . WP_INVOICE_VERSION_NUM . "." );
     } else if ( (int) $current_version < 3 ) {
-      /* Determine if legacy data exist */
+      
+      //** Determine if legacy data exist */
       WPI_Legacy::init();
       WPI_Functions::log( __( "Plugin activated.", WPI ) );
     }
 
-    /* Update version */
+    //** Update version */
     update_option( 'wp_invoice_version', WP_INVOICE_VERSION_NUM );
 
     WPI_Functions::check_for_premium_features();
@@ -1200,9 +1214,13 @@ class WPI_Functions {
     update_option( 'wpi_activation_time', time() );
   }
 
-  function Deactivate() {
+  /**
+   * Deactivation hook
+   */
+  static function Deactivate() {
     wp_clear_scheduled_hook( 'wpi_hourly_event' );
     wp_clear_scheduled_hook( 'wpi_update' );
+    wp_clear_scheduled_hook( 'wpi_spc_remove_abandoned_transactions' );
     WPI_Functions::log( __( "Plugin deactivated.", WPI ) );
   }
 
@@ -1215,7 +1233,7 @@ class WPI_Functions {
    *
    * @return bool True on successful update, false on failure.
    */
-  function save_update_profile( $user_id, $old_user_data ) {
+  static function save_update_profile( $user_id, $old_user_data ) {
     global $wpi_settings;
 
     if ( empty( $user_id ) || $user_id == 0 ) {
@@ -1225,7 +1243,7 @@ class WPI_Functions {
     $custom_user_information = apply_filters( 'wpi_user_information', $wpi_settings[ 'user_meta' ][ 'custom' ] );
     $user_information = array_merge( $wpi_settings[ 'user_meta' ][ 'required' ], $custom_user_information );
 
-    // On Adding/Editing Invoice user data exists in ['wpi_invoice']['user_data']
+    //** On Adding/Editing Invoice user data exists in ['wpi_invoice']['user_data'] */
     $data = !empty( $_POST[ 'wpi_invoice' ][ 'user_data' ] ) ? $_POST[ 'wpi_invoice' ][ 'user_data' ] : $_POST;
 
     if ( !is_array( $data ) ) {
@@ -1249,7 +1267,7 @@ class WPI_Functions {
    * @return boolean
    * @author odokienko@UD
    */
-  function protect_user_invoices( $user_id, $old_user_data ) {
+  static function protect_user_invoices( $user_id, $old_user_data ) {
     global $wpdb;
 
     if ( empty( $user_id ) || $user_id == 0 ) {
@@ -1268,8 +1286,6 @@ class WPI_Functions {
           AND postmeta.meta_value = '" . $old_user_data->user_email . "'
           AND posts.post_type = 'wpi_object'
       " );
-
-      WPI_Functions::console_log( 'WPI_Invoice::protect_user_invoices() ' . __( 'user_email changed.', WPI ) );
 
     }
 
@@ -1305,7 +1321,7 @@ class WPI_Functions {
   /**
    * Called by template_redirect to validate whether an invoice should be displayed
    */
-  function validate_page_hash( $md5_invoice_id ) {
+  static function validate_page_hash( $md5_invoice_id ) {
     global $wpdb, $wpi_settings, $post, $invoice_id;
 
     $invoice_id = $wpdb->get_var( "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key='invoice_id' AND MD5(meta_value) = '{$md5_invoice_id}'" );
@@ -1397,17 +1413,18 @@ class WPI_Functions {
    *
    * @return type
    */
-  function money_format( $number ) {
+  static function money_format( $number ) {
     global $wpi_settings;
     return number_format( (float) $number, 2, '.', !empty( $wpi_settings[ 'thousands_separator_symbol' ] ) ? $wpi_settings[ 'thousands_separator_symbol' ] : '' );
   }
 
   /**
-  We use this to merge two arrays.
-  Used when loading default billing data, and then being updated by invoice-specific data
-  Awesome function from http://us2.php.net/manual/en/function.array-merge-recursive.php
+   * We use this to merge two arrays.
+   * Used when loading default billing data, and then being updated by invoice-specific data
+   * Awesome function from http://us2.php.net/manual/en/function.array-merge-recursive.php
+   * @return type
    */
-  function &array_merge_recursive_distinct() {
+  static function &array_merge_recursive_distinct() {
     $aArrays = func_get_args();
     $aMerged = $aArrays[ 0 ];
 
@@ -1426,71 +1443,21 @@ class WPI_Functions {
     return $aMerged;
   }
 
-  /** @TODO: Update it to show Settings page link */
-  function set_plugin_page_settings_link( $links ) {
-    /* $settings_link = "<a href='{$core->options['links']['settings_page']}'>Settings</a>";
-      array_unshift($links, $settings_link); */
-    return $links;
-  }
-
-  // Checks whether all plugin tables exist via tables_exist function
-  function check_tables() {
-    global $wpdb;
-    if ( !WPI_Functions::tables_exist() ) {
-      $message = __( "The plugin database tables are gone, deactivate and reactivate plugin to re-create them.", WPI );
-    }
-    WPI_UI::error_message( $message );
-  }
-
-  function tables_exist() {
-    global $wpdb;
-    if ( !$wpdb->query( "SHOW TABLES LIKE '{$wpdb->base_prefix}wpi_object_log';" ) )
-      return false;
-    return true;
-  }
-
-  // Used for displaying variables in the UI, mostly for debugging
-  function qc( $what, $force = false ) {
-    global $wp_invoice_debug;
-
-    if ( is_array( $what ) ) {
-      $what = WPI_Functions::pretty_print_r( $what, false );
-    }
-
-    if ( is_array( $what ) || is_string( $what ) ) { // this way we don't try and show classess
-      if ( $wp_invoice_debug || $force ) {
-        ?>
-        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-          <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-            <span class="message_content"><?php echo $what; ?></span></p>
-        </div>
-      <?php
-      }
-    } else {
-      ?>
-      <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-        <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-          <span class="message_content"><pre><?php print_r( $what ); ?></pre></span></p>
-      </div>
-    <?php
-    }
-
-    // Add QC Message to Log
-    //WPI_Functions::log($what)
-  }
-
-  // Logs events and saved them into WordPress option 'wpi_log'
-  // This function is intended to ease troubleshooting later
-  function log( $what ) {
+  /**
+   * Logs events and saved them into WordPress option 'wpi_log'
+   * @param type $what
+   * @return boolean
+   */
+  static function log( $what ) {
     $wpi_log = get_option( 'wpi_log' );
 
-    // If no session log created yet, create one
+    //** If no session log created yet, create one */
     if ( !is_array( $wpi_log ) ) {
       $wpi_log = array();
       array_push( $wpi_log, array( time(), "Log Started." ) );
     }
 
-    // Insert event into session
+    //** Insert event into session */
     array_push( $wpi_log, array( time(), $what ) );
 
     update_option( 'wpi_log', $wpi_log );
@@ -1528,12 +1495,16 @@ class WPI_Functions {
       $result .= var_dump( $data, true );
       $result .= " &lt;=========";
     }
-    if ( $echo == false )
+    if ( $echo == false ) {
       return $result;
+    }
     $echo;
   }
 
-  function settings_action() {
+  /**
+   * Settings action
+   */
+  static function settings_action() {
 
     if ( isset( $_REQUEST[ 'wpi_settings' ] ) ) {
 
@@ -1556,7 +1527,7 @@ class WPI_Functions {
    *
    * @return boolean
    */
-  function save_invoice( $invoice, $args = '' ) {
+  static function save_invoice( $invoice, $args = '' ) {
 
     //** Set function additional params */
     $defaults = array(
@@ -1732,13 +1703,13 @@ class WPI_Functions {
   static function pre_update_option_wpi_options( $new_value, $old_value ) {
     global $wpdb;
 
-    $default_currency_code = $new_value[ 'currency' ][ "default_currency_code" ];
+    $default_currency_code = !empty($new_value[ 'currency' ][ 'default_currency_code' ])?$new_value[ 'currency' ][ 'default_currency_code' ]:'';
     $protected_currencies = array();
 
-    /* check for curency with default_currency_code*/
+    //** check for curency with default_currency_code */
     $protected_currencies[ ] = $default_currency_code;
 
-    /* check for currencies that are already used in invoices */
+    //** check for currencies that are already used in invoices */
     $results = $wpdb->get_results( "
       SELECT DISTINCT `{$wpdb->prefix}postmeta`.meta_value
       FROM `{$wpdb->posts}`
@@ -1832,7 +1803,7 @@ class WPI_Functions {
    * Ran everytime.
    *
    * @since 3.0
-   *
+   * @todo What the hell $wp_properties does here?...
    */
   function register_post_type() {
     global $wpdb, $wpi_settings, $wp_properties;
@@ -1929,7 +1900,7 @@ class WPI_Functions {
    * @since 3.0
    *
    */
-  function create_new_schema_tables() {
+  static function create_new_schema_tables() {
     global $wpdb;
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -2035,7 +2006,7 @@ class WPI_Functions {
       'Minimum Core Version' => 'Minimum Core Version'
     );
 
-    $previos_data = $wpi_settings[ 'installed_features' ];
+    $previos_data = !empty($wpi_settings[ 'installed_features' ])?$wpi_settings[ 'installed_features' ]:array();
 
     $wpi_settings[ 'installed_features' ] = array();
 
@@ -2068,19 +2039,18 @@ class WPI_Functions {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] = $plugin_data[ 'Minimum Core Version' ];
           }
 
-          //** If feature has a Minimum Core Version and it is more than current version - we do not load **/
+          //** If feature has a Minimum Core Version and it is more than current version - we do not load */
           $feature_requires_upgrade = ( !empty( $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] ) && ( version_compare( WP_INVOICE_VERSION_NUM, $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'minimum_wpi_version' ] ) < 0 ) ? true : false );
 
           if ( $feature_requires_upgrade ) {
-            //** Disable feature if it requires a higher WPI version**/
+            //** Disable feature if it requires a higher WPI version */
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'true';
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'needs_higher_wpi_version' ] = 'true';
           } else {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'needs_higher_wpi_version' ] = 'false';
-            //$wpi_settings['installed_features'][$plugin_slug]['disabled'] = 'false';
           }
 
-          // Check if the plugin is disabled
+          //** Check if the plugin is disabled */
           if ( empty( $previos_data[ $plugin_slug ][ 'disabled' ] ) ) {
             $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'false';
           } else {
@@ -2090,13 +2060,13 @@ class WPI_Functions {
 
             include_once( WPI_Premium . "/" . $file );
 
-            // Disable plugin if class does not exists - file is empty
+            //** Disable plugin if class does not exists - file is empty */
             if ( !class_exists( $plugin_slug ) )
               unset( $wpi_settings[ 'installed_features' ][ $plugin_slug ] );
             else
               $wpi_settings[ 'installed_features' ][ $plugin_slug ][ 'disabled' ] = 'false';
           } else {
-            // Feature not loaded because it is disabled
+            //** Feature not loaded because it is disabled */
           }
         }
       }
@@ -2196,7 +2166,7 @@ class WPI_Functions {
         throw new Exception( __( 'There are no available premium features.', WPI ) );
       }
 
-      if ( $wpi_settings[ 'disable_automatic_feature_update' ] == 'true' ) {
+      if ( isset($wpi_settings[ 'disable_automatic_feature_update' ]) && $wpi_settings[ 'disable_automatic_feature_update' ] == 'true' ) {
         throw new Exception( __( 'No premium features were downloaded because the setting is disabled. Enable in the "Main" tab.', WPI ) );
       }
 
@@ -2313,7 +2283,7 @@ class WPI_Functions {
    *
    * @since 3.0
    */
-  function log_event( $object_id, $attribute, $action, $value, $text = '', $time = false ) {
+  static function log_event( $object_id, $attribute, $action, $value, $text = '', $time = false ) {
     global $wpdb, $current_user, $blog_id;
 
     if ( !$time ) {
@@ -2393,8 +2363,8 @@ class WPI_Functions {
    * @return array
    * @author korotkov@ud
    */
-  function get_wpi_crm_attributes() {
-    /** If WP-CRM not installed */
+  static function get_wpi_crm_attributes() {
+    //** If WP-CRM not installed */
     if ( !class_exists( 'WP_CRM_Core' ) ) return;
 
     global $wp_crm;
@@ -2420,7 +2390,7 @@ class WPI_Functions {
    * @return array
    * @author korotkov@ud
    */
-  function wpi_crm_custom_fields( $current_fields, $name ) {
+  static function wpi_crm_custom_fields( $current_fields, $name ) {
     $attributes = self::get_wpi_crm_attributes();
     if ( empty( $attributes ) ) return $current_fields;
 
@@ -2470,7 +2440,7 @@ class WPI_Functions {
    * @author odokienko@UD
    * @return array
    */
-  function wpi_crm_custom_notification( $current ) {
+  static function wpi_crm_custom_notification( $current ) {
 
     foreach ( WPI_Core::$crm_notification_actions as $action_key => $action_name ) {
       $current[ $action_key ] = $action_name;
@@ -2485,7 +2455,7 @@ class WPI_Functions {
    * @version 1.0
    * @author odokienko@UD
    */
-  function wp_crm_entry_type_label( $attr, $entity ) {
+  static function wp_crm_entry_type_label( $attr, $entity ) {
     global $wp_crm;
     switch ( $attr ) {
       case "wpi_notification":
@@ -2523,7 +2493,7 @@ class WPI_Functions {
    * @global array $wpi_settings
    * @return string
    */
-  function notification_mail_from() {
+  static function notification_mail_from() {
     global $wpi_settings;
 
     $email = empty( $wpi_settings[ 'mail_from_user_email' ] ) ? "wordpress@" . strtolower( $_SERVER[ 'SERVER_NAME' ] ) : $wpi_settings[ 'mail_from_user_email' ];
@@ -2537,7 +2507,7 @@ class WPI_Functions {
    * @global array $wpi_settings
    * @return type
    */
-  function notification_mail_from_name() {
+  static function notification_mail_from_name() {
     global $wpi_settings;
 
     $sendername = empty( $wpi_settings[ 'mail_from_sender_name' ] ) ? "WordPress" : stripslashes( $wpi_settings[ 'mail_from_sender_name' ] );
@@ -2596,7 +2566,7 @@ class WPI_Functions {
    * @author korotkov@ud
    * @since 3.08.4
    */
-  function delete_invoice_log( $args ) {
+  static function delete_invoice_log( $args ) {
 
     $defaults = array(
       'post_id' => 0
@@ -2625,7 +2595,7 @@ class WPI_Functions {
    * @param type $invoice_data
    * @return boolean
    */
-  function user_is_invoice_recipient( $invoice_data ) {
+  static function user_is_invoice_recipient( $invoice_data ) {
     global $current_user;
 
     if ( !$current_user->ID ) return false;
@@ -2919,7 +2889,7 @@ function send_notification( $invoice ) {
     $notification_data[ 'user_name' ] = wpi_get_user_display_name( $invoice );
     $notification_data[ 'user_id' ] = $invoice[ 'user_data' ][ 'ID' ];
 
-    $admin = get_user_by_email( get_option( 'admin_email' ) );
+    $admin = get_user_by( 'email', get_option( 'admin_email' ) );
     $notification_data[ 'admin_email' ] = stripslashes( $admin->user_email );
     $notification_data[ 'admin_id' ] = $admin->ID;
     $notification_data[ 'admin_name' ] = stripslashes( $admin->display_name );

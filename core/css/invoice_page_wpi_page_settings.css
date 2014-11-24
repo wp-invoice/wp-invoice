@@ -114,6 +114,10 @@ td.wpi_premium_feature_image {
   padding: 20px 10px;
 }
 
+#wp_invoice_settings_page .form-table .description {
+  font-size: 10px;
+}
+
 #wp_invoice_settings_page ul.wp_invoice_settings_tabs {
   background: none repeat scroll 0 0 transparent;
   border: medium none;
@@ -191,4 +195,8 @@ td.wpi_premium_feature_image {
 }
 .updated.wpi_promotional_notice .wpi_promotional_notice_bottom_line a:hover {
   color: #eb7525;
+}
+.wpi_products_labels td,
+.wpi_products_support td {
+  padding:5px;
 }

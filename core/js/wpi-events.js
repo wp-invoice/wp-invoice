@@ -73,7 +73,7 @@ jQuery( document ).ready( function () {
   } );
 
   //** Accordions */
-  var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
+  var first_time_setup_accordion = jQuery( "#first_time_setup_accordion" ).accordion( {heightStyle: "content", header: "h3", animated: false, autoHeight: false, icons: {'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus'}} );
   var wpi_payment_accordion = jQuery( ".wp_invoice_accordion" ).accordion( {
     heightStyle: "content",
     header: "h3",
@@ -241,7 +241,7 @@ jQuery( document ).ready( function () {
     }
   } ) );
 
-  jQuery( '.item_name, .item_quantity, .item_price, .item_price input, .item_amount, .line_tax_item, .item_charge_tax' ).on( "blur", function () {
+  jQuery(document).on( "blur", '.item_name, .item_quantity, .item_price, .item_price input, .item_amount, .line_tax_item, .item_charge_tax', function () {
     wpi_recalc_totals();
     var name = jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).find( '.item_name' );
     var price = jQuery( this ).parents( '.wp_invoice_itemized_list_row' ).find( '.item_price' );

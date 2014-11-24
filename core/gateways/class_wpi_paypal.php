@@ -164,7 +164,28 @@ class wpi_paypal extends wpi_gateway_base {
    * @return type
    */
   static public function get_api_url( $invoice ) {
-    return $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] == 'N' ? apply_filters( 'wpi_paypal_live_url', 'https://www.paypal.com/cgi-bin/webscr' ) : apply_filters( 'wpi_paypal_demo_url', 'https://www.sandbox.paypal.com/cgi-bin/webscr' );
+    return 
+      (!empty( $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] ) && $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] == 'Y') 
+      ? apply_filters( 'wpi_paypal_demo_url', 'https://www.sandbox.paypal.com/cgi-bin/webscr' )
+      : ( strlen($invoice['billing']['wpi_paypal']['settings']['test_mode']['value'])>1 ? $invoice['billing']['wpi_paypal']['settings']['test_mode']['value'] : apply_filters( 'wpi_paypal_live_url', 'https://www.paypal.com/cgi-bin/webscr' ) );
+  }
+  
+  /**
+   * 
+   * @param type $invoice
+   * @return type
+   */
+  static public function get_business( $invoice ) {
+    return !empty( $invoice['billing']['wpi_paypal']['settings']['paypal_address']['value'] ) ? $invoice['billing']['wpi_paypal']['settings']['paypal_address']['value'] : '';
+  }
+  
+  /**
+   * 
+   * @param type $invoice
+   * @return type
+   */
+  static public function do_send_notify_url( $invoice ) {
+    return (!empty( $invoice['billing']['wpi_paypal']['settings']['send_notify_url']['value'] ) && $invoice['billing']['wpi_paypal']['settings']['send_notify_url']['value'] == '1') ? true : false;
   }
 
   /**
@@ -176,7 +197,6 @@ class wpi_paypal extends wpi_gateway_base {
   static function process_payment() {
     global $invoice;
 
-    $crm_data = $_REQUEST['crm_data'];
     $wp_users_id = $invoice['user_data']['ID'];
 
     //** update user data */
@@ -189,8 +209,9 @@ class wpi_paypal extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'phonenumber', $_REQUEST['night_phone_a'] . '-' . $_REQUEST['night_phone_b'] . '-' . $_REQUEST['night_phone_c']);
     update_user_meta($wp_users_id, 'country', $_REQUEST['country']);
     
-    if (!empty($crm_data))
-      self::user_meta_updated($crm_data);
+    if ( !empty( $_REQUEST['crm_data'] ) ) {
+      self::user_meta_updated( $_REQUEST['crm_data'] );
+    }
 
     echo json_encode(
             array('success' => 1)
@@ -250,45 +271,47 @@ class wpi_paypal extends wpi_gateway_base {
               $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_paypal');
 
               $html = '';
-              switch ($field_data['type']) {
-                case self::TEXT_INPUT_TYPE:
+              if ( !empty( $field_data['type'] ) ) {
+                switch ($field_data['type']) {
+                  case self::TEXT_INPUT_TYPE:
 
-                  ob_start();
-                  ?>
+                    ob_start();
+                    ?>
 
-                  <li class="wpi_checkout_row">
-                    <div class="control-group">
-                      <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
-                      <div class="controls">
-                        <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value']) ? $field_data['value'] : (!empty($invoice['user_data'][$field_slug]) ? $invoice['user_data'][$field_slug] : ''); ?>" />
+                    <li class="wpi_checkout_row">
+                      <div class="control-group">
+                        <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                        <div class="controls">
+                          <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value']) ? $field_data['value'] : (!empty($invoice['user_data'][$field_slug]) ? $invoice['user_data'][$field_slug] : ''); ?>" />
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
 
-                  <?php
-                  $html = ob_get_contents();
-                  ob_end_clean();
+                    <?php
+                    $html = ob_get_contents();
+                    ob_end_clean();
 
-                  break;
+                    break;
 
-                case self::SELECT_INPUT_TYPE:
+                  case self::SELECT_INPUT_TYPE:
 
-                  ob_start();
-                  ?>
+                    ob_start();
+                    ?>
 
-                  <li class="wpi_checkout_row">
-                    <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
-                <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
-                  </li>
+                    <li class="wpi_checkout_row">
+                      <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], WPI); ?></label>
+                  <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
+                    </li>
 
-                  <?php
-                  $html = ob_get_contents();
-                  ob_clean();
+                    <?php
+                    $html = ob_get_contents();
+                    ob_clean();
 
-                  break;
+                    break;
 
-                default:
-                  break;
+                  default:
+                    break;
+                }
               }
 
               echo $html;
@@ -304,7 +327,7 @@ class wpi_paypal extends wpi_gateway_base {
      * @author korotkov@ud
      * Full callback URL: http://domain/wp-admin/admin-ajax.php?action=wpi_gateway_server_callback&type=wpi_paypal
      */
-    function server_callback() {
+    static function server_callback() {
 
       if (empty($_POST))
         die(__('Direct access not allowed', WPI));
@@ -313,7 +336,7 @@ class wpi_paypal extends wpi_gateway_base {
       $invoice->load_invoice("id={$_POST['invoice']}");
 
       /** Verify callback request */
-      if ($this->_ipn_verified($invoice)) {
+      if (self::_ipn_verified($invoice)) {
 
         switch ($_POST['txn_type']) {
           /** New PayPal Subscription */
@@ -440,13 +463,13 @@ class wpi_paypal extends wpi_gateway_base {
      * Verify IPN and returns TRUE or FALSE
      * @author korotkov@ud
      * */
-    private function _ipn_verified($invoice = false) {
+    private static function _ipn_verified($invoice = false) {
 
       if ($invoice) {
-        $request = $this->get_api_url( $invoice->data ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $invoice->data ) . '?cmd=_notify-validate';
       } else {
         global $wpi_settings;
-        $request = $this->get_api_url( $wpi_settings ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $wpi_settings ) . '?cmd=_notify-validate';
       }
 
       foreach ($_POST as $key => $value) {

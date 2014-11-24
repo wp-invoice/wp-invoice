@@ -7,14 +7,14 @@
   <input type="hidden" name="currency_code" value="<?php echo $invoice['default_currency_code']; ?>">
   <input type="hidden" name="no_shipping" value="1">
   <input type="hidden" name="upload" value="1">
-  <input type="hidden" name="business" value="<?php echo $invoice['billing']['wpi_paypal']['settings']['paypal_address']['value']; ?>">
+  <input type="hidden" name="business" value="<?php echo $this->get_business( $invoice ); ?>">
   <input type="hidden" name="return" value="<?php echo get_invoice_permalink($invoice['invoice_id']); ?>">
   <input type="hidden" name="cancel_return" value="<?php echo get_invoice_permalink($invoice['invoice_id']); ?>">
   <input type="hidden" name="cbt" value="Go back to Merchant">
   <input type="hidden" name="item_name" value="<?php echo $invoice['post_title']; ?>">
   <input type="hidden" name="invoice" id="invoice_id" value="<?php echo $invoice['invoice_id']; ?>">
 
-  <?php if ( $invoice['billing']['wpi_paypal']['settings']['send_notify_url']['value'] == '1' ): ?>
+  <?php if ( $this->do_send_notify_url( $invoice ) ): ?>
     <input type="hidden" name="notify_url" value="<?php echo $invoice['billing']['wpi_paypal']['settings']['ipn']['value'] ?>" />
   <?php endif; ?>
 

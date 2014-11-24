@@ -1,22 +1,29 @@
 <?php
 require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 
-/*
- *
+/**
  * The current class is just wrapper.
  * To use dataTables Overview,
  * You should create child class
- *
  */
 class WPI_List_Table extends WP_List_Table {
+  
+  public $column_ids;
 
+  public $aoColumnDefs;
+  
+  public $aoColumns;
+  
+  public $_args;
+
+  /**
+   * Table scope
+   * @var type 
+   */
   public $table_scope;
 
   /**
    * Setup options mostly.
-   *
-   * @todo Get list of displayed columns from options
-   *
    */
   function __construct( $args = '' ) {
 
@@ -32,16 +39,16 @@ class WPI_List_Table extends WP_List_Table {
       'ajax' => false
     ) );
 
-    $this->_args = $args;
-
-    if ( empty( $this->_args[ 'current_screen' ] ) ) {
-      if ( $this->_args[ 'ajax' ] != true ) {
+    if ( empty( $args[ 'current_screen' ] ) ) {
+      if ( $args[ 'ajax' ] != true ) {
         $screen = get_current_screen();
-        $this->_args[ 'current_screen' ] = $screen->id;
+        $args[ 'current_screen' ] = $screen->id;
       }
     }
+    
+    $this->_args = $args;
 
-    //* Returns columns, hidden, sortable */
+    //** Returns columns, hidden, sortable */
     list( $columns, $hidden, $sortable ) = $this->get_column_info();
 
     //** Build aoColumns for ajax return */
@@ -83,14 +90,12 @@ class WPI_List_Table extends WP_List_Table {
     <p class="search-box">
       <label class="screen-reader-text" for="<?php echo $input_id ?>"><?php echo $text; ?>:</label>
       <input type="text" id="<?php echo $input_id ?>" name="wpi_search[s]" value="<?php _admin_search_query(); ?>"/>
-      <?php /* submit_button( $text, 'button', false, false, array('id' => 'search-submit') ); */ ?>
     </p>
-  <?php
+    <?php
   }
 
   /**
    * Whether the table has items to display or not
-   *
    */
   function has_items() {
     return !empty( $this->all_items );
@@ -98,7 +103,6 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Initialize the DataTable View
-   *
    */
   function data_tables_script( $args = '' ) {
     ?>
@@ -110,7 +114,7 @@ class WPI_List_Table extends WP_List_Table {
       <?php endforeach; ?>
 
       jQuery( document ).ready( function () {
-        /* Initialize the dataTable */
+        //** Initialize the dataTable */
         wp_list_table = jQuery( "#wp-list-table" ).dataTable( {
           "sPaginationType": "full_numbers",
           "sDom": 'prtpl',
@@ -144,7 +148,7 @@ class WPI_List_Table extends WP_List_Table {
           }
         } );
 
-        /* Search by Filter */
+        //** Search by Filter */
         jQuery( "#<?php echo $this->table_scope; ?>-filter #search-submit" ).click( function ( event ) {
           event.preventDefault();
           wp_list_table.fnDraw();
@@ -158,7 +162,7 @@ class WPI_List_Table extends WP_List_Table {
 
       //** Check which columns are hidden, and hide data table columns */
       function wp_list_table_do_columns () {
-        // Hide any "hidden" columns from table
+        //** Hide any "hidden" columns from table */
         var visible_columns = jQuery( '.hide-column-tog' ).filter( ':checked' ).map( function () {
           return jQuery( this ).val();
         } );
@@ -179,11 +183,6 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Get a list of all, hidden and sortable columns, with filter applied
-   *
-   * @since 3.1.0
-   * @access protected
-   *
-   * @return array
    */
   function get_column_info() {
     if ( isset( $this->_column_headers ) ) {
@@ -217,9 +216,6 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Get search results based on query.
-   *
-   * @todo Needs to be updated to handle the AJAX requests.
-   *
    */
   function prepare_items( $wpi_search = false ) {
 
@@ -246,21 +242,20 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Generate the table navigation above or below the table
-   *
-   * @since 3.1.0
-   * @access protected
    */
   function display_tablenav( $which ) {
+    
     if ( 'top' == $which ) {
       wp_nonce_field( 'bulk-' . $this->_args[ 'plural' ] );
     }
-    /* Get Bulk actions HTML */
+    
+    //** Get Bulk actions HTML */
     ob_start();
-    $this->bulk_actions( $which );
+    $this->bulk_actions();
     $bulk_actions = ob_get_contents();
     ob_end_clean();
 
-    /* If bulk actions exists, - show them */
+    //** If bulk actions exists, - show them */
     if ( !empty( $bulk_actions ) ) {
       ?>
       <div class="tablenav <?php echo esc_attr( $which ); ?>">
@@ -275,9 +270,6 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Display a monthly dropdown for filtering items
-   *
-   * @since 3.1.0
-   * @access protected
    */
   function months_dropdown( $post_type, $field_name = 'm', $return = false ) {
     global $wpdb, $wp_locale;
@@ -332,6 +324,9 @@ class WPI_List_Table extends WP_List_Table {
 
   }
 
+  /**
+   * Display rows
+   */
   function display_rows() {
     foreach ( $this->items as $userid => $object ) {
       echo "\n\t", $this->single_row( $object );
@@ -340,13 +335,10 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Display the table
-   *
-   * @since 3.1.0
-   * @access public
    */
   function display( $args = '' ) {
 
-    /* Display Bulk Actions if exist */
+    //** Display Bulk Actions if exist */
     $this->display_tablenav( 'top' );
     ?>
     <div class="wpi_above_overview_table"></div>
@@ -373,15 +365,9 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Print column headers, accounting for hidden and sortable columns.
-   *
-   * @since 3.1.0
-   * @access protected
-   *
    * @param bool $with_id Whether to set the id attribute or not
    */
   function print_column_headers( $with_id = true ) {
-    $screen = get_current_screen();
-
     list( $columns, $hidden, $sortable ) = $this->get_column_info();
 
     $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ];
@@ -440,6 +426,10 @@ class WPI_List_Table extends WP_List_Table {
     }
   }
 
+  /**
+   * No items
+   * @return string
+   */
   function no_items() {
     //** DataTables expects a set number of columns */
     $result[ 0 ] = '';
@@ -459,7 +449,6 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Generate HTML for a single row on the users.php admin panel.
-   *
    */
   function single_row( $object ) {
     global $wpi;
@@ -509,10 +498,8 @@ class WPI_List_Table extends WP_List_Table {
 
   /**
    * Keep it simple here.  Mostly to be either replaced by child classes, or hook into
-   *
    */
   function single_cell( $full_column_name, $object, $object_id ) {
-    global $wpi;
 
     $object = (array) $object;
 
@@ -533,6 +520,49 @@ class WPI_List_Table extends WP_List_Table {
     return $r;
   }
 
-  //function bulk_actions(){}
+  /**
+   * Display the bulk actions dropdown.
+   *
+   * @since 3.1.0
+   * @access public
+   */
+  function bulk_actions( $which = '' ) {
+    if (is_null($this->_actions)) {
+      $no_new_actions = $this->_actions = $this->get_bulk_actions();
+      /**
+       * Filter the list table Bulk Actions drop-down.
+       *
+       * The dynamic portion of the hook name, $this->screen->id, refers
+       * to the ID of the current screen, usually a string.
+       *
+       * This filter can currently only be used to remove bulk actions.
+       *
+       * @since 3.5.0
+       *
+       * @param array $actions An array of the available bulk actions.
+       */
+      $this->_actions = apply_filters("bulk_actions-" . get_current_screen()->id, $this->_actions);
+      $this->_actions = array_intersect_assoc($this->_actions, $no_new_actions);
+      $two = '';
+    } else {
+      $two = '2';
+    }
 
+    if (empty($this->_actions))
+      return;
+
+    echo "<select name='action$two'>\n";
+    echo "<option value='-1' selected='selected'>" . __('Bulk Actions') . "</option>\n";
+
+    foreach ($this->_actions as $name => $title) {
+      $class = 'edit' == $name ? ' class="hide-if-no-js"' : '';
+
+      echo "\t<option value='$name'$class>$title</option>\n";
+    }
+
+    echo "</select>\n";
+
+    submit_button(__('Apply'), 'action', false, false, array('id' => "doaction$two"));
+    echo "\n";
+  }
 }

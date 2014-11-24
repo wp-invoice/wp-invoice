@@ -171,7 +171,7 @@ class WPI_Settings_page {
         <td>
           <ul class="wpi_something_advanced_wrapper">
             <li><label for="wpi_tax_method"><?php _e('Calculate Taxable Subtotal', WPI) ?> <?php echo WPI_UI::select("name=tax_method&group=wpi_settings&values=" . serialize(array("after_discount" => __("After Discount", WPI), "before_discount" => __("Before Discount", WPI))) . "&current_value=" . (!empty($wpi_settings['tax_method']) ? $wpi_settings['tax_method'] : "")); ?> </label></li>
-            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), WPI_Functions::is_true($wpi_settings['use_global_tax'])); ?></li>
+            <li><?php echo WPI_UI::checkbox("name=use_global_tax&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Use global tax.', WPI), WPI_Functions::is_true( isset($wpi_settings['use_global_tax'])?$wpi_settings['use_global_tax']:false ) ); ?></li>
             <li class="wpi_advanced_option">
               Tax value: <?php echo WPI_UI::input("type=text&style=width:50px;&name=global_tax&group=wpi_settings&value={$wpi_settings['global_tax']}") ?>%
               <div class="description wpi_advanced_option"><?php _e("This will make all new invoices have default Tax value which can be changed for different invoice.", WPI) ?></div>
@@ -186,7 +186,7 @@ class WPI_Settings_page {
           <ul class="wpi_settings_list wpi_something_advanced_wrapper">
             <li><?php echo WPI_UI::checkbox("name=allow_deposits&class=wpi_show_advanced&group=wpi_settings&value=true&label=" . __('Allow partial payments.', WPI), $wpi_settings['allow_deposits']); ?></li>
 
-            <li class="wpi_advanced_option"><?php echo WPI_UI::checkbox("name=allow_deposits_by_default&group=wpi_settings&value=true&label=" . __('Partial payments allowed by default.', WPI), $wpi_settings['allow_deposits_by_default']); ?></li>
+            <li class="wpi_advanced_option"><?php echo WPI_UI::checkbox("name=allow_deposits_by_default&group=wpi_settings&value=true&label=" . __('Partial payments allowed by default.', WPI), WPI_Functions::is_true( isset($wpi_settings['allow_deposits_by_default'])?$wpi_settings['allow_deposits_by_default']:false ) ); ?></li>
 
             <li><?php echo WPI_UI::checkbox("name=show_recurring_billing&group=wpi_settings&value=true&label=" . __('Show recurring billing options.', WPI), $wpi_settings['show_recurring_billing']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=force_https&group=wpi_settings&value=true&label=" . __('Enforce HTTPS on invoice pages, if available on this server.', WPI), $wpi_settings['force_https']); ?> </li>
@@ -216,7 +216,7 @@ class WPI_Settings_page {
             </li>
             <li><input class="button wpi_install_custom_templates" type="button" value="<?php _e("Install", WPI); ?>" /> <?php _e("the custom templates inside the <b>wpi</b> folder in your active theme's folder.", WPI); ?></li>
             <li class="wpi_install_custom_templates_result" style="display:none;"></li>
-            <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true($wpi_settings['disable_automatic_feature_update'])); ?></li>
+            <li><?php echo WPI_UI::checkbox("name=wpi_settings[disable_automatic_feature_update]&value=true&label=" . __("Disable automatic Premium Feature updates.", WPI), WPI_Functions::is_true( isset( $wpi_settings['disable_automatic_feature_update'] )?$wpi_settings['disable_automatic_feature_update']:false )); ?></li>
             <li>
               <label for="wpi_thousands_separator_symbol">
                 <?php _e('Thousands Separator Symbol', WPI); ?>
@@ -235,13 +235,13 @@ class WPI_Settings_page {
               </label>
             </li>
             <li>
-              <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoices only for logged in recipients.", WPI), WPI_Functions::is_true($wpi_settings['logged_in_only'])); ?>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoices only for logged in recipients.", WPI), WPI_Functions::is_true( isset($wpi_settings['logged_in_only'])?$wpi_settings['logged_in_only']:false )); ?>
             </li>
             <li>
-              <?php echo WPI_UI::checkbox("name=wpi_settings[send_password_to_new_users]&value=true&label=" . __("Send passwords to newly created recipients.", WPI), WPI_Functions::is_true($wpi_settings['send_password_to_new_users'])); ?>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[send_password_to_new_users]&value=true&label=" . __("Send passwords to newly created recipients.", WPI), WPI_Functions::is_true( isset($wpi_settings['send_password_to_new_users'])?$wpi_settings['send_password_to_new_users']:false )); ?>
             </li>
             <li>
-              <?php echo WPI_UI::checkbox("name=wpi_settings[turn_off_compatibility_mode]&value=true&label=" . __("Turn off compatibility mode.", WPI), WPI_Functions::is_true($wpi_settings['turn_off_compatibility_mode'])); ?>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[turn_off_compatibility_mode]&value=true&label=" . __("Turn off compatibility mode.", WPI), WPI_Functions::is_true( isset($wpi_settings['turn_off_compatibility_mode'])?$wpi_settings['turn_off_compatibility_mode']:false )); ?>
               <div class="description"><?php _e( 'By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off.', WPI ); ?></div>
             </li>
           </ul>
@@ -361,7 +361,7 @@ class WPI_Settings_page {
                 'name' => 'change_mail_from',
                 'value' => 'true',
                 'group' => 'wpi_settings'
-                    ), $wpi_settings['change_mail_from']);
+                    ), isset($wpi_settings['change_mail_from'])?$wpi_settings['change_mail_from']:false );
             ?>
             </li>
           </ul>
@@ -377,7 +377,7 @@ class WPI_Settings_page {
           <ul class="wpi_settings_list">
             <!-- Google Analytics Event Tracking option -->
             <li>
-    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][enabled]&value=true&label=" . __('I want to track events.', WPI), WPI_Functions::is_true($wpi_settings['ga_event_tracking']['enabled'])); ?>
+    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][enabled]&value=true&label=" . __('I want to track events.', WPI), WPI_Functions::is_true( isset($wpi_settings['ga_event_tracking']['enabled'])?$wpi_settings['ga_event_tracking']['enabled']:false )); ?>
             </li>
             <li class="wpi_ga_events_list" style="<?php echo (empty($wpi_settings['ga_event_tracking']['enabled']) || $wpi_settings['ga_event_tracking']['enabled'] == 'false' ) ? 'display:none;' : ''; ?>">
               <ul>
@@ -385,10 +385,10 @@ class WPI_Settings_page {
                   <strong><?php _e('Track Invoices events:', WPI); ?></strong>
                   <ul class="wpi_sublist">
                     <li>
-    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][events][invoices][attempting_pay_invoice]&value=true&label=" . __('Attempting to pay Invoices', WPI), WPI_Functions::is_true($wpi_settings['ga_event_tracking']['events']['invoices']['attempting_pay_invoice'])); ?>
+    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][events][invoices][attempting_pay_invoice]&value=true&label=" . __('Attempting to pay Invoices', WPI), WPI_Functions::is_true( isset($wpi_settings['ga_event_tracking']['events']['invoices']['attempting_pay_invoice'])?$wpi_settings['ga_event_tracking']['events']['invoices']['attempting_pay_invoice']:false )); ?>
                     </li>
                     <li>
-    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][events][invoices][view_invoice]&value=true&label=" . __('View Invoices', WPI), WPI_Functions::is_true($wpi_settings['ga_event_tracking']['events']['invoices']['view_invoice'])); ?>
+    <?php echo WPI_UI::checkbox("name=wpi_settings[ga_event_tracking][events][invoices][view_invoice]&value=true&label=" . __('View Invoices', WPI), WPI_Functions::is_true( isset($wpi_settings['ga_event_tracking']['events']['invoices']['view_invoice'])?$wpi_settings['ga_event_tracking']['events']['invoices']['view_invoice']:false )); ?>
                     </li>
                   </ul>
                 </li>
@@ -504,11 +504,11 @@ class WPI_Settings_page {
                         <?php
                         if ($value['object']->options['settings'])
                           foreach ($value['object']->options['settings'] as $key2 => $setting_value) {
-                            $setting_value['value'] = urldecode($setting_value['value']);
+                            $setting_value['value'] = urldecode(isset($setting_value['value'])?$setting_value['value']:'');
                             $setting_value['type'] = !empty($setting_value['type']) ? $setting_value['type'] : 'input';
                             ?>
                         <tr>
-                          <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo $setting_value['label']; ?></span></th>
+                          <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo !empty($setting_value['label'])?$setting_value['label']:''; ?></span></th>
                           <td>
                         <?php if ($setting_value['type'] == 'select') : ?>
             <?php echo WPI_UI::select("name=wpi_settings[billing][{$key}][settings][{$key2}][value]&values=" . serialize($setting_value['data']) . "&current_value={$setting_value['value']}"); ?>
@@ -516,6 +516,8 @@ class WPI_Settings_page {
                     <?php echo WPI_UI::textarea("name=wpi_settings[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
                   <?php elseif ($setting_value['type'] == 'readonly') : ?>
                               <p class="wpi_readonly"><?php echo $setting_value['value']; ?></p>
+            <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
+                    <p><?php echo !empty($setting_value['data'])?$setting_value['data']:''; ?></p>
           <?php else : ?>
             <?php echo WPI_UI::input("type=text&name=wpi_settings[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
           <?php endif; ?>
@@ -700,7 +702,7 @@ class WPI_Settings_page {
                 </span>
                 <div class="flexible_width_holder">
                   <div class="flexible_width_holder_content">
-                    <textarea style="display:<?php echo (empty($itemized_item['description']) ? 'none' : 'block'); ?>" name="wpi_settings[predefined_services][<?php echo $slug; ?>][description]" class="item_description"><?php echo esc_attr($itemized_item['description']); ?></textarea>
+                    <textarea style="display:<?php echo (empty($itemized_item['description']) ? 'none' : 'block'); ?>" name="wpi_settings[predefined_services][<?php echo $slug; ?>][description]" class="item_description"><?php echo esc_attr(!empty($itemized_item['description'])?$itemized_item['description']:''); ?></textarea>
                   </div>
                 </div>
               </td>
@@ -816,7 +818,7 @@ class WPI_Settings_page {
         <!--<tr>
           <th><?php _e('WP-Invoice API Key', WPI); ?> for <?php echo $this_domain; ?></th>
           <td>
-    <?php echo WPI_UI::input("type=text&name=wpi_api_key&group=wpi_settings&value={$wpi_settings['wpi_api_key']}") ?>
+    <?php echo WPI_UI::input("type=text&name=wpi_api_key&group=wpi_settings&value=".(isset($wpi_settings['wpi_api_key'])?$wpi_settings['wpi_api_key']:'')) ?>
             <div class="description">
       <?php _e('Some subscription based premium features require an API key that is specific to this domain and WP-Invoice. You can get this from your account on <a href="#" target="_blank">UsabilityDynamics.com</a>.', WPI); ?>
             </div>

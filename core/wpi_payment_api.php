@@ -5,39 +5,76 @@
  */
 class WPI_Payment_Api {
 
+  /**
+   * Methods
+   */
   const WPI_METHOD_AUTHORIZE_NET   = 'wpi_authorize';
-	const WPI_METHOD_PAYPAL   = 'wpi_paypal';
-	const WPI_METHOD_CHARGIFY = 'wpi_chargify';
+  const WPI_METHOD_PAYPAL   = 'wpi_paypal';
 
+  /**
+   * Statuses
+   */
   const WPI_METHOD_STATUS_COMPLETE = 'Complete';
   const WPI_METHOD_STATUS_ERROR    = 'Error';
 
+  /**
+   * Method
+   * @var type 
+   */
   private $method   = array();
+  
+  /**
+   * Name
+   * @var type 
+   */
   private $name     = '';
+  
+  /**
+   * Settings
+   * @var type 
+   */
   private $settings = array();
+  
+  /**
+   * URL
+   * @var type 
+   */
   private $url      = '';
+  
+  /**
+   * Items
+   * @var type 
+   */
   private $items    = array();
 
-  // Default params
+  /**
+   * Default params
+   */
   private $defaults = array(
+
     'wpi_authorize' => array(
-      // Auth info
+      //** Auth info */
       'x_login'       => '',
       'x_tran_key'    => '',
-      // Response delimeters
+        
+      //** Response delimeters */
       'x_delim_data'  => '',
       'x_delim_char'  => '',
       'x_encap_char'  => '',
-      // Test or not
+        
+      //** Test or not */
       'x_test_request'=> '',
-      // CC Info
+        
+      //** CC Info */
       'x_card_num'    => '',
       'x_card_code'   => '',
       'x_exp_date'    => '',
       'x_currency_code' => '',
-      // Invoice info
+        
+      //** Invoice info */
       'x_description' => '',
-      // User info
+        
+      //** User info */
       'x_email'       => '',
       'x_first_name'  => '',
       'x_last_name'   => '',
@@ -51,11 +88,14 @@ class WPI_Payment_Api {
       'x_phone'       => '',
       'x_fax'         => ''
     ),
-		'wpi_paypal' => array(true),
-		'wpi_chargify' => array(true),
+
+    'wpi_paypal' => array(true)
   );
 
-  // Default response object
+  /**
+   * Response
+   * @var type 
+   */
   private $response = array(
     'payment_status' => self::WPI_METHOD_STATUS_ERROR,
     'receiver_email' => null,
@@ -82,10 +122,8 @@ class WPI_Payment_Api {
         case self::WPI_METHOD_AUTHORIZE_NET:
 
           $this->url = $this->settings['gateway_url']['value'];
-
           $this->method['x_login']        = $this->settings['gateway_username']['value'];
           $this->method['x_tran_key']     = $this->settings['gateway_tran_key']['value'];
-
           $this->method['x_delim_data']   = $this->settings['gateway_delim_data']['value'];
           $this->method['x_delim_char']   = $this->settings['gateway_delim_char']['value'];
           $this->method['x_encap_char']   = $this->settings['gateway_encap_char']['value'];
@@ -157,30 +195,17 @@ class WPI_Payment_Api {
           }
           $this->response['receiver_email'] = $this->method['x_email'];
           $this->response['transaction_id'] = $transaction->getTransactionID();
-					$this->response['payment_method'] = self::WPI_METHOD_AUTHORIZE_NET;
+          $this->response['payment_method'] = self::WPI_METHOD_AUTHORIZE_NET;
 
           break;
+          
+        case self::WPI_METHOD_PAYPAL:
 
-				case self::WPI_METHOD_PAYPAL:
+          $this->response['payment_status'] = self::WPI_METHOD_STATUS_COMPLETE;
+          $this->response['receiver_email'] = !empty( $args['payer_email'] ) ? $args['payer_email'] : '';
+          $this->response['payment_method'] = self::WPI_METHOD_PAYPAL;
 
-					$this->response['payment_status'] = self::WPI_METHOD_STATUS_COMPLETE;
-					$this->response['receiver_email'] = !empty( $args['payer_email'] ) ? $args['payer_email'] : '';
-					$this->response['payment_method'] = self::WPI_METHOD_PAYPAL;
-
-					break;
-
-        case self::WPI_METHOD_CHARGIFY:
-
-				  $res = wpi_chargify::start_subscription( $args );
-				  $this->response = array(
-				    'payment_status' => is_numeric( $res ) ? self::WPI_METHOD_STATUS_COMPLETE : self::WPI_METHOD_STATUS_ERROR ,
-				    'receiver_email' => !empty( $args['payer_email'] ) ? $args['payer_email'] : '',
-				    'payment_method' => self::WPI_METHOD_CHARGIFY,
-				    'transaction_id' => $res,
-				  );
-				  if( !is_numeric( $res ) ){
-				    $this->response[ 'error_message' ] = $res;
-				  }
+          break;
 
         default:
           break;

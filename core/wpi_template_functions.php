@@ -189,7 +189,7 @@ if ( !function_exists('show_itemized_table') ) {
         </tbody>
         <tfoot>
           <?php
-          // Figure out what colspan is based on how many columns we have
+          //** Figure out what colspan is based on how many columns we have */
           $colspan = $show_quantities ? 'colspan="2"' : '';
           if (!empty($invoice['subtotal'])):
             ?>
@@ -245,7 +245,7 @@ if ( !function_exists('show_itemized_table') ) {
     endif;
     ?>
     <?php
-    $result .= ob_get_contents();
+    $result = ob_get_contents();
     ob_end_clean();
     if ($return)
       return $result;

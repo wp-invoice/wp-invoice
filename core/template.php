@@ -1,17 +1,15 @@
 <?php
+
 /**
  * Returns an invoice object as an array.
- *
  * @param type $args
- *
- * @return WPI_Invoice
  */
 function get_invoice( $args ) {
   if ( is_numeric( $args ) ) {
     $invoice_id = $args;
   } else {
-    extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
     $defaults = array( 'invoice_id' => '', 'return_class' => false );
+    extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
   }
   $invoice = new WPI_Invoice();
   $invoice->load_invoice( "id=$invoice_id" );
@@ -47,26 +45,32 @@ function wpi_log_event( $event ) {
  * @return type
  */
 function wpi_archive_invoice( $invoice_id ) {
-  global $wpdb;
-  // Check to see if array is passed or single.
+
+  //** Check to see if array is passed or single. */
   if ( is_array( $invoice_id ) ) {
     $counter = 0;
+    
     foreach ( $invoice_id as $single_invoice_id ) {
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id=$single_invoice_id" );
       $this_invoice->set( "status=archive" );
       $this_invoice->add_entry( __( "Archived.", WPI ) );
-      if ( $this_invoice->save_invoice() )
+      if ( $this_invoice->save_invoice() ) {
         $counter++;
+      }
     }
+    
     return __( "$counter  invoice(s) archived.", WPI );
   } else {
+    
     $this_invoice = new WPI_Invoice();
     $this_invoice->load_invoice( "id=$invoice_id" );
     $this_invoice->set( "status=archive" );
     $this_invoice->add_entry( __( "Archived.", WPI ) );
-    if ( $this_invoice->save_invoice() )
+    
+    if ( $this_invoice->save_invoice() ) {
       return __( 'Successfully archived.', WPI );
+    }
   }
 }
 
@@ -82,6 +86,8 @@ function wpi_archive_invoice( $invoice_id ) {
  */
 function wp_invoice_lookup( $args = '' ) {
   global $wpi_settings, $current_user;
+  
+  $result = '';
 
   $defaults = array(
     'message' => __( 'Enter Invoice ID', WPI ),
@@ -90,18 +96,21 @@ function wp_invoice_lookup( $args = '' ) {
   );
   extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
 
-  if ( !$current_user->ID )
+  if ( !$current_user->ID ) {
     return;
+  }
 
   ob_start();
-  if ( WPI_Functions::wpi_use_custom_template( 'invoice_lookup.php' ) )
+  if ( WPI_Functions::wpi_use_custom_template( 'invoice_lookup.php' ) ) {
     include( $wpi_settings[ 'frontend_template_path' ] . 'invoice_lookup.php' );
-  else
+  } else {
     include( $wpi_settings[ 'default_template_path' ] . 'invoice_lookup.php' );
-  $result .= ob_get_contents();
-  ob_end_clean();
-  if ( $return )
+  }
+  $result .= ob_get_clean();
+
+  if ( $return ) { 
     return $result;
+  }
   echo $result;
 }
 

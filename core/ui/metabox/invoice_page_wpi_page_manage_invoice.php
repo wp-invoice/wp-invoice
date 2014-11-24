@@ -144,7 +144,7 @@ function postbox_publish($this_invoice) {
         <?php if ($wpi_settings['allow_deposits'] == 'true') { ?>
           <li class="wpi_not_for_recurring wpi_hide_deposit_option wpi_not_for_quote">
             <?php $app_title = __("Allow Partial Payment", WPI); ?>
-            <?php echo WPI_UI::checkbox("name=wpi_invoice[deposit]&value=true&label={$app_title}", ((!empty($this_invoice['deposit_amount']) && (int) $this_invoice['deposit_amount'] > 0) ? true : (WPI_Functions::is_true($wpi_settings['allow_deposits_by_default']) && !empty($this_invoice['new_invoice']) ? true : false ) )) ?></li>
+            <?php echo WPI_UI::checkbox("name=wpi_invoice[deposit]&value=true&label={$app_title}", ((!empty($this_invoice['deposit_amount']) && (int) $this_invoice['deposit_amount'] > 0) ? true : (WPI_Functions::is_true( isset($wpi_settings['allow_deposits_by_default'])?$wpi_settings['allow_deposits_by_default']:false ) && !empty($this_invoice['new_invoice']) ? true : false ) )) ?></li>
           <li class="wpi_deposit_settings">
             <table class="wpi_deposit_settings">
               <tr>
@@ -368,7 +368,7 @@ function postbox_user_existing($this_invoice) {
   <?php } ?>
   </table>
   <?php
-  do_action('wpi_integrate_crm_user_panel', $this_invoice['user_data']['ID']);
+  do_action('wpi_integrate_crm_user_panel', !empty($this_invoice['user_data']['ID'])?$this_invoice['user_data']['ID']:'' );
 }
 
 /**
@@ -451,11 +451,11 @@ function postbox_payment_methods($this_invoice) {
                   <table class="form-table">
                         <?php
                         foreach ($value['settings'] as $key2 => $setting_value) :
-                          $setting_value['value'] = urldecode($setting_value['value']);
+                          $setting_value['value'] = urldecode(isset($setting_value['value'])?$setting_value['value']:'');
                           $setting_value['type'] = !empty($setting_value['type']) ? $setting_value['type'] : 'input';
                           ?>
                       <tr>
-                        <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo $setting_value['label']; ?></span></th>
+                        <th width="300"><span class="<?php echo (!empty($setting_value['description']) ? "wp_invoice_tooltip" : ""); ?>" title="<?php echo (!empty($setting_value['description']) ? $setting_value['description'] : ''); ?>"><?php echo !empty($setting_value['label'])?$setting_value['label']:''; ?></span></th>
                         <td>
                           <?php if ($setting_value['type'] == 'select') : ?>
                             <?php echo WPI_UI::select("name=wpi_invoice[billing][{$key}][settings][{$key2}][value]&values=" . serialize($setting_value['data']) . "&current_value={$setting_value['value']}"); ?>
@@ -464,6 +464,9 @@ function postbox_payment_methods($this_invoice) {
                           <?php elseif ($setting_value['type'] == 'readonly') : ?>
                             <?php $setting_value['value'] = urlencode($setting_value['value']); ?>
                             <?php echo WPI_UI::textarea("name=wpi_invoice[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}&special=readonly='readonly'"); ?>
+                          <?php elseif (isset($setting_value['type']) && $setting_value['type'] == 'static') : ?>
+                            <p><?php echo !empty($setting_value['data'])?$setting_value['data']:''; ?></p>
+                            <input type="hidden" value="hidden" name="wpi_invoice[billing][<?php echo $key; ?>][settings][<?php echo $key2; ?>][value]" />
                           <?php else : ?>
                             <?php echo WPI_UI::input("name=wpi_invoice[billing][{$key}][settings][{$key2}][value]&value={$setting_value['value']}"); ?>
                           <?php endif; ?>

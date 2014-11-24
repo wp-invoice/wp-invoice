@@ -14,8 +14,6 @@ class WPI_UI {
   static function admin_menu() {
     global $wpi_settings, $submenu, $wp_version;
 
-    //unset($submenu['edit.php?post_type=wpi_object'][10]);
-
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
@@ -436,7 +434,7 @@ class WPI_UI {
 
     $contextual_help[ 'Shortcodes' ][ ] = '<h3>' . __( 'Shortcodes', WPI ) . '</h3>';
     $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice History', WPI ) . '</b></p>';
-    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote"]</code></p>';
+    $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( 'Shortcode:', WPI ) . ' <code>[wp-invoice-history title="Your Title" allow_types="invoice,quote" allow_statuses="active,paid,pending"]</code></p>';
     $contextual_help[ 'Shortcodes' ][ ] = '<p>' . __( "Works the same way as 'Invoice History' widget. Shows invoice list for currently logged in users.", WPI ) . '</p>';
 
     $contextual_help[ 'Shortcodes' ][ ] = '<p><b>' . __( 'Invoice Lookup', WPI ) . '</b></p>';
@@ -453,10 +451,10 @@ class WPI_UI {
    *
    * @since 3.0
    */
-  function process_invoice_actions( $action, $ids ) {
+  static function process_invoice_actions( $action, $ids ) {
     global $wpi_settings;
 
-    // Set status
+    //** Set status */
     switch ( $action ) {
       case 'trash':
         $status = 'trashed';
@@ -479,10 +477,10 @@ class WPI_UI {
       $ids = explode( ',', $ids );
     }
 
-    // Process action
+    //** Process action */
     $invoice_ids = array();
     foreach ( (array) $ids as $ID ) {
-      // Perfom action
+      //** Perfom action */
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id={$ID}" );
       $invoice_id = $this_invoice->data[ 'invoice_id' ];
@@ -515,10 +513,10 @@ class WPI_UI {
       }
     }
     if ( !empty( $status ) && $status ) {
-      // Get Referer and clean it up
+      //** Get Referer and clean it up */
       $sendback = wp_get_referer();
       $sendback = remove_query_arg( array( 'trashed', 'untrashed', 'deleted', 'invoice_id, unarchived, archived' ), $sendback );
-      // Determine if reffer is not main page, we set it ( anyway, will do redirect to main page )
+      //** Determine if reffer is not main page, we set it ( anyway, will do redirect to main page ) */
       if ( !strpos( $sendback, $wpi_settings[ 'links' ][ 'overview_page' ] ) ) {
         $sendback = $wpi_settings[ 'links' ][ 'overview_page' ];
       }
@@ -537,17 +535,17 @@ class WPI_UI {
   static function admin_enqueue_scripts() {
     global $current_screen;
 
-    /** Include on all pages */
+    //** Include on all pages */
     wp_enqueue_script( 'jquery-ui-accordion' );
     wp_enqueue_script( 'jquery-ui-datepicker' );
 
-    /** Includes page-specific JS if it exists */
+    //** Includes page-specific JS if it exists */
     wp_enqueue_script( 'wpi-this-page-js' );
 
-    /** Load scripts on specific pages */
+    //** Load scripts on specific pages */
     switch ( $current_screen->id ) {
 
-      /** Reports page */
+      //** Reports page */
       case 'invoice_page_wpi_page_reports':
         wp_enqueue_script( 'jsapi' );
         wp_enqueue_script( 'wp-invoice-events' );
@@ -580,7 +578,7 @@ class WPI_UI {
         wp_enqueue_script( 'jquery.form' );
         wp_enqueue_script( 'jquery.smookie' );
 
-        /** Add scripts and styles for Tiny MCE Editor (default WP Editor) */
+        //** Add scripts and styles for Tiny MCE Editor (default WP Editor) */
         wp_enqueue_script( array( 'editor', 'thickbox', 'media-upload' ) );
         wp_enqueue_style( 'thickbox' );
 
@@ -810,7 +808,7 @@ class WPI_UI {
   /**
    * Can overwite page title (heading)
    */
-  function wp_title( $title, $sep, $seplocation ) {
+  static function wp_title( $title, $sep, $seplocation ) {
     global $invoice_id, $wpdb;
 
     $post_id = $wpdb->get_var( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'invoice_id' AND meta_value = '{$invoice_id}'" );
@@ -852,7 +850,7 @@ class WPI_UI {
    * Invoice object already loaded into $wpi_invoice_object at template_redirect()
    *
    */
-  function the_content( $content ) {
+  static function the_content( $content ) {
     global $wpi_settings;
     /**
      * Well. Here I'm trying to fix conflicts with plugins such as Simple Facebook Connect.
@@ -864,7 +862,7 @@ class WPI_UI {
      * @author korotkov@ud
      * @since 3.08.6
      */
-    if ( !WPI_Functions::is_true( $wpi_settings['turn_off_compatibility_mode'] ) )
+    if ( !WPI_Functions::is_true( isset( $wpi_settings['turn_off_compatibility_mode'] ) ? $wpi_settings['turn_off_compatibility_mode'] : false ) )
       if ( function_exists( 'debug_backtrace' ) )
         if ( $call_stack = debug_backtrace() )
           if ( !empty( $call_stack[ 2 ][ 'file' ] ) )
@@ -924,7 +922,7 @@ class WPI_UI {
         include( $wpi_settings[ 'default_template_path' ] . 'invoice_page.php' );
       }
     }
-    $result .= ob_get_contents();
+    $result = ob_get_contents();
     ob_end_clean();
 
     switch ( $wpi_settings[ 'where_to_display' ] ) {
@@ -970,14 +968,16 @@ class WPI_UI {
    *
    * @global array $wpi_settings
    */
-  function frontend_header() {
+  static function frontend_header() {
     global $wpi_settings, $wpi_invoice_object;
     $invoice_items = array();
 
-    /** It is for adding SKU (unique) field to items list */
-    foreach ( (array) $wpi_invoice_object->data[ 'itemized_list' ] as $key => $value ) {
-      $invoice_items[ $key ] = $value;
-      $invoice_items[ $key ][ 'id' ] = str_replace( '-', '_', sanitize_title( $invoice_items[ $key ][ 'name' ] ) );
+    //** It is for adding SKU (unique) field to items list */
+    if ( !empty( $wpi_invoice_object->data[ 'itemized_list' ] ) ) {
+      foreach ( (array) $wpi_invoice_object->data[ 'itemized_list' ] as $key => $value ) {
+        $invoice_items[ $key ] = $value;
+        $invoice_items[ $key ][ 'id' ] = str_replace( '-', '_', sanitize_title( $invoice_items[ $key ][ 'name' ] ) );
+      }
     }
 
     $order = array("\\r\\n", "\\n", "\\r","\\t");
@@ -1093,6 +1093,9 @@ class WPI_UI {
         break;
       case 'true':
         $opposite_value = 'false';
+        break;
+      default:
+        $opposite_value = null;
         break;
     }
     // Print label if one is set
