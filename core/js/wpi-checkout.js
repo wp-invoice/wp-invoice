@@ -63,10 +63,9 @@
     /**
      *
      */
-    self.update_checkboxes = function( venue ) {
-
+    self.update_checkboxes = function( venue ) { 
       /* Disable and uncheck all internal line items */
-      if( $( 'input.wpi_checkout_toggle_item', self.instance ).length ) {
+      if( $( 'input.wpi_checkout_toggle_item' ).length ) {
         $( '.wpi_checkout_products', self.instance ).removeAttr( "checked" );
         $( '.wpi_checkout_products', self.instance ).attr( "disabled", "disabled" );
       }
@@ -79,7 +78,7 @@
       }
 
       /* If there is no wpi_checkout_toggle_item functionality */
-      if ( !$( 'input.wpi_checkout_toggle_item', self.instance ).length ) {
+      if ( !$( 'input.wpi_checkout_toggle_item' ).length ) {
         $( '.wpi_checkout_products', self.instance ).each(function(){
           var checked;
           var paypal_item_name;
@@ -102,7 +101,7 @@
       }
 
       /* Cycle back through all available wpi_checkout_products and enable their correspondign checkout items */
-      $( 'input.wpi_checkout_toggle_item', self.instance ).each( function() {
+      $( 'input.wpi_checkout_toggle_item').each( function() {
         var checked;
         var this_element;
         var paypal_item_name;
@@ -114,7 +113,7 @@
           checked = false;
         }
 
-        this_element = $( '.wpi_checkout_products[item_name="'+item_name+'"]', self.instance );
+        this_element = $( '.wpi_checkout_products[item_name="'+item_name+'"]' );
 
         //* Find corresponding checkout item */
         if( checked ) {
@@ -127,7 +126,7 @@
               //** Check if this is a PayPal form, and then disable the PayPal line items */
               if( $(this).attr( "paypal_item_name" ) ) {
                 paypal_item_name = $(this).attr("paypal_item_name");
-                $( "input[paypal_item_name=" + paypal_item_name + "]", self.instance ).removeAttr("disabled");
+                $( "input[paypal_item_name=" + paypal_item_name + "]" ).removeAttr("disabled");
               }
 
               $(this).attr("checked", "checked");
@@ -144,7 +143,7 @@
               if($(this).attr( "paypal_item_name" ) ) {
                 paypal_item_name = $(this).attr("paypal_item_name");
 
-                $( "input[paypal_item_name=" + paypal_item_name + "]", self.instance ).removeAttr("disabled");
+                $( "input[paypal_item_name=" + paypal_item_name + "]" ).removeAttr("disabled");
               }
 
               $(this).attr( "checked", "checked" );
@@ -210,6 +209,8 @@
         }
         venue.wpi_checkout_total = !isNaN( venue.wpi_checkout_total ) ? venue.wpi_checkout_total : 0;
         $('.wpi_price', self.instance).text($().number_format(venue.wpi_checkout_total));
+        
+              console.log(venue);
       });
 
     }
