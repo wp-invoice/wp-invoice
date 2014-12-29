@@ -55,6 +55,17 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Export/Import Invoices [Power Tools]
 * Sales Visualization [Power Tools]
 
+= Premium features =
+Learn more about the WP-Invoice Premium Features.
+
+Single Page Checkout - The Single Page Checkout (SPC) premium feature for WP-Invoice makes it easy to create one-page-checkout forms that can accept a variety of different payment gateways, such as Authorize.net and PayPal.
+
+PDF Invoices and Receipts - PDF feature allows you to easily generate PDF versions of your invoices, receipts and quotes. The generated files can be used as e-mail attachments, or displayed as links on the secure invoice pages. 
+
+Quotes - The Quotes feature let’s you automate your workflow by creating quotes and letting your clients ask questions regarding quotes directly on your website. Once a quote is approved, it is converted to an invoice with a single click.
+
+Power Tools for WP-Invoice - This feature allows you to export your invoices in the XML and JSON formats and import data from other WP-Invoice installations. Furthermore, it provides a graphic visualization of your sales, filtered by day, week or month.
+
 == Installation ==
 
 1. Upload all the files into your wp-content/plugins directory, be sure to put them into a folder called "wp-invoice"
