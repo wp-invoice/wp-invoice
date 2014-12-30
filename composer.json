@@ -1,8 +1,8 @@
 {
-  "name": "usabilitydynamics/wp-invoice",
+  "name": "wp-invoice/wp-invoice",
   "type": "wordpress-plugin",
   "minimum-stability": "dev",
-  "homepage": "http://github.com/usabilitydynamics/wp-invoice",
+  "homepage": "https://www.usabilitydynamics.com/wp-invoice",
   "author": {
     "name": "UsabilityDynamics, Inc.",
     "url": "https://usabilitydynamics.com"
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/usabilitydynamics/wp-invoice.git"
+    "url": "https://github.com/wp-invoice/wp-invoice.git"
   },
   "require": {
     "php": ">=5.3",
@@ -50,7 +50,7 @@
           "usabilitydynamics/lib-utility": {
             "\\UsabilityDynamics\\Utility": "0.3.4"
           }
-		},
+		    },
         "plugins": []
       },
       "licenses" : {
