@@ -101,6 +101,15 @@ class WPI_Payment_Api {
     'receiver_email' => null,
     'transaction_id' => null
   );
+  
+  /**
+   * Construct
+   */
+  public function __construct() {
+    
+    /** Filter to make flexible */
+    $this->defaults = apply_filters( 'wpi::payment_api::defaults', $this->defaults );
+  }
 
   /**
    * Runs selected method proccess
@@ -208,6 +217,7 @@ class WPI_Payment_Api {
           break;
 
         default:
+          $this->response = apply_filters( 'wpi::payment_api::custom_venue', $this->response, $args );
           break;
       }
     }
