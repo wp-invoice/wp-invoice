@@ -55,7 +55,7 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Export/Import Invoices [Power Tools]
 * Sales Visualization [Power Tools]
 
-= Premium features =
+**[ Add ons ](https://www.usabilitydynamics.com/products/wp-invoice/premium-features/)**
 Learn more about the WP-Invoice Premium Features.
 
 Single Page Checkout - The Single Page Checkout (SPC) premium feature for WP-Invoice makes it easy to create one-page-checkout forms that can accept a variety of different payment gateways, such as Authorize.net and PayPal.
