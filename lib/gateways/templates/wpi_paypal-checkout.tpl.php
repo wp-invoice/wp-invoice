@@ -44,6 +44,7 @@ $custom = array('obj' => 'spc');
   <input type="hidden" name="no_shipping" value="1" />
   <input type="hidden" name="upload" value="1" />
   <input type="hidden" name="cmd" value="_cart" />
+  <input type="hidden" name="bn" value="AngellEYE_SP_WP_Invoice" />
   <input type="hidden" name="invoice" value="" class="wpi_chechout_invoice_id" />
   <input type="hidden" name="business" value="<?php echo $wpi_settings['billing'][$gateway_key]['settings']['paypal_address']['value']; ?>" />
   <input type="hidden" name="return" value="<?php the_permalink(); ?>" />

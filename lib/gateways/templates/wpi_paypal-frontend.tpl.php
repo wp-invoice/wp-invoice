@@ -8,6 +8,7 @@
   <input type="hidden" name="no_shipping" value="1">
   <input type="hidden" name="upload" value="1">
   <input type="hidden" name="business" value="<?php echo $this->get_business( $invoice ); ?>">
+  <input type="hidden" name="bn" value="AngellEYE_SP_WP_Invoice" />
   <input type="hidden" name="return" value="<?php echo get_invoice_permalink($invoice['invoice_id']); ?>">
   <input type="hidden" name="cancel_return" value="<?php echo get_invoice_permalink($invoice['invoice_id']); ?>">
   <input type="hidden" name="cbt" value="Go back to Merchant">
