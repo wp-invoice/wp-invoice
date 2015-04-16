@@ -1693,7 +1693,7 @@ class WPI_Functions {
       'rewrite' => array( 'slug' => $wp_properties[ 'configuration' ][ 'base_slug' ] ),
       'query_var' => $wp_properties[ 'configuration' ][ 'base_slug' ],
       'supports' => array( 'title', 'editor', 'thumbnail' ),
-      'menu_icon' => ud_get_wp_invoice()->path( "static/styles/images/wp_invoice.png", 'url' )
+      'menu_icon' => 'dashicons-money'
     ) );
 
     register_post_status( 'archived', array(
