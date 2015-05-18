@@ -15,6 +15,10 @@ class WPI_List_Table extends WP_List_Table {
   public $aoColumns;
   
   public $_args;
+  
+  public $all_items;
+  
+  public $item_pages;
 
   /**
    * Table scope
