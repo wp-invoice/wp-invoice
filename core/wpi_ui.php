@@ -51,6 +51,38 @@ class WPI_UI {
     add_action( 'load-'.$page->screen_id, array( __CLASS__, 'pre_load_overview' ) );
     /* Register meta boxes */
     add_action( 'add_meta_boxes_'.$page->screen_id, array( __CLASS__, 'metaboxes_overview' ) );
+
+    add_filter( 'wpi_overview_filter_types', array( __CLASS__, 'add_wpi_overview_filter_types' ) );
+
+    add_filter( 'wpi_overview_filter_statuses', array( __CLASS__, 'add_wpi_overview_filter_statuses' ) );
+  }
+
+  /**
+   * @param $current
+   * @return mixed
+   */
+  public static function add_wpi_overview_filter_statuses ( $current ) {
+    global $wpi_settings;
+
+    if ( !empty( $wpi_settings['invoice_statuses'] ) && is_array( $wpi_settings['invoice_statuses'] ) ) {
+      return $current + $wpi_settings['invoice_statuses'];
+    }
+
+    return $current;
+  }
+
+  /**
+   * @param $current
+   * @return mixed
+   */
+  public static function add_wpi_overview_filter_types( $current ) {
+    global $wpi_settings;
+
+    foreach( (array)$wpi_settings['types'] as $key => $value ) {
+      $current[ $key ] = $value['label'];
+    }
+
+    return $current;
   }
 
   /**
@@ -60,32 +92,50 @@ class WPI_UI {
 
     global $list_table;
 
-    $list_table = new WPI_List_Table(array(
+    $list_table = new New_WPI_List_Table(array(
         'filter' => array(
             'fields' => array(
                 array(
-                    'id' => 's',
-                    'name' => __('Search'),
-                    'placeholder' => __('Search...'),
-                    'type' => 'text',
-                    'map' => array(
-                        'class' => 'post', // Available: 'post','meta','taxonomy'
-                        'type' => 'string', // Available: 'string', 'number'
-                        'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
-                    )
+                  'id' => 's',
+                  'name' => __('Search', WPI),
+                  'placeholder' => __('Start typing...', WPI),
+                  'type' => 'text',
+                  'map' => array(
+                    'class' => 'post', // Available: 'post','meta','taxonomy'
+                    'type' => 'string', // Available: 'string', 'number'
+                    'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
+                  )
                 ),
                 array(
-                    'id' => 'post_status',
-                    'name' => __('Status'),
-                    'type' => 'select_advanced',
+                  'id' => 'post_status',
+                  'name' => __('Status', WPI),
+                  'type' => 'select_advanced',
+                  'js_options' => array(
+                    'allowClear' => true,
+                  ),
+                  'options' => apply_filters( 'wpi_overview_filter_statuses', array() )
+                ),
+                array(
+                  'id' => 'type',
+                  'name' => __( 'Type', WPI ),
+                  'type' => 'select_advanced',
+                  'js_options' => array(
+                    'allowClear' => true,
+                  ),
+                  'options' => apply_filters( 'wpi_overview_filter_types', array() )
+                ),
+                array(
+                    'id' => 'user_email',
+                    'name' => __( 'Recipient', WPI ),
+                    'type' => 'user',
                     'js_options' => array(
-                        'allowClear' => false,
+                      'allowClear' => true,
                     ),
-                    'options' => array(
-                        'all' => __('All'),
-                        'publish' => __('Publish'),
-                        'draft' => __('Draft'),
-                        'trash' => __('Trash'),
+                    'multiple' => false,
+                    'url' => admin_url( 'admin-ajax.php?action=wpi_search_recipient' ),
+                    'map' => array(
+                      'class' => 'meta',
+                      'type' => 'string'
                     )
                 )
             )
