@@ -1,0 +1,35 @@
+{
+  "name": "wp-invoice/wp-invoice",
+  "type": "wordpress-plugin",
+  "minimum-stability": "dev",
+  "homepage": "https://www.usabilitydynamics.com/wp-invoice",
+  "author": {
+    "name": "UsabilityDynamics, Inc.",
+    "url": "https://usabilitydynamics.com"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://repository.usabilitydynamics.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wp-invoice/wp-invoice.git"
+  },
+  "require": {
+    "php": ">=5.3",
+    "usabilitydynamics/lib-wp-list-table": "1.0.3"
+  },
+  "archive": {
+    "exclude": [
+      "node_modules",
+      ".gitignore",
+      "test",
+      "circle.yml",
+      "composer.lock",
+      "gruntfile.js",
+      "package.json"
+    ]
+  }
+}

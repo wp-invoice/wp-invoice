@@ -43,6 +43,83 @@ class WPI_UI {
     // Add Filters
     add_filter( 'wpi_page_loader_path', array( 'WPI_UI', "wpi_display_user_selection" ), 0, 3 );
     add_filter( 'wpi_pre_header_invoice_page_wpi_page_manage_invoice', array( 'WPI_UI', "page_manage_invoice_preprocess" ) );
+
+    //******* NEW LIST TABLE *************/
+    $page = new \UsabilityDynamics\UI\Page( 'wpi_main', 'Invoices List Overview', 'Overview', $capability, 'wpi_overview' );
+
+    /* We need to init list table before page loaded to put filter to separate meta box */
+    add_action( 'load-'.$page->screen_id, array( __CLASS__, 'pre_load_overview' ) );
+    /* Register meta boxes */
+    add_action( 'add_meta_boxes_'.$page->screen_id, array( __CLASS__, 'metaboxes_overview' ) );
+  }
+
+  /**
+   * Overview page
+   */
+  public static function pre_load_overview() {
+
+    global $list_table;
+
+    $list_table = new WPI_List_Table(array(
+        'filter' => array(
+            'fields' => array(
+                array(
+                    'id' => 's',
+                    'name' => __('Search'),
+                    'placeholder' => __('Search...'),
+                    'type' => 'text',
+                    'map' => array(
+                        'class' => 'post', // Available: 'post','meta','taxonomy'
+                        'type' => 'string', // Available: 'string', 'number'
+                        'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
+                    )
+                ),
+                array(
+                    'id' => 'post_status',
+                    'name' => __('Status'),
+                    'type' => 'select_advanced',
+                    'js_options' => array(
+                        'allowClear' => false,
+                    ),
+                    'options' => array(
+                        'all' => __('All'),
+                        'publish' => __('Publish'),
+                        'draft' => __('Draft'),
+                        'trash' => __('Trash'),
+                    )
+                )
+            )
+        )
+    ));
+
+  }
+
+  /**
+   * Make mrtaboxes appear
+   */
+  public static function metaboxes_overview() {
+    $screen = get_current_screen();
+    add_meta_box( 'posts_list', __('Overview'), array( __CLASS__, 'render_overview' ), $screen->id, 'normal');
+    add_meta_box( 'posts_filter', __('Filter'), array( __CLASS__, 'render_overview_filter'), $screen->id, 'side');
+  }
+
+  /**
+   * Render overview list UI
+   */
+  public static function render_overview() {
+    global $list_table;
+
+    $list_table->prepare_items();
+    $list_table->display();
+  }
+
+  /**
+   * Render overview filter
+   */
+  public static function render_overview_filter() {
+    global $list_table;
+
+    $list_table->filter();
   }
 
   /**

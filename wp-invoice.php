@@ -44,6 +44,8 @@ define( 'WPI_Gateways_URL', WPI_URL . '/core/gateways' );
 define( 'WPI_Templates_Path', WPI_Path . '/core/template' );
 define( 'WPI_Templates_URL', WPI_URL . '/core/template' );
 
+require_once( WPI_Path . '/vendor/autoload.php' );
+
 //** Always include everything below here */
 require_once( WPI_Path . '/wpi_legacy.php' );
 require_once( WPI_Path . '/core/wpi_ud.php' );
@@ -55,15 +57,12 @@ require_once( WPI_Path . '/core/wpi_ui.php' );
 require_once( WPI_Path . '/core/wpi_ajax.php' );
 require_once( WPI_Path . '/core/wpi_widgets.php' );
 require_once( WPI_Path . '/core/template.php' );
-/** Chargify is not ready for production yet, leave commented out
-require_once( WPI_Path . '/core/wpi_chargify.php' ); */
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
 require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
 require_once( WPI_Path . '/core/wpi_xmlrpc_api.php' );
 require_once( WPI_Path . '/core/wpi_dashboard_widget.php' );
 require_once( WPI_Path . '/core/ud_api.php' );
-/** Not ready
-require_once( WPI_Path . '/core/wpi_products.php' ); */
+require_once( WPI_Path . '/core/wpi_list_table.php' );
 
 //** Need to do this before init. Temporary here. */
 add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
@@ -158,6 +157,9 @@ if ( !class_exists( 'WPI_Core' ) ) {
 
       //** Load Payment gateways */
       $this->Functions->load_gateways();
+
+      //** Preload WPLT */
+      new \UsabilityDynamics\WPLT\Bootstrap();
 
       //** Load the rest at the init level */
       add_action( 'init', array( $this, 'init' ), 0 );

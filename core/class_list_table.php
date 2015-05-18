@@ -6,7 +6,7 @@ require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
  * To use dataTables Overview,
  * You should create child class
  */
-class WPI_List_Table extends WP_List_Table {
+class Legacy_WPI_List_Table extends WP_List_Table {
   
   public $column_ids;
 
