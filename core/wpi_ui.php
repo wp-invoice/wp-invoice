@@ -62,10 +62,17 @@ class WPI_UI {
    * @return mixed
    */
   public static function add_wpi_overview_filter_statuses ( $current ) {
-    global $wpi_settings;
 
-    if ( !empty( $wpi_settings['invoice_statuses'] ) && is_array( $wpi_settings['invoice_statuses'] ) ) {
-      return $current + $wpi_settings['invoice_statuses'];
+    $statuses = array();
+
+    foreach( (array)$objects_count = wp_count_posts('wpi_object') as $status => $count ) {
+      if ( $count ) {
+        $statuses[$status] = ucfirst( $status ) . ' ('.$count.') ';
+      }
+    }
+
+    if ( !empty( $statuses ) ) {
+      return $current + $statuses;
     }
 
     return $current;
@@ -111,23 +118,23 @@ class WPI_UI {
                   'name' => __('Status', WPI),
                   'type' => 'select_advanced',
                   'js_options' => array(
-                    'allowClear' => true,
+                    'allowClear' => false,
                   ),
-                  'options' => apply_filters( 'wpi_overview_filter_statuses', array() )
+                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => 'All' ) )
                 ),
                 array(
                   'id' => 'type',
                   'name' => __( 'Type', WPI ),
                   'type' => 'select_advanced',
                   'js_options' => array(
-                    'allowClear' => true,
+                    'allowClear' => false,
                   ),
-                  'options' => apply_filters( 'wpi_overview_filter_types', array() )
+                  'options' => apply_filters( 'wpi_overview_filter_types', array( 'any' => 'All' ) )
                 ),
                 array(
                     'id' => 'user_email',
                     'name' => __( 'Recipient', WPI ),
-                    'type' => 'user',
+                    'type' => 'select_advanced',
                     'js_options' => array(
                       'allowClear' => true,
                     ),
