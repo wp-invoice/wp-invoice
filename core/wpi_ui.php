@@ -127,9 +127,9 @@ class WPI_UI {
                   'name' => __( 'Type', WPI ),
                   'type' => 'select_advanced',
                   'js_options' => array(
-                    'allowClear' => false,
+                    'allowClear' => true,
                   ),
-                  'options' => apply_filters( 'wpi_overview_filter_types', array( 'any' => 'All' ) )
+                  'options' => apply_filters( 'wpi_overview_filter_types', array() )
                 ),
                 array(
                     'id' => 'user_email',
