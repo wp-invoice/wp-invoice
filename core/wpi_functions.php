@@ -245,7 +245,7 @@ class WPI_Functions {
    */
   static function get_sales_by( $search_vars = false, $interval = "weekly" ) {
     global $wpdb;
-    
+
     $sql = '';
 
     switch ( $interval ) {
@@ -361,6 +361,191 @@ class WPI_Functions {
           }
           if ( strlen( $key_terms ) > 13 ) {
             $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 12, 2 );
+          }
+        }
+      }
+    }
+
+    $date_table = "
+        select @maxDate - interval (a.a+(10*b.a)+(100*c.a)) day aDate from
+        (select 0 as a union all select 1 union all select 2 union all select 3
+        union all select 4 union all select 5 union all select 6 union all
+        select 7 union all select 8 union all select 9) a, /*10 day range*/
+        (select 0 as a union all select 1 union all select 2 union all select 3
+        union all select 4 union all select 5 union all select 6 union all
+        select 7 union all select 8 union all select 9) b, /*100 day range*/
+        (select 0 as a union all select 1 union all select 2 union all select 3
+        union all select 4 union all select 5 union all select 6 union all
+        select 7 union all select 8 union all select 9) c, /*1000 day range*/
+        (select
+          @minDate := date_format(FROM_UNIXTIME((select min(time) from `{$wpdb->base_prefix}wpi_object_log` mn join {$wpdb->posts} on (mn.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d'),
+          @maxDate := date_format(FROM_UNIXTIME((select max(time) from `{$wpdb->base_prefix}wpi_object_log` mx join {$wpdb->posts} on (mx.object_id=`{$wpdb->posts}`.id and `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}))),'%Y-%m-%d')
+        ) e
+      ";
+
+    $sql = "
+      SELECT distinct
+      YEAR(datetable.aDate) as int_year,
+      {$interval_function}(datetable.aDate) int_erval,
+      sum(COALESCE(if (payment.action='refund',payment.value*-1,payment.value),0)) as sum_interval
+      FROM ($date_table) datetable
+      left join `{$wpdb->base_prefix}wpi_object_log` as payment on (
+        datetable.aDate=date_format(FROM_UNIXTIME(payment.time),'%Y-%m-%d')
+        and (
+          payment.object_id in (
+            select `{$wpdb->posts}`.id from `{$wpdb->posts}` where `{$wpdb->posts}`.post_type = 'wpi_object' {$sql}
+          )
+        )
+        AND (payment.action = 'add_payment' or payment.action = 'refund')
+        AND payment.attribute = 'balance'
+      )
+
+      WHERE datetable.aDate between @minDate and @maxDate
+      GROUP BY 1,2
+    ";
+
+    $results = $wpdb->get_results( $sql );
+
+    return $results;
+  }
+
+  /**
+   * Query sales.
+   *
+   * @global object $wpdb
+   *
+   * @param array $search_vars
+   * @param string $interval
+   *
+   * @return mixed
+   * @author odokienko@UD
+   */
+  static function get_sales_by_new( $search_vars = false, $interval = "weekly" ) {
+    global $wpdb;
+
+    $sql = '';
+
+    switch ( $interval ) {
+      case "weekly":
+        $interval_function = 'WEEK';
+        break;
+      case 'daily':
+        $interval_function = 'DAYOFYEAR';
+        break;
+      case 'monthly':
+      default:
+        $interval_function = 'MONTH';
+        break;
+    }
+
+    if ( !empty( $search_vars ) ) {
+
+      if ( is_string( $search_vars ) ) {
+        $args = array();
+        parse_str( $search_vars, $args );
+        $search_vars = $args;
+      }
+
+      foreach ( $search_vars as $primary_key => $key_terms ) {
+
+        //** Handle search_string differently, it applies to all meta values */
+        if ( $primary_key == 'wplt_filter_s' && !empty( $key_terms ) ) {
+          /* First, go through the posts table */
+          $tofind = strtolower( $key_terms );
+          $sql .= " AND (";
+          $sql .= " LOWER(`{$wpdb->posts}`.post_title) LIKE '%$tofind%'";
+          /* Now go through the post meta table */
+          $sql .= " OR
+                    `{$wpdb->posts}`.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE LOWER(meta_value) LIKE '%$tofind%')";
+          $sql .= ")";
+          continue;
+        }
+
+        // Type
+        if ( $primary_key == 'wplt_filter_type' ) {
+          if ( empty( $key_terms ) ) {
+            continue;
+          }
+
+          if ( is_array( $key_terms ) ) {
+            $key_terms = implode( "','", $key_terms );
+          }
+          $sql .= " AND ";
+          $sql .= " `{$wpdb->posts}`.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'type' AND meta_value IN ('{$key_terms}'))";
+          continue;
+        }
+
+        // Status
+        if ( $primary_key == 'wplt_filter_post_status' ) {
+          if ( empty( $key_terms ) ) {
+            continue;
+          }
+
+          if ( !empty( $key_terms ) && $key_terms != 'any' ) {
+            $sql .= " AND (";
+              $sql .= " `{$wpdb->posts}`.post_status = '{$key_terms}' ";
+            $sql .= ")";
+          }
+        }
+
+        // Recipient
+        if ( $primary_key == 'wplt_filter_user_email' ) {
+          if ( empty( $key_terms ) ) {
+            continue;
+          }
+
+          $sql .= " AND ";
+          $sql .= " `{$wpdb->posts}`.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'user_email' AND meta_value = '{$key_terms}')";
+
+          continue;
+        }
+
+        /* Date */
+        if ( $primary_key == 'wplt_filter_post_date_max' ) {
+          if ( empty( $key_terms ) || (int) $key_terms == 0 ) {
+            continue;
+          }
+
+          $key_terms = '' . preg_replace( '|[^0-9]|', '', $key_terms );
+          $sql .= " AND YEAR(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 0, 4 );
+          if ( strlen( $key_terms ) > 5 ) {
+            $sql .= " AND MONTH(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 4, 2 );
+          }
+          if ( strlen( $key_terms ) > 7 ) {
+            $sql .= " AND DAYOFMONTH(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 6, 2 );
+          }
+          if ( strlen( $key_terms ) > 9 ) {
+            $sql .= " AND HOUR(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 8, 2 );
+          }
+          if ( strlen( $key_terms ) > 11 ) {
+            $sql .= " AND MINUTE(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 10, 2 );
+          }
+          if ( strlen( $key_terms ) > 13 ) {
+            $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 12, 2 );
+          }
+        }
+
+        if ( $primary_key == 'wplt_filter_post_date_min' ) {
+          if ( empty( $key_terms ) || (int) $key_terms == 0 ) {
+            continue;
+          }
+
+          $key_terms = '' . preg_replace( '|[^0-9]|', '', $key_terms );
+          $sql .= " AND YEAR(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 0, 4 );
+          if ( strlen( $key_terms ) > 5 ) {
+            $sql .= " AND MONTH(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 4, 2 );
+          }
+          if ( strlen( $key_terms ) > 7 ) {
+            $sql .= " AND DAYOFMONTH(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 6, 2 );
+          }
+          if ( strlen( $key_terms ) > 9 ) {
+            $sql .= " AND HOUR(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 8, 2 );
+          }
+          if ( strlen( $key_terms ) > 11 ) {
+            $sql .= " AND MINUTE(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 10, 2 );
+          }
+          if ( strlen( $key_terms ) > 13 ) {
+            $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 12, 2 );
           }
         }
       }

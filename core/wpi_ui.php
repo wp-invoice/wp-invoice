@@ -144,6 +144,30 @@ class WPI_UI {
                       'class' => 'meta',
                       'type' => 'string'
                     )
+                ),
+                array(
+                    'id' => 'post_date_min',
+                    'name' => __( 'Date from', WPI ),
+                    'type' => 'date',
+                    'js_options' => array(
+                        'allowClear' => true,
+                    ),
+                    'map' => array(
+                        'class' => 'date_query',
+                        'compare' => 'after'
+                    )
+                ),
+                array(
+                    'id' => 'post_date_max',
+                    'name' => __( 'Date to', WPI ),
+                    'type' => 'date',
+                    'js_options' => array(
+                        'allowClear' => true,
+                    ),
+                    'map' => array(
+                        'class' => 'date_query',
+                        'compare' => 'before'
+                    )
                 )
             )
         )
@@ -167,6 +191,9 @@ class WPI_UI {
     global $list_table;
 
     $list_table->prepare_items();
+
+    do_action( 'wpi_before_overview' );
+
     $list_table->display();
   }
 
@@ -177,6 +204,8 @@ class WPI_UI {
     global $list_table;
 
     $list_table->filter();
+
+    do_action( 'wpi_after_actions' );
   }
 
   /**
