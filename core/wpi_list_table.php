@@ -168,4 +168,147 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     return '<a href="' . get_invoice_permalink($post->invoice_id) . '" target="_blank">'.apply_filters("wpi_attribute_invoice_id", $invoice_id, $post).'</a>';
   }
 
+  /**
+   * Add Bulk Actions
+   *
+   * @return array
+   */
+  public function get_bulk_actions() {
+    $actions = array();
+
+    $actions['untrash'] = __( 'Restore', WPI );
+    $actions['archive'] = __( 'Archive', WPI );
+    $actions['delete'] = __( 'Delete Permanently', WPI );
+    $actions['trash'] = __( 'Move to Trash', WPI );
+    $actions['unarchive'] = __( 'Un-Archive', WPI );
+
+    return $actions;
+  }
+
+  /**
+   * Handle Bulk Action's request
+   *
+   */
+  public function process_bulk_action() {
+
+    $action = $this->current_action();
+
+    //** Set status */
+    switch ( $action ) {
+      case 'trash':
+        $status = 'trashed';
+        break;
+      case 'delete':
+        $status = 'deleted';
+        break;
+      case 'untrash':
+        $status = 'untrashed';
+        break;
+      case 'unarchive':
+        $status = 'un-archived';
+        break;
+      case 'archive':
+        $status = 'archived';
+        break;
+    }
+
+    echo '<pre>';
+    print_r( $_REQUEST[ 'post_ids' ] );
+    echo '</pre>';
+
+    die();
+
+    //** Process action */
+    $invoice_ids = array();
+    foreach ( (array) $ids as $ID ) {
+      //** Perfom action */
+      $this_invoice = new WPI_Invoice();
+      $this_invoice->load_invoice( "id={$ID}" );
+      $invoice_id = $this_invoice->data[ 'invoice_id' ];
+      switch ( $action ) {
+        case 'trash':
+          if ( $this_invoice->trash() ) {
+            $invoice_ids[ ] = $invoice_id;
+          }
+          break;
+        case 'delete':
+          if ( $this_invoice->delete() ) {
+            $invoice_ids[ ] = $invoice_id;
+          }
+          break;
+        case 'untrash':
+          if ( $this_invoice->untrash() ) {
+            $invoice_ids[ ] = $invoice_id;
+          }
+          break;
+        case 'unarchive':
+          if ( $this_invoice->unarchive() ) {
+            $invoice_ids[ ] = $invoice_id;
+          }
+          break;
+        case 'archive':
+          if ( $this_invoice->archive() ) {
+            $invoice_ids[ ] = $invoice_id;
+          }
+          break;
+      }
+    }
+
+//    try {
+//
+//      switch( $this->current_action() ) {
+//
+//        case 'untrash':
+//          if( empty( $_REQUEST[ 'post_ids' ] ) || !is_array( $_REQUEST[ 'post_ids' ] ) ) {
+//            throw new \Exception( sprintf( __( 'Invalid request: no %s IDs provided.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
+//          }
+//          $post_ids = $_REQUEST[ 'post_ids' ];
+//          foreach( $post_ids as $post_id ) {
+//            $post_id = (int)$post_id;
+//            wp_untrash_post( $post_id );
+//          }
+//          $this->message = sprintf( __( 'Selected %s have been successfully restored from Trash.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
+//          break;
+//
+//        case 'delete':
+//          if( empty( $_REQUEST[ 'post_ids' ] ) || !is_array( $_REQUEST[ 'post_ids' ] ) ) {
+//            throw new \Exception( sprintf( __( 'Invalid request: no %s IDs provided.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
+//          }
+//          $post_ids = $_REQUEST[ 'post_ids' ];
+//          $trashed = 0;
+//          $deleted = 0;
+//          foreach( $post_ids as $post_id ) {
+//            $post_id = (int)$post_id;
+//            if( get_post_status( $post_id ) == 'trash' ) {
+//              $deleted++;
+//              wp_delete_post( $post_id );
+//            } else {
+//              $trashed++;
+//              wp_trash_post( $post_id );
+//            }
+//          }
+//          if( $trashed > 0 && $deleted > 0 ) {
+//            $this->message = sprintf( __( 'Selected %s have been successfully moved to Trash or deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
+//          } elseif( $trashed > 0 ) {
+//            $this->message = sprintf( __( 'Selected %s have been successfully moved to Trash.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
+//          } elseif( $deleted > 0 ) {
+//            $this->message = sprintf( __( 'Selected %s have been successfully deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
+//          } else {
+//            throw new \Exception( sprintf( __( 'No one %s was deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
+//          }
+//          break;
+//
+//        default:
+//          //** Any custom action can be processed using action hook */
+//          do_action( 'wpp::all_properties::process_bulk_action', $this->current_action() );
+//          break;
+//
+//      }
+//
+//    } catch ( \Exception $e ) {
+//      $this->error = $e->getMessage();
+//    }
+
+  }
+
 }
