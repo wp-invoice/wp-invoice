@@ -52,7 +52,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    */
   public function get_columns() {
     return array(
-      'cb'        => '',
+      'cb'        => '<input type="checkbox" />',
       'title'     => __( 'Title', WPI ),
       'collected' => __( 'Collected', WPI ),
       'recipient' => __( 'Recipient', WPI ),
