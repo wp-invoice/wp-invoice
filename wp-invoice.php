@@ -58,7 +58,6 @@ require_once( WPI_Path . '/core/wpi_ajax.php' );
 require_once( WPI_Path . '/core/wpi_widgets.php' );
 require_once( WPI_Path . '/core/template.php' );
 require_once( WPI_Path . '/core/wpi_payment_api.php' );
-require_once( WPI_Path . '/core/ui/wpi_metaboxes.php' );
 require_once( WPI_Path . '/core/wpi_xmlrpc_api.php' );
 require_once( WPI_Path . '/core/wpi_dashboard_widget.php' );
 require_once( WPI_Path . '/core/ud_api.php' );
@@ -433,8 +432,6 @@ if ( !class_exists( 'WPI_Core' ) ) {
         $this->Settings->SaveSettings( $_REQUEST[ 'wpi_settings' ] );
         WPI_Functions::settings_action();
       }
-
-      add_filter( "manage_{$wpi_settings[ 'pages' ]['main']}_columns", array( 'WPI_UI', 'overview_columns' ), 10, 3 );
 
       //** Add metaboxes */
       if ( isset( $wpi_settings[ 'pages' ] ) && is_array( $wpi_settings[ 'pages' ] ) ) {

@@ -113,3 +113,14 @@ div.wpi_visualize_results.no_data {
   border: none !important;
   height: auto !important;
 }
+
+.wplt-filter input {
+    width: 100%;
+}
+
+.wpi_other_action_list_wrapper .button,
+.wpi_other_action_list_wrapper .wpi_other_action_list,
+.wpi_other_action_list_wrapper select {
+    width: 100%;
+    text-align: center;
+}

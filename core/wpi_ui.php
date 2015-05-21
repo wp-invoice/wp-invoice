@@ -17,8 +17,9 @@ class WPI_UI {
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), WPI_URL . "/core/css/images/wp_invoice.png" );
-    $wpi_settings[ 'pages' ][ 'main' ] = add_submenu_page( 'wpi_main', __( 'View All', WPI ), __( 'View All', WPI ), $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', null, WPI_URL . "/core/css/images/wp_invoice.png" );
+    $overview_page = new \UsabilityDynamics\UI\Page( 'wpi_main', __( 'View All', WPI ), __( 'View All', WPI ), $capability, 'wpi_main' );
+    $wpi_settings[ 'pages' ][ 'main' ] = $overview_page->screen_id;
     $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', WPI ), __( 'Add New', WPI ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
     $wpi_settings[ 'pages' ][ 'reports' ] = add_submenu_page( 'wpi_main', __( 'Reports', WPI ), __( 'Reports', WPI ), $capability, 'wpi_page_reports', array( 'WPI_UI', 'page_loader' ) );
 
@@ -29,11 +30,13 @@ class WPI_UI {
     /* Update screens information */
     WPI_Settings::setOption( 'pages', $wpi_settings[ 'pages' ] );
 
+    /* Register meta boxes */
+    add_action( 'add_meta_boxes_'.$wpi_settings[ 'pages' ][ 'main' ], array( __CLASS__, 'metaboxes_overview' ) );
     // Add Actions
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'main' ], array( 'WPI_UI', 'pre_load_main_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'edit' ], array( 'WPI_UI', 'pre_load_edit_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'reports' ], array( 'WPI_UI', 'pre_load_reports_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'settings' ], array( 'WPI_UI', 'pre_load_settings_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'main' ], array( __CLASS__, 'pre_load_overview' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'edit' ], array( __CLASS__, 'pre_load_edit_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'reports' ], array( __CLASS__, 'pre_load_reports_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'settings' ], array( __CLASS__, 'pre_load_settings_page' ) );
 
     //* Load common actions on all WPI pages */
     foreach ( $wpi_settings[ 'pages' ] as $page_slug ) {
@@ -43,14 +46,6 @@ class WPI_UI {
     // Add Filters
     add_filter( 'wpi_page_loader_path', array( 'WPI_UI', "wpi_display_user_selection" ), 0, 3 );
     add_filter( 'wpi_pre_header_invoice_page_wpi_page_manage_invoice', array( 'WPI_UI', "page_manage_invoice_preprocess" ) );
-
-    //******* NEW LIST TABLE *************/
-    $page = new \UsabilityDynamics\UI\Page( 'wpi_main', 'Invoices List Overview', 'Overview', $capability, 'wpi_overview' );
-
-    /* We need to init list table before page loaded to put filter to separate meta box */
-    add_action( 'load-'.$page->screen_id, array( __CLASS__, 'pre_load_overview' ) );
-    /* Register meta boxes */
-    add_action( 'add_meta_boxes_'.$page->screen_id, array( __CLASS__, 'metaboxes_overview' ) );
 
     add_filter( 'wpi_overview_filter_types', array( __CLASS__, 'add_wpi_overview_filter_types' ) );
 
@@ -96,8 +91,57 @@ class WPI_UI {
    * Overview page
    */
   public static function pre_load_overview() {
+    global $wpdb, $list_table;
 
-    global $list_table;
+    /* Process Bulk Actions */
+    if ( !empty( $_REQUEST[ 'post' ] ) && !empty( $_REQUEST[ 'action' ] ) ) {
+      self::process_invoice_actions( $_REQUEST[ 'action' ], $_REQUEST[ 'post' ] );
+    } else if ( !empty( $_REQUEST[ 'delete_all' ] ) && $_REQUEST[ 'post_status' ] == 'trash' ) {
+      /* Get all trashed invoices */
+      $ids = $wpdb->get_col( "
+        SELECT `ID`
+        FROM `{$wpdb->posts}`
+        WHERE `post_type` = 'wpi_object'
+        AND `post_status` = 'trash'
+      " );
+
+      /* Determine if trashed invoices exist we remove them */
+      if ( !empty( $ids ) ) {
+        self::process_invoice_actions( 'delete', $ids );
+      }
+    }
+
+    //** Action Messages */
+    if ( !empty( $_REQUEST[ 'invoice_id' ] ) ) {
+      $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
+      //** Add Messages */
+      if ( isset( $_REQUEST[ 'trashed' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s restored."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', WPI ), $invoice_ids ) );
+      }
+    }
+
+    /** Screen Options */
+    if ( function_exists( 'add_screen_option' ) ) {
+      add_screen_option( 'layout_columns', array( 'max' => 2, 'default' => 2 ) );
+    }
+
+    //** Default Help items */
+    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', WPI ) . '</h3>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', WPI ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', WPI ) . '</p>';
+
+    //** Hook this action is you want to add info */
+    $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
+
+    do_action( 'wpi_contextual_help', array( 'contextual_help' => $contextual_help ) );
 
     $list_table = new New_WPI_List_Table(array(
         'filter' => array(
@@ -180,6 +224,7 @@ class WPI_UI {
    */
   public static function metaboxes_overview() {
     $screen = get_current_screen();
+
     add_meta_box( 'posts_list', __('Overview'), array( __CLASS__, 'render_overview' ), $screen->id, 'normal');
     add_meta_box( 'posts_filter', __('Filter'), array( __CLASS__, 'render_overview_filter'), $screen->id, 'side');
   }
@@ -193,6 +238,8 @@ class WPI_UI {
     $list_table->prepare_items();
 
     do_action( 'wpi_before_overview' );
+
+    WPI_Functions::print_messages();
 
     $list_table->display();
   }
@@ -452,57 +499,7 @@ class WPI_UI {
    * @since 3.0
    */
   static function pre_load_main_page() {
-    global $wpi_settings, $wpdb;
 
-    /* Process Bulk Actions */
-    if ( !empty( $_REQUEST[ 'post' ] ) && !empty( $_REQUEST[ 'action' ] ) ) {
-      self::process_invoice_actions( $_REQUEST[ 'action' ], $_REQUEST[ 'post' ] );
-    } else if ( !empty( $_REQUEST[ 'delete_all' ] ) && $_REQUEST[ 'post_status' ] == 'trash' ) {
-      /* Get all trashed invoices */
-      $ids = $wpdb->get_col( "
-        SELECT `ID`
-        FROM `{$wpdb->posts}`
-        WHERE `post_type` = 'wpi_object'
-        AND `post_status` = 'trash'
-      " );
-
-      /* Determine if trashed invoices exist we remove them */
-      if ( !empty( $ids ) ) {
-        self::process_invoice_actions( 'delete', $ids );
-      }
-    }
-
-    //** Action Messages */
-    if ( !empty( $_REQUEST[ 'invoice_id' ] ) ) {
-      $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
-      //** Add Messages */
-      if ( isset( $_REQUEST[ 'trashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', WPI ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s untrashed."', WPI ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', WPI ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', WPI ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', WPI ), $invoice_ids ) );
-      }
-    }
-
-    /** Screen Options */
-    if ( function_exists( 'add_screen_option' ) ) {
-      add_screen_option( 'layout_columns', array( 'max' => 2, 'default' => 2 ) );
-    }
-
-    //** Default Help items */
-    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', WPI ) . '</h3>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', WPI ) . '</p>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', WPI ) . '</p>';
-
-    //** Hook this action is you want to add info */
-    $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
-
-    do_action( 'wpi_contextual_help', array( 'contextual_help' => $contextual_help ) );
   }
 
   /**
@@ -716,8 +713,11 @@ class WPI_UI {
         break;
 
       case 'toplevel_page_wpi_main':
-        wp_enqueue_script( 'post' );
-        wp_enqueue_script( 'postbox' );
+        wp_enqueue_script( 'wp-invoice-functions' );
+        wp_enqueue_script( 'wp-invoice-events' );
+        wp_enqueue_script( 'jquery.formatCurrency' );
+        break;
+
       case 'invoice_page_wpi_page_settings':
         wp_enqueue_script( 'jquery-ui-tabs' );
         wp_enqueue_script( 'jquery-ui-sortable' );
@@ -749,32 +749,6 @@ class WPI_UI {
 
         break;
     }
-  }
-
-  /**
-   * Add or remove taxonomy columns
-   *
-   * @since 3.0
-   */
-  static function overview_columns( $columns ) {
-
-    $overview_columns = apply_filters( 'wpi_overview_columns', array(
-      'cb' => '',
-      'post_title' => __( 'Title', WPI ),
-      'total' => __( 'Total Collected', WPI ),
-      'user_email' => __( 'Recipient', WPI ),
-      'post_modified' => __( 'Date', WPI ),
-      'post_status' => __( 'Status', WPI ),
-      'type' => __( 'Type', WPI ),
-      'invoice_id' => __( 'Invoice ID', WPI )
-    ) );
-
-    /* We need to grab the columns from the class itself, so we instantiate a new temp object */
-    foreach ( $overview_columns as $column => $title ) {
-      $columns[ $column ] = $title;
-    }
-
-    return $columns;
   }
 
   /**
