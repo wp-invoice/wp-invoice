@@ -28,6 +28,19 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
 
     parent::__construct($this->args);
 
+    add_filter( 'wplt:orderby:is_numeric', array( __CLASS__, 'set_numeric_fields' ), 10, 2 );
+
+  }
+
+  /**
+   * @param $false
+   * @param $slug
+   */
+  public static function set_numeric_fields( $false, $slug ) {
+    if ( $slug == 'total_payments' ) {
+      return true;
+    }
+    return $false;
   }
 
   /**
@@ -61,6 +74,22 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
       'type'      => __( 'Type', WPI ),
       'id'        => __( 'ID', WPI )
     );
+  }
+
+  /**
+   * Sortable columns
+   *
+   * @return array An associative array containing all the columns that should be sortable: 'slugs'=>array('data_values',bool)
+   */
+  public function get_sortable_columns() {
+    $columns = array(
+        'title' => array( 'title', false ),  //true means it's already sorted
+        'collected' => array( 'total_payments', false ),
+        'recipient' => array( 'user_email', false ),
+        'updated'    => array( 'modified', false )
+    );
+
+    return $columns;
   }
 
   /**
@@ -214,13 +243,13 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         break;
     }
 
-    //** Process action */
     $invoice_ids = array();
     foreach ( (array) $_REQUEST[ 'post_ids' ] as $ID ) {
-      //** Perfom action */
+
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id={$ID}" );
       $invoice_id = $this_invoice->data[ 'invoice_id' ];
+
       switch ( $action ) {
         case 'trash':
           if ( $this_invoice->trash() ) {
@@ -253,61 +282,6 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     if ( $status ) {
       $this->message = 'Successfully ' . $status;
     }
-
-//    try {
-//
-//      switch( $this->current_action() ) {
-//
-//        case 'untrash':
-//          if( empty( $_REQUEST[ 'post_ids' ] ) || !is_array( $_REQUEST[ 'post_ids' ] ) ) {
-//            throw new \Exception( sprintf( __( 'Invalid request: no %s IDs provided.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
-//          }
-//          $post_ids = $_REQUEST[ 'post_ids' ];
-//          foreach( $post_ids as $post_id ) {
-//            $post_id = (int)$post_id;
-//            wp_untrash_post( $post_id );
-//          }
-//          $this->message = sprintf( __( 'Selected %s have been successfully restored from Trash.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
-//          break;
-//
-//        case 'delete':
-//          if( empty( $_REQUEST[ 'post_ids' ] ) || !is_array( $_REQUEST[ 'post_ids' ] ) ) {
-//            throw new \Exception( sprintf( __( 'Invalid request: no %s IDs provided.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
-//          }
-//          $post_ids = $_REQUEST[ 'post_ids' ];
-//          $trashed = 0;
-//          $deleted = 0;
-//          foreach( $post_ids as $post_id ) {
-//            $post_id = (int)$post_id;
-//            if( get_post_status( $post_id ) == 'trash' ) {
-//              $deleted++;
-//              wp_delete_post( $post_id );
-//            } else {
-//              $trashed++;
-//              wp_trash_post( $post_id );
-//            }
-//          }
-//          if( $trashed > 0 && $deleted > 0 ) {
-//            $this->message = sprintf( __( 'Selected %s have been successfully moved to Trash or deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
-//          } elseif( $trashed > 0 ) {
-//            $this->message = sprintf( __( 'Selected %s have been successfully moved to Trash.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
-//          } elseif( $deleted > 0 ) {
-//            $this->message = sprintf( __( 'Selected %s have been successfully deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label( 'plural' ) );
-//          } else {
-//            throw new \Exception( sprintf( __( 'No one %s was deleted.', ud_get_wp_property( 'domain' ) ), \WPP_F::property_label() ) );
-//          }
-//          break;
-//
-//        default:
-//          //** Any custom action can be processed using action hook */
-//          do_action( 'wpp::all_properties::process_bulk_action', $this->current_action() );
-//          break;
-//
-//      }
-//
-//    } catch ( \Exception $e ) {
-//      $this->error = $e->getMessage();
-//    }
 
   }
 

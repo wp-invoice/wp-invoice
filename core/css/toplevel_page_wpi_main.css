@@ -114,7 +114,7 @@ div.wpi_visualize_results.no_data {
   height: auto !important;
 }
 
-.wplt-filter input {
+.wplt-filter input, .wplt-filter select {
     width: 100%;
 }
 

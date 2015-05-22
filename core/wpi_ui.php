@@ -148,7 +148,7 @@ class WPI_UI {
             'fields' => array(
                 array(
                   'id' => 's',
-                  'name' => __('Search', WPI),
+                  'name' => __('Title', WPI),
                   'placeholder' => __('Start typing...', WPI),
                   'type' => 'text',
                   'map' => array(
@@ -158,22 +158,26 @@ class WPI_UI {
                   )
                 ),
                 array(
+                    'id' => 'invoice_id',
+                    'name' => __('ID', WPI),
+                    'placeholder' => __('Paste ID here', WPI),
+                    'type' => 'text',
+                    'map' => array(
+                        'class' => 'meta', // Available: 'post','meta','taxonomy'
+                        'type' => 'string'
+                    )
+                ),
+                array(
                   'id' => 'post_status',
                   'name' => __('Status', WPI),
-                  'type' => 'select_advanced',
-                  'js_options' => array(
-                    'allowClear' => false,
-                  ),
+                  'type' => 'select',
                   'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => 'All' ) )
                 ),
                 array(
                   'id' => 'type',
                   'name' => __( 'Type', WPI ),
-                  'type' => 'select_advanced',
-                  'js_options' => array(
-                    'allowClear' => true,
-                  ),
-                  'options' => apply_filters( 'wpi_overview_filter_types', array() )
+                  'type' => 'select',
+                  'options' => apply_filters( 'wpi_overview_filter_types', array( '' => 'All' ) )
                 ),
                 array(
                     'id' => 'user_email',
