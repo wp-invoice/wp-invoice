@@ -193,6 +193,8 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
 
     $action = $this->current_action();
 
+    $status = false;
+
     //** Set status */
     switch ( $action ) {
       case 'trash':
@@ -202,7 +204,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         $status = 'deleted';
         break;
       case 'untrash':
-        $status = 'untrashed';
+        $status = 'restored';
         break;
       case 'unarchive':
         $status = 'un-archived';
@@ -212,15 +214,9 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         break;
     }
 
-    echo '<pre>';
-    print_r( $_REQUEST[ 'post_ids' ] );
-    echo '</pre>';
-
-    die();
-
     //** Process action */
     $invoice_ids = array();
-    foreach ( (array) $ids as $ID ) {
+    foreach ( (array) $_REQUEST[ 'post_ids' ] as $ID ) {
       //** Perfom action */
       $this_invoice = new WPI_Invoice();
       $this_invoice->load_invoice( "id={$ID}" );
@@ -252,6 +248,10 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
           }
           break;
       }
+    }
+
+    if ( $status ) {
+      $this->message = 'Successfully ' . $status;
     }
 
 //    try {

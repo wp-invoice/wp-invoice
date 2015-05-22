@@ -957,7 +957,6 @@ class WPI_Functions {
    */
   static function add_message( $message, $type = 'good', $class = '' ) {
 
-    echo '111';
     global $wpi_messages;
     if ( !is_array( $wpi_messages ) ) {
       $wpi_messages = array();
