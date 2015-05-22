@@ -112,6 +112,8 @@ td.wpi_premium_feature_image {
 
 #wp_invoice_settings_page .form-table th {
   padding: 20px 10px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 #wp_invoice_settings_page .form-table .description {
