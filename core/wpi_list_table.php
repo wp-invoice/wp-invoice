@@ -200,11 +200,14 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function column_id( $post ) {
     $post = $this->get_invoice_object( $post );
 
+    $regular_id = false;
+
     $invoice_id = $post->invoice_id;
     if(!empty($post->custom_id)) {
       $invoice_id = $post->custom_id;
+      $regular_id = $post->invoice_id;
     }
-    return '<a href="' . get_invoice_permalink($post->invoice_id) . '" target="_blank">'.apply_filters("wpi_attribute_invoice_id", $invoice_id, $post).'</a>';
+    return '<a href="' . get_invoice_permalink($post->invoice_id) . '" target="_blank">'.apply_filters("wpi_attribute_invoice_id", $invoice_id, $post). ($regular_id?(' ('.$regular_id.') '):'') .'</a>';
   }
 
   /**
