@@ -13,6 +13,7 @@
   <input type="hidden" name="cbt" value="Go back to Merchant">
   <input type="hidden" name="item_name" value="<?php echo $invoice['post_title']; ?>">
   <input type="hidden" name="invoice" id="invoice_id" value="<?php echo $invoice['invoice_id']; ?>">
+  <input type="hidden" name="bn" value="UsabilityDynamics_SP" />
 
   <?php if ( $this->do_send_notify_url( $invoice ) ): ?>
     <input type="hidden" name="notify_url" value="<?php echo $invoice['billing']['wpi_paypal']['settings']['ipn']['value'] ?>" />
