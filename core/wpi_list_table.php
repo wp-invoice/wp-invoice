@@ -29,6 +29,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     parent::__construct($this->args);
 
     add_filter( 'wplt:orderby:is_numeric', array( __CLASS__, 'set_numeric_fields' ), 10, 2 );
+    add_filter( 'wplt:orderby:meta_type', array( __CLASS__, 'set_correct_types' ), 10, 2 );
 
   }
 
@@ -39,6 +40,13 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public static function set_numeric_fields( $false, $slug ) {
     if ( $slug == 'total_payments' ) {
       return true;
+    }
+    return $false;
+  }
+
+  public static function set_correct_types( $false, $slug ) {
+    if ( $slug == 'date' || $slug == 'modified' ) {
+      return 'DATETIME';
     }
     return $false;
   }
@@ -69,7 +77,8 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
       'title'     => __( 'Title', WPI ),
       'collected' => __( 'Collected', WPI ),
       'recipient' => __( 'Recipient', WPI ),
-      'updated'   => __( 'Updated', WPI ),
+      'updated'   => __( 'Created', WPI ),
+      'created'   => __( 'Updated', WPI ),
       'status'    => __( 'Status', WPI ),
       'type'      => __( 'Type', WPI ),
       'id'        => __( 'ID', WPI )
@@ -86,7 +95,8 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         'title' => array( 'title', false ),  //true means it's already sorted
         'collected' => array( 'total_payments', false ),
         'recipient' => array( 'user_email', false ),
-        'updated'    => array( 'modified', false )
+        'updated'    => array( 'date', false ),
+        'created' => array( 'modified', false )
     );
 
     return $columns;
@@ -150,21 +160,21 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    * @return string
    */
   public function column_updated( $post ) {
-    $r = '';
     $post = $this->get_invoice_object( $post );
 
-    if ( !empty( $post->post_status ) ) {
-      if ( $post->post_status == 'paid' ) {
-        $r .= get_post_status_object($post->post_status)->label.' '.human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).__(' ago', WPI);
-      } else {
-        $r .= human_time_diff(strtotime($post->post_modified), (time() + get_option('gmt_offset')*60*60)).__(' ago', WPI);
-      }
-    } else {
-      $r .= date(get_option('date_format'), strtotime($post->post_date));
-    }
-
-    return $r;
+    return date(get_option('date_format').' \a\t '.get_option('time_format'), strtotime($post->post_date));
   }
+
+  /**
+   * @param $post
+   * @return string
+   */
+  public function column_created( $post ) {
+    $post = $this->get_invoice_object( $post );
+
+    return date(get_option('date_format').' \a\t '.get_option('time_format'), strtotime($post->post_modified));
+  }
+
 
   /**
    * @param $post
