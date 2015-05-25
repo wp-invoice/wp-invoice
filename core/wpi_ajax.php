@@ -405,7 +405,13 @@ class WPI_Ajax {
       while ( ( $file = readdir( $dir ) ) !== false ) {
         unset( $info );
         $info = pathinfo( $file );
-        if ( $info[ 'extension' ] == 'php' ) {
+        /**
+         * File Data needs to be empty
+         * @author korotkov@ud
+         * @since 3.10.0
+         */
+        $_file_data = get_file_data( $original_template_path . "/" . $file, array('name' => 'Template Name') );
+        if ( $info[ 'extension' ] == 'php' && empty( $_file_data['name'] ) ) {
           if ( @copy( $original_template_path . "/" . $file, "$custom_template_path/$file" ) )
             $files_copied++;
         }
