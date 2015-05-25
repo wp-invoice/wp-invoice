@@ -1,7 +1,7 @@
 <?php
 
 /**
-  Template Name: Bold
+  Name: Bold
  */
 
 //$font = 'impact';

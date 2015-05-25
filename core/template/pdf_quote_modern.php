@@ -1,7 +1,7 @@
 <?php
 
 /**
-  Template Name: Modern
+  Name: Modern
  */
 
 $logo = '<td rowspan="2" width="150"><img src="%logo%" width="150" /></td>';
