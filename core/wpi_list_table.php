@@ -26,11 +26,11 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
       'order' => 'DESC'
     ));
 
-    parent::__construct($this->args);
-
     add_filter( 'wplt:orderby:is_numeric', array( __CLASS__, 'set_numeric_fields' ), 10, 2 );
     add_filter( 'wplt:orderby:meta_type', array( __CLASS__, 'set_correct_types' ), 10, 2 );
     add_filter( 'post_row_actions', array(__CLASS__, 'add_view_link'), 10, 2);
+
+    parent::__construct($this->args);
 
   }
 
@@ -274,38 +274,40 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     }
 
     $invoice_ids = array();
-    foreach ( (array) $_REQUEST[ 'post_ids' ] as $ID ) {
+    if ( !empty( $_REQUEST[ 'post_ids' ] ) ) {
+      foreach ((array)$_REQUEST['post_ids'] as $ID) {
 
-      $this_invoice = new WPI_Invoice();
-      $this_invoice->load_invoice( "id={$ID}" );
-      $invoice_id = $this_invoice->data[ 'invoice_id' ];
+        $this_invoice = new WPI_Invoice();
+        $this_invoice->load_invoice("id={$ID}");
+        $invoice_id = $this_invoice->data['invoice_id'];
 
-      switch ( $action ) {
-        case 'trash':
-          if ( $this_invoice->trash() ) {
-            $invoice_ids[ ] = $invoice_id;
-          }
-          break;
-        case 'delete':
-          if ( $this_invoice->delete() ) {
-            $invoice_ids[ ] = $invoice_id;
-          }
-          break;
-        case 'untrash':
-          if ( $this_invoice->untrash() ) {
-            $invoice_ids[ ] = $invoice_id;
-          }
-          break;
-        case 'unarchive':
-          if ( $this_invoice->unarchive() ) {
-            $invoice_ids[ ] = $invoice_id;
-          }
-          break;
-        case 'archive':
-          if ( $this_invoice->archive() ) {
-            $invoice_ids[ ] = $invoice_id;
-          }
-          break;
+        switch ($action) {
+          case 'trash':
+            if ($this_invoice->trash()) {
+              $invoice_ids[] = $invoice_id;
+            }
+            break;
+          case 'delete':
+            if ($this_invoice->delete()) {
+              $invoice_ids[] = $invoice_id;
+            }
+            break;
+          case 'untrash':
+            if ($this_invoice->untrash()) {
+              $invoice_ids[] = $invoice_id;
+            }
+            break;
+          case 'unarchive':
+            if ($this_invoice->unarchive()) {
+              $invoice_ids[] = $invoice_id;
+            }
+            break;
+          case 'archive':
+            if ($this_invoice->archive()) {
+              $invoice_ids[] = $invoice_id;
+            }
+            break;
+        }
       }
     }
 
