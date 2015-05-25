@@ -30,6 +30,23 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
 
     add_filter( 'wplt:orderby:is_numeric', array( __CLASS__, 'set_numeric_fields' ), 10, 2 );
     add_filter( 'wplt:orderby:meta_type', array( __CLASS__, 'set_correct_types' ), 10, 2 );
+    add_filter( 'post_row_actions', array(__CLASS__, 'add_view_link'), 10, 2);
+
+  }
+
+  /**
+   * @param array $actions
+   * @param bool $post
+   */
+  public static function add_view_link( $actions = array(), $post = false ) {
+
+    if ( $post ) {
+      if ( $post->post_status != 'trash' && $post->post_status != 'archived' ) {
+        $actions['view'] = '<a target="_blank" href="'.get_invoice_permalink($post->ID).'">'.__( 'View', WPI ).'</a>';
+      }
+    }
+
+    return $actions;
 
   }
 
