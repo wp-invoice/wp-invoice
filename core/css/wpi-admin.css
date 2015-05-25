@@ -1005,3 +1005,7 @@ ul.wpi_sublist {
   background: none repeat scroll 0 0 #FEFEFE;
   padding: 20px;
 }
+
+#first_time_setup_accordion h3, .wp_invoice_accordion_section h3 {
+    margin-bottom: 0;
+}

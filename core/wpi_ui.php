@@ -17,7 +17,7 @@ class WPI_UI {
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', null, WPI_URL . "/core/css/images/wp_invoice.png" );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', WPI ), 'Invoice', $capability, 'wpi_main', null, 'dashicons-money' );
     $overview_page = new \UsabilityDynamics\UI\Page( 'wpi_main', __( 'View All', WPI ), __( 'View All', WPI ), $capability, 'wpi_main' );
     $wpi_settings[ 'pages' ][ 'main' ] = $overview_page->screen_id;
     $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', WPI ), __( 'Add New', WPI ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
@@ -227,10 +227,49 @@ class WPI_UI {
    * Make mrtaboxes appear
    */
   public static function metaboxes_overview() {
+    global $wpi_settings, $wpdb;
+
     $screen = get_current_screen();
+
+    if ( $wpi_settings[ 'first_time_setup_ran' ] == 'false' ) {
+      add_meta_box( 'first_setup', __('WP-Invoice First-Use Setup'), array( __CLASS__, 'render_first_time_setup' ), $screen->id, 'normal');
+      return;
+    } else {
+      /**
+       * Check if 'web_invoice_page' exists
+       * and show warning message if not.
+       * and also check that the web_invoice_page is a real page
+       */
+      if ( empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+      } else {
+        if ( !$wpdb->get_var( "SELECT post_name FROM {$wpdb->posts} WHERE ID = {$wpi_settings['web_invoice_page'] }" ) ) {
+          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+        }
+      }
+
+      /**
+       * Check if curl is installed.
+       */
+      if ( !function_exists( 'curl_exec' ) ) {
+        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI ) . '</p></div>';
+      }
+    }
 
     add_meta_box( 'posts_list', __('Overview'), array( __CLASS__, 'render_overview' ), $screen->id, 'normal');
     add_meta_box( 'posts_filter', __('Filter'), array( __CLASS__, 'render_overview_filter'), $screen->id, 'side');
+  }
+
+  /**
+   *
+   */
+  public static function render_first_time_setup() {
+    $file_path = apply_filters( 'wpi_page_loader_path', WPI_Path . "/core/ui/first_time_setup.php", 'first_time_setup', WPI_Path . "/core/ui/" );
+    if ( file_exists( $file_path ) ) {
+      include $file_path;
+    } else {
+      echo "<div class='wrap'><h2>" . __('Error', WPI) . "</h2><p>" . __('Template not found:', WPI) . $file_path . "</p></div>";
+    }
   }
 
   /**
