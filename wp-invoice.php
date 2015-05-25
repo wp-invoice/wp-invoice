@@ -6,7 +6,7 @@
  * Author: UsabilityDynamics.com
  * Version: 3.10.0
  * Author URI: http://UsabilityDynamics.com/
- * Copyright 2011 - 2014  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
+ * Copyright 2011 - 2015  Usability Dynamics, Inc. (email : info@UsabilityDynamics.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

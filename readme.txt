@@ -117,6 +117,13 @@ Please visit the [wp-invoice community page](https://usabilitydynamics.com/produ
 
 == Change Log ==
 
+= Version 3.10.0 =
+* Rewritten invoices overview page.
+* Fixed style issues on back end.
+* Added date range filter to invoices overview page.
+* Updated Power Tools feature.
+* Updated PDF Invoice feature.
+
 = Version 3.09.6 =
 * WordPress 4.2 compatible.
 
