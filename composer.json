@@ -2,10 +2,10 @@
   "name": "wp-invoice/wp-invoice",
   "type": "wordpress-plugin",
   "minimum-stability": "dev",
-  "homepage": "https://www.usabilitydynamics.com/wp-invoice",
+  "homepage": "https://www.usabilitydynamics.com/product/wp-invoice",
   "author": {
     "name": "UsabilityDynamics, Inc.",
-    "url": "https://usabilitydynamics.com"
+    "url": "https://www.usabilitydynamics.com"
   },
   "repositories": [
     {
@@ -19,8 +19,9 @@
   },
   "require": {
     "php": ">=5.3",
-    "usabilitydynamics/lib-wp-bootstrap": "*",
-    "usabilitydynamics/lib-ud-api-client": "1.0.3"
+    "usabilitydynamics/lib-utility": "0.3.6",
+    "usabilitydynamics/lib-wp-bootstrap": "1.1.1",
+    "usabilitydynamics/lib-ud-api-client": "1.0.6"
   },
   "require-dev": {
     "usabilitydynamics/lib-wp-phpunit": "master",
@@ -42,7 +43,8 @@
   },
   "extra": {
     "splashes": {
-      "install": "static/splashes/install.php"
+      "install": "static/splashes/install.php",
+      "upgrade": "static/splashes/upgrade.php"
     },
     "schemas": {
       "dependencies" : {
@@ -55,12 +57,13 @@
       },
       "licenses" : {
         "client" : {
-		      "screen": {
-			      "parent": "wpi_main",
+          "slug": "wp-invoice/wp-invoice",
+          "screen": {
+            "parent": "wpi_main",
             "page_title": "l10n.licenses_page_title",
             "menu_title": "l10n.licenses_menu_title"
-		      }
-		    },
+          }
+        },
         "product" : false
       }
     }
