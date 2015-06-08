@@ -1815,7 +1815,7 @@ class WPI_Functions {
    * @todo What the hell $wp_properties does here?...
    */
   function register_post_type() {
-    global $wpdb, $wpi_settings, $wp_properties;
+    global $wpi_settings;
 
     $wpi_settings[ 'statuses' ] = array();
 
@@ -1843,8 +1843,6 @@ class WPI_Functions {
       '_edit_link' => $wpi_settings[ 'links' ][ 'manage_invoice' ] . '&wpi[existing_invoice][invoice_id]=%d',
       'capability_type' => 'post',
       'hierarchical' => false,
-      'rewrite' => array( 'slug' => $wp_properties[ 'configuration' ][ 'base_slug' ] ),
-      'query_var' => $wp_properties[ 'configuration' ][ 'base_slug' ],
       'supports' => array( 'title', 'editor', 'thumbnail' ),
       'menu_icon' => WPI_URL . "/core/css/images/wp_invoice.png"
     ) );
