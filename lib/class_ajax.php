@@ -40,11 +40,11 @@ class WPI_Ajax {
   static function search_recipient() {
     global $wpdb, $blog_id;
 
-    $users_found = $wpdb->get_results( "SELECT `u`.`ID` as `id`, CONCAT(`u`.`display_name`, ' (', `u`.`user_email`, ')') as `title`
+    $users_found = $wpdb->get_results( "SELECT `u`.`ID`, `u`.`user_email` as `id`, CONCAT(`u`.`display_name`, ' (', `u`.`user_email`, ')') as `label`
                                        FROM `{$wpdb->users}` as `u` INNER JOIN `{$wpdb->usermeta}` as `m`
                                          ON `u`.`ID` = `m`.`user_id`
-                                       WHERE (`u`.`display_name` LIKE '%{$_REQUEST['s']}%'
-                                         OR `u`.`user_email` LIKE '%{$_REQUEST['s']}%')
+                                       WHERE (`u`.`display_name` LIKE '%{$_REQUEST['q']}%'
+                                         OR `u`.`user_email` LIKE '%{$_REQUEST['q']}%')
                                          AND `u`.`user_email` != ''
                                          AND `m`.`meta_key` = '{$wpdb->get_blog_prefix( $blog_id )}capabilities'
                                        GROUP BY `u`.`ID`
