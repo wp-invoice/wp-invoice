@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5587e41185c474491b9bbad76747d030",
+    "hash": "4f6e7c41d81aadbf11ff8d2d9c43e11c",
     "packages": [
         {
             "name": "usabilitydynamics/lib-ui",
@@ -141,21 +141,21 @@
         },
         {
             "name": "usabilitydynamics/lib-wp-list-table",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:UsabilityDynamics/lib-wp-list-table",
-                "reference": "1.0.3"
+                "reference": "1.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/UsabilityDynamics/lib-wp-list-table/archive/1.0.3.zip",
+                "url": "https://github.com/UsabilityDynamics/lib-wp-list-table/archive/1.0.5.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "php": ">=5.3",
-                "usabilitydynamics/lib-ui": "0.3.0"
+                "usabilitydynamics/lib-ui": "~0.3"
             },
             "type": "library",
             "extra": {

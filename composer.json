@@ -19,7 +19,7 @@
   },
   "require": {
     "php": ">=5.3",
-    "usabilitydynamics/lib-wp-list-table": "1.0.3"
+    "usabilitydynamics/lib-wp-list-table": "1.0.5"
   },
   "archive": {
     "exclude": [
