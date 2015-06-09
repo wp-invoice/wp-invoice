@@ -447,8 +447,6 @@ class WPI_Core {
       WPI_Functions::settings_action();
     }
 
-    add_filter("manage_{$wpi_settings['pages']['main']}_columns", array('WPI_UI', 'overview_columns'), 10, 3);
-
     //** Add metaboxes */
     if (isset($wpi_settings['pages']) && is_array($wpi_settings['pages'])) {
       $this->add_metaboxes($wpi_settings['pages']);
