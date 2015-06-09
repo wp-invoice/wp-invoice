@@ -17,8 +17,9 @@ class WPI_UI {
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'WP-Invoice', ud_get_wp_invoice()->domain ), 'WP-Invoice', $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ), 'dashicons-money' );
-    $wpi_settings[ 'pages' ][ 'main' ] = add_submenu_page( 'wpi_main', __( 'View All', ud_get_wp_invoice()->domain ), __( 'View All', ud_get_wp_invoice()->domain ), $capability, 'wpi_main', array( 'WPI_UI', 'page_loader' ) );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'Invoice', ud_get_wp_invoice()->domain ), 'Invoice', $capability, 'wpi_main', null, 'dashicons-money' );
+    $overview_page = new \UsabilityDynamics\UI\Page( 'wpi_main', __( 'View All', ud_get_wp_invoice()->domain ), __( 'View All', ud_get_wp_invoice()->domain ), $capability, 'wpi_main' );
+    $wpi_settings[ 'pages' ][ 'main' ] = $overview_page->screen_id;
     $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', ud_get_wp_invoice()->domain ), __( 'Add New', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
     $wpi_settings[ 'pages' ][ 'reports' ] = add_submenu_page( 'wpi_main', __( 'Reports', ud_get_wp_invoice()->domain ), __( 'Reports', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_reports', array( 'WPI_UI', 'page_loader' ) );
 
@@ -29,11 +30,13 @@ class WPI_UI {
     /* Update screens information */
     WPI_Settings::setOption( 'pages', $wpi_settings[ 'pages' ] );
 
+    /* Register meta boxes */
+    add_action( 'add_meta_boxes_'.$wpi_settings[ 'pages' ][ 'main' ], array( __CLASS__, 'metaboxes_overview' ) );
     // Add Actions
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'main' ], array( 'WPI_UI', 'pre_load_main_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'edit' ], array( 'WPI_UI', 'pre_load_edit_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'reports' ], array( 'WPI_UI', 'pre_load_reports_page' ) );
-    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'settings' ], array( 'WPI_UI', 'pre_load_settings_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'main' ], array( __CLASS__, 'pre_load_overview' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'edit' ], array( __CLASS__, 'pre_load_edit_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'reports' ], array( __CLASS__, 'pre_load_reports_page' ) );
+    add_action( 'load-' . $wpi_settings[ 'pages' ][ 'settings' ], array( __CLASS__, 'pre_load_settings_page' ) );
 
     //* Load common actions on all WPI pages */
     foreach ( $wpi_settings[ 'pages' ] as $page_slug ) {
@@ -43,6 +46,256 @@ class WPI_UI {
     // Add Filters
     add_filter( 'wpi_page_loader_path', array( 'WPI_UI', "wpi_display_user_selection" ), 0, 3 );
     add_filter( 'wpi_pre_header_wp-invoice_page_wpi_page_manage_invoice', array( 'WPI_UI', "page_manage_invoice_preprocess" ) );
+
+    add_filter( 'wpi_overview_filter_types', array( __CLASS__, 'add_wpi_overview_filter_types' ) );
+
+    add_filter( 'wpi_overview_filter_statuses', array( __CLASS__, 'add_wpi_overview_filter_statuses' ) );
+  }
+
+  /**
+   * @param $current
+   * @return mixed
+   */
+  public static function add_wpi_overview_filter_statuses ( $current ) {
+
+    $statuses = array();
+
+    foreach( (array)$objects_count = wp_count_posts('wpi_object') as $status => $count ) {
+      if ( $count ) {
+        $statuses[$status] = ucfirst( $status ) . ' ('.$count.') ';
+      }
+    }
+
+    if ( !empty( $statuses ) ) {
+      return $current + $statuses;
+    }
+
+    return $current;
+  }
+
+  /**
+   * @param $current
+   * @return mixed
+   */
+  public static function add_wpi_overview_filter_types( $current ) {
+    global $wpi_settings;
+
+    foreach( (array)$wpi_settings['types'] as $key => $value ) {
+      $current[ $key ] = $value['label'];
+    }
+
+    return $current;
+  }
+
+  /**
+   * Overview page
+   */
+  public static function pre_load_overview() {
+    global $wpdb, $list_table;
+
+    /* Process Bulk Actions */
+    if ( !empty( $_REQUEST[ 'post' ] ) && !empty( $_REQUEST[ 'action' ] ) ) {
+      self::process_invoice_actions( $_REQUEST[ 'action' ], $_REQUEST[ 'post' ] );
+    } else if ( !empty( $_REQUEST[ 'delete_all' ] ) && $_REQUEST[ 'post_status' ] == 'trash' ) {
+      /* Get all trashed invoices */
+      $ids = $wpdb->get_col( "
+        SELECT `ID`
+        FROM `{$wpdb->posts}`
+        WHERE `post_type` = 'wpi_object'
+        AND `post_status` = 'trash'
+      " );
+
+      /* Determine if trashed invoices exist we remove them */
+      if ( !empty( $ids ) ) {
+        self::process_invoice_actions( 'delete', $ids );
+      }
+    }
+
+    //** Action Messages */
+    if ( !empty( $_REQUEST[ 'invoice_id' ] ) ) {
+      $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
+      //** Add Messages */
+      if ( isset( $_REQUEST[ 'trashed' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s restored."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', WPI ), $invoice_ids ) );
+      } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', WPI ), $invoice_ids ) );
+      }
+    }
+
+    /** Screen Options */
+    if ( function_exists( 'add_screen_option' ) ) {
+      add_screen_option( 'layout_columns', array( 'max' => 2, 'default' => 2 ) );
+    }
+
+    //** Default Help items */
+    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', WPI ) . '</h3>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', WPI ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', WPI ) . '</p>';
+
+    //** Hook this action is you want to add info */
+    $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
+
+    do_action( 'wpi_contextual_help', array( 'contextual_help' => $contextual_help ) );
+
+    $list_table = new New_WPI_List_Table(array(
+        'filter' => array(
+            'fields' => array(
+                array(
+                  'id' => 's',
+                  'name' => __('Title', WPI),
+                  'placeholder' => __('Start typing...', WPI),
+                  'type' => 'text',
+                  'map' => array(
+                    'class' => 'post', // Available: 'post','meta','taxonomy'
+                    'type' => 'string', // Available: 'string', 'number'
+                    'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
+                  )
+                ),
+                array(
+                    'id' => 'invoice_id',
+                    'name' => __('ID', WPI),
+                    'placeholder' => __('Paste ID here', WPI),
+                    'type' => 'text',
+                    'map' => array(
+                        'class' => 'meta', // Available: 'post','meta','taxonomy'
+                        'type' => 'string'
+                    )
+                ),
+                array(
+                  'id' => 'post_status',
+                  'name' => __('Status', WPI),
+                  'type' => 'select',
+                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => 'All' ) )
+                ),
+                array(
+                  'id' => 'type',
+                  'name' => __( 'Type', WPI ),
+                  'type' => 'select',
+                  'options' => apply_filters( 'wpi_overview_filter_types', array( '' => 'All' ) )
+                ),
+                array(
+                    'id' => 'user_email',
+                    'name' => __( 'Recipient', WPI ),
+                    'type' => 'select_advanced',
+                    'js_options' => array(
+                      'allowClear' => true,
+                    ),
+                    'multiple' => false,
+                    'url' => admin_url( 'admin-ajax.php?action=wpi_search_recipient' ),
+                    'map' => array(
+                      'class' => 'meta',
+                      'type' => 'string'
+                    )
+                ),
+                array(
+                    'id' => 'post_date_min',
+                    'name' => __( 'Date from', WPI ),
+                    'type' => 'date',
+                    'js_options' => array(
+                        'allowClear' => true,
+                    ),
+                    'map' => array(
+                        'class' => 'date_query',
+                        'compare' => 'after'
+                    )
+                ),
+                array(
+                    'id' => 'post_date_max',
+                    'name' => __( 'Date to', WPI ),
+                    'type' => 'date',
+                    'js_options' => array(
+                        'allowClear' => true,
+                    ),
+                    'map' => array(
+                        'class' => 'date_query',
+                        'compare' => 'before'
+                    )
+                )
+            )
+        )
+    ));
+
+  }
+
+  /**
+   * Make mrtaboxes appear
+   */
+  public static function metaboxes_overview() {
+    global $wpi_settings, $wpdb;
+
+    $screen = get_current_screen();
+
+    if ( $wpi_settings[ 'first_time_setup_ran' ] == 'false' ) {
+      add_meta_box( 'first_setup', __('WP-Invoice First-Use Setup'), array( __CLASS__, 'render_first_time_setup' ), $screen->id, 'normal');
+      return;
+    } else {
+      /**
+       * Check if 'web_invoice_page' exists
+       * and show warning message if not.
+       * and also check that the web_invoice_page is a real page
+       */
+      if ( empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+      } else {
+        if ( !$wpdb->get_var( "SELECT post_name FROM {$wpdb->posts} WHERE ID = {$wpi_settings['web_invoice_page'] }" ) ) {
+          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+        }
+      }
+
+      /**
+       * Check if curl is installed.
+       */
+      if ( !function_exists( 'curl_exec' ) ) {
+        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI ) . '</p></div>';
+      }
+    }
+
+    add_meta_box( 'posts_list', __('Overview'), array( __CLASS__, 'render_overview' ), $screen->id, 'normal');
+    add_meta_box( 'posts_filter', __('Filter'), array( __CLASS__, 'render_overview_filter'), $screen->id, 'side');
+  }
+
+  /**
+   *
+   */
+  public static function render_first_time_setup() {
+    $file_path = apply_filters( 'wpi_page_loader_path', WPI_Path . "/core/ui/first_time_setup.php", 'first_time_setup', WPI_Path . "/core/ui/" );
+    if ( file_exists( $file_path ) ) {
+      include $file_path;
+    } else {
+      echo "<div class='wrap'><h2>" . __('Error', WPI) . "</h2><p>" . __('Template not found:', WPI) . $file_path . "</p></div>";
+    }
+  }
+
+  /**
+   * Render overview list UI
+   */
+  public static function render_overview() {
+    global $list_table;
+
+    $list_table->prepare_items();
+
+    do_action( 'wpi_before_overview' );
+
+    WPI_Functions::print_messages();
+
+    $list_table->display();
+  }
+
+  /**
+   * Render overview filter
+   */
+  public static function render_overview_filter() {
+    global $list_table;
+
+    $list_table->filter();
+
+    do_action( 'wpi_after_actions' );
   }
 
   /**
@@ -281,65 +534,7 @@ class WPI_UI {
     do_action( 'wpi_contextual_help', array( 'contextual_help' => $contextual_help ) );
   }
 
-  /**
-   * Hook.
-   * Check Request before Main (Overview) Page will be loaded.
-   *
-   * @since 3.0
-   */
-  static function pre_load_main_page() {
-    global $wpi_settings, $wpdb;
 
-    /* Process Bulk Actions */
-    if ( !empty( $_REQUEST[ 'post' ] ) && !empty( $_REQUEST[ 'action' ] ) ) {
-      self::process_invoice_actions( $_REQUEST[ 'action' ], $_REQUEST[ 'post' ] );
-    } else if ( !empty( $_REQUEST[ 'delete_all' ] ) && $_REQUEST[ 'post_status' ] == 'trash' ) {
-      /* Get all trashed invoices */
-      $ids = $wpdb->get_col( "
-        SELECT `ID`
-        FROM `{$wpdb->posts}`
-        WHERE `post_type` = 'wpi_object'
-        AND `post_status` = 'trash'
-      " );
-
-      /* Determine if trashed invoices exist we remove them */
-      if ( !empty( $ids ) ) {
-        self::process_invoice_actions( 'delete', $ids );
-      }
-    }
-
-    //** Action Messages */
-    if ( !empty( $_REQUEST[ 'invoice_id' ] ) ) {
-      $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
-      //** Add Messages */
-      if ( isset( $_REQUEST[ 'trashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s untrashed."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
-      } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
-      }
-    }
-
-    /** Screen Options */
-    if ( function_exists( 'add_screen_option' ) ) {
-      add_screen_option( 'layout_columns', array( 'max' => 2, 'default' => 2 ) );
-    }
-
-    //** Default Help items */
-    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', ud_get_wp_invoice()->domain ) . '</h3>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', ud_get_wp_invoice()->domain ) . '</p>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', ud_get_wp_invoice()->domain ) . '</p>';
-
-    //** Hook this action is you want to add info */
-    $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
-
-    do_action( 'wpi_contextual_help', array( 'contextual_help' => $contextual_help ) );
-  }
 
   /**
    * Reports Page load handler
@@ -549,8 +744,11 @@ class WPI_UI {
         break;
 
       case 'toplevel_page_wpi_main':
-        wp_enqueue_script( 'post' );
-        wp_enqueue_script( 'postbox' );
+        wp_enqueue_script( 'wp-invoice-functions' );
+        wp_enqueue_script( 'wp-invoice-events' );
+        wp_enqueue_script( 'jquery.formatCurrency' );
+        break;
+
       case 'wp-invoice_page_wpi_page_settings':
         wp_enqueue_script( 'jquery-ui-tabs' );
         wp_enqueue_script( 'jquery-ui-sortable' );
@@ -582,32 +780,6 @@ class WPI_UI {
 
         break;
     }
-  }
-
-  /**
-   * Add or remove taxonomy columns
-   *
-   * @since 3.0
-   */
-  static function overview_columns( $columns ) {
-
-    $overview_columns = apply_filters( 'wpi_overview_columns', array(
-      'cb' => '',
-      'post_title' => __( 'Title', ud_get_wp_invoice()->domain ),
-      'total' => __( 'Total Collected', ud_get_wp_invoice()->domain ),
-      'user_email' => __( 'Recipient', ud_get_wp_invoice()->domain ),
-      'post_modified' => __( 'Date', ud_get_wp_invoice()->domain ),
-      'post_status' => __( 'Status', ud_get_wp_invoice()->domain ),
-      'type' => __( 'Type', ud_get_wp_invoice()->domain ),
-      'invoice_id' => __( 'Invoice ID', ud_get_wp_invoice()->domain )
-    ) );
-
-    /* We need to grab the columns from the class itself, so we instantiate a new temp object */
-    foreach ( $overview_columns as $column => $title ) {
-      $columns[ $column ] = $title;
-    }
-
-    return $columns;
   }
 
   /**

@@ -180,6 +180,8 @@ class WPI_Core {
 
     //** Load Payment gateways */
     $this->Functions->load_gateways();
+      //** Preload WPLT */
+      new \UsabilityDynamics\WPLT\Bootstrap();
 
     //** Load the rest at the init level */
     add_action('init', array($this, 'init'), 0);

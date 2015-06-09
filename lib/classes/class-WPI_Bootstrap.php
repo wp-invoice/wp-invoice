@@ -86,11 +86,6 @@ namespace UsabilityDynamics\WPI {
         require_once( ud_get_wp_invoice()->path( 'lib/class_payment_api.php', 'dir' ) );
 
         /**
-         * Metaboxes
-         */
-        require_once( ud_get_wp_invoice()->path( 'lib/ui/class_metaboxes.php', 'dir' ) );
-
-        /**
          * XML-RPC API
          */
         require_once( ud_get_wp_invoice()->path( 'lib/class_xmlrpc_api.php', 'dir' ) );
@@ -104,6 +99,11 @@ namespace UsabilityDynamics\WPI {
          * Legacy utils
          */
         require_once( ud_get_wp_invoice()->path( 'lib/class_legacy.php', 'dir' ) );
+
+        /**
+         *
+         */
+        require_once( ud_get_wp_invoice()->path( 'lib/class_list_table.php', 'dir' ) );
 
         //** Initiate the plugin */
         $this->core = \WPI_Core::getInstance();
