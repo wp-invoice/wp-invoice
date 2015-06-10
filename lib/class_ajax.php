@@ -87,66 +87,6 @@ class WPI_Ajax {
   }
 
   /**
-   * Function for displaying WPI Data Table rows
-   */
-  static function wpi_list_table() {
-    global $wpi_settings;
-
-    require_once( ud_get_wp_invoice()->path( 'lib/ui/class_wpi_object_list_table.php', 'dir' ) );
-
-    //** Get the paramters we care about */
-    $sEcho = $_REQUEST[ 'sEcho' ];
-    $per_page = $_REQUEST[ 'iDisplayLength' ];
-    $iDisplayStart = $_REQUEST[ 'iDisplayStart' ];
-    $iColumns = $_REQUEST[ 'iColumns' ];
-    $sColumns = $_REQUEST[ 'sColumns' ];
-    $order_by = $_REQUEST[ 'iSortCol_0' ];
-    $sort_dir = $_REQUEST[ 'sSortDir_0' ];
-    $current_screen = $wpi_settings[ 'pages' ][ 'main' ];
-
-    //** Parse the serialized filters array */
-    parse_str( $_REQUEST[ 'wpi_filter_vars' ], $wpi_filter_vars );
-    $wpi_search = $wpi_filter_vars[ 'wpi_search' ];
-
-    $sColumns = explode( ",", $sColumns );
-
-    //** Init table object */
-    $wp_list_table = new WPI_Object_List_Table( array(
-      "ajax" => true,
-      "per_page" => $per_page,
-      "iDisplayStart" => $iDisplayStart,
-      "iColumns" => $iColumns,
-      "current_screen" => $current_screen
-    ) );
-
-    if ( in_array( $sColumns[ $order_by ], $wp_list_table->get_sortable_columns() ) ) {
-      $wpi_search[ 'sorting' ] = array(
-        'order_by' => $sColumns[ $order_by ],
-        'sort_dir' => $sort_dir
-      );
-    }
-
-    $wp_list_table->prepare_items( $wpi_search );
-    
-    $data = array();
-
-    if ( $wp_list_table->has_items() ) {
-      foreach ( $wp_list_table->items as $count => $item ) {
-        $data[ ] = $wp_list_table->single_row( $item );
-      }
-    } else {
-      $data[ ] = $wp_list_table->no_items();
-    }
-
-    return json_encode( array(
-      'sEcho' => $sEcho,
-      'iTotalRecords' => count( $wp_list_table->all_items ),
-      'iTotalDisplayRecords' => count( $wp_list_table->all_items ),
-      'aaData' => $data
-    ) );
-  }
-
-  /**
    * Updates usermeta - mostly for updating screen options
    * @global type $user_ID
    */
