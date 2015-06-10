@@ -200,7 +200,7 @@ class WPI_Functions {
       foreach ( $search_vars as $primary_key => $key_terms ) {
 
         //** Handle search_string differently, it applies to all meta values */
-        if ( $primary_key == 's' && !empty( $key_terms ) ) {
+        if ( $primary_key == 'wplt_filter_s' && !empty( $key_terms ) ) {
           /* First, go through the posts table */
           $tofind = strtolower( $key_terms );
           $sql .= " AND (";
@@ -213,7 +213,7 @@ class WPI_Functions {
         }
 
         // Type
-        if ( $primary_key == 'type' ) {
+        if ( $primary_key == 'wplt_filter_type' ) {
           if ( empty( $key_terms ) ) {
             continue;
           }
@@ -227,68 +227,76 @@ class WPI_Functions {
         }
 
         // Status
-        if ( $primary_key == 'status' ) {
+        if ( $primary_key == 'wplt_filter_post_status' ) {
           if ( empty( $key_terms ) ) {
             continue;
           }
 
-          if ( is_array( $key_terms ) ) {
+          if ( !empty( $key_terms ) && $key_terms != 'any' ) {
             $sql .= " AND (";
-            $i = 0;
-            foreach ( $key_terms as $term ) {
-              if ( empty( $term ) ) {
-                continue;
-              }
-              if ( $i > 0 ) {
-                $sql .= " OR ";
-              }
-              $sql .= " `{$wpdb->posts}`.post_status = '{$term}' ";
-              $i++;
-            }
+              $sql .= " `{$wpdb->posts}`.post_status = '{$key_terms}' ";
             $sql .= ")";
           }
         }
-        /*
-          if ( !$use_status_filter ) {
-          $sql .= " AND ( post_status = 'active' ) ";
-          }
-         */
+
         // Recipient
-        if ( $primary_key == 'recipient' ) {
+        if ( $primary_key == 'wplt_filter_user_email' ) {
           if ( empty( $key_terms ) ) {
             continue;
           }
 
-          $user = get_user_by( 'id', $key_terms );
-
           $sql .= " AND ";
-          $sql .= " `{$wpdb->posts}`.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'user_email' AND meta_value = '{$user->user_email}')";
+          $sql .= " `{$wpdb->posts}`.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'user_email' AND meta_value = '{$key_terms}')";
 
           continue;
         }
 
         /* Date */
-        if ( $primary_key == 'm' ) {
+        if ( $primary_key == 'wplt_filter_post_date_max' ) {
           if ( empty( $key_terms ) || (int) $key_terms == 0 ) {
             continue;
           }
 
           $key_terms = '' . preg_replace( '|[^0-9]|', '', $key_terms );
-          $sql .= " AND YEAR(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 0, 4 );
+          $sql .= " AND YEAR(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 0, 4 );
           if ( strlen( $key_terms ) > 5 ) {
-            $sql .= " AND MONTH(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 4, 2 );
+            $sql .= " AND MONTH(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 4, 2 );
           }
           if ( strlen( $key_terms ) > 7 ) {
-            $sql .= " AND DAYOFMONTH(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 6, 2 );
+            $sql .= " AND DAYOFMONTH(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 6, 2 );
           }
           if ( strlen( $key_terms ) > 9 ) {
-            $sql .= " AND HOUR(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 8, 2 );
+            $sql .= " AND HOUR(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 8, 2 );
           }
           if ( strlen( $key_terms ) > 11 ) {
-            $sql .= " AND MINUTE(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 10, 2 );
+            $sql .= " AND MINUTE(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 10, 2 );
           }
           if ( strlen( $key_terms ) > 13 ) {
-            $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)=" . substr( $key_terms, 12, 2 );
+            $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)<=" . substr( $key_terms, 12, 2 );
+          }
+        }
+
+        if ( $primary_key == 'wplt_filter_post_date_min' ) {
+          if ( empty( $key_terms ) || (int) $key_terms == 0 ) {
+            continue;
+          }
+
+          $key_terms = '' . preg_replace( '|[^0-9]|', '', $key_terms );
+          $sql .= " AND YEAR(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 0, 4 );
+          if ( strlen( $key_terms ) > 5 ) {
+            $sql .= " AND MONTH(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 4, 2 );
+          }
+          if ( strlen( $key_terms ) > 7 ) {
+            $sql .= " AND DAYOFMONTH(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 6, 2 );
+          }
+          if ( strlen( $key_terms ) > 9 ) {
+            $sql .= " AND HOUR(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 8, 2 );
+          }
+          if ( strlen( $key_terms ) > 11 ) {
+            $sql .= " AND MINUTE(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 10, 2 );
+          }
+          if ( strlen( $key_terms ) > 13 ) {
+            $sql .= " AND SECOND(`{$wpdb->posts}`.post_date)>=" . substr( $key_terms, 12, 2 );
           }
         }
       }
