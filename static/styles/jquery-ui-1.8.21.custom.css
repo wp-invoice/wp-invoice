@@ -1551,8 +1551,3 @@ body .ui-tooltip {
   /* support: IE8 */
   border-radius: 8px;
 }
-.ui-widget input[type="text"],
-.ui-widget select,
-.ui-widget textarea {
-  min-width: 400px;
-}

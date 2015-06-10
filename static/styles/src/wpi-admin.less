@@ -343,14 +343,6 @@ input.wpi_no_input {
   font-size: 1.1em;
   padding: 0.1em 0.1em 0.1em 1.3em;
 }
-#wp_invoice_settings_page .ui-tabs-nav li a {
-  padding: 6px .8em;
-  font-size: 12px;
-}
-/* #wp_invoice_settings_page .ui-accordion-header a {padding:0.1em 0.1em 0.1em 2.0em;} */
-#wp_invoice_settings_page .ui-accordion-content {
-  padding-bottom: 20px;
-}
 #publish-invoice .inside {
   margin: 0;
 }
@@ -1105,6 +1097,13 @@ input.wpi_no_input {
 #invoice_history_log {
   margin-left: 10px;
 }
+
+#wp_invoice_first_time_setup {
+  .ui-widget input[type="text"], .ui-widget select, .ui-widget textarea {
+    min-width: 400px;
+  }
+}
+
 #wp_invoice_first_time_setup input.error {
   padding: 3px;
 }
@@ -1333,4 +1332,40 @@ ul.wpi_sublist {
 .wpi_api_method_wrapper {
   background: none repeat scroll 0 0 #FEFEFE;
   padding: 20px;
+}
+
+.wpi_tabs {
+  ul.tabs {
+    background: transparent none repeat scroll 0 0;
+    border: 0;
+    float: left;
+    height: auto;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      border-color: #d0d0d0;
+      border-style: solid solid none;
+      border-width: 1px 1px 0;
+      float: left;
+      margin: 0 0 -1px 10px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 0;
+      background-image: none;
+
+      a {
+        color: #000000;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 32px;
+        outline: medium none;
+        padding: 2px 15px !important;
+        text-decoration: none;
+        box-shadow: none;
+      }
+    }
+  }
 }
