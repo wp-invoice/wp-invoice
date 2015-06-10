@@ -2094,46 +2094,6 @@ class WPI_Functions {
   }
 
   /**
-   * Promotional links notice
-   *
-   * @global type $wp_properties
-   * @author korotkov@ud
-   */
-  static function promotional_notice() {
-    global $wpi_settings;
-
-    $hour = 3600;
-    $day = 24 * $hour;
-
-    $show_after = 2 * $day;
-    $activation_date = (int) get_option( 'wpi_activation_time' );
-    $now = time();
-
-    if ( empty( $wpi_settings[ 'installed_features' ] ) && $now - $activation_date > $show_after ) {
-      $screen = get_current_screen();
-
-      if ( $screen->id == 'wp-invoice_page_wpi_page_settings' ) :
-        ?>
-        <div class="updated wpi_promotional_notice">
-          <div class="wpi_promotional_notice_top_line">
-            <?php echo sprintf( __( 'Find out how to <a target="_blank" href="%s">Extend</a> your <a target="_blank" href="%s">WP-Invoice</a> plugin', ud_get_wp_invoice()->domain ), 'https://usabilitydynamics.com/products/wp-invoice/premium-features/', 'https://usabilitydynamics.com/products/wp-invoice/' ); ?>
-          </div>
-          <div class="wpi_promotional_notice_bottom_line">
-            <a target="_blank"
-               href="https://usabilitydynamics.com/products/wp-invoice/premium-features/"><?php _e( 'Premium Features', ud_get_wp_invoice()->domain ); ?></a>
-            |
-            <a target="_blank" href="https://usabilitydynamics.com/forums/"><?php _e( 'Support Forum', ud_get_wp_invoice()->domain ); ?></a>
-            |
-            <a target="_blank"
-               href="https://usabilitydynamics.com/products/wp-invoice/#documentation-tutorials"><?php _e( 'User Guide', ud_get_wp_invoice()->domain ); ?></a>
-          </div>
-        </div>
-      <?php
-      endif;
-    }
-  }
-
-  /**
    * Delete invoice log by args
    *
    * @global object $wpdb

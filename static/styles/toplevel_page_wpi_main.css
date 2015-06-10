@@ -90,19 +90,18 @@ div.wpi_visualize_results {
 div.wpi_visualize_results.no_data {
   height: auto;
 }
-
-.metabox-holder .postbox-container .empty-container, #post-body.columns-2 #side-sortables:empty {
+.metabox-holder .postbox-container .empty-container,
+#post-body.columns-2 #side-sortables:empty {
   border: none !important;
   height: auto !important;
 }
-
-.wplt-filter input, .wplt-filter select {
-    width: 100%;
+.wplt-filter input,
+.wplt-filter select {
+  width: 100%;
 }
-
 .wpi_other_action_list_wrapper .button,
 .wpi_other_action_list_wrapper .wpi_other_action_list,
 .wpi_other_action_list_wrapper select {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }

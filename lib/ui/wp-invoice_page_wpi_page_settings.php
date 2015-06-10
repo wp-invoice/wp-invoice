@@ -76,7 +76,7 @@ if (isset($_REQUEST['message'])) {
 
     <?php WPI_Functions::print_messages(); ?>
 
-    <div id="wp_invoice_settings_page" class="wp_invoice_tabbed_content">
+    <div id="wp_invoice_settings_page" class="wpi_tabs wp_invoice_tabbed_content">
       <ul class="wp_invoice_settings_tabs">
         <?php foreach ($wpi_settings_tabs as $tab_id => $tab) {
           if (!is_callable($tab['callback'])) continue; ?>

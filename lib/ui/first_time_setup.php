@@ -7,7 +7,7 @@
         'value' => 'true',
         'group' => 'wpi_settings'
     )); ?>
-    <h2><?php _e('WP-Invoice First-Use Setup', ud_get_wp_invoice()->domain); ?></h2>
+
     <div id="wp_invoice_potential_error"></div>
     <div style="margin: 5px 0 15px 0;"><?php _e('Thank you for installing WP-Invoice.  Please provide the necessary information to complete the first-time setup.', ud_get_wp_invoice()->domain); ?></div>
     <div id="first_time_setup_accordion" class="">
@@ -49,7 +49,9 @@
                   'current_value' => $wpi_settings['where_to_display']
                 ));
               ?>
-              <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?>
+                <div>
+                  <small class="description"><?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?></small>
+                </div>
               </td>
             </tr>
             <tr class="column-payment-method-default">

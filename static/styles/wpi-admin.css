@@ -411,13 +411,6 @@ input.wpi_no_input {
 #wpi_invoice_form .wp_invoice_accordion_section .input_field {
   width: 100%;
 }
-#wp_invoice_first_time_setup .wp_invoice_accordion_section .ui-accordion-content {
-  padding: 10px 10px 40px 10px;
-}
-#wp_invoice_first_time_setup .wp_invoice_accordion_section h3 a {
-  padding-left: 30px;
-  font-weight: bold;
-}
 #wpi_invoice_form .column-message .input_field {
   width: 90%;
 }

@@ -264,11 +264,11 @@ class WPI_UI {
    *
    */
   public static function render_first_time_setup() {
-    $file_path = apply_filters( 'wpi_page_loader_path', WPI_Path . "/core/ui/first_time_setup.php", 'first_time_setup', WPI_Path . "/core/ui/" );
+    $file_path = apply_filters( 'wpi_page_loader_path', ud_get_wp_invoice()->path('lib/ui/first_time_setup.php', 'dir'), 'first_time_setup', ud_get_wp_invoice()->path('lib/ui', 'dir') );
     if ( file_exists( $file_path ) ) {
       include $file_path;
     } else {
-      echo "<div class='wrap'><h2>" . __('Error', WPI) . "</h2><p>" . __('Template not found:', WPI) . $file_path . "</p></div>";
+      echo "<div class='wrap'><h2>" . __('Error', ud_get_wp_invoice()->domain) . "</h2><p>" . __('Template not found:', ud_get_wp_invoice()->domain) . $file_path . "</p></div>";
     }
   }
 

@@ -221,9 +221,6 @@ class WPI_Core {
     //** Generate and display WP-Invoice notices on admin panel */
     add_action('admin_notices', array($this, 'admin_notices'));
 
-    //** Promotional admin notice @author korotkov@ud */
-    add_action('admin_notices', array('WPI_Functions', 'promotional_notice'));
-
     //** update invoices types */
     $wpi_settings['types'] = apply_filters('wpi_object_types', $wpi_settings['types']);
 
