@@ -18,8 +18,8 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function __construct( $args = array() ) {
 
     $this->args = wp_parse_args($args, array(
-        'singular' => __( 'Invoice', WPI ),
-        'plural' => __( 'Invoices', WPI ),
+        'singular' => __( 'Invoice', ud_get_wp_invoice()->domain ),
+        'plural' => __( 'Invoices', ud_get_wp_invoice()->domain ),
         'post_type' => 'wpi_object',
         'post_status' => 'all',
         'orderby' => 'ID',
@@ -42,7 +42,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
 
     if ( $post ) {
       if ( $post->post_status != 'trash' && $post->post_status != 'archived' ) {
-        $actions['view'] = '<a target="_blank" href="'.get_invoice_permalink($post->ID).'">'.__( 'View', WPI ).'</a>';
+        $actions['view'] = '<a target="_blank" href="'.get_invoice_permalink($post->ID).'">'.__( 'View', ud_get_wp_invoice()->domain ).'</a>';
       }
     }
 
@@ -91,14 +91,14 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function get_columns() {
     return array(
         'cb'        => '<input type="checkbox" />',
-        'title'     => __( 'Title', WPI ),
-        'collected' => __( 'Collected', WPI ),
-        'recipient' => __( 'Recipient', WPI ),
-        'updated'   => __( 'Created', WPI ),
-        'created'   => __( 'Updated', WPI ),
-        'status'    => __( 'Status', WPI ),
-        'type'      => __( 'Type', WPI ),
-        'id'        => __( 'ID', WPI )
+        'title'     => __( 'Title', ud_get_wp_invoice()->domain ),
+        'collected' => __( 'Collected', ud_get_wp_invoice()->domain ),
+        'recipient' => __( 'Recipient', ud_get_wp_invoice()->domain ),
+        'updated'   => __( 'Created', ud_get_wp_invoice()->domain ),
+        'created'   => __( 'Updated', ud_get_wp_invoice()->domain ),
+        'status'    => __( 'Status', ud_get_wp_invoice()->domain ),
+        'type'      => __( 'Type', ud_get_wp_invoice()->domain ),
+        'id'        => __( 'ID', ud_get_wp_invoice()->domain )
     );
   }
 
@@ -138,7 +138,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         $r .= (!empty($wpi_settings['currency']['symbol'][$post->default_currency_code])?$wpi_settings['currency']['symbol'][$post->default_currency_code]:'$') . wp_invoice_currency_format( !empty( $post->total_payments )?$post->total_payments:0 );
       } else {
         $r .= (!empty($wpi_settings['currency']['symbol'][$post->default_currency_code])?$wpi_settings['currency']['symbol'][$post->default_currency_code]:'$') . wp_invoice_currency_format( !empty( $post->adjustments )?abs($post->adjustments):0 )
-            ." <span style='color:#aaaaaa;'>" . __('of', WPI) ." ".
+            ." <span style='color:#aaaaaa;'>" . __('of', ud_get_wp_invoice()->domain) ." ".
             (!empty($wpi_settings['currency']['symbol'][$post->default_currency_code])?$wpi_settings['currency']['symbol'][$post->default_currency_code]:'$') . wp_invoice_currency_format($post->subtotal-(!empty($post->total_discount)?$post->total_discount:0)+(!empty($post->total_tax)?$post->total_tax:0))
             ."</span>";
       }
@@ -235,11 +235,11 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function get_bulk_actions() {
     $actions = array();
 
-    $actions['untrash'] = __( 'Restore', WPI );
-    $actions['archive'] = __( 'Archive', WPI );
-    $actions['delete'] = __( 'Delete Permanently', WPI );
-    $actions['trash'] = __( 'Move to Trash', WPI );
-    $actions['unarchive'] = __( 'Un-Archive', WPI );
+    $actions['untrash'] = __( 'Restore', ud_get_wp_invoice()->domain );
+    $actions['archive'] = __( 'Archive', ud_get_wp_invoice()->domain );
+    $actions['delete'] = __( 'Delete Permanently', ud_get_wp_invoice()->domain );
+    $actions['trash'] = __( 'Move to Trash', ud_get_wp_invoice()->domain );
+    $actions['unarchive'] = __( 'Un-Archive', ud_get_wp_invoice()->domain );
 
     return $actions;
   }

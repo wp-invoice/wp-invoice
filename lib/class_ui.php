@@ -116,15 +116,15 @@ class WPI_UI {
       $invoice_ids = str_replace( ',', ', ', $_REQUEST[ 'invoice_id' ] );
       //** Add Messages */
       if ( isset( $_REQUEST[ 'trashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s trashed."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'untrashed' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s restored."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s restored."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'deleted' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s deleted."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'unarchived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s unarchived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       } elseif ( isset( $_REQUEST[ 'archived' ] ) ) {
-        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', WPI ), $invoice_ids ) );
+        WPI_Functions::add_message( sprintf( __( '"Invoice(s) %s archived."', ud_get_wp_invoice()->domain ), $invoice_ids ) );
       }
     }
 
@@ -134,9 +134,9 @@ class WPI_UI {
     }
 
     //** Default Help items */
-    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', WPI ) . '</h3>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', WPI ) . '</p>';
-    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', WPI ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<h3>' . __( 'General Information', ud_get_wp_invoice()->domain ) . '</h3>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'You are on the page which lists your invoices and other item types that you are using.', ud_get_wp_invoice()->domain ) . '</p>';
+    $contextual_help[ 'General Help' ][ ] = '<p>' . __( 'Use filter box to find items you need.', ud_get_wp_invoice()->domain ) . '</p>';
 
     //** Hook this action is you want to add info */
     $contextual_help = apply_filters( 'wpi_main_page_help', $contextual_help );
@@ -148,8 +148,8 @@ class WPI_UI {
             'fields' => array(
                 array(
                   'id' => 's',
-                  'name' => __('Title', WPI),
-                  'placeholder' => __('Start typing...', WPI),
+                  'name' => __('Title', ud_get_wp_invoice()->domain),
+                  'placeholder' => __('Start typing...', ud_get_wp_invoice()->domain),
                   'type' => 'text',
                   'map' => array(
                     'class' => 'post', // Available: 'post','meta','taxonomy'
@@ -159,8 +159,8 @@ class WPI_UI {
                 ),
                 array(
                     'id' => 'invoice_id',
-                    'name' => __('ID', WPI),
-                    'placeholder' => __('Paste ID here', WPI),
+                    'name' => __('ID', ud_get_wp_invoice()->domain),
+                    'placeholder' => __('Paste ID here', ud_get_wp_invoice()->domain),
                     'type' => 'text',
                     'map' => array(
                         'class' => 'meta', // Available: 'post','meta','taxonomy'
@@ -169,19 +169,19 @@ class WPI_UI {
                 ),
                 array(
                   'id' => 'post_status',
-                  'name' => __('Status', WPI),
+                  'name' => __('Status', ud_get_wp_invoice()->domain),
                   'type' => 'select',
-                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => 'All' ) )
+                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => __('All', ud_get_wp_invoice()->domain) ) )
                 ),
                 array(
                   'id' => 'type',
-                  'name' => __( 'Type', WPI ),
+                  'name' => __( 'Type', ud_get_wp_invoice()->domain ),
                   'type' => 'select',
                   'options' => apply_filters( 'wpi_overview_filter_types', array( '' => 'All' ) )
                 ),
                 array(
                     'id' => 'user_email',
-                    'name' => __( 'Recipient', WPI ),
+                    'name' => __( 'Recipient', ud_get_wp_invoice()->domain ),
                     'type' => 'select_advanced',
                     'js_options' => array(
                       'allowClear' => true,
@@ -195,7 +195,7 @@ class WPI_UI {
                 ),
                 array(
                     'id' => 'post_date_min',
-                    'name' => __( 'Date from', WPI ),
+                    'name' => __( 'Date from', ud_get_wp_invoice()->domain ),
                     'type' => 'date',
                     'js_options' => array(
                         'allowClear' => true,
@@ -207,7 +207,7 @@ class WPI_UI {
                 ),
                 array(
                     'id' => 'post_date_max',
-                    'name' => __( 'Date to', WPI ),
+                    'name' => __( 'Date to', ud_get_wp_invoice()->domain ),
                     'type' => 'date',
                     'js_options' => array(
                         'allowClear' => true,
@@ -241,10 +241,10 @@ class WPI_UI {
        * and also check that the web_invoice_page is a real page
        */
       if ( empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
-        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+        echo '<div class="error"><p>' . sprintf( __( 'Invoice page not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', ud_get_wp_invoice()->domain ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
       } else {
         if ( !$wpdb->get_var( "SELECT post_name FROM {$wpdb->posts} WHERE ID = {$wpi_settings['web_invoice_page'] }" ) ) {
-          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', WPI ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
+          echo '<div class="error"><p>' . sprintf( __( 'Selected invoice page does not exist. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display invoice page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', ud_get_wp_invoice()->domain ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
         }
       }
 
@@ -252,7 +252,7 @@ class WPI_UI {
        * Check if curl is installed.
        */
       if ( !function_exists( 'curl_exec' ) ) {
-        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', WPI ) . '</p></div>';
+        echo '<div class="error"><p>' . __( 'Your server does not support cURL. Payments could not be processed. Contact your server administrator.', ud_get_wp_invoice()->domain ) . '</p></div>';
       }
     }
 
