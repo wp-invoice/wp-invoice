@@ -50,6 +50,7 @@ $custom = array('obj' => 'spc');
   <input type="hidden" name="cancel_return" value="<?php the_permalink(); ?>" />
   <input type="hidden" name="cbt" value="Go back to Merchant" />
   <input type="hidden" name="custom" value="<?php echo $custom_str; ?>" />
+  <input type="hidden" name="bn" value="UsabilityDynamics_SP" />
 
 <?php if ( $wpi_settings['billing'][$gateway_key]['settings']['send_notify_url']['value'] == '1' ): ?>
   <input type="hidden" name="notify_url" value="<?php echo $wpi_settings['billing'][$gateway_key]['settings']['ipn']['value'] ?>" />
