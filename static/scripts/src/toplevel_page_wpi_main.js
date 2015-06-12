@@ -14,4 +14,8 @@ jQuery(document).ready(function() {
     });
   });
 
+  jQuery( document ).on( 'wplt_initialized', function(e, f, l){
+    l.change_filter();
+  } );
+
 });
