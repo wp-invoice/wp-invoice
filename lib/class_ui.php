@@ -171,13 +171,14 @@ class WPI_UI {
                   'id' => 'post_status',
                   'name' => __('Status', ud_get_wp_invoice()->domain),
                   'type' => 'select',
-                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => __('All', ud_get_wp_invoice()->domain) ) )
+                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => __('All', ud_get_wp_invoice()->domain) ) ),
+                  'std' => 'active'
                 ),
                 array(
                   'id' => 'type',
                   'name' => __( 'Type', ud_get_wp_invoice()->domain ),
                   'type' => 'select',
-                  'options' => apply_filters( 'wpi_overview_filter_types', array( '' => 'All' ) )
+                  'options' => apply_filters( 'wpi_overview_filter_types', array( '' => __('All', ud_get_wp_invoice()->domain) ) )
                 ),
                 array(
                     'id' => 'user_email',
