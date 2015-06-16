@@ -57,7 +57,11 @@
           <p><?php echo!empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', ud_get_wp_invoice()->domain); ?></p>
           <?php
         } else {
-          $wpi_settings['installed_gateways'][$method]['object']->frontend_display($invoice);
+          if ( !empty( $wpi_settings['installed_gateways'][$method] ) ) {
+            $wpi_settings['installed_gateways'][$method]['object']->frontend_display($invoice);
+          } else {
+            _e( 'Sorry, there is no payment method available. Please contact Administrator.', ud_get_wp_invoice()->domain );
+          }
         }
         apply_filters("wpi_closed_comments", $invoice);
         ?>
