@@ -19,15 +19,13 @@ WP-Invoice lets WordPress blog owners send itemized invoices to their clients. I
 
 Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog's special invoice page, view their invoice, and pay their bill using PayPal. The control panel is very user-friendly and intuitive.
 
-Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, PayPal or Google Checkout account. For recurring billing we have integrated Authorize.net's ARB API that will allow you to setup payment schedules along with invoices. Subscriptions implemented using PayPal Subscriptions and Google Checkout Subscriptions.
+Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (Eastern Europe), Stripe and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions and 2Checkout Recurring Billing.
 
 = New Features =
 
-* Automatically import invoices from Web Invoice plugin.
 * WP-CRM Integration
 * Brand new user interface for much improved invoicing filtering and searching
-* Minimum and Split / Partial Payments
-* Invoices can be reassigned to a different recipient
+* Partial Payments with minimum amount
 * Receipt Page with Invoice Log
 * Per-defined Line Items
 * Discount Line Items
@@ -39,14 +37,11 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Create invoices from the WordPress control panel
 * Prefill customer information using the WordPress user list
 * Send invoice notifications to customers with a secured link back to the web-invoice
-* Accept credit card payment via Authorize.net or MerchantPlus NaviGate
-* PayPal available if you don't have a credit card processing account
 * Setup recurring billing using Authorize.net's ARB (Automatic Recurring Billing) feature
 * Force web-invoice pages to be viewed in SSL mode
 * Archive old invoices
 * Easily use old invoices as templates for new ones
 * Dynamic and intuitive user interface
-* Custom tax label, states input, and PayPal button URL
 * Insert an "Invoice Lookup" form using PHP or WordPress Shortcode anywhere
 * Create users directly from WP-Invoice
 * Customize billing settings per invoice
@@ -55,7 +50,17 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 * Export/Import Invoices [Power Tools]
 * Sales Visualization [Power Tools]
 
-**[ Add ons ](https://www.usabilitydynamics.com/products/wp-invoice/premium-features/)**
+= Payment Options =
+
+* Authorize.net
+* PayPal
+* Interkassa (Eastern Europe)
+* Stripe
+* 2Checkout
+* PayPal Pro [Paid Add-on]
+* USA ePay [Paid Add-on]
+
+**[ Add ons ](https://www.usabilitydynamics.com/product/wp-invoice)**
 Learn more about the WP-Invoice Premium Features.
 
 Single Page Checkout - The Single Page Checkout (SPC) premium feature for WP-Invoice makes it easy to create one-page-checkout forms that can accept a variety of different payment gateways, such as Authorize.net and PayPal.
