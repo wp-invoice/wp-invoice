@@ -1,6 +1,6 @@
 === WP-Invoice - Web Invoice and Billing ===
 Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw1984, maxim.peshkov, ideric
-Donate link: https://usabilitydynamics.com/products/wp-invoice/
+Donate link: https://www.usabilitydynamics.com/product/wp-invoice
 Tags: web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, 2checkout, merchantplus
 Requires at least: 3.6
 Tested up to: 4.0
@@ -78,11 +78,11 @@ Power Tools for WP-Invoice - This feature allows you to export your invoices in 
 3. Follow set-up steps on main Invoice page
 4. To create your first invoice navigate to Invoice -> New Invoice, and select the user who will be the recipient.
 
-Please see the [wp-invoice plugin home page](https://usabilitydynamics.com/products/wp-invoice/) for details.
+Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/product/wp-invoice) for details.
 
 == Frequently Asked Questions ==
 
-Please visit the [wp-invoice community page](https://usabilitydynamics.com/products/wp-invoice/forums/) for suggestions and help.
+[WP-Invoice FAQ](http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-wp-invoice)
 
 == Screenshots ==
 

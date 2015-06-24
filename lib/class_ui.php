@@ -961,14 +961,14 @@ class WPI_UI {
         //** Add help sidebar with More Links */
         get_current_screen()->set_help_sidebar(
           '<p><strong>' . __( 'For more information:', ud_get_wp_invoice()->domain ) . '</strong></p>' .
-          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Product Page</a>', ud_get_wp_invoice()->domain ) . '</p>' .
-          '<p>' . __( '<a href="https://usabilitydynamics.com/products/wp-invoice/forum/" target="_blank">WP-Invoice Forums</a>', ud_get_wp_invoice()->domain ) . '</p>'
+          '<p>' . __( '<a href="https://www.usabilitydynamics.com/product/wp-invoice" target="_blank">WP-Invoice Product Page</a>', ud_get_wp_invoice()->domain ) . '</p>' .
+          '<p>' . __( '<a href="http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-wp-invoice" target="_blank">WP-Invoice FAQ</a>', ud_get_wp_invoice()->domain ) . '</p>'
         );
       }
     } else {
       //** If WP is out of date */
       global $current_screen;
-      add_contextual_help( $current_screen->id, '<p>' . __( 'Please upgrade Wordpress to the latest version for detailed help.', ud_get_wp_invoice()->domain ) . '</p><p>' . __( 'Or visit <a href="https://usabilitydynamics.com/products/wp-invoice/" target="_blank">WP-Invoice Help Page</a> on UsabilityDynamics.com', ud_get_wp_invoice()->domain ) . '</p>' );
+      add_contextual_help( $current_screen->id, '<p>' . __( 'Please upgrade Wordpress to the latest version for detailed help.', ud_get_wp_invoice()->domain ) . '</p><p>' . __( 'Or visit <a href="https://www.usabilitydynamics.com/product/wp-invoice" target="_blank">WP-Invoice Help Page</a> on UsabilityDynamics.com', ud_get_wp_invoice()->domain ) . '</p>' );
     }
   }
 

@@ -62,8 +62,8 @@ Credit card payments may be accepted via Authorize.net, MerchantPlus' NaviGate, 
 3. Follow set-up steps on main Invoice page
 4. To create your first invoice navigate to Invoice -> New Invoice, and select the user who will be the recipient.
 
-Please see the [wp-invoice plugin home page](https://usabilitydynamics.com/products/wp-invoice/) for details.
+Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/product/wp-invoice/) for details.
 
 ### Frequently Asked Questions
 
-Please visit the [wp-invoice community page](https://usabilitydynamics.com/products/wp-invoice/forums/) for suggestions and help.
+[WP-Invoice FAQ](http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-wp-invoice)
