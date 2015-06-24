@@ -758,8 +758,6 @@ class WPI_UI {
         wp_enqueue_script( 'jquery-ui-autocomplete' );
         wp_enqueue_script( 'wp-invoice-events' );
         wp_enqueue_script( 'jquery.formatCurrency' );
-        wp_enqueue_script( 'jquery-data-tables' );
-        wp_enqueue_style( 'wpi-jquery-data-tables' );
         break;
 
       case 'wp-invoice_page_wpi_page_manage_invoice':

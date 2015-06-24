@@ -53,8 +53,7 @@ module.exports = function build( grunt ) {
           'static/styles/wp-invoice_page_wpi_page_settings.css': 'static/styles/src/wp-invoice_page_wpi_page_settings.less',
           'static/styles/jquery-ui-1.8.21.custom.css': 'static/styles/src/jquery-ui-1.8.21.custom.less',
           'static/styles/toplevel_page_wpi_main.css': 'static/styles/src/toplevel_page_wpi_main.less',
-          'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less',
-          'static/styles/wpi-data-tables.css': 'static/styles/src/wpi-data-tables.less'
+          'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less'
         }
       },
       development: {
@@ -67,8 +66,7 @@ module.exports = function build( grunt ) {
           'static/styles/wp-invoice_page_wpi_page_settings.css': 'static/styles/src/wp-invoice_page_wpi_page_settings.less',
           'static/styles/jquery-ui-1.8.21.custom.css': 'static/styles/src/jquery-ui-1.8.21.custom.less',
           'static/styles/toplevel_page_wpi_main.css': 'static/styles/src/toplevel_page_wpi_main.less',
-          'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less',
-          'static/styles/wpi-data-tables.css': 'static/styles/src/wpi-data-tables.less'
+          'static/styles/wpi-admin.css': 'static/styles/src/wpi-admin.less'
         }
       }
     },

@@ -351,10 +351,8 @@ class WPI_Core {
     wp_register_script('jquery.field', ud_get_wp_invoice()->path( "static/scripts/jquery.field.min.js", 'url' ), array('jquery'));
     wp_register_script('wpi-gateways', ud_get_wp_invoice()->path( "lib/gateways/js/wpi_gateways.js.php", 'url' ), array('jquery'));
     wp_register_script('jsapi', 'https://www.google.com/jsapi');
-    wp_register_script('jquery-data-tables', ud_get_wp_invoice()->path( "lib/third-party/dataTables/jquery.dataTables.min.js", 'url' ), array('jquery'));
     wp_register_script('wpi.checkout', ud_get_wp_invoice()->path( "static/scripts/wpi-checkout.js", 'url' ), array('jquery'));
     wp_register_script('wpi_select2_js', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.js", 'url' ), array('jquery'));
-    wp_register_style('wpi-jquery-data-tables', ud_get_wp_invoice()->path( "static/styles/wpi-data-tables.css", 'url' ));
     wp_register_style('wpi_select2_css', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.css", 'url' ), array());
 
     //** Masure dependancies are identified in case this script is included in other pages */
