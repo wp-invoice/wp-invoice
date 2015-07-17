@@ -20,6 +20,12 @@
     <p><i><?php _e( 'WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.', ud_get_wp_invoice()->domain ); ?></i></p>
     
     <p><i><?php printf( __( 'In addition to the default invoicing function WP-Invoice can be extended with a <a href="%s">set of add-ons</a>. They may help you manage your business more effectively.', ud_get_wp_invoice()->domain ), 'https://www.usabilitydynamics.com/products' ); ?></i></p>
+
+    <?php $s = ud_get_wp_invoice(); if( isset( $s->uservoice_url ) ) : ?>
+      <hr />
+      <p><?php printf( __( 'Do you want to help us to improve %s? Or do you have any idea? We are waiting <a href="%s" target="_blank">feedback</a> from you!', ud_get_wp_invoice()->domain ), ud_get_wp_invoice()->name, $s->uservoice_url  ); ?></p>
+    <?php endif; ?>
+
   </div>
   
   <hr />

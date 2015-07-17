@@ -9,6 +9,7 @@
  * Author URI: http://www.usabilitydynamics.com
  * GitHub Plugin URI: wp-invoice/wp-invoice
  * GitHub Branch: v4.0
+ * UserVoice: http://feedback.usabilitydynamics.com/forums/9692-wp-invoice
  *
  * Copyright 2012 - 2015 Usability Dynamics, Inc.  ( email : info@usabilitydynamics.com )
  *

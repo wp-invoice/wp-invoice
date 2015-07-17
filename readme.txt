@@ -130,6 +130,15 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 
 == Change Log ==
 
+= 4.0.0 =
+* Changed plugin initialization functionality.
+* Added Composer ( dependency manager ) modules and moved some functionality to composer modules ( vendors ).
+* Moved premium features to separate plugins.
+* Cleaned up functionality of plugin.
+* Refactored file structure of plugin.
+* Refactored 'View All' page.
+* Fixed Warnings and Notices.
+
 = Version 3.09.5 =
 * WordPress 4.0 compatible.
 * General code improvements.
