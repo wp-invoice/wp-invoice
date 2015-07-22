@@ -1547,6 +1547,8 @@ class WPI_Functions {
       WPI_Functions::update_user( $invoice[ 'user_data' ] );
     }
 
+    $ni = apply_filters( 'wpi_invoice_pre_save', $ni, $invoice );
+
     $invoice_id = $ni->save_invoice();
     if ( $invoice_id ) {
       do_action( 'wpi_invoice_saved', $invoice, $invoice_id );
