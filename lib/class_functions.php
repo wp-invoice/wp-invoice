@@ -1549,6 +1549,7 @@ class WPI_Functions {
 
     $invoice_id = $ni->save_invoice();
     if ( $invoice_id ) {
+      do_action( 'wpi_invoice_saved', $invoice, $invoice_id );
       return $invoice_id;
     } else {
       return false;
