@@ -653,6 +653,7 @@ function wpi_validate_invoice () {
 
 function wpi_save_invoice () {
   var invoice_data;
+  var radios = {};
   // primary data to set things up
   invoice_data = {
     action: "wpi_save_invoice",
@@ -668,9 +669,21 @@ function wpi_save_invoice () {
         invoice_data[this.name] = 'off';
       }
     }
+    if ( jQuery( this ).is( ':radio' ) ) {
+      radios[this.value] = jQuery( this );
+    }
   } );
+
+  jQuery.each( radios, function( k, radio ) {
+    if ( radio.is(':checked') ) {
+      invoice_data[radio.attr('name')] = k;
+    }
+  });
+
   // Get data from MCE Editor
   invoice_data['wpi_invoice[description]'] = jQuery( 'textarea[name="content"]' ).val();
+
+  console.log(invoice_data);
 
   jQuery.ajax( {
     data: invoice_data,
