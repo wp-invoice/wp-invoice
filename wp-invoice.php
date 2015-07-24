@@ -6,11 +6,12 @@
  * Author: Usability Dynamics, Inc.
  * Version: 4.0.0
  * Requires at least: 4.0
- * Tested up to: 4.2.2
+ * Tested up to: 4.2.3
  * Text Domain: wp-invoice
  * Author URI: http://www.usabilitydynamics.com
  * GitHub Plugin URI: wp-invoice/wp-invoice
  * GitHub Branch: v4.0
+ * Support: https://wordpress.org/support/plugin/wp-invoice
  * UserVoice: http://feedback.usabilitydynamics.com/forums/9692-wp-invoice
  *
  * Copyright 2012 - 2015 Usability Dynamics, Inc.  ( email : info@usabilitydynamics.com )
