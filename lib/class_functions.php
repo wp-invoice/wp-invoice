@@ -1547,8 +1547,11 @@ class WPI_Functions {
       WPI_Functions::update_user( $invoice[ 'user_data' ] );
     }
 
+    $ni = apply_filters( 'wpi_invoice_pre_save', $ni, $invoice );
+
     $invoice_id = $ni->save_invoice();
     if ( $invoice_id ) {
+      do_action( 'wpi_invoice_saved', $invoice, $invoice_id );
       return $invoice_id;
     } else {
       return false;
@@ -2509,9 +2512,9 @@ function wpi_feature_installed( $slug ) {
  */
 function wp_invoice_show_business_information() {
   $core = WPI_Core::getInstance();
-  $business_info[ 'name' ] = $core->Settings->options[ 'business_name' ];
-  $business_info[ 'address' ] = $core->Settings->options[ 'business_address' ];
-  $business_info[ 'phone' ] = $core->Settings->options[ 'business_phone' ];
+  $business_info[ 'name' ] = apply_filters( 'wpi_business_name', $core->Settings->options[ 'business_name' ] );
+  $business_info[ 'address' ] = apply_filters( 'wpi_business_address', $core->Settings->options[ 'business_address' ] );
+  $business_info[ 'phone' ] = apply_filters( 'wpi_business_phone', $core->Settings->options[ 'business_phone' ] );
   ?>
   <div id="invoice_business_info" class="clearfix">
     <p class="invoice_page_subheading"><strong>Bill From:</strong></p>

@@ -5,4 +5,7 @@
 * Cleaned up functionality of plugin.
 * Refactored file structure of plugin.
 * Refactored 'View All' page.
+* Design fixes.
+* Fixed conflict with WP-Property plugin.
+* Fixed Fatal Error when accessing private Invoices.
 * Fixed Warnings and Notices.
