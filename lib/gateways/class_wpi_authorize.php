@@ -197,14 +197,16 @@ class wpi_authorize extends wpi_gateway_base {
           'type'   => 'text',
           'class'  => 'text-input exp_month',
           'name'   => 'cc_data[exp_month]',
-          'label'  => __( 'Expiration Month', ud_get_wp_invoice()->domain )
+          'label'  => __( 'Expiration Month', ud_get_wp_invoice()->domain ),
+          'placeholder' => 'MM'
         ),
 
         'exp_year'    => array(
           'type'   => 'text',
           'class'  => 'text-input exp_year',
           'name'   => 'cc_data[exp_year]',
-          'label'  => __( 'Expiration Year', ud_get_wp_invoice()->domain )
+          'label'  => __( 'Expiration Year', ud_get_wp_invoice()->domain ),
+          'placeholder' => 'YYYY'
         ),
 
         'card_code'   => array(
@@ -313,7 +315,7 @@ class wpi_authorize extends wpi_gateway_base {
                   <div class="control-group">
                     <label class="control-label" for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                     <div class="controls">
-                      <input type="<?php echo esc_attr( $field_data['type'] ); ?>" class="<?php echo esc_attr( $field_data['class'] ); ?>"  name="<?php echo esc_attr( $field_data['name'] ); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
+                      <input placeholder="<?php echo esc_attr( $field_data['placeholder'] ? $field_data['placeholder'] : '' ); ?>" type="<?php echo esc_attr( $field_data['type'] ); ?>" class="<?php echo esc_attr( $field_data['class'] ); ?>"  name="<?php echo esc_attr( $field_data['name'] ); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
                     </div>
                   </div>
                 </li>
