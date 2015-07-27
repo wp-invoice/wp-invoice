@@ -41,7 +41,7 @@ class wpi_authorize extends wpi_gateway_base {
                 'description' => __( "This is the URL provided to you by your credit card processing company.", ud_get_wp_invoice()->domain ),
                 'special' => array(
                     'MerchantPlus' => 'https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi',
-                    'Authorize.Net' => 'https://secure.authorize.net/gateway/transact.dll',
+                    'Authorize.Net' => 'https://secure2.authorize.net/gateway/transact.dll',
                     'Authorize.Net Developer' => 'https://test.authorize.net/gateway/transact.dll',
                 )
             ),
@@ -50,7 +50,7 @@ class wpi_authorize extends wpi_gateway_base {
                 'value' => "",
                 'description' => __( "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.", ud_get_wp_invoice()->domain ),
                 'special' => array(
-                    'Authorize.net ARB' => 'https://api.authorize.net/xml/v1/request.api',
+                    'Authorize.net ARB' => 'https://api2.authorize.net/xml/v1/request.api',
                     'Authorize.Net ARB Testing' => 'https://apitest.authorize.net/xml/v1/request.api'
                 )
             ),
