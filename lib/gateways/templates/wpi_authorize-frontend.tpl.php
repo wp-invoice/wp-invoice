@@ -9,7 +9,10 @@
   <input type="hidden" name="cc_data[currency_code]" id="currency_code"  value="<?php echo $invoice['default_currency_code']; ?>" />
 
   <div id="credit_card_information">
+
 		<?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
+
+    <?php do_action('wpi_after_payment_fields', $invoice); ?>
 
 		<ul id="wp_invoice_process_wait">
 			<li>

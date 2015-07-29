@@ -52,6 +52,8 @@
 
 		<?php do_action('wpi_payment_fields_'.$this->type, $invoice); ?>
 
+    <?php do_action('wpi_after_payment_fields', $invoice); ?>
+
 		<ul id="wp_invoice_process_wait">
 			<li>
 				<div class="wpi-control-group">
