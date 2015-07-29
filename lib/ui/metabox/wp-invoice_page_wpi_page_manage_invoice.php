@@ -523,6 +523,8 @@ function postbox_payment_methods($this_invoice) {
 
   <?php
   }
+
+  do_action( 'wpi_payment_options_box', $this_invoice );
 }
 
 /**
