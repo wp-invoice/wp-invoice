@@ -183,7 +183,13 @@ namespace UsabilityDynamics\WPI {
        *
        * @author peshkov@UD
        */
-      public function run_install_process() {}
+      public function run_install_process() {
+        /* Compatibility with WP-CRM 3.10.0 and less versions */
+        $old_version = get_option( 'wp_invoice_version' );
+        if( $old_version ) {
+          $this->run_upgrade_process();
+        }
+      }
 
       /**
        * Run Upgrade Process:
