@@ -71,6 +71,7 @@ abstract class wpi_gateway_base {
     $the_invoice = new WPI_Invoice();
     $invoice = $the_invoice->load_invoice("return=true&id=" . wpi_invoice_id_to_post_id($_REQUEST['invoice_id']));
     //** Call the child function based on the wpi_type variable sent */
+    do_action( 'wpi_before_process_payment', $invoice );
     $wpi_settings['installed_gateways'][$_REQUEST['type']]['object']->process_payment();
     die();
   }

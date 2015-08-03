@@ -41,7 +41,7 @@ class wpi_authorize extends wpi_gateway_base {
                 'description' => __( "This is the URL provided to you by your credit card processing company.", ud_get_wp_invoice()->domain ),
                 'special' => array(
                     'MerchantPlus' => 'https://gateway.merchantplus.com/cgi-bin/PAWebClient.cgi',
-                    'Authorize.Net' => 'https://secure.authorize.net/gateway/transact.dll',
+                    'Authorize.Net' => 'https://secure2.authorize.net/gateway/transact.dll',
                     'Authorize.Net Developer' => 'https://test.authorize.net/gateway/transact.dll',
                 )
             ),
@@ -50,7 +50,7 @@ class wpi_authorize extends wpi_gateway_base {
                 'value' => "",
                 'description' => __( "Recurring billing gateway URL is most likely different from the Gateway URL, and will almost always be with Authorize.net. Be advised - test credit card numbers will be declined even when in test mode.", ud_get_wp_invoice()->domain ),
                 'special' => array(
-                    'Authorize.net ARB' => 'https://api.authorize.net/xml/v1/request.api',
+                    'Authorize.net ARB' => 'https://api2.authorize.net/xml/v1/request.api',
                     'Authorize.Net ARB Testing' => 'https://apitest.authorize.net/xml/v1/request.api'
                 )
             ),
@@ -197,14 +197,16 @@ class wpi_authorize extends wpi_gateway_base {
           'type'   => 'text',
           'class'  => 'text-input exp_month',
           'name'   => 'cc_data[exp_month]',
-          'label'  => __( 'Expiration Month', ud_get_wp_invoice()->domain )
+          'label'  => __( 'Expiration Month', ud_get_wp_invoice()->domain ),
+          'placeholder' => 'MM'
         ),
 
         'exp_year'    => array(
           'type'   => 'text',
           'class'  => 'text-input exp_year',
           'name'   => 'cc_data[exp_year]',
-          'label'  => __( 'Expiration Year', ud_get_wp_invoice()->domain )
+          'label'  => __( 'Expiration Year', ud_get_wp_invoice()->domain ),
+          'placeholder' => 'YYYY'
         ),
 
         'card_code'   => array(
@@ -313,7 +315,7 @@ class wpi_authorize extends wpi_gateway_base {
                   <div class="control-group">
                     <label class="control-label" for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                     <div class="controls">
-                      <input type="<?php echo esc_attr( $field_data['type'] ); ?>" class="<?php echo esc_attr( $field_data['class'] ); ?>"  name="<?php echo esc_attr( $field_data['name'] ); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
+                      <input placeholder="<?php echo esc_attr( $field_data['placeholder'] ? $field_data['placeholder'] : '' ); ?>" type="<?php echo esc_attr( $field_data['type'] ); ?>" class="<?php echo esc_attr( $field_data['class'] ); ?>"  name="<?php echo esc_attr( $field_data['name'] ); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
                     </div>
                   </div>
                 </li>

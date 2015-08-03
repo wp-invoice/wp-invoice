@@ -2743,3 +2743,27 @@ function wpi_process_transaction( $data ) {
   $wpa = new WPI_Payment_Api();
   return $wpa->process_transaction( $data );
 }
+
+/**
+ * @param null $data
+ */
+function wpi_send_json_error( $data = null ) {
+  $response = array( 'success' => false, 'error' => true );
+
+  if ( isset( $data ) ) {
+    if ( is_wp_error( $data ) ) {
+      $result = array();
+      foreach ( $data->errors as $code => $messages ) {
+        foreach ( $messages as $message ) {
+          $result[] = array( 'code' => $code, 'message' => $message );
+        }
+      }
+
+      $response['data'] = $result;
+    } else {
+      $response['data'] = $data;
+    }
+  }
+
+  wp_send_json( $response );
+}

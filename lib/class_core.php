@@ -539,6 +539,8 @@ class WPI_Core {
           }
         }
 
+        do_action('wpi_template_redirect', $wpi_invoice_object);
+
         //** Load front end scripts */
         wp_enqueue_script('jquery.validate');
         wp_enqueue_script('wpi-gateways');

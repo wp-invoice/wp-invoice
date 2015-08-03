@@ -426,7 +426,7 @@ function postbox_payment_methods($this_invoice) {
         <td>
           <select name="wpi_invoice[default_currency_code]">
     <?php foreach ($wpi_settings['currency']['types'] as $value => $currency_x) : ?>
-              <option value="<?php echo $value; ?>" <?php echo ($this_invoice['default_currency_code'] == $value) ? 'selected="selected"' : ''; ?>"><?php echo $value; ?> - <?php echo $currency_x; ?></option>
+              <option value="<?php echo $value; ?>" <?php echo ($this_invoice['default_currency_code'] == $value) ? 'selected="selected"' : ''; ?>><?php echo $value; ?> - <?php echo $currency_x; ?></option>
     <?php endforeach; ?>
           </select>
         </td>
@@ -510,7 +510,7 @@ function postbox_payment_methods($this_invoice) {
         <td>
           <select name="wpi_invoice[default_currency_code]">
     <?php foreach ($wpi_settings['currency']['types'] as $value => $currency_x) : ?>
-              <option value="<?php echo $value; ?>" <?php echo ($this_invoice['default_currency_code'] == $value) ? 'selected="selected"' : ''; ?>"><?php echo $value; ?> - <?php echo $currency_x; ?></option>
+              <option value="<?php echo $value; ?>" <?php echo ($this_invoice['default_currency_code'] == $value) ? 'selected="selected"' : ''; ?>><?php echo $value; ?> - <?php echo $currency_x; ?></option>
     <?php endforeach; ?>
           </select>
         </td>
@@ -523,6 +523,8 @@ function postbox_payment_methods($this_invoice) {
 
   <?php
   }
+
+  do_action( 'wpi_payment_options_box', $this_invoice );
 }
 
 /**

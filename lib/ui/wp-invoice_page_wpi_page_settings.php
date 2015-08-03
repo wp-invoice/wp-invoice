@@ -131,11 +131,20 @@ class WPI_Settings_page {
     <table class="form-table">
       <tr>
         <th width="200"><?php _e("Business Name", ud_get_wp_invoice()->domain) ?></th>
-        <td><?php echo WPI_UI::input("type=text&name=business_name&group=wpi_settings&value={$wpi_settings['business_name']}") ?> </td>
+        <td><?php echo WPI_UI::input(array(
+              'type'=>'text',
+              'name'=>'business_name',
+              'group'=>'wpi_settings',
+              'value'=>$wpi_settings['business_name']
+          )); ?> </td>
       </tr>
       <tr>
         <th width="200"><?php _e("Business Address", ud_get_wp_invoice()->domain) ?></th>
-        <td><?php echo WPI_UI::textarea("name=business_address&group=wpi_settings&value={$wpi_settings['business_address']}") ?> </td>
+        <td><?php echo WPI_UI::textarea(array(
+              'name'=>'business_address',
+              'group'=>'wpi_settings',
+              'value'=>$wpi_settings['business_address']
+          )); ?> </td>
       </tr>
       <tr>
         <th width="200"><?php _e("Business Phone", ud_get_wp_invoice()->domain) ?></th>

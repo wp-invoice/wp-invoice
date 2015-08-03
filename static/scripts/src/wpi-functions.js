@@ -265,7 +265,7 @@ function wpi_remove_errors ( message ) {
  * Validates email address
  */
 function wpi_validate_email ( address ) {
-  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,100})$/;
   if ( reg.test( address ) == false ) {
     return false;
   } else {

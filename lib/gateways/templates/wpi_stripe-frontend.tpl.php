@@ -53,6 +53,8 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
 
         </ul>
 
+        <?php do_action('wpi_after_payment_fields', $invoice); ?>
+
         <ul id="wp_invoice_process_wait">
             <li>
                 <div class="wpi-control-group">
