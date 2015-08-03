@@ -115,53 +115,94 @@
     <h3 id="wp-invoice-plugin">WP-Invoice Plugin</h3>
 <p>WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.</p>
 <hr>
-<p><a href="http://waffle.io/usabilitydynamics/wp-invoice"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=bug&amp;title=Bugs" alt="Issues - Bug"></a>
-<a href="http://waffle.io/usabilitydynamics/wp-invoice/"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=backlog&amp;title=Backlog" alt="Issues - Backlog"></a>
-<a href="http://waffle.io/usabilitydynamics/wp-invoice/"><img src="https://badge.waffle.io/usabilitydynamics/wp-invoice.png?label=in progress&amp;title=Active" alt="Issues - Active"></a></p>
+<p><a href="http://waffle.io/wp-invoice/wp-invoice"><img src="https://badge.waffle.io/wp-invoice/wp-invoice.png?label=bug&amp;title=Bugs" alt="Issues - Bug"></a>
+<a href="http://waffle.io/wp-invoice/wp-invoice/"><img src="https://badge.waffle.io/wp-invoice/wp-invoice.png?label=backlog&amp;title=Backlog" alt="Issues - Backlog"></a>
+<a href="http://waffle.io/wp-invoice/wp-invoice/"><img src="https://badge.waffle.io/wp-invoice/wp-invoice.png?label=in progress&amp;title=Active" alt="Issues - Active"></a></p>
 <hr>
-<p><a href="https://gemnasium.com/usabilitydynamics/wp-invoice"><img src="https://gemnasium.com/usabilitydynamics/wp-invoice.svg" alt="Dependency Status"></a>
-<a href="https://scrutinizer-ci.com/g/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/scrutinizer/g/usabilitydynamics/wp-invoice.svg" alt="Scrutinizer Quality"></a>
-<a href="https://scrutinizer-ci.com/g/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/scrutinizer/coverage/g/usabilitydynamics/wp-invoice.svg" alt="Scrutinizer Coverage"></a>
-<a href="https://packagist.org/packages/usabilitydynamics/wp-invoice"><img src="http://img.shields.io/packagist/v/usabilitydynamics/wp-invoice.svg" alt="Packagist Vesion"></a>
-<a href="https://circleci.com/gh/usabilitydynamics/wp-invoice"><img src="https://circleci.com/gh/usabilitydynamics/wp-invoice.png" alt="CircleCI"></a></p>
+<p><a href="https://gemnasium.com/wp-invoice/wp-invoice"><img src="https://gemnasium.com/wp-invoice/wp-invoice.svg" alt="Dependency Status"></a>
+<a href="https://scrutinizer-ci.com/g/wp-invoice/wp-invoice"><img src="http://img.shields.io/scrutinizer/g/wp-invoice/wp-invoice.svg" alt="Scrutinizer Quality"></a>
+<a href="https://scrutinizer-ci.com/g/wp-invoice/wp-invoice"><img src="http://img.shields.io/scrutinizer/coverage/g/wp-invoice/wp-invoice.svg" alt="Scrutinizer Coverage"></a>
+<a href="https://circleci.com/gh/wp-invoice/wp-invoice"><img src="https://circleci.com/gh/wp-invoice/wp-invoice.png" alt="CircleCI"></a></p>
 <hr>
-<p>This is the original WordPress invoicing and billing plugin - completely rewritten and re-released.</p>
-<p><strong><a href="http://downloads.wordpress.org/plugin/wp-invoice.zip">Download the original WordPress Invoicing plugin now!</a></strong></p>
+<p>WP-Invoice 4.0 is the most popular and flexible plugin for WordPress that allows you to make your site accept payments. Complete e-commerce solutions out of the box. Flexible and extendable.</p>
 <p>WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill. The plugin ties into WP&#39;s user management database to keep track of your clients and their information.</p>
-<p>Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog&#39;s special invoice page, view their invoice, and pay their bill using PayPal. The control panel is very user-friendly and intuitive.</p>
-<p>Credit card payments may be accepted via Authorize.net, MerchantPlus&#39; NaviGate, PayPal or Google Checkout account. For recurring billing we have integrated Authorize.net&#39;s ARB API that will allow you to setup payment schedules along with invoices. Subscriptions implemented using PayPal Subscriptions and Google Checkout Subscriptions.</p>
-<h3 id="features">Features</h3>
+<p>Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog&#39;s special invoice page, view their invoice, and pay their bill using one of the available payment system. The control panel is very user-friendly and intuitive.</p>
+<p>Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (Eastern Europe), Stripe and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions and 2Checkout Recurring Billing. More gateways available as Add-ons.</p>
+<blockquote>
+<p>WP-Invoice on <a href="https://github.com/wp-invoice/wp-invoice">GitHub</a></p>
+</blockquote>
+<h4 id="features">Features</h4>
 <ul>
-<li>Automatically import invoices from Web Invoice plugin</li>
-<li>WP-CRM Integration</li>
-<li>Brand new user interface for much improved invoicing filtering and searching</li>
-<li>Minimum and Split / Partial Payments</li>
-<li>Invoices can be reassigned to a different recipient</li>
-<li>Receipt Page with Invoice Log</li>
-<li>Per-defined Line Items</li>
-<li>Discount Line Items</li>
-<li>Custom Payment Entry, and administrative adjustments</li>
-<li>Customizable Invoice and Receipt Templates</li>
-<li>Create invoices from the WordPress control panel</li>
-<li>Prefill customer information using the WordPress user list</li>
-<li>Send invoice notifications to customers with a secured link back to the web-invoice</li>
-<li>Accept credit card payment via Authorize.net or MerchantPlus NaviGate</li>
-<li>PayPal available if you don&#39;t have a credit card processing account</li>
-<li>Setup recurring billing using Authorize.net&#39;s ARB (Automatic Recurring Billing) feature</li>
-<li>Force web-invoice pages to be viewed in SSL mode</li>
-<li>Archive old invoices</li>
-<li>Easily use old invoices as templates for new ones</li>
-<li>Dynamic and intuitive user interface</li>
-<li>Custom tax label, states input, and PayPal button URL</li>
-<li>Insert an &quot;Invoice Lookup&quot; form using PHP or WordPress Shortcode anywhere</li>
-<li>Create users directly from WP-Invoice</li>
-<li>Customize billing settings per invoice</li>
-<li>Customize invoice notification email per invoice</li>
-<li>Invoice notification, reminder and receipt templates</li>
-<li>Export/Import Invoices [Power Tools]</li>
-<li>Sales Visualization [Power Tools]</li>
+<li>Free and Paid <a href="https://www.usabilitydynamics.com/products#category-wp-invoice">Add-ons</a> available.</li>
+<li>WP-CRM Integration.</li>
+<li>Brand new user interface for much improved invoicing filtering and searching.</li>
+<li>Partial Payments with minimum amount.</li>
+<li>Receipt Page with Invoice Log.</li>
+<li>Per-defined Line Items.</li>
+<li>Discount Line Items.</li>
+<li>Custom Payment Entry, and administrative adjustments.</li>
+<li>Customizable Invoice and Receipt Templates.</li>
+<li>Create invoices from the WordPress control panel.</li>
+<li>Pre-fill customer information using the WordPress user list.</li>
+<li>Send invoice notifications to customers with a secured link back to the web-invoice.</li>
+<li>Setup recurring billing using Authorize.net&#39;s ARB (Automatic Recurring Billing) feature.</li>
+<li>Force web-invoice pages to be viewed in SSL mode.</li>
+<li>Archive old invoices.</li>
+<li>Easily use old invoices as templates for new ones.</li>
+<li>Dynamic and intuitive user interface.</li>
+<li>Insert an &quot;Invoice Lookup&quot; form using PHP or WordPress shortcode anywhere.</li>
+<li>Create users directly from WP-Invoice.</li>
+<li>Customize billing settings per invoice.</li>
+<li>Customize invoice notification email per invoice.</li>
+<li>Invoice notification, reminder and receipt templates.</li>
+<li>Export/Import Invoices (Power Tools Add-on).</li>
+<li>Sales Visualization (Power Tools Add-on).</li>
 </ul>
-<h3 id="installation">Installation</h3>
+<h4 id="payment-options">Payment Options</h4>
+<ul>
+<li>Authorize.net</li>
+<li>PayPal</li>
+<li>Interkassa (Eastern Europe)</li>
+<li>Stripe</li>
+<li>2Checkout</li>
+<li>PayPal Payments Pro (Add-on)</li>
+<li>USAePay (Add-on)</li>
+</ul>
+<h4 id="widgets">Widgets</h4>
+<ul>
+<li><strong>Invoice Lookup</strong> widget allows you to add a simple invoice search form to a front-end. It will be accessible by your clients. Form accepts Invoice ID. Invoice page appears once correct Invoice ID submitted.</li>
+<li><strong>Invoice History</strong> widget allows your clients to see a list of their invoices on a front-end.</li>
+</ul>
+<h4 id="shortcodes">Shortcodes</h4>
+<p>Shortcodes are replicating widgets doing the same.</p>
+<ul>
+<li>[wp-invoice-lookup]</li>
+<li>[wp-invoice-history]</li>
+</ul>
+<h4 id="available-add-ons-list">Available Add-ons list</h4>
+<p>If you found the default functionality of WP-Invoice is not enough for your needs please take a look at the list of available <a href="https://www.usabilitydynamics.com/products#category-wp-invoice">Add ons</a></p>
+<h3 id="single-page-checkout">Single Page Checkout</h3>
+<p>The Single Page Checkout (SPC) Add-on for WP-Invoice makes it easy to create one-page-checkout forms that can accept a variety of different payment gateways, such as Authorize.net and PayPal.
+<a href="https://www.usabilitydynamics.com/product/wp-invoice-single-page-checkout">More about Add-on</a></p>
+<h3 id="pdf-invoices-and-receipts">PDF Invoices and Receipts</h3>
+<p>PDF feature allows you to easily generate PDF versions of your invoices, receipts and quotes. A variety of settings makes it easy to configure PDF appearance.
+<a href="https://www.usabilitydynamics.com/product/wp-invoice-pdf">More about Add-on</a></p>
+<h3 id="quotes">Quotes</h3>
+<p>The Quotes feature let&#39;s you automate your workflow by creating quotes and letting your clients ask questions regarding quotes directly on your website. Once a quote is approved, it is converted to an invoice with a single click.
+<a href="https://www.usabilitydynamics.com/product/wp-invoice-quotes">More about Add-on</a></p>
+<h3 id="power-tools">Power Tools</h3>
+<p>This Add-on allows you to export your invoices in the XML and JSON formats and import data from other WP-Invoice installations. Furthermore, it provides a graphic visualization of your sales, filtered by day, week or month.
+<a href="https://www.usabilitydynamics.com/product/wp-invoice-power-tools">More about Add-on</a></p>
+<h4 id="translations">Translations</h4>
+<ul>
+<li>English (UK)</li>
+<li>German (DE)</li>
+<li>Italian (IT)</li>
+<li>Russian (RU)</li>
+<li>Spanish (ES)</li>
+<li>Japanese (JP)</li>
+</ul>
+<h4 id="installation">Installation</h4>
 <ol>
 <li>Upload all the files into your wp-content/plugins directory, be sure to put them into a folder called &quot;wp-invoice&quot;</li>
 <li>Activate the plugin at the plugin administration page</li>
@@ -169,7 +210,7 @@
 <li>To create your first invoice navigate to Invoice -&gt; New Invoice, and select the user who will be the recipient.</li>
 </ol>
 <p>Please see the <a href="https://www.usabilitydynamics.com/product/wp-invoice/">wp-invoice plugin home page</a> for details.</p>
-<h3 id="frequently-asked-questions">Frequently Asked Questions</h3>
+<h4 id="frequently-asked-questions">Frequently Asked Questions</h4>
 <p><a href="http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-wp-invoice">WP-Invoice FAQ</a></p>
 
   </body>

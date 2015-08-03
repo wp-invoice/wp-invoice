@@ -178,6 +178,53 @@ namespace UsabilityDynamics\WPI {
         wp_clear_scheduled_hook( 'wpi_spc_remove_abandoned_transactions' );
       }
 
+      /**
+       * Run Install Process.
+       *
+       * @author peshkov@UD
+       */
+      public function run_install_process() {}
+
+      /**
+       * Run Upgrade Process:
+       * - do WP-Invoice settings backup.
+       *
+       * @author peshkov@UD
+       */
+      public function run_upgrade_process() {
+        /* Do automatic Settings backup! */
+        $settings = get_option( 'wpi_options' );
+
+        if( !empty( $settings ) ) {
+
+          /**
+           * Fixes allowed mime types for adding download files on Edit Product page.
+           *
+           * @see https://wordpress.org/support/topic/2310-download-file_type-missing-in-variations-filters-exe?replies=5
+           * @author peshkov@UD
+           */
+          add_filter( 'upload_mimes', function( $t ){
+            if( !isset( $t['json'] ) ) {
+              $t['json'] = 'application/json';
+            }
+            return $t;
+          }, 99 );
+
+          $filename = md5( 'wpi_options_backup' ) . '.json';
+          $upload = @wp_upload_bits( $filename, null, json_encode( $settings ) );
+
+          if( !empty( $upload ) && empty( $upload[ 'error' ] ) ) {
+            if( isset( $upload[ 'error' ] ) ) unset( $upload[ 'error' ] );
+            $upload[ 'version' ] = $this->old_version;
+            $upload[ 'time' ] = time();
+            update_option( 'wpi_options_backup', $upload );
+          }
+
+        }
+
+        do_action( $this->slug . '::upgrade', $this->old_version, $this->args[ 'version' ], $this );
+      }
+
     }
 
   }
