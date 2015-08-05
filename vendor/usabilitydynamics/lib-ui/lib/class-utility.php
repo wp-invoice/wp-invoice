@@ -71,6 +71,7 @@ namespace UsabilityDynamics\UI {
             $s = str_replace( wp_normalize_path( ABSPATH ), '', get_stylesheet_directory() );
             $s = str_replace( '/', '\/', $s );
             $reg = '|^(.)*(' . $s . ')(.*)$|';
+            $reg = preg_quote( '~'. $reg .'~' );
             $p = preg_replace( $reg, '$3', wp_normalize_path( dirname( __FILE__ ) ) );
             $path = get_stylesheet_directory_uri() . $p;
             break;
