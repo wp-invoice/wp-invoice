@@ -237,7 +237,7 @@ class WPI_Core {
     add_action('edit_user_profile', array($this->UI, 'display_user_profile_fields'));
     add_action('show_user_profile', array($this->UI, 'display_user_profile_fields'));
 
-    add_action('admin_menu', array('WPI_UI', 'admin_menu'));
+    add_action('admin_menu', array('WPI_UI', 'admin_menu'), 9);
 
     add_action('admin_init', array($this, 'admin_init'));
 
