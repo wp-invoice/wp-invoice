@@ -301,6 +301,7 @@ class WPI_Invoice {
         }
 
         if ( is_serialized($meta_value) ) {
+          $meta_value = preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", $meta_value); // recalculate the length of the elements in the serialized array
           $tmp_meta_value = unserialize($meta_value);
         } else {
           $tmp_meta_value = $meta_value;
