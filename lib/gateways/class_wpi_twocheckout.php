@@ -180,7 +180,7 @@ class wpi_twocheckout extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'country', !empty($_REQUEST['country'])?$_REQUEST['country']:'' );
 
     if ( !empty( $_REQUEST['crm_data'] ) ) {
-      $this->user_meta_updated( $_REQUEST['crm_data'] );
+      self::user_meta_updated( $_REQUEST['crm_data'] );
     }
 
     echo json_encode(
