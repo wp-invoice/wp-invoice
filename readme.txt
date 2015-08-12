@@ -150,7 +150,7 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 == Change Log ==
 
 = 4.0.1 =
-* Fixed loading of localisation files. The bug persists in 2.0.0 and 2.0.1 versions.
+* Fixed loading of localisation files. The bug persists in 4.0.0 version.
 
 = 4.0.0 =
 * Changed plugin initialization functionality.
