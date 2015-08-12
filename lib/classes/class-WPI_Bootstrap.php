@@ -24,6 +24,16 @@ namespace UsabilityDynamics\WPI {
        * Instantaite class.
        */
       public function init() {
+
+        /**
+         * Duplicates UsabilityDynamics\WP\Bootstrap_Plugin::load_textdomain();
+         *
+         * There is a bug with localisation in lib-wp-bootstrap 1.1.3 and lower.
+         * So we load textdomain here again, in case old version lib-wp-bootstrap is being loaded
+         * by another plugin.
+         */
+        load_plugin_textdomain( $this->domain, false, dirname( plugin_basename( $this->boot_file ) ) . '/static/languages/' );
+
         add_filter( "pre_update_option_wpi_options", array( 'WPI_Functions', 'pre_update_option_wpi_options' ), 10, 3 );
         add_filter( "option_wpi_options", array( 'WPI_Functions', 'option_wpi_options' ) );
 
