@@ -180,7 +180,7 @@ class wpi_twocheckout extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'country', !empty($_REQUEST['country'])?$_REQUEST['country']:'' );
 
     if ( !empty( $_REQUEST['crm_data'] ) ) {
-      $this->user_meta_updated( $_REQUEST['crm_data'] );
+      self::user_meta_updated( $_REQUEST['crm_data'] );
     }
 
     echo json_encode(
@@ -288,6 +288,7 @@ class wpi_twocheckout extends wpi_gateway_base {
           $invoice->save_invoice();
           /** ... and mark invoice as paid */
           wp_invoice_mark_as_paid($_REQUEST['invoice_id'], $check = true);
+          parent::successful_payment( $invoice );
           send_notification($invoice->data);
           echo '<script type="text/javascript">window.location="' . get_invoice_permalink($invoice->data['ID']) . '";</script>';
 

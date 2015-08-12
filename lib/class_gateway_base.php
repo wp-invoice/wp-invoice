@@ -29,6 +29,14 @@ abstract class wpi_gateway_base {
   }
 
   /**
+   * Each payment handler must call this function after successful payment fact.
+   * @param $invoice
+   */
+  public function successful_payment( $invoice ) {
+    do_action( 'wpi_successful_payment', $invoice );
+  }
+
+  /**
    * This function handles the display of the admin settings for the individual payment gateway
    * It is called on the settings page and on the invoice page
    * @param string $args A URL encoded string that contains all the arguments

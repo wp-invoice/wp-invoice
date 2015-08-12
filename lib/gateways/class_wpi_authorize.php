@@ -474,6 +474,8 @@ class wpi_authorize extends wpi_gateway_base {
       //** Mark invoice as paid */
       wp_invoice_mark_as_paid($invoice_id, $check = true);
 
+      parent::successful_payment( $invoice_obj );
+
       send_notification( $invoice );
 
       $data['messages'][] = $payment->getResponseText();
