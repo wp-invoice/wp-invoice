@@ -443,6 +443,7 @@ class wpi_stripe extends wpi_gateway_base {
 
             $invoice_object->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
             $invoice_object->save_invoice();
+            parent::successful_payment( $invoice_object );
           }
           break;
 
