@@ -213,8 +213,13 @@ class wpi_paypal extends wpi_gateway_base {
       self::user_meta_updated( $_REQUEST['crm_data'] );
     }
 
+    $invoice_obj = new WPI_Invoice();
+    $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
+
+    parent::successful_payment($invoice_obj);
+
     echo json_encode(
-            array('success' => 1)
+      array('success' => 1)
     );
   }
 
@@ -415,7 +420,6 @@ class wpi_paypal extends wpi_gateway_base {
                 $invoice->save_invoice();
                 /** ... and mark invoice as paid */
                 wp_invoice_mark_as_paid($_POST['invoice'], $check = true);
-                parent::successful_payment( $invoice );
                 send_notification($invoice->data);
                 do_action('wpi_paypal_complete_ipn', $_POST);
                 break;

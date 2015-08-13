@@ -164,9 +164,8 @@ class wpi_twocheckout extends wpi_gateway_base {
    * @global type $wpi_settings
    */
   static function process_payment() {
-    global $invoice, $wpi_settings;
+    global $invoice;
 
-    $invoice_id = $invoice['invoice_id'];
     $wp_users_id = $invoice['user_data']['ID'];
 
     // update user data
@@ -182,6 +181,11 @@ class wpi_twocheckout extends wpi_gateway_base {
     if ( !empty( $_REQUEST['crm_data'] ) ) {
       self::user_meta_updated( $_REQUEST['crm_data'] );
     }
+
+    $invoice_obj = new WPI_Invoice();
+    $invoice_obj->load_invoice("id={$invoice['invoice_id']}");
+
+    parent::successful_payment($invoice_obj);
 
     echo json_encode(
       array('success' => 1)
