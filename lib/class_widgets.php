@@ -8,8 +8,8 @@ class InvoiceLookupWidget extends WP_Widget {
   /**
    * Construct
    */
-  function InvoiceLookupWidget() {
-    parent::WP_Widget( false, $name = 'Invoice Lookup' );
+  function __construct() {
+    parent::__construct( false, $name = 'Invoice Lookup' );
   }
 
   /**
@@ -70,9 +70,9 @@ class InvoiceHistoryWidget extends WP_Widget {
   /**
    * Construct
    */
-  function InvoiceHistoryWidget() {
+  function __construct() {
     $widget_ops = array( 'classname' => 'widget_invoice_history', 'description' => __( "User's Paid and Pending Invoices", ud_get_wp_invoice()->domain ) );
-    parent::WP_Widget( 'invoice_history', __( 'Invoice History', ud_get_wp_invoice()->domain ), $widget_ops );
+    parent::__construct( 'invoice_history', __( 'Invoice History', ud_get_wp_invoice()->domain ), $widget_ops );
   }
 
   /**
