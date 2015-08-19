@@ -376,7 +376,7 @@ class WPI_Ajax {
 
     $errors = array();
     $custom_template_path = STYLESHEETPATH . "/wpi";
-    $original_template_path = dirname( __FILE__ ) . "/template";
+    $original_template_path = dirname( __FILE__ ) . "/../static/views";
 
     if ( !is_dir( $custom_template_path ) ) {
       if ( !@mkdir( $custom_template_path ) ) {
@@ -390,7 +390,7 @@ class WPI_Ajax {
       while ( ( $file = readdir( $dir ) ) !== false ) {
         unset( $info );
         $info = pathinfo( $file );
-        if ( $info[ 'extension' ] == 'php' ) {
+        if ( !empty($info[ 'extension' ]) && $info[ 'extension' ] == 'php' ) {
           if ( @copy( $original_template_path . "/" . $file, "$custom_template_path/$file" ) )
             $files_copied++;
         }
