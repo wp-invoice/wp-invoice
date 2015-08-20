@@ -50,7 +50,18 @@
     "schemas": {
       "dependencies" : {
         "modules": {},
-        "plugins": []
+        "plugins": [
+          {
+            "name": "WP-Invoice: Business Locations",
+            "slug": "wp-invoice-business-locations",
+            "version": "1.0.0",
+            "required": false,
+            "private": true,
+            "author": "UsabilityDynamics, Inc.",
+            "author_url": "https://www.usabilitydynamics.com",
+            "external_url": "https://www.usabilitydynamics.com/product/wp-invoice-business-locations"
+          }
+        ]
       },
       "licenses" : {
         "client" : {
