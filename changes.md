@@ -1,5 +1,8 @@
 #### 4.0.1
 * Fixed loading of localisation files. The bug persists in 4.0.0 version.
+* Fixed incorrect behaviour on custom 'Install Plugins' page after depended plugins ( Add-ons ) activation.
+* Fixed the way of widgets initialization. Compatibility with WordPress 4.3 and higher.
+* Fixed Warnings which were breaking ajax request on pagination and filtering items on All Properties page for PHP 5.6.
 
 #### 4.0.0
 * Changed plugin initialization functionality.
