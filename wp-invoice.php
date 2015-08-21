@@ -20,7 +20,7 @@
 
 //** Define WPI Version */
 if ( !defined( 'WP_INVOICE_VERSION_NUM' ) ) {
-  define( 'WP_INVOICE_VERSION_NUM', '4.0.0' );
+  define( 'WP_INVOICE_VERSION_NUM', '4.0.1' );
 }
 
 //** Define shorthand for transdomain */
