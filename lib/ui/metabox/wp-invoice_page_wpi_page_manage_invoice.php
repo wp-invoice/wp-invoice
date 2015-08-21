@@ -27,7 +27,22 @@ function message_meta_box($this_invoice) {
               <table id="wpi_invoice_notification_table">
                 <tr>
                   <th><?php _e('To:', ud_get_wp_invoice()->domain); ?></th>
-                  <td><input id="wpi_notification_send_to" class="input_field"  name="wpi_invoice_notification[email_address]" value="<?php echo $this_invoice['user_data']['user_email']; ?>" /></td>
+                  <td>
+                    <?php
+                      $user_emails = apply_filters( 'wpi_emails_for_notifications', array( $this_invoice['user_data']['user_email'] ), $this_invoice );
+                      if ( count( $user_emails ) == 1 ):
+                    ?>
+                      <input id="wpi_notification_send_to" class="input_field" name="wpi_invoice_notification[email_address]" value="<?php echo $this_invoice['user_data']['user_email']; ?>" />
+                    <?php elseif ( count( $user_emails ) > 1 ): ?>
+                      <select id="wpi_notification_send_to" class="input_field" name="wpi_invoice_notification[email_address]">
+                      <?php foreach( $user_emails as $_email ): ?>
+                        <option value="<?php echo $_email; ?>"><?php echo $_email; ?></option>
+                      <?php endforeach; ?>
+                      </select>
+                    <?php else : ?>
+                      <p><?php _e( 'No email addresses presented', ud_get_wp_invoice()->domain ); ?></p>
+                    <?php endif; ?>
+                  </td>
                 </tr>
                 <tr>
                   <th><?php _e('Template:', ud_get_wp_invoice()->domain); ?></th>
