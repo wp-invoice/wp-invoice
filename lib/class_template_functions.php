@@ -294,7 +294,7 @@ if ( !function_exists('show_invoice_history') ) {
               $by = '';
               if ($value['user_id'] != 0) {
                 $user = get_user_by('id', $value['user_id']);
-                $by = " by " . $user->display_name;
+                $by = apply_filters('wpi_history_log_by', " by " . $user->display_name);
               }
               ?>
               <tr class="invoice-history-item">

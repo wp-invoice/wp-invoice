@@ -762,7 +762,7 @@ class WPI_Invoice {
         $creator = __("Created from ", ud_get_wp_invoice()->domain).$this->data['created_by'];
       } else {
         $current_user = wp_get_current_user();
-        $creator = __("Created by ", ud_get_wp_invoice()->domain).$current_user->display_name;
+        $creator = __("Created", ud_get_wp_invoice()->domain) . apply_filters( 'wpi_history_log_by', __(" by ", ud_get_wp_invoice()->domain).$current_user->display_name );
       }
       $this->data['ID'] = wp_insert_post($data);
       $this->add_entry("type=create&note=".$creator);
