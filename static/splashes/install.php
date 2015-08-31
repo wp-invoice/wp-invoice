@@ -9,7 +9,7 @@
   
   <div class="overview">
 
-    <h2><?php printf( __( 'WP-Invoice %s has beed installed', ud_get_wp_invoice()->domain ), ud_get_wp_invoice()->args['version'] ); ?></h2>
+    <h2><?php printf( __( 'WP-Invoice %s has been installed', ud_get_wp_invoice()->domain ), ud_get_wp_invoice()->args['version'] ); ?></h2>
 
     <p><?php _e( 'Congratulations! You have just installed brand new version of WP-Invoice plugin. There are some important things that you need to be aware of in order to use our products successfully and with pleasure.', ud_get_wp_invoice()->domain ) ?></p>
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 13:55+0200\n"
-"PO-Revision-Date: 2014-09-30 13:56+0200\n"
+"POT-Creation-Date: 2015-08-31 16:19+0300\n"
+"PO-Revision-Date: 2015-08-31 16:19+0300\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: Usability Dynamics, inc. <dvzzz.kg@gmail.com>\n"
 "Language: ru_RU\n"
@@ -11,57 +11,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: ../../\n"
+"X-Poedit-Basepath: ../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: /.git\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
 
-#: lib/class_ajax.php:186
+#: lib/class_ajax.php:126
 msgid "Please enter a note and numeric amount."
 msgstr "Введите сумму прописью и цифрами"
 
-#: lib/class_ajax.php:193
+#: lib/class_ajax.php:133
 msgid "paid in"
 msgstr "заплачено"
 
-#: lib/class_ajax.php:200
+#: lib/class_ajax.php:140
 msgid "charge added"
 msgstr "Добавлена сумма оплаты"
 
-#: lib/class_ajax.php:208
+#: lib/class_ajax.php:148
 msgid "adjusted"
 msgstr "изменено"
 
-#: lib/class_ajax.php:215
+#: lib/class_ajax.php:155
 msgid "refunded"
 msgstr "возмещено"
 
-#: lib/class_ajax.php:234
+#: lib/class_ajax.php:174
 #, php-format
 msgid "Event Added: %1s."
 msgstr "Добавлено действие: %1s."
 
-#: lib/class_ajax.php:236
+#: lib/class_ajax.php:176
 #, php-format
 msgid "Could not save entry in invoice log. %1s"
 msgstr "Невозможно сохранить запись в лог. %1s"
 
-#: lib/class_ajax.php:271
+#: lib/class_ajax.php:211
 msgid "Due date is not set"
 msgstr "Не указана дата срока платежа"
 
-#: lib/class_ajax.php:274 lib/class_ajax.php:275
+#: lib/class_ajax.php:214 lib/class_ajax.php:215
 msgid "invoice"
 msgstr "счет"
 
-#: lib/class_ajax.php:289
+#: lib/class_ajax.php:229
 msgid "No description given."
 msgstr "Без описания"
 
-#: lib/class_ajax.php:365
+#: lib/class_ajax.php:305
 msgid ""
 "The fields should not be empty. Please, check the fields data and try to "
 "send notification again."
@@ -69,36 +71,36 @@ msgstr ""
 "Все поля должны быть заполнены. Проверьте поля данных и отправьте "
 "уведомление еще раз."
 
-#: lib/class_ajax.php:376
+#: lib/class_ajax.php:316
 msgid "Notification Sent"
 msgstr "Уведомление послано"
 
-#: lib/class_ajax.php:376
+#: lib/class_ajax.php:316
 msgid "to"
 msgstr "по адресу"
 
-#: lib/class_ajax.php:376
+#: lib/class_ajax.php:316
 msgid "at"
 msgstr "в"
 
-#: lib/class_ajax.php:379
+#: lib/class_ajax.php:319
 msgid "Successfully sent the invoice notification!"
 msgstr "Уведомление о счете послано успешно!"
 
-#: lib/class_ajax.php:382
+#: lib/class_ajax.php:322
 msgid "Unable to send the e-mail. Please, try again later."
 msgstr "Невозможно отправить e-mail. Повторите попытку позже."
 
-#: lib/class_ajax.php:391
+#: lib/class_ajax.php:331
 #, php-format
 msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
 msgstr "Сохранено <a target='_blank' href='%s'>Смотреть счет</a>"
 
-#: lib/class_ajax.php:391
+#: lib/class_ajax.php:331
 msgid "Invoice id #"
 msgstr "Номер счета"
 
-#: lib/class_ajax.php:393
+#: lib/class_ajax.php:333
 msgid ""
 "There was a problem with saving the invoice. Reference the log for "
 "troubleshooting."
@@ -106,24 +108,24 @@ msgstr ""
 "При сохранении счета возникла проблема. Чтобы ее устранить, просмотрите "
 "записи журнала."
 
-#: lib/class_ajax.php:422
+#: lib/class_ajax.php:362
 msgid "Please enter an invoice id."
 msgstr "Введите номер счета"
 
-#: lib/class_ajax.php:443
+#: lib/class_ajax.php:383
 msgid "Unable to create 'wpi' folder in template folder. "
 msgstr "Невозможно создать папку wpi в папке шаблонов"
 
-#: lib/class_ajax.php:460
+#: lib/class_ajax.php:400
 msgid "Unable to open 'wpi' folder in template folder."
 msgstr "Невозможно открыть папку wpi в папке шаблонов"
 
-#: lib/class_ajax.php:465
+#: lib/class_ajax.php:405
 #, php-format
 msgid "Success, (%s) template file(s) copied."
 msgstr "Получилось! (%s) файлов шаблонов скопировано."
 
-#: lib/class_ajax.php:468
+#: lib/class_ajax.php:408
 msgid "No template files copied."
 msgstr "Файлы шаблонов не скопированы."
 
@@ -131,16 +133,16 @@ msgstr "Файлы шаблонов не скопированы."
 msgid "There are no options for this widget."
 msgstr "Для этого виджета нет настроек."
 
-#: lib/class_functions.php:354 lib/class_list_table.php:124
+#: lib/class_functions.php:362 lib/class_ui.php:174 lib/class_ui.php:181
 msgid "All"
 msgstr "Все"
 
-#: lib/class_functions.php:673
+#: lib/class_functions.php:681
 #, php-format
 msgid "Your Access Credentials [%s]"
 msgstr "Ваши данные для доступа  [%s]"
 
-#: lib/class_functions.php:674
+#: lib/class_functions.php:682
 #, php-format
 msgid ""
 "Dear customer,\n"
@@ -153,32 +155,32 @@ msgid ""
 "Password: %s"
 msgstr ""
 
-#: lib/class_functions.php:1274
+#: lib/class_functions.php:1282
 msgid "Today"
 msgstr "Сегодня"
 
-#: lib/class_functions.php:1276
+#: lib/class_functions.php:1284
 msgid " Tomorrow "
 msgstr "Завтра"
 
-#: lib/class_functions.php:1276
+#: lib/class_functions.php:1284
 msgid " Yesterday "
 msgstr "Вчера"
 
-#: lib/class_functions.php:1278
+#: lib/class_functions.php:1286
 #, php-format
 msgid " in %s days "
 msgstr "Через %s дней"
 
-#: lib/class_functions.php:1278
+#: lib/class_functions.php:1286
 msgid "days ago"
 msgstr "дней назад"
 
-#: lib/class_functions.php:1603
+#: lib/class_functions.php:1614
 msgid "Invoice #[invoice_id] has been paid"
 msgstr "Счет #%s оплачен"
 
-#: lib/class_functions.php:1607
+#: lib/class_functions.php:1618
 msgid ""
 "Dear [user_name],\n"
 "[business_name] has received your payment for the invoice.\n"
@@ -192,11 +194,11 @@ msgid ""
 "[business_name] ([from])"
 msgstr ""
 
-#: lib/class_functions.php:1612 lib/class_functions.php:1621
+#: lib/class_functions.php:1623 lib/class_functions.php:1632
 msgid "Invoice #[invoice_id] has been paid by [user_name]"
 msgstr "Счет #%s оплачен"
 
-#: lib/class_functions.php:1616
+#: lib/class_functions.php:1627
 msgid ""
 "[user_name] has paid invoice #[invoice_id].\n"
 "[invoice_title]\n"
@@ -216,7 +218,7 @@ msgid ""
 "[site]"
 msgstr ""
 
-#: lib/class_functions.php:1625
+#: lib/class_functions.php:1636
 msgid ""
 "Dear [creator_name],\n"
 "[user_name] has paid invoice #[invoice_id].\n"
@@ -238,88 +240,66 @@ msgid ""
 "[site]"
 msgstr ""
 
-#: lib/class_functions.php:1670
+#: lib/class_functions.php:1680 lib/class_list_table.php:22
 msgid "Invoices"
 msgstr "Счета"
 
-#: lib/class_functions.php:1671 lib/class_functions.php:1686
-#: lib/class_settings.php:42
+#: lib/class_functions.php:1681 lib/class_functions.php:1696
+#: lib/class_list_table.php:21 lib/class_settings.php:42
 msgid "Invoice"
 msgstr "Счет"
 
-#: lib/class_functions.php:1672 lib/class_ui.php:22
-#: lib/ui/toplevel_page_wpi_main.php:15
+#: lib/class_functions.php:1682 lib/class_ui.php:23
 msgid "Add New"
 msgstr "Добавить новый"
 
-#: lib/class_functions.php:1673
+#: lib/class_functions.php:1683
 msgid "Add New Invoice"
 msgstr "Добавить новый счет"
 
-#: lib/class_functions.php:1674
+#: lib/class_functions.php:1684
 msgid "Edit Invoice"
 msgstr "Редактировать счет"
 
-#: lib/class_functions.php:1675 lib/class_settings.php:421
+#: lib/class_functions.php:1685 lib/class_settings.php:421
 msgid "New Invoice"
 msgstr "Новый счет"
 
-#: lib/class_functions.php:1676
+#: lib/class_functions.php:1686
 msgid "View Invoice"
 msgstr "Просмотреть счет"
 
-#: lib/class_functions.php:1677 lib/class_widgets.php:50
+#: lib/class_functions.php:1687 lib/class_widgets.php:50
 msgid "Search Invoices"
 msgstr "Искать счет"
 
-#: lib/class_functions.php:1678
+#: lib/class_functions.php:1688
 msgid "No invoices found"
 msgstr "Счета не обнаружены"
 
-#: lib/class_functions.php:1679
+#: lib/class_functions.php:1689
 msgid "No invoices found in Trash"
 msgstr "В Корзине счета не обнаружены"
 
-#: lib/class_functions.php:2056
+#: lib/class_functions.php:2064
 msgid "WP-Invoice Notification"
 msgstr "Уведомление о счете"
 
-#: lib/class_functions.php:2114
-#, php-format
-msgid ""
-"Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a target="
-"\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
-msgstr ""
-"Узнайте, как <a target=\"_blank\" href=\"%s\">расширить возможности</a> "
-"Вашего плагина <a target=\"_blank\" href=\"%s\">WP-Invoice</a>"
-
-#: lib/class_functions.php:2118
-msgid "Premium Features"
-msgstr "Платные дополнения"
-
-#: lib/class_functions.php:2120
-msgid "Support Forum"
-msgstr "Форум поддержки"
-
-#: lib/class_functions.php:2123
-msgid "User Guide"
-msgstr "Руководство пользователя"
-
-#: lib/class_functions.php:2201 lib/class_functions.php:2221
+#: lib/class_functions.php:2169 lib/class_functions.php:2189
 msgid "Payment status: Complete"
 msgstr "Статус платежа: Выполнен"
 
-#: lib/class_functions.php:2245
+#: lib/class_functions.php:2213
 msgid "Pending"
 msgstr "Ожидает подтверждения"
 
-#: lib/class_functions.php:2305 lib/class_functions.php:2355
-#: lib/class_functions.php:2404
+#: lib/class_functions.php:2273 lib/class_functions.php:2323
+#: lib/class_functions.php:2372
 #, php-format
 msgid "Invoice #%s has been paid"
 msgstr "Счет #%s оплачен"
 
-#: lib/class_functions.php:2311
+#: lib/class_functions.php:2279
 #, php-format
 msgid ""
 "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can "
@@ -331,17 +311,17 @@ msgstr ""
 "состояние счета и истории платежей, нажав на эту ссылку:<br>%3s<br><br> "
 "Спасибо за сотрудничество.<br><br>С уважением, <br>%4s (%5s)"
 
-#: lib/class_functions.php:2325 lib/class_functions.php:2376
-#: lib/class_functions.php:2424
+#: lib/class_functions.php:2293 lib/class_functions.php:2344
+#: lib/class_functions.php:2392
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
 msgstr "WP-Invoice: Сообщение с  '%1s было направлено"
 
-#: lib/class_functions.php:2331
+#: lib/class_functions.php:2299
 msgid "Receipt eMailed"
 msgstr "Квитанция отправлена"
 
-#: lib/class_functions.php:2358
+#: lib/class_functions.php:2326
 #, php-format
 msgid ""
 "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s."
@@ -354,7 +334,7 @@ msgstr ""
 "ссылке:<br>%8s<br><br>Информация о пользователе:<br><br>ID: %9s<br>Имя: "
 "%10s<br>Email: %11s<br><br>--------------------<br>%12s"
 
-#: lib/class_functions.php:2406
+#: lib/class_functions.php:2374
 #, php-format
 msgid ""
 "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: "
@@ -379,9 +359,13 @@ msgstr "Статус счета изменен на 'Оплачено'."
 msgid "Created from "
 msgstr "Создано из"
 
+#: lib/class_invoice.php:765 lib/class_list_table.php:97
+msgid "Created"
+msgstr ""
+
 #: lib/class_invoice.php:765
-msgid "Created by "
-msgstr "Создал "
+msgid " by "
+msgstr ""
 
 #: lib/class_invoice.php:772
 msgid "Recurring invoice updated."
@@ -420,32 +404,64 @@ msgstr "Журнал событий импортирован из прежней
 msgid "Imported Log from Web Invoice plugin"
 msgstr "Журнал событий импортирован из прежней версии WP-Invoice"
 
-#: lib/class_list_table.php:124
-msgid "Display"
-msgstr "Отобразить"
-
-#: lib/class_list_table.php:124
-msgid "records"
-msgstr "записи"
-
-#: lib/class_list_table.php:296
+#: lib/class_list_table.php:45
 #, fuzzy
-msgid "Show all dates"
-msgstr "Показать всех пользователей"
+msgid "View"
+msgstr "Просмотреть файл PDF"
 
-#: lib/class_list_table.php:436
+#: lib/class_list_table.php:94 lib/class_ui.php:151
+msgid "Title"
+msgstr "Название"
+
+#: lib/class_list_table.php:95
+msgid "Collected"
+msgstr ""
+
+#: lib/class_list_table.php:96 lib/class_ui.php:185
+msgid "Recipient"
+msgstr "Получатель"
+
+#: lib/class_list_table.php:98
+msgid "Updated"
+msgstr ""
+
+#: lib/class_list_table.php:99 lib/class_ui.php:172
+msgid "Status"
+msgstr "Статус"
+
+#: lib/class_list_table.php:100 lib/class_ui.php:179
+msgid "Type"
+msgstr "Тип"
+
+#: lib/class_list_table.php:101 lib/class_ui.php:162
+msgid "ID"
+msgstr ""
+
+#: lib/class_list_table.php:141
+msgid "of"
+msgstr "из"
+
+#: lib/class_list_table.php:238
+msgid "Restore"
+msgstr "Восстановить"
+
+#: lib/class_list_table.php:239
 #, fuzzy
-msgid "Nothing found."
-msgstr "не найдено"
+msgid "Archive"
+msgstr "Заархивирован"
 
-#: lib/class_list_table.php:555
+#: lib/class_list_table.php:240
+msgid "Delete Permanently"
+msgstr "Удалить навсегда"
+
+#: lib/class_list_table.php:241
+msgid "Move to Trash"
+msgstr "В корзину"
+
+#: lib/class_list_table.php:242
 #, fuzzy
-msgid "Bulk Actions"
-msgstr "ПОказать действия"
-
-#: lib/class_list_table.php:565
-msgid "Apply"
-msgstr "Применить"
+msgid "Un-Archive"
+msgstr "Заархивирован"
 
 #: lib/class_settings.php:43
 msgid "Recurring"
@@ -475,8 +491,7 @@ msgstr "Выпадающее меню"
 
 #: lib/class_settings.php:92 lib/gateways/class_wpi_authorize.php:126
 #: lib/gateways/class_wpi_interkassa.php:51
-#: lib/gateways/class_wpi_payoneer.php:76 lib/gateways/class_wpi_paypal.php:70
-#: lib/gateways/class_wpi_stripe.php:26
+#: lib/gateways/class_wpi_paypal.php:70 lib/gateways/class_wpi_stripe.php:26
 #: lib/gateways/class_wpi_twocheckout.php:60
 #, fuzzy
 msgid "First Name"
@@ -484,8 +499,7 @@ msgstr "Название операции"
 
 #: lib/class_settings.php:93 lib/gateways/class_wpi_authorize.php:133
 #: lib/gateways/class_wpi_interkassa.php:57
-#: lib/gateways/class_wpi_payoneer.php:82 lib/gateways/class_wpi_paypal.php:76
-#: lib/gateways/class_wpi_stripe.php:32
+#: lib/gateways/class_wpi_paypal.php:76 lib/gateways/class_wpi_stripe.php:32
 #: lib/gateways/class_wpi_twocheckout.php:66
 #, fuzzy
 msgid "Last Name"
@@ -496,7 +510,7 @@ msgid "Company Name"
 msgstr "Название компании"
 
 #: lib/class_settings.php:95 lib/gateways/class_wpi_authorize.php:147
-#: lib/gateways/class_wpi_paypal.php:250
+#: lib/gateways/class_wpi_paypal.php:255
 #, fuzzy
 msgid "Phone Number"
 msgstr "Номер карты"
@@ -508,7 +522,6 @@ msgstr "Адрес платежа"
 
 #: lib/class_settings.php:97 lib/gateways/class_wpi_authorize.php:161
 #: lib/gateways/class_wpi_interkassa.php:81
-#: lib/gateways/class_wpi_payoneer.php:106
 #: lib/gateways/class_wpi_paypal.php:111 lib/gateways/class_wpi_stripe.php:56
 #: lib/gateways/class_wpi_twocheckout.php:96
 msgid "City"
@@ -1774,15 +1787,14 @@ msgid "Balance:"
 msgstr "Номер текущего баланса"
 
 #: lib/class_template_functions.php:279
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:610
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:624
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:619
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:633
 msgid "Time"
 msgstr "Время"
 
 #: lib/class_template_functions.php:280
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:611
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:625
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2041
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:620
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:634
 #, fuzzy
 msgid "Event"
 msgstr "Дополнительная информация о действии"
@@ -1816,7 +1828,7 @@ msgstr ""
 "хотели бы внести."
 
 #: lib/class_template_functions.php:422
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:501
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:516
 #, fuzzy
 msgid "Payment Method"
 msgstr "Способ платежа по умолчанию"
@@ -1834,16 +1846,78 @@ msgstr "Счет"
 msgid "View All"
 msgstr "Посмотреть все"
 
-#: lib/class_ui.php:23 lib/class_ui.php:352
+#: lib/class_ui.php:24 lib/class_ui.php:548
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:195
 msgid "Reports"
 msgstr "Отчеты"
 
-#: lib/class_ui.php:27
+#: lib/class_ui.php:28
 msgid "Settings"
 msgstr "Настройки"
 
-#: lib/class_ui.php:229
+#: lib/class_ui.php:119
+#, php-format
+msgid "\"Invoice(s) %s trashed.\""
+msgstr "\"Счет(а) %s перемещены в корзину.\""
+
+#: lib/class_ui.php:121
+#, php-format
+msgid "\"Invoice(s) %s restored.\""
+msgstr ""
+
+#: lib/class_ui.php:123
+#, php-format
+msgid "\"Invoice(s) %s deleted.\""
+msgstr "\"Счет(а) %s удалены.\""
+
+#: lib/class_ui.php:125
+#, php-format
+msgid "\"Invoice(s) %s unarchived.\""
+msgstr "\"Счет(а) %s разархивированы.\""
+
+#: lib/class_ui.php:127
+#, php-format
+msgid "\"Invoice(s) %s archived.\""
+msgstr "\"Счет(а) %s архивированы.\""
+
+#: lib/class_ui.php:137
+msgid "General Information"
+msgstr "Общая информация"
+
+#: lib/class_ui.php:138
+msgid ""
+"You are on the page which lists your invoices and other item types that you "
+"are using."
+msgstr ""
+"Вы находитесь на странице, где перечислены счета и другие типы элементов, "
+"которые вы используете."
+
+#: lib/class_ui.php:139
+msgid "Use filter box to find items you need."
+msgstr "Воспользуйтесь окном фильтра, чтобы найти необходимые элементы."
+
+#: lib/class_ui.php:152
+msgid "Start typing..."
+msgstr ""
+
+#: lib/class_ui.php:163
+msgid "Paste ID here"
+msgstr ""
+
+#: lib/class_ui.php:199
+msgid "Date from"
+msgstr ""
+
+#: lib/class_ui.php:211
+msgid "Date to"
+msgstr ""
+
+#: lib/class_ui.php:236
+#, fuzzy
+msgid "WP-Invoice First-Use Setup"
+msgstr "Настраиваемое поле WP-Invoice"
+
+#: lib/class_ui.php:245 lib/class_ui.php:483
 #, php-format
 msgid ""
 "Invoice page not selected. Visit <strong><i><a href=\"%s\">Settings Page</a> "
@@ -1855,7 +1929,7 @@ msgstr ""
 "<b><i>размещайте инвойсы на странице</i></b> под секцией <strong><i>При "
 "просмотре инвойса</i></strong>."
 
-#: lib/class_ui.php:232
+#: lib/class_ui.php:248 lib/class_ui.php:486
 #, php-format
 msgid ""
 "Selected invoice page does not exist. Visit <strong><i><a href=\"%s"
@@ -1868,7 +1942,7 @@ msgstr ""
 "<b><i>размещайте инвойсы на странице</i></b> под секцией <strong><i>При "
 "просмотре инвойса</i></strong>."
 
-#: lib/class_ui.php:240
+#: lib/class_ui.php:256 lib/class_ui.php:494
 msgid ""
 "Your server does not support cURL. Payments could not be processed. Contact "
 "your server administrator."
@@ -1876,19 +1950,28 @@ msgstr ""
 "Ваш сервер не поддерживает cURL. Плятежи не могут быть осуществлены. "
 "Свяжитесь с администратором своего сервера."
 
-#: lib/class_ui.php:249
+#: lib/class_ui.php:260 lib/class_ui.php:879
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:10
+msgid "Overview"
+msgstr "Посмотреть"
+
+#: lib/class_ui.php:261
+msgid "Filter"
+msgstr ""
+
+#: lib/class_ui.php:272 lib/class_ui.php:503
 msgid "Error"
 msgstr "Ошибка"
 
-#: lib/class_ui.php:249
+#: lib/class_ui.php:272 lib/class_ui.php:503
 msgid "Template not found:"
 msgstr "Шаблон не найден:"
 
-#: lib/class_ui.php:274
+#: lib/class_ui.php:528
 msgid "Creating New Invoice"
 msgstr "Создать новый счет"
 
-#: lib/class_ui.php:275
+#: lib/class_ui.php:529
 msgid ""
 "Begin typing the recipient's email into the input box, or double-click to "
 "view list of possible options."
@@ -1896,60 +1979,19 @@ msgstr ""
 "Начните печатать сообщение получателя в папке Входящие, или дважды нажмите "
 "кнопку, чтобы увидеть список возможных действий."
 
-#: lib/class_ui.php:276
+#: lib/class_ui.php:530
 msgid "For new prospects, type in a new email address."
 msgstr "Для новых контактов: введите новый адрес email."
 
-#: lib/class_ui.php:316
-#, php-format
-msgid "\"Invoice(s) %s trashed.\""
-msgstr "\"Счет(а) %s перемещены в корзину.\""
-
-#: lib/class_ui.php:318
-#, php-format
-msgid "\"Invoice(s) %s untrashed.\""
-msgstr "\"Счет(а) %s извлечены из корзины.\""
-
-#: lib/class_ui.php:320
-#, php-format
-msgid "\"Invoice(s) %s deleted.\""
-msgstr "\"Счет(а) %s удалены.\""
-
-#: lib/class_ui.php:322
-#, php-format
-msgid "\"Invoice(s) %s unarchived.\""
-msgstr "\"Счет(а) %s разархивированы.\""
-
-#: lib/class_ui.php:324
-#, php-format
-msgid "\"Invoice(s) %s archived.\""
-msgstr "\"Счет(а) %s архивированы.\""
-
-#: lib/class_ui.php:334
-msgid "General Information"
-msgstr "Общая информация"
-
-#: lib/class_ui.php:335
-msgid ""
-"You are on the page which lists your invoices and other item types that you "
-"are using."
-msgstr ""
-"Вы находитесь на странице, где перечислены счета и другие типы элементов, "
-"которые вы используете."
-
-#: lib/class_ui.php:336
-msgid "Use filter box to find items you need."
-msgstr "Воспользуйтесь окном фильтра, чтобы найти необходимые элементы."
-
-#: lib/class_ui.php:353
+#: lib/class_ui.php:549
 msgid "This page allows you to manage your sales statistics."
 msgstr "Эта страница позволяет Вам управлять Вашей статистикой продаж."
 
-#: lib/class_ui.php:369 lib/ui/wp-invoice_page_wpi_page_settings.php:6
+#: lib/class_ui.php:565 lib/ui/wp-invoice_page_wpi_page_settings.php:6
 msgid "Main"
 msgstr "Основное"
 
-#: lib/class_ui.php:370
+#: lib/class_ui.php:566
 msgid ""
 "<b>Business Name</b><br /> Enter your business name here. This field "
 "defaults to the blog name you chose during WordPress installation."
@@ -1958,7 +2000,7 @@ msgstr ""
 "Это поле по умолчанию показывает название блога, который Вы выбрали во время "
 "установки WordPress."
 
-#: lib/class_ui.php:371
+#: lib/class_ui.php:567
 msgid ""
 "<b>Business Address</b><br /> Enter your business address here. It will "
 "appear on the invoices and quotes you send."
@@ -1966,7 +2008,7 @@ msgstr ""
 "<b>Адрес компании</b> <br /> Введите здесь адрес своей компании. Он появится "
 "на счетах и предложениях, которые Вы посылаете."
 
-#: lib/class_ui.php:372
+#: lib/class_ui.php:568
 msgid ""
 "<b>Business Phone</b><br /> Enter your business phone here. It will appear "
 "on the invoices and quotes you send."
@@ -1974,7 +2016,7 @@ msgstr ""
 "<b>Телефон компании</b> <br /> Введите здесь номер телефона своей компании. "
 "Он появится на счетах и предложениях, которые Вы посылаете."
 
-#: lib/class_ui.php:373
+#: lib/class_ui.php:569
 msgid ""
 "<b>Email Address</b><br /> Enter your email address here. It will appear on "
 "the invoices and quotes you send."
@@ -1982,7 +2024,7 @@ msgstr ""
 "<b>Электронная почта</b> <br /> Введите здесь Ваш адрес электронной почты. "
 "Он появится на счетах и предложениях, которые Вы посылаете."
 
-#: lib/class_ui.php:374
+#: lib/class_ui.php:570
 msgid ""
 "<b>Display Styles</b><br /> Here you can set, enable or disable the WP-"
 "Invoice default style settings. Change the default values only if you are an "
@@ -1997,7 +2039,7 @@ msgstr ""
 "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
 "invoice-settings-main/\">Подобнее...</a>"
 
-#: lib/class_ui.php:375
+#: lib/class_ui.php:571
 msgid ""
 "<b>Tax Handling</b><br /> Here you can set when tax calculation is done "
 "(depends on your country's fiscal system) and you can define a global "
@@ -2010,7 +2052,7 @@ msgstr ""
 "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
 "invoice-settings-main/\">Подробнее...</a>"
 
-#: lib/class_ui.php:376
+#: lib/class_ui.php:572
 msgid ""
 "<b>Advanced Settings</b><br /> These settings control advanced features that "
 "have to do with billing, installation features, design issues and general "
@@ -2024,12 +2066,12 @@ msgstr ""
 "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
 "invoice-settings-main/\">Подробнее...</a>"
 
-#: lib/class_ui.php:378 lib/ui/wp-invoice_page_wpi_page_settings.php:11
+#: lib/class_ui.php:574 lib/ui/wp-invoice_page_wpi_page_settings.php:11
 #, fuzzy
 msgid "Business Process"
 msgstr "Основной род деятельности"
 
-#: lib/class_ui.php:379
+#: lib/class_ui.php:575
 msgid ""
 "<b>When creating an invoice</b><br />Options for managing invoice creating "
 "process. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/"
@@ -2039,7 +2081,7 @@ msgstr ""
 "счета. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/"
 "wp-invoice/wp-invoice-settings-business-process/\">Подробнее...</a>"
 
-#: lib/class_ui.php:380
+#: lib/class_ui.php:576
 msgid ""
 "<b>When viewing an invoice</b><br />Options for managing invoice view. <a "
 "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
@@ -2049,7 +2091,7 @@ msgstr ""
 "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
 "wp-invoice-settings-business-process/\">More...</a>"
 
-#: lib/class_ui.php:381
+#: lib/class_ui.php:577
 msgid ""
 "<b>How to insert invoice</b><br />Here you have four choices that will "
 "define the way an invoice will appear on the invoice display page you have "
@@ -2062,7 +2104,7 @@ msgstr ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
 "process/\">Подробнее...</a>"
 
-#: lib/class_ui.php:382
+#: lib/class_ui.php:578
 msgid ""
 "<b>After a payment has been completed</b><br />Here we have options that "
 "will create automatic email notifications on successful payment of an "
@@ -2076,7 +2118,7 @@ msgstr ""
 "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
 "settings-business-process/\">Подробнее...</a>"
 
-#: lib/class_ui.php:383
+#: lib/class_ui.php:579
 msgid ""
 "<b>Mail From options</b><br />This options allow you to change the default "
 "email address that WordPress sends it's mail from, and the name of the "
@@ -2086,7 +2128,7 @@ msgstr ""
 "изменить адрес электронной почты по умолчанию, с которой WordPress "
 "отправляет почту и имя отправителя."
 
-#: lib/class_ui.php:384
+#: lib/class_ui.php:580
 msgid ""
 "<b>Google Analytics Events Tracking</b><br />If you are using <a target="
 "\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
@@ -2105,7 +2147,7 @@ msgstr ""
 "Для просмотра событий перейдите Контент -> События страницу в вашем аккаунте "
 "Google Analytics."
 
-#: lib/class_ui.php:385
+#: lib/class_ui.php:581
 msgid ""
 "<u>Attempting to pay Invoices</u> - event is triggered on clicking \"Process "
 "Payment\" button on Invoice page."
@@ -2113,7 +2155,7 @@ msgstr ""
 "<u>Попытка оплатить счет</u> - событие срабатывает при нажатии кнопки "
 "\"Процесс оплаты \" на странице счета."
 
-#: lib/class_ui.php:386
+#: lib/class_ui.php:582
 msgid ""
 "<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
 "customer."
@@ -2121,15 +2163,15 @@ msgstr ""
 "<u> Просмотр счетов</u> - событие срабатывает, когда счет был просмотрен "
 "клиентом."
 
-#: lib/class_ui.php:387
+#: lib/class_ui.php:583
 msgid "<i>More Events soon!</i>"
 msgstr "<i>Скоро больше событий!</i>"
 
-#: lib/class_ui.php:389 lib/ui/wp-invoice_page_wpi_page_settings.php:16
+#: lib/class_ui.php:585 lib/ui/wp-invoice_page_wpi_page_settings.php:16
 msgid "Payment"
 msgstr "Платеж"
 
-#: lib/class_ui.php:390
+#: lib/class_ui.php:586
 msgid ""
 "<b>Default Currency</b><br />Sets the default currency you will use in your "
 "invoices. Default value is U.S. Dollars."
@@ -2137,7 +2179,7 @@ msgstr ""
 "<b>Валюта по умолчанию</b> <br /> Устанавливает валюту, которую Вы будете "
 "использовать в своих счетах. Значение по умолчанию - в долларах США."
 
-#: lib/class_ui.php:391
+#: lib/class_ui.php:587
 msgid ""
 "<b>Currency list</b><br>This expandable area allows you to manage the list "
 "of currencies you have. You can add new currencies or remove existing ones."
@@ -2160,7 +2202,7 @@ msgstr ""
 "Чтобы все же удалить такую валюту, в первую очередь, удалите все счета с "
 "этой валютой."
 
-#: lib/class_ui.php:393
+#: lib/class_ui.php:589
 msgid ""
 "<b>Default Payment Method</b><br />Here you can choose what default payment "
 "method you want to use for invoice payments."
@@ -2168,7 +2210,7 @@ msgstr ""
 "<b>Метод оплаты по умолчанию</b><br />Здесь Вы можете выбирать метод оплаты "
 "по умолчанию, который хотим использовать для оплаты счетов."
 
-#: lib/class_ui.php:394
+#: lib/class_ui.php:590
 msgid ""
 "<b>Payment Gateways</b><br />Here you can specify Gateways which you want to "
 "use for your invoices by default. <a target=\"_blank\" href=\"https://"
@@ -2180,7 +2222,7 @@ msgstr ""
 "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
 "payment/\">Подробнее...</a>"
 
-#: lib/class_ui.php:395
+#: lib/class_ui.php:591
 msgid ""
 "<b>Manual Payment Information</b><br />If you don't want to use payment "
 "gateways but offline payments, or if an invoice has no payment gateways "
@@ -2199,11 +2241,11 @@ msgstr ""
 "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
 "settings-payment/\">Подробнее...</a>"
 
-#: lib/class_ui.php:397 lib/ui/wp-invoice_page_wpi_page_settings.php:21
+#: lib/class_ui.php:593 lib/ui/wp-invoice_page_wpi_page_settings.php:21
 msgid "E-Mail Templates"
 msgstr "Шаблоны писем"
 
-#: lib/class_ui.php:398
+#: lib/class_ui.php:594
 msgid ""
 "You can create as many e-mailed templates as needed, they can later be used "
 "to quickly create invoice notifications and reminders, and being sent "
@@ -2215,66 +2257,66 @@ msgstr ""
 "будут отправляться со страницы счетов. В качестве темы или содержания "
 "шаблонов писем можно использовать следующие элементы:"
 
-#: lib/class_ui.php:400 lib/class_ui.php:602
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:89
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:194
+#: lib/class_ui.php:596
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:104
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:209
 #: static/views/invoice_lookup.php:8
 msgid "Invoice ID"
 msgstr "Номер счета"
 
-#: lib/class_ui.php:401
+#: lib/class_ui.php:597
 msgid "URL of invoice"
 msgstr "URL-адрес счета"
 
-#: lib/class_ui.php:402
+#: lib/class_ui.php:598
 msgid "Name or business name of receipient"
 msgstr "Имя или название компании получателя"
 
-#: lib/class_ui.php:403
+#: lib/class_ui.php:599
 msgid "Due BalanceID"
 msgstr "Номер текущего баланса"
 
-#: lib/class_ui.php:404
+#: lib/class_ui.php:600
 msgid "Invoice title"
 msgstr "Название счета"
 
-#: lib/class_ui.php:405
+#: lib/class_ui.php:601
 msgid "Description of Invoice"
 msgstr "Описание счета"
 
-#: lib/class_ui.php:406 lib/ui/wp-invoice_page_wpi_page_settings.php:133
+#: lib/class_ui.php:602 lib/ui/wp-invoice_page_wpi_page_settings.php:133
 msgid "Business Name"
 msgstr "Названии компании"
 
-#: lib/class_ui.php:407
+#: lib/class_ui.php:603
 msgid "Business Email Address"
 msgstr "Рабочий адрес"
 
-#: lib/class_ui.php:408
+#: lib/class_ui.php:604
 msgid "Name of user who has created invoice"
 msgstr "Счет создан (имя)"
 
-#: lib/class_ui.php:409
+#: lib/class_ui.php:605
 msgid "Email of user who has created invoice"
 msgstr "Счет отправлен (адрес отправителя)"
 
-#: lib/class_ui.php:410
+#: lib/class_ui.php:606
 msgid "Invoice due date (if presented)"
 msgstr "Дата оплаты счета (если указана)"
 
-#: lib/class_ui.php:411
+#: lib/class_ui.php:607
 msgid "Replaced by Invoice Type. (invoice, recurring invoice, quote)"
 msgstr "Замененен типом счета. (счет, счет-фактура, назначенная цена)"
 
-#: lib/class_ui.php:423
+#: lib/class_ui.php:619
 msgid "More..."
 msgstr "Еще..."
 
-#: lib/class_ui.php:425 lib/ui/wp-invoice_page_wpi_page_settings.php:26
+#: lib/class_ui.php:621 lib/ui/wp-invoice_page_wpi_page_settings.php:26
 msgid "Line Items"
 msgstr "Элементы"
 
-#: lib/class_ui.php:426
+#: lib/class_ui.php:622
 msgid ""
 "Predefined Line Items are common services and/or products that you can "
 "create once and use in your invoices. For example, if you are a Web "
@@ -2297,30 +2339,30 @@ msgstr ""
 "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
 "invoice-settings-predefined-line-items/\">More...</a>"
 
-#: lib/class_ui.php:428 lib/ui/wp-invoice_page_wpi_page_settings.php:31
+#: lib/class_ui.php:624 lib/ui/wp-invoice_page_wpi_page_settings.php:31
 msgid "Help"
 msgstr "Помощь"
 
-#: lib/class_ui.php:429
+#: lib/class_ui.php:625
 #, fuzzy
 msgid "This tab will help you troubleshoot your plugin."
 msgstr ""
 "Эта вкладка поможет Вам устранить проблемы и проверить наличие обновлений "
 "для премиальных дополнений"
 
-#: lib/class_ui.php:431
+#: lib/class_ui.php:627
 msgid "Shortcodes"
 msgstr "Шорткоды"
 
-#: lib/class_ui.php:432 lib/class_widgets.php:75
+#: lib/class_ui.php:628 lib/class_widgets.php:75
 msgid "Invoice History"
 msgstr "История счетов"
 
-#: lib/class_ui.php:433 lib/class_ui.php:437
+#: lib/class_ui.php:629 lib/class_ui.php:633
 msgid "Shortcode:"
 msgstr "Шорткод:"
 
-#: lib/class_ui.php:434
+#: lib/class_ui.php:630
 msgid ""
 "Works the same way as 'Invoice History' widget. Shows invoice list for "
 "currently logged in users."
@@ -2328,184 +2370,145 @@ msgstr ""
 "Работает так же, как виджет истории счетов. Показывает список счетов, "
 "залогиненым пользователям."
 
-#: lib/class_ui.php:436
+#: lib/class_ui.php:632
 msgid "Invoice Lookup"
 msgstr "Поиск Счета"
 
-#: lib/class_ui.php:438
+#: lib/class_ui.php:634
 msgid ""
 "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
 "invoices by invoice numbers."
 msgstr ""
 "Работает так же, как виджет поиск счета. Позволяет искать счет по номеру."
 
-#: lib/class_ui.php:596
-msgid "Title"
-msgstr "Название"
-
-#: lib/class_ui.php:597
-msgid "Total Collected"
-msgstr "Всего выбрано"
-
-#: lib/class_ui.php:598 lib/ui/class_metaboxes.php:71
-msgid "Recipient"
-msgstr "Получатель"
-
-#: lib/class_ui.php:599 lib/gateways/class_wpi_authorize.php:262
-#: lib/ui/class_metaboxes.php:121
-msgid "Date"
-msgstr "Дата"
-
-#: lib/class_ui.php:600 lib/ui/class_metaboxes.php:56
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:383
-msgid "Status"
-msgstr "Статус"
-
-#: lib/class_ui.php:601
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2040
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:382
-msgid "Type"
-msgstr "Тип"
-
-#: lib/class_ui.php:705
+#: lib/class_ui.php:876
 msgid "Payment Settings"
 msgstr "Детали платежа"
 
-#: lib/class_ui.php:708 lib/ui/toplevel_page_wpi_main.php:15
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:10
-msgid "Overview"
-msgstr "Посмотреть"
-
-#: lib/class_ui.php:710
+#: lib/class_ui.php:881
 msgid "Publish"
 msgstr "Опубликовать"
 
-#: lib/class_ui.php:712
+#: lib/class_ui.php:883
 msgid "User Information"
 msgstr "Информация о пользователе"
 
-#: lib/class_ui.php:792
+#: lib/class_ui.php:963
 msgid "For more information:"
 msgstr "Больше информации:"
 
-#: lib/class_ui.php:793
+#: lib/class_ui.php:964
 msgid ""
-"<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+"<a href=\"https://www.usabilitydynamics.com/product/wp-invoice\" target="
 "\"_blank\">WP-Invoice Product Page</a>"
 msgstr ""
-"<a href=\"http://usabilitydynamics.com/products/wp-invoice/\" target=\"_blank"
-"\">Страница продукта WP-Invoice</a>"
 
-#: lib/class_ui.php:794
+#: lib/class_ui.php:965
 msgid ""
-"<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" target="
-"\"_blank\">WP-Invoice Forums</a>"
+"<a href=\"http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-"
+"wp-invoice\" target=\"_blank\">WP-Invoice FAQ</a>"
 msgstr ""
-"<a href=\"http://usabilitydynamics.com/products/wp-invoice/forum/\" target="
-"\"_blank\">WP-Invoice Форум</a>"
 
-#: lib/class_ui.php:800
+#: lib/class_ui.php:971
 msgid "Please upgrade Wordpress to the latest version for detailed help."
 msgstr ""
 "Обновите Wordpress до последней версии, для получения подробной справки."
 
-#: lib/class_ui.php:800
+#: lib/class_ui.php:971
 msgid ""
-"Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+"Or visit <a href=\"https://www.usabilitydynamics.com/product/wp-invoice\" "
 "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
 msgstr ""
-"Посетите <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
-"target=\"_blank\">Страницу помощи WP-Invoice</a> на UsabilityDynamics.com"
 
-#: lib/class_ui.php:1152 lib/gateways/class_wpi_authorize.php:80
+#: lib/class_ui.php:1323 lib/gateways/class_wpi_authorize.php:80
 #: lib/gateways/class_wpi_authorize.php:102
 #: lib/gateways/class_wpi_paypal.php:40 lib/gateways/class_wpi_paypal.php:54
-#: lib/gateways/class_wpi_twocheckout.php:42 lib/ui/first_time_setup.php:85
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:276
+#: lib/gateways/class_wpi_twocheckout.php:42 lib/ui/first_time_setup.php:87
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:291
 #: lib/ui/payment_processing.php:60
 msgid "Yes"
 msgstr "Да"
 
-#: lib/class_ui.php:1152 lib/gateways/class_wpi_authorize.php:81
+#: lib/class_ui.php:1323 lib/gateways/class_wpi_authorize.php:81
 #: lib/gateways/class_wpi_authorize.php:103
 #: lib/gateways/class_wpi_paypal.php:39 lib/gateways/class_wpi_paypal.php:55
 #: lib/gateways/class_wpi_twocheckout.php:41 lib/ui/payment_processing.php:60
 msgid "No"
 msgstr "Нет"
 
-#: lib/class_ui.php:1155
+#: lib/class_ui.php:1326
 msgid "Select"
 msgstr "Выбрать"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Jan"
 msgstr "Январь"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Feb"
 msgstr "Февраль"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Mar"
 msgstr "Март"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Apr"
 msgstr "Апрель"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "May"
 msgstr "Май"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Jun"
 msgstr "Июнь"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Jul"
 msgstr "Июль"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Aug"
 msgstr "Август"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Sep"
 msgstr "Сентябрь"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Oct"
 msgstr "Октябрь"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Nov"
 msgstr "Ноябрь"
 
-#: lib/class_ui.php:1173
+#: lib/class_ui.php:1344
 msgid "Dec"
 msgstr "Декабрь"
 
-#: lib/class_ui.php:1185
+#: lib/class_ui.php:1356
 msgid "Values are empty"
 msgstr "Значение не присвоено"
 
-#: lib/class_ui.php:1207
+#: lib/class_ui.php:1378
 msgid "View Profile"
 msgstr "Просмотреть счет"
 
-#: lib/class_ui.php:1210
+#: lib/class_ui.php:1381
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "Получить модуль WP-CRM для улучшения управления пользователями."
 
-#: lib/class_ui.php:1241
+#: lib/class_ui.php:1412
 msgid "WP-Invoice custom field"
 msgstr "Настраиваемое поле WP-Invoice"
 
-#: lib/class_ui.php:1257
+#: lib/class_ui.php:1428
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
-#: lib/class_ui.php:1258
+#: lib/class_ui.php:1429
 msgid ""
 "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
 "custom user data fields for payments forms.</p>"
@@ -2514,16 +2517,16 @@ msgstr ""
 "использоваться для добавления пользователем настраиваемых полей со своими "
 "данными в платежные поручения.</p>"
 
-#: lib/class_ui.php:1259
+#: lib/class_ui.php:1430
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr ""
 "<p>Действительно для авторизованного сетевого платежа в настоящий момент.</p>"
 
-#: lib/class_ui.php:1260
+#: lib/class_ui.php:1431
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "Уведомление о счете"
 
-#: lib/class_ui.php:1261
+#: lib/class_ui.php:1432
 msgid ""
 "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
 "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
@@ -2544,7 +2547,7 @@ msgid "Title:"
 msgstr "Заголовок"
 
 #: lib/class_widgets.php:56
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:54
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:69
 msgid "Message:"
 msgstr "Сообщение"
 
@@ -2748,6 +2751,14 @@ msgstr ""
 msgid "Arguments:"
 msgstr "Аргументы:"
 
+#: lib/classes/class-WPI_Bootstrap.php:176
+msgid "Add-ons"
+msgstr ""
+
+#: lib/classes/class-WPI_Bootstrap.php:177
+msgid "WP-Invoice Add-ons Manager"
+msgstr ""
+
 #: lib/gateways/class_wpi_authorize.php:29 lib/ui/payment_accordion.php:29
 #: lib/ui/payment_processing.php:19
 msgid "Gateway Username"
@@ -2899,7 +2910,6 @@ msgstr "E-mail пользователя"
 
 #: lib/gateways/class_wpi_authorize.php:154
 #: lib/gateways/class_wpi_interkassa.php:75
-#: lib/gateways/class_wpi_payoneer.php:100
 #: lib/gateways/class_wpi_paypal.php:105 lib/gateways/class_wpi_stripe.php:50
 #: lib/gateways/class_wpi_twocheckout.php:84
 msgid "Address"
@@ -2924,68 +2934,72 @@ msgstr "Номер карты"
 msgid "Expiration Month"
 msgstr "Месяц истечения"
 
-#: lib/gateways/class_wpi_authorize.php:207
+#: lib/gateways/class_wpi_authorize.php:208
 msgid "Expiration Year"
 msgstr "Год истечения"
 
-#: lib/gateways/class_wpi_authorize.php:214
+#: lib/gateways/class_wpi_authorize.php:216
 msgid "Card Code"
 msgstr "Код карты"
 
-#: lib/gateways/class_wpi_authorize.php:232
+#: lib/gateways/class_wpi_authorize.php:234
 msgid "Authorize.net ARB"
 msgstr "Authorize.net ARB"
 
-#: lib/gateways/class_wpi_authorize.php:235
+#: lib/gateways/class_wpi_authorize.php:237
 #: lib/gateways/class_wpi_paypal.php:146
 msgid "Bill Every"
 msgstr "Выставлять каждые"
 
-#: lib/gateways/class_wpi_authorize.php:238
+#: lib/gateways/class_wpi_authorize.php:240
 #: lib/gateways/class_wpi_paypal.php:149
 msgid "Day(s)"
 msgstr "Дней"
 
-#: lib/gateways/class_wpi_authorize.php:238
+#: lib/gateways/class_wpi_authorize.php:240
 #: lib/gateways/class_wpi_paypal.php:149
 #, fuzzy
 msgid "Month(s)"
 msgstr "месяц(ы)"
 
-#: lib/gateways/class_wpi_authorize.php:242
+#: lib/gateways/class_wpi_authorize.php:244
 #: lib/gateways/class_wpi_paypal.php:153
 #, fuzzy
 msgid "Billing Cycles"
 msgstr "Общее количество циклов выставления счетов"
 
-#: lib/gateways/class_wpi_authorize.php:246
+#: lib/gateways/class_wpi_authorize.php:248
 msgid "Payment Date"
 msgstr "Дата платежа"
 
-#: lib/gateways/class_wpi_authorize.php:258
+#: lib/gateways/class_wpi_authorize.php:260
 msgid "Automatically."
 msgstr "Автоматически"
 
-#: lib/gateways/class_wpi_authorize.php:268
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#: lib/gateways/class_wpi_authorize.php:264
+msgid "Date"
+msgstr "Дата"
+
+#: lib/gateways/class_wpi_authorize.php:270
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:204
 msgid "In One Week"
 msgstr "Через неделю"
 
-#: lib/gateways/class_wpi_authorize.php:268
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#: lib/gateways/class_wpi_authorize.php:270
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:204
 msgid "In 30 Days"
 msgstr "Через 30 дней"
 
-#: lib/gateways/class_wpi_authorize.php:268
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:189
+#: lib/gateways/class_wpi_authorize.php:270
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:204
 msgid "Clear"
 msgstr "Нулевой"
 
-#: lib/gateways/class_wpi_authorize.php:526
+#: lib/gateways/class_wpi_authorize.php:530
 msgid "Subscription initiated, Subcription ID"
 msgstr "Подписка инициирована, ID подписки"
 
-#: lib/gateways/class_wpi_authorize.php:533
+#: lib/gateways/class_wpi_authorize.php:537
 msgid ""
 "One-time credit card payment is processed successfully. However, recurring "
 "billing setup failed. "
@@ -2993,16 +3007,16 @@ msgstr ""
 "Разовый платеж с помощью кредитной карты осуществлен успешно, однако "
 "установить систему многократных платежей не удалось."
 
-#: lib/gateways/class_wpi_authorize.php:536
+#: lib/gateways/class_wpi_authorize.php:540
 msgid "Response Code: "
 msgstr "Код ответа:"
 
-#: lib/gateways/class_wpi_authorize.php:536
+#: lib/gateways/class_wpi_authorize.php:540
 #, fuzzy
 msgid "Subscription error"
 msgstr "Название подписки"
 
-#: lib/gateways/class_wpi_authorize.php:584
+#: lib/gateways/class_wpi_authorize.php:588
 #, fuzzy
 msgid "Subscription completely paid"
 msgstr "Название подписки"
@@ -3032,28 +3046,25 @@ msgstr ""
 "уведомленным когда счет будет оплачен."
 
 #: lib/gateways/class_wpi_interkassa.php:63
-#: lib/gateways/class_wpi_payoneer.php:88 lib/gateways/class_wpi_paypal.php:82
-#: lib/gateways/class_wpi_stripe.php:38
+#: lib/gateways/class_wpi_paypal.php:82 lib/gateways/class_wpi_stripe.php:38
 #: lib/gateways/class_wpi_twocheckout.php:72
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:145
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:154
 msgid "Email Address"
 msgstr "Email адрес"
 
 #: lib/gateways/class_wpi_interkassa.php:69
-#: lib/gateways/class_wpi_payoneer.php:94 lib/gateways/class_wpi_stripe.php:44
+#: lib/gateways/class_wpi_stripe.php:44
 #: lib/gateways/class_wpi_twocheckout.php:78
 msgid "Phone"
 msgstr "Телефон"
 
 #: lib/gateways/class_wpi_interkassa.php:87
-#: lib/gateways/class_wpi_payoneer.php:112
 #: lib/gateways/class_wpi_paypal.php:117 lib/gateways/class_wpi_stripe.php:62
 #: lib/gateways/class_wpi_twocheckout.php:102
 msgid "State/Province"
 msgstr "Штат/Провинция"
 
 #: lib/gateways/class_wpi_interkassa.php:93
-#: lib/gateways/class_wpi_payoneer.php:118
 #: lib/gateways/class_wpi_paypal.php:123 lib/gateways/class_wpi_stripe.php:68
 #: lib/gateways/class_wpi_twocheckout.php:108
 msgid "Zip/Postal Code"
@@ -3069,8 +3080,8 @@ msgid "Currently InterKassa gateway does not support Recurring Billing"
 msgstr "InterKassa Регулярные Платежи"
 
 #: lib/gateways/class_wpi_interkassa.php:190
-#: lib/gateways/class_wpi_paypal.php:333
-#: lib/gateways/class_wpi_twocheckout.php:271
+#: lib/gateways/class_wpi_paypal.php:338
+#: lib/gateways/class_wpi_twocheckout.php:275
 msgid "Direct access not allowed"
 msgstr "В прямом доступе отказано"
 
@@ -3083,84 +3094,6 @@ msgstr "%s оплачено через InterKassa [%s]"
 #, fuzzy, php-format
 msgid "Transaction ID: %s"
 msgstr "Транзакция №"
-
-#: lib/gateways/class_wpi_payoneer.php:26
-msgid ""
-"Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-"
-"invoice/' target='_blank'>Sign up now</a>"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:30
-msgid "USD Payment service details"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:33
-#: lib/gateways/class_wpi_payoneer.php:52
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:24
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:55
-#, fuzzy
-msgid "Bank Name"
-msgstr "Название компании"
-
-#: lib/gateways/class_wpi_payoneer.php:35
-msgid ""
-"The name of the bank of your US collection account (i.e.: Bank of America)"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:38
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:32
-msgid "Account Number"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:40
-msgid "The 13 digit number of your US collection account"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:43
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:40
-msgid "ABA (Bank Routing Number)"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:45
-msgid "The 9 digit bank routing number"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:49
-msgid "EURO Payment service details"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:54
-msgid "The name of the bank of your EUR collection account (i.e.: WireCard)"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:57
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:63
-msgid "BIC"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:59
-msgid "Business Identifier Code (I.E WIREDEMM)"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:62
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:71
-msgid "IBAN"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:64
-msgid "The 22 digit International Bank Account Number (I.E DExxxxxxxxxxxxx)"
-msgstr ""
-
-#: lib/gateways/class_wpi_payoneer.php:130
-#, fuzzy
-msgid "Payoneer Recurring Billing"
-msgstr "Регулярное выставление счетов"
-
-#: lib/gateways/class_wpi_payoneer.php:131
-msgid ""
-"Currently Payoneer integration is limited and does not support recurring "
-"billing"
-msgstr ""
 
 #: lib/gateways/class_wpi_paypal.php:30 lib/ui/payment_accordion.php:8
 #: lib/ui/payment_processing.php:6
@@ -3214,42 +3147,42 @@ msgstr "Еженедельно"
 msgid "Year(s)"
 msgstr "Каждый год"
 
-#: lib/gateways/class_wpi_paypal.php:345
+#: lib/gateways/class_wpi_paypal.php:350
 #, fuzzy
 msgid "PayPal Subscription created"
 msgstr "Название подписки"
 
-#: lib/gateways/class_wpi_paypal.php:352
+#: lib/gateways/class_wpi_paypal.php:357
 #, fuzzy
 msgid "PayPal Subscription cancelled"
 msgstr "Название подписки"
 
-#: lib/gateways/class_wpi_paypal.php:358
+#: lib/gateways/class_wpi_paypal.php:363
 #, fuzzy
 msgid "PayPal Subscription payment failed"
 msgstr "Платежи подписки"
 
-#: lib/gateways/class_wpi_paypal.php:367
-#: lib/gateways/class_wpi_twocheckout.php:317
+#: lib/gateways/class_wpi_paypal.php:372
+#: lib/gateways/class_wpi_twocheckout.php:322
 #, php-format
 msgid "%1s paid for subscription %2s"
 msgstr ""
 
-#: lib/gateways/class_wpi_paypal.php:384
+#: lib/gateways/class_wpi_paypal.php:389
 msgid "PayPal Subscription term is finished"
 msgstr ""
 
-#: lib/gateways/class_wpi_paypal.php:391
+#: lib/gateways/class_wpi_paypal.php:396
 #, fuzzy
 msgid "PayPal Subscription modified"
 msgstr "Название подписки"
 
-#: lib/gateways/class_wpi_paypal.php:407 lib/gateways/class_wpi_paypal.php:436
+#: lib/gateways/class_wpi_paypal.php:412 lib/gateways/class_wpi_paypal.php:441
 #, fuzzy, php-format
 msgid "%s paid via PayPal"
 msgstr "%s оплачено через Google Wallet "
 
-#: lib/gateways/class_wpi_paypal.php:413 lib/gateways/class_wpi_paypal.php:442
+#: lib/gateways/class_wpi_paypal.php:418 lib/gateways/class_wpi_paypal.php:447
 #, php-format
 msgid "PayPal Payer email: %s"
 msgstr ""
@@ -3449,69 +3382,68 @@ msgstr "Показать возможность регулярного выст�
 msgid "Duration"
 msgstr "Описание"
 
-#: lib/gateways/class_wpi_twocheckout.php:280
+#: lib/gateways/class_wpi_twocheckout.php:284
 #, fuzzy, php-format
 msgid "%s paid via 2Checkout"
 msgstr "%s оплачено через Google Wallet "
 
-#: lib/gateways/class_wpi_twocheckout.php:286
+#: lib/gateways/class_wpi_twocheckout.php:290
 #, php-format
 msgid "2Checkout buyer email: %s"
 msgstr ""
 
-#: lib/gateways/class_wpi_twocheckout.php:301
+#: lib/gateways/class_wpi_twocheckout.php:306
 msgid "Passed 2Checkout fraud review."
 msgstr ""
 
-#: lib/gateways/class_wpi_twocheckout.php:303
+#: lib/gateways/class_wpi_twocheckout.php:308
 msgid "Failed 2Checkout fraud review."
 msgstr ""
 
-#: lib/gateways/class_wpi_twocheckout.php:309
+#: lib/gateways/class_wpi_twocheckout.php:314
 #, fuzzy
 msgid "Recurring billing stopped."
 msgstr "Регулярное выставление счетов"
 
-#: lib/gateways/class_wpi_twocheckout.php:313
+#: lib/gateways/class_wpi_twocheckout.php:318
 #, fuzzy
 msgid "Recurring installment failed."
 msgstr "Обновлен повторяющийся счет."
 
-#: lib/gateways/class_wpi_twocheckout.php:326
+#: lib/gateways/class_wpi_twocheckout.php:331
 #, fuzzy
 msgid "Recurring installments completed."
 msgstr "Обновлен повторяющийся счет."
 
-#: lib/gateways/class_wpi_twocheckout.php:331
+#: lib/gateways/class_wpi_twocheckout.php:336
 #, fuzzy
 msgid "Recurring sale restarted."
 msgstr "Обновлен повторяющийся счет."
 
 #: lib/gateways/templates/wpi_authorize-checkout.tpl.php:49
-#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:109
+#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:110
 #, fuzzy
 msgid "Agreement"
 msgstr "Аргументы:"
 
 #: lib/gateways/templates/wpi_authorize-checkout.tpl.php:65
-#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:125
+#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:126
 msgid "Process Payment"
 msgstr "Обработать платеж"
 
-#: lib/gateways/templates/wpi_authorize-frontend.tpl.php:18
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:60
+#: lib/gateways/templates/wpi_authorize-frontend.tpl.php:21
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:62
 #, php-format
 msgid "Process Payment of %s"
 msgstr "Обработать платеж %s"
 
-#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:22
-#: lib/gateways/templates/wpi_paypal-frontend.tpl.php:58
-#: lib/gateways/templates/wpi_twocheckout-frontend.tpl.php:34
+#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:24
+#: lib/gateways/templates/wpi_paypal-frontend.tpl.php:61
+#: lib/gateways/templates/wpi_twocheckout-frontend.tpl.php:36
 msgid "Process Payment of "
 msgstr "Обработать платеж "
 
-#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:31
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:109
+#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:33
 msgid ""
 "This payment gateway does not support Recurring Billing. Try another one or "
 "contact site Administrator."
@@ -3519,43 +3451,17 @@ msgstr ""
 "Этот тит оплаты не поддерживает регулярный платежи. Попробуйте другой или "
 "обратитесь к администратору сайта."
 
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:13
-#, fuzzy
-msgid "Payment Details"
-msgstr "Детали платежа"
-
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:26
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:34
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:42
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:57
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:65
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:73
-msgid "Not set"
-msgstr "Не установлен"
-
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:85
-#, php-format
-msgid ""
-"Sorry, no Payment Details for currency of %s. Please contact seller for the "
-"information."
-msgstr ""
-
-#: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:100
-#, fuzzy
-msgid "Process Payer Information"
-msgstr "Информация о пользователе"
-
-#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:83
+#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:84
 #, fuzzy
 msgid "Custom Amount"
 msgstr "Количество действий"
 
-#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:87
+#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:88
 #, fuzzy
 msgid "Your Amount"
 msgstr "Количество"
 
-#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:99
+#: lib/gateways/templates/wpi_paypal-checkout.tpl.php:100
 #, fuzzy
 msgid "Enter Amount"
 msgstr "Количество действий"
@@ -3588,112 +3494,6 @@ msgstr "Счет не найден"
 #, fuzzy
 msgid "Enter Invoice ID"
 msgstr "Номер счета"
-
-#: lib/ui/class_metaboxes.php:56
-msgid "Hide"
-msgstr "Скрыть"
-
-#: lib/ui/class_metaboxes.php:71 lib/ui/class_metaboxes.php:121
-msgid "Show"
-msgstr "Показать"
-
-#: lib/ui/class_metaboxes.php:81
-msgid "Select User"
-msgstr "Выберите пользователя"
-
-#: lib/ui/class_metaboxes.php:135
-msgid "Filter Results"
-msgstr "Отфильтровать результаты"
-
-#: lib/ui/class_wpi_object_list_table.php:64
-#: lib/ui/class_wpi_object_list_table.php:141
-msgid "Restore"
-msgstr "Восстановить"
-
-#: lib/ui/class_wpi_object_list_table.php:65
-#: lib/ui/class_wpi_object_list_table.php:136
-#, fuzzy
-msgid "Archive"
-msgstr "Заархивирован"
-
-#: lib/ui/class_wpi_object_list_table.php:66
-#: lib/ui/class_wpi_object_list_table.php:147
-msgid "Delete Permanently"
-msgstr "Удалить навсегда"
-
-#: lib/ui/class_wpi_object_list_table.php:67
-msgid "Move to Trash"
-msgstr "В корзину"
-
-#: lib/ui/class_wpi_object_list_table.php:68
-#: lib/ui/class_wpi_object_list_table.php:134
-#, fuzzy
-msgid "Un-Archive"
-msgstr "Заархивирован"
-
-#: lib/ui/class_wpi_object_list_table.php:122
-#, php-format
-msgid "Edit &#8220;%s&#8221;"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:130
-msgid "Edit this item"
-msgstr "Редактировать"
-
-#: lib/ui/class_wpi_object_list_table.php:130
-#, fuzzy
-msgid "Edit"
-msgstr "Редактор"
-
-#: lib/ui/class_wpi_object_list_table.php:134
-msgid "Un-Archive this item"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:136
-msgid "Archive this item"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:141
-msgid "Restore this item from the Trash"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:143
-msgid "Move this item to the Trash"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:143
-#, fuzzy
-msgid "Trash"
-msgstr "Помещен в корзину"
-
-#: lib/ui/class_wpi_object_list_table.php:147
-msgid "Delete this item permanently"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:152
-#, php-format
-msgid "View &#8220;%s&#8221;"
-msgstr ""
-
-#: lib/ui/class_wpi_object_list_table.php:152
-#, fuzzy
-msgid "View"
-msgstr "Просмотреть файл PDF"
-
-#: lib/ui/class_wpi_object_list_table.php:162
-#: lib/ui/class_wpi_object_list_table.php:164
-#, fuzzy
-msgid " ago"
-msgstr "дней назад"
-
-#: lib/ui/class_wpi_object_list_table.php:211
-msgid "of"
-msgstr "из"
-
-#: lib/ui/first_time_setup.php:10
-#, fuzzy
-msgid "WP-Invoice First-Use Setup"
-msgstr "Настраиваемое поле WP-Invoice"
 
 #: lib/ui/first_time_setup.php:12
 msgid ""
@@ -3729,7 +3529,7 @@ msgid "Select a page to display invoices:"
 msgstr "Попытка оплаты счета"
 
 #: lib/ui/first_time_setup.php:42
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:303
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:312
 msgid ""
 "Select whether to overwrite all page content, insert at the bottom of the "
 "content, or to look for the [wp-invoice] tag."
@@ -3742,27 +3542,27 @@ msgid "How to Insert Invoice:"
 msgstr "Как вставить счет"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:306
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid "Overwrite All Page Content"
 msgstr "Переписать все содержание страницы"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:306
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid "Place Below Content"
 msgstr "Вставить после основного текста"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:306
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid "Above Content"
 msgstr "Поверх текста"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:306
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid "Replace [wp-invoice] Tag"
 msgstr "Заменить ярлык [wp-invoice]"
 
-#: lib/ui/first_time_setup.php:52
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:306
+#: lib/ui/first_time_setup.php:53
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
 msgid ""
 "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</"
 "span> somewhere within your page content."
@@ -3770,38 +3570,38 @@ msgstr ""
 "Если вы используете ярлык, разместите в любом месте на странице <span class="
 "\"wp_invoice_explanation\">[wp-invoice]</span>"
 
-#: lib/ui/first_time_setup.php:56
+#: lib/ui/first_time_setup.php:58
 msgid "Default Payment Method:"
 msgstr "Способ платежа по умолчанию:"
 
-#: lib/ui/first_time_setup.php:66
+#: lib/ui/first_time_setup.php:68
 msgid "Client can change payment method:"
 msgstr "Клиент может изменить способ платежа:"
 
-#: lib/ui/first_time_setup.php:78
+#: lib/ui/first_time_setup.php:80
 msgid "Accept "
 msgstr "Принять"
 
-#: lib/ui/first_time_setup.php:89
+#: lib/ui/first_time_setup.php:91
 msgid "Notice the "
 msgstr "Обратите внимание!"
 
-#: lib/ui/first_time_setup.php:89
+#: lib/ui/first_time_setup.php:91
 msgid " Tab "
 msgstr " Закладка "
 
-#: lib/ui/first_time_setup.php:89
+#: lib/ui/first_time_setup.php:91
 msgid " below. "
 msgstr " ниже."
 
-#: lib/ui/first_time_setup.php:165
+#: lib/ui/first_time_setup.php:167
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:105
 msgid "Save All Settings"
 msgstr "Сохранить все настройки"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:21
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:68
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:142
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:83
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:157
 #, fuzzy
 msgid "Send Notification"
 msgstr "Уведомление о счете"
@@ -3810,100 +3610,104 @@ msgstr "Уведомление о счете"
 msgid "To:"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:33
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:43
+msgid "No email addresses presented"
+msgstr ""
+
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:48
 #, fuzzy
 msgid "Template:"
 msgstr "Добавить Шаблон"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:49
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:64
 #, fuzzy
 msgid "Subject:"
 msgstr "Тема"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:65
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:577
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:80
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:594
 #, fuzzy
 msgid "Cancel"
 msgstr "Франция"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:137
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:152
 #, fuzzy
 msgid "View Online"
 msgstr "Просмотреть счет"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:141
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:156
 #, fuzzy
 msgid "Enter Payment"
 msgstr "Платеж"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:146
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:161
 msgid "Allow Partial Payment"
 msgstr "Разрешить частичный платеж"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:151
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:166
 #, fuzzy
 msgid "Minimum Payment"
 msgstr "Минимальный платеж:"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:160
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:175
 #, fuzzy
 msgid "Recurring Bill"
 msgstr "Регулярное выставление счетов"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:178
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:193
 #, fuzzy
 msgid "Toggle Advanced"
 msgstr "Переключиться в режим усовершенствованных вариантов"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:183
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:198
 #, fuzzy
 msgid "Due Date"
 msgstr "Дата окончания:"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:208
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:223
 #, fuzzy
 msgid "Custom Invoice ID"
 msgstr "Номер счета"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:213
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:228
 msgid "Global Tax"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:219
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:234
 msgid "Tax Method"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:222
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
 #, fuzzy
 msgid "Before Discount"
 msgstr "Сумма скидки"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:222
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
 #, fuzzy
 msgid "After Discount"
 msgstr "Сумма скидки"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:230
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:245
 #, fuzzy
 msgid "Trash Invoice"
 msgstr "Искать счет"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:233
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:248
 msgid "Save"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:249
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:264
 #, fuzzy
 msgid "New User Information"
 msgstr "Информация о пользователе"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:253
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:268
 msgid "Email"
 msgstr "Email"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:270
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:285
 msgid ""
 "If checked a WordPress user account will be created, otherwise the new user "
 "will only be visible within WP-Invoice."
@@ -3911,48 +3715,48 @@ msgstr ""
 "Если поставить отметку, будет создана запись в wordpress; в противном случае "
 "нового пользователя можно увидеть только в режиме WP-Invoice."
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:271
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:286
 msgid "Create WordPress User Account?"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:280
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:295
 #, fuzzy
 msgid "Username"
 msgstr "Имя пользователя в системе Paypal"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:387
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:402
 #, fuzzy
 msgid "Default Payment Option"
 msgstr "Способ платежа по умолчанию"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:398
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:471
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:413
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:480
 msgid "Client can change payment option."
 msgstr "Клиент может изменить способ платежа."
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:403
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:418
 #, fuzzy
 msgid "Manual Payment only"
 msgstr "Информация о проведении платежа"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:409
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:424
 #, fuzzy
 msgid "Accepted Payments"
 msgstr "Полученный платеж:"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:425
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:509
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:440
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:524
 #, fuzzy
 msgid "Currency"
 msgstr "Добавить валюту"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:494
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:520
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:509
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:535
 #, fuzzy
 msgid "Toggle Advanced Payment Options"
 msgstr "Переключиться в режим усовершенствованных вариантов"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:504
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:519
 #, php-format
 msgid ""
 "To manage payment settings you should accept at least one payment method. "
@@ -3962,7 +3766,7 @@ msgstr ""
 "способ платежа. Перейдите на страницу <a href=\"%s\">Система настроей "
 "пдатежей</a> для установки режима."
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:505
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:520
 #, php-format
 msgid ""
 "If you do not want to use any payment venue then <a href=\"%s\">setup Manual "
@@ -3971,36 +3775,36 @@ msgstr ""
 "Если вы не желаете использовать предложенные способы платежа, перейдите к "
 "странице <a href=\"%s\">Настройка информации о платеже вручную</a>."
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:540
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:557
 #, fuzzy
 msgid "Invoice Status and History"
 msgstr "История счетов"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:545
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:562
 #, fuzzy
 msgid "Event Type"
 msgstr "Дополнительная информация о действии"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
 #, fuzzy
 msgid "Receive Payment"
 msgstr "Полученный платеж:"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
 #, fuzzy
 msgid "Add Charge"
 msgstr "Начисления"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
 msgid "Administrative Adjustment"
 msgstr ""
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:547
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
 #, fuzzy
 msgid "Refund"
 msgstr "возмещено"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:548
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:565
 msgid ""
 "Note: Recurring bills cannot have administrative adjustments or additional "
 "charges, only received payments."
@@ -4009,27 +3813,27 @@ msgstr ""
 "изменениям или дополнительным начислениям; это относится только к полученным "
 "платежам."
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:552
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:569
 msgid "Event Amount"
 msgstr "Количество действий"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:556
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:573
 msgid "Charge Tax"
 msgstr "Применить налог"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:561
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:578
 msgid "Event Date & Time"
 msgstr "Дата и время действия"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:568
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:585
 msgid "Event Note"
 msgstr "Дополнительная информация о действии"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:576
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:593
 msgid "Process Charge / Payment"
 msgstr "Обработать Выставление суммы/Платеж"
 
-#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:595
+#: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:612
 msgid "Toggle History Detail"
 msgstr "Переключиться на страницу Подробная История"
 
@@ -4132,32 +3936,32 @@ msgstr "Количество"
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:672
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:681
 msgid "Total"
 msgstr "Итого"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:216
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:342
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:430
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:563
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:439
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:572
 msgid "Name"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:219
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:669
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:678
 msgid "Qty."
 msgstr "Количество"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:220
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:350
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:670
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:679
 msgid "Price"
 msgstr ""
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:243
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:682
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:691
 msgid "Toggle Description"
 msgstr "Переключиться на Описание продукта"
 
@@ -4253,46 +4057,46 @@ msgstr "на страницы установок"
 msgid "WP-Invoice Global Settings"
 msgstr "Уведомление о счете"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:137
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:142
 #, fuzzy
 msgid "Business Address"
 msgstr "Рабочий адрес"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:141
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:150
 #, fuzzy
 msgid "Business Phone"
 msgstr "Названии компании"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:150
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:159
 msgid "Display Styles"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:155
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:164
 msgid "Do <b>not</b> load theme specific styles."
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:156
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:165
 #, php-format
 msgid "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:159
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
 msgid "Load default CSS styles on the front-end"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:165
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:174
 msgid "Tax Handling"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
 msgid "Calculate Taxable Subtotal"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:169
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:178
 msgid "Use global tax."
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:172
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:181
 msgid ""
 "This will make all new invoices have default Tax value which can be changed "
 "for different invoice."
@@ -4300,56 +4104,56 @@ msgstr ""
 "Во всех новых счетах будет использоваться ставка налога по умолчанию; для "
 "разных счетов ее можно менять. "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:179
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:188
 #, fuzzy
 msgid "Advanced Settings"
 msgstr "Детали платежа"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:182
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:191
 msgid "Allow partial payments."
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:184
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:193
 msgid "Partial payments allowed by default."
 msgstr "Разрешить частичную оплату по умолчанию."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:186
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
 msgid "Show recurring billing options."
 msgstr "Показать возможность регулярного выставления счетов."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:187
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:196
 msgid "Enforce HTTPS on invoice pages, if available on this server."
 msgstr "Включить HTTPS на страницах счетов, если возможно на данном сервере."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Minimum user level to manage WP-Invoice"
 msgstr "Минимальный уровень пользователя для управления  WP-Invoice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Subscriber"
 msgstr "Подписчик"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Contributor"
 msgstr "Постоянный участник"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Author"
 msgstr "Автор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Editor"
 msgstr "Редактор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:190
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid "Administrator"
 msgstr "Администратор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:193
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:202
 msgid "Using Godaddy Hosting:"
 msgstr "При использовании хостинга Godaddy"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:194
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:203
 msgid ""
 "Special proxy must be used to process credit card transactions on GoDaddy "
 "servers."
@@ -4357,7 +4161,7 @@ msgstr ""
 "Для обработки транзакций по кредитным картам на серверах Godaddy необходимо "
 "использовать специальный proxy-сервер."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:202
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:211
 msgid ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
@@ -4365,7 +4169,7 @@ msgstr ""
 "Используйте редактируемые шаблоны. Если вы их отметите, WP-Invoice будет "
 "использовать шаблоны из папки wpi в папке вашей активной темы."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:207
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:216
 msgid ""
 "Note: Currently there is no \"wpi\" folder in your active template's folder, "
 "WP-Invoice will attempt to create it after saving."
@@ -4373,7 +4177,7 @@ msgstr ""
 "Обратите внимание: В настоящий момент в активной папке вашего шаблона нет "
 "папки \"wpi\". WP-Invoice постарается создать ее после сохранения."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:209
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:218
 msgid ""
 "A \"wpi\" folder has been found, any files with the proper file names will "
 "be used instead of the default template files."
@@ -4381,40 +4185,37 @@ msgstr ""
 "Папка\"wpi\" обнаружена, вместо шаблонов по умолчанию будут использоваться "
 "любые файлы с соответствющими названиями."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:212
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:284
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:401
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
 msgid "Install"
 msgstr "Установить"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:212
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
 msgid ""
 "the custom templates inside the <b>wpi</b> folder in your active theme's "
 "folder."
 msgstr "пользовательские шаблоны внутри папки <b>wpi</b> в папке активной темы"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:216
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:225
 msgid "Thousands Separator Symbol"
 msgstr "Символ разделения тысяч"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:222
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2053
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:231
 msgid "None"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:232
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:241
 msgid "Show invoices only for logged in recipients."
 msgstr "Показывать счета только для залогиненых пользователей."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:235
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:244
 msgid "Send passwords to newly created recipients."
 msgstr "Отсылать пароль только что зарегистрированным пользователям."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:238
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:247
 msgid "Turn off compatibility mode."
 msgstr "Выключить режим совместимости."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:239
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:248
 msgid ""
 "By default the Compatibility Mode is on. If you encounter problems "
 "displaying your invoices then turn it off."
@@ -4422,31 +4223,31 @@ msgstr ""
 "По умолчанию режим совместимости включен. Если у вас возникли проблемы при "
 "отображении счета-фактуры, то выключите его."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:266
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:275
 msgid "When creating an invoice"
 msgstr "При создании инвойса"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:269
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:278
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr "автоматически увеличивать номер инвойса на единицу."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:275
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:284
 msgid "When viewing an invoice"
 msgstr "При просмотре инвойса"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:278
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:287
 msgid "Display invoices on the"
 msgstr "размещайте инвойсы на"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:292
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:301
 msgid "page."
 msgstr "странице."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:294
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:303
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr "Заменить заголовок HTML названием инвойса при его просмотре."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:295
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:304
 msgid ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
@@ -4454,31 +4255,31 @@ msgstr ""
 "Заменить заголовок на странице и ссылку навигации на название инвойса при "
 "его просмотре."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:296
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:305
 msgid "Hide page heading and navigation link completely."
 msgstr "Скрыть заголовок страницы и ссылку навигации полностью."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:298
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:307
 msgid "Show my business name and address."
 msgstr "Показывать название и адрес моей компании."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:299
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:308
 msgid "Show quantity breakdowns in the itemized list."
 msgstr "Показывать нехватку количества товара всписке элементов заказа."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:304
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:313
 msgid "How to Insert Invoice"
 msgstr "Как вставить инвойс"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:309
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:318
 msgid "After a payment has been completed"
 msgstr "После получения платежа"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:312
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:321
 msgid "Send email confirmation to the client."
 msgstr "Отправить клиенту подтверждение."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:313
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:322
 #, php-format
 msgid ""
 "Send email notification to the address set for administrative purposes from "
@@ -4487,15 +4288,15 @@ msgstr ""
 "Отправить уведомление на адрес Администратора сайта указанный на странице <a "
 "href=\"%s\">Общие Настройки</a>"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:314
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:323
 msgid "Send email notification to invoice creator."
 msgstr "Отправить письмо создателю счета"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:324
 msgid "Use CRM to send notifications"
 msgstr "Отправить Уведомление о счете "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:324
 #, php-format
 msgid ""
 "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
@@ -4504,7 +4305,7 @@ msgstr ""
 "Установите <a class=\"small\" href=\"%s\">WP-CRM plugin</a> для более "
 "продвинутой настройки уведомлений."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:321
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:330
 msgid ""
 "This options allow you to change the default email address that WordPress "
 "sends it's mail from, and the name of the sender that the email is from."
@@ -4512,31 +4313,31 @@ msgstr ""
 "Эта опция позволяет изменить адрес электронной почты по умолчанию, с "
 "которого WordPress отправляет почту, и имя отправителя."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:322
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:331
 msgid "Mail From options"
 msgstr "Параметры почты отправителя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:330
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:339
 msgid "Sender Name"
 msgstr "Имя отправителя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:337
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:346
 msgid "The sender name that the email is from"
 msgstr "Имя отправителя письма в поле From"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:342
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:351
 msgid "User E-mail"
 msgstr "E-mail пользователя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:349
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:358
 msgid "Email address e.g. username@example.com"
 msgstr "Email адрес, например username@example.com"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:354
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:363
 msgid "Apply 'Mail From' settings."
 msgstr "Применить настройки отправителя почты."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:366
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:375
 msgid ""
 "If you are using <b>Google Analytics Site Tracking</b> code on your site "
 "then you can track WP-Invoice events."
@@ -4544,59 +4345,59 @@ msgstr ""
 "Если вы используете <b>код отслеживание Google Analytics</b> сайта "
 "отслеживания на вашем сайте, вы можете отслеживать события WP-Invoice."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:367
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:376
 msgid "Google Analytics Events Tracking"
 msgstr "Отслеживание событий Google Analytics"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:374
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:383
 msgid "I want to track events."
 msgstr "Я хочу отслеживать события."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:379
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:388
 msgid "Track Invoices events:"
 msgstr "Отслеживание событий счета:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:382
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:391
 msgid "Attempting to pay Invoices"
 msgstr "Попытка оплаты счета"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:385
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:394
 msgid "View Invoices"
 msgstr "Просмотреть счет"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:413
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:422
 msgid "Default Currency"
 msgstr "Валюта по умолчанию"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:423
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:432
 msgid "Currency list"
 msgstr "Список валют"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:428
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:437
 msgid "Code"
 msgstr "Код валюты"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:429
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:438
 msgid "Symbol"
 msgstr "Символ"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:453
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:462
 msgid "Add Currency"
 msgstr "Добавить валюту"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:464
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:473
 msgid "Default Payment Method"
 msgstr "Способ платежа по умолчанию"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:476
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:485
 msgid "Payment Gateways"
 msgstr "Переход к платежным системам"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:537
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:546
 msgid "Manual Payment information"
 msgstr "Информация о проведении платежа"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:542
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:551
 msgid ""
 "If an invoice has no payment gateways, this message will be displayed "
 "offering the customer guidance on their course of action."
@@ -4604,19 +4405,19 @@ msgstr ""
 "Если в инвойсе нет перехода к платежным системам, появится это сообщение, "
 "предлагающее клиенту возможные варианты действий."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:564
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:573
 msgid "Subject"
 msgstr "Тема"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:565
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:574
 msgid "Content"
 msgstr "Содержание"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:589
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:598
 msgid "Add Template"
 msgstr "Добавить Шаблон"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:640
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:649
 msgid ""
 "Setup your common services and products in here to streamline invoice "
 "creation."
@@ -4624,113 +4425,118 @@ msgstr ""
 "Перечислите ваши основные услуги и продукты здесь, чтобы облегчить создание "
 "инвойсов."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:668
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:677
 msgid "Name & Description"
 msgstr "Название и описание"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:671
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:680
 msgid "Tax %"
 msgstr "Налог %"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:708
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:717
 msgid "Add Line Item"
 msgstr "Добавьте линейку продуктов"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:739
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:748
 msgid "Look up the $wpi_settings global settings array:"
 msgstr "Просмотреть блок глобальных настроек $wpi_settings:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:739
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:748
 msgid "Toggle $wpi_settings"
 msgstr "Триггер $wpi_settings"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:746
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:755
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr "Восстановление резервной копии конфигурации WP-Invoice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:747
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:756
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr "Скачать резервную копию конфигурации WP-Invoice"
 
-#: static/splashes/install.php:5
-#, fuzzy
-msgid "WP-Invoice 4.0.0 has beed installed"
-msgstr "Счет #%s оплачен"
+#: static/splashes/install.php:12 static/splashes/upgrade.php:12
+#, php-format
+msgid "WP-Invoice %s has been installed"
+msgstr ""
 
-#: static/splashes/install.php:7
+#: static/splashes/install.php:14 static/splashes/upgrade.php:14
 msgid ""
 "Congratulations! You have just installed brand new version of WP-Invoice "
 "plugin. There are some important things that you need to be aware of in "
 "order to use our products successfully and with pleasure."
 msgstr ""
 
-#: static/splashes/install.php:9
+#: static/splashes/install.php:16 static/splashes/upgrade.php:16
 msgid ""
 "Please read the following instructions carefully. Explore links below to get "
 "more information on our site."
 msgstr ""
 
-#: static/splashes/install.php:13
+#: static/splashes/install.php:20 static/splashes/upgrade.php:20
 msgid ""
 "WP-Invoice lets WordPress blog owners send itemized invoices to their "
 "clients. Ideal for web developers, SEO consultants, general contractors, or "
 "anyone with a WordPress blog and clients to bill."
 msgstr ""
 
-#: static/splashes/install.php:15
+#: static/splashes/install.php:22 static/splashes/upgrade.php:22
+#, php-format
 msgid ""
 "In addition to the default invoicing function WP-Invoice can be extended "
-"with a <a href=\"\">set of add-ons</a>. They may help you manage your "
+"with a <a href=\"%s\">set of add-ons</a>. They may help you manage your "
 "business more effectively."
 msgstr ""
 
-#: static/splashes/install.php:24
+#: static/splashes/install.php:26 static/splashes/upgrade.php:26
+#, php-format
+msgid ""
+"Do you want to help us to improve %s? Or do you have any idea? We are "
+"waiting <a href=\"%s\" target=\"_blank\">feedback</a> from you!"
+msgstr ""
+
+#: static/splashes/install.php:37 static/splashes/upgrade.php:37
 msgid "User license management"
 msgstr ""
 
-#: static/splashes/install.php:26
+#: static/splashes/install.php:39 static/splashes/upgrade.php:39
 #, fuzzy
 msgid "Installation"
 msgstr "Установить"
 
-#: static/splashes/install.php:28
+#: static/splashes/install.php:41 static/splashes/upgrade.php:41
 msgid ""
 "In new version of WP-Invoice all your premium features will be as separate "
 "plugins. If you are upgrading you will need to activate them one more time."
 msgstr ""
 
-#: static/splashes/install.php:30
+#: static/splashes/install.php:43 static/splashes/upgrade.php:43
+#, php-format
 msgid ""
-"After you purchased the product, visit your UD Account. You will found "
-"license keys and download links for all your purchased add-ons. Download "
-"plugins to your computer and Upload as new plugin on your site."
+"After you purchased the product, visit your <a href=\"%s\">UD Account</a>. "
+"You will find license keys and download links for all your purchased add-"
+"ons. Download plugins to your computer and Upload as new plugin on your site."
 msgstr ""
 
-#: static/splashes/install.php:38
+#: static/splashes/install.php:51 static/splashes/upgrade.php:51
 msgid "Adding License Keys"
 msgstr ""
 
-#: static/splashes/install.php:40
+#: static/splashes/install.php:53 static/splashes/upgrade.php:53
 msgid ""
 "Click to activate plugin, you will see link to the Licenses admin screen. On "
 "the Licenses admin screen, you should see all your installed products, with "
 "an option to add your license key."
 msgstr ""
 
-#: static/splashes/install.php:42
+#: static/splashes/install.php:55 static/splashes/upgrade.php:55
 msgid "To add a license key:"
 msgstr ""
 
-#: static/splashes/install.php:45
+#: static/splashes/install.php:58 static/splashes/upgrade.php:58
 msgid "copy the license key from your UD Account page or receipt email;"
 msgstr ""
 
-#: static/splashes/install.php:46
+#: static/splashes/install.php:59 static/splashes/upgrade.php:59
 msgid "paste the license key into input field for your product;"
-msgstr ""
-
-#: static/splashes/install.php:65
-msgid "Some another feature"
 msgstr ""
 
 #: static/views/invoice_page.php:3
@@ -4768,6 +4574,11 @@ msgstr ""
 "Свяжитесь с Администратором сайта, чтобы узнать дополнительную информацию о "
 "совершении платежей"
 
+#: static/views/invoice_page.php:63
+msgid ""
+"Sorry, there is no payment method available. Please contact Administrator."
+msgstr ""
+
 #: static/views/receipt_page.php:3
 #, fuzzy
 msgid "Payment Receipt"
@@ -4783,683 +4594,248 @@ msgstr "Мы выслали вам хуй %1s с балансом %2s."
 msgid "was paid."
 msgstr "Итого"
 
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:83
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:120
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:121
-msgid "Licenses"
-msgstr "Лицензии"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:84
-#, fuzzy
-msgid "More Products"
-msgstr "Продукты"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:613
-#, php-format
-msgid ""
-"%s License is not active. To get started, activate it <a href=\"%s\">here</"
-"a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:615
-#, php-format
-msgid "%s License is not active."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:669
-msgid "No license keys were specified for activation."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:674
-#, fuzzy
-msgid "Product deactivated successfully."
-msgstr "Обновление установлено успешно"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:676
-msgid "There was an error while deactivating the product."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:682
-#, fuzzy
-msgid "Products activated successfully."
-msgstr "Обновление установлено успешно"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:684
-msgid "There was an error and not all products were activated."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:82
-msgid "UsabilityDynamics Product"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:98
-#, php-format
-msgid ""
-"There was an error making %s request for %s. Could not do request to "
-"UsabilityDynamics."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:104
-#, php-format
-msgid "There was an error making %s request for %s, please try again"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:106
-#, php-format
-msgid "There was an error making %s request for %s: %s."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:61
-#, php-format
-msgid "No active %s plugins found."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:99
-#, fuzzy
-msgid "Product"
-msgstr "Продукты"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:100
-msgid "Version"
-msgstr "Версия"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:101
-msgid "Activation Status"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:142
-#, fuzzy
-msgid "Deactivate"
-msgstr "Активный"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:145
-msgid "Place License Key here"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:146
-msgid "Place Activation Email here"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:68
-msgid "Try again"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:70
-#, php-format
-msgid "No More Available Products for %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:119
-msgid "More Details"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:149
-msgid "<strong>Untested</strong> with your version of WordPress"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:151
-msgid "<strong>Incompatible</strong> with your version of WordPress"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:153
-msgid "<strong>Compatible</strong> with your version of WordPress"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:297
-#, php-format
-msgid ""
-"A license key for %s could not be found. Maybe you forgot to enter a license "
-"key when setting up %s, or the key was deactivated in your account. You can "
-"reactivate or purchase a license key from your account <a href=\"%s\" target="
-"\"_blank\">Licences</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:298
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:330
-#, php-format
-msgid ""
-"A subscription for %s could not be found. You can purchase a subscription "
-"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:302
-#, php-format
-msgid ""
-"The license key for %s has expired. You can reactivate or purchase a license "
-"key from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:306
-#, php-format
-msgid ""
-"The subscription for %s is on-hold. You can reactivate the subscription from "
-"your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:310
-#, php-format
-msgid ""
-"The subscription for %s has been cancelled. You can renew the subscription "
-"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>. A new "
-"license key will be emailed to you after your order has been completed."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:314
-#, php-format
-msgid ""
-"The subscription for %s has expired. You can reactivate the subscription "
-"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:318
-#, php-format
-msgid ""
-"The subscription for %s has been suspended. You can reactivate the "
-"subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
-"a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:322
-#, php-format
-msgid ""
-"The subscription for %s is still pending. You can check on the status of the "
-"subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
-"a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:326
-#, php-format
-msgid ""
-"The subscription for %s has been placed in the trash and will be deleted "
-"soon. You can purchase a new subscription from your account <a href=\"%s\" "
-"target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:334
-#, php-format
-msgid ""
-"%s has not been activated. Go to the settings page and enter the license key "
-"and license email to activate %s."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:338
-#, php-format
-msgid ""
-"A license key for %s could not be found. Maybe you forgot to enter a license "
-"key when setting up %s, or the key was deactivated in your account. You can "
-"reactivate or purchase a license key from your account <a href=\"%s\" target="
-"\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:342
-#, php-format
-msgid ""
-"Download permission for %s has been revoked possibly due to a license key or "
-"subscription expiring. You can reactivate or purchase a license key from "
-"your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:346
-#, php-format
-msgid ""
-"You changed the subscription for %s, so you will need to enter your new API "
-"License Key in the settings page. The License Key should have arrived in "
-"your email inbox, if not you can get it by logging into your account <a href="
-"\"%s\" target=\"_blank\">dashboard</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:5
-#, php-format
-msgid ""
-"See below for a list of %s Plugins active on %s. You can %s, as well as our "
-"%s on how this works. %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:5
-msgid "Check for Updates"
-msgstr "Проверить обновления"
-
-#: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:21
-#, fuzzy
-msgid "Activate Products"
-msgstr "Обновить продукты"
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:26
-msgid "Could not create index on your posts table for the `guid` column"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:27
-msgid "Could not update a post&rsquo;s GUID"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:28
-msgid "Could not remove the index from `guid`"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:41
-msgid "Run GUID-fix"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:62
-msgid "CF GUID-Fix"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:66
-msgid ""
-"Post GUIDs are now unique! <b>You should now disable and remove this plugin."
-"</b>"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
-msgid "What does this plugin do?"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
-msgid ""
-"Corrects duplicate GUID values created with versions of WordPress that "
-"exhibited a <a href=\"http://core.trac.wordpress.org/ticket/15041\">non-"
-"unique GUID bug</a>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:83
-msgid ""
-"Clicking the button below runs the plugin to ensure your guids are unique."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:86
-msgid "Fix Your GUIDs"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:100
-msgid "You should not be here."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:138
-#, php-format
-msgid "Job %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:197
-#, fuzzy
-msgid "Could not load job with unknown ID."
-msgstr "Возврат не может быть сделан из-за неизвестной ошибки."
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:252
-#, php-format
-msgid "Job Batch %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:382
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:383
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:386
-msgid "Jobs"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:384
-#, fuzzy
-msgid "New Job"
-msgstr "Нью-Йорк"
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:385
-#, fuzzy
-msgid "View Job"
-msgstr "Просмотреть файл PDF"
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:388
-msgid "UsabilityDynamics Jobs."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:180
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:212
-#, fuzzy
-msgid "Required file not found."
-msgstr "Шаблон не найден:"
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:861
-msgid "Invalid file type."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:870
-#, fuzzy
-msgid "Could not create mentioned directory."
-msgstr "Не удалось сделать удаленный запрос."
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:909
-msgid "Zero size file downloaded"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:974
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:986
-msgid "Could not get image dimensions (headers)"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1527
-#, php-format
-msgid ""
-"You cannot call UD\\Utility::log() before the %1$s hook, since the current "
-"user is not yet known."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1540
-msgid "Log Started."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2008
-#, php-format
-msgid "You cannot call UD\\Utility::add_log_page() after the %1$s hook."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2035
-msgid "Log Page for"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2036
-#, fuzzy
-msgid "Clear Log"
-msgstr "Нулевой"
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2039
-msgid "Timestamp"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2042
-msgid "User"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2043
-msgid "Related Object"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:328
-msgid ""
-"Class \\UsabilityDynamics\\UD_API\\Bootstrap does not exist. Be sure all "
-"required plugins and (or) composer modules installed and activated."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:336
-msgid "Licenses client can not be activated due to invalid 'licenses' schema."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:357
-msgid ""
-"Product requires license, but product ID and (or) referrer is undefined. "
-"Please, be sure, that license schema has all required data."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:366
-msgid ""
-"Class \\UsabilityDynamics\\UD_API\\Manager does not exist. Be sure all "
-"required plugins installed and activated."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:403
-#, php-format
-msgid ""
-"Module <b>%s</b> is not installed or the version is old, class <b>%s</b> "
-"does not exist."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:407
-#, php-format
-msgid ""
-"Module <b>%s</b> should be updated to the latest version, class <b>%s</b> "
-"must have version <b>%s</b> or higher."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
-msgid "Welcome to Usability Dynamics, Inc."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
-msgid "UD Notices"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:103
-msgid "Usability Dynamics, Inc. Dashboard"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:104
-msgid "Thank you for using our products."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:145
-#, php-format
-msgid "<p><b>%s</b> is not active due to following errors:</p> %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:159
-#, php-format
-msgid "<p><b>%s</b> has the following additional notices:</p> %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:161
-#, php-format
-msgid "<p><b>%s</b> is active, but has the following notices:</p> %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:163
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:196
-msgid "Dismiss this notice"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:285
-msgid "Install package not available."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:286
-#, php-format
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:287
-msgid "Unpacking the package&#8230;"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:288
-msgid "Installing the plugin&#8230;"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:289
-#, fuzzy
-msgid "Plugin install failed."
-msgstr "Модуль активирован."
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:290
-msgid "Plugin installed successfully."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:301
-#, fuzzy
-msgid "Plugin activation failed."
-msgstr "Модуль активирован."
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:302
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:193
-#, fuzzy
-msgid "Plugin activated successfully."
-msgstr "Модуль активирован."
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:415
-msgid ""
-"The installation and activation process is starting. This process may take a "
-"while on some hosts, so please be patient."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
-#, fuzzy
-msgid "Show Details"
-msgstr "ПОказать действия"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
-msgid "Hide Details"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:417
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:418
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:422
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:423
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:424
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
-#, fuzzy, php-format
-msgid "%1$s installed successfully."
-msgstr "Обновление установлено успешно"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:426
-#, fuzzy
-msgid "All installations have been completed."
-msgstr "После получения платежа"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:427
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:519
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:549
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:149
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:152
-msgid "Private Repository"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:157
-msgid "Pre-Packaged"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:162
-msgid "WordPress Repository"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
-msgid "Required"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
-msgid "Recommended"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:169
-#, fuzzy
-msgid "Not Installed"
-msgstr "Установить"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:171
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:307
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:402
-#, fuzzy
-msgid "Activate"
-msgstr "Активный"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:364
-#, php-format
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:380
-msgid "Plugin"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:381
-msgid "Source"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:177
-msgid "Install Required Plugins"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:178
-#, fuzzy
-msgid "Install Plugins"
-msgstr "Установить"
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:179
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:180
-msgid "Something went wrong."
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:191
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:192
-msgid "Return to the dashboard"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:194
-msgid "The following plugin was activated successfully:"
-msgstr ""
-
-#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:195
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: wp-invoice.php:53
+#: wp-invoice.php:59
 msgid ""
 "Distributive is broken. composer.json is missed. Try to remove and upload "
 "plugin again."
 msgstr ""
 
-#: wp-invoice.php:61
+#: wp-invoice.php:67
 #, php-format
 msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
 msgstr ""
 
-#: wp-invoice.php:69
+#: wp-invoice.php:75
 #, php-format
 msgid ""
 "Distributive is broken. %s file is missed. Try to remove and upload plugin "
 "again."
 msgstr ""
 
-#: wp-invoice.php:73
+#: wp-invoice.php:79
 msgid ""
 "Distributive is broken. Plugin loader is not available. Try to remove and "
 "upload plugin again."
 msgstr ""
 
-#: wp-invoice.php:94
+#: wp-invoice.php:100
 #, fuzzy, php-format
 msgid "<p><b>%s</b> can not be initialized. %s</p>"
 msgstr "<b>%s</b> %s был установлен."
+
+#, fuzzy
+#~ msgid "Hello"
+#~ msgstr "Помощь"
+
+#~ msgid "Licenses"
+#~ msgstr "Лицензии"
+
+#, fuzzy
+#~ msgid "More Products"
+#~ msgstr "Продукты"
+
+#, fuzzy
+#~ msgid "Product deactivated successfully."
+#~ msgstr "Обновление установлено успешно"
+
+#, fuzzy
+#~ msgid "Products activated successfully."
+#~ msgstr "Обновление установлено успешно"
+
+#, fuzzy
+#~ msgid "Product"
+#~ msgstr "Продукты"
+
+#~ msgid "Version"
+#~ msgstr "Версия"
+
+#, fuzzy
+#~ msgid "Deactivate"
+#~ msgstr "Активный"
+
+#~ msgid "Check for Updates"
+#~ msgstr "Проверить обновления"
+
+#, fuzzy
+#~ msgid "Activate Products"
+#~ msgstr "Обновить продукты"
+
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "Активный"
+
+#, fuzzy
+#~ msgid "Could not load job with unknown ID."
+#~ msgstr "Возврат не может быть сделан из-за неизвестной ошибки."
+
+#, fuzzy
+#~ msgid "New Job"
+#~ msgstr "Нью-Йорк"
+
+#, fuzzy
+#~ msgid "View Job"
+#~ msgstr "Просмотреть файл PDF"
+
+#, fuzzy
+#~ msgid "Required file not found."
+#~ msgstr "Шаблон не найден:"
+
+#, fuzzy
+#~ msgid "Could not create mentioned directory."
+#~ msgstr "Не удалось сделать удаленный запрос."
+
+#, fuzzy
+#~ msgid "Clear Log"
+#~ msgstr "Нулевой"
+
+#, fuzzy
+#~ msgid "Plugin install failed."
+#~ msgstr "Модуль активирован."
+
+#, fuzzy
+#~ msgid "Plugin activation failed."
+#~ msgstr "Модуль активирован."
+
+#, fuzzy
+#~ msgid "Plugin activated successfully."
+#~ msgstr "Модуль активирован."
+
+#, fuzzy
+#~ msgid "Show Details"
+#~ msgstr "ПОказать действия"
+
+#, fuzzy
+#~ msgid "%1$s installed successfully."
+#~ msgstr "Обновление установлено успешно"
+
+#, fuzzy
+#~ msgid "All installations have been completed."
+#~ msgstr "После получения платежа"
+
+#, fuzzy
+#~ msgid "Not Installed"
+#~ msgstr "Установить"
+
+#, fuzzy
+#~ msgid "Install Plugins"
+#~ msgstr "Установить"
+
+#, fuzzy
+#~ msgid "Bulk Actions"
+#~ msgstr "ПОказать действия"
+
+#~ msgid "Apply"
+#~ msgstr "Применить"
+
+#, fuzzy
+#~ msgid "Edit"
+#~ msgstr "Редактор"
+
+#, fuzzy
+#~ msgid "Trash"
+#~ msgstr "Помещен в корзину"
+
+#~ msgid ""
+#~ "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a "
+#~ "target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
+#~ msgstr ""
+#~ "Узнайте, как <a target=\"_blank\" href=\"%s\">расширить возможности</a> "
+#~ "Вашего плагина <a target=\"_blank\" href=\"%s\">WP-Invoice</a>"
+
+#~ msgid "Premium Features"
+#~ msgstr "Платные дополнения"
+
+#~ msgid "Support Forum"
+#~ msgstr "Форум поддержки"
+
+#~ msgid "User Guide"
+#~ msgstr "Руководство пользователя"
+
+#~ msgid "Created by "
+#~ msgstr "Создал "
+
+#~ msgid "Display"
+#~ msgstr "Отобразить"
+
+#~ msgid "records"
+#~ msgstr "записи"
+
+#, fuzzy
+#~ msgid "Show all dates"
+#~ msgstr "Показать всех пользователей"
+
+#, fuzzy
+#~ msgid "Nothing found."
+#~ msgstr "не найдено"
+
+#~ msgid "\"Invoice(s) %s untrashed.\""
+#~ msgstr "\"Счет(а) %s извлечены из корзины.\""
+
+#~ msgid "Total Collected"
+#~ msgstr "Всего выбрано"
+
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">WP-Invoice Product Page</a>"
+#~ msgstr ""
+#~ "<a href=\"http://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">Страница продукта WP-Invoice</a>"
+
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoice Forums</a>"
+#~ msgstr ""
+#~ "<a href=\"http://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoice Форум</a>"
+
+#~ msgid ""
+#~ "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+#~ "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
+#~ msgstr ""
+#~ "Посетите <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+#~ "target=\"_blank\">Страницу помощи WP-Invoice</a> на UsabilityDynamics.com"
+
+#, fuzzy
+#~ msgid "Bank Name"
+#~ msgstr "Название компании"
+
+#, fuzzy
+#~ msgid "Payoneer Recurring Billing"
+#~ msgstr "Регулярное выставление счетов"
+
+#, fuzzy
+#~ msgid "Payment Details"
+#~ msgstr "Детали платежа"
+
+#~ msgid "Not set"
+#~ msgstr "Не установлен"
+
+#, fuzzy
+#~ msgid "Process Payer Information"
+#~ msgstr "Информация о пользователе"
+
+#~ msgid "Hide"
+#~ msgstr "Скрыть"
+
+#~ msgid "Show"
+#~ msgstr "Показать"
+
+#~ msgid "Select User"
+#~ msgstr "Выберите пользователя"
+
+#~ msgid "Filter Results"
+#~ msgstr "Отфильтровать результаты"
+
+#~ msgid "Edit this item"
+#~ msgstr "Редактировать"
+
+#, fuzzy
+#~ msgid " ago"
+#~ msgstr "дней назад"
+
+#, fuzzy
+#~ msgid "WP-Invoice 4.0.0 has beed installed"
+#~ msgstr "Счет #%s оплачен"
 
 #~ msgid "An error occurred during premium feature check: <b> %s </b>."
 #~ msgstr "Во время проверки премии произошла ошибка: <b>%s</b>."
@@ -6361,10 +5737,6 @@ msgstr "<b>%s</b> %s был установлен."
 
 #~ msgid "Template Name"
 #~ msgstr "Название шаблона"
-
-#, fuzzy
-#~ msgid "Hello"
-#~ msgstr "Помощь"
 
 #~ msgid ""
 #~ "Begin typing the recipient's email into the input box, or double-click to "
