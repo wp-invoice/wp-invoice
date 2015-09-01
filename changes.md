@@ -1,3 +1,9 @@
+#### 4.0.2 ( September 1, 2015 )
+* Added more actions and filters.
+* Fixed warnings and notices.
+* Fixed typo.
+* Fixed RU localization.
+
 #### 4.0.1 ( August 21, 2015 )
 * Fixed loading of localisation files. The bug persists in 4.0.0 version.
 * Fixed incorrect behaviour on custom 'Install Plugins' page after depended plugins ( Add-ons ) activation.
