@@ -482,6 +482,8 @@ class WPI_XMLRPC_API {
     }
     $invoice->set( array( 'tax_method' => $tax_method ) );
 
+    $invoice->data['new_invoice'] = false;
+
     //** Save */
     $invoice->save_invoice();
 
