@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-29 15:00+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
+"Last-Translator: Manuel D'Orso <manuel@inelemento.it>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -346,7 +346,7 @@ msgstr "Caratteristiche Premium"
 
 #: lib/class_functions.php:2120
 msgid "Support Forum"
-msgstr ""
+msgstr "Forum di supporto"
 
 #: lib/class_functions.php:2123
 msgid "User Guide"
@@ -475,7 +475,7 @@ msgstr "Mostra "
 
 #: lib/class_list_table.php:124
 msgid "records"
-msgstr ""
+msgstr "record"
 
 #: lib/class_list_table.php:296
 msgid "Show all dates"
@@ -3141,10 +3141,12 @@ msgid ""
 "Don't have a Payoneer account? <a href='http://register.payoneer.com/wp-"
 "invoice/' target='_blank'>Sign up now</a>"
 msgstr ""
+"Non hai un account Payoneer? <a href='http://register.payoneer.com/wp-"
+"invoice/' target='_blank'>Registrati</a>"
 
 #: lib/gateways/class_wpi_payoneer.php:30
 msgid "USD Payment service details"
-msgstr ""
+msgstr "Dettagli pagamento in USD"
 
 #: lib/gateways/class_wpi_payoneer.php:33
 #: lib/gateways/class_wpi_payoneer.php:52
@@ -3156,7 +3158,7 @@ msgstr "Nome banca"
 #: lib/gateways/class_wpi_payoneer.php:35
 msgid ""
 "The name of the bank of your US collection account (i.e.: Bank of America)"
-msgstr ""
+msgstr "Il nome della banca con conto USA (es. Bank of America)"
 
 #: lib/gateways/class_wpi_payoneer.php:38
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:32
@@ -3165,42 +3167,44 @@ msgstr "Numero account"
 
 #: lib/gateways/class_wpi_payoneer.php:40
 msgid "The 13 digit number of your US collection account"
-msgstr ""
+msgstr "Il numero a 13 cifre del suo conto USA"
 
 #: lib/gateways/class_wpi_payoneer.php:43
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:40
 msgid "ABA (Bank Routing Number)"
-msgstr ""
+msgstr "ABA (Bank Routing Number)"
 
 #: lib/gateways/class_wpi_payoneer.php:45
 msgid "The 9 digit bank routing number"
-msgstr ""
+msgstr "Il numero a 9 cifre del Bank Routing Number"
 
 #: lib/gateways/class_wpi_payoneer.php:49
 msgid "EURO Payment service details"
-msgstr ""
+msgstr "Dettagli pagamento in EURO"
 
 #: lib/gateways/class_wpi_payoneer.php:54
 msgid "The name of the bank of your EUR collection account (i.e.: WireCard)"
-msgstr ""
+msgstr "Il nome della banca con conto in EUR (es. WireCard)"
 
 #: lib/gateways/class_wpi_payoneer.php:57
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:63
 msgid "BIC"
-msgstr ""
+msgstr "BIC"
 
 #: lib/gateways/class_wpi_payoneer.php:59
 msgid "Business Identifier Code (I.E WIREDEMM)"
-msgstr ""
+msgstr "Business Identifier Code (I.E WIREDEMM)"
 
 #: lib/gateways/class_wpi_payoneer.php:62
 #: lib/gateways/templates/wpi_payoneer-frontend.tpl.php:71
 msgid "IBAN"
-msgstr ""
+msgstr "IBAN"
 
 #: lib/gateways/class_wpi_payoneer.php:64
 msgid "The 22 digit International Bank Account Number (I.E DExxxxxxxxxxxxx)"
 msgstr ""
+"Il codice a 22 cifre dell'International Bank Account Number (I.E "
+"DExxxxxxxxxxxxx)"
 
 #: lib/gateways/class_wpi_payoneer.php:130
 msgid "Payoneer Recurring Billing"
@@ -4022,7 +4026,7 @@ msgstr "Setup PayPal"
 
 #: lib/ui/payment_accordion.php:12 lib/ui/payment_processing.php:10
 msgid "PayPal Pay Button URL"
-msgstr ""
+msgstr "URL bottone PayPal"
 
 #: lib/ui/payment_accordion.php:21
 msgid "Credit Card Setup"
@@ -4480,7 +4484,7 @@ msgstr "Nome del mittente"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:337
 msgid "The sender name that the email is from"
-msgstr ""
+msgstr "Il nome del mittente nelle email"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:342
 msgid "User E-mail"
@@ -4499,6 +4503,8 @@ msgid ""
 "If you are using <b>Google Analytics Site Tracking</b> code on your site "
 "then you can track WP-Invoice events."
 msgstr ""
+"Se stai usando codice <b>Google Analytics Site Tracking</b> sul tuo sito "
+"puoi tracciare gli eventi di WP-Invoice."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:367
 msgid "Google Analytics Events Tracking"
@@ -4534,7 +4540,7 @@ msgstr "Codice"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:429
 msgid "Symbol"
-msgstr ""
+msgstr "Simbolo"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:453
 msgid "Add Currency"
@@ -4557,6 +4563,8 @@ msgid ""
 "If an invoice has no payment gateways, this message will be displayed "
 "offering the customer guidance on their course of action."
 msgstr ""
+"Se una fattura non ha un gateway di pagamento, sarà mostrato questo "
+"messaggio come guida."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:564
 msgid "Subject"
@@ -4575,6 +4583,8 @@ msgid ""
 "Setup your common services and products in here to streamline invoice "
 "creation."
 msgstr ""
+"Imposta i servizi e i prodotti ordinari qui per semplificare la creazione "
+"delle fatture."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:668
 msgid "Name & Description"
@@ -4590,19 +4600,19 @@ msgstr "Inserisci un oggetto predefinito"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:739
 msgid "Look up the $wpi_settings global settings array:"
-msgstr ""
+msgstr "Cerca nel $wpi_settings global settings array:"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:739
 msgid "Toggle $wpi_settings"
-msgstr ""
+msgstr "Visualizza $wpi_settings"
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:746
 msgid "Restore Backup of WP-Invoice Configuration"
-msgstr ""
+msgstr "Ripristina Backup della configurazione WP-Invoice "
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:747
 msgid "Download Backup of Current WP-Invoice Configuration."
-msgstr ""
+msgstr "Scarica backup della configurazione attuale di WP-Invoice."
 
 #: static/splashes/install.php:7
 msgid ""
@@ -4610,16 +4620,21 @@ msgid ""
 "plugin. There are some important things that you need to be aware of in "
 "order to use our products successfully and with pleasure."
 msgstr ""
+"Congratulazioni! Hai appena installato la nuova versione del plugin WP-"
+"Invoice. Ci sono delle cose importanti da sapere per usare i nostri prodotti "
+"con successo e con piacere."
 
 #: static/splashes/install.php:9
 msgid ""
 "Please read the following instructions carefully. Explore links below to get "
 "more information on our site."
 msgstr ""
+"Leggi le seguenti istruzioni con attenzione. Consulta i link qui sotto per "
+"maggiori informazioni sul nostro sito."
 
 #: static/splashes/install.php:19
 msgid "New license management system"
-msgstr ""
+msgstr "Nuovo sistema di gestione licenze"
 
 #: static/splashes/install.php:45
 msgid "Some another feature"
@@ -4646,7 +4661,7 @@ msgstr "Fattura Ricorrente"
 
 #: static/views/invoice_page.php:27 static/views/receipt_page.php:18
 msgid "You've made payments, but still owe:"
-msgstr ""
+msgstr "Hai effettuato pagamenti, ma devi ancora:"
 
 #: static/views/invoice_page.php:56
 msgid "Manual Payment Information"
@@ -4673,7 +4688,7 @@ msgstr "pagato."
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:120
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:121
 msgid "Licenses"
-msgstr ""
+msgstr "Licenze"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:84
 msgid "More Products"
@@ -4685,6 +4700,7 @@ msgid ""
 "%s License is not active. To get started, activate it <a href=\"%s\">here</"
 "a>."
 msgstr ""
+"La licenza %s non è attiva. Per iniziare, attivala <a href=\"%s\">qui</a>."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:615
 #, php-format
@@ -4693,7 +4709,7 @@ msgstr "%s licenza non attiva."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:669
 msgid "No license keys were specified for activation."
-msgstr ""
+msgstr "Nessuna chiave di licenza è stata specificata per l'attivazione."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:674
 msgid "Product deactivated successfully."
@@ -4701,7 +4717,7 @@ msgstr "Plugin disattivato"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:676
 msgid "There was an error while deactivating the product."
-msgstr ""
+msgstr "C'é stato un errore nella disattivazione del prodotto."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:682
 msgid "Products activated successfully."
@@ -4709,7 +4725,7 @@ msgstr "Plugin attivato"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-admin.php:684
 msgid "There was an error and not all products were activated."
-msgstr ""
+msgstr "C'è stato un errore e non tutti i prodotti sono stati attivati."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:82
 msgid "UsabilityDynamics Product"
@@ -4721,16 +4737,18 @@ msgid ""
 "There was an error making %s request for %s. Could not do request to "
 "UsabilityDynamics."
 msgstr ""
+"C'è stato un errore nella richista %s per %s. Impossibile effettuare la "
+"richiesta a UsabilityDynamics."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:104
 #, php-format
 msgid "There was an error making %s request for %s, please try again"
-msgstr ""
+msgstr "C'è stato un errore nella richista %s per %s, riprova più tardi."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php:106
 #, php-format
 msgid "There was an error making %s request for %s: %s."
-msgstr ""
+msgstr "C'è stato un errore nella richiesta %s per %s : %s."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:61
 #, php-format
@@ -4755,11 +4773,11 @@ msgstr "Disattiva"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:145
 msgid "Place License Key here"
-msgstr ""
+msgstr "Inserici la chiave di licenza qui"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-licenses-table.php:146
 msgid "Place Activation Email here"
-msgstr ""
+msgstr "Inserisci l'email di attivazione qui"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:68
 msgid "Try again"
@@ -4768,7 +4786,7 @@ msgstr "Riprovare più tardi"
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:70
 #, php-format
 msgid "No More Available Products for %s"
-msgstr ""
+msgstr "Non ci sono altri prodotti disponibili per %s"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:119
 msgid "More Details"
@@ -4776,15 +4794,15 @@ msgstr "Altro..."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:149
 msgid "<strong>Untested</strong> with your version of WordPress"
-msgstr ""
+msgstr "<strong>Non testato</strong> con la tua versione di WordPress"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:151
 msgid "<strong>Incompatible</strong> with your version of WordPress"
-msgstr ""
+msgstr "<strong>Non compatibile</strong> con la tua versione di WordPress"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-more-products-table.php:153
 msgid "<strong>Compatible</strong> with your version of WordPress"
-msgstr ""
+msgstr "<strong>Compatibile</strong> con la tua versione di WordPress"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:297
 #, php-format
@@ -4794,6 +4812,10 @@ msgid ""
 "reactivate or purchase a license key from your account <a href=\"%s\" target="
 "\"_blank\">Licences</a>."
 msgstr ""
+"Nessuna chiave di licenza trovata per %s . Forse hai dimenticato di inserire "
+"una chiave di licenza quando hai impostato %s, o la chiave di licenza è "
+"stata disattivata nel tuo account. Puoi riattivare o comprare una chiave di "
+"licenza da <a href=\"%s\" target=\"_blank\">Licenze</a> nel tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:298
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:330
@@ -4802,6 +4824,8 @@ msgid ""
 "A subscription for %s could not be found. You can purchase a subscription "
 "from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"Nessun abbonamento per %s trovato. Puoi comprare un abbonamento dalla <a "
+"href=\"%s\" target=\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:302
 #, php-format
@@ -4809,6 +4833,9 @@ msgid ""
 "The license key for %s has expired. You can reactivate or purchase a license "
 "key from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"La chiave di licenza per %s è scaduta. Puoi riattivare o comprare una chiave "
+"di licenza dalla <a href=\"%s\" target=\"_blank\">dashboard</a> del tuo "
+"account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:306
 #, php-format
@@ -4816,6 +4843,8 @@ msgid ""
 "The subscription for %s is on-hold. You can reactivate the subscription from "
 "your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"L'abbonamento per %s è in attesa. Puoi riattivare l'abbonamento dalla <a "
+"href=\"%s\" target=\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:310
 #, php-format
@@ -4824,6 +4853,9 @@ msgid ""
 "from your account <a href=\"%s\" target=\"_blank\">dashboard</a>. A new "
 "license key will be emailed to you after your order has been completed."
 msgstr ""
+"L'abbonamento per %s è stato cancellato. Puoi rinnovarlo dalla <a href=\"%s"
+"\" target=\"_blank\">dashboard</a> del tuo account. Ti sarà inviata una "
+"nuova chiave di licenza quando l'ordine sarà completato."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:314
 #, php-format
@@ -4831,6 +4863,8 @@ msgid ""
 "The subscription for %s has expired. You can reactivate the subscription "
 "from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"L'abbonamento per %s è scaduto. Puoi riattivarlo dalla <a href=\"%s\" target="
+"\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:318
 #, php-format
@@ -4839,6 +4873,8 @@ msgid ""
 "subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
 "a>."
 msgstr ""
+"L'abbonamento per %s è stato sospeso. Puoi riattivarlo dalla <a href=\"%s\" "
+"target=\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:322
 #, php-format
@@ -4847,6 +4883,8 @@ msgid ""
 "subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
 "a>."
 msgstr ""
+"L'abbonamento per %s è in sospeso. Puoi controllare lo stato dalla <a href="
+"\"%s\" target=\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:326
 #, php-format
@@ -4855,6 +4893,9 @@ msgid ""
 "soon. You can purchase a new subscription from your account <a href=\"%s\" "
 "target=\"_blank\">dashboard</a>."
 msgstr ""
+"L'abbonamento per %s è stato cestinato e sarà eliminato a breve. Puoi "
+"comprare un nuovo abbonamento dalla <a href=\"%s\" target=\"_blank"
+"\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:334
 #, php-format
@@ -4862,6 +4903,8 @@ msgid ""
 "%s has not been activated. Go to the settings page and enter the license key "
 "and license email to activate %s."
 msgstr ""
+"%s non è stato attivato. Vai nella pagina delle impostazioni e aggiungi la "
+"chiave di licenza e la mail di licenza per attivare %s."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:338
 #, php-format
@@ -4871,6 +4914,10 @@ msgid ""
 "reactivate or purchase a license key from your account <a href=\"%s\" target="
 "\"_blank\">dashboard</a>."
 msgstr ""
+"Nessuna chiave di licenza trovata per %s . Forse hai dimenticato di inserire "
+"una chiave di licenza quando hai impostato %s, o la chiave di licenza è "
+"stata disattivata nel tuo account. Puoi riattivare o comprare una chiave di "
+"licenza dalla <a href=\"%s\" target=\"_blank\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:342
 #, php-format
@@ -4879,6 +4926,10 @@ msgid ""
 "subscription expiring. You can reactivate or purchase a license key from "
 "your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"I permessi di download per %s sono stati revocati, probabilmente a causa di "
+"una chiave di licenza o di un abbonamento in scadenza. Puoi riattivare o "
+"comprare una chiave di licenza dalla <a href=\"%s\" target=\"_blank"
+"\">dashboard</a> del tuo account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/lib/classes/class-update-checker.php:346
 #, php-format
@@ -4888,6 +4939,11 @@ msgid ""
 "your email inbox, if not you can get it by logging into your account <a href="
 "\"%s\" target=\"_blank\">dashboard</a>."
 msgstr ""
+"Hai cambiato l'abbonamento per %s, quindi hai bisogno di inserire una nuova "
+"API License Key nella pagina impostazioni. La chiave di licenza dovrebbe "
+"essere nella tua posta in arrivo, in caso contrario puoi ottenerla facendo "
+"il login nella <a href=\"%s\" target=\"_blank\">dashboard</a> del tuo "
+"account."
 
 #: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:5
 #, php-format
@@ -4895,6 +4951,8 @@ msgid ""
 "See below for a list of %s Plugins active on %s. You can %s, as well as our "
 "%s on how this works. %s"
 msgstr ""
+"Guarda in basso per una lista dei plugin di %s attive su %s. Puoi %s, oppure "
+"il nostro %s per informazioni sul funzionamento. %s"
 
 #: vendor/usabilitydynamics/lib-ud-api-client/static/templates/screen-manage.php:5
 msgid "Check for Updates"
@@ -4907,32 +4965,35 @@ msgstr "Attiva prodotti"
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:26
 msgid "Could not create index on your posts table for the `guid` column"
 msgstr ""
+"Impossibile creare un indice nella tabella dei post per la colonna `guid`"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:27
 msgid "Could not update a post&rsquo;s GUID"
-msgstr ""
+msgstr "Impossibile aggiornare il GUID di un post"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:28
 msgid "Could not remove the index from `guid`"
-msgstr ""
+msgstr "Impossibile rimuovere l'indice da `guid`"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:41
 msgid "Run GUID-fix"
-msgstr ""
+msgstr "Avvia GUID-fix"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:62
 msgid "CF GUID-Fix"
-msgstr ""
+msgstr "CF GUID-Fix"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:66
 msgid ""
 "Post GUIDs are now unique! <b>You should now disable and remove this plugin."
 "</b>"
 msgstr ""
+"I GUID dei post sono adesso unici! <b>Ora dovresti disabilitare e rimuovere "
+"questo plugin.</b>"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
 msgid "What does this plugin do?"
-msgstr ""
+msgstr "Cosa fa questo plugin?"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
 msgid ""
@@ -4940,11 +5001,16 @@ msgid ""
 "exhibited a <a href=\"http://core.trac.wordpress.org/ticket/15041\">non-"
 "unique GUID bug</a>."
 msgstr ""
+"Corregge valori GUID duplicati creati con versioni di WordPress che hanno il "
+"<a href=\"http://core.trac.wordpress.org/ticket/15041\">bug GUID non unici</"
+"a>."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:83
 msgid ""
 "Clicking the button below runs the plugin to ensure your guids are unique."
 msgstr ""
+"Cliccando il bottone in basso avvii il plugin per assicurarti che i GUID "
+"siano unici."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:86
 msgid "Fix Your GUIDs"
@@ -4952,7 +5018,7 @@ msgstr "Aggiusta GUID"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:100
 msgid "You should not be here."
-msgstr ""
+msgstr "Non dovresti essere qui."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:138
 #, php-format
@@ -4961,7 +5027,7 @@ msgstr "Lavoro %s"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:197
 msgid "Could not load job with unknown ID."
-msgstr ""
+msgstr "Non puoi caricare lavori con ID sconosciuto."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:252
 #, php-format
@@ -4972,7 +5038,7 @@ msgstr "Lavoro di gruppo %s"
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:383
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:386
 msgid "Jobs"
-msgstr ""
+msgstr "Lavori"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:384
 msgid "New Job"
@@ -4984,7 +5050,7 @@ msgstr "Visualizza"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-job.php:388
 msgid "UsabilityDynamics Jobs."
-msgstr ""
+msgstr "Lavori UsabilityDynamics."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:187
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:219
@@ -5001,12 +5067,12 @@ msgstr "Impossibile creare la cartella."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:916
 msgid "Zero size file downloaded"
-msgstr ""
+msgstr "File di dimensione zero scaricato."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:981
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:993
 msgid "Could not get image dimensions (headers)"
-msgstr ""
+msgstr "Impossibile ottenere le dimensioni dell'immagine (headers)."
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1534
 #, php-format
@@ -5046,29 +5112,37 @@ msgstr "Utente"
 
 #: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2050
 msgid "Related Object"
-msgstr ""
+msgstr "Oggetto collegato"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:328
 msgid ""
 "Class \\UsabilityDynamics\\UD_API\\Bootstrap does not exist. Be sure all "
 "required plugins and (or) composer modules installed and activated."
 msgstr ""
+"La classe  \\UsabilityDynamics\\UD_API\\Bootstrap non esiste. Assicurati che "
+"tutti i plugin richiesti e/o che i moduli composer siamo installati e "
+"attivati."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:336
 msgid "Licenses client can not be activated due to invalid 'licenses' schema."
 msgstr ""
+"Licenza cliente non attivabile a causa dello schema 'licenses' non valido."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:357
 msgid ""
 "Product requires license, but product ID and (or) referrer is undefined. "
 "Please, be sure, that license schema has all required data."
 msgstr ""
+"Il prodotto richiede una licenza, ma l'ID prodotto e/o il referrer non è "
+"definito. Assicurati che lo schema di licenza abbia tutti i dati richiesti."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:366
 msgid ""
 "Class \\UsabilityDynamics\\UD_API\\Manager does not exist. Be sure all "
 "required plugins installed and activated."
 msgstr ""
+"La classe \\UsabilityDynamics\\UD_API\\Manager non esiste. Assicurati che "
+"tutti i plugin siano istallati e attivati."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:403
 #, php-format
@@ -5076,6 +5150,8 @@ msgid ""
 "Module <b>%s</b> is not installed or the version is old, class <b>%s</b> "
 "does not exist."
 msgstr ""
+"Il modulo <b>%s</b> non è installato o è una vecchia versione, la classe <b>"
+"%s</b> non esiste."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:407
 #, php-format
@@ -5083,10 +5159,12 @@ msgid ""
 "Module <b>%s</b> should be updated to the latest version, class <b>%s</b> "
 "must have version <b>%s</b> or higher."
 msgstr ""
+"Il modulo <b>%s</b> deve essere aggiornato all'ultima versione, la classe <b>"
+"%s</b> deve essere della versione <b>%s</b> o superiore."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
 msgid "Welcome to Usability Dynamics, Inc."
-msgstr ""
+msgstr "Benvenuto a Usability Dynamics, Inc."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
 msgid "UD Notices"
@@ -5094,31 +5172,31 @@ msgstr "Errore UD"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:103
 msgid "Usability Dynamics, Inc. Dashboard"
-msgstr ""
+msgstr "Dashboard Usability Dynamics, Inc."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:104
 msgid "Thank you for using our products."
-msgstr ""
+msgstr "Grazie per aver scelto i nostri prodotti."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:145
 #, php-format
 msgid "<p><b>%s</b> is not active due to following errors:</p> %s"
-msgstr ""
+msgstr "<p><b>%s</b> non è attivo a causa dei seguenti errori:</p> %s"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:159
 #, php-format
 msgid "<p><b>%s</b> has the following additional notices:</p> %s"
-msgstr ""
+msgstr "<p><b>%s</b> ha i seguenti avvisi aggiuntivi:</p> %s"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:161
 #, php-format
 msgid "<p><b>%s</b> is active, but has the following notices:</p> %s"
-msgstr ""
+msgstr "<p><b>%s</b> è attivo, ma ha ancora i seguenti avvisi:</p> %s"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:163
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:196
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Rimuovi avviso"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:285
 msgid "Install package not available."
@@ -5128,14 +5206,16 @@ msgstr "Pacchetto di installazione non disponibile."
 #, php-format
 msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
 msgstr ""
+"Scarica il pacchetto di installazione da <span class=\"code\">%s</"
+"span>&#8230;"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:287
 msgid "Unpacking the package&#8230;"
-msgstr ""
+msgstr "Scompattamento&#8230;"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:288
 msgid "Installing the plugin&#8230;"
-msgstr ""
+msgstr "Installazione del plugin&#8230;"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:289
 msgid "Plugin install failed."
@@ -5143,7 +5223,7 @@ msgstr "Installazione plugin fallita."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:290
 msgid "Plugin installed successfully."
-msgstr ""
+msgstr "Plugin installato con successo."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:301
 msgid "Plugin activation failed."
@@ -5159,11 +5239,13 @@ msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
+"Il processo di installazione e attivazione è avviato. Può volerci del tempo "
+"su certi host, quindi sii paziente."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
 #, php-format
 msgid "%1$s installed and activated successfully."
-msgstr ""
+msgstr "%1$s installato e attivato con successo."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
@@ -5173,32 +5255,35 @@ msgstr "Mostra dettagli"
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
 msgid "Hide Details"
-msgstr ""
+msgstr "Nascondi dettagli."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:417
 msgid "All installations and activations have been completed."
-msgstr ""
+msgstr "Tutte le installazioni e attivazioni sono state completate."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:418
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "Installazione e attivazione plugin %1$s (%2$d/%3$d)"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:422
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
+"Il processo di installazione è avviato. Può volerci del tempo su certi host, "
+"quindi sii paziente."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:423
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
+"È avvenuto un errore durante l'installazione di %1$s: <strong>%2$s</strong>."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:424
 #, php-format
 msgid "The installation of %1$s failed."
-msgstr ""
+msgstr "L'installazione di %1$s è fallita."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
 #, php-format
@@ -5207,30 +5292,30 @@ msgstr "%1$s installato correttamente."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:426
 msgid "All installations have been completed."
-msgstr ""
+msgstr "Tutte le installazioni sono state completate."
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:427
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "Installazione plugin %1$s (%2$d/%3$d)"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:519
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:549
 msgid "Return to the Dashboard"
-msgstr ""
+msgstr "Torna alla dashboard"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:149
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:152
 msgid "Private Repository"
-msgstr ""
+msgstr "Repository privato"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:157
 msgid "Pre-Packaged"
-msgstr ""
+msgstr "Pre-Packaged"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:162
 msgid "WordPress Repository"
-msgstr ""
+msgstr "Repository WordPress"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
 msgid "Required"
@@ -5259,6 +5344,8 @@ msgid ""
 "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
 "Dashboard\">Return to the Dashboard</a>"
 msgstr ""
+"Nessun plugin da installare o attivare. <a href=\"%1$s\" title=\"Return to "
+"the Dashboard\">Ritorna alla dashboard</a>"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:380
 msgid "Plugin"
@@ -5266,7 +5353,7 @@ msgstr "Plugin"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:381
 msgid "Source"
-msgstr ""
+msgstr "Sorgente"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:177
 msgid "Install Required Plugins"
@@ -5279,7 +5366,7 @@ msgstr "Installa plugin"
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:179
 #, php-format
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installazione plugin: %s"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:180
 msgid "Something went wrong."
@@ -5289,11 +5376,11 @@ msgstr ""
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:191
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Ritorna all'installer dei plugin richiesti"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:192
 msgid "Return to the dashboard"
-msgstr ""
+msgstr "Ritorna alla dashboard"
 
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:194
 msgid "The following plugin was activated successfully:"
@@ -5302,18 +5389,21 @@ msgstr "Plugin attivato"
 #: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:195
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
+msgstr "Tutti i plugin sono stati installati e attivati con successo. %1$s"
 
 #: wp-invoice.php:53
 msgid ""
 "Distributive is broken. composer.json is missed. Try to remove and upload "
 "plugin again."
 msgstr ""
+"La distribuzione non funziona. composer.json mancante. Prova a rimuovere e "
+"fare l'upload del plugin di nuovo."
 
 #: wp-invoice.php:61
 #, php-format
 msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
 msgstr ""
+"Il plugin richiede PHP %s o superiore. La tua versione attuale di PHP è %s"
 
 #: wp-invoice.php:69
 #, php-format
@@ -5321,17 +5411,21 @@ msgid ""
 "Distributive is broken. %s file is missed. Try to remove and upload plugin "
 "again."
 msgstr ""
+"La distribuzione non funziona. File %s mancante. Prova a rimuovere e fare "
+"l'upload del plugin di nuovo."
 
 #: wp-invoice.php:73
 msgid ""
 "Distributive is broken. Plugin loader is not available. Try to remove and "
 "upload plugin again."
 msgstr ""
+"La distribuzione non funziona. Il loader del plugin non è disponibile. Prova "
+"a rimuovere e fare l'upload del plugin di nuovo."
 
 #: wp-invoice.php:94
 #, php-format
 msgid "<p><b>%s</b> can not be initialized. %s</p>"
-msgstr ""
+msgstr "<p><b>%s</b> non può essere inizializzato.  %s</p>"
 
 #, fuzzy
 #~ msgid "Google Wallet"
