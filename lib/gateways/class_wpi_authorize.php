@@ -424,6 +424,7 @@ class wpi_authorize extends wpi_gateway_base {
     //** Order Info */
     $payment->setParameter("x_description", $invoice['post_title']);
     $payment->setParameter("x_invoice_id", $invoice['invoice_id']);
+    $payment->setParameter("x_invoice_num", $invoice['invoice_id']);
     $payment->setParameter("x_duplicate_window", 30);
 
     //** Customer Info */
