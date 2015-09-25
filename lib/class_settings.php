@@ -97,6 +97,7 @@ class WPI_Settings {
     $this->options[ 'user_meta' ][ 'custom' ][ 'city' ] = __( 'City', ud_get_wp_invoice()->domain );
     $this->options[ 'user_meta' ][ 'custom' ][ 'state' ] = __( 'State', ud_get_wp_invoice()->domain );
     $this->options[ 'user_meta' ][ 'custom' ][ 'zip' ] = __( 'ZIP', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'country' ] = __( 'Country', ud_get_wp_invoice()->domain );
 
     //** Invoice statuses. Filter: wpi_invoice_statuses */
     $this->options[ 'invoice_statuses' ][ 'active' ] = __( "Active", ud_get_wp_invoice()->domain );
@@ -462,6 +463,14 @@ class WPI_Settings {
     $this->options[ 'predefined_services' ][ 1 ][ 'price' ] = 30;
 
     $this->options[ 'predefined_services' ] = ( isset( $new_settings[ 'predefined_services' ] ) ? $new_settings[ 'predefined_services' ] : $this->options[ 'predefined_services' ] );
+
+    $this->options[ 'user_meta' ][ 'custom' ][ 'company_name' ] = __( 'Company Name', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'phonenumber' ] = __( 'Phone Number', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'streetaddress' ] = __( 'Street Address', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'city' ] = __( 'City', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'state' ] = __( 'State', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'zip' ] = __( 'ZIP', ud_get_wp_invoice()->domain );
+    $this->options[ 'user_meta' ][ 'custom' ][ 'country' ] = __( 'Country', ud_get_wp_invoice()->domain );
 
     //** E-Mail Templates */
     if ( isset( $new_settings[ 'notification' ] ) ) {

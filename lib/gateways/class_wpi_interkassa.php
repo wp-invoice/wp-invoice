@@ -86,6 +86,12 @@ class wpi_interkassa extends wpi_gateway_base {
                 'name' => 'state',
                 'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
+            'country' => array(
+                'type' => 'text',
+                'class' => 'text-input',
+                'name' => 'country',
+                'label' => __('Country', ud_get_wp_invoice()->domain)
+            ),
             'zip' => array(
                 'type' => 'text',
                 'class' => 'text-input',

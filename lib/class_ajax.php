@@ -80,6 +80,7 @@ class WPI_Ajax {
     $user_data[ 'city' ] = get_user_meta( $user_id, 'city', true );
     $user_data[ 'state' ] = get_user_meta( $user_id, 'state', true );
     $user_data[ 'zip' ] = get_user_meta( $user_id, 'zip', true );
+    $user_data[ 'country' ] = get_user_meta( $user_id, 'country', true );
 
     if ( $user_data ) {
       echo json_encode( array( 'succes' => 'true', 'user_data' => $user_data ) );

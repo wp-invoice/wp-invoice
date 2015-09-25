@@ -55,6 +55,12 @@ class wpi_stripe extends wpi_gateway_base {
                 'name' => 'city',
                 'label' => __('City', ud_get_wp_invoice()->domain)
             ),
+            'country' => array(
+                'type' => 'text',
+                'class' => 'text-input',
+                'name' => 'country',
+                'label' => __('Country', ud_get_wp_invoice()->domain)
+            ),
             'state' => array(
                 'type' => 'text',
                 'class' => 'text-input',

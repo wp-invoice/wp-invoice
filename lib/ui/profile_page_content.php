@@ -1,6 +1,11 @@
 <?php
   global $wpi_settings;
   $user_information = apply_filters('wpi_user_information', $wpi_settings['user_meta']['custom']);
+
+echo '<pre>';
+print_r( $user_information );
+echo '</pre>';
+
   //$user_information = array_merge($wpi_settings['user_meta']['required'], $custom_user_information);
 ?>
 
