@@ -765,9 +765,11 @@ class WPI_Invoice {
         $creator = __("Created", ud_get_wp_invoice()->domain) . apply_filters( 'wpi_history_log_by', __(" by ", ud_get_wp_invoice()->domain).$current_user->display_name );
       }
       $this->data['ID'] = wp_insert_post($data);
+      do_action( 'wpi_object_created', $this->data, $data );
       $this->add_entry("type=create&note=".$creator);
     } else {
       $this->data['ID'] = wp_update_post($data);
+      do_action( 'wpi_object_updated', $this->data, $data );
       if (!empty($this->is_recurring) && $this->is_recurring) {
         $this->add_entry("attribute=invoice&type=update&note=".__("Recurring invoice updated.", ud_get_wp_invoice()->domain));
       } else if (!empty($this->is_quote) && $this->is_quote) {
