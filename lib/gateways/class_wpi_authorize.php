@@ -26,12 +26,12 @@ class wpi_authorize extends wpi_gateway_base {
         'default_option' => '',
         'settings' => array(
             'gateway_username' => array(
-                'label' => __( "Gateway Username", ud_get_wp_invoice()->domain ),
+                'label' => __( "API Login ID", ud_get_wp_invoice()->domain ),
                 'value' => '',
                 'description' => __( "Your credit card processor will provide you with a gateway username.", ud_get_wp_invoice()->domain )
             ),
             'gateway_tran_key' => array(
-                'label' => __( "Gateway Transaction Key", ud_get_wp_invoice()->domain ),
+                'label' => __( "API Transaction Key", ud_get_wp_invoice()->domain ),
                 'value' => "",
                 'description' => __( "You will be able to generate this in your credit card processor's control panel.", ud_get_wp_invoice()->domain )
             ),
