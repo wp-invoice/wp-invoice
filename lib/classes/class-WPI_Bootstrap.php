@@ -117,6 +117,7 @@ namespace UsabilityDynamics\WPI {
 
         //** Initiate the plugin */
         $this->core = \WPI_Core::getInstance();
+        $this->uip  = new UnifiedInvoicePage();
       }
       
       /**
