@@ -2767,3 +2767,28 @@ function wpi_send_json_error( $data = null ) {
 
   wp_send_json( $response );
 }
+
+/**
+ * Mark invoice as viewed if not by admin
+ * @param $invoice_object
+ */
+function wpi_track_invoice_page_visit( $invoice_object ) {
+
+  if ( !current_user_can( 'manage_options' ) ) {
+    $hours = 12;
+    $viewed_today_from_cur_ip = false;
+    foreach ( $invoice_object->data[ 'log' ] as $key => $value ) {
+      if ( $value[ 'user_id' ] == '0' ) {
+        if ( strstr( strtolower( $value[ 'text' ] ), "viewed by {$_SERVER['REMOTE_ADDR']}" ) ) {
+          $time_dif = time() - $value[ 'time' ];
+          if ( $time_dif < $hours * 60 * 60 ) {
+            $viewed_today_from_cur_ip = true;
+          }
+        }
+      }
+    }
+    if ( !$viewed_today_from_cur_ip ) {
+      $invoice_object->add_entry( "note=Viewed by {$_SERVER['REMOTE_ADDR']}" );
+    }
+  }
+}

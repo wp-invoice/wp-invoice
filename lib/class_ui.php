@@ -1041,30 +1041,7 @@ class WPI_UI {
 
     $invoice = $wpi_invoice_object->data;
 
-    /** Mark invoice as viewed if not by admin */
-    if ( !current_user_can( 'manage_options' ) ) {
-
-      /** Prevent duplicating of 'viewed' item. */
-      /** 1 time per $hours */
-      $hours = 12;
-
-      $viewed_today_from_cur_ip = false;
-
-      foreach ( $invoice[ 'log' ] as $key => $value ) {
-        if ( $value[ 'user_id' ] == '0' ) {
-          if ( strstr( strtolower( $value[ 'text' ] ), "viewed by {$_SERVER['REMOTE_ADDR']}" ) ) {
-            $time_dif = time() - $value[ 'time' ];
-            if ( $time_dif < $hours * 60 * 60 ) {
-              $viewed_today_from_cur_ip = true;
-            }
-          }
-        }
-      }
-
-      if ( !$viewed_today_from_cur_ip ) {
-        $wpi_invoice_object->add_entry( "note=Viewed by {$_SERVER['REMOTE_ADDR']}" );
-      }
-    }
+    wpi_track_invoice_page_visit( $wpi_invoice_object );
 
     /** Include our template functions */
     include_once( 'class_template_functions.php' );
