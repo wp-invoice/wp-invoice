@@ -17,16 +17,54 @@ namespace UsabilityDynamics\WPI {
     public function __construct() {
       global $wpi_settings;
 
-      if ( !is_admin() ) {
+      add_filter( 'wpi_where_to_display_options', array( $this, 'add_new_display_option' ) );
+
+      if ( !is_admin() && !empty($wpi_settings['where_to_display']) && $wpi_settings['where_to_display'] == 'unified_page' ) {
         add_action('wpi_template_redirect', array($this, 'template_redirect_change'));
       }
+    }
+
+    /**
+     * @param $options
+     * @return mixed
+     */
+    public function add_new_display_option( $options ) {
+      $options['unified_page'] = __( 'Unified Page Template', ud_get_wp_invoice()->domain );
+      return $options;
     }
 
     /**
      *
      */
     public function template_redirect_change() {
-      global $wpi_settings;
+      global $wpi_settings, $wpi_invoice_object, $invoice;
+
+      $invoice = $wpi_invoice_object->data;
+
+      /** Mark invoice as viewed if not by admin */
+      if ( !current_user_can( 'manage_options' ) ) {
+
+        /** Prevent duplicating of 'viewed' item. */
+        /** 1 time per $hours */
+        $hours = 12;
+
+        $viewed_today_from_cur_ip = false;
+
+        foreach ( $invoice[ 'log' ] as $key => $value ) {
+          if ( $value[ 'user_id' ] == '0' ) {
+            if ( strstr( strtolower( $value[ 'text' ] ), "viewed by {$_SERVER['REMOTE_ADDR']}" ) ) {
+              $time_dif = time() - $value[ 'time' ];
+              if ( $time_dif < $hours * 60 * 60 ) {
+                $viewed_today_from_cur_ip = true;
+              }
+            }
+          }
+        }
+
+        if ( !$viewed_today_from_cur_ip ) {
+          $wpi_invoice_object->add_entry( "note=Viewed by {$_SERVER['REMOTE_ADDR']}" );
+        }
+      }
 
       //** Load front end scripts */
       wp_enqueue_script('jquery.validate');
@@ -58,11 +96,15 @@ namespace UsabilityDynamics\WPI {
         add_action('the_title', array('WPI_UI', 'the_title'), 0, 2);
       }
 
-      add_action('the_content', array('WPI_UI', 'the_content'), 20);
+      remove_action( 'wp_head', '_admin_bar_bump_cb' );
+      show_admin_bar( 0 );
+
+      include_once( ud_get_wp_invoice()->path( '/lib/class_template_functions.php', 'dir' )  );
 
       load_template( ud_get_wp_invoice()->path('/static/views/unified-invoice-page.php', 'dir'), 1 );
       exit;
     }
+
   }
 
 }

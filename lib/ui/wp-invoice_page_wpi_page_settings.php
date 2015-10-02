@@ -312,7 +312,7 @@ class WPI_Settings_page {
         <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', ud_get_wp_invoice()->domain); ?>">
     <?php _e('How to Insert Invoice', ud_get_wp_invoice()->domain); ?>
           </a></th>
-        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?> </td>
+        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(apply_filters('wpi_where_to_display_options', array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain)))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?> </td>
       </tr>
       <tr>
         <th><?php _e("After a payment has been completed", ud_get_wp_invoice()->domain) ?></th>

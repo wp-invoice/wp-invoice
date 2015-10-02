@@ -45,7 +45,7 @@
                 echo WPI_UI::select(array(
                   'name' => 'where_to_display',
                   'group' => 'wpi_settings',
-                  'values' => serialize(array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain))),
+                  'values' => serialize(apply_filters('wpi_where_to_display_options', array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain)))),
                   'current_value' => $wpi_settings['where_to_display']
                 ));
               ?>
