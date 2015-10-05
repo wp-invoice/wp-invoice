@@ -26,13 +26,9 @@ namespace UsabilityDynamics\WPI {
       /**
        * If we are on front-end and display option is set to 'Unified Page Template'
        * Change template
-       * Disable all unnecessary styles and scripts
        */
       if ( !is_admin() && !empty($wpi_settings['where_to_display']) && $wpi_settings['where_to_display'] == 'unified_page' ) {
         add_action('wpi_template_redirect', array($this, 'template_redirect_change'));
-        add_action('wp_print_styles', array($this, 'remove_all_theme_styles'), 999);
-        add_action('wp_print_scripts', array($this, 'remove_all_theme_scripts'), 999);
-        add_action('wpi_unified_page_styles', array($this, 'page_specific_styles'));
       }
     }
 
@@ -89,6 +85,13 @@ namespace UsabilityDynamics\WPI {
       global $wpi_settings, $wpi_invoice_object, $invoice;
 
       $invoice = $wpi_invoice_object->data;
+
+      /**
+       * Disable all unnecessary styles and scripts
+       */
+      add_action('wp_print_styles', array($this, 'remove_all_theme_styles'), 999);
+      add_action('wp_print_scripts', array($this, 'remove_all_theme_scripts'), 999);
+      add_action('wpi_unified_page_styles', array($this, 'page_specific_styles'));
 
       /**
        * Track invoice widget
