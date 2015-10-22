@@ -141,7 +141,7 @@ namespace UsabilityDynamics\WPI {
       /**
        * Load template
        */
-      load_template( ud_get_wp_invoice()->path('/static/views/unified-invoice-page.php', 'dir'), 1 );
+      load_template( ud_get_wp_invoice()->path('/static/views/unified-invoice-page-'.$invoice[ 'post_status' ].'.php', 'dir'), 1 );
       exit;
     }
 
