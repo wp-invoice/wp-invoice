@@ -40,10 +40,222 @@ global $invoice, $wpi_settings;
       echo esc_html(' | ' . sprintf(__('Page %s', 'twentyeleven'), max($paged, $page)));
 
     ?></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <?php wp_head(); ?>
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.com/libraries/html5shiv"></script>
+  <script src="https://cdnjs.com/libraries/respond.js"></script>
+  <![endif]-->
 </head>
 
-<body>
+<body class="inner-pages">
+
+  <header class="pageheader">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-4">
+          <div class="logo"><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/logo.png', 'url' ); ?>" alt="WebChat App Inc" /></div>
+          <h1>WebChat App Inc</h1>
+          <p>8300 Riverwind Lane Unit 306 <span>Raleigh, NC 27617</span></p>
+        </div>
+
+        <div class="col-sm-5">
+          <div class="contact">
+            <p><span class="ico mail"></span>
+              <a href="mailto:hello@usabilitydynamics.com">hello@usabilitydynamics.com</a></p>
+            <p><span class="ico tel"></span> +1 916-432-3546</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row top-nav-links">
+
+        <div class="col-xs-6">
+          <a href="#" class="btn btn-back"> Back to dashboard</a>
+        </div>
+
+        <div class="col-xs-6 text-right">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">PDF</button>
+            <button type="button" class="btn btn-default">Print</button>
+          </div>
+
+          <a href="#" class="btn btn-pay">Pay With Paypal</a>
+        </div>
+      </div>
+
+    </div><!--end /container-->
+
+  </header><!--end /pageheader-->
+
+  <div class="page-content">
+
+    <div class="container">
+
+      <div class="box-content">
+        <div class="head-title">
+          <h2>Invoice</h2>
+        </div>
+
+        <div class="box-inner-content">
+          <div class="row invoice-head">
+            <div class="col-sm-8">
+              <div class="logo"><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/logo.png', 'url' ); ?>" alt="WebChat App Inc" /></div>
+              <h2>WebChat App Inc</h2>
+              <p class="addr">8300 Riverwind Lane Unit 306 <span>Raleigh, NC 27617</span></p>
+              <p><span>Email:</span> <a href="mailto:Support@usabilitydynamics.com">Support@usabilitydynamics.com</a></p>
+              <p><span>Phone:</span> +1 916-432-3546</p>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="invoice-info-details">
+                <p><span>Invoice ID</span>
+                  414
+                </p>
+
+                <p><span>Issue Date</span>
+                  August 25, 2015
+                </p>
+
+                <p><span>Due Date</span>
+                  After 15 days
+                </p>
+
+                <p><span>Invoice for</span>
+                  <i>Disco Donnie Presents</i>
+                  SFX-Disco Operating, LLC<br/>
+                  902 Broadway<br/>
+                  New York, NY 10010
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="invoice-desc">
+            <h3>Discodonniepresents.com afterdark entertainment</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+          <div class="invoice-item-lists">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th class="description">Description</th>
+                  <th class="quantity">Quanitiy</th>
+                  <th class="unit-price">Unit Price</th>
+                  <th class="amount">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
+                  <td>0.50</td>
+                  <td>$35.00</td>
+                  <td>$17.50</td>
+                </tr>
+                <tr>
+                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
+                  <td>1.25</td>
+                  <td>$35.00</td>
+                  <td>$17.50</td>
+                </tr>
+                <tr>
+                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
+                  <td>1.25</td>
+                  <td>$35.00</td>
+                  <td>$43.75</td>
+                </tr>
+                <tr class="total-row">
+                  <td colspan="4"><span>Amount Due:</span> $335.75</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="notes-terms">
+            <h3>Note</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <h3>Terms &amp; Condition</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        </div><!--end /box-inner-content-->
+      </div>
+
+      <div class="invoice-history">
+        <h4>Invoice History</h4>
+
+        <div class="box-content">
+          <div class="box-inner-content">
+            <div class="row">
+              <div class="col-md-2 label-item"><span class="label label-paid">Paid</span></div>
+              <div class="col-md-7 description">Sent via e-mail to Charles Liao</div>
+              <div class="col-md-3 date">17 May 2015, 3:11 PM</div>
+            </div>
+            <div class="row">
+              <div class="col-md-2 label-item"><span class="label label-viewed">Viewed</span></div>
+              <div class="col-md-7 description">Viewed by Charles Liao.</div>
+              <div class="col-md-3 date">15 May 2015, 3:11 PM</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 label-item"><span class="label label-sent">Sent</span></div>
+              <div class="col-md-7 description">Sent via e-mail to Charles Liao by Eric for $320.00 USD</div>
+              <div class="col-md-3 date">13 May 2015, 3:11 PM</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2 label-item"><span class="label label-created">Created</span></div>
+              <div class="col-md-7 description">Created by Eric Sopp</div>
+              <div class="col-md-3 date">11 May 2015, 3:11 PM</div>
+            </div>
+          </div><!--end /box-inner-content-->
+        </div>
+      </div>
+
+    </div><!--end /container-->
+
+  </div><!--end /page-content-->
+
+  <footer class="pagefooter">
+    <div class="container">
+      <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+    </div><!--end /container-->
+  </footer><!--end /pagefooter-->
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <div id="invoice_page" class="wpi_invoice_form wpi_payment_form clearfix">
     <div class="wpi_left_col">

@@ -82,9 +82,19 @@ namespace UsabilityDynamics\WPI {
      * Custom template redirect definition
      */
     public function template_redirect_change() {
-      global $wpi_settings, $wpi_invoice_object, $invoice;
+      global $wpi_settings, $wpi_invoice_object, $invoice, $wp_filter;
 
       $invoice = $wpi_invoice_object->data;
+
+      foreach ( $wp_filter['wp_head'] as $priority => $wp_head_hooks ) { // Loop the hook. Hook's actions are categorized as multidimensional array by priority
+        if( is_array( $wp_head_hooks ) ){ // Check if this is an array
+          foreach ( $wp_head_hooks as $wp_head_hook ) { // Loop the hook
+            if( !is_array( $wp_head_hook['function'] ) && !in_array( $wp_head_hook['function'], array('wp_print_head_scripts','wp_enqueue_scripts','wp_print_styles') ) ){ // Check the action against the whitelist
+              remove_action( 'wp_head', $wp_head_hook['function'], $priority ); // Remove the action from the hook
+            }
+          }
+        }
+      }
 
       /**
        * Disable all unnecessary styles and scripts
