@@ -130,6 +130,24 @@ class WPI_Settings_page {
 
     <table class="form-table">
       <tr>
+        <th width="200"><?php _e("Business Logo", ud_get_wp_invoice()->domain); ?></th>
+        <td>
+          <input type="hidden" id="business_logo_path" name="wpi_settings[business_logo]" value="<?php echo !empty($wpi_settings['business_logo']) ?$wpi_settings['business_logo']: '' ; ?>" />
+          <?php if ( !empty($wpi_settings['business_logo']) ): ?>
+            <img id="business_logo_img" style="max-width:100px;" src="<?php echo $wpi_settings['business_logo']; ?>" />
+          <?php endif; ?>
+          <button class="button-secondary business-logo-select clearfix" style="width:100px;" data-uploader_title="<?php _e('Select Logo', ud_get_wp_invoice()->domain); ?>"><?php _e('Select Logo', ud_get_wp_invoice()->domain); ?></button>
+          <script type="text/javascript">
+            jQuery(document).ready(function(){
+              jQuery('.business-logo-select').business_logo_select({
+                url_input: "#business_logo_path",
+                image: "#business_logo_img"
+              });
+            });
+          </script>
+        </td>
+      </tr>
+      <tr>
         <th width="200"><?php _e("Business Name", ud_get_wp_invoice()->domain) ?></th>
         <td><?php echo WPI_UI::input(array(
               'type'=>'text',
