@@ -126,7 +126,14 @@ textarea {
   display: block;
 }
 .pageheader .contact {
-  margin: 165px 0 0;
+  margin: 0;
+}
+.pageheader .header-info {
+  display: flex;
+}
+.pageheader .header-info .contacts {
+  align-self: flex-end;
+  margin-bottom: 20px;
 }
 .pageheader .ico {
   display: inline-block;
@@ -253,7 +260,7 @@ textarea {
 /*  Layout - > Inner Pages
 /*-----------------------------------------------------------------------------------*/
 .top-nav-links {
-  padding-top: 7px;
+  padding-top: 20px;
 }
 .top-nav-links .btn-back {
   border: 1px solid #e6e6e6;

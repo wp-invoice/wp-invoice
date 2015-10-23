@@ -836,52 +836,134 @@ if ( !function_exists('wpi_invoice_date') ) {
   }
 }
 
-if ( !function_exists( 'get_business_logo_url' ) ) {
+if ( !function_exists( 'wpi_get_business_logo_url' ) ) {
   /**
    * @return bool
    */
-  function get_business_logo_url() {
+  function wpi_get_business_logo_url() {
     global $wpi_settings;
     return !empty( $wpi_settings['business_logo'] ) ? $wpi_settings['business_logo'] : false;
   }
 }
 
-if ( !function_exists( 'get_business_name' ) ) {
+if ( !function_exists( 'wpi_get_business_name' ) ) {
   /**
    * @return bool
    */
-  function get_business_name() {
+  function wpi_get_business_name() {
     global $wpi_settings;
     return !empty( $wpi_settings['business_name'] ) ? $wpi_settings['business_name'] : false;
   }
 }
 
-if ( !function_exists( 'get_business_address' ) ) {
+if ( !function_exists( 'wpi_get_business_address' ) ) {
   /**
    * @return bool
    */
-  function get_business_address() {
+  function wpi_get_business_address() {
     global $wpi_settings;
     return !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false;
   }
 }
 
-if ( !function_exists( 'get_business_email' ) ) {
+if ( !function_exists( 'wpi_get_business_email' ) ) {
   /**
    * @return bool
    */
-  function get_business_email() {
+  function wpi_get_business_email() {
     global $wpi_settings;
     return !empty( $wpi_settings['email_address'] ) ? $wpi_settings['email_address'] : false;
   }
 }
 
-if ( !function_exists( 'get_business_phone' ) ) {
+if ( !function_exists( 'wpi_get_business_phone' ) ) {
   /**
    * @return bool
    */
-  function get_business_phone() {
+  function wpi_get_business_phone() {
     global $wpi_settings;
     return !empty( $wpi_settings['business_phone'] ) ? $wpi_settings['business_phone'] : false;
+  }
+}
+
+if ( !function_exists( 'wpi_get_invoice_issue_date' ) ) {
+  /**
+   * @return bool
+   */
+  function wpi_get_invoice_issue_date($format = false) {
+    global $invoice;
+    $format = $format ? $format : get_option('date_format');
+    return !empty( $invoice['post_date'] ) ? date($format, strtotime($invoice['post_date'])) : false;
+  }
+}
+
+if ( !function_exists( 'wpi_invoice_has_due_date' ) ) {
+  /**
+   * @return bool
+   */
+  function wpi_invoice_has_due_date() {
+    global $invoice;
+    return !empty($invoice['due_date_year']) && !empty($invoice['due_date_month']) && !empty($invoice['due_date_day']);
+  }
+}
+
+if ( !function_exists( 'wpi_get_invoice_due_date' ) ) {
+  /**
+   * @param bool $format
+   * @return bool|string|void
+   */
+  function wpi_get_invoice_due_date($format = false) {
+    global $invoice;
+    $format = $format ? $format : get_option('date_format');
+    $strtime = sprintf("%s.%s.%s", $invoice['due_date_day'], $invoice['due_date_month'], $invoice['due_date_year']);
+    return !empty($strtime) ? date($format, strtotime($strtime)) : __('Not set', ud_get_wp_invoice()->domain);
+  }
+}
+
+if ( !function_exists('wpi_get_company_address') ) {
+  /**
+   * @return string|void
+   */
+  function wpi_get_company_address() {
+    global $invoice;
+    $address_parts = array();
+
+    $address_parts[] = !empty($invoice['user_data']['company_name']) ? $invoice['user_data']['company_name'] : false;
+    $address_parts[] = !empty($invoice['user_data']['streetaddress']) ? $invoice['user_data']['streetaddress'] : false;
+    $address_parts[] = !empty($invoice['user_data']['city']) ? $invoice['user_data']['city'] : false;
+    $address_parts[] = !empty($invoice['user_data']['country']) ? $invoice['user_data']['country'] : false;
+    $address_parts[] = !empty($invoice['user_data']['state']) ? $invoice['user_data']['state'] : false;
+    $address_parts[] = !empty($invoice['user_data']['zip']) ? $invoice['user_data']['zip'] : false;
+
+    $address_parts = array_filter($address_parts);
+
+    return !empty($address_parts) && is_array($address_parts) ? implode(', ', $address_parts) : __('No address information', ud_get_wp_invoice()->domain);
+  }
+}
+
+if ( !function_exists('wpi_get_invoice_type') ) {
+  /**
+   * @return mixed
+   */
+  function wpi_get_invoice_type() {
+    global $wpi_settings, $invoice;
+    return !empty($wpi_settings['types'][$invoice['type']]) ? $wpi_settings['types'][$invoice['type']]['label'] : $invoice['type'];
+  }
+}
+
+if ( !function_exists('wpi_invoice_has_pdf') ) {
+  /**
+   * @return bool
+   */
+  function wpi_invoice_has_pdf() {
+    if (!class_exists('\UsabilityDynamics\WPI\WPI_PDF_Bootstrap')) return false;
+    return true;
+  }
+}
+
+if ( !function_exists('wpi_get_invoice_title') ) {
+  function wpi_get_invoice_title() {
+    global $invoice;
+    return !empty($invoice['post_title']) ? $invoice['post_title'] : __('Untitled', ud_get_wp_invoice()->domain);
   }
 }

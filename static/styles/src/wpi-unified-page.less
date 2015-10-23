@@ -51,7 +51,14 @@ input, button, select, textarea { font-family: inherit; font-size: inherit; line
 .pageheader h1 { margin: 30px 0 8px; font-size: 3.40rem; }
 .pageheader p { font-size: 1.650rem; }
 .pageheader p span { display: block; }
-.pageheader .contact { margin: 165px 0 0; }
+.pageheader .contact {  margin: 0;  }
+.pageheader .header-info {
+  display: flex;
+  .contacts {
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+}
 .pageheader .ico { display: inline-block; width: 23px; height: 17px; position: relative; bottom: -4px; margin-right: 5px; }
 .pageheader .ico.mail { background: url(../img/envolope.png) 0 0 no-repeat; }
 .pageheader .ico.tel { background: url(../img/telephone.png) 0 0 no-repeat; }
@@ -88,7 +95,7 @@ input, button, select, textarea { font-family: inherit; font-size: inherit; line
 /*-----------------------------------------------------------------------------------*/
 /*  Layout - > Inner Pages
 /*-----------------------------------------------------------------------------------*/
-.top-nav-links { padding-top: 7px; }
+.top-nav-links { padding-top: 20px; }
 .top-nav-links .btn-back { border:1px solid #e6e6e6; border-radius: 6px; padding: 8px 15px 8px 40px; background: url(../img/arrow.png) 15px 50% no-repeat; }
 .top-nav-links .btn-group .btn { width: 60px; border-color: #ddd; border-radius: 6px; padding-top: 7px; padding-bottom: 7px; }
 .top-nav-links .btn-pay { background-color: #fb8160; color: #fff; border-radius: 6px; margin-left: 10px; }

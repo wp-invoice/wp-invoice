@@ -54,27 +54,29 @@ global $invoice, $wpi_settings;
 
     <div class="container">
 
-      <div class="row">
+      <div class="row header-info">
 
         <div class="col-sm-4">
-          <?php if ( $logo_url = get_business_logo_url() ): ?>
+          <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
             <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
           <?php endif; ?>
-          <?php if ( $business_name = get_business_name() ): ?>
-            <h1><?php echo $business_name; ?></h1>
-          <?php endif; ?>
-          <?php if ( $business_address = get_business_address() ): ?>
-            <p><?php echo $business_address; ?></p>
+          <?php if ( show_business_info() ) : ?>
+            <?php if ( $business_name = wpi_get_business_name() ): ?>
+              <h1><?php echo $business_name; ?></h1>
+            <?php endif; ?>
+            <?php if ( $business_address = wpi_get_business_address() ): ?>
+              <p><?php echo $business_address; ?></p>
+            <?php endif; ?>
           <?php endif; ?>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-5 contacts">
           <div class="contact">
-            <?php if ( $business_email = get_business_email() ): ?>
+            <?php if ( $business_email = wpi_get_business_email() ): ?>
             <p><span class="ico mail"></span>
               <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
             <?php endif; ?>
-            <?php if ( $business_phone = get_business_phone() ): ?>
+            <?php if ( $business_phone = wpi_get_business_phone() ): ?>
               <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
             <?php endif; ?>
           </div>
@@ -90,8 +92,9 @@ global $invoice, $wpi_settings;
 
         <div class="col-xs-6 text-right">
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">PDF</button>
-            <button type="button" class="btn btn-default">Print</button>
+            <?php if ( wpi_invoice_has_pdf() ): ?>
+              <a href="<?php invoice_pdf_link(); ?>" target="_blank" class="btn btn-default"><?php _e('PDF', ud_get_wp_invoice()->domain); ?></a>
+            <?php endif; ?>
           </div>
 
           <a href="#" class="btn btn-pay">Pay With Paypal</a>
@@ -108,51 +111,58 @@ global $invoice, $wpi_settings;
 
       <div class="box-content">
         <div class="head-title">
-          <h2>Invoice</h2>
+          <h2><?php echo wpi_get_invoice_type(); ?></h2>
         </div>
 
         <div class="box-inner-content">
           <div class="row invoice-head">
             <div class="col-sm-8">
-              <div class="logo"><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/logo.png', 'url' ); ?>" alt="WebChat App Inc" /></div>
-              <h2>WebChat App Inc</h2>
-              <p class="addr">8300 Riverwind Lane Unit 306 <span>Raleigh, NC 27617</span></p>
-              <p><span>Email:</span> <a href="mailto:Support@usabilitydynamics.com">Support@usabilitydynamics.com</a></p>
-              <p><span>Phone:</span> +1 916-432-3546</p>
+              <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
+                <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
+              <?php endif; ?>
+              <?php if ( show_business_info() ) : ?>
+                <?php if ( $business_name = wpi_get_business_name() ): ?>
+                  <h1><?php echo $business_name; ?></h1>
+                <?php endif; ?>
+                <?php if ( $business_address = wpi_get_business_address() ): ?>
+                  <p><?php echo $business_address; ?></p>
+                <?php endif; ?>
+              <?php endif; ?>
+              <?php if ( $business_email = wpi_get_business_email() ): ?>
+                <p><span><?php _e('Email:', ud_get_wp_invoice()->domain); ?></span> <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
+              <?php endif; ?>
+              <?php if ( $business_phone = wpi_get_business_phone() ): ?>
+                <p><span><?php _e('Phone:', ud_get_wp_invoice()->domain); ?></span> <?php echo $business_phone; ?></p>
+              <?php endif; ?>
             </div>
 
             <div class="col-sm-4">
               <div class="invoice-info-details">
-                <p><span>Invoice ID</span>
-                  414
+                <p><span><?php _e( 'Invoice ID', ud_get_wp_invoice()->domain ); ?></span>
+                  <?php invoice_id(); ?>
                 </p>
 
-                <p><span>Issue Date</span>
-                  August 25, 2015
+                <p><span><?php _e( 'Issue Date', ud_get_wp_invoice()->domain ); ?></span>
+                  <?php echo wpi_get_invoice_issue_date(); ?>
                 </p>
 
-                <p><span>Due Date</span>
-                  After 15 days
+                <?php if ( wpi_invoice_has_due_date() ): ?>
+                <p><span><?php _e('Due Date', ud_get_wp_invoice()->domain); ?></span>
+                  <?php echo wpi_get_invoice_due_date(); ?>
                 </p>
+                <?php endif; ?>
 
-                <p><span>Invoice for</span>
-                  <i>Disco Donnie Presents</i>
-                  SFX-Disco Operating, LLC<br/>
-                  902 Broadway<br/>
-                  New York, NY 10010
+                <p><span><?php _e('Invoice for', ud_get_wp_invoice()->domain); ?></span>
+                  <?php recipients_name(); ?><br />
+                  <?php echo wpi_get_company_address(); ?>
                 </p>
               </div>
             </div>
           </div>
 
           <div class="invoice-desc">
-            <h3>Discodonniepresents.com afterdark entertainment</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3><?php echo wpi_get_invoice_title(); ?></h3>
+            <p><?php the_description(); ?></p>
           </div>
 
           <div class="invoice-item-lists">
