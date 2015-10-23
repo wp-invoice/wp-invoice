@@ -109,7 +109,7 @@ textarea {
 /*-----------------------------------------------------------------------------------*/
 /* Header */
 .pageheader {
-  height: 385px;
+  padding-bottom: 70px;
   background-color: #fff;
 }
 .pageheader .logo {
@@ -275,7 +275,7 @@ textarea {
   margin-left: 10px;
 }
 .inner-pages .page-content {
-  top: -45px;
+  top: -47px;
 }
 .inner-pages .head-title h2 {
   margin: 0;

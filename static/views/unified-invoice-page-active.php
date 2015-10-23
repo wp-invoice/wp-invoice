@@ -57,16 +57,26 @@ global $invoice, $wpi_settings;
       <div class="row">
 
         <div class="col-sm-4">
-          <div class="logo"><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/logo.png', 'url' ); ?>" alt="WebChat App Inc" /></div>
-          <h1>WebChat App Inc</h1>
-          <p>8300 Riverwind Lane Unit 306 <span>Raleigh, NC 27617</span></p>
+          <?php if ( $logo_url = get_business_logo_url() ): ?>
+            <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
+          <?php endif; ?>
+          <?php if ( $business_name = get_business_name() ): ?>
+            <h1><?php echo $business_name; ?></h1>
+          <?php endif; ?>
+          <?php if ( $business_address = get_business_address() ): ?>
+            <p><?php echo $business_address; ?></p>
+          <?php endif; ?>
         </div>
 
         <div class="col-sm-5">
           <div class="contact">
+            <?php if ( $business_email = get_business_email() ): ?>
             <p><span class="ico mail"></span>
-              <a href="mailto:hello@usabilitydynamics.com">hello@usabilitydynamics.com</a></p>
-            <p><span class="ico tel"></span> +1 916-432-3546</p>
+              <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
+            <?php endif; ?>
+            <?php if ( $business_phone = get_business_phone() ): ?>
+              <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
+            <?php endif; ?>
           </div>
         </div>
 
@@ -75,7 +85,7 @@ global $invoice, $wpi_settings;
       <div class="row top-nav-links">
 
         <div class="col-xs-6">
-          <a href="#" class="btn btn-back"> Back to dashboard</a>
+          <a href="#" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
         </div>
 
         <div class="col-xs-6 text-right">

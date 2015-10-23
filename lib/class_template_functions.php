@@ -835,3 +835,53 @@ if ( !function_exists('wpi_invoice_date') ) {
     echo date($format, strtotime( $invoice['post_date'] ));
   }
 }
+
+if ( !function_exists( 'get_business_logo_url' ) ) {
+  /**
+   * @return bool
+   */
+  function get_business_logo_url() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['business_logo'] ) ? $wpi_settings['business_logo'] : false;
+  }
+}
+
+if ( !function_exists( 'get_business_name' ) ) {
+  /**
+   * @return bool
+   */
+  function get_business_name() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['business_name'] ) ? $wpi_settings['business_name'] : false;
+  }
+}
+
+if ( !function_exists( 'get_business_address' ) ) {
+  /**
+   * @return bool
+   */
+  function get_business_address() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false;
+  }
+}
+
+if ( !function_exists( 'get_business_email' ) ) {
+  /**
+   * @return bool
+   */
+  function get_business_email() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['email_address'] ) ? $wpi_settings['email_address'] : false;
+  }
+}
+
+if ( !function_exists( 'get_business_phone' ) ) {
+  /**
+   * @return bool
+   */
+  function get_business_phone() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['business_phone'] ) ? $wpi_settings['business_phone'] : false;
+  }
+}
