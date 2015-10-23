@@ -962,8 +962,58 @@ if ( !function_exists('wpi_invoice_has_pdf') ) {
 }
 
 if ( !function_exists('wpi_get_invoice_title') ) {
+  /**
+   * @return string|void
+   */
   function wpi_get_invoice_title() {
     global $invoice;
     return !empty($invoice['post_title']) ? $invoice['post_title'] : __('Untitled', ud_get_wp_invoice()->domain);
   }
 }
+
+if ( !function_exists('wpi_invoice_has_items') ) {
+  /**
+   * @return bool
+   */
+  function wpi_invoice_has_items() {
+    global $invoice;
+    return !empty($invoice['itemized_list']) && is_array($invoice['itemized_list']);
+  }
+}
+
+if ( !function_exists( 'wpi_get_line_item' ) ) {
+  /**
+   * @param $index
+   * @return bool|PDF_Invoice_Item
+   */
+  function wpi_get_line_item(&$index) {
+    global $invoice;
+    $invoice['itemized_list'] = array_values($invoice['itemized_list']);
+    if (!empty($invoice['itemized_list'][$index]) && is_array($invoice['itemized_list'][$index])) {
+      return new \UsabilityDynamics\WPI\LineItem($invoice['itemized_list'][$index++]);
+    }
+    return false;
+  }
+}
+
+if ( !function_exists( 'wpi_get_invoice_currency_sign' ) ) {
+  /**
+   * @return mixed
+   */
+  function wpi_get_invoice_currency_sign() {
+    global $wpi_settings, $invoice;
+    return !empty($wpi_settings['currency']['symbol'][$invoice['default_currency_code']]) ? $wpi_settings['currency']['symbol'][$invoice['default_currency_code']] : $wpi_settings['currency']['symbol'][$wpi_settings['currency']['default_currency_code']];
+  }
+}
+
+if ( !function_exists( 'wpi_get_invoice_total_tax' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return bool|string
+   */
+  function wpi_get_invoice_total_tax($currency_sign = '$') {
+    global $invoice;
+    return !empty($invoice['total_tax']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_tax'])) : false;
+  }
+}
+

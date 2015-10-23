@@ -41,6 +41,7 @@ return array(
     'UsabilityDynamics\\UI\\Utility' => $vendorDir . '/usabilitydynamics/lib-ui/lib/class-utility.php',
     'UsabilityDynamics\\Utility' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-utility.php',
     'UsabilityDynamics\\Utility\\Guid_Fix' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-guid-fix.php',
+    'UsabilityDynamics\\WPI\\LineItem' => $baseDir . '/lib/classes/class-line-item.php',
     'UsabilityDynamics\\WPI\\UnifiedInvoicePage' => $baseDir . '/lib/classes/class-unified-invoice-page.php',
     'UsabilityDynamics\\WPI\\WPI_Bootstrap' => $baseDir . '/lib/classes/class-WPI_Bootstrap.php',
     'UsabilityDynamics\\WPLT\\Ajax' => $vendorDir . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-ajax.php',

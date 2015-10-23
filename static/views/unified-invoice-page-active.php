@@ -165,40 +165,50 @@ global $invoice, $wpi_settings;
             <p><?php the_description(); ?></p>
           </div>
 
+          <?php if ( wpi_invoice_has_items() ): ?>
+            <div class="invoice-item-lists">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="description"><?php _e( 'Description', ud_get_wp_invoice()->domain ); ?></th>
+                    <th class="quantity"><?php _e( 'Quantity', ud_get_wp_invoice()->domain ); ?></th>
+                    <th class="unit-price"><?php _e( 'Unit Price', ud_get_wp_invoice()->domain ); ?></th>
+                    <th class="amount"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
+                    <?php if ( wpi_get_invoice_total_tax() ): ?>
+                      <th class="tax"><?php _e( 'Tax', ud_get_wp_invoice()->domain ); ?></th>
+                    <?php endif; ?>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php $i = 0; while( $line_item = wpi_get_line_item( $i ) ) : ?>
+                  <tr>
+                    <td>
+                      <?php echo $line_item->get_name(); ?>
+                      <?php if ( $_description = $line_item->get_description() ): ?>
+                        / <?php echo $_description; ?>
+                      <?php endif; ?>
+                    </td>
+                    <td><?php echo $line_item->get_quantity(); ?></td>
+                    <td><?php echo $line_item->get_price( wpi_get_invoice_currency_sign() ); ?></td>
+                    <td><?php echo $line_item->get_amount( wpi_get_invoice_currency_sign() ); ?></td>
+                    <?php if ( wpi_get_invoice_total_tax() ): ?>
+                      <td><?php echo $line_item->get_tax( wpi_get_invoice_currency_sign() ); ?></td>
+                    <?php endif; ?>
+                  </tr>
+                  <?php endwhile; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <?php endif; ?>
+
           <div class="invoice-item-lists">
             <div class="table-responsive">
               <table class="table">
-                <thead>
-                <tr>
-                  <th class="description">Description</th>
-                  <th class="quantity">Quanitiy</th>
-                  <th class="unit-price">Unit Price</th>
-                  <th class="amount">Amount</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
-                  <td>0.50</td>
-                  <td>$35.00</td>
-                  <td>$17.50</td>
-                </tr>
-                <tr>
-                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
-                  <td>1.25</td>
-                  <td>$35.00</td>
-                  <td>$17.50</td>
-                </tr>
-                <tr>
-                  <td>discodonniepresents.com - 09/08/2015 - CP Copywriting and Editing / Brittancy Gaston: #253:ddp - new online merch store</td>
-                  <td>1.25</td>
-                  <td>$35.00</td>
-                  <td>$43.75</td>
-                </tr>
                 <tr class="total-row">
-                  <td colspan="4"><span>Amount Due:</span> $335.75</td>
+                  <td><span>Amount Due:</span> $335.75</td>
                 </tr>
-                </tbody>
               </table>
             </div>
           </div>
