@@ -172,11 +172,13 @@ global $invoice, $wpi_settings;
                   <thead>
                   <tr>
                     <th class="description"><?php _e( 'Description', ud_get_wp_invoice()->domain ); ?></th>
-                    <th class="quantity"><?php _e( 'Quantity', ud_get_wp_invoice()->domain ); ?></th>
+                    <?php if ( wpi_show_quantity_column() ): ?>
+                      <th class="quantity"><?php _e( 'Quantity', ud_get_wp_invoice()->domain ); ?></th>
+                    <?php endif; ?>
                     <th class="unit-price"><?php _e( 'Unit Price', ud_get_wp_invoice()->domain ); ?></th>
                     <th class="amount"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
                     <?php if ( wpi_get_invoice_total_tax() ): ?>
-                      <th class="tax"><?php _e( 'Tax', ud_get_wp_invoice()->domain ); ?></th>
+                      <th class="tax" style="text-align: right;"><?php _e( 'Tax', ud_get_wp_invoice()->domain ); ?></th>
                     <?php endif; ?>
                   </tr>
                   </thead>
@@ -189,7 +191,9 @@ global $invoice, $wpi_settings;
                         / <?php echo $_description; ?>
                       <?php endif; ?>
                     </td>
-                    <td><?php echo $line_item->get_quantity(); ?></td>
+                    <?php if ( wpi_show_quantity_column() ): ?>
+                      <td><?php echo $line_item->get_quantity(); ?></td>
+                    <?php endif; ?>
                     <td><?php echo $line_item->get_price( wpi_get_invoice_currency_sign() ); ?></td>
                     <td><?php echo $line_item->get_amount( wpi_get_invoice_currency_sign() ); ?></td>
                     <?php if ( wpi_get_invoice_total_tax() ): ?>
@@ -203,42 +207,61 @@ global $invoice, $wpi_settings;
             </div>
           <?php endif; ?>
 
+          <?php if ( wpi_invoice_has_charges() ): ?>
+            <h4><?php _e( 'Additional Charges', ud_get_wp_invoice()->domain ); ?></h4>
+            <div class="invoice-item-lists">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="description"><?php _e( 'Description', ud_get_wp_invoice()->domain ); ?></th>
+                    <th class="amount"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php $i = 0; while( $line_item = wpi_get_line_charge( $i ) ) : ?>
+                    <tr>
+                      <td><?php echo $line_item->get_name(); ?></td>
+                      <td><?php echo $line_item->get_amount( wpi_get_invoice_currency_sign() ); ?></td>
+                    </tr>
+                  <?php endwhile; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <?php endif; ?>
+
           <div class="invoice-item-lists">
             <div class="table-responsive">
               <table class="table">
+                <?php if ( wpi_get_invoice_total_tax() ): ?>
                 <tr class="total-row">
-                  <td><span>Amount Due:</span> $335.75</td>
+                  <td><span><?php _e('Total:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_total( wpi_get_invoice_currency_sign() ); ?></td>
+                </tr>
+                <tr class="total-row">
+                  <td><span><?php _e('Total Tax:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_invoice_total_tax( wpi_get_invoice_currency_sign() ); ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if ( wpi_get_discount() ): ?>
+                  <tr class="total-row">
+                    <td><span><?php _e('Discount:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_discount( wpi_get_invoice_currency_sign() ); ?></td>
+                  </tr>
+                <?php endif; ?>
+                <?php if ( wpi_get_adjustments() ): ?>
+                  <tr class="total-row">
+                    <td><span><?php _e('Other Adjustments:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_adjustments( wpi_get_invoice_currency_sign() ); ?></td>
+                  </tr>
+                <?php endif; ?>
+                <?php if ( wpi_get_total_payments() ): ?>
+                  <tr class="total-row">
+                    <td><span><?php _e('Total Payments:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_total_payments( wpi_get_invoice_currency_sign() ); ?></td>
+                  </tr>
+                <?php endif; ?>
+                <tr class="total-row">
+                  <td><span><?php _e('Amount Due:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_amount_due( wpi_get_invoice_currency_sign() ); ?></td>
                 </tr>
               </table>
             </div>
-          </div>
-
-          <div class="notes-terms">
-            <h3>Note</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <h3>Terms &amp; Condition</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
 
         </div><!--end /box-inner-content-->

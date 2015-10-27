@@ -981,6 +981,16 @@ if ( !function_exists('wpi_invoice_has_items') ) {
   }
 }
 
+if ( !function_exists( 'wpi_invoice_has_charges' ) ) {
+  /**
+   * @return bool
+   */
+  function wpi_invoice_has_charges() {
+    global $invoice;
+    return !empty($invoice['itemized_charges']) && is_array($invoice['itemized_charges']);
+  }
+}
+
 if ( !function_exists( 'wpi_get_line_item' ) ) {
   /**
    * @param $index
@@ -991,6 +1001,21 @@ if ( !function_exists( 'wpi_get_line_item' ) ) {
     $invoice['itemized_list'] = array_values($invoice['itemized_list']);
     if (!empty($invoice['itemized_list'][$index]) && is_array($invoice['itemized_list'][$index])) {
       return new \UsabilityDynamics\WPI\LineItem($invoice['itemized_list'][$index++]);
+    }
+    return false;
+  }
+}
+
+if ( !function_exists( 'wpi_get_line_charge' ) ) {
+  /**
+   * @param $index
+   * @return bool|\UsabilityDynamics\WPI\LineItem
+   */
+  function wpi_get_line_charge(&$index) {
+    global $invoice;
+    $invoice['itemized_charges'] = array_values($invoice['itemized_charges']);
+    if (!empty($invoice['itemized_charges'][$index]) && is_array($invoice['itemized_charges'][$index])) {
+      return new \UsabilityDynamics\WPI\LineCharge($invoice['itemized_charges'][$index++]);
     }
     return false;
   }
@@ -1014,6 +1039,75 @@ if ( !function_exists( 'wpi_get_invoice_total_tax' ) ) {
   function wpi_get_invoice_total_tax($currency_sign = '$') {
     global $invoice;
     return !empty($invoice['total_tax']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_tax'])) : false;
+  }
+}
+
+if ( !function_exists( 'wpi_show_quantity_column' ) ) {
+  /**
+   * @return bool
+   */
+  function wpi_show_quantity_column() {
+    global $wpi_settings;
+    return $wpi_settings['globals']['show_quantities'] == 'true' ? true : false;
+  }
+}
+
+if ( !function_exists( 'wpi_get_total' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return int|string
+   */
+  function wpi_get_total($currency_sign = '$') {
+    global $invoice;
+    return !empty($invoice['subtotal']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['subtotal'])) : 0;
+  }
+}
+
+if ( !function_exists( 'wpi_get_discount' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return int|string
+   */
+  function wpi_get_discount($currency_sign = '$') {
+    global $invoice;
+    return !empty($invoice['total_discount']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_discount'])) : 0;
+  }
+}
+
+if ( !function_exists( 'wpi_get_adjustments' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return int|string
+   */
+  function wpi_get_adjustments( $currency_sign = '$' ) {
+    global $invoice;
+    $adjustments = (float)$invoice['adjustments'] + (float)$invoice['total_payments'];
+    return !empty($adjustments) ? sprintf("$currency_sign%s", wp_invoice_currency_format($adjustments)) : 0;
+  }
+}
+
+if ( !function_exists( 'wpi_get_total_payments' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return int|string
+   */
+  function wpi_get_total_payments($currency_sign = '$') {
+    global $invoice;
+    return !empty($invoice['total_payments']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_payments'])) : 0;
+  }
+}
+
+if ( !function_exists( 'wpi_get_amount_due' ) ) {
+  /**
+   * @param string $currency_sign
+   * @return string
+   */
+  function wpi_get_amount_due($currency_sign = '$') {
+    global $invoice;
+    if ($invoice['post_status'] == 'refund') {
+      return !empty($invoice['net']) ? sprintf("<s>$currency_sign%s</s>", wp_invoice_currency_format($invoice['net'])) : '-';
+    }
+    return !empty($invoice['net']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['net'])) : '-';
   }
 }
 
