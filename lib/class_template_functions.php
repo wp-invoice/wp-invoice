@@ -1111,3 +1111,26 @@ if ( !function_exists( 'wpi_get_amount_due' ) ) {
   }
 }
 
+if ( !function_exists('wpi_get_invoice_log') ) {
+  function wpi_get_invoice_log($actions = array('notification', 'add_charge', 'add_payment', 'do_adjustment', 'create')) {
+    global $invoice;
+
+    if ( empty($invoice['log']) || !is_array($invoice['log']) ) return false;
+
+    $log = array();
+    foreach( $invoice['log'] as $log_item ) {
+      if ( in_array( $log_item['action'], $actions ) ) {
+        $log[] = array(
+          'action' => str_replace('_', ' ', $log_item['action']),
+          'text' => $log_item['text'],
+          'time' => $log_item['time'] + get_option( 'gmt_offset' ) * 60 * 60
+        );
+      }
+    }
+
+    echo '<pre>';
+    print_r( $log );
+    echo '</pre>';
+  }
+}
+

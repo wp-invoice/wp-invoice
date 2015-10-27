@@ -270,6 +270,8 @@ global $invoice, $wpi_settings;
       <div class="invoice-history">
         <h4>Invoice History</h4>
 
+        <?php wpi_get_invoice_log(); ?>
+
         <div class="box-content">
           <div class="box-inner-content">
             <div class="row">
