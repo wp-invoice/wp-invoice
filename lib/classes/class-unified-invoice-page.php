@@ -55,6 +55,7 @@ namespace UsabilityDynamics\WPI {
        */
       public function remove_all_theme_scripts() {
         global $wp_scripts, $wpi_settings;
+
         $wp_scripts->queue = array();
 
         wp_enqueue_script('jquery.validate');
@@ -68,7 +69,8 @@ namespace UsabilityDynamics\WPI {
 
         wp_enqueue_script( 'wpi-unified-invoice-page', ud_get_wp_invoice()->path("static/scripts/unified-invoice-page.js", 'url'), array('jquery'));
 
-        do_action('wpi_unified_page_scripts');
+        global $wpi_invoice_object;
+        do_action('wpi_unified_page_scripts', $wpi_invoice_object);
       }
 
       /**
