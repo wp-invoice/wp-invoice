@@ -85,7 +85,7 @@ textarea {
   font-weight: 400;
   text-transform: uppercase;
   padding: 8px 0;
-  width: 80px;
+  width: 100%;
   border-radius: 5px;
   display: inline-block;
 }
@@ -191,8 +191,8 @@ textarea {
   font-size: 1.450rem;
 }
 .invoices-lists table tr th {
-  border-bottom: 1px solid #e6e6e6!important;
-  border-top: 1px solid #e6e6e6!important;
+  border-bottom: 1px solid #e6e6e6 !important;
+  border-top: 1px solid #e6e6e6 !important;
   color: #808285;
   font-size: 1.20rem;
   text-transform: uppercase;
@@ -417,17 +417,22 @@ textarea {
   background: transparent;
 }
 .invoice-history .label.label-paid,
-.invoice-history .label.label-sent {
+.invoice-history .label.label-add_payment {
   color: #93c954;
 }
-.invoice-history .label.label-viewed {
+.invoice-history .label.label-do_adjustment,
+.invoice-history .label.label-add_charge,
+.invoice-history .label.label-notification {
   color: #ffad1f;
 }
-.invoice-history .label.label-created {
+.invoice-history .label.label-create {
   color: #3ca6d3;
 }
+.invoice-history .label.label-refund {
+  color: #d03839;
+}
 .invoice-history .label-item {
-  width: 12%;
+  width: 15%;
 }
 .invoice-history .description {
   width: 65%;

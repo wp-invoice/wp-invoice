@@ -97,7 +97,7 @@ global $invoice, $wpi_settings;
             <?php endif; ?>
           </div>
 
-          <a href="#" class="btn btn-pay">Pay With Paypal</a>
+          <a href="#" class="btn btn-pay"><?php _e('Make Payment', ud_get_wp_invoice()->domain); ?></a>
         </div>
       </div>
 
@@ -267,38 +267,29 @@ global $invoice, $wpi_settings;
         </div><!--end /box-inner-content-->
       </div>
 
+      <?php if ( $history = wpi_get_invoice_log(array(
+          'refund' => __('Refund', ud_get_wp_invoice()->domain),
+          'notification' => __('Email', ud_get_wp_invoice()->domain),
+          'add_charge' => __('Charge', ud_get_wp_invoice()->domain),
+          'add_payment' => __('Paid', ud_get_wp_invoice()->domain),
+          'do_adjustment' => __('Adjustment', ud_get_wp_invoice()->domain),
+          'create' => __('Create', ud_get_wp_invoice()->domain))) ): ?>
       <div class="invoice-history">
         <h4>Invoice History</h4>
 
-        <?php wpi_get_invoice_log(); ?>
-
         <div class="box-content">
           <div class="box-inner-content">
+            <?php foreach( $history as $hitem ): ?>
             <div class="row">
-              <div class="col-md-2 label-item"><span class="label label-paid">Paid</span></div>
-              <div class="col-md-7 description">Sent via e-mail to Charles Liao</div>
-              <div class="col-md-3 date">17 May 2015, 3:11 PM</div>
+              <div class="col-md-2 label-item"><span class="label label-<?php echo $hitem['action']; ?>"><?php echo $hitem['label']; ?></span></div>
+              <div class="col-md-7 description"><?php echo $hitem['text']; ?></div>
+              <div class="col-md-3 date"><?php echo $hitem['time']; ?></div>
             </div>
-            <div class="row">
-              <div class="col-md-2 label-item"><span class="label label-viewed">Viewed</span></div>
-              <div class="col-md-7 description">Viewed by Charles Liao.</div>
-              <div class="col-md-3 date">15 May 2015, 3:11 PM</div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 label-item"><span class="label label-sent">Sent</span></div>
-              <div class="col-md-7 description">Sent via e-mail to Charles Liao by Eric for $320.00 USD</div>
-              <div class="col-md-3 date">13 May 2015, 3:11 PM</div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 label-item"><span class="label label-created">Created</span></div>
-              <div class="col-md-7 description">Created by Eric Sopp</div>
-              <div class="col-md-3 date">11 May 2015, 3:11 PM</div>
-            </div>
+            <?php endforeach; ?>
           </div><!--end /box-inner-content-->
         </div>
       </div>
+      <?php endif; ?>
 
     </div><!--end /container-->
 

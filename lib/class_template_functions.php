@@ -1112,25 +1112,30 @@ if ( !function_exists( 'wpi_get_amount_due' ) ) {
 }
 
 if ( !function_exists('wpi_get_invoice_log') ) {
-  function wpi_get_invoice_log($actions = array('notification', 'add_charge', 'add_payment', 'do_adjustment', 'create')) {
+  /**
+   * @param array $actions
+   * @return array|bool
+   */
+  function wpi_get_invoice_log($actions = array()) {
     global $invoice;
 
     if ( empty($invoice['log']) || !is_array($invoice['log']) ) return false;
 
     $log = array();
     foreach( $invoice['log'] as $log_item ) {
-      if ( in_array( $log_item['action'], $actions ) ) {
+      if ( array_key_exists( $log_item['action'], $actions ) ) {
         $log[] = array(
-          'action' => str_replace('_', ' ', $log_item['action']),
+          'label' => $actions[$log_item['action']],
+          'action' => $log_item['action'],
           'text' => $log_item['text'],
-          'time' => $log_item['time'] + get_option( 'gmt_offset' ) * 60 * 60
+          'time' => date('d M Y, g:i A', $log_item['time'] + get_option( 'gmt_offset' ) * 60 * 60)
         );
       }
     }
 
-    echo '<pre>';
-    print_r( $log );
-    echo '</pre>';
+    $log = array_reverse($log);
+
+    return !empty($log)?$log:false;
   }
 }
 
