@@ -561,6 +561,18 @@ textarea {
 #close-payment-form {
   display: none;
 }
+.wpi_checkout ul {
+  list-style: none;
+}
+.wpi_checkout .wpi_checkout_block {
+  padding: 40px;
+  margin: 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.wpi_checkout .wpi_checkout_block .section_title {
+  font-size: 2.2rem;
+  margin-bottom: 0.1em;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
 /*-----------------------------------------------------------------------------------*/

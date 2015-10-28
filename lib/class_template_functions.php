@@ -49,89 +49,6 @@ if ( !function_exists('show_itemized_table') ) {
     $currency_symbol = (!empty($wpi_settings['currency']['symbol'][$invoice['default_currency_code']]) ? $wpi_settings['currency']['symbol'][$invoice['default_currency_code']] : "$");
 
     ob_start();
-    if (allow_partial_payments()) {
-      ?>
-      <script type="text/javascript">
-        /**
-         * Partial payments JS
-         */
-        var minimum_payment = <?php echo $invoice['deposit_amount'] ?>;
-        var balance         = <?php echo $invoice['net'] ?>;
-        jQuery(document).ready(function(){
-          var validate_amount = function(amount) {
-            amount = Math.abs( parseFloat( amount ) );
-            if ( amount < minimum_payment ) return minimum_payment;
-            if ( amount > balance ) return balance;
-            if ( isNaN( amount ) ) return balance;
-            return amount;
-          }
-          var set_pay_button_value = function() {
-            if(jQuery("#pay_button_value").length > 0){
-              var pa = jQuery("#payment_amount").val();
-              jQuery("#pay_button_value").html(pa);
-            }
-          }
-          //** Find fields */
-          var payment_amount        = jQuery("#payment_amount");
-          var my_amount             = jQuery("#my_amount");
-          //** Find radios */
-          var custom_amount_option  = jQuery("#wpi_custom_amount_option");
-          var minimum_amount_option = jQuery("#wpi_minimum_amount_option");
-          var full_amount_option    = jQuery("#wpi_full_amount_option");
-          var custom_amount_field = jQuery("#wpi_custom_amount_option_field_wrapper");
-          my_amount.on("focus", function(){
-            custom_amount_option.attr("checked", "checked");
-          });
-          custom_amount_option.click(function(){
-            my_amount.focus();
-            custom_amount_field.show();
-          });
-          minimum_amount_option.click(function(){
-            payment_amount.val( validate_amount( minimum_amount_option.val() ) );
-            custom_amount_field.hide();
-            set_pay_button_value();
-          });
-          full_amount_option.click(function(){
-            payment_amount.val( validate_amount( full_amount_option.val() ) );
-            custom_amount_field.hide();
-            set_pay_button_value();
-          });
-          //** Handle changing of payment method */
-          jQuery("#online_payment_form_wrapper").on("formLoaded", function(){
-            payment_amount = jQuery("#payment_amount");
-            my_amount      = jQuery("#my_amount");
-            //** update field data */
-            if ( custom_amount_option.is(":checked") ) {
-              payment_amount.val( validate_amount( my_amount.val() ) );
-            }
-            if ( minimum_amount_option.is(":checked") ) {
-              payment_amount.val( validate_amount( minimum_amount_option.val() ) );
-            }
-            set_pay_button_value();
-          });
-          //** If there are required fields */
-          if ( payment_amount.length && my_amount.length ) {
-            //** update field data */
-            my_amount.on("keyup", function(){
-              var new_value = my_amount.val();
-              payment_amount.val( validate_amount( new_value ) );
-              set_pay_button_value();
-            });
-            my_amount.on("blur", function(){
-              my_amount.val( payment_amount.val() );
-              set_pay_button_value();
-            });
-            my_amount.on("focus", function(){
-              my_amount.val( payment_amount.val() );
-              set_pay_button_value();
-            });
-          } else {
-            alert( "<?php _e('Partial payment is not available because of an error.\nContact Administirator for more information.', ud_get_wp_invoice()->domain) ?>" );
-          }
-        });
-      </script>
-      <?php
-    }
     if ($wpi_settings['use_custom_templates'] != 'yes' || !file_exists(TEMPLATEPATH . '/wpi/table.php')):
       ?>
       <table id="wp_invoice_itemized_table" class="table table-striped wp_invoice_itemized_table">
@@ -374,7 +291,11 @@ if ( !function_exists('show_partial_payments') ) {
         <div class="wpi_checkout_partial_payment wpi_checkout_payment_box">
           <ul class="wpi_checkout_block">
 
-            <li class="section_title"><?php _e('Payment Amount', ud_get_wp_invoice()->domain); ?></li>
+            <li class="section_title">
+              <?php _e('Payment Amount', ud_get_wp_invoice()->domain); ?>
+            </li>
+
+            <li class="section_description"><p><?php echo apply_filters('wpi_show_partial_payments_message', __('This invoice allows partial payments, please select the amount you would like to pay.', ud_get_wp_invoice()->domain)); ?></p></li>
 
             <li class="wpi_checkout_row">
               <label for="wpi_minimum_amount_option"><?php _e("Min. Payment Due:", ud_get_wp_invoice()->domain); ?></label>
@@ -398,9 +319,87 @@ if ( !function_exists('show_partial_payments') ) {
             </li>
 
           </ul>
-          <small class="notice"><?php echo apply_filters('wpi_show_partial_payments_message', __('This invoice allows partial payments, please select the amount you would like to pay.', ud_get_wp_invoice()->domain)); ?></small>
         </div>
       </form>
+      <script type="text/javascript">
+        /**
+         * Partial payments JS
+         */
+        var minimum_payment = <?php echo $invoice['deposit_amount'] ?>;
+        var balance         = <?php echo $invoice['net'] ?>;
+        jQuery(document).ready(function(){
+          var validate_amount = function(amount) {
+            amount = Math.abs( parseFloat( amount ) );
+            if ( amount < minimum_payment ) return minimum_payment;
+            if ( amount > balance ) return balance;
+            if ( isNaN( amount ) ) return balance;
+            return amount;
+          }
+          var set_pay_button_value = function() {
+            if(jQuery("#pay_button_value").length > 0){
+              var pa = jQuery("#payment_amount").val();
+              jQuery("#pay_button_value").html(pa);
+            }
+          }
+          //** Find fields */
+          var payment_amount        = jQuery("#payment_amount");
+          var my_amount             = jQuery("#my_amount");
+          //** Find radios */
+          var custom_amount_option  = jQuery("#wpi_custom_amount_option");
+          var minimum_amount_option = jQuery("#wpi_minimum_amount_option");
+          var full_amount_option    = jQuery("#wpi_full_amount_option");
+          var custom_amount_field = jQuery("#wpi_custom_amount_option_field_wrapper");
+          my_amount.on("focus", function(){
+            custom_amount_option.attr("checked", "checked");
+          });
+          custom_amount_option.click(function(){
+            my_amount.focus();
+            custom_amount_field.show();
+          });
+          minimum_amount_option.click(function(){
+            payment_amount.val( validate_amount( minimum_amount_option.val() ) );
+            custom_amount_field.hide();
+            set_pay_button_value();
+          });
+          full_amount_option.click(function(){
+            payment_amount.val( validate_amount( full_amount_option.val() ) );
+            custom_amount_field.hide();
+            set_pay_button_value();
+          });
+          //** Handle changing of payment method */
+          jQuery("#online_payment_form_wrapper").on("formLoaded", function(){
+            payment_amount = jQuery("#payment_amount");
+            my_amount      = jQuery("#my_amount");
+            //** update field data */
+            if ( custom_amount_option.is(":checked") ) {
+              payment_amount.val( validate_amount( my_amount.val() ) );
+            }
+            if ( minimum_amount_option.is(":checked") ) {
+              payment_amount.val( validate_amount( minimum_amount_option.val() ) );
+            }
+            set_pay_button_value();
+          });
+          //** If there are required fields */
+          if ( payment_amount.length && my_amount.length ) {
+            //** update field data */
+            my_amount.on("keyup", function(){
+              var new_value = my_amount.val();
+              payment_amount.val( validate_amount( new_value ) );
+              set_pay_button_value();
+            });
+            my_amount.on("blur", function(){
+              my_amount.val( payment_amount.val() );
+              set_pay_button_value();
+            });
+            my_amount.on("focus", function(){
+              my_amount.val( payment_amount.val() );
+              set_pay_button_value();
+            });
+          } else {
+            alert( "<?php _e('Partial payment is not available because of an error.\nContact Administirator for more information.', ud_get_wp_invoice()->domain) ?>" );
+          }
+        });
+      </script>
     <?php
     endif;
   }
