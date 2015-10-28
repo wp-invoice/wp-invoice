@@ -47,7 +47,8 @@ namespace UsabilityDynamics\WPI {
         global $wp_styles;
         $wp_styles->queue = array();
 
-        do_action('wpi_unified_page_styles');
+        global $wpi_invoice_object;
+        do_action('wpi_unified_page_styles', $wpi_invoice_object);
       }
 
       /**
