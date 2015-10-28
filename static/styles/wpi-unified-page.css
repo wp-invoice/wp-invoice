@@ -557,6 +557,10 @@ textarea {
   border: 1px solid #f2f2f2;
   border-color: #e6e6e6;
 }
+#payment-form-container,
+#close-payment-form {
+  display: none;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
 /*-----------------------------------------------------------------------------------*/

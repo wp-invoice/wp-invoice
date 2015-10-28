@@ -66,6 +66,8 @@ namespace UsabilityDynamics\WPI {
           wp_enqueue_script('wpi-ga-tracking', ud_get_wp_invoice()->path("static/scripts/wpi.ga.tracking.js", 'url'), array('jquery'));
         }
 
+        wp_enqueue_script( 'wpi-unified-invoice-page', ud_get_wp_invoice()->path("static/scripts/unified-invoice-page.js", 'url'), array('jquery'));
+
         do_action('wpi_unified_page_scripts');
       }
 
