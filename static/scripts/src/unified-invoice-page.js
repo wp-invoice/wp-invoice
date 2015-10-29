@@ -32,9 +32,11 @@
      * Hack to fix layout a bit
      */
     $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
+    $('.sigPad').append('<div class="clearfix"></div>');
     $(document).on('wpi_payment_form_changed', function(){
       $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
     });
+    $('#credit_card_information').find('br.cb').remove();
 
     return this;
   };

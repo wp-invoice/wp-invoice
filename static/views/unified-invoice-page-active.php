@@ -336,11 +336,6 @@ global $invoice, $wpi_settings;
 
             <?php do_action('wpi_front_end_right_col_bottom'); ?>
 
-            <div class="bottom-box">
-              <input type="submit" id="paynow" class="btn btn-paynow" value="Pay Now" />
-              <input type="reset" id="cancel" class="btn btn-cancel" value="Cancel" />
-            </div>
-
         </div><!--end /box-inner-content-->
       </div>
 

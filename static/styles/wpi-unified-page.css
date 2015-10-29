@@ -582,6 +582,9 @@ textarea {
 #close-payment-form {
   display: none;
 }
+#payment-form-container .box-content {
+  margin-bottom: 30px;
+}
 .wpi_checkout ul {
   list-style: none;
 }
@@ -667,6 +670,11 @@ textarea {
 #credit_card_information .sigPad {
   width: 100% !important;
   padding: 40px;
+  margin-bottom: 0;
+}
+#credit_card_information .sigPad .error {
+  font-weight: normal;
+  border-radius: 6px;
 }
 #credit_card_information .sigPad .sigTitle {
   display: block;
@@ -706,6 +714,36 @@ textarea {
 }
 #credit_card_information .sigPad .sigWrapper .pad {
   border: none;
+}
+#wp_invoice_process_wait {
+  clear: both;
+  margin: 0;
+  background: #F9F9F9;
+  padding: 25px 0;
+  text-align: center;
+  position: relative;
+}
+#wp_invoice_process_wait .loader-img {
+  position: absolute;
+  top: 32px;
+  width: 20px;
+}
+#wp_invoice_process_wait button {
+  background-color: #fb8160;
+  color: #fff;
+  border-radius: 6px;
+  margin: 0 4px;
+  -moz-user-select: none;
+  border: 1px solid #fd6b58;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
