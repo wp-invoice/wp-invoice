@@ -595,7 +595,9 @@ input, button, select, textarea {
   position: relative;
 }
 
-.invoice-payment form input[type="text"] {
+.invoice-payment input[type="text"],
+.invoice-payment select {
+  outline: none;
   box-shadow: none;
   border: 1px solid #e6e6e6;
   height: 50px;
@@ -616,6 +618,11 @@ input, button, select, textarea {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  }
+
+  &.wpi_error {
+    background-color: #fff5f5;
+    border-color: #e04949;
   }
 }
 
@@ -745,6 +752,38 @@ input, button, select, textarea {
       width: 94%;
     }
   }
+}
+
+#online_payment_form_wrapper {
+  .wpi_checkout_row {
+    margin-bottom: 20px;
+    label {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  form.wpi_paypal {
+    input[name^="night_phone"] {
+      width: 32%;
+      float: left;
+
+      &+input[name^="night_phone"] {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  form.wpi_paypal_pro, form.wpi_usa_epay {
+    #card-expiry-month {
+      float: left;
+      margin-right: 8px;
+    }
+  }
+}
+
+#wpi_gateway_form_errors {
+  display: none !important;
 }
 
 /*-----------------------------------------------------------------------------------*/

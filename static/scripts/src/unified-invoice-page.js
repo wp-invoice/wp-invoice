@@ -32,6 +32,9 @@
      * Hack to fix layout a bit
      */
     $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
+    $(document).on('wpi_payment_form_changed', function(){
+      $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
+    });
 
     return this;
   };

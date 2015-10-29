@@ -306,127 +306,6 @@ global $invoice, $wpi_settings;
       <div class="box-content">
 
         <div class="box-inner">
-          <form action="#" method="post">
-            <div class="form-box-wrap">
-              <div class="row">
-                <div class="col-sm-5">
-                  <label>
-                    <p>Select your payment mode</p>
-                    <span>This invoice allows partial payments please select the amount you would like to pay.  </span>
-                  </label>
-                </div>
-
-                <div class="col-sm-7">
-                  <ul class="payment-mode">
-                    <li><label><input type="radio" name="payment-mode" value="Minimum payment due" /> Minimum payment due: <i>$3,000.00</i></label></li>
-
-                    <li><label><input type="radio" name="payment-mode" value="Statement balance" /> Statement balance: <i>$5,604.80</i></label></li>
-
-                    <li><label><input type="radio" name="payment-mode" value="Other" /> Other</label>
-                      <div class="form-group">
-                        <input type="text" id="other" class="form-control" />
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div><!--end /form-box-wrap-->
-
-            <div class="form-box-wrap">
-              <div class="row">
-                <div class="col-sm-5">
-                  <label>
-                    <p>Customer Information</p>
-                    <span>Enter the information of client you are sending payment to.</span>
-                  </label>
-                </div>
-
-                <div class="col-sm-7">
-                  <div class="form-group clearfix">
-                    <div class="col-xs-6">
-                      <span class="error-label">Please check the name</span>
-                      <input type="text" id="first-name" class="form-control error" placeholder="First Name" />
-                    </div>
-
-                    <div class="col-xs-6">
-                      <input type="text" id="last-name" class="form-control" placeholder="Last Name" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <input type="email" id="email" class="form-control" placeholder="Email" />
-                  </div>
-
-                  <div class="form-group">
-                    <input type="text" id="phone-number" class="form-control" placeholder="Phone Number" />
-                  </div>
-
-
-                  <div class="form-group">
-                    <input type="text" id="address" class="form-control" placeholder="Address" />
-                  </div>
-
-                  <div class="form-group">
-                    <select id="country" class="form-control">
-                      <option>Select country</option>
-                      <option>Canada</option>
-                      <option>USA</option>
-                      <option>UK</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group clearfix">
-                    <div class="col-xs-4">
-                      <input type="text" id="city" class="form-control" placeholder="City" />
-                    </div>
-
-                    <div class="col-xs-4">
-                      <input type="text" id="state" class="form-control" placeholder="State" />
-                    </div>
-
-                    <div class="col-xs-4">
-                      <input type="text" id="zipcode" class="form-control" placeholder="Zip" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!--end /form-box-wrap-->
-
-            <div class="form-box-wrap">
-              <div class="row">
-                <div class="col-sm-5">
-                  <label>
-                    <p>Payment Details</p>
-                    <span>Enter the information of client you are sending payment to.</span>
-                  </label>
-                </div>
-
-                <div class="col-sm-7">
-                  <div class="form-group">
-                    <input type="text" id="card-name" class="form-control" placeholder="Name on card" />
-                  </div>
-
-                  <div class="form-group">
-                    <input type="text" id="card-number" class="form-control" placeholder="Card number" />
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-xs-4">
-                      <input type="text" id="month" class="form-control" placeholder="Month" />
-                    </div>
-
-                    <div class="col-xs-4">
-                      <input type="text" id="year" class="form-control" placeholder="Year" />
-                    </div>
-
-                    <div class="col-xs-4">
-                      <input type="text" id="cv" class="form-control" placeholder="CV" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!--end /form-box-wrap-->
-
 
             <?php if (!is_quote()) { ?>
               <div class="wpi_checkout">
@@ -461,7 +340,7 @@ global $invoice, $wpi_settings;
               <input type="submit" id="paynow" class="btn btn-paynow" value="Pay Now" />
               <input type="reset" id="cancel" class="btn btn-cancel" value="Cancel" />
             </div>
-          </form>
+
         </div><!--end /box-inner-content-->
       </div>
 

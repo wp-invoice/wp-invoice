@@ -80,4 +80,6 @@ function wpi_init_form(){
       return false;
     }
   });
+
+  jQuery(document).trigger('wpi_payment_form_changed');
 }
