@@ -317,7 +317,6 @@ if ( !function_exists('show_partial_payments') ) {
                 <input class="text-input small" id="my_amount" name="my_amount" type="text" value="<?php echo wp_invoice_currency_format($invoice['net']); ?>" />
               </span>
             </li>
-
           </ul>
         </div>
       </form>

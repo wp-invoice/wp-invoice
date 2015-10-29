@@ -28,6 +28,11 @@
     this.payment_form_button.on( 'click', this.toggle_payment_form );
     this.go_back_button.on( 'click', this.toggle_payment_form );
 
+    /**
+     * Hack to fix layout a bit
+     */
+    $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
+
     return this;
   };
 

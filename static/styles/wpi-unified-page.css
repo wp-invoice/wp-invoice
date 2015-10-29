@@ -505,13 +505,26 @@ textarea {
 .invoice-payment form .form-group {
   position: relative;
 }
-.invoice-payment form .form-control {
+.invoice-payment form input[type="text"] {
   box-shadow: none;
-  border-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
   height: 50px;
   font-size: 1.50rem;
   border-radius: 6px;
   padding-left: 20px;
+  background-color: #fff;
+  background-image: none;
+  color: #555;
+  display: block;
+  line-height: 1.42857;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+.invoice-payment form input[type="text"]:focus {
+  border-color: #c7c8ca;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 .invoice-payment form .form-control:focus {
   border-color: #c7c8ca;
@@ -571,7 +584,7 @@ textarea {
 }
 .wpi_checkout .wpi_checkout_block .wpi_checkout_row {
   float: right;
-  width: 53.8%;
+  width: 56.8%;
 }
 .wpi_checkout .wpi_checkout_block .section_title {
   font-size: 2.2rem;
@@ -583,6 +596,43 @@ textarea {
   float: left;
   clear: both;
   width: 41.66666%;
+}
+.wpi_checkout .wpi_checkout_block .section_description p {
+  color: #a7a9ac;
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  margin-right: 25%;
+}
+.wpi_checkout_method_selection label {
+  display: none;
+}
+.wpi_checkout_partial_payment {
+  font-size: 1.65rem;
+}
+.wpi_checkout_partial_payment .wpi_checkout_row {
+  margin-bottom: 8px;
+}
+.wpi_checkout_partial_payment .wpi_checkout_row input[type="radio"] {
+  float: left;
+  margin: 4px 15px 0 0;
+}
+.wpi_checkout_partial_payment .wpi_checkout_row label {
+  margin: 0;
+}
+.wpi_checkout_partial_payment .wpi_checkout_row span {
+  color: #fc6f67;
+}
+.wpi_checkout_partial_payment #wpi_custom_amount_option_field_wrapper {
+  display: block;
+  line-height: 46px;
+  margin-top: 15px;
+  padding-left: 2px;
+  width: 100%;
+}
+.wpi_checkout_partial_payment #wpi_custom_amount_option_field_wrapper input {
+  float: right;
+  width: 94%;
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
