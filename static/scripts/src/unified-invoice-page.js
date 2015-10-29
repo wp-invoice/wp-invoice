@@ -75,3 +75,41 @@ var wpi_authorize_submit = function() {
   }, 'json');
   return false;
 };
+
+/**
+ * STRIPE response handler
+ */
+function stripeResponseHandler(status, response) {
+
+  //** Check for an error */
+  if (response.error) {
+    alert(response.error.message);
+  } else {
+
+    //** No errors, submit the form */
+    var f = jQuery("#online_payment_form-wpi_stripe");
+
+    //** Token contains id, last4, and card type */
+    var token = response['id'];
+
+    //** Insert the token into the form so it gets submitted to the server */
+    f.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+
+    var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
+    var message = '';
+    jQuery.post(url, jQuery("#online_payment_form-wpi_stripe").serialize(), function(d){
+      if ( d.success ) {
+        jQuery(document).trigger('wpi_payment_success');
+      } else if ( d.error ) {
+        jQuery.each( d.data.messages, function(k, v){
+          message += v +'\n\n';
+        });
+        alert( message );
+        location.reload(true);
+      }
+    }, 'json');
+    return false;
+
+  }
+
+}
