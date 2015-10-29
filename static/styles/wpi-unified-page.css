@@ -664,6 +664,49 @@ textarea {
 #wpi_gateway_form_errors {
   display: none !important;
 }
+#credit_card_information .sigPad {
+  width: 100% !important;
+  padding: 40px;
+}
+#credit_card_information .sigPad .sigTitle {
+  display: block;
+  font-size: 2.2rem;
+  width: 41.666%;
+  float: left;
+}
+#credit_card_information .sigPad label {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-family: "Questrial";
+  width: 56.8%;
+  float: right;
+}
+#credit_card_information .sigPad input[type="text"] {
+  width: 56.8% !important;
+  float: right;
+}
+#credit_card_information .sigPad .drawItDesc {
+  border-top: 0 none;
+  float: right;
+  font-family: Questrial;
+  font-size: 1.5rem;
+  font-style: normal;
+  width: 56.8%;
+}
+#credit_card_information .sigPad .sigNav {
+  float: right;
+  width: 56.8%;
+}
+#credit_card_information .sigPad .sigWrapper {
+  float: right;
+  text-align: center;
+  width: 56.8%;
+  border: 1px solid #eee;
+  height: auto;
+}
+#credit_card_information .sigPad .sigWrapper .pad {
+  border: none;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
 /*-----------------------------------------------------------------------------------*/
