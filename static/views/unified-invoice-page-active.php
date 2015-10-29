@@ -103,8 +103,12 @@ global $invoice, $wpi_settings;
             <?php endif; ?>
           </div>
 
+          <?php if ( is_invoice() ): ?>
           <a href="javascript:void(0);" id="close-payment-form" class="btn btn-pay"><?php _e('Go Back', ud_get_wp_invoice()->domain); ?></a>
           <a href="javascript:void(0);" id="open-payment-form" class="btn btn-pay"><?php _e('Make Payment', ud_get_wp_invoice()->domain); ?></a>
+          <?php endif; ?>
+
+          <?php do_action('wpi_front_end_right_col_bottom'); ?>
 
         </div>
       </div>
@@ -113,7 +117,7 @@ global $invoice, $wpi_settings;
 
   </header><!--end /pageheader-->
 
-  <div class="page-content">
+  <div class="page-content" id="invoice-page-content">
 
     <div class="container" id="invoice-data-container">
 
@@ -301,40 +305,68 @@ global $invoice, $wpi_settings;
 
     </div><!--end /container-->
 
+    <?php if (!is_quote()) : ?>
     <div id="payment-form-container" class="container invoice-payment">
 
       <div class="box-content">
 
         <div class="box-inner">
 
-            <?php if (!is_quote()) { ?>
-              <div class="wpi_checkout">
-                <?php if (allow_partial_payments()): ?>
-                  <?php show_partial_payments(); ?>
-                <?php endif; ?>
+          <div class="wpi_checkout">
+            <?php if (allow_partial_payments()): ?>
+              <?php show_partial_payments(); ?>
+            <?php endif; ?>
 
-                <?php show_payment_selection(); ?>
+            <?php show_payment_selection(); ?>
 
-                <?php
-                $method = !empty($invoice['default_payment_method']) ? $invoice['default_payment_method'] : 'manual';
-                if ($method == 'manual') {
-                  ?>
-                  <p><strong><?php _e('Manual Payment Information', ud_get_wp_invoice()->domain); ?></strong></p>
-                  <p><?php echo !empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', ud_get_wp_invoice()->domain); ?></p>
-                <?php
-                } else {
-                  if (!empty($wpi_settings['installed_gateways'][$method])) {
-                    $wpi_settings['installed_gateways'][$method]['object']->frontend_display($invoice);
-                  } else {
-                    _e('Sorry, there is no payment method available. Please contact Administrator.', ud_get_wp_invoice()->domain);
-                  }
-                }
-                apply_filters("wpi_closed_comments", $invoice);
-                ?>
-              </div>
-            <?php } ?>
+            <?php
+            $method = !empty($invoice['default_payment_method']) ? $invoice['default_payment_method'] : 'manual';
+            if ($method == 'manual') {
+              ?>
+              <p><strong><?php _e('Manual Payment Information', ud_get_wp_invoice()->domain); ?></strong></p>
+              <p><?php echo !empty($wpi_settings['manual_payment_info']) ? $wpi_settings['manual_payment_info'] : __('Contact site Administrator for payment information please.', ud_get_wp_invoice()->domain); ?></p>
+            <?php
+            } else {
+              if (!empty($wpi_settings['installed_gateways'][$method])) {
+                $wpi_settings['installed_gateways'][$method]['object']->frontend_display($invoice);
+              } else {
+                _e('Sorry, there is no payment method available. Please contact Administrator.', ud_get_wp_invoice()->domain);
+              }
+            }
+            apply_filters("wpi_closed_comments", $invoice);
+            ?>
+          </div>
 
-            <?php do_action('wpi_front_end_right_col_bottom'); ?>
+          <?php do_action('wpi_front_end_right_col_bottom'); ?>
+
+        </div><!--end /box-inner-content-->
+      </div>
+
+    </div><!--end /container-->
+    <?php endif; ?>
+
+  </div><!--end /page-content-->
+
+  <div id="invoice-payment-success" class="page-content thankyou">
+
+    <div class="container">
+
+      <div class="box-content">
+
+        <div class="box-inner-content">
+
+          <div class="payment-logo">
+            <img src="<?php echo ud_get_wp_invoice()->path('static/img/payment.png', 'url'); ?>" alt="" />
+          </div>
+
+          <h2><?php _e('Payment Sent Successfully', ud_get_wp_invoice()->domain); ?></h2>
+
+          <p><?php _e('Thank you for your payment. You can check the invoice at your Invoices Dashboard.', ud_get_wp_invoice()->domain); ?></p>
+
+          <div class="success-buttons">
+            <a href="<?php echo get_invoice_permalink( $invoice['ID'] ); ?>" class="btn btn-success"><?php _e( 'Check Receipt', ud_get_wp_invoice()->domain ); ?></a>
+            <a href="#" class="btn btn-info"><?php _e( 'View Dashboard', ud_get_wp_invoice()->domain ); ?></a>
+          </div>
 
         </div><!--end /box-inner-content-->
       </div>

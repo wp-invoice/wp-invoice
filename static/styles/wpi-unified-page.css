@@ -579,11 +579,19 @@ textarea {
   border-color: #e6e6e6;
 }
 #payment-form-container,
-#close-payment-form {
+#close-payment-form,
+#invoice-payment-success {
   display: none;
 }
-#payment-form-container .box-content {
+#payment-form-container .box-content,
+#invoice-payment-success .box-content {
   margin-bottom: 30px;
+}
+.success-buttons {
+  margin-top: 30px;
+}
+.success-buttons a + a {
+  margin-left: 10px;
 }
 .wpi_checkout ul {
   list-style: none;
@@ -744,6 +752,36 @@ textarea {
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
+}
+#wpi_quote_accept {
+  float: right;
+}
+#wpi_quote_accept input[type="submit"] {
+  background-color: #fb8160;
+  border-radius: 6px;
+  color: #fff;
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+#wpi_quote_accept .loader-img {
+  width: 20px;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+#wpi_quote_accept .wpi_quote_accept_result {
+  display: none !important;
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
