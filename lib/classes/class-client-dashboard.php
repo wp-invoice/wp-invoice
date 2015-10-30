@@ -65,6 +65,8 @@ namespace UsabilityDynamics\WPI {
       public function remove_all_theme_styles() {
         global $wp_styles;
         $wp_styles->queue = array();
+
+        wp_enqueue_style('wpi-unified-page-styles', ud_get_wp_invoice()->path('/static/styles/wpi-unified-page.css', 'url'));
       }
 
       /**

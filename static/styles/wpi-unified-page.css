@@ -783,6 +783,9 @@ textarea {
 #wpi_quote_accept .wpi_quote_accept_result {
   display: none !important;
 }
+#client-dashboard .page-content {
+  top: -55px;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
 /*-----------------------------------------------------------------------------------*/
