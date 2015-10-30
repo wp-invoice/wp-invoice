@@ -84,6 +84,7 @@
     $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
     $('.sigPad').append('<div class="clearfix"></div>');
     $('#credit_card_information').find('br.cb').remove();
+    this.override_success_callback();
     $(document).on('wpi_payment_form_changed', function(){
       $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
       $('.sigPad').append('<div class="clearfix"></div>');
