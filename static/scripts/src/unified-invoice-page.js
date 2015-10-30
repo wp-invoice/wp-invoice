@@ -27,6 +27,54 @@
       }
     };
 
+    this.override_success_callback = function() {
+      /**
+       *
+       * @returns {boolean}
+       */
+      window.wpi_paypal_pro_submit = function(){
+        jQuery( "#cc_pay_button" ).attr("disabled", "disabled");
+        jQuery( ".loader-img" ).show();
+        var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
+        var message = '';
+        jQuery.post(url, jQuery("#online_payment_form-wpi_paypal_pro").serialize(), function(d){
+          if ( d.success ) {
+            jQuery(document).trigger('wpi_payment_success');
+          } else if ( d.error ) {
+            jQuery.each( d.data.messages, function(k, v){
+              message += v +'\n\n';
+            });
+            alert( message );
+            location.reload(true);
+          }
+        }, 'json');
+        return false;
+      };
+
+      /**
+       *
+       * @returns {boolean}
+       */
+      window.wpi_usa_epay_submit = function(){
+        jQuery( "#cc_pay_button" ).attr("disabled", "disabled");
+        jQuery( ".loader-img" ).show();
+        var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
+        var message = '';
+        jQuery.post(url, jQuery("#online_payment_form-wpi_usa_epay").serialize(), function(d){
+          if ( d.success ) {
+            jQuery(document).trigger('wpi_payment_success');
+          } else if ( d.error ) {
+            jQuery.each( d.data.messages, function(k, v){
+              message += v +'\n\n';
+            });
+            alert( message );
+            location.reload(true);
+          }
+        }, 'json');
+        return false;
+      };
+    };
+
     this.payment_form_button.on( 'click', this.toggle_payment_form );
     this.go_back_button.on( 'click', this.toggle_payment_form );
 
@@ -40,6 +88,7 @@
       $('ul.wpi_checkout_block').append('<li class="clearfix"></li>');
       $('.sigPad').append('<div class="clearfix"></div>');
       $('#credit_card_information').find('br.cb').remove();
+      that.override_success_callback();
     });
 
     $(document).on('wpi_payment_success', function(){
@@ -77,24 +126,18 @@ var wpi_authorize_submit = function() {
 };
 
 /**
- * STRIPE response handler
+ * Override existing function to match unified page needs
+ * @param status
+ * @param response
+ * @returns {boolean}
  */
 function stripeResponseHandler(status, response) {
-
-  //** Check for an error */
   if (response.error) {
     alert(response.error.message);
   } else {
-
-    //** No errors, submit the form */
     var f = jQuery("#online_payment_form-wpi_stripe");
-
-    //** Token contains id, last4, and card type */
     var token = response['id'];
-
-    //** Insert the token into the form so it gets submitted to the server */
     f.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
-
     var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
     var message = '';
     jQuery.post(url, jQuery("#online_payment_form-wpi_stripe").serialize(), function(d){
@@ -109,7 +152,5 @@ function stripeResponseHandler(status, response) {
       }
     }, 'json');
     return false;
-
   }
-
 }
