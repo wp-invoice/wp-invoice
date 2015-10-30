@@ -300,13 +300,37 @@ class WPI_Settings_page {
 
       <tr>
         <th><?php _e("When viewing an invoice", ud_get_wp_invoice()->domain) ?></th>
-        <td><ul class="wpi_settings_list">
+        <td>
+          <ul class="wpi_settings_list">
+            <li><?php echo WPI_UI::checkbox(
+                  array(
+                    'name' => 'activate_client_dashboard',
+                    'group' => 'wpi_settings',
+                    'value' => 'true',
+                    'label' => __('Activate Client Dashboard.', ud_get_wp_invoice()->domain)
+                  ), !empty($wpi_settings['activate_client_dashboard'])?$wpi_settings['activate_client_dashboard']:'false'); ?></li>
+            <li>
+              <label for="wpi_settings[web_dashboard_page]"><?php _e("Display dashboard on the", ud_get_wp_invoice()->domain) ?>
+                <select name='wpi_settings[web_dashboard_page]'>
+                  <option><?php _e( 'Not selected', ud_get_wp_invoice()->domain ); ?></option>
+                  <?php
+                  $list_pages = $wpdb->get_results("SELECT ID, post_title, post_name, guid FROM " . $wpdb->prefix . "posts WHERE post_status = 'publish' AND post_type = 'page' ORDER BY post_title");
+                  $wp_invoice_web_dashboard = $wpi_settings['web_dashboard_page'];
+                  foreach ($list_pages as $page) {
+                    echo "<option  style='padding-right: 10px;'";
+                    if (isset($wp_invoice_web_dashboard) && $wp_invoice_web_dashboard == $page->ID)
+                      echo " SELECTED ";
+                    echo " value=\"" . $page->ID . "\">" . $page->post_title . "</option>\n";
+                  }
+                  echo "</select>";
+                  ?>
+                  <?php _e("page.", ud_get_wp_invoice()->domain) ?> </label>
+            </li>
             <li>
               <label for="wpi_settings[web_invoice_page]"><?php _e("Display invoices on the", ud_get_wp_invoice()->domain) ?>
                 <select name='wpi_settings[web_invoice_page]'>
                   <option></option>
                   <?php
-                  $list_pages = $wpdb->get_results("SELECT ID, post_title, post_name, guid FROM " . $wpdb->prefix . "posts WHERE post_status = 'publish' AND post_type = 'page' ORDER BY post_title");
                   $wp_invoice_web_invoice_page = $wpi_settings['web_invoice_page'];
                   foreach ($list_pages as $page) {
                     echo "<option  style='padding-right: 10px;'";

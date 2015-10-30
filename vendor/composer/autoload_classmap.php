@@ -41,6 +41,7 @@ return array(
     'UsabilityDynamics\\UI\\Utility' => $vendorDir . '/usabilitydynamics/lib-ui/lib/class-utility.php',
     'UsabilityDynamics\\Utility' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-utility.php',
     'UsabilityDynamics\\Utility\\Guid_Fix' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-guid-fix.php',
+    'UsabilityDynamics\\WPI\\ClientDashboard' => $baseDir . '/lib/classes/class-client-dashboard.php',
     'UsabilityDynamics\\WPI\\LineCharge' => $baseDir . '/lib/classes/class-line-charge.php',
     'UsabilityDynamics\\WPI\\LineItem' => $baseDir . '/lib/classes/class-line-item.php',
     'UsabilityDynamics\\WPI\\UnifiedInvoicePage' => $baseDir . '/lib/classes/class-unified-invoice-page.php',
