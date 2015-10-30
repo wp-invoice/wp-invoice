@@ -550,6 +550,14 @@ input, button, select, textarea {
   font-weight: normal;
 }
 
+#online_payment_form_wrapper form label {
+  font-weight: normal;
+  position: absolute;
+  right: 19px;
+  top: 15px;
+  color: #cccccc;
+}
+
 .invoice-payment form label p {
   font-size: 2.20rem;
   margin-bottom: .10em;
@@ -769,7 +777,8 @@ input, button, select, textarea {
 
 #online_payment_form_wrapper {
   .wpi_checkout_row {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    position: relative;
     label {
       font-size: 1.5rem;
       margin-bottom: 10px;
@@ -778,7 +787,7 @@ input, button, select, textarea {
 
   form.wpi_paypal {
     input[name^="night_phone"] {
-      width: 32%;
+      width: 22%;
       float: left;
 
       &+input[name^="night_phone"] {
@@ -930,7 +939,7 @@ input, button, select, textarea {
 
 #client-dashboard {
   .page-content {
-    top: -55px;
+    top: -50px;
   }
 }
 

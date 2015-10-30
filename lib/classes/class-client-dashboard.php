@@ -34,8 +34,18 @@ namespace UsabilityDynamics\WPI {
         }
       }
 
+      public function get_current_user_invoices() {
+        if ( !is_user_logged_in() ) return false;
+        if ( !$current_user_email = wp_get_current_user()->user_email ) return false;
+
+        global $wpdb;
+
+        $invoice_ids = $wpdb->get_col("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value='{$current_user_email}'");
+        if ( empty( $invoice_ids ) ) return false;
+      }
+
       /**
-       *
+       * Error notice
        */
       public function notice_page_not_selected() {
         echo '<div class="error"><p>' . sprintf( __( 'Client Dashboard page is not selected. Visit <strong><i><a href="%s">Settings Page</a> - Business Process</i></strong> and set <b><i>Display Dashboard page</i></b> under <strong><i>When viewing an invoice</i></strong> section.', ud_get_wp_invoice()->domain ), 'admin.php?page=wpi_page_settings' ) . '</p></div>';
@@ -113,15 +123,14 @@ namespace UsabilityDynamics\WPI {
         remove_action('wp_head', '_admin_bar_bump_cb');
         show_admin_bar(0);
 
+        $this->get_current_user_invoices();
+
         /**
          * Load template functions
          */
         include_once( ud_get_wp_invoice()->path('/lib/class_template_functions.php', 'dir') );
-
         $template = ud_get_wp_invoice()->path( 'static/views/client-dashboard.php', 'dir' );
-
         return $template;
-
       }
 
     }

@@ -115,12 +115,12 @@ global $invoice, $wpi_settings;
               <h2>Client Company Name</h2>
             </div>
 
-            <div class="col-sm-7 text-right">
-              <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default">Outstanding Invoice</button>
-                <button type="button" class="btn btn-default active">Paid Invoice</button>
-              </div>
-            </div>
+<!--            <div class="col-sm-7 text-right">-->
+<!--              <div class="btn-group" role="group" aria-label="...">-->
+<!--                <button type="button" class="btn btn-default">Outstanding Invoice</button>-->
+<!--                <button type="button" class="btn btn-default active">Paid Invoice</button>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
         </div>
 

@@ -469,6 +469,13 @@ textarea {
 .invoice-payment form label {
   font-weight: normal;
 }
+#online_payment_form_wrapper form label {
+  font-weight: normal;
+  position: absolute;
+  right: 19px;
+  top: 15px;
+  color: #cccccc;
+}
 .invoice-payment form label p {
   font-size: 2.20rem;
   margin-bottom: .10em;
@@ -654,14 +661,15 @@ textarea {
   width: 94%;
 }
 #online_payment_form_wrapper .wpi_checkout_row {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  position: relative;
 }
 #online_payment_form_wrapper .wpi_checkout_row label {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 #online_payment_form_wrapper form.wpi_paypal input[name^="night_phone"] {
-  width: 32%;
+  width: 22%;
   float: left;
 }
 #online_payment_form_wrapper form.wpi_paypal input[name^="night_phone"] + input[name^="night_phone"] {
@@ -784,7 +792,7 @@ textarea {
   display: none !important;
 }
 #client-dashboard .page-content {
-  top: -55px;
+  top: -50px;
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
