@@ -28,7 +28,21 @@ namespace UsabilityDynamics\WPI {
          * If we are on front-end and display option is set to 'Unified Page Template'
          * Change template
          */
-        if (!is_admin() && !empty($wpi_settings['where_to_display']) && $wpi_settings['where_to_display'] == 'unified_page') {
+        if (
+          !is_admin()
+          &&
+          (
+            (
+              !empty($wpi_settings['where_to_display'])
+              && $wpi_settings['where_to_display'] == 'unified_page'
+            )
+            ||
+            (
+              !empty($wpi_settings['activate_client_dashboard'])
+              && $wpi_settings['activate_client_dashboard'] == 'true'
+            )
+          )
+        ) {
           add_action('wpi_template_redirect', array($this, 'template_redirect_change'));
         }
       }
