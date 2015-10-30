@@ -60,6 +60,22 @@ namespace UsabilityDynamics\WPI {
       }
 
       /**
+       * Remove styles and add specific one
+       */
+      public function remove_all_theme_styles() {
+        global $wp_styles;
+        $wp_styles->queue = array();
+      }
+
+      /**
+       * Remove scripts except invoice page specific
+       */
+      public function remove_all_theme_scripts() {
+        global $wp_scripts;
+        $wp_scripts->queue = array();
+      }
+
+      /**
        * Dashboard Template
        */
       public function dashboard_template( $template ) {
@@ -67,6 +83,38 @@ namespace UsabilityDynamics\WPI {
 
         if ( !$dashboard_page_id = $this->selected_template_page() ) return $template;
         if ( $dashboard_page_id != $post->ID ) return $template;
+
+        global $wp_filter;
+
+        /**
+         * Remove unwanted wp_head hooks
+         */
+        foreach ($wp_filter['wp_head'] as $priority => $wp_head_hooks) { // Loop the hook. Hook's actions are categorized as multidimensional array by priority
+          if (is_array($wp_head_hooks)) { // Check if this is an array
+            foreach ($wp_head_hooks as $wp_head_hook) { // Loop the hook
+              if (!is_array($wp_head_hook['function']) && !in_array($wp_head_hook['function'], array('wp_print_head_scripts', 'wp_enqueue_scripts', 'wp_print_styles'))) { // Check the action against the whitelist
+                remove_action('wp_head', $wp_head_hook['function'], $priority); // Remove the action from the hook
+              }
+            }
+          }
+        }
+
+        /**
+         * Disable all unnecessary styles and scripts
+         */
+        add_action('wp_print_styles', array($this, 'remove_all_theme_styles'), 999);
+        add_action('wp_print_scripts', array($this, 'remove_all_theme_scripts'), 999);
+
+        /**
+         * Remove admin bar
+         */
+        remove_action('wp_head', '_admin_bar_bump_cb');
+        show_admin_bar(0);
+
+        /**
+         * Load template functions
+         */
+        include_once( ud_get_wp_invoice()->path('/lib/class_template_functions.php', 'dir') );
 
         $template = ud_get_wp_invoice()->path( 'static/views/client-dashboard.php', 'dir' );
 
