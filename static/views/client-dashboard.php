@@ -267,17 +267,17 @@ global $invoice, $wpi_settings;
               <span>Total:</span> $25,071.52
             </div>
 
-            <div class="col-xs-6 col-xs-pull-6">
-              <ul class="pagination">
-                <li class="prev active"><a href="#">Prev.</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li class="next"><a href="#">Next</a></li>
-              </ul>
-            </div>
+<!--            <div class="col-xs-6 col-xs-pull-6">-->
+<!--              <ul class="pagination">-->
+<!--                <li class="prev active"><a href="#">Prev.</a></li>-->
+<!--                <li><a href="#">1</a></li>-->
+<!--                <li><a href="#">2</a></li>-->
+<!--                <li><a href="#">3</a></li>-->
+<!--                <li><a href="#">4</a></li>-->
+<!--                <li><a href="#">5</a></li>-->
+<!--                <li class="next"><a href="#">Next</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
           </div>
         </div>
       </div>
