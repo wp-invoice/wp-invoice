@@ -1137,3 +1137,66 @@ if ( !function_exists('wpi_get_invoice_log') ) {
   }
 }
 
+if ( !function_exists('wpi_user_can_view_dashboard') ) {
+  /**
+   * @return bool
+   */
+  function wpi_user_can_view_dashboard() {
+    /**
+     * Always true for logged in users
+     */
+    if ( is_user_logged_in() ) return true;
+
+    /**
+     * Otherwise check for wpi_token
+     */
+    if ( empty( $_GET['wpi_token'] ) || empty( $_GET['wpi_user_id'] ) ) return false;
+
+    /**
+     * Get user data by passed ID
+     */
+    $user = get_user_by('id', (int)$_GET['wpi_user_id']);
+    if ( !is_a($user, 'WP_User') ) return false;
+
+    $token_to_check = md5( $user->ID.$user->user_email.AUTH_SALT );
+
+    if ( $token_to_check == $_GET['wpi_token'] ) return true;
+
+    return false;
+  }
+}
+
+if ( !function_exists('wpi_get_dashboard_permalink') ) {
+  /**
+   * @param $invoice_id
+   * @return string
+   */
+  function wpi_get_dashboard_permalink( $invoice_id ) {
+    if ( empty( $invoice_id ) ) return '#';
+
+    /**
+     * Get Invoice information
+     */
+    $invoice_data = new WPI_Invoice();
+    $invoice_data->load_invoice(array('id'=>$invoice_id));
+    if ( empty($invoice_data->data) || empty($invoice_data->data['user_data']) ) return '#';
+
+    /**
+     * Generate link to dashboard
+     */
+    $wpi_token = md5( $invoice_data->data['user_data']['ID'].$invoice_data->data['user_data']['user_email'].AUTH_SALT );
+
+    global $wpi_settings;
+    if ( get_option( "permalink_structure" ) ) {
+      return get_permalink( $wpi_settings[ 'web_dashboard_page' ] ) . "?wpi_user_id=" . $invoice_data->data['user_data']['ID'] . "&wpi_token=" . $wpi_token;
+    } else {
+      //** check if page is on front-end */
+      if ( get_option( 'page_on_front' ) == $wpi_settings[ 'web_invoice_page' ] ) {
+        return get_permalink( $wpi_settings[ 'web_dashboard_page' ] ) . "?wpi_user_id=" . $invoice_data->data['user_data']['ID'] . "&wpi_token=" . $wpi_token;
+      } else {
+        return get_permalink( $wpi_settings[ 'web_dashboard_page' ] ) . "&wpi_user_id=" . $invoice_data->data['user_data']['ID'] . "&wpi_token=" . $wpi_token;
+      }
+    }
+  }
+}
+

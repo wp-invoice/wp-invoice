@@ -86,7 +86,7 @@ global $invoice, $wpi_settings;
 
 </header><!--end /pageheader-->
 
-<?php if ( !is_user_logged_in() ): ?>
+<?php if ( !wpi_user_can_view_dashboard() ): ?>
   <div class="page-content thankyou">
     <div class="container">
       <div class="box-content">
@@ -94,8 +94,8 @@ global $invoice, $wpi_settings;
           <div class="payment-logo">
             <img src="<?php echo ud_get_wp_invoice()->path('static/img/key.png', 'url'); ?>" alt="" />
           </div>
-          <h2><?php _e('Authorization Required', ud_get_wp_invoice()->domain); ?></h2>
-          <p><?php _e('Please login to your account in order to see your Invoices Dashboard.', ud_get_wp_invoice()->domain); ?></p>
+          <h2><?php _e('Access Denied', ud_get_wp_invoice()->domain); ?></h2>
+          <p><?php _e('If you see this message please be sure you followed by proper link from the invoice page or log in to see your dashboard.', ud_get_wp_invoice()->domain); ?></p>
           <div class="success-buttons">
             <a href="javascript:window.history.back();" class="btn btn-info"><?php _e( 'Go Back', ud_get_wp_invoice()->domain ); ?></a>
           </div>
