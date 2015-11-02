@@ -1214,8 +1214,13 @@ if ( !function_exists('wpi_get_default_currency_sign') ) {
 }
 
 if ( !function_exists('wpi_dashboard_is_active') ) {
+  /**
+   * @return bool
+   */
   function wpi_dashboard_is_active() {
     global $wpi_settings;
+
+    if ( empty( $wpi_settings['web_dashboard_page'] ) || !get_post($wpi_settings['web_dashboard_page']) ) return false;
     return !empty( $wpi_settings['activate_client_dashboard'] ) ? ( $wpi_settings['activate_client_dashboard'] == 'true' ? true : false ) : false;
   }
 }
