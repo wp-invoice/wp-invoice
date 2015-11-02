@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-02 15:55+0200\n"
-"PO-Revision-Date: 2015-11-02 15:57+0200\n"
+"POT-Creation-Date: 2015-11-02 16:59+0200\n"
+"PO-Revision-Date: 2015-11-02 16:59+0200\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
 "Language-Team: UsabilityDynamics, inc. <anton.korotkov@usabilitydynamics."
 "com>\n"
@@ -399,6 +399,19 @@ msgstr ""
 "кликнув по ссылке:<br>%9s<br><br>User information:<br><br>ID: %10s<br>Name: "
 "%11s<br>Email: %12s<br><br>--------------------<br>%13s"
 
+#: lib/class_functions.php:2811
+#, php-format
+msgid "Invoice %s not found."
+msgstr "Счет %s не найден."
+
+#: lib/class_functions.php:2837
+msgid "Enter Invoice ID"
+msgstr "Введите ID счета"
+
+#: lib/class_functions.php:2838 lib/class_settings.php:51
+msgid "Lookup"
+msgstr "Поиск Счета"
+
 #: lib/class_gateway_base.php:24
 msgid "Customer Information"
 msgstr "Информация о плательщике"
@@ -443,7 +456,7 @@ msgstr "Уведомление о счете"
 msgid "Reminder"
 msgstr "Напоминание"
 
-#: lib/class_legacy.php:399 static/views/unified-invoice-page-paid.php:114
+#: lib/class_legacy.php:399 static/views/unified-invoice-page-paid.php:116
 msgid "Receipt"
 msgstr "Квитанция об оплате"
 
@@ -522,19 +535,15 @@ msgstr "Повторно"
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:221
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:276
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:352
-#: static/views/unified-invoice-page-active.php:189
-#: static/views/unified-invoice-page-paid.php:181
-#: static/views/unified-invoice-page-refund.php:181
+#: static/views/unified-invoice-page-active.php:191
+#: static/views/unified-invoice-page-paid.php:183
+#: static/views/unified-invoice-page-refund.php:183
 msgid "Tax"
 msgstr "Налог"
 
 #: lib/class_settings.php:50
 msgid "Pay Your Invoice"
 msgstr "Оплатите счет"
-
-#: lib/class_settings.php:51 lib/template.php:45
-msgid "Lookup"
-msgstr "Поиск Счета"
 
 #: lib/class_settings.php:55
 msgid "Dropdown"
@@ -605,9 +614,9 @@ msgstr "Заархивирован"
 msgid "Trashed"
 msgstr "Помещен в корзину"
 
-#: lib/class_settings.php:106 static/views/unified-invoice-page-active.php:282
-#: static/views/unified-invoice-page-paid.php:274
-#: static/views/unified-invoice-page-refund.php:274
+#: lib/class_settings.php:106 static/views/unified-invoice-page-active.php:284
+#: static/views/unified-invoice-page-paid.php:276
+#: static/views/unified-invoice-page-refund.php:276
 msgid "Paid"
 msgstr "Оплачен"
 
@@ -1832,9 +1841,9 @@ msgid "Cost"
 msgstr "Стоимость"
 
 #: lib/class_template_functions.php:40
-#: static/views/unified-invoice-page-active.php:184
-#: static/views/unified-invoice-page-paid.php:176
-#: static/views/unified-invoice-page-refund.php:176
+#: static/views/unified-invoice-page-active.php:186
+#: static/views/unified-invoice-page-paid.php:178
+#: static/views/unified-invoice-page-refund.php:178
 msgid "Quantity"
 msgstr "Количество"
 
@@ -2358,9 +2367,9 @@ msgstr ""
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:104
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:209
 #: static/views/invoice_lookup.php:8
-#: static/views/unified-invoice-page-active.php:149
-#: static/views/unified-invoice-page-paid.php:141
-#: static/views/unified-invoice-page-refund.php:141
+#: static/views/unified-invoice-page-active.php:151
+#: static/views/unified-invoice-page-paid.php:143
+#: static/views/unified-invoice-page-refund.php:143
 msgid "Invoice ID"
 msgstr "Номер счета"
 
@@ -2852,11 +2861,11 @@ msgstr ""
 msgid "Arguments:"
 msgstr "Аргументы:"
 
-#: lib/classes/class-WPI_Bootstrap.php:178
+#: lib/classes/class-WPI_Bootstrap.php:166
 msgid "Add-ons"
 msgstr "Дополнения"
 
-#: lib/classes/class-WPI_Bootstrap.php:179
+#: lib/classes/class-WPI_Bootstrap.php:167
 msgid "WP-Invoice Add-ons Manager"
 msgstr "Управление дополнениями"
 
@@ -3562,15 +3571,6 @@ msgstr "Месяц истечения"
 msgid "Expiration (Year)"
 msgstr "Год истечения"
 
-#: lib/template.php:18
-#, php-format
-msgid "Invoice %s not found."
-msgstr "Счет %s не найден."
-
-#: lib/template.php:44
-msgid "Enter Invoice ID"
-msgstr "Введите ID счета"
-
 #: lib/ui/first_time_setup.php:12
 msgid ""
 "Thank you for installing WP-Invoice.  Please provide the necessary "
@@ -3725,9 +3725,9 @@ msgstr "Дополнительно"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:198
 #: static/views/client-dashboard.php:134
-#: static/views/unified-invoice-page-active.php:158
-#: static/views/unified-invoice-page-paid.php:150
-#: static/views/unified-invoice-page-refund.php:150
+#: static/views/unified-invoice-page-active.php:160
+#: static/views/unified-invoice-page-paid.php:152
+#: static/views/unified-invoice-page-refund.php:152
 msgid "Due Date"
 msgstr "Дата окончания"
 
@@ -3766,9 +3766,9 @@ msgid "New User Information"
 msgstr "Информация о новом пользователе"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:268
-#: static/views/unified-invoice-page-active.php:280
-#: static/views/unified-invoice-page-paid.php:272
-#: static/views/unified-invoice-page-refund.php:272
+#: static/views/unified-invoice-page-active.php:282
+#: static/views/unified-invoice-page-paid.php:274
+#: static/views/unified-invoice-page-refund.php:274
 msgid "Email"
 msgstr "Email"
 
@@ -3855,9 +3855,9 @@ msgid "Administrative Adjustment"
 msgstr "Корректировки"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
-#: static/views/unified-invoice-page-active.php:279
-#: static/views/unified-invoice-page-paid.php:271
-#: static/views/unified-invoice-page-refund.php:271
+#: static/views/unified-invoice-page-active.php:281
+#: static/views/unified-invoice-page-paid.php:273
+#: static/views/unified-invoice-page-refund.php:273
 msgid "Refund"
 msgstr "Возмещение"
 
@@ -3992,12 +3992,12 @@ msgstr "Название"
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:185
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:274
 #: static/views/client-dashboard.php:137
-#: static/views/unified-invoice-page-active.php:187
-#: static/views/unified-invoice-page-active.php:226
-#: static/views/unified-invoice-page-paid.php:179
-#: static/views/unified-invoice-page-paid.php:218
-#: static/views/unified-invoice-page-refund.php:179
-#: static/views/unified-invoice-page-refund.php:218
+#: static/views/unified-invoice-page-active.php:189
+#: static/views/unified-invoice-page-active.php:228
+#: static/views/unified-invoice-page-paid.php:181
+#: static/views/unified-invoice-page-paid.php:220
+#: static/views/unified-invoice-page-refund.php:181
+#: static/views/unified-invoice-page-refund.php:220
 msgid "Amount"
 msgstr "Количество"
 
@@ -4051,9 +4051,9 @@ msgstr "Итого без налога:"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:314
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:494
-#: static/views/unified-invoice-page-active.php:255
-#: static/views/unified-invoice-page-paid.php:247
-#: static/views/unified-invoice-page-refund.php:247
+#: static/views/unified-invoice-page-active.php:257
+#: static/views/unified-invoice-page-paid.php:249
+#: static/views/unified-invoice-page-refund.php:249
 msgid "Discount:"
 msgstr "Скидки:"
 
@@ -4657,13 +4657,20 @@ msgstr ""
 "правильной ссылке на странице инвойса, или войдите под своим аккаунтом."
 
 #: static/views/client-dashboard.php:96
-#: static/views/unified-invoice-page-active.php:103
+#: static/views/unified-invoice-page-active.php:105
 msgid "Go Back"
 msgstr "Назад"
 
 #: static/views/client-dashboard.php:136
 msgid "Summary"
 msgstr "Описание"
+
+#: static/views/client-dashboard.php:170
+#: static/views/unified-invoice-page-active.php:249
+#: static/views/unified-invoice-page-paid.php:241
+#: static/views/unified-invoice-page-refund.php:241
+msgid "Total:"
+msgstr "Всего:"
 
 #: static/views/invoice_page.php:3
 #, php-format
@@ -4689,19 +4696,19 @@ msgid "You've made payments, but still owe:"
 msgstr "Вы внесли платеж, однако сумма вашего долга:"
 
 #: static/views/invoice_page.php:56
-#: static/views/unified-invoice-page-active.php:323
+#: static/views/unified-invoice-page-active.php:325
 msgid "Manual Payment Information"
 msgstr "Информация о ручной оплате"
 
 #: static/views/invoice_page.php:57
-#: static/views/unified-invoice-page-active.php:324
+#: static/views/unified-invoice-page-active.php:326
 msgid "Contact site Administrator for payment information please."
 msgstr ""
 "Свяжитесь с Администратором сайта, чтобы узнать дополнительную информацию о "
 "совершении платежей"
 
 #: static/views/invoice_page.php:63
-#: static/views/unified-invoice-page-active.php:330
+#: static/views/unified-invoice-page-active.php:332
 msgid ""
 "Sorry, there is no payment method available. Please contact Administrator."
 msgstr "Извините, нет доступных способов оплаты. Свяжитесь с Администратором."
@@ -4718,138 +4725,132 @@ msgstr "Мы выслали вам счет"
 msgid "was paid."
 msgstr "было оплачено."
 
-#: static/views/unified-invoice-page-active.php:92
-#: static/views/unified-invoice-page-paid.php:92
-#: static/views/unified-invoice-page-refund.php:92
+#: static/views/unified-invoice-page-active.php:93
+#: static/views/unified-invoice-page-paid.php:93
+#: static/views/unified-invoice-page-refund.php:93
 msgid "My dashboard"
 msgstr "Панель Клиента"
 
-#: static/views/unified-invoice-page-active.php:98
-#: static/views/unified-invoice-page-paid.php:98
-#: static/views/unified-invoice-page-refund.php:98
+#: static/views/unified-invoice-page-active.php:100
+#: static/views/unified-invoice-page-paid.php:100
+#: static/views/unified-invoice-page-refund.php:100
 msgid "PDF"
 msgstr "PDF"
 
-#: static/views/unified-invoice-page-active.php:104
+#: static/views/unified-invoice-page-active.php:106
 msgid "Make Payment"
 msgstr "Сделать Платеж"
 
-#: static/views/unified-invoice-page-active.php:140
-#: static/views/unified-invoice-page-paid.php:132
-#: static/views/unified-invoice-page-refund.php:132
+#: static/views/unified-invoice-page-active.php:142
+#: static/views/unified-invoice-page-paid.php:134
+#: static/views/unified-invoice-page-refund.php:134
 msgid "Email:"
 msgstr "Email:"
 
-#: static/views/unified-invoice-page-active.php:143
-#: static/views/unified-invoice-page-paid.php:135
-#: static/views/unified-invoice-page-refund.php:135
+#: static/views/unified-invoice-page-active.php:145
+#: static/views/unified-invoice-page-paid.php:137
+#: static/views/unified-invoice-page-refund.php:137
 msgid "Phone:"
 msgstr "Телефон:"
 
-#: static/views/unified-invoice-page-active.php:153
-#: static/views/unified-invoice-page-paid.php:145
-#: static/views/unified-invoice-page-refund.php:145
+#: static/views/unified-invoice-page-active.php:155
+#: static/views/unified-invoice-page-paid.php:147
+#: static/views/unified-invoice-page-refund.php:147
 msgid "Issue Date"
 msgstr "Дата Создания"
 
-#: static/views/unified-invoice-page-active.php:163
-#: static/views/unified-invoice-page-paid.php:155
-#: static/views/unified-invoice-page-refund.php:155
+#: static/views/unified-invoice-page-active.php:165
+#: static/views/unified-invoice-page-paid.php:157
+#: static/views/unified-invoice-page-refund.php:157
 msgid "Invoice for"
 msgstr "Инвойс для"
 
-#: static/views/unified-invoice-page-active.php:182
-#: static/views/unified-invoice-page-active.php:225
-#: static/views/unified-invoice-page-paid.php:174
-#: static/views/unified-invoice-page-paid.php:217
-#: static/views/unified-invoice-page-refund.php:174
-#: static/views/unified-invoice-page-refund.php:217
+#: static/views/unified-invoice-page-active.php:184
+#: static/views/unified-invoice-page-active.php:227
+#: static/views/unified-invoice-page-paid.php:176
+#: static/views/unified-invoice-page-paid.php:219
+#: static/views/unified-invoice-page-refund.php:176
+#: static/views/unified-invoice-page-refund.php:219
 msgid "Description"
 msgstr "Описание"
 
-#: static/views/unified-invoice-page-active.php:186
-#: static/views/unified-invoice-page-paid.php:178
-#: static/views/unified-invoice-page-refund.php:178
+#: static/views/unified-invoice-page-active.php:188
+#: static/views/unified-invoice-page-paid.php:180
+#: static/views/unified-invoice-page-refund.php:180
 msgid "Unit Price"
 msgstr "Цена"
 
-#: static/views/unified-invoice-page-active.php:219
-#: static/views/unified-invoice-page-paid.php:211
-#: static/views/unified-invoice-page-refund.php:211
+#: static/views/unified-invoice-page-active.php:221
+#: static/views/unified-invoice-page-paid.php:213
+#: static/views/unified-invoice-page-refund.php:213
 msgid "Additional Charges"
 msgstr "Дополнительные Расходы"
 
-#: static/views/unified-invoice-page-active.php:247
-#: static/views/unified-invoice-page-paid.php:239
-#: static/views/unified-invoice-page-refund.php:239
-msgid "Total:"
-msgstr "Всего:"
-
-#: static/views/unified-invoice-page-active.php:250
-#: static/views/unified-invoice-page-paid.php:242
-#: static/views/unified-invoice-page-refund.php:242
+#: static/views/unified-invoice-page-active.php:252
+#: static/views/unified-invoice-page-paid.php:244
+#: static/views/unified-invoice-page-refund.php:244
 msgid "Total Tax:"
 msgstr "Общий Налог:"
 
-#: static/views/unified-invoice-page-active.php:260
-#: static/views/unified-invoice-page-paid.php:252
-#: static/views/unified-invoice-page-refund.php:252
+#: static/views/unified-invoice-page-active.php:262
+#: static/views/unified-invoice-page-paid.php:254
+#: static/views/unified-invoice-page-refund.php:254
 msgid "Other Adjustments:"
 msgstr "Корректировки:"
 
-#: static/views/unified-invoice-page-active.php:265
-#: static/views/unified-invoice-page-paid.php:257
-#: static/views/unified-invoice-page-refund.php:257
+#: static/views/unified-invoice-page-active.php:267
+#: static/views/unified-invoice-page-paid.php:259
+#: static/views/unified-invoice-page-refund.php:259
 msgid "Total Payments:"
 msgstr "Всего Оплачено:"
 
-#: static/views/unified-invoice-page-active.php:269
-#: static/views/unified-invoice-page-paid.php:261
-#: static/views/unified-invoice-page-refund.php:261
+#: static/views/unified-invoice-page-active.php:271
+#: static/views/unified-invoice-page-paid.php:263
+#: static/views/unified-invoice-page-refund.php:263
 msgid "Amount Due:"
 msgstr "Общий Долг:"
-
-#: static/views/unified-invoice-page-active.php:281
-#: static/views/unified-invoice-page-paid.php:273
-#: static/views/unified-invoice-page-refund.php:273
-msgid "Charge"
-msgstr "Расход"
 
 #: static/views/unified-invoice-page-active.php:283
 #: static/views/unified-invoice-page-paid.php:275
 #: static/views/unified-invoice-page-refund.php:275
+msgid "Charge"
+msgstr "Расход"
+
+#: static/views/unified-invoice-page-active.php:285
+#: static/views/unified-invoice-page-paid.php:277
+#: static/views/unified-invoice-page-refund.php:277
 msgid "Adjustment"
 msgstr "Коррект."
 
-#: static/views/unified-invoice-page-active.php:284
-#: static/views/unified-invoice-page-paid.php:276
-#: static/views/unified-invoice-page-refund.php:276
+#: static/views/unified-invoice-page-active.php:286
+#: static/views/unified-invoice-page-paid.php:278
+#: static/views/unified-invoice-page-refund.php:278
 msgid "Create"
 msgstr "Создание"
 
-#: static/views/unified-invoice-page-active.php:287
+#: static/views/unified-invoice-page-active.php:289
 msgid "Actions History"
 msgstr "Активность"
 
-#: static/views/unified-invoice-page-active.php:359
+#: static/views/unified-invoice-page-active.php:361
 msgid "Payment Sent Successfully"
 msgstr "Успешно Оплачено"
 
-#: static/views/unified-invoice-page-active.php:361
+#: static/views/unified-invoice-page-active.php:363
 msgid ""
 "Thank you for your payment. You can check the invoice at your Invoices "
 "Dashboard."
 msgstr "Спасибо за ваш платеж. Проверьте инвойс на странице Клиентская Панель."
 
-#: static/views/unified-invoice-page-active.php:364
+#: static/views/unified-invoice-page-active.php:366
 msgid "Check Receipt"
 msgstr "Проверить Чек"
 
-#: static/views/unified-invoice-page-active.php:365
+#: static/views/unified-invoice-page-active.php:367
 msgid "View Dashboard"
 msgstr "Клиентская Панель"
 
-#: static/views/unified-invoice-page-refund.php:114
+#: static/views/unified-invoice-page-refund.php:116
 msgid "Receipt (Refunded)"
 msgstr "Чек (Возмещен)"
 
