@@ -796,7 +796,7 @@ class WPI_UI {
     if ( empty( $_REQUEST[ 'wpi' ] ) ) {
       return $path . '/user_selection_form.php';
     }
-    if ( \UsabilityDynamics\Utilit::is_older_wp_version( '3.4' ) ) {
+    if ( \UsabilityDynamics\Utility::is_older_wp_version( '3.4' ) ) {
       return $path = $path . '/wp-invoice_page_wpi_page_manage_invoice_legacy.php';
     }
 
