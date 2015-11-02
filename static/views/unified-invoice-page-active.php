@@ -35,10 +35,6 @@ global $invoice, $wpi_settings;
     if ($site_description && (is_home() || is_front_page()))
       echo " | $site_description";
 
-    // Add a page number if necessary:
-    if (($paged >= 2 || $page >= 2) && !is_404())
-      echo esc_html(' | ' . sprintf(__('Page %s', 'twentyeleven'), max($paged, $page)));
-
     ?></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <?php wp_head(); ?>
@@ -93,7 +89,9 @@ global $invoice, $wpi_settings;
       <div class="row top-nav-links">
 
         <div class="col-xs-6">
-          <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
+          <?php if ( wpi_dashboard_is_active() ): ?>
+            <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
+          <?php endif; ?>
         </div>
 
         <div class="col-xs-6 text-right">
@@ -287,7 +285,8 @@ global $invoice, $wpi_settings;
           'do_adjustment' => __('Adjustment', ud_get_wp_invoice()->domain),
           'create' => __('Create', ud_get_wp_invoice()->domain))) ): ?>
       <div class="invoice-history">
-        <h4>Invoice History</h4>
+
+        <h4><?php _e('Actions History', ud_get_wp_invoice()->domain); ?></h4>
 
         <div class="box-content">
           <div class="box-inner-content">

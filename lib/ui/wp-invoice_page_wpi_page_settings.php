@@ -308,7 +308,8 @@ class WPI_Settings_page {
                     'group' => 'wpi_settings',
                     'value' => 'true',
                     'label' => __('Activate Client Dashboard.', ud_get_wp_invoice()->domain)
-                  ), !empty($wpi_settings['activate_client_dashboard'])?$wpi_settings['activate_client_dashboard']:'false'); ?></li>
+                  ), !empty($wpi_settings['activate_client_dashboard'])?$wpi_settings['activate_client_dashboard']:'false'); ?>
+            <span style="font-size: 10px;color:red;font-weight:bold;"><?php _e('New', ud_get_wp_invoice()->domain); ?></span></li>
             <li>
               <label for="wpi_settings[web_dashboard_page]"><?php _e("Display dashboard on the", ud_get_wp_invoice()->domain) ?>
                 <select name='wpi_settings[web_dashboard_page]'>
@@ -325,6 +326,7 @@ class WPI_Settings_page {
                   echo "</select>";
                   ?>
                   <?php _e("page.", ud_get_wp_invoice()->domain) ?> </label>
+              <span style="font-size: 10px;color:red;font-weight:bold;"><?php _e('New', ud_get_wp_invoice()->domain); ?></span>
             </li>
             <li>
               <label for="wpi_settings[web_invoice_page]"><?php _e("Display invoices on the", ud_get_wp_invoice()->domain) ?>

@@ -1203,3 +1203,20 @@ if ( !function_exists('wpi_get_dashboard_permalink') ) {
   }
 }
 
+if ( !function_exists('wpi_get_default_currency_sign') ) {
+  /**
+   * @return mixed
+   */
+  function wpi_get_default_currency_sign() {
+    global $wpi_settings;
+    return $wpi_settings['currency']['symbol'][$wpi_settings['currency']['default_currency_code']];
+  }
+}
+
+if ( !function_exists('wpi_dashboard_is_active') ) {
+  function wpi_dashboard_is_active() {
+    global $wpi_settings;
+    return !empty( $wpi_settings['activate_client_dashboard'] ) ? ( $wpi_settings['activate_client_dashboard'] == 'true' ? true : false ) : false;
+  }
+}
+

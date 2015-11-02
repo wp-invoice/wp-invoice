@@ -2,18 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-01 10:25+0300\n"
-"PO-Revision-Date: 2015-10-09 16:18+0300\n"
+"POT-Creation-Date: 2015-11-02 15:55+0200\n"
+"PO-Revision-Date: 2015-11-02 15:57+0200\n"
 "Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
-"Language-Team: Usability Dynamics, inc. <dvzzz.kg@gmail.com>\n"
+"Language-Team: UsabilityDynamics, inc. <anton.korotkov@usabilitydynamics."
+"com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;_ex\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -21,49 +22,49 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 "X-Poedit-SearchPathExcluded-2: vendor\n"
 
-#: lib/class_ajax.php:126
+#: lib/class_ajax.php:127
 msgid "Please enter a note and numeric amount."
 msgstr "Введите сумму прописью и цифрами"
 
-#: lib/class_ajax.php:133
+#: lib/class_ajax.php:134
 msgid "paid in"
 msgstr "заплачено"
 
-#: lib/class_ajax.php:140
+#: lib/class_ajax.php:141
 msgid "charge added"
 msgstr "Добавлена сумма оплаты"
 
-#: lib/class_ajax.php:148
+#: lib/class_ajax.php:149
 msgid "adjusted"
 msgstr "изменено"
 
-#: lib/class_ajax.php:155
+#: lib/class_ajax.php:156
 msgid "refunded"
 msgstr "возмещено"
 
-#: lib/class_ajax.php:174
+#: lib/class_ajax.php:175
 #, php-format
 msgid "Event Added: %1s."
 msgstr "Добавлено действие: %1s."
 
-#: lib/class_ajax.php:176
+#: lib/class_ajax.php:177
 #, php-format
 msgid "Could not save entry in invoice log. %1s"
 msgstr "Невозможно сохранить запись в лог. %1s"
 
-#: lib/class_ajax.php:211
+#: lib/class_ajax.php:212
 msgid "Due date is not set"
 msgstr "Не указана дата срока платежа"
 
-#: lib/class_ajax.php:214 lib/class_ajax.php:215
+#: lib/class_ajax.php:215 lib/class_ajax.php:216
 msgid "invoice"
 msgstr "счет"
 
-#: lib/class_ajax.php:229
+#: lib/class_ajax.php:230
 msgid "No description given."
 msgstr "Без описания"
 
-#: lib/class_ajax.php:305
+#: lib/class_ajax.php:306
 msgid ""
 "The fields should not be empty. Please, check the fields data and try to "
 "send notification again."
@@ -71,36 +72,36 @@ msgstr ""
 "Все поля должны быть заполнены. Проверьте поля данных и отправьте "
 "уведомление еще раз."
 
-#: lib/class_ajax.php:316
+#: lib/class_ajax.php:317
 msgid "Notification Sent"
 msgstr "Уведомление послано"
 
-#: lib/class_ajax.php:316
+#: lib/class_ajax.php:317
 msgid "to"
 msgstr "по адресу"
 
-#: lib/class_ajax.php:316
+#: lib/class_ajax.php:317
 msgid "at"
 msgstr "в"
 
-#: lib/class_ajax.php:319
+#: lib/class_ajax.php:320
 msgid "Successfully sent the invoice notification!"
 msgstr "Уведомление о счете послано успешно!"
 
-#: lib/class_ajax.php:322
+#: lib/class_ajax.php:323
 msgid "Unable to send the e-mail. Please, try again later."
 msgstr "Невозможно отправить e-mail. Повторите попытку позже."
 
-#: lib/class_ajax.php:331
+#: lib/class_ajax.php:332
 #, php-format
 msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
 msgstr "Сохранено <a target='_blank' href='%s'>Смотреть счет</a>"
 
-#: lib/class_ajax.php:331
+#: lib/class_ajax.php:332
 msgid "Invoice id #"
 msgstr "Номер счета"
 
-#: lib/class_ajax.php:333
+#: lib/class_ajax.php:334
 msgid ""
 "There was a problem with saving the invoice. Reference the log for "
 "troubleshooting."
@@ -108,24 +109,24 @@ msgstr ""
 "При сохранении счета возникла проблема. Чтобы ее устранить, просмотрите "
 "записи журнала."
 
-#: lib/class_ajax.php:362
+#: lib/class_ajax.php:363
 msgid "Please enter an invoice id."
 msgstr "Введите номер счета"
 
-#: lib/class_ajax.php:383
+#: lib/class_ajax.php:384
 msgid "Unable to create 'wpi' folder in template folder. "
 msgstr "Невозможно создать папку wpi в папке шаблонов"
 
-#: lib/class_ajax.php:400
+#: lib/class_ajax.php:401
 msgid "Unable to open 'wpi' folder in template folder."
 msgstr "Невозможно открыть папку wpi в папке шаблонов"
 
-#: lib/class_ajax.php:405
+#: lib/class_ajax.php:406
 #, php-format
 msgid "Success, (%s) template file(s) copied."
 msgstr "Получилось! (%s) файлов шаблонов скопировано."
 
-#: lib/class_ajax.php:408
+#: lib/class_ajax.php:409
 msgid "No template files copied."
 msgstr "Файлы шаблонов не скопированы."
 
@@ -312,7 +313,7 @@ msgstr "Добавить новый счет"
 msgid "Edit Invoice"
 msgstr "Редактировать счет"
 
-#: lib/class_functions.php:1685 lib/class_settings.php:421
+#: lib/class_functions.php:1685 lib/class_settings.php:422
 msgid "New Invoice"
 msgstr "Новый счет"
 
@@ -418,15 +419,15 @@ msgstr "Создано"
 msgid " by "
 msgstr " "
 
-#: lib/class_invoice.php:772
+#: lib/class_invoice.php:774
 msgid "Recurring invoice updated."
 msgstr "Обновлен повторяющийся счет."
 
-#: lib/class_invoice.php:774
+#: lib/class_invoice.php:776
 msgid "Quote updated."
 msgstr "Цена предложения обновлена."
 
-#: lib/class_invoice.php:779
+#: lib/class_invoice.php:781
 msgid "Updated."
 msgstr "Обновлено."
 
@@ -438,11 +439,11 @@ msgstr "Создано автоматически с использование�
 msgid "Invoice Notification"
 msgstr "Уведомление о счете"
 
-#: lib/class_legacy.php:392 lib/class_settings.php:425
+#: lib/class_legacy.php:392 lib/class_settings.php:426
 msgid "Reminder"
 msgstr "Напоминание"
 
-#: lib/class_legacy.php:399
+#: lib/class_legacy.php:399 static/views/unified-invoice-page-paid.php:114
 msgid "Receipt"
 msgstr "Квитанция об оплате"
 
@@ -475,6 +476,7 @@ msgid "Updated"
 msgstr "Обновлено"
 
 #: lib/class_list_table.php:99 lib/class_ui.php:172
+#: static/views/client-dashboard.php:133
 msgid "Status"
 msgstr "Статус"
 
@@ -483,6 +485,7 @@ msgid "Type"
 msgstr "Тип"
 
 #: lib/class_list_table.php:101 lib/class_ui.php:162
+#: static/views/client-dashboard.php:135
 msgid "ID"
 msgstr "ID"
 
@@ -519,6 +522,9 @@ msgstr "Повторно"
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:221
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:276
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:352
+#: static/views/unified-invoice-page-active.php:189
+#: static/views/unified-invoice-page-paid.php:181
+#: static/views/unified-invoice-page-refund.php:181
 msgid "Tax"
 msgstr "Налог"
 
@@ -548,1163 +554,1176 @@ msgstr "Имя"
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: lib/class_settings.php:94
+#: lib/class_settings.php:94 lib/class_settings.php:467
 msgid "Company Name"
 msgstr "Название компании"
 
-#: lib/class_settings.php:95 lib/gateways/class_wpi_authorize.php:147
+#: lib/class_settings.php:95 lib/class_settings.php:468
+#: lib/gateways/class_wpi_authorize.php:147
 #: lib/gateways/class_wpi_paypal.php:255
 msgid "Phone Number"
 msgstr "Номер телефона"
 
-#: lib/class_settings.php:96
+#: lib/class_settings.php:96 lib/class_settings.php:469
 msgid "Street Address"
 msgstr "Адрес"
 
-#: lib/class_settings.php:97 lib/gateways/class_wpi_authorize.php:161
+#: lib/class_settings.php:97 lib/class_settings.php:470
+#: lib/gateways/class_wpi_authorize.php:161
 #: lib/gateways/class_wpi_interkassa.php:81
 #: lib/gateways/class_wpi_paypal.php:111 lib/gateways/class_wpi_stripe.php:56
 #: lib/gateways/class_wpi_twocheckout.php:96
 msgid "City"
 msgstr "Город"
 
-#: lib/class_settings.php:98 lib/gateways/class_wpi_authorize.php:168
+#: lib/class_settings.php:98 lib/class_settings.php:471
+#: lib/gateways/class_wpi_authorize.php:168
 msgid "State"
 msgstr "Штат"
 
-#: lib/class_settings.php:99
+#: lib/class_settings.php:99 lib/class_settings.php:472
 msgid "ZIP"
 msgstr "Индекс"
 
-#: lib/class_settings.php:102
+#: lib/class_settings.php:100 lib/class_settings.php:473
+#: lib/gateways/class_wpi_authorize.php:182
+#: lib/gateways/class_wpi_interkassa.php:93
+#: lib/gateways/class_wpi_paypal.php:129 lib/gateways/class_wpi_stripe.php:62
+#: lib/gateways/class_wpi_twocheckout.php:90
+msgid "Country"
+msgstr "Страна"
+
+#: lib/class_settings.php:103
 msgid "Active"
 msgstr "Активный"
 
-#: lib/class_settings.php:103
+#: lib/class_settings.php:104
 msgid "Archived"
 msgstr "Заархивирован"
 
-#: lib/class_settings.php:104
+#: lib/class_settings.php:105
 msgid "Trashed"
 msgstr "Помещен в корзину"
 
-#: lib/class_settings.php:105
+#: lib/class_settings.php:106 static/views/unified-invoice-page-active.php:282
+#: static/views/unified-invoice-page-paid.php:274
+#: static/views/unified-invoice-page-refund.php:274
 msgid "Paid"
 msgstr "Оплачен"
 
-#: lib/class_settings.php:107
+#: lib/class_settings.php:108
 msgid "United States"
 msgstr "США"
 
-#: lib/class_settings.php:108
+#: lib/class_settings.php:109
 msgid "Albania"
 msgstr "Албания"
 
-#: lib/class_settings.php:109
+#: lib/class_settings.php:110
 msgid "Algeria"
 msgstr "Алжир"
 
-#: lib/class_settings.php:110
+#: lib/class_settings.php:111
 msgid "Andorra"
 msgstr "Андорра"
 
-#: lib/class_settings.php:111
+#: lib/class_settings.php:112
 msgid "Angola"
 msgstr "Ангола"
 
-#: lib/class_settings.php:112
+#: lib/class_settings.php:113
 msgid "Anguilla"
 msgstr "Ангвилла (Малые Антильские острова)"
 
-#: lib/class_settings.php:113
+#: lib/class_settings.php:114
 msgid "Antigua and Barbuda"
 msgstr "Антигуа и Барбуда"
 
-#: lib/class_settings.php:114
+#: lib/class_settings.php:115
 msgid "Argentina"
 msgstr "Аргентина"
 
-#: lib/class_settings.php:115
+#: lib/class_settings.php:116
 msgid "Armenia"
 msgstr "Армения"
 
-#: lib/class_settings.php:116
+#: lib/class_settings.php:117
 msgid "Aruba"
 msgstr "Аруба (Малые Антильские острова)"
 
-#: lib/class_settings.php:117
+#: lib/class_settings.php:118
 msgid "Australia"
 msgstr "Австралия"
 
-#: lib/class_settings.php:118
+#: lib/class_settings.php:119
 msgid "Austria"
 msgstr "Австрия"
 
-#: lib/class_settings.php:119
+#: lib/class_settings.php:120
 msgid "Azerbaijan Republic"
 msgstr "Азербайджан"
 
-#: lib/class_settings.php:120
+#: lib/class_settings.php:121
 msgid "Bahamas"
 msgstr "Багамские острова"
 
-#: lib/class_settings.php:121
+#: lib/class_settings.php:122
 msgid "Bahrain"
 msgstr "Бахрейн"
 
-#: lib/class_settings.php:122
+#: lib/class_settings.php:123
 msgid "Barbados"
 msgstr "Барбадос"
 
-#: lib/class_settings.php:123
+#: lib/class_settings.php:124
 msgid "Belgium"
 msgstr "Бельгия"
 
-#: lib/class_settings.php:124
+#: lib/class_settings.php:125
 msgid "Belize"
 msgstr "Белиз"
 
-#: lib/class_settings.php:125
+#: lib/class_settings.php:126
 msgid "Benin"
 msgstr "Бенин"
 
-#: lib/class_settings.php:126
+#: lib/class_settings.php:127
 msgid "Bermuda"
 msgstr "Бермудские острова"
 
-#: lib/class_settings.php:127
+#: lib/class_settings.php:128
 msgid "Bhutan"
 msgstr "Бутан"
 
-#: lib/class_settings.php:128
+#: lib/class_settings.php:129
 msgid "Bolivia"
 msgstr "Боливия"
 
-#: lib/class_settings.php:129
+#: lib/class_settings.php:130
 msgid "Bosnia and Herzegovina"
 msgstr "Босния и Герцеговина"
 
-#: lib/class_settings.php:130
+#: lib/class_settings.php:131
 msgid "Botswana"
 msgstr "Ботсвана"
 
-#: lib/class_settings.php:131
+#: lib/class_settings.php:132
 msgid "Brazil"
 msgstr "Бразилия"
 
-#: lib/class_settings.php:132
+#: lib/class_settings.php:133
 msgid "British Virgin Islands"
 msgstr "Британские Виргинские острова"
 
-#: lib/class_settings.php:133
+#: lib/class_settings.php:134
 msgid "Brunei"
 msgstr "Бруней"
 
-#: lib/class_settings.php:134
+#: lib/class_settings.php:135
 msgid "Bulgaria"
 msgstr "Болгария"
 
-#: lib/class_settings.php:135
+#: lib/class_settings.php:136
 msgid "Burkina Faso"
 msgstr "Буркина-Фасо"
 
-#: lib/class_settings.php:136
+#: lib/class_settings.php:137
 msgid "Burundi"
 msgstr "Бурунди"
 
-#: lib/class_settings.php:137
+#: lib/class_settings.php:138
 msgid "Cambodia"
 msgstr "Камбоджа"
 
-#: lib/class_settings.php:138
+#: lib/class_settings.php:139
 msgid "Canada"
 msgstr "Канада"
 
-#: lib/class_settings.php:139
+#: lib/class_settings.php:140
 msgid "Cape Verde"
 msgstr "Кабо-Верде"
 
-#: lib/class_settings.php:140
+#: lib/class_settings.php:141
 msgid "Cayman Islands"
 msgstr "каймановы острова"
 
-#: lib/class_settings.php:141
+#: lib/class_settings.php:142
 msgid "Chad"
 msgstr "Чад"
 
-#: lib/class_settings.php:142
+#: lib/class_settings.php:143
 msgid "Chile"
 msgstr "Чили"
 
-#: lib/class_settings.php:143
+#: lib/class_settings.php:144
 msgid "China"
 msgstr "Китай"
 
-#: lib/class_settings.php:144
+#: lib/class_settings.php:145
 msgid "Colombia"
 msgstr "Колумбия"
 
-#: lib/class_settings.php:145
+#: lib/class_settings.php:146
 msgid "Comoros"
 msgstr "Коморские острова"
 
-#: lib/class_settings.php:146
+#: lib/class_settings.php:147
 msgid "Cook Islands"
 msgstr "Острова Кука"
 
-#: lib/class_settings.php:147
+#: lib/class_settings.php:148
 msgid "Costa Rica"
 msgstr "Коста-Рика"
 
-#: lib/class_settings.php:148
+#: lib/class_settings.php:149
 msgid "Croatia"
 msgstr "Хорватия"
 
-#: lib/class_settings.php:149
+#: lib/class_settings.php:150
 msgid "Cyprus"
 msgstr "Кипр"
 
-#: lib/class_settings.php:150
+#: lib/class_settings.php:151
 msgid "Czech Republic"
 msgstr "Чешская Республика"
 
-#: lib/class_settings.php:151
+#: lib/class_settings.php:152
 msgid "Democratic Republic of the Congo"
 msgstr "Демократическая Республика Конго"
 
-#: lib/class_settings.php:152
+#: lib/class_settings.php:153
 msgid "Denmark"
 msgstr "Дания"
 
-#: lib/class_settings.php:153
+#: lib/class_settings.php:154
 msgid "Djibouti"
 msgstr "Джибути"
 
-#: lib/class_settings.php:154
+#: lib/class_settings.php:155
 msgid "Dominica"
 msgstr "Доминика"
 
-#: lib/class_settings.php:155
+#: lib/class_settings.php:156
 msgid "Dominican Republic"
 msgstr "Доминиканская Республика"
 
-#: lib/class_settings.php:156
+#: lib/class_settings.php:157
 msgid "Ecuador"
 msgstr "Эквадор"
 
-#: lib/class_settings.php:157
+#: lib/class_settings.php:158
 msgid "El Salvador"
 msgstr "Сальвадор"
 
-#: lib/class_settings.php:158
+#: lib/class_settings.php:159
 msgid "Eritrea"
 msgstr "Эритрея"
 
-#: lib/class_settings.php:159
+#: lib/class_settings.php:160
 msgid "Estonia"
 msgstr "Эстония"
 
-#: lib/class_settings.php:160
+#: lib/class_settings.php:161
 msgid "Ethiopia"
 msgstr "Эфиопия"
 
-#: lib/class_settings.php:161
+#: lib/class_settings.php:162
 msgid "Falkland Islands"
 msgstr "Фолклендские острова"
 
-#: lib/class_settings.php:162
+#: lib/class_settings.php:163
 msgid "Faroe Islands"
 msgstr "Фарерские острова"
 
-#: lib/class_settings.php:163 lib/class_settings.php:308
+#: lib/class_settings.php:164 lib/class_settings.php:309
 msgid "Federated States of Micronesia"
 msgstr "Федеративные Штаты Микронезии"
 
-#: lib/class_settings.php:164
+#: lib/class_settings.php:165
 msgid "Fiji"
 msgstr "Фиджи"
 
-#: lib/class_settings.php:165
+#: lib/class_settings.php:166
 msgid "Finland"
 msgstr "Финляндия"
 
-#: lib/class_settings.php:166
+#: lib/class_settings.php:167
 msgid "France"
 msgstr "Франция"
 
-#: lib/class_settings.php:167
+#: lib/class_settings.php:168
 msgid "French Guiana"
 msgstr "Французская Гвиана"
 
-#: lib/class_settings.php:168
+#: lib/class_settings.php:169
 msgid "French Polynesia"
 msgstr "Французская Полинезия"
 
-#: lib/class_settings.php:169
+#: lib/class_settings.php:170
 msgid "Gabon Republic"
 msgstr "Габон"
 
-#: lib/class_settings.php:170
+#: lib/class_settings.php:171
 msgid "Gambia"
 msgstr "Гамбия"
 
-#: lib/class_settings.php:171
+#: lib/class_settings.php:172
 msgid "Germany"
 msgstr "Германия"
 
-#: lib/class_settings.php:172
+#: lib/class_settings.php:173
 msgid "Gibraltar"
 msgstr "Гибралтар"
 
-#: lib/class_settings.php:173
+#: lib/class_settings.php:174
 msgid "Greece"
 msgstr "Греция"
 
-#: lib/class_settings.php:174
+#: lib/class_settings.php:175
 msgid "Greenland"
 msgstr "Гренландия"
 
-#: lib/class_settings.php:175
+#: lib/class_settings.php:176
 msgid "Grenada"
 msgstr "Гренада"
 
-#: lib/class_settings.php:176
+#: lib/class_settings.php:177
 msgid "Guadeloupe"
 msgstr "Гваделупа"
 
-#: lib/class_settings.php:177
+#: lib/class_settings.php:178
 msgid "Guatemala"
 msgstr "Гватемала"
 
-#: lib/class_settings.php:178
+#: lib/class_settings.php:179
 msgid "Guinea"
 msgstr "Гвинея"
 
-#: lib/class_settings.php:179
+#: lib/class_settings.php:180
 msgid "Guinea Bissau"
 msgstr "Гвинея Бисау"
 
-#: lib/class_settings.php:180
+#: lib/class_settings.php:181
 msgid "Guyana"
 msgstr "Гайана"
 
-#: lib/class_settings.php:181
+#: lib/class_settings.php:182
 msgid "Honduras"
 msgstr "Гондурас"
 
-#: lib/class_settings.php:182
+#: lib/class_settings.php:183
 msgid "Hong Kong"
 msgstr "Гонконг"
 
-#: lib/class_settings.php:183
+#: lib/class_settings.php:184
 msgid "Hungary"
 msgstr "Венгрия"
 
-#: lib/class_settings.php:184
+#: lib/class_settings.php:185
 msgid "Iceland"
 msgstr "Исландия"
 
-#: lib/class_settings.php:185
+#: lib/class_settings.php:186
 msgid "India"
 msgstr "Индия"
 
-#: lib/class_settings.php:186
+#: lib/class_settings.php:187
 msgid "Indonesia"
 msgstr "Индонезия"
 
-#: lib/class_settings.php:187
+#: lib/class_settings.php:188
 msgid "Ireland"
 msgstr "Ирландия"
 
-#: lib/class_settings.php:188
+#: lib/class_settings.php:189
 msgid "Israel"
 msgstr "Израиль"
 
-#: lib/class_settings.php:189
+#: lib/class_settings.php:190
 msgid "Italy"
 msgstr "Италия"
 
-#: lib/class_settings.php:190
+#: lib/class_settings.php:191
 msgid "Jamaica"
 msgstr "Ямайка"
 
-#: lib/class_settings.php:191
+#: lib/class_settings.php:192
 msgid "Japan"
 msgstr "Япония"
 
-#: lib/class_settings.php:192
+#: lib/class_settings.php:193
 msgid "Jordan"
 msgstr "Иордания"
 
-#: lib/class_settings.php:193
+#: lib/class_settings.php:194
 msgid "Kazakhstan"
 msgstr "Казахстан"
 
-#: lib/class_settings.php:194
+#: lib/class_settings.php:195
 msgid "Kenya"
 msgstr "Кения"
 
-#: lib/class_settings.php:195
+#: lib/class_settings.php:196
 msgid "Kiribati"
 msgstr "Кирибати"
 
-#: lib/class_settings.php:196
+#: lib/class_settings.php:197
 msgid "Kuwait"
 msgstr "Кувейт"
 
-#: lib/class_settings.php:197
+#: lib/class_settings.php:198
 msgid "Kyrgyzstan"
 msgstr "Кыргызстан"
 
-#: lib/class_settings.php:198
+#: lib/class_settings.php:199
 msgid "Laos"
 msgstr "Лаос"
 
-#: lib/class_settings.php:199
+#: lib/class_settings.php:200
 msgid "Latvia"
 msgstr "Латвия"
 
-#: lib/class_settings.php:200
+#: lib/class_settings.php:201
 msgid "Lesotho"
 msgstr "Лесото"
 
-#: lib/class_settings.php:201
+#: lib/class_settings.php:202
 msgid "Liechtenstein"
 msgstr "Лихтенштейн"
 
-#: lib/class_settings.php:202
+#: lib/class_settings.php:203
 msgid "Lithuania"
 msgstr "Литва"
 
-#: lib/class_settings.php:203
+#: lib/class_settings.php:204
 msgid "Luxembourg"
 msgstr "Люксембург"
 
-#: lib/class_settings.php:204
+#: lib/class_settings.php:205
 msgid "Madagascar"
 msgstr "Мадагаскар"
 
-#: lib/class_settings.php:205
+#: lib/class_settings.php:206
 msgid "Malawi"
 msgstr "Малави"
 
-#: lib/class_settings.php:206
+#: lib/class_settings.php:207
 msgid "Malaysia"
 msgstr "Малайзия"
 
-#: lib/class_settings.php:207
+#: lib/class_settings.php:208
 msgid "Maldives"
 msgstr "Мальдивы"
 
-#: lib/class_settings.php:208
+#: lib/class_settings.php:209
 msgid "Mali"
 msgstr "Мали"
 
-#: lib/class_settings.php:209
+#: lib/class_settings.php:210
 msgid "Malta"
 msgstr "Мальта"
 
-#: lib/class_settings.php:210 lib/class_settings.php:321
+#: lib/class_settings.php:211 lib/class_settings.php:322
 msgid "Marshall Islands"
 msgstr "Маршалловы острова"
 
-#: lib/class_settings.php:211
+#: lib/class_settings.php:212
 msgid "Martinique"
 msgstr "Мартиника"
 
-#: lib/class_settings.php:212
+#: lib/class_settings.php:213
 msgid "Mauritania"
 msgstr "Мавритания"
 
-#: lib/class_settings.php:213
+#: lib/class_settings.php:214
 msgid "Mauritius"
 msgstr "Маврикий"
 
-#: lib/class_settings.php:214
+#: lib/class_settings.php:215
 msgid "Mayotte"
 msgstr "Майотта"
 
-#: lib/class_settings.php:215
+#: lib/class_settings.php:216
 msgid "Mexico"
 msgstr "Мексика"
 
-#: lib/class_settings.php:216
+#: lib/class_settings.php:217
 msgid "Mongolia"
 msgstr "Монголия"
 
-#: lib/class_settings.php:217
+#: lib/class_settings.php:218
 msgid "Montserrat"
 msgstr "Монтсеррат"
 
-#: lib/class_settings.php:218
+#: lib/class_settings.php:219
 msgid "Morocco"
 msgstr "Марокко"
 
-#: lib/class_settings.php:219
+#: lib/class_settings.php:220
 msgid "Mozambique"
 msgstr "Мозамбик"
 
-#: lib/class_settings.php:220
+#: lib/class_settings.php:221
 msgid "Namibia"
 msgstr "Намибия"
 
-#: lib/class_settings.php:221
+#: lib/class_settings.php:222
 msgid "Nauru"
 msgstr "Науру"
 
-#: lib/class_settings.php:222
+#: lib/class_settings.php:223
 msgid "Nepal"
 msgstr "Непал"
 
-#: lib/class_settings.php:223
+#: lib/class_settings.php:224
 msgid "Netherlands"
 msgstr "Нидерланды"
 
-#: lib/class_settings.php:224
+#: lib/class_settings.php:225
 msgid "Netherlands Antilles"
 msgstr "Нидерландские Антильские острова"
 
-#: lib/class_settings.php:225
+#: lib/class_settings.php:226
 msgid "New Caledonia"
 msgstr "Новая Каледония"
 
-#: lib/class_settings.php:226
+#: lib/class_settings.php:227
 msgid "New Zealand"
 msgstr "Новая Зеландия"
 
-#: lib/class_settings.php:227
+#: lib/class_settings.php:228
 msgid "Nicaragua"
 msgstr "Никарагуа"
 
-#: lib/class_settings.php:228
+#: lib/class_settings.php:229
 msgid "Niger"
 msgstr "Нигер"
 
-#: lib/class_settings.php:229
+#: lib/class_settings.php:230
 msgid "Niue"
 msgstr "Ниуэ"
 
-#: lib/class_settings.php:230
+#: lib/class_settings.php:231
 msgid "Norfolk Island"
 msgstr "о.Норфолк (остров)"
 
-#: lib/class_settings.php:231
+#: lib/class_settings.php:232
 msgid "Norway"
 msgstr "Норвегия"
 
-#: lib/class_settings.php:232
+#: lib/class_settings.php:233
 msgid "Oman"
 msgstr "Оман"
 
-#: lib/class_settings.php:233 lib/class_settings.php:341
+#: lib/class_settings.php:234 lib/class_settings.php:342
 msgid "Palau"
 msgstr "Палау"
 
-#: lib/class_settings.php:234
+#: lib/class_settings.php:235
 msgid "Panama"
 msgstr "Панама"
 
-#: lib/class_settings.php:235
+#: lib/class_settings.php:236
 msgid "Papua New Guinea"
 msgstr "Папуа Новая Гвинея"
 
-#: lib/class_settings.php:236
+#: lib/class_settings.php:237
 msgid "Peru"
 msgstr "перу"
 
-#: lib/class_settings.php:237
+#: lib/class_settings.php:238
 msgid "Philippines"
 msgstr "Филиппины"
 
-#: lib/class_settings.php:238
+#: lib/class_settings.php:239
 msgid "Pitcairn Islands"
 msgstr "о.Питкэрн"
 
-#: lib/class_settings.php:239
+#: lib/class_settings.php:240
 msgid "Poland"
 msgstr "Польша"
 
-#: lib/class_settings.php:240
+#: lib/class_settings.php:241
 msgid "Portugal"
 msgstr "Португалия"
 
-#: lib/class_settings.php:241
+#: lib/class_settings.php:242
 msgid "Qatar"
 msgstr "Катар"
 
-#: lib/class_settings.php:242
+#: lib/class_settings.php:243
 msgid "Republic of the Congo"
 msgstr "Республика Конго"
 
-#: lib/class_settings.php:243
+#: lib/class_settings.php:244
 msgid "Reunion"
 msgstr "о.Реюньон"
 
-#: lib/class_settings.php:244
+#: lib/class_settings.php:245
 msgid "Romania"
 msgstr "Румыния"
 
-#: lib/class_settings.php:245
+#: lib/class_settings.php:246
 msgid "Russia"
 msgstr "Россия"
 
-#: lib/class_settings.php:246
+#: lib/class_settings.php:247
 msgid "Rwanda"
 msgstr "Руанда"
 
-#: lib/class_settings.php:247
+#: lib/class_settings.php:248
 msgid "Saint Vincent and the Grenadines"
 msgstr "Сент-Винсент и Гренадины"
 
-#: lib/class_settings.php:248
+#: lib/class_settings.php:249
 msgid "Samoa"
 msgstr "Самоа"
 
-#: lib/class_settings.php:249
+#: lib/class_settings.php:250
 msgid "San Marino"
 msgstr "Сан-Марино"
 
-#: lib/class_settings.php:250
+#: lib/class_settings.php:251
 msgid "Sao Tome and Principe"
 msgstr "Сан-Томе и Принсипи"
 
-#: lib/class_settings.php:251
+#: lib/class_settings.php:252
 msgid "Saudi Arabia"
 msgstr "Саудовская Аравия"
 
-#: lib/class_settings.php:252
+#: lib/class_settings.php:253
 msgid "Senegal"
 msgstr "Сенегал"
 
-#: lib/class_settings.php:253
+#: lib/class_settings.php:254
 msgid "Seychelles"
 msgstr "Сейшеллы"
 
-#: lib/class_settings.php:254
+#: lib/class_settings.php:255
 msgid "Sierra Leone"
 msgstr "Сьерра-Леоне"
 
-#: lib/class_settings.php:255
+#: lib/class_settings.php:256
 msgid "Singapore"
 msgstr "Сингапур"
 
-#: lib/class_settings.php:256
+#: lib/class_settings.php:257
 msgid "Slovakia"
 msgstr "Словакия"
 
-#: lib/class_settings.php:257
+#: lib/class_settings.php:258
 msgid "Slovenia"
 msgstr "Словения"
 
-#: lib/class_settings.php:258
+#: lib/class_settings.php:259
 msgid "Solomon Islands"
 msgstr "Соломоновы Острова"
 
-#: lib/class_settings.php:259
+#: lib/class_settings.php:260
 msgid "Somalia"
 msgstr "Сомали"
 
-#: lib/class_settings.php:260
+#: lib/class_settings.php:261
 msgid "South Africa"
 msgstr "ЮАР"
 
-#: lib/class_settings.php:261
+#: lib/class_settings.php:262
 msgid "South Korea"
 msgstr "Южная Корея"
 
-#: lib/class_settings.php:262
+#: lib/class_settings.php:263
 msgid "Spain"
 msgstr "Испания"
 
-#: lib/class_settings.php:263
+#: lib/class_settings.php:264
 msgid "Sri Lanka"
 msgstr "Шри-Ланка"
 
-#: lib/class_settings.php:264
+#: lib/class_settings.php:265
 msgid "St. Helena"
 msgstr "Остров Св. Елены"
 
-#: lib/class_settings.php:265
+#: lib/class_settings.php:266
 msgid "St. Kitts and Nevis"
 msgstr "Сент-Китс и Невис"
 
-#: lib/class_settings.php:266
+#: lib/class_settings.php:267
 msgid "St. Lucia"
 msgstr "Сент-Люсия"
 
-#: lib/class_settings.php:267
+#: lib/class_settings.php:268
 msgid "St. Pierre and Miquelon"
 msgstr "Сен-Пьер и Микелон"
 
-#: lib/class_settings.php:268
+#: lib/class_settings.php:269
 msgid "Suriname"
 msgstr "Суринам"
 
-#: lib/class_settings.php:269
+#: lib/class_settings.php:270
 msgid "Svalbard and Jan Mayen Islands"
 msgstr "Шпицберген"
 
-#: lib/class_settings.php:270
+#: lib/class_settings.php:271
 msgid "Swaziland"
 msgstr "Свазиленд"
 
-#: lib/class_settings.php:271
+#: lib/class_settings.php:272
 msgid "Sweden"
 msgstr "Швеция"
 
-#: lib/class_settings.php:272
+#: lib/class_settings.php:273
 msgid "Switzerland"
 msgstr "Швейцария"
 
-#: lib/class_settings.php:273
+#: lib/class_settings.php:274
 msgid "Taiwan"
 msgstr "Тайвань"
 
-#: lib/class_settings.php:274
+#: lib/class_settings.php:275
 msgid "Tajikistan"
 msgstr "Таджикистан"
 
-#: lib/class_settings.php:275
+#: lib/class_settings.php:276
 msgid "Tanzania"
 msgstr "Танзания"
 
-#: lib/class_settings.php:276
+#: lib/class_settings.php:277
 msgid "Thailand"
 msgstr "Таиланд"
 
-#: lib/class_settings.php:277
+#: lib/class_settings.php:278
 msgid "Togo"
 msgstr "Того"
 
-#: lib/class_settings.php:278
+#: lib/class_settings.php:279
 msgid "Tonga"
 msgstr "Тонга"
 
-#: lib/class_settings.php:279
+#: lib/class_settings.php:280
 msgid "Trinidad and Tobago"
 msgstr "Тринидад и Тобаго"
 
-#: lib/class_settings.php:280
+#: lib/class_settings.php:281
 msgid "Tunisia"
 msgstr "Тунис"
 
-#: lib/class_settings.php:281
+#: lib/class_settings.php:282
 msgid "Turkey"
 msgstr "Турция"
 
-#: lib/class_settings.php:282
+#: lib/class_settings.php:283
 msgid "Turkmenistan"
 msgstr "Туркменистан"
 
-#: lib/class_settings.php:283
+#: lib/class_settings.php:284
 msgid "Turks and Caicos Islands"
 msgstr "о-ва Теркс и Кайкос"
 
-#: lib/class_settings.php:284
+#: lib/class_settings.php:285
 msgid "Tuvalu"
 msgstr "о-ва Тувалу"
 
-#: lib/class_settings.php:285
+#: lib/class_settings.php:286
 msgid "Uganda"
 msgstr "Уганда"
 
-#: lib/class_settings.php:286
+#: lib/class_settings.php:287
 msgid "Ukraine"
 msgstr "Украина"
 
-#: lib/class_settings.php:287
+#: lib/class_settings.php:288
 msgid "United Arab Emirates"
 msgstr "ОАЕ"
 
-#: lib/class_settings.php:288
+#: lib/class_settings.php:289
 msgid "United Kingdom"
 msgstr "Великобритания"
 
-#: lib/class_settings.php:289
+#: lib/class_settings.php:290
 msgid "Uruguay"
 msgstr "Уругвай"
 
-#: lib/class_settings.php:290
+#: lib/class_settings.php:291
 msgid "Vanuatu"
 msgstr "Вануату"
 
-#: lib/class_settings.php:291
+#: lib/class_settings.php:292
 msgid "Vatican City State"
 msgstr "Ватикан"
 
-#: lib/class_settings.php:292
+#: lib/class_settings.php:293
 msgid "Venezuela"
 msgstr "Венесуэлла"
 
-#: lib/class_settings.php:293
+#: lib/class_settings.php:294
 msgid "Vietnam"
 msgstr "Вьетнам"
 
-#: lib/class_settings.php:294
+#: lib/class_settings.php:295
 msgid "Wallis and Futuna Islands"
 msgstr "о-ва Уоллис и Футуна"
 
-#: lib/class_settings.php:295
+#: lib/class_settings.php:296
 msgid "Yemen"
 msgstr "Йемен"
 
-#: lib/class_settings.php:296
+#: lib/class_settings.php:297
 msgid "Zambia"
 msgstr "Замбия"
 
-#: lib/class_settings.php:298
+#: lib/class_settings.php:299
 msgid "Alabama"
 msgstr "Алабама"
 
-#: lib/class_settings.php:299
+#: lib/class_settings.php:300
 msgid "Alaska"
 msgstr "Аляска"
 
-#: lib/class_settings.php:300
+#: lib/class_settings.php:301
 msgid "American Samoa"
 msgstr "Восточное Самоа"
 
-#: lib/class_settings.php:301
+#: lib/class_settings.php:302
 msgid "Arizona"
 msgstr "Аризона"
 
-#: lib/class_settings.php:302
+#: lib/class_settings.php:303
 msgid "Arkansas"
 msgstr "Арканзас"
 
-#: lib/class_settings.php:303
+#: lib/class_settings.php:304
 msgid "California"
 msgstr "Калифорния"
 
-#: lib/class_settings.php:304
+#: lib/class_settings.php:305
 msgid "Colorado"
 msgstr "Колорадо"
 
-#: lib/class_settings.php:305
+#: lib/class_settings.php:306
 msgid "Connecticut"
 msgstr "Коннектикут"
 
-#: lib/class_settings.php:306
+#: lib/class_settings.php:307
 msgid "Delaware"
 msgstr "Делавэр"
 
-#: lib/class_settings.php:307
+#: lib/class_settings.php:308
 msgid "District of Columbia"
 msgstr "Округ Колумбия"
 
-#: lib/class_settings.php:309
+#: lib/class_settings.php:310
 msgid "Florida"
 msgstr "Флорида"
 
-#: lib/class_settings.php:310
+#: lib/class_settings.php:311
 msgid "Georgia"
 msgstr "Джорджия"
 
-#: lib/class_settings.php:311
+#: lib/class_settings.php:312
 msgid "Guam"
 msgstr "о.Гуам"
 
-#: lib/class_settings.php:312
+#: lib/class_settings.php:313
 msgid "Hawaii"
 msgstr "Гавайи"
 
-#: lib/class_settings.php:313
+#: lib/class_settings.php:314
 msgid "Idaho"
 msgstr "Айдахо"
 
-#: lib/class_settings.php:314
+#: lib/class_settings.php:315
 msgid "Illinois"
 msgstr "Иллинойс"
 
-#: lib/class_settings.php:315
+#: lib/class_settings.php:316
 msgid "Indiana"
 msgstr "Индиана"
 
-#: lib/class_settings.php:316
+#: lib/class_settings.php:317
 msgid "Iowa"
 msgstr "Айова"
 
-#: lib/class_settings.php:317
+#: lib/class_settings.php:318
 msgid "Kansas"
 msgstr "Канзас"
 
-#: lib/class_settings.php:318
+#: lib/class_settings.php:319
 msgid "Kentucky"
 msgstr "Кентуки"
 
-#: lib/class_settings.php:319
+#: lib/class_settings.php:320
 msgid "Louisiana"
 msgstr "Луизиана"
 
-#: lib/class_settings.php:320
+#: lib/class_settings.php:321
 msgid "Maine"
 msgstr "Мэн"
 
-#: lib/class_settings.php:322
+#: lib/class_settings.php:323
 msgid "Maryland"
 msgstr "Мэриленд"
 
-#: lib/class_settings.php:323
+#: lib/class_settings.php:324
 msgid "Massachusetts"
 msgstr "Массачусетс"
 
-#: lib/class_settings.php:324
+#: lib/class_settings.php:325
 msgid "Michigan"
 msgstr "Мичиган"
 
-#: lib/class_settings.php:325
+#: lib/class_settings.php:326
 msgid "Minnesota"
 msgstr "Миннесота"
 
-#: lib/class_settings.php:326
+#: lib/class_settings.php:327
 msgid "Mississippi"
 msgstr "Миссисипи"
 
-#: lib/class_settings.php:327
+#: lib/class_settings.php:328
 msgid "Missouri"
 msgstr "Миссури"
 
-#: lib/class_settings.php:328
+#: lib/class_settings.php:329
 msgid "Montana"
 msgstr "Монтана"
 
-#: lib/class_settings.php:329
+#: lib/class_settings.php:330
 msgid "Nebraska"
 msgstr "Небраска"
 
-#: lib/class_settings.php:330
+#: lib/class_settings.php:331
 msgid "Nevada"
 msgstr "Невада"
 
-#: lib/class_settings.php:331
+#: lib/class_settings.php:332
 msgid "New Hampshire"
 msgstr "Нью-Гемпшир"
 
-#: lib/class_settings.php:332
+#: lib/class_settings.php:333
 msgid "New Jersey"
 msgstr "Нью-Джерси"
 
-#: lib/class_settings.php:333
+#: lib/class_settings.php:334
 msgid "New Mexico"
 msgstr "Нью-Мексико"
 
-#: lib/class_settings.php:334
+#: lib/class_settings.php:335
 msgid "New York"
 msgstr "Нью-Йорк"
 
-#: lib/class_settings.php:335
+#: lib/class_settings.php:336
 msgid "North Carolina"
 msgstr "Северная Каролина"
 
-#: lib/class_settings.php:336
+#: lib/class_settings.php:337
 msgid "North Dakota"
 msgstr "Северная Дакота"
 
-#: lib/class_settings.php:337
+#: lib/class_settings.php:338
 msgid "Northern Mariana Islands"
 msgstr "Северные Марианские острова"
 
-#: lib/class_settings.php:338
+#: lib/class_settings.php:339
 msgid "Ohio"
 msgstr "Огайо"
 
-#: lib/class_settings.php:339
+#: lib/class_settings.php:340
 msgid "Oklahoma"
 msgstr "Оклахома"
 
-#: lib/class_settings.php:340
+#: lib/class_settings.php:341
 msgid "Oregon"
 msgstr "Орегон"
 
-#: lib/class_settings.php:342
+#: lib/class_settings.php:343
 msgid "Pennsylvania"
 msgstr "Пенсильвания"
 
-#: lib/class_settings.php:343
+#: lib/class_settings.php:344
 msgid "Puerto Rico"
 msgstr "Пуэрто-Рико"
 
-#: lib/class_settings.php:344
+#: lib/class_settings.php:345
 msgid "Rhode Island"
 msgstr "Род-Айленд"
 
-#: lib/class_settings.php:345
+#: lib/class_settings.php:346
 msgid "South Carolina"
 msgstr "Южная Каролина"
 
-#: lib/class_settings.php:346
+#: lib/class_settings.php:347
 msgid "South Dakota"
 msgstr "Южная Дакота"
 
-#: lib/class_settings.php:347
+#: lib/class_settings.php:348
 msgid "Tennessee"
 msgstr "Теннесси"
 
-#: lib/class_settings.php:348
+#: lib/class_settings.php:349
 msgid "Texas"
 msgstr "Техас"
 
-#: lib/class_settings.php:349
+#: lib/class_settings.php:350
 msgid "Utah"
 msgstr "Юта"
 
-#: lib/class_settings.php:350
+#: lib/class_settings.php:351
 msgid "Vermont"
 msgstr "Вермонт"
 
-#: lib/class_settings.php:351
+#: lib/class_settings.php:352
 msgid "Virgin Islands"
 msgstr "Виргинские острова"
 
-#: lib/class_settings.php:352
+#: lib/class_settings.php:353
 msgid "Virginia"
 msgstr "Виргиния"
 
-#: lib/class_settings.php:353
+#: lib/class_settings.php:354
 msgid "Washington"
 msgstr "Вашингтон"
 
-#: lib/class_settings.php:354
+#: lib/class_settings.php:355
 msgid "West Virginia"
 msgstr "Западная Виргиния"
 
-#: lib/class_settings.php:355
+#: lib/class_settings.php:356
 msgid "Wisconsin"
 msgstr "Висконсин"
 
-#: lib/class_settings.php:356
+#: lib/class_settings.php:357
 msgid "Wyoming"
 msgstr "Вайоминг"
 
-#: lib/class_settings.php:357
+#: lib/class_settings.php:358
 msgid "Alberta"
 msgstr "Альберта"
 
-#: lib/class_settings.php:358
+#: lib/class_settings.php:359
 msgid "British Columbia"
 msgstr "Британская Колумбия"
 
-#: lib/class_settings.php:359
+#: lib/class_settings.php:360
 msgid "Manitoba"
 msgstr "Манитоба"
 
-#: lib/class_settings.php:360
+#: lib/class_settings.php:361
 msgid "New Brunswick"
 msgstr "Нью-Брансуик"
 
-#: lib/class_settings.php:361
+#: lib/class_settings.php:362
 msgid "Newfoundland"
 msgstr "Ньюфаундленд"
 
-#: lib/class_settings.php:362
+#: lib/class_settings.php:363
 msgid "Northwest Territory"
 msgstr "Северо-Западная Территория"
 
-#: lib/class_settings.php:363
+#: lib/class_settings.php:364
 msgid "Nova Scotia"
 msgstr "Новая Шотландия"
 
-#: lib/class_settings.php:364
+#: lib/class_settings.php:365
 msgid "Ontario"
 msgstr "Онтарио"
 
-#: lib/class_settings.php:365
+#: lib/class_settings.php:366
 msgid "Prince Edward Island"
 msgstr "Щстров Принца Эдуарда"
 
-#: lib/class_settings.php:366
+#: lib/class_settings.php:367
 msgid "Quebec"
 msgstr "Квебек"
 
-#: lib/class_settings.php:367
+#: lib/class_settings.php:368
 msgid "Saskatchewan"
 msgstr "Саскачеван"
 
-#: lib/class_settings.php:368
+#: lib/class_settings.php:369
 msgid "Yukon Territory"
 msgstr "терр. Юкон"
 
-#: lib/class_settings.php:370
+#: lib/class_settings.php:371
 msgid "Australian Dollars"
 msgstr "Австралийские доллары"
 
-#: lib/class_settings.php:371
+#: lib/class_settings.php:372
 msgid "Canadian Dollars"
 msgstr "Канадские доллары"
 
-#: lib/class_settings.php:372
+#: lib/class_settings.php:373
 msgid "Euro"
 msgstr "Евро"
 
-#: lib/class_settings.php:373
+#: lib/class_settings.php:374
 msgid "Pounds Sterling"
 msgstr "Фунт Стерлинга"
 
-#: lib/class_settings.php:374
+#: lib/class_settings.php:375
 msgid "Yen"
 msgstr "Йена"
 
-#: lib/class_settings.php:375
+#: lib/class_settings.php:376
 msgid "U.S. Dollars"
 msgstr "Американские доллары"
 
-#: lib/class_settings.php:376
+#: lib/class_settings.php:377
 msgid "New Zealand Dollar"
 msgstr "Новозеландский доллар"
 
-#: lib/class_settings.php:377
+#: lib/class_settings.php:378
 msgid "Swiss Franc"
 msgstr "Швейцарский франк"
 
-#: lib/class_settings.php:378
+#: lib/class_settings.php:379
 msgid "Hong Kong Dollar"
 msgstr "Гонконгский доллар"
 
-#: lib/class_settings.php:379
+#: lib/class_settings.php:380
 msgid "Singapore Dollar"
 msgstr "Сингапурский доллар"
 
-#: lib/class_settings.php:380
+#: lib/class_settings.php:381
 msgid "Swedish Krona"
 msgstr "Шведская крона"
 
-#: lib/class_settings.php:381
+#: lib/class_settings.php:382
 msgid "Danish Krone"
 msgstr "Датская крона"
 
-#: lib/class_settings.php:382
+#: lib/class_settings.php:383
 msgid "Polish Zloty"
 msgstr "пролький злотый"
 
-#: lib/class_settings.php:383
+#: lib/class_settings.php:384
 msgid "Norwegian Krone"
 msgstr "Норвежская крона"
 
-#: lib/class_settings.php:384
+#: lib/class_settings.php:385
 msgid "Hungarian Forint"
 msgstr "Венгерский форинт"
 
-#: lib/class_settings.php:385
+#: lib/class_settings.php:386
 msgid "Czech Koruna"
 msgstr "Чешская крона"
 
-#: lib/class_settings.php:386
+#: lib/class_settings.php:387
 msgid "Israeli Shekel"
 msgstr "Израильский шекель"
 
-#: lib/class_settings.php:387
+#: lib/class_settings.php:388
 msgid "Mexican Peso"
 msgstr "Мексиканский песо"
 
-#: lib/class_settings.php:388
+#: lib/class_settings.php:389
 msgid "South African Rand"
 msgstr "ранд Южно-Африканской Республики"
 
-#: lib/class_settings.php:422
+#: lib/class_settings.php:423
 msgid "[New Invoice] %subject%"
 msgstr "[Новый счет] %subject%"
 
-#: lib/class_settings.php:423
+#: lib/class_settings.php:424
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1731,11 +1750,11 @@ msgstr ""
 "С уважением, \n"
 "%business_name% (%business_email%)"
 
-#: lib/class_settings.php:426
+#: lib/class_settings.php:427
 msgid "[Reminder] %subject%"
 msgstr "[Напоминание] %subject%"
 
-#: lib/class_settings.php:427
+#: lib/class_settings.php:428
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1763,15 +1782,15 @@ msgstr ""
 "С уважением, \n"
 "%business_name% (%business_email%)"
 
-#: lib/class_settings.php:429
+#: lib/class_settings.php:430
 msgid "Send Receipt"
 msgstr "Послать уведомление"
 
-#: lib/class_settings.php:430
+#: lib/class_settings.php:431
 msgid "[Payment Received] %subject%"
 msgstr "[Платеж получен] %subject%"
 
-#: lib/class_settings.php:431
+#: lib/class_settings.php:432
 msgid ""
 "Dear %recipient%, \n"
 "\n"
@@ -1792,15 +1811,15 @@ msgstr ""
 "С уважением, \n"
 "%business_name% (%business_email%)"
 
-#: lib/class_settings.php:457
+#: lib/class_settings.php:458
 msgid "Web Design Services"
 msgstr "Услуги веб-дизайна"
 
-#: lib/class_settings.php:460
+#: lib/class_settings.php:461
 msgid "Web Development Services"
 msgstr "Услуги веб-разработки"
 
-#: lib/class_settings.php:603
+#: lib/class_settings.php:612
 msgid "old options found, converted into new format, and deleted."
 msgstr "обнаружены старые записи; они преобразованы в новый формат и удалены."
 
@@ -1813,80 +1832,65 @@ msgid "Cost"
 msgstr "Стоимость"
 
 #: lib/class_template_functions.php:40
+#: static/views/unified-invoice-page-active.php:184
+#: static/views/unified-invoice-page-paid.php:176
+#: static/views/unified-invoice-page-refund.php:176
 msgid "Quantity"
 msgstr "Количество"
 
-#: lib/class_template_functions.php:129
-msgid ""
-"Partial payment is not available because of an error.\\nContact "
-"Administirator for more information."
-msgstr "Частичная оплата недоступна\\nОбратитесь к администратору."
-
-#: lib/class_template_functions.php:167
+#: lib/class_template_functions.php:84
 msgid "Charges"
 msgstr "Начисления"
 
-#: lib/class_template_functions.php:198
+#: lib/class_template_functions.php:115
 msgid "Subtotal:"
 msgstr "Промежуточный итог"
 
-#: lib/class_template_functions.php:206
+#: lib/class_template_functions.php:123
 msgid "Tax:"
 msgstr "Налог"
 
-#: lib/class_template_functions.php:212
+#: lib/class_template_functions.php:129
 msgid "Discounts:"
 msgstr "Скидки"
 
-#: lib/class_template_functions.php:223
+#: lib/class_template_functions.php:140
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:312
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:490
 msgid "Adjustments:"
 msgstr "Корректировки:"
 
-#: lib/class_template_functions.php:229
+#: lib/class_template_functions.php:146
 msgid "Received Payment:"
 msgstr "Полученный платеж:"
 
-#: lib/class_template_functions.php:235
+#: lib/class_template_functions.php:152
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:318
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:502
 msgid "Balance:"
 msgstr "Сумма:"
 
-#: lib/class_template_functions.php:279
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:619
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:633
+#: lib/class_template_functions.php:196
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:663
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:677
 msgid "Time"
 msgstr "Время"
 
-#: lib/class_template_functions.php:280
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:620
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:634
+#: lib/class_template_functions.php:197
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:664
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:678
 msgid "Event"
 msgstr "Действие"
 
-#: lib/class_template_functions.php:334
+#: lib/class_template_functions.php:251
 msgid "There are no any actions"
 msgstr "Действия не произведены"
 
-#: lib/class_template_functions.php:377
+#: lib/class_template_functions.php:295
 msgid "Payment Amount"
 msgstr "Сумма платежа"
 
-#: lib/class_template_functions.php:380
-msgid "Min. Payment Due:"
-msgstr "Минимальный платеж:"
-
-#: lib/class_template_functions.php:386
-msgid "Statement Balance:"
-msgstr "Отчет о балансе"
-
-#: lib/class_template_functions.php:392
-msgid "Other"
-msgstr "Другое"
-
-#: lib/class_template_functions.php:401
+#: lib/class_template_functions.php:298
 msgid ""
 "This invoice allows partial payments, please select the amount you would "
 "like to pay."
@@ -1894,14 +1898,44 @@ msgstr ""
 "Данный счет позволяет вносить платежи частями. Выберите сумму, которую вы "
 "хотели бы внести."
 
-#: lib/class_template_functions.php:422
+#: lib/class_template_functions.php:301
+msgid "Min. Payment Due:"
+msgstr "Минимальный платеж:"
+
+#: lib/class_template_functions.php:307
+msgid "Statement Balance:"
+msgstr "Отчет о балансе"
+
+#: lib/class_template_functions.php:313
+msgid "Other"
+msgstr "Другое"
+
+#: lib/class_template_functions.php:398
+msgid ""
+"Partial payment is not available because of an error.\\nContact "
+"Administirator for more information."
+msgstr "Частичная оплата недоступна\\nОбратитесь к администратору."
+
+#: lib/class_template_functions.php:420
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:516
 msgid "Payment Method"
 msgstr "Способ оплаты"
 
-#: lib/class_template_functions.php:798
+#: lib/class_template_functions.php:796
 msgid "Due Date: "
 msgstr "Дата окончания:"
+
+#: lib/class_template_functions.php:916 lib/class_template_functions.php:920
+msgid "Not set"
+msgstr "Не установлен"
+
+#: lib/class_template_functions.php:941
+msgid "No address information"
+msgstr "Нет адреса"
+
+#: lib/class_template_functions.php:971
+msgid "Untitled"
+msgstr "Без названия"
 
 #: lib/class_ui.php:20
 msgid "WP-Invoice"
@@ -2324,6 +2358,9 @@ msgstr ""
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:104
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:209
 #: static/views/invoice_lookup.php:8
+#: static/views/unified-invoice-page-active.php:149
+#: static/views/unified-invoice-page-paid.php:141
+#: static/views/unified-invoice-page-refund.php:141
 msgid "Invoice ID"
 msgstr "Номер счета"
 
@@ -2347,7 +2384,7 @@ msgstr "Название счета"
 msgid "Description of Invoice"
 msgstr "Описание счета"
 
-#: lib/class_ui.php:602 lib/ui/wp-invoice_page_wpi_page_settings.php:133
+#: lib/class_ui.php:602 lib/ui/wp-invoice_page_wpi_page_settings.php:151
 msgid "Business Name"
 msgstr "Названии компании"
 
@@ -2486,7 +2523,7 @@ msgstr ""
 "Или посетите <a href=\"https://www.usabilitydynamics.com/product/wp-invoice"
 "\" target=\"_blank\">Помощь по WP-Invoice</a> на UsabilityDynamics.com"
 
-#: lib/class_ui.php:1323 lib/gateways/class_wpi_authorize.php:80
+#: lib/class_ui.php:1300 lib/gateways/class_wpi_authorize.php:80
 #: lib/gateways/class_wpi_authorize.php:102
 #: lib/gateways/class_wpi_paypal.php:40 lib/gateways/class_wpi_paypal.php:54
 #: lib/gateways/class_wpi_twocheckout.php:42 lib/ui/first_time_setup.php:87
@@ -2495,86 +2532,86 @@ msgstr ""
 msgid "Yes"
 msgstr "Да"
 
-#: lib/class_ui.php:1323 lib/gateways/class_wpi_authorize.php:81
+#: lib/class_ui.php:1300 lib/gateways/class_wpi_authorize.php:81
 #: lib/gateways/class_wpi_authorize.php:103
 #: lib/gateways/class_wpi_paypal.php:39 lib/gateways/class_wpi_paypal.php:55
 #: lib/gateways/class_wpi_twocheckout.php:41 lib/ui/payment_processing.php:60
 msgid "No"
 msgstr "Нет"
 
-#: lib/class_ui.php:1326
+#: lib/class_ui.php:1303
 msgid "Select"
 msgstr "Выбрать"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Jan"
 msgstr "Январь"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Feb"
 msgstr "Февраль"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Mar"
 msgstr "Март"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Apr"
 msgstr "Апрель"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "May"
 msgstr "Май"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Jun"
 msgstr "Июнь"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Jul"
 msgstr "Июль"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Aug"
 msgstr "Август"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Sep"
 msgstr "Сентябрь"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Oct"
 msgstr "Октябрь"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Nov"
 msgstr "Ноябрь"
 
-#: lib/class_ui.php:1344
+#: lib/class_ui.php:1321
 msgid "Dec"
 msgstr "Декабрь"
 
-#: lib/class_ui.php:1356
+#: lib/class_ui.php:1333
 msgid "Values are empty"
 msgstr "Значение не присвоено"
 
-#: lib/class_ui.php:1378
+#: lib/class_ui.php:1355
 msgid "View Profile"
 msgstr "Просмотреть счет"
 
-#: lib/class_ui.php:1381
+#: lib/class_ui.php:1358
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "Получить модуль WP-CRM для улучшения управления пользователями."
 
-#: lib/class_ui.php:1412
+#: lib/class_ui.php:1389
 msgid "WP-Invoice custom field"
 msgstr "Настраиваемое поле WP-Invoice"
 
-#: lib/class_ui.php:1428
+#: lib/class_ui.php:1405
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
-#: lib/class_ui.php:1429
+#: lib/class_ui.php:1406
 msgid ""
 "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
 "custom user data fields for payments forms.</p>"
@@ -2583,16 +2620,16 @@ msgstr ""
 "использоваться для добавления пользователем настраиваемых полей со своими "
 "данными в платежные поручения.</p>"
 
-#: lib/class_ui.php:1430
+#: lib/class_ui.php:1407
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr ""
 "<p>Действительно для авторизованного сетевого платежа в настоящий момент.</p>"
 
-#: lib/class_ui.php:1431
+#: lib/class_ui.php:1408
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "Уведомление о счете"
 
-#: lib/class_ui.php:1432
+#: lib/class_ui.php:1409
 msgid ""
 "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
 "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
@@ -2650,22 +2687,22 @@ msgstr "Имейл пользователя имеет неверный форм
 msgid "Method requires \"items\" or \"charges\" argument to be passed."
 msgstr "Метод требует, чтобы \"items\" или \"charges\" аргумент был вставлен."
 
-#: lib/class_xmlrpc_api.php:343 lib/class_xmlrpc_api.php:718
+#: lib/class_xmlrpc_api.php:343 lib/class_xmlrpc_api.php:720
 msgid "Unknown invoice type."
 msgstr "Неизвестный тип счета."
 
-#: lib/class_xmlrpc_api.php:348 lib/class_xmlrpc_api.php:723
+#: lib/class_xmlrpc_api.php:348 lib/class_xmlrpc_api.php:725
 msgid ""
 "Method requires correct \"recurring\" argument if \"type\" is recurring."
 msgstr ""
 "Метод требует правильного \"recurring\" аргумента, если \"type\" счета "
 "регулярные платежи."
 
-#: lib/class_xmlrpc_api.php:349 lib/class_xmlrpc_api.php:724
+#: lib/class_xmlrpc_api.php:349 lib/class_xmlrpc_api.php:726
 msgid "Cannot use \"deposit\" with \"recurring\" type."
 msgstr "Нельзя использовать \"deposit\" с \"recurring\" типом."
 
-#: lib/class_xmlrpc_api.php:354 lib/class_xmlrpc_api.php:729
+#: lib/class_xmlrpc_api.php:354 lib/class_xmlrpc_api.php:731
 msgid "Cannot use \"deposit\" with \"quote\" type."
 msgstr "Нельзя использовать \"deposit\" с \"quote\"  типом."
 
@@ -2677,156 +2714,176 @@ msgstr "Метод требует, чтобы аргумент \"status\"  бы�
 msgid "Unknown invoice status."
 msgstr "Неизвестный статус инвойса."
 
-#: lib/class_xmlrpc_api.php:425 lib/class_xmlrpc_api.php:769
+#: lib/class_xmlrpc_api.php:425 lib/class_xmlrpc_api.php:771
 msgid "Discount name is required."
 msgstr "Обязательно введите название дисконта."
 
-#: lib/class_xmlrpc_api.php:426 lib/class_xmlrpc_api.php:770
+#: lib/class_xmlrpc_api.php:426 lib/class_xmlrpc_api.php:772
 msgid "Discount type is required. (\"amount\" or \"percent\")."
 msgstr "Необходимо выбрать тип дисконта. (\"amount\" или \"percent\")."
 
-#: lib/class_xmlrpc_api.php:427 lib/class_xmlrpc_api.php:771
+#: lib/class_xmlrpc_api.php:427 lib/class_xmlrpc_api.php:773
 msgid "Discount amount is required."
 msgstr "Необходимо указать значение дисконта."
 
-#: lib/class_xmlrpc_api.php:438 lib/class_xmlrpc_api.php:784
+#: lib/class_xmlrpc_api.php:438 lib/class_xmlrpc_api.php:786
 msgid "One or more \"items\" have malformed structure. Cannot create Invoice."
 msgstr ""
 "Еще одна \"items\" имеет неправильную структуру. Невозможно создать счет."
 
-#: lib/class_xmlrpc_api.php:445 lib/class_xmlrpc_api.php:791
+#: lib/class_xmlrpc_api.php:445 lib/class_xmlrpc_api.php:793
 msgid ""
 "One or more \"items\" have wrong \"quantity\" value. Cannot create Invoice."
 msgstr ""
 "Еще одна \"items\" имеет неправильное значение \"quantity\". Невозможно "
 "создать счет."
 
-#: lib/class_xmlrpc_api.php:446 lib/class_xmlrpc_api.php:792
+#: lib/class_xmlrpc_api.php:446 lib/class_xmlrpc_api.php:794
 msgid ""
 "One or more \"items\" have wrong \"price\" value. Cannot create Invoice."
 msgstr ""
 "Еще одна \"items\" имеет неправильное значение \"price\" . Невозможно "
 "создать счет."
 
-#: lib/class_xmlrpc_api.php:448 lib/class_xmlrpc_api.php:794
+#: lib/class_xmlrpc_api.php:448 lib/class_xmlrpc_api.php:796
 msgid ""
 "One or more \"items\" have wrong \"tax_rate\" value. Cannot create Invoice."
 msgstr ""
 "Еще одна \"items\" имеет неправильное значение \"tax_rate\". Невозможно "
 "создать счет."
 
-#: lib/class_xmlrpc_api.php:461 lib/class_xmlrpc_api.php:806
+#: lib/class_xmlrpc_api.php:461 lib/class_xmlrpc_api.php:808
 msgid ""
 "One or more \"charges\" have malformed structure. Cannot create Invoice."
 msgstr ""
 "One or more \"items\" have wrong \"tax_rate\" value. Cannot create Invoice."
 
-#: lib/class_xmlrpc_api.php:468 lib/class_xmlrpc_api.php:813
+#: lib/class_xmlrpc_api.php:468 lib/class_xmlrpc_api.php:815
 msgid ""
 "One or more \"charges\" have wrong \"amount\" value. Cannot create Invoice."
 msgstr ""
 "Еще одна \"charges\" имеет неправильное значение \"amount\". Невозможно "
 "создать счет."
 
-#: lib/class_xmlrpc_api.php:470 lib/class_xmlrpc_api.php:815
+#: lib/class_xmlrpc_api.php:470 lib/class_xmlrpc_api.php:817
 msgid ""
 "One or more \"charges\" have wrong \"tax\" value. Cannot create Invoice."
 msgstr ""
 "Еще одна \"charges\" имеет неправильное значение \"tax\". Невозможно создать "
 "счет."
 
-#: lib/class_xmlrpc_api.php:480 lib/class_xmlrpc_api.php:763
+#: lib/class_xmlrpc_api.php:480 lib/class_xmlrpc_api.php:765
 msgid "Unknown \"tax_method\"."
 msgstr "Неизвестный  \"tax_method\"."
 
-#: lib/class_xmlrpc_api.php:509 lib/class_xmlrpc_api.php:558
-#: lib/class_xmlrpc_api.php:618 lib/class_xmlrpc_api.php:645
-#: lib/class_xmlrpc_api.php:689
+#: lib/class_xmlrpc_api.php:511 lib/class_xmlrpc_api.php:560
+#: lib/class_xmlrpc_api.php:620 lib/class_xmlrpc_api.php:647
+#: lib/class_xmlrpc_api.php:691
 msgid "Argument \"ID\" is required."
 msgstr "Требуется аргумент \"ID\"."
 
-#: lib/class_xmlrpc_api.php:518 lib/class_xmlrpc_api.php:569
-#: lib/class_xmlrpc_api.php:654
+#: lib/class_xmlrpc_api.php:520 lib/class_xmlrpc_api.php:571
+#: lib/class_xmlrpc_api.php:656
 msgid "Invoice not found"
 msgstr "Счет не найден"
 
-#: lib/class_xmlrpc_api.php:521
+#: lib/class_xmlrpc_api.php:523
 msgid "Cannot be refunded. No payments found."
 msgstr "Возврат не может быть сделан. Не найдено ни одного оплаченого счета."
 
-#: lib/class_xmlrpc_api.php:529
+#: lib/class_xmlrpc_api.php:531
 msgid "Could not refund due to unknown error."
 msgstr "Возврат не может быть сделан из-за неизвестной ошибки."
 
-#: lib/class_xmlrpc_api.php:559
+#: lib/class_xmlrpc_api.php:561
 msgid "Argument \"amount\" is required."
 msgstr "Требуется аргумент \"amount\"."
 
-#: lib/class_xmlrpc_api.php:560
+#: lib/class_xmlrpc_api.php:562
 msgid "Argument \"amount\" is malformed."
 msgstr "Аргумент \"amount\" не правильный."
 
-#: lib/class_xmlrpc_api.php:572
+#: lib/class_xmlrpc_api.php:574
 msgid "Invoice is completely paid. Payments are not acceptable anymore."
 msgstr "Счет полностью оплачен. Оплата больше не доступна."
 
-#: lib/class_xmlrpc_api.php:575
+#: lib/class_xmlrpc_api.php:577
 msgid "Cannot pay more that the balance is. Maximum is "
 msgstr "Невозможно оплатить больше чем указано в балансе счета. Максимум "
 
-#: lib/class_xmlrpc_api.php:579
+#: lib/class_xmlrpc_api.php:581
 msgid "Partial payments are not allowed. Pay minimum is "
 msgstr "Частичная оплата не разрешена. Оплатите минимум"
 
-#: lib/class_xmlrpc_api.php:581
+#: lib/class_xmlrpc_api.php:583
 msgid "Minimum allowed payment is "
 msgstr "Минимальная сумма платежа"
 
-#: lib/class_xmlrpc_api.php:869
+#: lib/class_xmlrpc_api.php:871
 msgid "Access denied. Do not have rights."
 msgstr "Доступ запрещен. Нет прав."
 
-#: lib/class_xmlrpc_api.php:872
+#: lib/class_xmlrpc_api.php:874
 msgid "Requested method is absent in API Reference"
 msgstr "Запрашиваемая метод отсутствует в справочнике по API"
 
-#: lib/class_xmlrpc_api.php:877
+#: lib/class_xmlrpc_api.php:879
 msgid "Unknown method"
 msgstr "Неизвестный метод"
 
-#: lib/class_xmlrpc_api.php:889 lib/class_xmlrpc_api.php:894
+#: lib/class_xmlrpc_api.php:891 lib/class_xmlrpc_api.php:896
 msgid "WP-Invoice XML-RPC API Reference"
 msgstr "WP-Invoice XML-RPC API Документация"
 
-#: lib/class_xmlrpc_api.php:890
+#: lib/class_xmlrpc_api.php:892
 msgid "Toggle"
 msgstr "Развернуть"
 
-#: lib/class_xmlrpc_api.php:900
+#: lib/class_xmlrpc_api.php:902
 msgid "Examples"
 msgstr "Примеры"
 
-#: lib/class_xmlrpc_api.php:906
+#: lib/class_xmlrpc_api.php:908
 msgid "Below is a list of available functions that current API supports."
 msgstr ""
 "Снизу представлены доступные функции, которые текущий API поддерживает."
 
-#: lib/class_xmlrpc_api.php:914
+#: lib/class_xmlrpc_api.php:916
 msgid "Arguments:"
 msgstr "Аргументы:"
 
-#: lib/classes/class-WPI_Bootstrap.php:176
+#: lib/classes/class-WPI_Bootstrap.php:178
 msgid "Add-ons"
 msgstr "Дополнения"
 
-#: lib/classes/class-WPI_Bootstrap.php:177
+#: lib/classes/class-WPI_Bootstrap.php:179
 msgid "WP-Invoice Add-ons Manager"
 msgstr "Управление дополнениями"
 
-#: lib/gateways/class_wpi_authorize.php:29 lib/ui/payment_accordion.php:29
-#: lib/ui/payment_processing.php:19
-msgid "Gateway Username"
-msgstr "Имя пользователя в платежной системе"
+#: lib/classes/class-client-dashboard.php:79
+#, php-format
+msgid ""
+"Client Dashboard page is not selected. Visit <strong><i><a href=\"%s"
+"\">Settings Page</a> - Business Process</i></strong> and set <b><i>Display "
+"Dashboard page</i></b> under <strong><i>When viewing an invoice</i></strong> "
+"section."
+msgstr ""
+"Не выбрана страница для Клиентской Панели. Посетите <strong><i><a href=\"%s"
+"\">Настройки</a> - Бизнес процесс</i></strong> и укажите <b><i>Отображать "
+"Панель Клиента</i></b> под секцией <strong><i>При просмотре инвойса</i></"
+"strong>."
+
+#: lib/classes/class-line-charge.php:29 lib/classes/class-line-item.php:31
+msgid "Unnamed"
+msgstr "Без имени"
+
+#: lib/classes/class-unified-invoice-page.php:97
+msgid "Unified Page Template"
+msgstr "Единый Дизайн"
+
+#: lib/gateways/class_wpi_authorize.php:29
+msgid "API Login ID"
+msgstr "API Login ID"
 
 #: lib/gateways/class_wpi_authorize.php:31 lib/ui/payment_accordion.php:29
 #: lib/ui/payment_processing.php:19
@@ -2835,10 +2892,9 @@ msgstr ""
 "Система обработки кредитной карты сообщит вам имя пользователя в платежной "
 "системе."
 
-#: lib/gateways/class_wpi_authorize.php:34 lib/ui/payment_accordion.php:34
-#: lib/ui/payment_processing.php:24
-msgid "Gateway Transaction Key"
-msgstr "Ключ к транзакциям  помощью платежных систем"
+#: lib/gateways/class_wpi_authorize.php:34
+msgid "API Transaction Key"
+msgstr "API Transaction Key"
 
 #: lib/gateways/class_wpi_authorize.php:36 lib/ui/payment_accordion.php:34
 #: lib/ui/payment_processing.php:24
@@ -2980,12 +3036,6 @@ msgstr "Адрес"
 msgid "Zip"
 msgstr "Почтовый индекс"
 
-#: lib/gateways/class_wpi_authorize.php:182
-#: lib/gateways/class_wpi_paypal.php:129
-#: lib/gateways/class_wpi_twocheckout.php:90
-msgid "Country"
-msgstr "Страна"
-
 #: lib/gateways/class_wpi_authorize.php:193
 #: lib/gateways/templates/wpi_stripe-frontend.tpl.php:20
 msgid "Card Number"
@@ -3054,11 +3104,11 @@ msgstr "Через 30 дней"
 msgid "Clear"
 msgstr "Нулевой"
 
-#: lib/gateways/class_wpi_authorize.php:530
+#: lib/gateways/class_wpi_authorize.php:531
 msgid "Subscription initiated, Subcription ID"
 msgstr "Подписка инициирована, ID подписки"
 
-#: lib/gateways/class_wpi_authorize.php:537
+#: lib/gateways/class_wpi_authorize.php:538
 msgid ""
 "One-time credit card payment is processed successfully. However, recurring "
 "billing setup failed. "
@@ -3066,15 +3116,15 @@ msgstr ""
 "Разовый платеж с помощью кредитной карты осуществлен успешно, однако "
 "установить систему многократных платежей не удалось."
 
-#: lib/gateways/class_wpi_authorize.php:540
+#: lib/gateways/class_wpi_authorize.php:541
 msgid "Response Code: "
 msgstr "Код ответа:"
 
-#: lib/gateways/class_wpi_authorize.php:540
+#: lib/gateways/class_wpi_authorize.php:541
 msgid "Subscription error"
 msgstr "Ошибка подписки"
 
-#: lib/gateways/class_wpi_authorize.php:588
+#: lib/gateways/class_wpi_authorize.php:589
 msgid "Subscription completely paid"
 msgstr "Подписки выплачена полностью"
 
@@ -3105,7 +3155,7 @@ msgstr ""
 #: lib/gateways/class_wpi_interkassa.php:63
 #: lib/gateways/class_wpi_paypal.php:82 lib/gateways/class_wpi_stripe.php:38
 #: lib/gateways/class_wpi_twocheckout.php:72
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:154
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:172
 msgid "Email Address"
 msgstr "Email адрес"
 
@@ -3116,37 +3166,37 @@ msgid "Phone"
 msgstr "Телефон"
 
 #: lib/gateways/class_wpi_interkassa.php:87
-#: lib/gateways/class_wpi_paypal.php:117 lib/gateways/class_wpi_stripe.php:62
+#: lib/gateways/class_wpi_paypal.php:117 lib/gateways/class_wpi_stripe.php:68
 #: lib/gateways/class_wpi_twocheckout.php:102
 msgid "State/Province"
 msgstr "Штат/Провинция"
 
-#: lib/gateways/class_wpi_interkassa.php:93
-#: lib/gateways/class_wpi_paypal.php:123 lib/gateways/class_wpi_stripe.php:68
+#: lib/gateways/class_wpi_interkassa.php:99
+#: lib/gateways/class_wpi_paypal.php:123 lib/gateways/class_wpi_stripe.php:74
 #: lib/gateways/class_wpi_twocheckout.php:108
 msgid "Zip/Postal Code"
 msgstr "Индекс"
 
-#: lib/gateways/class_wpi_interkassa.php:107
+#: lib/gateways/class_wpi_interkassa.php:113
 msgid "InterKassa Recurring Billing"
 msgstr "InterKassa Регулярные Платежи"
 
-#: lib/gateways/class_wpi_interkassa.php:108
+#: lib/gateways/class_wpi_interkassa.php:114
 msgid "Currently InterKassa gateway does not support Recurring Billing"
 msgstr "На данный момент InterKassa не поддерживает подписки"
 
-#: lib/gateways/class_wpi_interkassa.php:190
+#: lib/gateways/class_wpi_interkassa.php:196
 #: lib/gateways/class_wpi_paypal.php:338
 #: lib/gateways/class_wpi_twocheckout.php:275
 msgid "Direct access not allowed"
 msgstr "В прямом доступе отказано"
 
-#: lib/gateways/class_wpi_interkassa.php:213
+#: lib/gateways/class_wpi_interkassa.php:219
 #, php-format
 msgid "%s paid via InterKassa [%s]"
 msgstr "%s оплачено через InterKassa [%s]"
 
-#: lib/gateways/class_wpi_interkassa.php:221
+#: lib/gateways/class_wpi_interkassa.php:227
 #, php-format
 msgid "Transaction ID: %s"
 msgstr "Транзакция №: %s"
@@ -3235,70 +3285,70 @@ msgstr "%s оплачено через PayPal"
 msgid "PayPal Payer email: %s"
 msgstr "PayPal email плательщика: %s"
 
-#: lib/gateways/class_wpi_stripe.php:79
+#: lib/gateways/class_wpi_stripe.php:85
 msgid "Test Secret Key"
 msgstr "Test Secret Key"
 
-#: lib/gateways/class_wpi_stripe.php:83
+#: lib/gateways/class_wpi_stripe.php:89
 msgid "Test Publishable Key"
 msgstr "Test Publishable Key"
 
-#: lib/gateways/class_wpi_stripe.php:87
+#: lib/gateways/class_wpi_stripe.php:93
 msgid "Live Secret Key"
 msgstr "Live Secret Key"
 
-#: lib/gateways/class_wpi_stripe.php:91
+#: lib/gateways/class_wpi_stripe.php:97
 msgid "Live Publishable Key"
 msgstr "Live Publishable Key"
 
-#: lib/gateways/class_wpi_stripe.php:95
+#: lib/gateways/class_wpi_stripe.php:101
 msgid "Mode"
 msgstr "Режим"
 
-#: lib/gateways/class_wpi_stripe.php:105
+#: lib/gateways/class_wpi_stripe.php:111
 msgid "Webhook URL"
 msgstr "Webhook URL"
 
-#: lib/gateways/class_wpi_stripe.php:108
+#: lib/gateways/class_wpi_stripe.php:114
 msgid ""
 "Use webhooks to be notified about events that happen in your Stripe account."
 msgstr ""
 "Используйте webhooks, чтобы быть информированым о событиях которые "
 "происходят в вашем Stripe аккаунте."
 
-#: lib/gateways/class_wpi_stripe.php:121
+#: lib/gateways/class_wpi_stripe.php:127
 msgid "Stripe Subscriptions"
 msgstr "Stripe подписки"
 
-#: lib/gateways/class_wpi_stripe.php:124
+#: lib/gateways/class_wpi_stripe.php:130
 #: lib/gateways/class_wpi_twocheckout.php:127
 msgid "Specifies billing frequency."
 msgstr "Частота выставления счетов."
 
-#: lib/gateways/class_wpi_stripe.php:124
+#: lib/gateways/class_wpi_stripe.php:130
 #: lib/gateways/class_wpi_twocheckout.php:127
 msgid "Interval"
 msgstr "Интервал"
 
-#: lib/gateways/class_wpi_stripe.php:126
+#: lib/gateways/class_wpi_stripe.php:132
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
 msgid "Week"
 msgstr "Неделя"
 
-#: lib/gateways/class_wpi_stripe.php:126
+#: lib/gateways/class_wpi_stripe.php:132
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
 msgid "Month"
 msgstr "Месяц"
 
-#: lib/gateways/class_wpi_stripe.php:126
+#: lib/gateways/class_wpi_stripe.php:132
 #: lib/gateways/class_wpi_twocheckout.php:130
 #: lib/gateways/class_wpi_twocheckout.php:137
 msgid "Year"
 msgstr "Год"
 
-#: lib/gateways/class_wpi_stripe.php:131
+#: lib/gateways/class_wpi_stripe.php:137
 msgid ""
 "The number of the unit specified in the interval parameter. For example, you "
 "could specify an interval_count of 3 and an interval of \"month\" for "
@@ -3308,11 +3358,11 @@ msgstr ""
 "указать interval_count 3 и интервал  \"month \" для ежеквартального биллинга "
 "(каждые 3 месяца)."
 
-#: lib/gateways/class_wpi_stripe.php:131
+#: lib/gateways/class_wpi_stripe.php:137
 msgid "Interval Count"
 msgstr "Количество интервалов"
 
-#: lib/gateways/class_wpi_stripe.php:232
+#: lib/gateways/class_wpi_stripe.php:238
 msgid ""
 "The order cannot be processed. You have not been charged. Please confirm "
 "that you have JavaScript enabled and try again."
@@ -3320,12 +3370,12 @@ msgstr ""
 "Порядок не может быть обработан. Оплата не была произведена. Пожалуйста, "
 "подтвердите, что вы включили JavaScript и попробуйте снова."
 
-#: lib/gateways/class_wpi_stripe.php:271
+#: lib/gateways/class_wpi_stripe.php:277
 #, php-format
 msgid "Subscription has been initiated. Plan: %s, Customer: %s"
 msgstr "Подписка инициирована. План: %s, Пользователь: %s"
 
-#: lib/gateways/class_wpi_stripe.php:277
+#: lib/gateways/class_wpi_stripe.php:283
 msgid ""
 "Stripe Subscription has been initiated. Do not pay this invoice again. Thank "
 "you."
@@ -3333,46 +3383,46 @@ msgstr ""
 " Stripe Подписка было инициализирована. Не оплачивайте данный счет снова. "
 "Спасибо."
 
-#: lib/gateways/class_wpi_stripe.php:282
+#: lib/gateways/class_wpi_stripe.php:288
 msgid ""
 "Could not initiate Stripe Subscription. Contact site Administrator please."
 msgstr ""
 "Невозможно инициализировать подписку Stripe. Обратитесь к администратору "
 "сайта."
 
-#: lib/gateways/class_wpi_stripe.php:336
+#: lib/gateways/class_wpi_stripe.php:342
 msgid " paid via STRIPE"
 msgstr " оплачено через STRIPE"
 
-#: lib/gateways/class_wpi_stripe.php:344
+#: lib/gateways/class_wpi_stripe.php:350
 msgid "Successfully processed by "
 msgstr "Успешно обработано "
 
-#: lib/gateways/class_wpi_stripe.php:347
+#: lib/gateways/class_wpi_stripe.php:353
 msgid "STRIPE Card ID: "
 msgstr "STRIPE Card ID: "
 
-#: lib/gateways/class_wpi_stripe.php:356
+#: lib/gateways/class_wpi_stripe.php:362
 msgid "Successfully paid. Thank you."
 msgstr "Успешно оплачено. Спасибо."
 
-#: lib/gateways/class_wpi_stripe.php:383
+#: lib/gateways/class_wpi_stripe.php:389
 msgid "Service is currently unavailable. Please try again later."
 msgstr "Сервис временно не доступен. Попробуйте позже."
 
-#: lib/gateways/class_wpi_stripe.php:387
+#: lib/gateways/class_wpi_stripe.php:393
 msgid "Unknown error occured. Please contact site administrator."
 msgstr "Неизвестная ошибка. Обратитесь к Администратору."
 
-#: lib/gateways/class_wpi_stripe.php:391
+#: lib/gateways/class_wpi_stripe.php:397
 msgid "Stripe server is down! Try again later."
 msgstr "Сервер Stripe не доступен. Попробуйте позже."
 
-#: lib/gateways/class_wpi_stripe.php:441
+#: lib/gateways/class_wpi_stripe.php:447
 msgid "Stripe Subscription Payment"
 msgstr "Платежи подписки Stripe"
 
-#: lib/gateways/class_wpi_stripe.php:473
+#: lib/gateways/class_wpi_stripe.php:479
 msgid "Stripe Subscription has been canceled"
 msgstr "Stripe подписка отменена"
 
@@ -3552,7 +3602,7 @@ msgid "Select a page to display invoices:"
 msgstr "Выберите страницу для отображения счетов:"
 
 #: lib/ui/first_time_setup.php:42
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:312
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:356
 msgid ""
 "Select whether to overwrite all page content, insert at the bottom of the "
 "content, or to look for the [wp-invoice] tag."
@@ -3565,27 +3615,27 @@ msgid "How to Insert Invoice:"
 msgstr "Как вставить счет"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid "Overwrite All Page Content"
 msgstr "Переписать все содержание страницы"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid "Place Below Content"
 msgstr "Вставить после основного текста"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid "Above Content"
 msgstr "Поверх текста"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid "Replace [wp-invoice] Tag"
 msgstr "Заменить ярлык [wp-invoice]"
 
 #: lib/ui/first_time_setup.php:53
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid ""
 "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</"
 "span> somewhere within your page content."
@@ -3674,6 +3724,10 @@ msgid "Toggle Advanced"
 msgstr "Дополнительно"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:198
+#: static/views/client-dashboard.php:134
+#: static/views/unified-invoice-page-active.php:158
+#: static/views/unified-invoice-page-paid.php:150
+#: static/views/unified-invoice-page-refund.php:150
 msgid "Due Date"
 msgstr "Дата окончания"
 
@@ -3690,12 +3744,12 @@ msgid "Tax Method"
 msgstr "Способ налога"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
 msgid "Before Discount"
 msgstr "До скидки"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
 msgid "After Discount"
 msgstr "После скидки"
 
@@ -3712,6 +3766,9 @@ msgid "New User Information"
 msgstr "Информация о новом пользователе"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:268
+#: static/views/unified-invoice-page-active.php:280
+#: static/views/unified-invoice-page-paid.php:272
+#: static/views/unified-invoice-page-refund.php:272
 msgid "Email"
 msgstr "Email"
 
@@ -3736,7 +3793,7 @@ msgid "Default Payment Option"
 msgstr "Способ платежа по умолчанию"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:413
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:480
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:524
 msgid "Client can change payment option."
 msgstr "Клиент может изменить способ платежа."
 
@@ -3798,6 +3855,9 @@ msgid "Administrative Adjustment"
 msgstr "Корректировки"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
+#: static/views/unified-invoice-page-active.php:279
+#: static/views/unified-invoice-page-paid.php:271
+#: static/views/unified-invoice-page-refund.php:271
 msgid "Refund"
 msgstr "Возмещение"
 
@@ -3846,6 +3906,14 @@ msgstr "URL-адрес кнопки Заплатить с помощью PayPal 
 msgid "Credit Card Setup"
 msgstr "Данные кредитной карты"
 
+#: lib/ui/payment_accordion.php:29 lib/ui/payment_processing.php:19
+msgid "Gateway Username"
+msgstr "Имя пользователя в платежной системе"
+
+#: lib/ui/payment_accordion.php:34 lib/ui/payment_processing.php:24
+msgid "Gateway Transaction Key"
+msgstr "Ключ к транзакциям  помощью платежных систем"
+
 #: lib/ui/payment_processing.php:2
 msgid "PayPal"
 msgstr "PayPal"
@@ -3878,7 +3946,7 @@ msgstr "Ложно"
 msgid "Toggle Advanced Options"
 msgstr "Переключиться в режим усовершенствованных вариантов"
 
-#: lib/ui/profile_page_content.php:7
+#: lib/ui/profile_page_content.php:6
 msgid "Billing / Invoicing Info"
 msgstr "Информация о выставлении инвойса"
 
@@ -3923,6 +3991,13 @@ msgstr "Название"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:185
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:274
+#: static/views/client-dashboard.php:137
+#: static/views/unified-invoice-page-active.php:187
+#: static/views/unified-invoice-page-active.php:226
+#: static/views/unified-invoice-page-paid.php:179
+#: static/views/unified-invoice-page-paid.php:218
+#: static/views/unified-invoice-page-refund.php:179
+#: static/views/unified-invoice-page-refund.php:218
 msgid "Amount"
 msgstr "Количество"
 
@@ -3930,32 +4005,32 @@ msgstr "Количество"
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:681
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:725
 msgid "Total"
 msgstr "Итого"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:216
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:342
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:439
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:572
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:483
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:616
 msgid "Name"
 msgstr "Название"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:219
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:678
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:722
 msgid "Qty."
 msgstr "Количество"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:220
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:350
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:679
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:723
 msgid "Price"
 msgstr "Цена"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:243
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:691
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:735
 msgid "Toggle Description"
 msgstr "Переключиться на Описание продукта"
 
@@ -3976,6 +4051,9 @@ msgstr "Итого без налога:"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:314
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:494
+#: static/views/unified-invoice-page-active.php:255
+#: static/views/unified-invoice-page-paid.php:247
+#: static/views/unified-invoice-page-refund.php:247
 msgid "Discount:"
 msgstr "Скидки:"
 
@@ -4041,44 +4119,52 @@ msgstr "Настройки сохранены."
 msgid "WP-Invoice Global Settings"
 msgstr "Глобальные настройки"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:142
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:133
+msgid "Business Logo"
+msgstr "Логотип"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:139
+msgid "Select Logo"
+msgstr "Выбрать"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:160
 msgid "Business Address"
 msgstr "Название компании"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:150
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
 msgid "Business Phone"
 msgstr "Рабочий телефон"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:159
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
 msgid "Display Styles"
 msgstr "Стили отображения"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:164
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:182
 msgid "Do <b>not</b> load theme specific styles."
 msgstr "<b>Не</b> загружать шаблонные стили."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:165
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:183
 #, php-format
 msgid "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
 msgstr "WP-Invoice поставляется со стилями для <b>%s</b>"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:186
 msgid "Load default CSS styles on the front-end"
 msgstr "Загружать стили по умолчанию"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:174
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:192
 msgid "Tax Handling"
 msgstr "Управление налогами"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
 msgid "Calculate Taxable Subtotal"
 msgstr "Пересчитать сумму с налогом"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:178
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:196
 msgid "Use global tax."
 msgstr "Использовать глобальный налог."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:181
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
 msgid ""
 "This will make all new invoices have default Tax value which can be changed "
 "for different invoice."
@@ -4086,55 +4172,55 @@ msgstr ""
 "Во всех новых счетах будет использоваться ставка налога по умолчанию; для "
 "разных счетов ее можно менять. "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:188
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:206
 msgid "Advanced Settings"
 msgstr "Дополнительные настройки"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:191
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:209
 msgid "Allow partial payments."
 msgstr "Разрешить частичные платежи."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:193
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:211
 msgid "Partial payments allowed by default."
 msgstr "Разрешить частичную оплату по умолчанию."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:213
 msgid "Show recurring billing options."
 msgstr "Показать возможность регулярного выставления счетов."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:196
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:214
 msgid "Enforce HTTPS on invoice pages, if available on this server."
 msgstr "Включить HTTPS на страницах счетов, если возможно на данном сервере."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Minimum user level to manage WP-Invoice"
 msgstr "Минимальный уровень пользователя для управления  WP-Invoice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Subscriber"
 msgstr "Подписчик"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Contributor"
 msgstr "Постоянный участник"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Author"
 msgstr "Автор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Editor"
 msgstr "Редактор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
 msgid "Administrator"
 msgstr "Администратор"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:202
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:220
 msgid "Using Godaddy Hosting:"
 msgstr "При использовании хостинга Godaddy"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:203
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
 msgid ""
 "Special proxy must be used to process credit card transactions on GoDaddy "
 "servers."
@@ -4142,7 +4228,7 @@ msgstr ""
 "Для обработки транзакций по кредитным картам на серверах Godaddy необходимо "
 "использовать специальный proxy-сервер."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:211
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:229
 msgid ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
@@ -4150,7 +4236,7 @@ msgstr ""
 "Используйте редактируемые шаблоны. Если вы их отметите, WP-Invoice будет "
 "использовать шаблоны из папки wpi в папке вашей активной темы."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:216
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:234
 msgid ""
 "Note: Currently there is no \"wpi\" folder in your active template's folder, "
 "WP-Invoice will attempt to create it after saving."
@@ -4158,7 +4244,7 @@ msgstr ""
 "Обратите внимание: В настоящий момент в активной папке вашего шаблона нет "
 "папки \"wpi\". WP-Invoice постарается создать ее после сохранения."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:218
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:236
 msgid ""
 "A \"wpi\" folder has been found, any files with the proper file names will "
 "be used instead of the default template files."
@@ -4166,37 +4252,37 @@ msgstr ""
 "Папка\"wpi\" обнаружена, вместо шаблонов по умолчанию будут использоваться "
 "любые файлы с соответствющими названиями."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:239
 msgid "Install"
 msgstr "Установить"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:239
 msgid ""
 "the custom templates inside the <b>wpi</b> folder in your active theme's "
 "folder."
 msgstr "пользовательские шаблоны внутри папки <b>wpi</b> в папке активной темы"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:225
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:243
 msgid "Thousands Separator Symbol"
 msgstr "Символ разделения тысяч"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:231
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:249
 msgid "None"
 msgstr "Нет"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:241
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:259
 msgid "Show invoices only for logged in recipients."
 msgstr "Показывать счета только для залогиненых пользователей."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:244
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:262
 msgid "Send passwords to newly created recipients."
 msgstr "Отсылать пароль только что зарегистрированным пользователям."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:247
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:265
 msgid "Turn off compatibility mode."
 msgstr "Выключить режим совместимости."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:248
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:266
 msgid ""
 "By default the Compatibility Mode is on. If you encounter problems "
 "displaying your invoices then turn it off."
@@ -4204,31 +4290,49 @@ msgstr ""
 "По умолчанию режим совместимости включен. Если у вас возникли проблемы при "
 "отображении счета-фактуры, то выключите его."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:275
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:293
 msgid "When creating an invoice"
 msgstr "При создании инвойса"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:278
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:296
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr "автоматически увеличивать номер инвойса на единицу."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:284
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:302
 msgid "When viewing an invoice"
 msgstr "При просмотре инвойса"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:287
-msgid "Display invoices on the"
-msgstr "размещайте инвойсы на"
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:310
+msgid "Activate Client Dashboard."
+msgstr "Активировать Клиентскую Панель"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:301
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:312
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:329
+msgid "New"
+msgstr "Новое"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:314
+msgid "Display dashboard on the"
+msgstr "Отображать Панель Клиента на"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:316
+msgid "Not selected"
+msgstr "Не выбрано"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:328
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:345
 msgid "page."
 msgstr "странице."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:303
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:332
+msgid "Display invoices on the"
+msgstr "размещайте инвойсы на"
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:347
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr "Заменить заголовок HTML названием инвойса при его просмотре."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:304
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:348
 msgid ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
@@ -4236,31 +4340,31 @@ msgstr ""
 "Заменить заголовок на странице и ссылку навигации на название инвойса при "
 "его просмотре."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:305
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:349
 msgid "Hide page heading and navigation link completely."
 msgstr "Скрыть заголовок страницы и ссылку навигации полностью."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:307
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:351
 msgid "Show my business name and address."
 msgstr "Показывать название и адрес моей компании."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:308
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:352
 msgid "Show quantity breakdowns in the itemized list."
 msgstr "Показывать нехватку количества товара всписке элементов заказа."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:313
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:357
 msgid "How to Insert Invoice"
 msgstr "Как вставить инвойс"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:318
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:362
 msgid "After a payment has been completed"
 msgstr "После получения платежа"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:321
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:365
 msgid "Send email confirmation to the client."
 msgstr "Отправить клиенту подтверждение."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:322
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:366
 #, php-format
 msgid ""
 "Send email notification to the address set for administrative purposes from "
@@ -4269,15 +4373,15 @@ msgstr ""
 "Отправить уведомление на адрес Администратора сайта указанный на странице <a "
 "href=\"%s\">Общие Настройки</a>"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:323
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:367
 msgid "Send email notification to invoice creator."
 msgstr "Отправить письмо создателю счета"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:324
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:368
 msgid "Use CRM to send notifications"
 msgstr "Отправить Уведомление о счете "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:324
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:368
 #, php-format
 msgid ""
 "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
@@ -4286,7 +4390,7 @@ msgstr ""
 "Установите <a class=\"small\" href=\"%s\">WP-CRM plugin</a> для более "
 "продвинутой настройки уведомлений."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:330
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:374
 msgid ""
 "This options allow you to change the default email address that WordPress "
 "sends it's mail from, and the name of the sender that the email is from."
@@ -4294,31 +4398,31 @@ msgstr ""
 "Эта опция позволяет изменить адрес электронной почты по умолчанию, с "
 "которого WordPress отправляет почту, и имя отправителя."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:331
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:375
 msgid "Mail From options"
 msgstr "Параметры почты отправителя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:339
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:383
 msgid "Sender Name"
 msgstr "Имя отправителя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:346
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:390
 msgid "The sender name that the email is from"
 msgstr "Имя отправителя письма в поле From"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:351
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:395
 msgid "User E-mail"
 msgstr "E-mail пользователя"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:358
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:402
 msgid "Email address e.g. username@example.com"
 msgstr "Email адрес, например username@example.com"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:363
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:407
 msgid "Apply 'Mail From' settings."
 msgstr "Применить настройки отправителя почты."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:375
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:419
 msgid ""
 "If you are using <b>Google Analytics Site Tracking</b> code on your site "
 "then you can track WP-Invoice events."
@@ -4326,59 +4430,59 @@ msgstr ""
 "Если вы используете <b>код отслеживание Google Analytics</b> сайта "
 "отслеживания на вашем сайте, вы можете отслеживать события WP-Invoice."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:376
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:420
 msgid "Google Analytics Events Tracking"
 msgstr "Отслеживание событий Google Analytics"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:383
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:427
 msgid "I want to track events."
 msgstr "Я хочу отслеживать события."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:388
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:432
 msgid "Track Invoices events:"
 msgstr "Отслеживание событий счета:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:391
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:435
 msgid "Attempting to pay Invoices"
 msgstr "Попытка оплаты счета"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:394
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:438
 msgid "View Invoices"
 msgstr "Просмотреть счет"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:422
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:466
 msgid "Default Currency"
 msgstr "Валюта по умолчанию"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:432
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:476
 msgid "Currency list"
 msgstr "Список валют"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:437
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:481
 msgid "Code"
 msgstr "Код валюты"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:438
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:482
 msgid "Symbol"
 msgstr "Символ"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:462
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:506
 msgid "Add Currency"
 msgstr "Добавить валюту"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:473
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:517
 msgid "Default Payment Method"
 msgstr "Способ платежа по умолчанию"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:485
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:529
 msgid "Payment Gateways"
 msgstr "Переход к платежным системам"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:546
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:590
 msgid "Manual Payment information"
 msgstr "Информация о проведении платежа"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:551
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:595
 msgid ""
 "If an invoice has no payment gateways, this message will be displayed "
 "offering the customer guidance on their course of action."
@@ -4386,19 +4490,19 @@ msgstr ""
 "Если в инвойсе нет перехода к платежным системам, появится это сообщение, "
 "предлагающее клиенту возможные варианты действий."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:573
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:617
 msgid "Subject"
 msgstr "Тема"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:574
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:618
 msgid "Content"
 msgstr "Содержание"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:598
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:642
 msgid "Add Template"
 msgstr "Добавить Шаблон"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:649
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:693
 msgid ""
 "Setup your common services and products in here to streamline invoice "
 "creation."
@@ -4406,31 +4510,31 @@ msgstr ""
 "Перечислите ваши основные услуги и продукты здесь, чтобы облегчить создание "
 "инвойсов."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:677
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:721
 msgid "Name & Description"
 msgstr "Название и описание"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:680
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:724
 msgid "Tax %"
 msgstr "Налог %"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:717
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:761
 msgid "Add Line Item"
 msgstr "Добавьте линейку продуктов"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:748
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:792
 msgid "Look up the $wpi_settings global settings array:"
 msgstr "Просмотреть блок глобальных настроек $wpi_settings:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:748
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:792
 msgid "Toggle $wpi_settings"
 msgstr "Триггер $wpi_settings"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:755
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:799
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr "Восстановление резервной копии конфигурации WP-Invoice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:756
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:800
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr "Скачать резервную копию конфигурации WP-Invoice"
 
@@ -4540,6 +4644,27 @@ msgstr "скопируйте ключ из вашего аккаунта или 
 msgid "paste the license key into input field for your product;"
 msgstr "вставьте ключ в поле напротив нужного Дополнения;"
 
+#: static/views/client-dashboard.php:93
+msgid "Access Denied"
+msgstr "Доступ Запрещен"
+
+#: static/views/client-dashboard.php:94
+msgid ""
+"If you see this message please be sure you followed by proper link from the "
+"invoice page or log in to see your dashboard."
+msgstr ""
+"Если вы видите это сообщение, пожалуйста убедитесь, что ты вы перешли по "
+"правильной ссылке на странице инвойса, или войдите под своим аккаунтом."
+
+#: static/views/client-dashboard.php:96
+#: static/views/unified-invoice-page-active.php:103
+msgid "Go Back"
+msgstr "Назад"
+
+#: static/views/client-dashboard.php:136
+msgid "Summary"
+msgstr "Описание"
+
 #: static/views/invoice_page.php:3
 #, php-format
 msgid "Welcome, %s!"
@@ -4564,16 +4689,19 @@ msgid "You've made payments, but still owe:"
 msgstr "Вы внесли платеж, однако сумма вашего долга:"
 
 #: static/views/invoice_page.php:56
+#: static/views/unified-invoice-page-active.php:323
 msgid "Manual Payment Information"
 msgstr "Информация о ручной оплате"
 
 #: static/views/invoice_page.php:57
+#: static/views/unified-invoice-page-active.php:324
 msgid "Contact site Administrator for payment information please."
 msgstr ""
 "Свяжитесь с Администратором сайта, чтобы узнать дополнительную информацию о "
 "совершении платежей"
 
 #: static/views/invoice_page.php:63
+#: static/views/unified-invoice-page-active.php:330
 msgid ""
 "Sorry, there is no payment method available. Please contact Administrator."
 msgstr "Извините, нет доступных способов оплаты. Свяжитесь с Администратором."
@@ -4589,6 +4717,141 @@ msgstr "Мы выслали вам счет"
 #: static/views/receipt_page.php:9
 msgid "was paid."
 msgstr "было оплачено."
+
+#: static/views/unified-invoice-page-active.php:92
+#: static/views/unified-invoice-page-paid.php:92
+#: static/views/unified-invoice-page-refund.php:92
+msgid "My dashboard"
+msgstr "Панель Клиента"
+
+#: static/views/unified-invoice-page-active.php:98
+#: static/views/unified-invoice-page-paid.php:98
+#: static/views/unified-invoice-page-refund.php:98
+msgid "PDF"
+msgstr "PDF"
+
+#: static/views/unified-invoice-page-active.php:104
+msgid "Make Payment"
+msgstr "Сделать Платеж"
+
+#: static/views/unified-invoice-page-active.php:140
+#: static/views/unified-invoice-page-paid.php:132
+#: static/views/unified-invoice-page-refund.php:132
+msgid "Email:"
+msgstr "Email:"
+
+#: static/views/unified-invoice-page-active.php:143
+#: static/views/unified-invoice-page-paid.php:135
+#: static/views/unified-invoice-page-refund.php:135
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: static/views/unified-invoice-page-active.php:153
+#: static/views/unified-invoice-page-paid.php:145
+#: static/views/unified-invoice-page-refund.php:145
+msgid "Issue Date"
+msgstr "Дата Создания"
+
+#: static/views/unified-invoice-page-active.php:163
+#: static/views/unified-invoice-page-paid.php:155
+#: static/views/unified-invoice-page-refund.php:155
+msgid "Invoice for"
+msgstr "Инвойс для"
+
+#: static/views/unified-invoice-page-active.php:182
+#: static/views/unified-invoice-page-active.php:225
+#: static/views/unified-invoice-page-paid.php:174
+#: static/views/unified-invoice-page-paid.php:217
+#: static/views/unified-invoice-page-refund.php:174
+#: static/views/unified-invoice-page-refund.php:217
+msgid "Description"
+msgstr "Описание"
+
+#: static/views/unified-invoice-page-active.php:186
+#: static/views/unified-invoice-page-paid.php:178
+#: static/views/unified-invoice-page-refund.php:178
+msgid "Unit Price"
+msgstr "Цена"
+
+#: static/views/unified-invoice-page-active.php:219
+#: static/views/unified-invoice-page-paid.php:211
+#: static/views/unified-invoice-page-refund.php:211
+msgid "Additional Charges"
+msgstr "Дополнительные Расходы"
+
+#: static/views/unified-invoice-page-active.php:247
+#: static/views/unified-invoice-page-paid.php:239
+#: static/views/unified-invoice-page-refund.php:239
+msgid "Total:"
+msgstr "Всего:"
+
+#: static/views/unified-invoice-page-active.php:250
+#: static/views/unified-invoice-page-paid.php:242
+#: static/views/unified-invoice-page-refund.php:242
+msgid "Total Tax:"
+msgstr "Общий Налог:"
+
+#: static/views/unified-invoice-page-active.php:260
+#: static/views/unified-invoice-page-paid.php:252
+#: static/views/unified-invoice-page-refund.php:252
+msgid "Other Adjustments:"
+msgstr "Корректировки:"
+
+#: static/views/unified-invoice-page-active.php:265
+#: static/views/unified-invoice-page-paid.php:257
+#: static/views/unified-invoice-page-refund.php:257
+msgid "Total Payments:"
+msgstr "Всего Оплачено:"
+
+#: static/views/unified-invoice-page-active.php:269
+#: static/views/unified-invoice-page-paid.php:261
+#: static/views/unified-invoice-page-refund.php:261
+msgid "Amount Due:"
+msgstr "Общий Долг:"
+
+#: static/views/unified-invoice-page-active.php:281
+#: static/views/unified-invoice-page-paid.php:273
+#: static/views/unified-invoice-page-refund.php:273
+msgid "Charge"
+msgstr "Расход"
+
+#: static/views/unified-invoice-page-active.php:283
+#: static/views/unified-invoice-page-paid.php:275
+#: static/views/unified-invoice-page-refund.php:275
+msgid "Adjustment"
+msgstr "Коррект."
+
+#: static/views/unified-invoice-page-active.php:284
+#: static/views/unified-invoice-page-paid.php:276
+#: static/views/unified-invoice-page-refund.php:276
+msgid "Create"
+msgstr "Создание"
+
+#: static/views/unified-invoice-page-active.php:287
+msgid "Actions History"
+msgstr "Активность"
+
+#: static/views/unified-invoice-page-active.php:359
+msgid "Payment Sent Successfully"
+msgstr "Успешно Оплачено"
+
+#: static/views/unified-invoice-page-active.php:361
+msgid ""
+"Thank you for your payment. You can check the invoice at your Invoices "
+"Dashboard."
+msgstr "Спасибо за ваш платеж. Проверьте инвойс на странице Клиентская Панель."
+
+#: static/views/unified-invoice-page-active.php:364
+msgid "Check Receipt"
+msgstr "Проверить Чек"
+
+#: static/views/unified-invoice-page-active.php:365
+msgid "View Dashboard"
+msgstr "Клиентская Панель"
+
+#: static/views/unified-invoice-page-refund.php:114
+msgid "Receipt (Refunded)"
+msgstr "Чек (Возмещен)"
 
 #: wp-invoice.php:59
 msgid ""
@@ -4808,9 +5071,6 @@ msgstr "<p><b>%s</b> не может быть запущен. %s</p>"
 #, fuzzy
 #~ msgid "Payment Details"
 #~ msgstr "Детали платежа"
-
-#~ msgid "Not set"
-#~ msgstr "Не установлен"
 
 #, fuzzy
 #~ msgid "Process Payer Information"

@@ -35,10 +35,6 @@ global $invoice, $wpi_settings;
     if ($site_description && (is_home() || is_front_page()))
       echo " | $site_description";
 
-    // Add a page number if necessary:
-    if (($paged >= 2 || $page >= 2) && !is_404())
-      echo esc_html(' | ' . sprintf(__('Page %s', 'twentyeleven'), max($paged, $page)));
-
     ?></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <?php wp_head(); ?>
@@ -125,6 +121,7 @@ global $invoice, $wpi_settings;
 
         <?php
           $invoices = ud_get_wp_invoice()->cd->get_current_user_invoices();
+          $dashboard_total = 0;
           if ( !empty( $invoices ) ) :
         ?>
 
@@ -151,8 +148,10 @@ global $invoice, $wpi_settings;
                     <?php
                       if ( is_paid() ) {
                         echo wpi_get_total_payments( wpi_get_invoice_currency_sign() );
+                        $dashboard_total += $invoice['total_payments'];
                       } else {
                         echo wpi_get_amount_due( wpi_get_invoice_currency_sign() );
+                        $dashboard_total += $invoice['net'];
                       }
                     ?>
                   </td>
@@ -168,7 +167,7 @@ global $invoice, $wpi_settings;
         <div class="bottom-box">
           <div class="row">
             <div class="col-xs-6 col-xs-push-6 text-right total">
-              <span>Total:</span> $25,071.52
+              <span><?php _e('Total:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_default_currency_sign(); ?><?php echo wp_invoice_currency_format($dashboard_total); ?>
             </div>
 
 <!--            <div class="col-xs-6 col-xs-pull-6">-->
