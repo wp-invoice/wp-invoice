@@ -100,6 +100,9 @@ global $invoice, $wpi_settings;
             <a href="<?php invoice_pdf_link(); ?>" target="_blank" class="btn btn-default"><?php _e('PDF', ud_get_wp_invoice()->domain); ?></a>
           <?php endif; ?>
         </div>
+
+        <?php do_action('wpi_unified_template_top_navigation'); ?>
+
       </div>
     </div>
 

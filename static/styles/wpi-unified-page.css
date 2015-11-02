@@ -466,12 +466,15 @@ textarea {
 .invoice-payment form label {
   font-weight: normal;
 }
-#online_payment_form_wrapper form label {
+#online_payment_form_wrapper form label.control-label {
   font-weight: normal;
   position: absolute;
   right: 19px;
   top: 15px;
   color: #cccccc;
+}
+#quote_tos {
+  margin-top: 8px;
 }
 .invoice-payment form label p {
   font-size: 2.20rem;
@@ -786,7 +789,7 @@ textarea {
   margin-top: 8px;
 }
 #wpi_quote_accept .wpi_quote_accept_result {
-  display: none !important;
+  margin-top: 5px;
 }
 #client-dashboard .page-content {
   top: -50px;

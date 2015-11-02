@@ -106,7 +106,7 @@ global $invoice, $wpi_settings;
           <a href="javascript:void(0);" id="open-payment-form" class="btn btn-pay"><?php _e('Make Payment', ud_get_wp_invoice()->domain); ?></a>
           <?php endif; ?>
 
-          <?php do_action('wpi_front_end_right_col_bottom'); ?>
+          <?php do_action('wpi_unified_template_top_navigation'); ?>
 
         </div>
       </div>
@@ -336,8 +336,6 @@ global $invoice, $wpi_settings;
             ?>
           </div>
 
-          <?php do_action('wpi_front_end_right_col_bottom'); ?>
-
         </div><!--end /box-inner-content-->
       </div>
 
@@ -364,7 +362,9 @@ global $invoice, $wpi_settings;
 
           <div class="success-buttons">
             <a href="<?php echo get_invoice_permalink( $invoice['ID'] ); ?>" class="btn btn-success"><?php _e( 'Check Receipt', ud_get_wp_invoice()->domain ); ?></a>
-            <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-info"><?php _e( 'View Dashboard', ud_get_wp_invoice()->domain ); ?></a>
+            <?php if ( wpi_dashboard_is_active() ): ?>
+              <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-info"><?php _e( 'View Dashboard', ud_get_wp_invoice()->domain ); ?></a>
+            <?php endif; ?>
           </div>
 
         </div><!--end /box-inner-content-->
