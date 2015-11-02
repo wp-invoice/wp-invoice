@@ -93,7 +93,7 @@ global $invoice, $wpi_settings;
     <div class="row top-nav-links">
 
       <div class="col-xs-6">
-        <a href="#" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
+        <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
       </div>
 
       <div class="col-xs-6 text-right">

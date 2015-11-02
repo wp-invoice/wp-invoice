@@ -912,6 +912,9 @@ if ( !function_exists( 'wpi_get_invoice_due_date' ) ) {
    */
   function wpi_get_invoice_due_date($format = false) {
     global $invoice;
+    if ( empty($invoice['due_date_day']) || empty($invoice['due_date_month']) || empty($invoice['due_date_year']) ) {
+      return __('Not set', ud_get_wp_invoice()->domain);
+    }
     $format = $format ? $format : get_option('date_format');
     $strtime = sprintf("%s.%s.%s", $invoice['due_date_day'], $invoice['due_date_month'], $invoice['due_date_year']);
     return !empty($strtime) ? date($format, strtotime($strtime)) : __('Not set', ud_get_wp_invoice()->domain);

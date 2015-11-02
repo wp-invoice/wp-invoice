@@ -34,14 +34,42 @@ namespace UsabilityDynamics\WPI {
         }
       }
 
+      /**
+       * @return bool
+       */
       public function get_current_user_invoices() {
-        if ( !is_user_logged_in() ) return false;
-        if ( !$current_user_email = wp_get_current_user()->user_email ) return false;
+        if ( is_user_logged_in() ) {
+          $current_user_email = wp_get_current_user()->user_email;
+        } else {
+          if ( !empty( $_GET['wpi_user_id'] ) ) {
+            $user = get_user_by( 'id', $_GET['wpi_user_id'] );
+            if ( !is_a( $user, 'WP_User' ) ) {
+              return array();
+            } else {
+              $current_user_email = $user->user_email;
+            }
+          } else {
+            return array();
+          }
+        }
 
-        global $wpdb;
+        $invoices_query = new \WP_Query(array(
+          'post_type' => 'wpi_object',
+          'post_status' => 'any',
+          'meta_key' => 'user_email',
+          'meta_value' => $current_user_email
+        ));
 
-        $invoice_ids = $wpdb->get_col("SELECT post_id FROM {$wpdb->postmeta} WHERE meta_value='{$current_user_email}'");
-        if ( empty( $invoice_ids ) ) return false;
+        if ( empty( $invoices_query->posts ) ) return array();
+
+        $invoice_objects = array();
+        foreach( $invoices_query->posts as $invoice_post ) {
+          $_invoice = new \WPI_Invoice();
+          $_invoice->load_invoice(array('id' => $invoice_post->ID));
+          $invoice_objects[] = $_invoice;
+        }
+
+        return $invoice_objects;
       }
 
       /**
@@ -122,8 +150,6 @@ namespace UsabilityDynamics\WPI {
          */
         remove_action('wp_head', '_admin_bar_bump_cb');
         show_admin_bar(0);
-
-        $this->get_current_user_invoices();
 
         /**
          * Load template functions

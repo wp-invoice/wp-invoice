@@ -112,9 +112,8 @@ global $invoice, $wpi_settings;
         <div class="head-title">
           <div class="row">
             <div class="col-sm-5">
-              <h2>Client Company Name</h2>
+              <h2>Company Name</h2>
             </div>
-
 <!--            <div class="col-sm-7 text-right">-->
 <!--              <div class="btn-group" role="group" aria-label="...">-->
 <!--                <button type="button" class="btn btn-default">Outstanding Invoice</button>-->
@@ -124,142 +123,47 @@ global $invoice, $wpi_settings;
           </div>
         </div>
 
+        <?php
+          $invoices = ud_get_wp_invoice()->cd->get_current_user_invoices();
+          if ( !empty( $invoices ) ) :
+        ?>
+
         <div class="invoices-lists">
           <div class="table-responsive">
             <table class="table">
               <thead>
-              <tr>
-                <th>Status</th>
-                <th>Due Date</th>
-                <th>ID</th>
-                <th>Summary</th>
-                <th>Amount</th>
-              </tr>
+                <tr>
+                  <th><?php _e( 'Status', ud_get_wp_invoice()->domain ); ?></th>
+                  <th><?php _e( 'Due Date', ud_get_wp_invoice()->domain ); ?></th>
+                  <th><?php _e( 'ID', ud_get_wp_invoice()->domain ); ?></th>
+                  <th><?php _e( 'Summary', ud_get_wp_invoice()->domain ); ?></th>
+                  <th><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td><span class="label label-sent">Sent</span></td>
-                <td>10/13/2015</td>
-                <td>415</td>
-                <td>cominghomemusicfestival.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-sent">Sent</span></td>
-                <td>10/13/2015</td>
-                <td>416</td>
-                <td>dayafter.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>417</td>
-                <td>discodonniepresents.com afterdark entertainment</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>418</td>
-                <td>discodonniepresents.com ampersand events</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>419</td>
-                <td>discodonniepresents.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>414</td>
-                <td>discodonniepresents.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>415</td>
-                <td>cominghomemusicfestival.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-pending">Pending</span></td>
-                <td>10/13/2015</td>
-                <td>416</td>
-                <td>dayafter.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-paid">Paid</span></td>
-                <td>10/13/2015</td>
-                <td>417</td>
-                <td>discodonniepresents.com afterdark entertainment</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-refund">Refund</span></td>
-                <td>10/13/2015</td>
-                <td>417</td>
-                <td>discodonniepresents.com afterdark entertainment</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>419</td>
-                <td>discodonniepresents.com afterdark entertainment</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>414</td>
-                <td>discodonniepresents.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>415</td>
-                <td>discodonniepresents.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>416</td>
-                <td>cominghomemusicfestival.com</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>417</td>
-                <td>discodonniepresents.com afterdark entertainment</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>418</td>
-                <td>discodonniepresents.com ampersand events</td>
-                <td>$335.75</td>
-              </tr>
-              <tr>
-                <td><span class="label label-late">Late</span></td>
-                <td>10/13/2015</td>
-                <td>419</td>
-                <td>discodonniepresents.com</td>
-                <td>$335.75</td>
-              </tr>
+                <?php global $invoice; foreach( $invoices as $invoice ): $invoice = $invoice->data; ?>
+                <tr>
+                  <td><span class="label label-<?php echo $invoice['post_status']; ?>"><?php echo $invoice['post_status']; ?></span></td>
+                  <td><?php echo wpi_get_invoice_due_date( 'm/d/Y' ); ?></td>
+                  <td><?php invoice_id(); ?></td>
+                  <td>[<?php echo wpi_get_invoice_type(); ?>] <a href="<?php echo get_invoice_permalink($invoice['ID']); ?>"><?php echo wpi_get_invoice_title(); ?></a></td>
+                  <td>
+                    <?php
+                      if ( is_paid() ) {
+                        echo wpi_get_total_payments( wpi_get_invoice_currency_sign() );
+                      } else {
+                        echo wpi_get_amount_due( wpi_get_invoice_currency_sign() );
+                      }
+                    ?>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
               </tbody>
             </table>
           </div>
         </div><!--end /invoices-lists-->
+
+        <?php endif; ?>
 
         <div class="bottom-box">
           <div class="row">

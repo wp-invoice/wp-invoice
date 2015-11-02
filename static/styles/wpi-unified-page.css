@@ -89,7 +89,7 @@ textarea {
   border-radius: 5px;
   display: inline-block;
 }
-.label-sent {
+.label-active {
   background-color: #3ca6d3;
 }
 .label-pending {
@@ -100,9 +100,6 @@ textarea {
 }
 .label-refund {
   background-color: #e8bd39;
-}
-.label-late {
-  background-color: #e24e4e;
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Layout -> Header
