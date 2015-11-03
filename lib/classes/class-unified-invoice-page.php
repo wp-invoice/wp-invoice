@@ -36,11 +36,6 @@ namespace UsabilityDynamics\WPI {
               !empty($wpi_settings['where_to_display'])
               && $wpi_settings['where_to_display'] == 'unified_page'
             )
-            ||
-            (
-              !empty($wpi_settings['activate_client_dashboard'])
-              && $wpi_settings['activate_client_dashboard'] == 'true'
-            )
           )
         ) {
           add_action('wpi_template_redirect', array($this, 'template_redirect_change'));
