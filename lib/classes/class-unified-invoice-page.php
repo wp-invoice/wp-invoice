@@ -115,6 +115,12 @@ namespace UsabilityDynamics\WPI {
         }
 
         /**
+         * Fix quote comments
+         */
+        add_filter('get_comments_pagenum_link', array($this, 'fix_comments_pages'));
+        add_filter('get_comment_link', array($this, 'fix_comment_link'), 10, 3);
+
+        /**
          * Disable all unnecessary styles and scripts
          */
         add_action('wp_print_styles', array($this, 'remove_all_theme_styles'), 999);
@@ -171,6 +177,24 @@ namespace UsabilityDynamics\WPI {
          */
         load_template(ud_get_wp_invoice()->path('/static/views/unified-invoice-page-' . $invoice['post_status'] . '.php', 'dir'), 1);
         exit;
+      }
+
+      /**
+       * @param $url
+       * @return mixed
+       */
+      public function fix_comments_pages($url) {
+        return str_replace('#comments', '?' . $_SERVER['QUERY_STRING'] . '#comments', $url);
+      }
+
+      /**
+       * @param $link
+       * @param $comment
+       * @param $args
+       * @return mixed
+       */
+      public function fix_comment_link( $link, $comment, $args ) {
+        return str_replace('#comment', '?' . $_SERVER['QUERY_STRING'] . '#comment', $link);
       }
 
     }

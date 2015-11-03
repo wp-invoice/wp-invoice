@@ -279,6 +279,47 @@ global $invoice, $wpi_settings;
         </div><!--end /box-inner-content-->
       </div>
 
+      <?php ob_start(); comments_template(); ob_clean(); ?>
+
+      <?php if ( ( is_quote() || is_invoice() ) && have_comments() ): ?>
+      <div id="quote-responses">
+        <h4><?php _e('Discussion Thread', ud_get_wp_invoice()->domain); ?></h4>
+
+        <div id="comments" class="box-content">
+
+          <div class="box-inner-content">
+            <ul>
+              <?php wp_list_comments(); ?>
+            </ul>
+
+            <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+              <nav id="comment-nav-above" class="comment-navigation">
+                <div class="nav-previous"><?php previous_comments_link( __( '&larr; Previous Page', ud_get_wp_invoice()->domain ) ); ?></div>
+                <div class="nav-next"><?php next_comments_link( __( 'Next Page &rarr;', ud_get_wp_invoice()->domain ) ); ?></div>
+                <div class="clearfix"></div>
+              </nav><!-- #comment-nav-above -->
+              <div class="clearfix"></div>
+            <?php endif; // Check for comment navigation. ?>
+          </div>
+
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+      <?php endif; ?>
+
+      <?php if ( is_quote() ): ?>
+      <div id="quote-response-form">
+        <h4><?php _e('Leave a Response', ud_get_wp_invoice()->domain); ?></h4>
+        <div class="box-content">
+          <div class="box-inner-content">
+            <?php comment_form(); ?>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+
       <?php do_action('wpi_unified_template_before_actions_history'); ?>
 
       <?php if ( $history = wpi_get_invoice_log(array(

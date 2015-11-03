@@ -458,7 +458,7 @@ input, button, select, textarea {
 }
 
 .invoice-history {
-  margin: 60px 0 30px;
+  margin: 30px 0 30px;
 }
 
 .invoice-history h4 {
@@ -952,12 +952,104 @@ input, button, select, textarea {
 
   .signedPad {
     background: white;
-    margin-bottom: 0;
-    border: 1px solid #e6e6e6;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    padding: 10px;
+
+  }
+}
+
+#quote-response-form {
+  margin-top: 30px;
+
+  .box-inner-content {
+    padding: 25px;
+
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      display: none;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 25px;
+    }
+
+    #submit {
+      background-color: #fb8160;
+      border-radius: 6px;
+      color: #fff;
+
+      -moz-user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 0;
+      padding: 6px 12px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      float: right;
+    }
+  }
+}
+
+#quote-responses {
+  margin-top: 30px;
+
+  .box-inner-content {
+    padding: 25px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li + li {
+        border-top: 1px solid #f3f3f3;
+        padding-top: 20px;
+      }
+
+      .comment-edit-link {
+        display: none;
+      }
+
+      .comment-reply-link {
+        display: none;
+      }
+
+      .avatar {
+        border-radius: 5px;
+        margin-right: 25px;
+      }
+
+      .comment-author {
+        margin-bottom: 25px;
+      }
+
+      .comment-meta {
+        margin-bottom: 25px;
+        a {
+          color: #cfcfcf;
+        }
+      }
+    }
+  }
+}
+
+#comment-nav-above {
+  .nav-previous {
+    float: left;
+  }
+  .nav-next {
+    float: right;
   }
 }
 
