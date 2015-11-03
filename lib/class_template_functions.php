@@ -1225,3 +1225,48 @@ if ( !function_exists('wpi_dashboard_is_active') ) {
   }
 }
 
+if ( !function_exists( 'wpi_get_client_dashboard_company_name' ) ) {
+  /**
+   * @return array
+   */
+  function wpi_get_client_dashboard_company_name() {
+    if ( is_user_logged_in() ) {
+      $user_data = wp_get_current_user();
+    } else {
+      if ( !empty( $_GET['wpi_user_id'] ) ) {
+        $user = get_user_by( 'id', $_GET['wpi_user_id'] );
+        if ( !is_a( $user, 'WP_User' ) ) {
+          return __( 'Unknown Client', ud_get_wp_invoice()->domain );
+        } else {
+          $user_data = $user;
+        }
+      } else {
+        return __('Unknown Client', ud_get_wp_invoice()->domain);
+      }
+    }
+
+    $user_data_array = array();
+    $user_name = array();
+
+    if ( !empty( $user_data->user_firstname ) ) {
+      $user_name[] = $user_data->user_firstname;
+    }
+    if ( !empty( $user_data->user_lastname ) ) {
+      $user_name[] = $user_data->user_lastname;
+    }
+
+    if ( !empty($user_name) ) {
+      $user_data_array['name'] = implode(' ', $user_name);
+    }
+    $company_name = get_user_meta( $user_data->ID, 'company_name', 1 );
+    if ( !empty( $company_name ) ) {
+      $user_data_array['company'] = $company_name;
+    }
+
+    if ( empty($user_data_array) ) {
+      $user_data_array[] = $user_data->user_email;
+    }
+
+    return implode(', ', $user_data_array);
+  }
+}

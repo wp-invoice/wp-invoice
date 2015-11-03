@@ -108,7 +108,7 @@ global $invoice, $wpi_settings;
         <div class="head-title">
           <div class="row">
             <div class="col-sm-5">
-              <h2>Company Name</h2>
+              <h2><?php echo wpi_get_client_dashboard_company_name(); ?></h2>
             </div>
 <!--            <div class="col-sm-7 text-right">-->
 <!--              <div class="btn-group" role="group" aria-label="...">-->
