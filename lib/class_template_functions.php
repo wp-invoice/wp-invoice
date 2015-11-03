@@ -850,7 +850,7 @@ if ( !function_exists( 'wpi_get_business_name' ) ) {
    */
   function wpi_get_business_name() {
     global $wpi_settings;
-    return !empty( $wpi_settings['business_name'] ) ? $wpi_settings['business_name'] : false;
+    return apply_filters('wpi_business_name', !empty( $wpi_settings['business_name'] ) ? $wpi_settings['business_name'] : false );
   }
 }
 
@@ -860,7 +860,7 @@ if ( !function_exists( 'wpi_get_business_address' ) ) {
    */
   function wpi_get_business_address() {
     global $wpi_settings;
-    return !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false;
+    return strip_tags(apply_filters('wpi_business_address', !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false));
   }
 }
 
@@ -880,7 +880,7 @@ if ( !function_exists( 'wpi_get_business_phone' ) ) {
    */
   function wpi_get_business_phone() {
     global $wpi_settings;
-    return !empty( $wpi_settings['business_phone'] ) ? $wpi_settings['business_phone'] : false;
+    return apply_filters('wpi_business_phone', !empty( $wpi_settings['business_phone'] ) ? $wpi_settings['business_phone'] : false);
   }
 }
 
