@@ -1039,7 +1039,7 @@ if ( !function_exists( 'wpi_get_invoice_total_tax' ) ) {
    */
   function wpi_get_invoice_total_tax($currency_sign = '$') {
     global $invoice;
-    return !empty($invoice['total_tax']) ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_tax'])) : false;
+    return !empty($invoice['total_tax']) && $invoice['total_tax'] > 0 ? sprintf("$currency_sign%s", wp_invoice_currency_format($invoice['total_tax'])) : false;
   }
 }
 
@@ -1082,6 +1082,7 @@ if ( !function_exists( 'wpi_get_adjustments' ) ) {
    */
   function wpi_get_adjustments( $currency_sign = '$' ) {
     global $invoice;
+    if (!isset($invoice['adjustments']))$invoice['adjustments']=0;
     $adjustments = (float)$invoice['adjustments'] + (float)$invoice['total_payments'];
     return !empty($adjustments) ? sprintf("$currency_sign%s", wp_invoice_currency_format($adjustments)) : 0;
   }

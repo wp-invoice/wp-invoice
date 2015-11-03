@@ -101,7 +101,7 @@ global $invoice, $wpi_settings;
             <?php endif; ?>
           </div>
 
-          <?php if ( is_invoice() ): ?>
+          <?php if ( is_invoice() || is_recurring() ): ?>
           <a href="javascript:void(0);" id="close-payment-form" class="btn btn-pay"><?php _e('Go Back', ud_get_wp_invoice()->domain); ?></a>
           <a href="javascript:void(0);" id="open-payment-form" class="btn btn-pay"><?php _e('Make Payment', ud_get_wp_invoice()->domain); ?></a>
           <?php endif; ?>
