@@ -166,6 +166,8 @@ global $invoice, $wpi_settings;
                   <?php recipients_name(); ?><br />
                   <?php echo wpi_get_company_address(); ?>
                 </p>
+
+                <?php do_action('wpi_unified_template_after_recipient'); ?>
               </div>
             </div>
           </div>
@@ -276,6 +278,8 @@ global $invoice, $wpi_settings;
 
         </div><!--end /box-inner-content-->
       </div>
+
+      <?php do_action('wpi_unified_template_before_actions_history'); ?>
 
       <?php if ( $history = wpi_get_invoice_log(array(
           'refund' => __('Refund', ud_get_wp_invoice()->domain),

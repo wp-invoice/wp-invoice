@@ -797,6 +797,18 @@ textarea {
 #client-dashboard .page-content {
   top: -50px;
 }
+.invoice_signature {
+  margin-top: 25px;
+}
+.invoice_signature .signedPad {
+  background: white;
+  margin-bottom: 0;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  padding: 10px;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Responsive (Media queries)
 /*-----------------------------------------------------------------------------------*/

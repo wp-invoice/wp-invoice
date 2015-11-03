@@ -160,6 +160,8 @@ global $invoice, $wpi_settings;
                 <?php recipients_name(); ?><br />
                 <?php echo wpi_get_company_address(); ?>
               </p>
+
+              <?php do_action('wpi_unified_template_after_recipient'); ?>
             </div>
           </div>
         </div>
@@ -271,6 +273,8 @@ global $invoice, $wpi_settings;
       </div><!--end /box-inner-content-->
     </div>
 
+    <?php do_action('wpi_unified_template_before_actions_history'); ?>
+
     <?php if ( $history = wpi_get_invoice_log(array(
         'refund' => __('Refund', ud_get_wp_invoice()->domain),
         'notification' => __('Email', ud_get_wp_invoice()->domain),
@@ -279,7 +283,7 @@ global $invoice, $wpi_settings;
         'do_adjustment' => __('Adjustment', ud_get_wp_invoice()->domain),
         'create' => __('Create', ud_get_wp_invoice()->domain))) ): ?>
       <div class="invoice-history">
-        <h4>Invoice History</h4>
+        <h4><?php _e('Actions History', ud_get_wp_invoice()->domain); ?></h4>
 
         <div class="box-content">
           <div class="box-inner-content">
