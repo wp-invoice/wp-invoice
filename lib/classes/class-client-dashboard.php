@@ -57,7 +57,8 @@ namespace UsabilityDynamics\WPI {
           'post_type' => 'wpi_object',
           'post_status' => 'any',
           'meta_key' => 'user_email',
-          'meta_value' => $current_user_email
+          'meta_value' => $current_user_email,
+          'posts_per_page' => -1
         ));
 
         if ( empty( $invoices_query->posts ) ) return array();
