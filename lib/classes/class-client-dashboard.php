@@ -123,7 +123,7 @@ namespace UsabilityDynamics\WPI {
         global $post;
 
         if ( !$dashboard_page_id = $this->selected_template_page() ) return $template;
-        if ( $dashboard_page_id != $post->ID ) return $template;
+        if ( !is_object($post) || $dashboard_page_id != $post->ID ) return $template;
 
         global $wp_filter;
 
