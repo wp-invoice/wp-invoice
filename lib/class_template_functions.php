@@ -1119,9 +1119,11 @@ if ( !function_exists('wpi_get_invoice_log') ) {
    * @return array|bool
    */
   function wpi_get_invoice_log($actions = array()) {
-    global $invoice;
+    global $invoice, $wpi_settings;
 
     if ( empty($invoice['log']) || !is_array($invoice['log']) ) return false;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) return false;
 
     $log = array();
     foreach( $invoice['log'] as $log_item ) {
