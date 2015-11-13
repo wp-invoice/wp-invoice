@@ -335,7 +335,9 @@ global $invoice, $wpi_settings;
 
 <footer class="pagefooter">
   <div class="container">
-    <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+    <a href="https://www.usabilitydynamics.com/product/wp-invoice" target="_blank">
+      <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+    </a>
   </div><!--end /container-->
 </footer><!--end /pagefooter-->
 

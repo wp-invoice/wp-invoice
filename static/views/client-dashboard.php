@@ -139,7 +139,7 @@ global $invoice, $wpi_settings;
               </thead>
               <tbody>
                 <?php global $invoice; foreach( $invoices as $invoice ): $invoice = $invoice->data; ?>
-                <tr>
+                <tr onclick="window.location = '<?php echo get_invoice_permalink($invoice['ID']); ?>';">
                   <td style="padding-right: 25px;"><span class="label label-<?php echo $invoice['post_status']; ?>"><?php echo $invoice['post_status']; ?></span></td>
                   <td><?php echo wpi_get_invoice_due_date( 'm/d/Y' ); ?></td>
                   <td><?php invoice_id(); ?></td>
@@ -192,7 +192,9 @@ global $invoice, $wpi_settings;
 
 <footer class="pagefooter">
   <div class="container">
-    <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+    <a href="https://www.usabilitydynamics.com/product/wp-invoice" target="_blank">
+      <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+    </a>
   </div><!--end /container-->
 </footer><!--end /pagefooter-->
 

@@ -211,6 +211,7 @@ textarea {
   border: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  line-height: 27px;
 }
 .invoices-lists table thead {
   background-color: #f9f9f9;
@@ -219,6 +220,10 @@ textarea {
 }
 .invoices-lists table tbody {
   border: 0;
+}
+.invoices-lists table tbody tr:hover {
+  background: #F9F9F9;
+  cursor: pointer;
 }
 .box-content .bottom-box {
   background-color: #f9f9f9;
@@ -247,9 +252,16 @@ textarea {
 /*  Layout - > Footer
 /*-----------------------------------------------------------------------------------*/
 .pagefooter {
-  margin: -45px 0 90px;
+  margin: 0 0 90px;
   text-align: center;
   text-transform: uppercase;
+  color: #a7a9ac;
+}
+.pagefooter a {
+  color: #a7a9ac;
+}
+.pagefooter a:hover,
+.pagefooter a:active {
   color: #a7a9ac;
 }
 .pagefooter span {

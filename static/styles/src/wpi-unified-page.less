@@ -233,6 +233,7 @@ input, button, select, textarea {
   border: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  line-height: 27px;
 }
 
 .invoices-lists table thead {
@@ -243,6 +244,13 @@ input, button, select, textarea {
 
 .invoices-lists table tbody {
   border: 0;
+
+  tr {
+    &:hover {
+      background: #F9F9F9;
+      cursor: pointer;
+    }
+  }
 }
 
 .box-content .bottom-box {
@@ -277,10 +285,17 @@ input, button, select, textarea {
 /*  Layout - > Footer
 /*-----------------------------------------------------------------------------------*/
 .pagefooter {
-  margin: -45px 0 90px;
+  margin: 0 0 90px;
   text-align: center;
   text-transform: uppercase;
   color: #a7a9ac;
+
+  a {
+    color: #a7a9ac;
+    &:hover, &:active {
+      color: #a7a9ac;
+    }
+  }
 }
 
 .pagefooter span {
