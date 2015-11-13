@@ -130,17 +130,17 @@ global $invoice, $wpi_settings;
             <table class="table">
               <thead>
                 <tr>
-                  <th><?php _e( 'Status', ud_get_wp_invoice()->domain ); ?></th>
-                  <th><?php _e( 'Due Date', ud_get_wp_invoice()->domain ); ?></th>
+                  <th style="width: 15%;"><?php _e( 'Status', ud_get_wp_invoice()->domain ); ?></th>
+                  <th style="width: 12%;"><?php _e( 'Due Date', ud_get_wp_invoice()->domain ); ?></th>
                   <th><?php _e( 'ID', ud_get_wp_invoice()->domain ); ?></th>
                   <th><?php _e( 'Summary', ud_get_wp_invoice()->domain ); ?></th>
-                  <th><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
+                  <th style="width: 10%;"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
                 </tr>
               </thead>
               <tbody>
                 <?php global $invoice; foreach( $invoices as $invoice ): $invoice = $invoice->data; ?>
                 <tr>
-                  <td><span class="label label-<?php echo $invoice['post_status']; ?>"><?php echo $invoice['post_status']; ?></span></td>
+                  <td style="padding-right: 25px;"><span class="label label-<?php echo $invoice['post_status']; ?>"><?php echo $invoice['post_status']; ?></span></td>
                   <td><?php echo wpi_get_invoice_due_date( 'm/d/Y' ); ?></td>
                   <td><?php invoice_id(); ?></td>
                   <td>[<?php echo wpi_get_invoice_type(); ?>] <a href="<?php echo get_invoice_permalink($invoice['ID']); ?>"><?php echo wpi_get_invoice_title(); ?></a></td>
