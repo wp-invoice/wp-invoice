@@ -860,7 +860,7 @@ if ( !function_exists( 'wpi_get_business_address' ) ) {
    */
   function wpi_get_business_address() {
     global $wpi_settings;
-    return strip_tags(apply_filters('wpi_business_address', !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false));
+    return nl2br(strip_tags(apply_filters('wpi_business_address', !empty( $wpi_settings['business_address'] ) ? $wpi_settings['business_address'] : false)));
   }
 }
 
