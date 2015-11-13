@@ -331,7 +331,7 @@ global $invoice, $wpi_settings;
           'create' => __('Create', ud_get_wp_invoice()->domain))) ): ?>
       <div class="invoice-history">
 
-        <h4><?php _e('Actions History', ud_get_wp_invoice()->domain); ?></h4>
+        <h4><?php _e('Invoice History', ud_get_wp_invoice()->domain); ?></h4>
 
         <div class="box-content">
           <div class="box-inner-content">
