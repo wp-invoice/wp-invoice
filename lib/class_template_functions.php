@@ -938,7 +938,7 @@ if ( !function_exists('wpi_get_company_address') ) {
 
     $address_parts = array_filter($address_parts);
 
-    return !empty($address_parts) && is_array($address_parts) ? implode(', ', $address_parts) : __('No address information', ud_get_wp_invoice()->domain);
+    return !empty($address_parts) && is_array($address_parts) ? implode(', ', $address_parts) : '';
   }
 }
 
