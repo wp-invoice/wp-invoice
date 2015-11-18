@@ -126,6 +126,7 @@ class WPI_Settings_page {
    * @param type $wpi_settings
    */
   static function basic($wpi_settings) {
+    wp_enqueue_media();
     ?>
 
     <table class="form-table">
