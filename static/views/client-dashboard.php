@@ -1,8 +1,6 @@
 <?php
 /**
- * Unified Invoice Page template
- *
- * Displays Single invoice page
+ * Client Dashboard template
  */
 global $invoice, $wpi_settings;
 ?><!DOCTYPE html>
@@ -72,7 +70,8 @@ global $invoice, $wpi_settings;
               <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
           <?php endif; ?>
           <?php if ( $business_phone = wpi_get_business_phone() ): ?>
-            <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
+            <p><span class="ico tel"></span>
+              <a href="tel:<?php echo $business_phone; ?>"><?php echo $business_phone; ?></a></p>
           <?php endif; ?>
         </div>
       </div>
