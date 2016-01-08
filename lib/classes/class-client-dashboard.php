@@ -124,7 +124,7 @@ namespace UsabilityDynamics\WPI {
 
         $invoices_query = new \WP_Query(array(
           'post_type' => 'wpi_object',
-          'post_status' => 'any',
+          'post_status' => apply_filters('cd_viewable_invoice_types', \WPI_Core::getInstance()->viewable_types()),
           'orderby' => 'modified',
           'meta_key' => 'user_email',
           'meta_value' => $current_user_email,
@@ -190,7 +190,8 @@ namespace UsabilityDynamics\WPI {
         $wp_scripts->queue = array();
 
         wp_enqueue_script('angular-js', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js', null, '1.4.8' );
-        wp_enqueue_script('wpi-client-dashboard', ud_get_wp_invoice()->path('/static/scripts/wpi-client-dashboard.js', 'url'), array('angular-js'), WP_INVOICE_VERSION_NUM );
+        wp_enqueue_script('angular-js-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js', null, '1.4.8' );
+        wp_enqueue_script('wpi-client-dashboard', ud_get_wp_invoice()->path('/static/scripts/wpi-client-dashboard.js', 'url'), array('angular-js', 'angular-js-sanitize'), WP_INVOICE_VERSION_NUM );
       }
 
       /**

@@ -166,7 +166,7 @@ global $invoice, $wpi_settings;
                   <td>{{invoice.cd_due_date}}</td>
                   <td>{{invoice.cd_invoice_id}}</td>
                   <td>[{{invoice.cd_invoice_type}}] <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
-                  <td>{{invoice.cd_invoice_total}}</td>
+                  <td ng-bind-html="invoice.cd_invoice_total"></td>
                 </tr>
               </tbody>
             </table>

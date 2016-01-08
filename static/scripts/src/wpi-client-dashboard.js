@@ -9,7 +9,7 @@
   /**
    * Module
    */
-  angular.module('wpiClientDashboard', ['ui.bootstrap']).
+  angular.module('wpiClientDashboard', ['ui.bootstrap','ngSanitize']).
 
   /**
    * Controller
