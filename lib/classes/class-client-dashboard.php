@@ -202,6 +202,7 @@ namespace UsabilityDynamics\WPI {
 
         if ( !$dashboard_page_id = $this->selected_template_page() ) return $template;
         if ( !is_object($post) || $dashboard_page_id != $post->ID ) return $template;
+        if ( !empty( $_GET['invoice_id'] ) ) return $template;
 
         global $wp_filter;
 
