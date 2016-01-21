@@ -274,18 +274,6 @@ function wpi_validate_email ( address ) {
 }
 
 /**
- * Update user option
- */
-function wpi_update_user_option ( meta_key, meta_value ) {
-  jQuery.post( ajaxurl, {
-    action: 'wpi_update_user_option',
-    meta_key: meta_key,
-    meta_value: meta_value
-  }, function ( data ) {
-  } );
-}
-
-/**
  * Turn off quote. Usually happens when activating recurring.
  */
 function wpi_disable_quote () {

@@ -225,9 +225,8 @@
 
           <?php
           if( empty($this_invoice->data['itemized_list']) || !is_array($this_invoice->data['itemized_list']))  {
-            $blank_rows = (get_user_option("wpi_blank_item_rows") ? get_user_option("wpi_blank_item_rows") : 2);
             $x = 1;
-            while($x <= $blank_rows) {
+            while($x <= 2) {
               $this_invoice->data['itemized_list'][$x++] = true;
             }
           }

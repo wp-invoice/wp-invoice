@@ -244,9 +244,6 @@ class WPI_Core {
     add_action('wp_ajax_wpi_list_table', create_function('', ' die(WPI_Ajax::wpi_list_table());'));
     add_action('wp_ajax_wpi_get_user_date', create_function('', ' die(WPI_Ajax::get_user_date($_REQUEST["user_email"]));'));
 
-    add_action('wp_ajax_wpi_ajax_check_plugin_updates', create_function('', ' die(WPI_Ajax::check_plugin_updates());'));
-
-    add_action('wp_ajax_wpi_update_user_option', array('WPI_Ajax', 'update_user_option'));
     add_action('wp_ajax_wpi_process_manual_event', array('WPI_Ajax', 'process_manual_event'));
     add_action('wp_ajax_wpi_get_notification_email', array('WPI_Ajax', 'get_notification_email'));
     add_action('wp_ajax_wpi_save_invoice', array('WPI_Ajax', 'save_invoice'));
@@ -318,10 +315,6 @@ class WPI_Core {
 
     if (!get_user_option("screen_layout_admin_page_wpi_invoice_edit")) {
       update_user_option($user_ID, 'screen_layout_admin_page_wpi_invoice_edit', 2, true);
-    }
-
-    if (!get_user_option("wpi_blank_item_rows")) {
-      update_user_option($user_ID, 'wpi_blank_item_rows', 2, true);
     }
 
     if (!get_user_option("wpi_ui_display_global_tax")) {

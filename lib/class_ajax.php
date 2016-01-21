@@ -88,28 +88,6 @@ class WPI_Ajax {
   }
 
   /**
-   * Updates usermeta - mostly for updating screen options
-   * @global type $user_ID
-   */
-  static function update_user_option() {
-    global $user_ID;
-    
-    if ( !isset( $user_ID ) ) {
-      die();
-    }
-    
-    $meta_key = $_REQUEST[ 'meta_key' ];
-    $meta_value = $_REQUEST[ 'meta_value' ];
-    
-    if ( empty( $meta_value ) ) {
-      $meta_value = false;
-    }
-    
-    update_user_option( $user_ID, $meta_key, $meta_value, true );
-    die();
-  }
-
-  /**
    * Process special invoice-related event
    */
   static function process_manual_event() {
