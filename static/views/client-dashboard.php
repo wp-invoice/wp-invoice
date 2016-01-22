@@ -47,7 +47,7 @@ global $invoice, $wpi_settings;
 </head>
 <body ng-controller="InvoiceList" id="client-dashboard">
 
-<header class="pageheader" ng-init="init()">
+<header class="pageheader" ng-init="init({wpi_user_id:'<?php echo $_GET['wpi_user_id'] ?>',wpi_token:'<?php echo $_GET['wpi_token'] ?>'})">
 
   <div class="container">
 
@@ -128,12 +128,6 @@ global $invoice, $wpi_settings;
           </div>
         </div>
 
-        <?php
-          $invoices = ud_get_wp_invoice()->cd->get_current_user_invoices();
-          $dashboard_total = 0;
-          if ( !empty( $invoices ) ) :
-        ?>
-
         <div class="invoices-lists">
           <div class="table-responsive">
             <table class="table">
@@ -160,7 +154,7 @@ global $invoice, $wpi_settings;
                   </td>
                 </tr>
               </tbody>
-              <tbody ng-if="!isLoading">
+              <tbody ng-if="!isError && !isLoading && displayInvoices.length">
                 <tr ng-repeat="invoice in displayInvoices" ng-click="goToInvoice(invoice.cd_permalink)">
                   <td style="padding-right: 25px;"><span class="label label-{{invoice.post_status}}">{{invoice.post_status}}</span></td>
                   <td>{{invoice.cd_due_date}}</td>
@@ -169,11 +163,16 @@ global $invoice, $wpi_settings;
                   <td ng-bind-html="invoice.cd_invoice_total"></td>
                 </tr>
               </tbody>
+              <tbody ng-if="!isError && !isLoading && !displayInvoices.length">
+                <tr>
+                  <td colspan="5" style="text-align: center;">
+                    <?php _e('No invoices found...'); ?>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div><!--end /invoices-lists-->
-
-        <?php endif; ?>
 
         <div class="bottom-box">
           <div class="row">

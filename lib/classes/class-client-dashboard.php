@@ -43,6 +43,18 @@ namespace UsabilityDynamics\WPI {
          * JSON filter
          */
         add_filter( 'wpi:cd:ajax_pre_load', array( $this, 'prepare_invoice_object_for_json' ) );
+
+        /**
+         * Exclude certain types from Dashboard
+         */
+        add_filter( 'cd_viewable_invoice_types', function( $current ) {
+          foreach( $current as $key => $type ) {
+            if ( $type == 'pending' ) {
+              unset($current[$key]);
+            }
+          }
+          return $current;
+        });
       }
 
       /**
@@ -112,7 +124,7 @@ namespace UsabilityDynamics\WPI {
         } else {
           if ( !empty( $_GET['wpi_user_id'] ) ) {
             $user = get_user_by( 'id', $_GET['wpi_user_id'] );
-            if ( !is_a( $user, 'WP_User' ) ) {
+            if ( !is_a( $user, 'WP_User' ) || !wpi_user_can_view_dashboard() ) {
               return array();
             } else {
               $current_user_email = $user->user_email;

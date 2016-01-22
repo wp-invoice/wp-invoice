@@ -37,6 +37,7 @@
     $scope.perPage = '10';
     $scope.totalItems = 0;
     $scope.maxSize = 5;
+    $scope.user = null;
 
     /**
      * Invoices Amount
@@ -47,8 +48,11 @@
     /**
      * Init function
      */
-    $scope.init = function() {
+    $scope.init = function( user ) {
 
+      if ( typeof user == 'object' ) {
+        $scope.user = user;
+      }
       /**
        * Load first page of invoices
        */
@@ -85,7 +89,9 @@
         params: {
           action: 'cd_get_invoices',
           offset: offset,
-          per_page: per_page
+          per_page: per_page,
+          wpi_user_id: $scope.user.wpi_user_id || false,
+          wpi_token: $scope.user.wpi_token || false
         }
       } ).success(function(data) {
 
