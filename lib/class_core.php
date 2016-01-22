@@ -419,6 +419,10 @@ class WPI_Core {
   function admin_init() {
     global $wpi_settings;
 
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      return;
+    }
+
     //** Handle backup */
     if (isset($_FILES['wpi_settings']['tmp_name']['settings_from_backup']) && $backup_file = $_FILES['wpi_settings']['tmp_name']['settings_from_backup']) {
       $backup_contents = file_get_contents($backup_file);
