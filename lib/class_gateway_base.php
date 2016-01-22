@@ -47,6 +47,7 @@ abstract class wpi_gateway_base {
     //** Setup defaults, and extract the variables */
     $defaults = array();
     extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    $process_payment_nonce = wp_create_nonce( "process-payment" );
     //** Include the template file required */
     include('gateways/templates/payment_header.tpl.php');
     include('gateways/templates/' . $this->type . '-frontend.tpl.php');
@@ -74,6 +75,7 @@ abstract class wpi_gateway_base {
    * @since 3.0
    */
   static function process_payment() {
+    check_ajax_referer( 'process-payment', 'security' );
     global $wpi_settings, $invoice;
     //** Pull the invoice */
     $the_invoice = new WPI_Invoice();

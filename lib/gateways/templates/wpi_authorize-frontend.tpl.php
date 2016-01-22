@@ -7,6 +7,7 @@
   <input type="hidden" name="cc_data[user_id]" value="<?php echo $invoice['user_data']['user_email']; ?>" />
   <input type="hidden" name="cc_data[invoice_id]" value="<?php echo  $invoice['invoice_id']; ?>" />
   <input type="hidden" name="cc_data[currency_code]" id="currency_code"  value="<?php echo $invoice['default_currency_code']; ?>" />
+  <input type="hidden" name="security" value="<?php echo $process_payment_nonce; ?>">
 
   <div id="credit_card_information">
 

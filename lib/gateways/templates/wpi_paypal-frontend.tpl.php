@@ -5,6 +5,7 @@
   <input type="hidden" id="wpi_form_invoice_id" name="invoice_id" value="<?php print $invoice['invoice_id']; ?>" />
   <input type="hidden" name="wp_invoice[hash]" value="<?php echo wp_create_nonce($invoice['invoice_id'] .'hash'); ?>" />
   <input type="hidden" name="currency_code" value="<?php echo $invoice['default_currency_code']; ?>">
+  <input type="hidden" name="security" value="<?php echo $process_payment_nonce; ?>">
   <input type="hidden" name="no_shipping" value="1">
   <input type="hidden" name="upload" value="1">
   <input type="hidden" name="business" value="<?php echo $this->get_business( $invoice ); ?>">
