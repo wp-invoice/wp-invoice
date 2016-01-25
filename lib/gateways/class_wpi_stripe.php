@@ -278,6 +278,7 @@ class wpi_stripe extends wpi_gateway_base {
               $invoice_obj->add_entry("attribute=invoice&note=$log&type=update");
               $invoice_obj->save_invoice();
 
+              send_notification( $invoice );
               update_post_meta( wpi_invoice_id_to_post_id( $invoice['invoice_id'] ), '_stripe_customer_id', $customer->id );
 
               $data['messages'][] = __( 'Stripe Subscription has been initiated. Do not pay this invoice again. Thank you.', ud_get_wp_invoice()->domain );
