@@ -1,3 +1,8 @@
+#### 4.1.1 ( January 25, 2016 )
+* Fixed several possible security issues.
+* Fixed minor issue in Stripe Gateway.
+* Fixed Reports Page issue.
+
 #### 4.1.0 ( January 11, 2016 )
 * Fixed XMLRPC method for creating new invoice.
 * Added italian localization.
