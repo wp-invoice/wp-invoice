@@ -671,8 +671,6 @@ function wpi_save_invoice () {
   // Get data from MCE Editor
   invoice_data['wpi_invoice[description]'] = jQuery( 'textarea[name="content"]' ).val();
 
-  console.log(invoice_data);
-
   jQuery.ajax( {
     data: invoice_data,
     beforeSend: function () {
