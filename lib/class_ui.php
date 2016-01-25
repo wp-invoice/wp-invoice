@@ -1324,7 +1324,7 @@ class WPI_UI {
 
     if ( !empty( $values_array ) && is_array( $values_array ) ) {
       foreach ( $values_array as $key => $value ) {
-        $output .= "<option value='$key'";
+        $output .= '<option value="'.$key.'"';
         if ( $key == $current_value )
           $output .= " selected";
         $output .= ">$value</option>";
