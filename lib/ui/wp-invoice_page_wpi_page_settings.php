@@ -790,7 +790,7 @@ class WPI_Settings_page {
     ?>
 
     <div class="wpi_settings_block">
-    <?php _e('Look up the $wpi_settings global settings array:', ud_get_wp_invoice()->domain); ?> <input type="button" class="wpi_settings_view" value="<?php esc_attr(_e('Toggle $wpi_settings', ud_get_wp_invoice()->domain)); ?>">
+    <?php _e('Look up the $wpi_settings global settings array:', ud_get_wp_invoice()->domain); ?> <input type="button" class="wpi_settings_view button-primary" value="<?php esc_attr(_e('Toggle $wpi_settings', ud_get_wp_invoice()->domain)); ?>">
       <div class="wpi_settings_row hidden">
     <?php echo WPI_Functions::pretty_print_r($wpi_settings); ?>
       </div>
