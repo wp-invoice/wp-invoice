@@ -95,6 +95,7 @@ global $invoice, $wpi_settings;
           <?php if ( wpi_dashboard_is_active() ): ?>
             <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
           <?php endif; ?>
+          <a href="<?php echo home_url(); ?>" class="btn"> <?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
         </div>
 
         <div class="col-xs-6 text-right">
