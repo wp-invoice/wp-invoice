@@ -6,6 +6,8 @@
 
 namespace UsabilityDynamics\WPI {
 
+  use UsabilityDynamics\Utility;
+
   if ( !class_exists( '\UsabilityDynamics\WPI\ClientDashboard' ) ) {
     /**
      * Class ClientDashboard
@@ -247,7 +249,10 @@ namespace UsabilityDynamics\WPI {
          * Load template functions
          */
         include_once( ud_get_wp_invoice()->path('/lib/class_template_functions.php', 'dir') );
-        $template = ud_get_wp_invoice()->path( 'static/views/client-dashboard.php', 'dir' );
+        $best_template = Utility::get_template_part( array(
+          'client-dashboard',
+        ), array( get_stylesheet_directory() . '/wpi', ud_get_wp_invoice()->path( 'static/views', 'dir' ) ) );
+        $template = !empty( $best_template ) ? $best_template : ud_get_wp_invoice()->path( 'static/views/client-dashboard.php', 'dir' );
         return $template;
       }
 
