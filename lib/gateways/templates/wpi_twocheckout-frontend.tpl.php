@@ -17,6 +17,7 @@
   <input type="hidden" name="li_0_tangible" value="N">
   <input type="hidden" name="currency_code" value="<?php echo $invoice['default_currency_code']; ?>">
   <input type="hidden" name="merchant_order_id" value="<?php echo $invoice['invoice_id']; ?>">
+  <input type="hidden" name="security" value="<?php echo $process_payment_nonce; ?>">
   
   <?php if ( is_recurring() ): ?>
     <input type="hidden" name="li_0_recurrence" value="<?php echo $this->get_recurrence( $invoice ); ?>">

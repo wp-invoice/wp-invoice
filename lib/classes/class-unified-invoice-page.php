@@ -5,6 +5,8 @@
 
 namespace UsabilityDynamics\WPI {
 
+  use UsabilityDynamics\Utility;
+
   if ( !class_exists( '\UsabilityDynamics\WPI\UnifiedInvoicePage' ) ) {
     /**
      * Class UnifiedInvoicePage
@@ -175,7 +177,11 @@ namespace UsabilityDynamics\WPI {
         /**
          * Load template
          */
-        load_template(ud_get_wp_invoice()->path('/static/views/unified-invoice-page-' . $invoice['post_status'] . '.php', 'dir'), 1);
+        $best_template = Utility::get_template_part( array(
+            'unified-invoice-page-'.$invoice['post_status']
+        ), array( get_stylesheet_directory() . '/wpi', ud_get_wp_invoice()->path( 'static/views', 'dir' ) ) );
+
+        load_template($best_template, 1);
         exit;
       }
 

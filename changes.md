@@ -1,3 +1,20 @@
+#### 4.1.1 ( January 25, 2016 )
+* Fixed several possible security issues.
+* Fixed minor issue in Stripe Gateway.
+* Fixed Reports Page issue.
+
+#### 4.1.0 ( January 11, 2016 )
+* Fixed XMLRPC method for creating new invoice.
+* Added italian localization.
+* Fixed data passed to Authorize.net during payment.
+* Fixed Country field inconsistency.
+* Fixed Stripe to consider new API version.
+* Changed way of setting business logo to use Media Library.
+* Added new way of displaying an invoice - Unified Invoice Page.
+* Added new feature of Client Dashboard.
+* Updated libraries.
+* Updated localization.
+
 #### 4.0.2 ( September 1, 2015 )
 * Added more actions and filters.
 * Fixed warnings and notices.

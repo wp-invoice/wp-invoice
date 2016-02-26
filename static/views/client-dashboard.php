@@ -1,22 +1,20 @@
 <?php
 /**
- * Unified Invoice Page template
- *
- * Displays Single invoice page
+ * Client Dashboard template
  */
 global $invoice, $wpi_settings;
 ?><!DOCTYPE html>
 <!--[if IE 6]>
-<html id="ie6" <?php language_attributes(); ?>>
+<html id="ie6" <?php language_attributes(); ?> ng-app="wpiClientDashboard">
 <![endif]-->
 <!--[if IE 7]>
-<html id="ie7" <?php language_attributes(); ?>>
+<html id="ie7" <?php language_attributes(); ?> ng-app="wpiClientDashboard">
 <![endif]-->
 <!--[if IE 8]>
-<html id="ie8" <?php language_attributes(); ?>>
+<html id="ie8" <?php language_attributes(); ?> ng-app="wpiClientDashboard">
 <![endif]-->
 <!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> ng-app="wpiClientDashboard">
 <!--<![endif]-->
 <head>
   <meta charset="<?php bloginfo('charset'); ?>"/>
@@ -42,27 +40,31 @@ global $invoice, $wpi_settings;
   <script src="http://cdnjs.com/libraries/html5shiv"></script>
   <script src="https://cdnjs.com/libraries/respond.js"></script>
   <![endif]-->
+  <script type="text/javascript">
+    var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
+  </script>
+  <script data-require="ui-bootstrap@*" data-semver="0.14.3" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
 </head>
-<body id="client-dashboard">
+<body ng-controller="InvoiceList" id="client-dashboard">
 
-<header class="pageheader">
+<header class="pageheader" ng-init="init({wpi_user_id:'<?php echo $_GET['wpi_user_id'] ?>',wpi_token:'<?php echo $_GET['wpi_token'] ?>'})">
 
   <div class="container">
 
     <div class="row header-info">
 
+      <?php if ( show_business_info() ) : ?>
+
       <div class="col-sm-4">
         <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
           <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
         <?php endif; ?>
-        <?php if ( show_business_info() ) : ?>
           <?php if ( $business_name = wpi_get_business_name() ): ?>
             <h1><?php echo $business_name; ?></h1>
           <?php endif; ?>
           <?php if ( $business_address = wpi_get_business_address() ): ?>
             <p><?php echo $business_address; ?></p>
           <?php endif; ?>
-        <?php endif; ?>
       </div>
 
       <div class="col-sm-5 contacts">
@@ -72,10 +74,17 @@ global $invoice, $wpi_settings;
               <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
           <?php endif; ?>
           <?php if ( $business_phone = wpi_get_business_phone() ): ?>
-            <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
+            <p><span class="ico tel"></span>
+              <a href="tel:<?php echo $business_phone; ?>"><?php echo $business_phone; ?></a></p>
           <?php endif; ?>
         </div>
       </div>
+
+      <?php else: ?>
+
+        <div class="col-m-12" style="height: 100px;"></div>
+
+      <?php endif; ?>
 
     </div>
   </div><!--end /container-->
@@ -110,20 +119,13 @@ global $invoice, $wpi_settings;
             <div class="col-sm-5">
               <h2><?php echo wpi_get_client_dashboard_company_name(); ?></h2>
             </div>
-<!--            <div class="col-sm-7 text-right">-->
-<!--              <div class="btn-group" role="group" aria-label="...">-->
-<!--                <button type="button" class="btn btn-default">Outstanding Invoice</button>-->
-<!--                <button type="button" class="btn btn-default active">Paid Invoice</button>-->
-<!--              </div>-->
-<!--            </div>-->
+            <div class="col-sm-7 text-right">
+              <div class="btn-group" role="group" aria-label="...">
+                <a href="<?php echo home_url(); ?>" class="btn btn-back"> <?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
+              </div>
+            </div>
           </div>
         </div>
-
-        <?php
-          $invoices = ud_get_wp_invoice()->cd->get_current_user_invoices();
-          $dashboard_total = 0;
-          if ( !empty( $invoices ) ) :
-        ?>
 
         <div class="invoices-lists">
           <div class="table-responsive">
@@ -137,50 +139,63 @@ global $invoice, $wpi_settings;
                   <th style="width: 10%;"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
                 </tr>
               </thead>
-              <tbody>
-                <?php global $invoice; foreach( $invoices as $invoice ): $invoice = $invoice->data; ?>
-                <tr onclick="window.location = '<?php echo get_invoice_permalink($invoice['ID']); ?>';">
-                  <td style="padding-right: 25px;"><span class="label label-<?php echo $invoice['post_status']; ?>"><?php echo $invoice['post_status']; ?></span></td>
-                  <td><?php echo wpi_get_invoice_due_date( 'm/d/Y' ); ?></td>
-                  <td><?php invoice_id(); ?></td>
-                  <td>[<?php echo wpi_get_invoice_type(); ?>] <a href="<?php echo get_invoice_permalink($invoice['ID']); ?>"><?php echo wpi_get_invoice_title(); ?></a></td>
-                  <td>
-                    <?php
-                      if ( is_paid() ) {
-                        echo wpi_get_total_payments( wpi_get_invoice_currency_sign() );
-                        $dashboard_total += $invoice['total_payments'];
-                      } else {
-                        echo wpi_get_amount_due( wpi_get_invoice_currency_sign() );
-                        $dashboard_total += $invoice['net'];
-                      }
-                    ?>
+              <tbody ng-if="isLoading">
+                <tr>
+                  <td colspan="5" style="text-align: center;">
+                    Loading...
                   </td>
                 </tr>
-                <?php endforeach; ?>
+              </tbody>
+              <tbody ng-if="isError && !isLoading">
+                <tr>
+                  <td colspan="5" style="text-align: center;">
+                    <?php _e('Something went wrong while loading invoices. Try refreshing the page.'); ?>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody ng-if="!isError && !isLoading && displayInvoices.length">
+                <tr ng-repeat="invoice in displayInvoices" ng-click="goToInvoice(invoice.cd_permalink)">
+                  <td style="padding-right: 25px;"><span class="label label-{{invoice.post_status}}">{{invoice.post_status}}</span></td>
+                  <td>{{invoice.cd_due_date}}</td>
+                  <td>{{invoice.cd_invoice_id}}</td>
+                  <td>[{{invoice.cd_invoice_type}}] <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
+                  <td ng-bind-html="invoice.cd_invoice_total"></td>
+                </tr>
+              </tbody>
+              <tbody ng-if="!isError && !isLoading && !displayInvoices.length">
+                <tr>
+                  <td colspan="5" style="text-align: center;">
+                    <?php _e('No invoices found...'); ?>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div><!--end /invoices-lists-->
 
-        <?php endif; ?>
-
         <div class="bottom-box">
           <div class="row">
             <div class="col-xs-6 col-xs-push-6 text-right total">
-              <span><?php _e('Total:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_default_currency_sign(); ?><?php echo wp_invoice_currency_format($dashboard_total); ?>
+              <span><?php _e('Total:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_default_currency_sign(); ?>{{totalAmount}}
             </div>
 
-<!--            <div class="col-xs-6 col-xs-pull-6">-->
-<!--              <ul class="pagination">-->
-<!--                <li class="prev active"><a href="#">Prev.</a></li>-->
-<!--                <li><a href="#">1</a></li>-->
-<!--                <li><a href="#">2</a></li>-->
-<!--                <li><a href="#">3</a></li>-->
-<!--                <li><a href="#">4</a></li>-->
-<!--                <li><a href="#">5</a></li>-->
-<!--                <li class="next"><a href="#">Next</a></li>-->
-<!--              </ul>-->
-<!--            </div>-->
+            <div class="col-xs-6 col-xs-pull-6">
+
+              <uib-pagination direction-links="false" boundary-links="true" items-per-page="perPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="paginate()"></uib-pagination>
+
+              <div class="per_page_wrapper">
+                <?php _e('Invoices Per Page:', ud_get_wp_invoice()->domain); ?>
+                <select ng-model="perPage" ng-change="paginate()">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <option value="-1">All</option>
+                </select>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>

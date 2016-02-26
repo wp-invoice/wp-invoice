@@ -24,6 +24,7 @@ class WPI_Reports_page {
    */
   static function overview_reports() {
     global $wpi_reports;
+
     ?>
       <script type="text/javascript">
 
@@ -143,7 +144,9 @@ class WPI_Reports_page {
               continue;
             }
 
-            $line_items_array[] = "['{$line_item_name}', {$wpi_reports['collected_line_items'][$line_item_name]}] ";
+            $_name = addslashes($line_item_name);
+
+            $line_items_array[] = "['{$_name}', {$wpi_reports['collected_line_items'][$line_item_name]}] ";
 
             $counter++;
           }

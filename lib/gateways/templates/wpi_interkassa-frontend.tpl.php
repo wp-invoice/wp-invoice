@@ -10,6 +10,7 @@
       <input type="hidden" name="ik_pm_no" value="<?php print $invoice['invoice_id']; ?>">
       <input type="hidden" name="ik_desc" value="<?php print $invoice['post_title']; ?>">
       <input type="hidden" name="ik_cur" value="<?php echo $invoice['default_currency_code']; ?>">
+      <input type="hidden" name="security" value="<?php echo $process_payment_nonce; ?>">
 
       <div id="credit_card_information">
 

@@ -225,9 +225,8 @@
 
           <?php
           if( empty($this_invoice->data['itemized_list']) || !is_array($this_invoice->data['itemized_list']))  {
-            $blank_rows = (get_user_option("wpi_blank_item_rows") ? get_user_option("wpi_blank_item_rows") : 2);
             $x = 1;
-            while($x <= $blank_rows) {
+            while($x <= 2) {
               $this_invoice->data['itemized_list'][$x++] = true;
             }
           }
@@ -334,15 +333,16 @@
                 
                 $service['description'] = !empty($service['description'])?$service['description']:'';
                 $service['tax'] = !empty($service['tax'])?$service['tax']:'';
-                
-                $services_array["{$service['name']}|{$service['description']}|{$service['quantity']}|{$service['price']}|{$service['tax']}"] = $service['name'] . ": " . $service['quantity'] . " x ". $service['price'];
+                $_name = htmlspecialchars(stripslashes($service['name']));
+                $_description = htmlspecialchars(stripslashes($service['description']));
+                $services_array["{$_name}|{$_description}|{$service['quantity']}|{$service['price']}|{$service['tax']}"] = $_name . ": " . $service['quantity'] . " x ". $service['price'];
               }
+
               //** Make sure there are more services than the label */
               if(count($services_array) > 1){
-                $services_string = serialize($services_array);
                 $select_data = array(
                   'id'            => 'wpi_predefined_services',
-                  'values'        => $services_string,
+                  'values'        => $services_array,
                   'current_value' => ''
                 );
                 echo WPI_UI::select($select_data);

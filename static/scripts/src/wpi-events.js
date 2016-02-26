@@ -174,24 +174,6 @@ jQuery( document ).ready( function () {
   } );
 
   /**
-   * Update blank item rows count
-   */
-  jQuery( "#wpi_blank_item_rows" ).change( function () {
-    var updated_row_count = jQuery( this ).val();
-    var current_row_count = jQuery( ".wp_invoice_itemized_list_row" ).size();
-    var row_difference = updated_row_count - current_row_count;
-    wpi_update_user_option( 'wpi_blank_item_rows', updated_row_count );
-    //** Insert rows if amount is more than current amount */
-    if ( row_difference > 0 ) {
-      var i = 0;
-      while ( i < row_difference ) {
-        add_itemized_list_row( 'invoice_list' );
-        i++;
-      }
-    }
-  } );
-
-  /**
    * process manual event
    */
   jQuery( '#wpi_process_manual_event' ).on( 'click', function ( event ) {
@@ -415,52 +397,6 @@ jQuery( document ).ready( function () {
     var action = (jQuery( this ).is( ":checked" ) ? true : false);
     jQuery.cookie( 'wpi_display_' + jQuery( this ).attr( 'name' ), action );
   } );
-
-  /**
-   * Handles result of a non-metabox item being clickec in Screen Options
-   * Saving the settings is handled by a different event
-   * Recalcs totals on events related to totals and taxes.
-   */
-  jQuery( '#wpi_screen_meta' ).click( jQuery.delegate( {
-    '#wpi_ui_currency_options': function () {
-      if ( jQuery( "#wpi_ui_currency_options" ).is( ":checked" ) ? true : false ) {
-        jQuery( "tr.wpi_ui_currency_options" ).show();
-        wpi_update_user_option( 'wpi_ui_currency_options', 'true' );
-      } else {
-        jQuery( "tr.wpi_ui_currency_options" ).hide();
-        wpi_update_user_option( 'wpi_ui_currency_options', 'false' );
-      }
-    },
-    '#wpi_ui_payment_method_options': function () {
-      if ( jQuery( "#wpi_ui_payment_method_options" ).is( ":checked" ) ? true : false ) {
-        jQuery( "tr.wpi_ui_payment_method_options" ).show();
-        wpi_update_user_option( 'wpi_ui_payment_method_options', 'true' );
-      } else {
-        jQuery( "tr.wpi_ui_payment_method_options" ).hide();
-        wpi_update_user_option( 'wpi_ui_payment_method_options', 'false' );
-      }
-    },
-    '#wpi_itemized-list-tax.non-metabox-option': function () {
-      if ( jQuery( "#wpi_itemized-list-tax.non-metabox-option" ).is( ":checked" ) ? true : false ) {
-        wpi_adjust_for_tax_column( 'show' );
-        wpi_update_user_option( 'wpi_ui_display_itemized_tax', 'true' );
-      } else {
-        wpi_update_user_option( 'wpi_ui_display_itemized_tax', 'false' );
-        wpi_adjust_for_tax_column( 'hide' );
-      }
-    },
-    '#wpi_overall-tax.non-metabox-option': function () {
-      if ( jQuery( "#wpi_overall-tax.non-metabox-option" ).is( ":checked" ) ? true : false ) {
-        wpi_update_user_option( 'wpi_ui_display_global_tax', 'true' );
-        jQuery( "tr.wpi_ui_display_global_tax" ).show();
-      } else {
-        wpi_update_user_option( 'wpi_ui_display_global_tax', 'false' );
-        jQuery( "tr.wpi_ui_display_global_tax" ).hide();
-        jQuery( "tr.wpi_ui_display_global_tax .input_field" ).val( "" );
-      }
-      wpi_recalc_totals();
-    }
-  } ) );
 
   /**
    * Toggles Screen Options tab expansion and collapsing

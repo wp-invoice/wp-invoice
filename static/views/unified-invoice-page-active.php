@@ -58,18 +58,18 @@ global $invoice, $wpi_settings;
 
       <div class="row header-info">
 
+        <?php if ( show_business_info() ) : ?>
+
         <div class="col-sm-4">
           <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
             <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
           <?php endif; ?>
-          <?php if ( show_business_info() ) : ?>
             <?php if ( $business_name = wpi_get_business_name() ): ?>
               <h1><?php echo $business_name; ?></h1>
             <?php endif; ?>
             <?php if ( $business_address = wpi_get_business_address() ): ?>
               <p><?php echo $business_address; ?></p>
             <?php endif; ?>
-          <?php endif; ?>
         </div>
 
         <div class="col-sm-5 contacts">
@@ -83,6 +83,9 @@ global $invoice, $wpi_settings;
             <?php endif; ?>
           </div>
         </div>
+        <?php else: ?>
+          <div class="col-m-12" style="height: 100px;"></div>
+        <?php endif; ?>
 
       </div>
 
@@ -92,6 +95,7 @@ global $invoice, $wpi_settings;
           <?php if ( wpi_dashboard_is_active() ): ?>
             <a href="<?php echo wpi_get_dashboard_permalink( $invoice['ID'] ); ?>" class="btn btn-back"> <?php _e( 'My dashboard', ud_get_wp_invoice()->domain ); ?></a>
           <?php endif; ?>
+          <a href="<?php echo home_url(); ?>" class="btn"> <?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
         </div>
 
         <div class="col-xs-6 text-right">

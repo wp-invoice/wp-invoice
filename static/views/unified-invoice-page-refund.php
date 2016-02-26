@@ -58,31 +58,34 @@ global $invoice, $wpi_settings;
 
     <div class="row header-info">
 
-      <div class="col-sm-4">
-        <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
-          <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
-        <?php endif; ?>
-        <?php if ( show_business_info() ) : ?>
+      <?php if ( show_business_info() ) : ?>
+
+        <div class="col-sm-4">
+          <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
+            <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
+          <?php endif; ?>
           <?php if ( $business_name = wpi_get_business_name() ): ?>
             <h1><?php echo $business_name; ?></h1>
           <?php endif; ?>
           <?php if ( $business_address = wpi_get_business_address() ): ?>
             <p><?php echo $business_address; ?></p>
           <?php endif; ?>
-        <?php endif; ?>
-      </div>
-
-      <div class="col-sm-5 contacts">
-        <div class="contact">
-          <?php if ( $business_email = wpi_get_business_email() ): ?>
-            <p><span class="ico mail"></span>
-              <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
-          <?php endif; ?>
-          <?php if ( $business_phone = wpi_get_business_phone() ): ?>
-            <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
-          <?php endif; ?>
         </div>
-      </div>
+
+        <div class="col-sm-5 contacts">
+          <div class="contact">
+            <?php if ( $business_email = wpi_get_business_email() ): ?>
+              <p><span class="ico mail"></span>
+                <a href="mailto:<?php echo $business_email; ?>"><?php echo $business_email; ?></a></p>
+            <?php endif; ?>
+            <?php if ( $business_phone = wpi_get_business_phone() ): ?>
+              <p><span class="ico tel"></span> <?php echo $business_phone; ?></p>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php else: ?>
+        <div class="col-m-12" style="height: 100px;"></div>
+      <?php endif; ?>
 
     </div>
 

@@ -241,36 +241,22 @@ class WPI_Core {
 
     add_action('admin_init', array($this, 'admin_init'));
 
-    add_action('wp_ajax_wpi_list_table', create_function('', ' die(WPI_Ajax::wpi_list_table());'));
     add_action('wp_ajax_wpi_get_user_date', create_function('', ' die(WPI_Ajax::get_user_date($_REQUEST["user_email"]));'));
-
-    add_action('wp_ajax_wpi_ajax_check_plugin_updates', create_function('', ' die(WPI_Ajax::check_plugin_updates());'));
-
-    add_action('wp_ajax_wpi_update_user_option', array('WPI_Ajax', 'update_user_option'));
     add_action('wp_ajax_wpi_process_manual_event', array('WPI_Ajax', 'process_manual_event'));
     add_action('wp_ajax_wpi_get_notification_email', array('WPI_Ajax', 'get_notification_email'));
     add_action('wp_ajax_wpi_save_invoice', array('WPI_Ajax', 'save_invoice'));
     add_action('wp_ajax_wpi_get_status', array($this->Ajax, 'show_invoice_status'));
     add_action('wp_ajax_wpi_get_charges', array($this->Ajax, 'show_invoice_charges'));
     add_action('wp_ajax_wpi_send_notification', array('WPI_Ajax', 'send_notification'));
-
-    add_action('wp_ajax_wpi_import_legacy', array('WPI_Ajax', 'import_legacy_data'));
-
-    //** Add our actions for our payment handlers */
     add_action('wp_ajax_nopriv_wpi_gateway_process_payment', array('wpi_gateway_base', 'process_payment'));
     add_action('wp_ajax_wpi_gateway_process_payment', array('wpi_gateway_base', 'process_payment'));
     add_action('wp_ajax_nopriv_wpi_front_change_payment_form_ajax', array('wpi_gateway_base', 'change_payment_form_ajax'));
     add_action('wp_ajax_wpi_front_change_payment_form_ajax', array('wpi_gateway_base', 'change_payment_form_ajax'));
-
-    //** Server Callback functionality */
     add_action('wp_ajax_nopriv_wpi_gateway_server_callback', array('wpi_gateway_base', 'server_callback'));
     add_action('wp_ajax_wpi_gateway_server_callback', array('wpi_gateway_base', 'server_callback'));
-
-    //** Install custom templates to theme */
     add_action('wp_ajax_wpi_install_custom_templates', array('WPI_Ajax', 'install_templates'));
     add_action('wp_ajax_wpi_user_autocomplete_handler', array('WPI_Ajax', 'user_autocomplete_handler'));
     add_action('wp_ajax_wpi_template_autocomplete_handler', array('WPI_Ajax', 'template_autocomplete_handler'));
-
     add_action('wp_ajax_wpi_search_email', array('WPI_Ajax', 'search_email'));
     add_action('wp_ajax_wpi_search_recipient', array('WPI_Ajax', 'search_recipient'));
 
@@ -286,11 +272,6 @@ class WPI_Core {
       //** Add CRM notification fire action */
       add_filter("wp_crm_notification_actions", array('WPI_Functions', 'wpi_crm_custom_notification'));
       add_filter('wp_crm_entry_type_label', array('WPI_Functions', 'wp_crm_entry_type_label'), 10, 2);
-    }
-
-    //** If we are in debug mode, lets add these actions */
-    if ( isset( $wpi_settings['debug'] ) && $wpi_settings['debug'] ) {
-      add_action('wp_ajax_wpi_debug_get_invoice', array('WPI_Ajax', 'debug_get_invoice'));
     }
 
     add_action('the_post', array('WPI_Functions', 'the_post'));
@@ -318,10 +299,6 @@ class WPI_Core {
 
     if (!get_user_option("screen_layout_admin_page_wpi_invoice_edit")) {
       update_user_option($user_ID, 'screen_layout_admin_page_wpi_invoice_edit', 2, true);
-    }
-
-    if (!get_user_option("wpi_blank_item_rows")) {
-      update_user_option($user_ID, 'wpi_blank_item_rows', 2, true);
     }
 
     if (!get_user_option("wpi_ui_display_global_tax")) {
@@ -425,6 +402,10 @@ class WPI_Core {
    */
   function admin_init() {
     global $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      return;
+    }
 
     //** Handle backup */
     if (isset($_FILES['wpi_settings']['tmp_name']['settings_from_backup']) && $backup_file = $_FILES['wpi_settings']['tmp_name']['settings_from_backup']) {

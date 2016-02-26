@@ -88,31 +88,14 @@ class WPI_Ajax {
   }
 
   /**
-   * Updates usermeta - mostly for updating screen options
-   * @global type $user_ID
-   */
-  static function update_user_option() {
-    global $user_ID;
-    
-    if ( !isset( $user_ID ) ) {
-      die();
-    }
-    
-    $meta_key = $_REQUEST[ 'meta_key' ];
-    $meta_value = $_REQUEST[ 'meta_value' ];
-    
-    if ( empty( $meta_value ) ) {
-      $meta_value = false;
-    }
-    
-    update_user_option( $user_ID, $meta_key, $meta_value, true );
-    die();
-  }
-
-  /**
    * Process special invoice-related event
    */
   static function process_manual_event() {
+    global $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( json_encode( array( 'success' => 'false', 'message' => __( 'You are not allowed to perform this action.', ud_get_wp_invoice()->domain ) ) ) );
+    }
     
     $invoice_id = $_REQUEST[ 'invoice_id' ];
     $event_type = $_REQUEST[ 'event_type' ];
@@ -291,6 +274,10 @@ class WPI_Ajax {
   static function send_notification() {
     global $wpi_settings;
 
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( json_encode( array( 'status' => 403, 'message' => __( 'You are not allowed to perform this action.', ud_get_wp_invoice()->domain ) ) ) );
+    }
+
     //** Start buffering to avoid appearing any errors in response */
     ob_start();
 
@@ -327,6 +314,12 @@ class WPI_Ajax {
    * Save invoice from Ajax
    */
   static function save_invoice() {
+    global $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( __( "You are not allowed to perform this action.", ud_get_wp_invoice()->domain ) );
+    }
+
     $invoice_id = WPI_Functions::save_invoice( $_REQUEST[ 'wpi_invoice' ] );
     if ( $invoice_id ) {
       echo sprintf( __( "Saved. <a target='_blank' href='%s'>View Invoice</a>", ud_get_wp_invoice()->domain ), get_invoice_permalink( $invoice_id ) ) . ". " . __( 'Invoice id #', ud_get_wp_invoice()->domain ) . "<span id='new_invoice_id'>$invoice_id</span>.";
@@ -355,25 +348,14 @@ class WPI_Ajax {
   }
 
   /**
-   * This function prints out our invoice data for debugging purposes
-   */
-  static function debug_get_invoice() {
-
-    if ( !isset( $_REQUEST[ 'invoice_id' ] ) ) {
-      die( __( "Please enter an invoice id.", ud_get_wp_invoice()->domain ) );
-    }
-    
-    $this_invoice = new WPI_Invoice();
-    $this_invoice->load_invoice( "id=" . $_REQUEST[ 'invoice_id' ] );
-    echo WPI_Functions::pretty_print_r( $this_invoice->data );
-    
-    die();
-  }
-
-  /**
    * Install templates for WPI
    */
   static function install_templates() {
+    global $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( __( "You are not allowed to perform this action.", ud_get_wp_invoice()->domain ) );
+    }
 
     $errors = array();
     $custom_template_path = STYLESHEETPATH . "/wpi";
@@ -418,7 +400,11 @@ class WPI_Ajax {
    * @author korotkov@ud
    */
   static function user_autocomplete_handler() {
-    global $wpdb, $blog_id;
+    global $wpdb, $blog_id, $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( __( "You are not allowed to perform this action.", ud_get_wp_invoice()->domain ) );
+    }
 
     $users_found = $wpdb->get_results( "SELECT `u`.`ID`, CONCAT(`u`.`display_name`,' - ',`u`.`user_email`) as `label`, `user_email` as `value`
                                        FROM `{$wpdb->users}` as `u` INNER JOIN `{$wpdb->usermeta}` as `m`
@@ -440,7 +426,11 @@ class WPI_Ajax {
    * @author korotkov@ud
    */
   static function template_autocomplete_handler() {
-    global $wpdb;
+    global $wpdb, $wpi_settings;
+
+    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+      die( __( "You are not allowed to perform this action.", ud_get_wp_invoice()->domain ) );
+    }
 
     $invoices_found = $wpdb->get_results( "SELECT `post_title` as `label`,`ID` as `value`
                                           FROM `{$wpdb->posts}`

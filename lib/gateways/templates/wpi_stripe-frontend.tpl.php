@@ -6,6 +6,7 @@ echo '<script type="text/javascript">Stripe.setPublishableKey("' . trim($invoice
   <input type="hidden" id="wpi_form_type" name="type" value="<?php echo $this->type; ?>" />
   <input type="hidden" id="wpi_form_invoice_id" name="invoice_id" value="<?php echo $invoice['invoice_id']; ?>" />
   <input type="hidden" id="payment_amount" name="amount" value="<?php echo $invoice['net']; ?>" />
+  <input type="hidden" name="security" value="<?php echo $process_payment_nonce; ?>">
 
   <div id="credit_card_information">
 
