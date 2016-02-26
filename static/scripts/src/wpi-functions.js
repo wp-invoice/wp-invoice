@@ -442,6 +442,8 @@ function wpi_show_paycharge_box () {
  Process event from payment charge box
  */
 function wpi_process_manual_event () {
+  jQuery( '#wpi_process_manual_event' ).attr('disabled', 'disabled');
+
   var event_data;
 
   event_data = {
@@ -464,6 +466,8 @@ function wpi_process_manual_event () {
     type: "POST",
     url: ajaxurl,
     success: function ( data ) {
+
+      jQuery( '#wpi_process_manual_event' ).removeAttr('disabled');
 
       if ( data.success == "true" ) {
 
