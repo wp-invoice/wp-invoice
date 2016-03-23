@@ -102,7 +102,7 @@ global $invoice, $wpi_settings;
           <h2><?php _e('Access Denied', ud_get_wp_invoice()->domain); ?></h2>
           <p><?php _e('If you see this message please be sure you followed by proper link from the invoice page or log in to see your dashboard.', ud_get_wp_invoice()->domain); ?></p>
           <div class="success-buttons">
-            <a href="javascript:window.history.back();" class="btn btn-info"><?php _e( 'Go Back', ud_get_wp_invoice()->domain ); ?></a>
+            <a href="<?php echo home_url(); ?>" class="btn btn-info"><?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
           </div>
         </div><!--end /box-inner-content-->
       </div>
