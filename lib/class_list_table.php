@@ -35,6 +35,30 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   }
 
   /**
+   * @param array $args
+   * @return array
+   */
+  public function filter_wp_query( $args ) {
+
+    if ( !empty( $args['meta_query'] ) && is_array( $args['meta_query'] ) ) {
+      foreach( $args['meta_query'] as $key => $meta_query ) {
+        if ( $meta_query['key'] != 'invoice_id' ) continue;
+        $args['meta_query'][] = array(
+          'relation' => 'OR',
+          array(
+              'key' => 'custom_id',
+              'value' => $meta_query['value'],
+              'compare' => '='
+          ), $meta_query
+        );
+        unset($args['meta_query'][$key]);
+      }
+    }
+
+    return $args;
+  }
+
+  /**
    * @param array $actions
    * @param bool $post
    */
