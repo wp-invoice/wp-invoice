@@ -2638,6 +2638,13 @@ function get_invoice_id( $identificator ) {
     ) );
   }
 
+  //** Determine if $identificator is custom_id */
+  if ( empty( $id ) ) {
+    $id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'custom_id' AND meta_value = %s",
+        $identificator
+    ) );
+  }
+
   //** If empty id, determine if $identificator is post ID */
   if ( empty( $id ) ) {
     $id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type='wpi_object' and ID=%s",
