@@ -257,6 +257,23 @@ class WPI_Settings_page {
               </label>
             </li>
             <li>
+              <label for="wpi_thousands_separator_symbol">
+                <?php _e('Decimal Separator Symbol', ud_get_wp_invoice()->domain); ?>
+                <?php
+                echo WPI_UI::select(array(
+                    'name' => 'decimal_separator_symbol',
+                    'group' => 'wpi_settings',
+                    'values' => array(
+                        '0' => __('None', ud_get_wp_invoice()->domain),
+                        '.' => '.(period)',
+                        ',' => ',(comma)'
+                    ),
+                    'current_value' => !isset($wpi_settings['decimal_separator_symbol']) ? '.' : $wpi_settings['decimal_separator_symbol']
+                ));
+                ?>
+              </label>
+            </li>
+            <li>
               <?php echo WPI_UI::checkbox("name=wpi_settings[logged_in_only]&value=true&label=" . __("Show invoices only for logged in recipients.", ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['logged_in_only'])?$wpi_settings['logged_in_only']:false )); ?>
             </li>
             <li>

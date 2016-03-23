@@ -455,8 +455,9 @@ class WPI_Functions {
     $amount = (float) $amount;
 
     $thousands_separator_symbol = !isset( $wpi_settings[ 'thousands_separator_symbol' ] ) ? ',' : ( $wpi_settings[ 'thousands_separator_symbol' ] == '0' ? '' : $wpi_settings[ 'thousands_separator_symbol' ] );
+    $decimal_separator_symbol = !isset( $wpi_settings[ 'decimal_separator_symbol' ] ) ? ',' : ( $wpi_settings[ 'decimal_separator_symbol' ] == '0' ? '' : $wpi_settings[ 'decimal_separator_symbol' ] );
 
-    return $currency_symbol . number_format( $amount, 2, '.', $thousands_separator_symbol );
+    return $currency_symbol . number_format( $amount, 2, $decimal_separator_symbol, $thousands_separator_symbol );
   }
 
   /**
@@ -1300,8 +1301,7 @@ class WPI_Functions {
    * @return type
    */
   static function money_format( $number ) {
-    global $wpi_settings;
-    return number_format( (float) $number, 2, '.', !empty( $wpi_settings[ 'thousands_separator_symbol' ] ) ? $wpi_settings[ 'thousands_separator_symbol' ] : '' );
+    return wp_invoice_currency_format( $number );
   }
 
   /**
@@ -2251,9 +2251,10 @@ function wp_invoice_currency_format( $amount ) {
   global $wpi_settings;
 
   $thousands_separator_symbol = !isset( $wpi_settings[ 'thousands_separator_symbol' ] ) ? ',' : ( $wpi_settings[ 'thousands_separator_symbol' ] == '0' ? '' : $wpi_settings[ 'thousands_separator_symbol' ] );
+  $decimal_separator_symbol = !isset( $wpi_settings[ 'decimal_separator_symbol' ] ) ? '.' : ( $wpi_settings[ 'decimal_separator_symbol' ] == '0' ? '' : $wpi_settings[ 'decimal_separator_symbol' ] );
 
   if ( $amount ) {
-    return number_format( $amount, 2, '.', $thousands_separator_symbol );
+    return number_format( $amount, 2, $decimal_separator_symbol, $thousands_separator_symbol );
   } else {
     return $amount;
   }

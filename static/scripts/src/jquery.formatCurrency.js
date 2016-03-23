@@ -22,7 +22,7 @@
       for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
         num = num.substring(0, num.length - (4 * i + 3)) + wpi.thousandsSeparator + num.substring(num.length - (4 * i + 3));
 
-      $(this)[settings.useHtml ? 'html' : 'val'](((sign) ? '' : '-') + jQuery('<div/>').html(wpi.currency).text() + num + '.' + cents);
+      $(this)[settings.useHtml ? 'html' : 'val'](((sign) ? '' : '-') + jQuery('<div/>').html(wpi.currency).text() + num + wpi.decimalSeparator + cents);
     });
   };
 

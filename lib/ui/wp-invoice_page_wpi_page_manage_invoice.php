@@ -2,7 +2,8 @@
 
   var wpi = {
     'currency':'<?php echo $wpi_settings['currency']['symbol'][$this_invoice->data['default_currency_code']]; ?> ',
-    'thousandsSeparator':'<?php echo !isset( $wpi_settings['thousands_separator_symbol'] )?',':($wpi_settings['thousands_separator_symbol'] == '0'?'':$wpi_settings['thousands_separator_symbol']) ?>'
+    'thousandsSeparator':'<?php echo !isset( $wpi_settings['thousands_separator_symbol'] )?',':($wpi_settings['thousands_separator_symbol'] == '0'?'':$wpi_settings['thousands_separator_symbol']) ?>',
+    'decimalSeparator':'<?php echo !isset( $wpi_settings['decimal_separator_symbol'] )?'.':($wpi_settings['decimal_separator_symbol'] == '0'?'':$wpi_settings['decimal_separator_symbol']) ?>'
   };
   var adjustments = <?php echo !empty( $this_invoice->data['adjustments'] )?$this_invoice->data['adjustments']:0; ?>;
 
