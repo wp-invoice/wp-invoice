@@ -203,7 +203,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function column_updated( $post ) {
     $post = $this->get_invoice_object( $post );
 
-    return date(get_option('date_format').' \a\t '.get_option('time_format'), strtotime($post->post_date));
+    return date_i18n(get_option('date_format').' '.get_option('time_format'), strtotime($post->post_date));
   }
 
   /**
@@ -213,7 +213,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public function column_created( $post ) {
     $post = $this->get_invoice_object( $post );
 
-    return date(get_option('date_format').' \a\t '.get_option('time_format'), strtotime($post->post_modified));
+    return date_i18n(get_option('date_format').' '.get_option('time_format'), strtotime($post->post_modified));
   }
 
 
@@ -222,7 +222,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    * @return mixed
    */
   public function column_status( $post ) {
-    return get_post_status_object($post->post_status)->label;
+    return __( get_post_status_object($post->post_status)->label, ud_get_wp_invoice()->domain );
   }
 
   /**
@@ -231,7 +231,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    */
   public function column_type( $post ) {
     global $wpi_settings;
-    return $wpi_settings['types'][$post->type]['label'];
+    return __( $wpi_settings['types'][$post->type]['label'], ud_get_wp_invoice()->domain );
   }
 
   /**

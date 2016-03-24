@@ -62,7 +62,7 @@ class WPI_UI {
 
     foreach( (array)$objects_count = wp_count_posts('wpi_object') as $status => $count ) {
       if ( $count ) {
-        $statuses[$status] = ucfirst( $status ) . ' ('.$count.') ';
+        $statuses[$status] = __( ucfirst( $status ), ud_get_wp_invoice()->domain ) . ' ('.$count.') ';
       }
     }
 
@@ -81,7 +81,7 @@ class WPI_UI {
     global $wpi_settings;
 
     foreach( (array)$wpi_settings['types'] as $key => $value ) {
-      $current[ $key ] = $value['label'];
+      $current[ $key ] = __( $value['label'], ud_get_wp_invoice()->domain );
     }
 
     return $current;
