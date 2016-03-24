@@ -52,7 +52,8 @@ if (isset($_REQUEST['message'])) {
 
   var wpi = {
     'currency':'<?php echo $wpi_settings['currency']['symbol'][$wpi_settings['currency']['default_currency_code']]; ?> ',
-    'thousandsSeparator':'<?php echo!isset($wpi_settings['thousands_separator_symbol']) ? ',' : ($wpi_settings['thousands_separator_symbol'] == '0' ? '' : $wpi_settings['thousands_separator_symbol']) ?>'
+    'thousandsSeparator':'<?php echo!isset($wpi_settings['thousands_separator_symbol']) ? ',' : ($wpi_settings['thousands_separator_symbol'] == '0' ? '' : $wpi_settings['thousands_separator_symbol']) ?>',
+    'decimalSeparator':'<?php echo !isset( $wpi_settings['decimal_separator_symbol'] )?'.':($wpi_settings['decimal_separator_symbol'] == '0'?'':$wpi_settings['decimal_separator_symbol']) ?>'
   };
 
   jQuery(document).ready( function() {
