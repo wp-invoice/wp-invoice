@@ -288,6 +288,36 @@ class WPI_Settings_page {
         </td>
       </tr>
 
+      <tr>
+        <th></th>
+        <td>
+          <ul class="wpi_something_advanced_wrapper">
+            <li>
+              <?php
+              echo WPI_UI::checkbox(array(
+                  'name'  => 'wpi_settings[tos_checkbox]',
+                  'value' => 'true',
+                  'label' => __('Add "Terms &amp; Conditions" checkbox to regular invoices.', ud_get_wp_invoice_quotes()->domain),
+                  'class' => 'wpi_show_advanced'
+              ), isset($wpi_settings['tos_checkbox'])?$wpi_settings['tos_checkbox']:false );
+              ?>
+              <div class="description"><?php _e('This option allows you to add "Terms &amp; Conditions" checkbox to your regular invoices. Be sure you have specified Terms page ID below.', ud_get_wp_invoice_quotes()->domain);?></div>
+            </li>
+            <li class="wpi_advanced_option">
+              <label for=""><?php _e( '"T&amp;C" Page ID:', ud_get_wp_invoice_quotes()->domain ); ?></label>
+              <?php echo WPI_UI::input(array(
+                  'type' => 'text',
+                  'style' => 'width:50px;',
+                  'name' => 'tos_page_id',
+                  'group' => 'wpi_settings',
+                  'value' => !empty($wpi_settings['tos_page_id'])?$wpi_settings['tos_page_id']:''
+              )); ?>
+              <div class="description wpi_advanced_option"><?php _e('Numeric value of WordPress page ID that has "Terms &amp; Conditions".', ud_get_wp_invoice_quotes()->domain) ?></div>
+            </li>
+          </ul>
+        </td>
+      </tr>
+
     <?php do_action('wpi_settings_page_basic_settings', $wpi_settings); ?>
 
 

@@ -218,6 +218,15 @@ abstract class wpi_gateway_base {
   }
 
   /**
+   * @param $invoice
+   */
+  public static function handle_terms_acceptance( $invoice ) {
+    if ( empty( $_POST['accept_terms'] ) || $_POST['accept_terms'] != 'true' ) {
+      wpi_send_json_error(array('messages'=>array(__('Terms must be accepted. Aborting payment.', ud_get_wp_invoice()->domain)) ));
+    }
+  }
+
+  /**
    * Redecrale this in child class
    */
   abstract function wpi_payment_fields($invoice);

@@ -1034,3 +1034,24 @@ textarea {
   padding-left: 10px;
   padding-right: 10px;
 }
+.wpi_tos_acceptance {
+  float: right;
+  padding: 10px;
+  text-align: left;
+  width: 540px;
+}
+@media screen and (max-width: 991px) {
+  .wpi_tos_acceptance {
+    width: 410px;
+  }
+}
+@media screen and (max-width: 749px) {
+  .wpi_tos_acceptance {
+    width: 100%;
+    float: none;
+    padding: 25px 40px;
+  }
+}
+.wpi_tos_acceptance label input {
+  margin-right: 10px;
+}

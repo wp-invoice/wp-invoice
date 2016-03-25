@@ -53,6 +53,14 @@ class WPI_UI {
   }
 
   /**
+   * @param $_invoice
+   */
+  public static function terms_checkbox( $_invoice ) {
+    global $wpi_settings;
+    echo '<div class="wpi_tos_acceptance"><label><input type="checkbox" value="true" name="accept_terms" />'.sprintf(__('I accept <a href="%s" target="_blank">terms and conditions</a>', ud_get_wp_invoice()->domain), get_permalink($wpi_settings['tos_page_id'])).'</label></div>';
+  }
+
+  /**
    * @param $current
    * @return mixed
    */

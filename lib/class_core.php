@@ -238,8 +238,12 @@ class WPI_Core {
     add_action('show_user_profile', array($this->UI, 'display_user_profile_fields'));
 
     add_action('admin_menu', array('WPI_UI', 'admin_menu'), 9);
-
     add_action('admin_init', array($this, 'admin_init'));
+
+    if ( isset( $wpi_settings['tos_checkbox'] ) && $wpi_settings['tos_checkbox'] == 'true' ) {
+      add_action('wpi_after_payment_fields', array('WPI_UI', 'terms_checkbox'));
+      add_action('wpi_before_process_payment', array('wpi_gateway_base', 'handle_terms_acceptance'));
+    }
 
     add_action('wp_ajax_wpi_get_user_date', create_function('', ' die(WPI_Ajax::get_user_date($_REQUEST["user_email"]));'));
     add_action('wp_ajax_wpi_process_manual_event', array('WPI_Ajax', 'process_manual_event'));

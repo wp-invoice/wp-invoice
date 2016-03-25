@@ -1,6 +1,6 @@
 <?php
 /** Set our header */
-header("Content-type: application/x-javascript");
+header("Content-type: text/javascript");
 /** For each type of plugin we have, lets load the JavaScript file that's associated with it */
 if ($dir = opendir(getcwd())) {
   while (false !== ($file = readdir($dir))) {
