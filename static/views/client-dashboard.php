@@ -142,20 +142,20 @@ global $invoice, $wpi_settings;
               <tbody ng-if="isLoading">
                 <tr>
                   <td colspan="5" style="text-align: center;">
-                    Loading...
+                    <?php _e( 'Loading...', ud_get_wp_invoice()->domain ); ?>
                   </td>
                 </tr>
               </tbody>
               <tbody ng-if="isError && !isLoading">
                 <tr>
                   <td colspan="5" style="text-align: center;">
-                    <?php _e('Something went wrong while loading invoices. Try refreshing the page.'); ?>
+                    <?php _e('Something went wrong while loading invoices. Try refreshing the page.', ud_get_wp_invoice()->domain); ?>
                   </td>
                 </tr>
               </tbody>
               <tbody ng-if="!isError && !isLoading && displayInvoices.length">
                 <tr ng-repeat="invoice in displayInvoices" ng-click="goToInvoice(invoice.cd_permalink)">
-                  <td style="padding-right: 25px;"><span class="label label-{{invoice.post_status}}">{{invoice.post_status}}</span></td>
+                  <td style="padding-right: 25px;"><span class="label label-{{invoice.post_status}}">{{invoice.cd_invoice_status}}</span></td>
                   <td>{{invoice.cd_due_date}}</td>
                   <td>{{invoice.cd_invoice_id}}</td>
                   <td>[{{invoice.cd_invoice_type}}] <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
@@ -165,7 +165,7 @@ global $invoice, $wpi_settings;
               <tbody ng-if="!isError && !isLoading && !displayInvoices.length">
                 <tr>
                   <td colspan="5" style="text-align: center;">
-                    <?php _e('No invoices found...'); ?>
+                    <?php _e('No invoices found...', ud_get_wp_invoice()->domain); ?>
                   </td>
                 </tr>
               </tbody>
@@ -191,7 +191,7 @@ global $invoice, $wpi_settings;
                   <option value="25">25</option>
                   <option value="50">50</option>
                   <option value="100">100</option>
-                  <option value="-1">All</option>
+                  <option value="-1"><?php _e( 'All', ud_get_wp_invoice()->domain ); ?></option>
                 </select>
               </div>
 

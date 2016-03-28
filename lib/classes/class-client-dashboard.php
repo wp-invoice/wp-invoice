@@ -73,9 +73,10 @@ namespace UsabilityDynamics\WPI {
         $invoice['cd_permalink'] = get_invoice_permalink( $invoice['ID'] );
         $invoice['cd_due_date']  = wpi_get_invoice_due_date( 'm/d/Y' );
         $invoice['cd_invoice_id'] = invoice_id( array( 'return' => true ) );
-        $invoice['cd_invoice_type'] = wpi_get_invoice_type();
+        $invoice['cd_invoice_type'] = __( wpi_get_invoice_type(), ud_get_wp_invoice()->domain );
         $invoice['cd_invoice_title'] = wpi_get_invoice_title();
         $invoice['cd_is_paid'] = is_paid();
+        $invoice['cd_invoice_status'] = __( ucfirst( $invoice['post_status'] ), ud_get_wp_invoice()->domain );
 
         if ( is_paid() ) {
           $invoice['cd_invoice_total'] = wpi_get_total_payments( wpi_get_invoice_currency_sign() );
