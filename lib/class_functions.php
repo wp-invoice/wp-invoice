@@ -1422,7 +1422,7 @@ class WPI_Functions {
     $ni->set( array( 'description' => $invoice[ 'description' ] ) );
 
     //** deposit */
-    if ( $invoice[ 'deposit' ] == 'on' || $invoice[ 'deposit' ] == 'true' ) {
+    if ( !empty($invoice[ 'deposit' ]) && ( $invoice[ 'deposit' ] == 'on' || $invoice[ 'deposit' ] == 'true' ) ) {
       $ni->set( array( 'deposit_amount' => $invoice[ 'deposit_amount' ] ) );
     } else {
       $ni->set( array( 'deposit_amount' => 0 ) );
