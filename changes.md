@@ -1,3 +1,11 @@
+#### 4.1.2 ( March 29, 2016 )
+* Fixed ability to customize client dashboard.
+* Added new option for decimal separator symbol.
+* Fixed invoice search by custom IDs.
+* Added ability to require terms acceptance on regular invoices.
+* Localisation fixes.
+* Usability fixes.
+
 #### 4.1.1 ( January 25, 2016 )
 * Fixed several possible security issues.
 * Fixed minor issue in Stripe Gateway.
