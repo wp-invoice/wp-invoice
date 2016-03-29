@@ -297,14 +297,14 @@ class WPI_Settings_page {
               echo WPI_UI::checkbox(array(
                   'name'  => 'wpi_settings[tos_checkbox]',
                   'value' => 'true',
-                  'label' => __('Add "Terms &amp; Conditions" checkbox to regular invoices.', ud_get_wp_invoice_quotes()->domain),
+                  'label' => __('Add "Terms &amp; Conditions" checkbox to regular invoices.', ud_get_wp_invoice()->domain),
                   'class' => 'wpi_show_advanced'
               ), isset($wpi_settings['tos_checkbox'])?$wpi_settings['tos_checkbox']:false );
               ?>
-              <div class="description"><?php _e('This option allows you to add "Terms &amp; Conditions" checkbox to your regular invoices. Be sure you have specified Terms page ID below.', ud_get_wp_invoice_quotes()->domain);?></div>
+              <div class="description"><?php _e('This option allows you to add "Terms &amp; Conditions" checkbox to your regular invoices. Be sure you have specified Terms page ID below.', ud_get_wp_invoice()->domain);?></div>
             </li>
             <li class="wpi_advanced_option">
-              <label for=""><?php _e( '"T&amp;C" Page ID:', ud_get_wp_invoice_quotes()->domain ); ?></label>
+              <label for=""><?php _e( '"T&amp;C" Page ID:', ud_get_wp_invoice()->domain ); ?></label>
               <?php echo WPI_UI::input(array(
                   'type' => 'text',
                   'style' => 'width:50px;',
@@ -312,7 +312,7 @@ class WPI_Settings_page {
                   'group' => 'wpi_settings',
                   'value' => !empty($wpi_settings['tos_page_id'])?$wpi_settings['tos_page_id']:''
               )); ?>
-              <div class="description wpi_advanced_option"><?php _e('Numeric value of WordPress page ID that has "Terms &amp; Conditions".', ud_get_wp_invoice_quotes()->domain) ?></div>
+              <div class="description wpi_advanced_option"><?php _e('Numeric value of WordPress page ID that has "Terms &amp; Conditions".', ud_get_wp_invoice()->domain) ?></div>
             </li>
           </ul>
         </td>
