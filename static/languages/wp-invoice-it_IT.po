@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Invoice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-02 16:01+0200\n"
+"POT-Creation-Date: 2016-03-29 12:55+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Manuel D'Orso <manuel@inelemento.it>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -18,49 +18,54 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 "X-Poedit-SearchPathExcluded-2: vendor\n"
 
-#: lib/class_ajax.php:127
+#: lib/class_ajax.php:97 lib/class_ajax.php:278 lib/class_ajax.php:320
+#: lib/class_ajax.php:357 lib/class_ajax.php:406 lib/class_ajax.php:432
+msgid "You are not allowed to perform this action."
+msgstr ""
+
+#: lib/class_ajax.php:110
 msgid "Please enter a note and numeric amount."
 msgstr "Per favore inserisci una nota e un importo numerico"
 
-#: lib/class_ajax.php:134
+#: lib/class_ajax.php:117
 msgid "paid in"
 msgstr "pagato con"
 
-#: lib/class_ajax.php:141
+#: lib/class_ajax.php:124
 msgid "charge added"
 msgstr "Importo aggiunto"
 
-#: lib/class_ajax.php:149
+#: lib/class_ajax.php:132
 msgid "adjusted"
 msgstr "sistemato"
 
-#: lib/class_ajax.php:156
+#: lib/class_ajax.php:139
 msgid "refunded"
 msgstr "Rimborsato"
 
-#: lib/class_ajax.php:175
+#: lib/class_ajax.php:158
 #, php-format
 msgid "Event Added: %1s."
 msgstr "Evento Aggiunto: %1s."
 
-#: lib/class_ajax.php:177
+#: lib/class_ajax.php:160
 #, php-format
 msgid "Could not save entry in invoice log. %1s"
 msgstr "Inserimento non eseguito nel registro fattura. %1s"
 
-#: lib/class_ajax.php:212
+#: lib/class_ajax.php:195
 msgid "Due date is not set"
 msgstr "Data di scadenza non impostata"
 
-#: lib/class_ajax.php:215 lib/class_ajax.php:216
+#: lib/class_ajax.php:198 lib/class_ajax.php:199
 msgid "invoice"
 msgstr "FATTURA"
 
-#: lib/class_ajax.php:230
+#: lib/class_ajax.php:213
 msgid "No description given."
 msgstr "Nessuna descrizione fornita."
 
-#: lib/class_ajax.php:306
+#: lib/class_ajax.php:293
 msgid ""
 "The fields should not be empty. Please, check the fields data and try to "
 "send notification again."
@@ -68,36 +73,36 @@ msgstr ""
 "I campi non possono essere vuoti. Controllare i dati nei campi e provare "
 "nuovamente ad inviare la notifica"
 
-#: lib/class_ajax.php:317
+#: lib/class_ajax.php:304
 msgid "Notification Sent"
 msgstr "Notifica inviata"
 
-#: lib/class_ajax.php:317
+#: lib/class_ajax.php:304
 msgid "to"
 msgstr "a"
 
-#: lib/class_ajax.php:317
+#: lib/class_ajax.php:304
 msgid "at"
 msgstr "a"
 
-#: lib/class_ajax.php:320
+#: lib/class_ajax.php:307
 msgid "Successfully sent the invoice notification!"
 msgstr "Notifica fattura inviata correttamente!"
 
-#: lib/class_ajax.php:323
+#: lib/class_ajax.php:310
 msgid "Unable to send the e-mail. Please, try again later."
 msgstr "Impossibile inviare l'e-mail. Riprovare più tardi"
 
-#: lib/class_ajax.php:332
+#: lib/class_ajax.php:325
 #, php-format
 msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
 msgstr "Salvato. <a target='_blank' href='%s'>Visualizza fattura</a>"
 
-#: lib/class_ajax.php:332
+#: lib/class_ajax.php:325
 msgid "Invoice id #"
 msgstr "Fattura id #"
 
-#: lib/class_ajax.php:334
+#: lib/class_ajax.php:327
 msgid ""
 "There was a problem with saving the invoice. Reference the log for "
 "troubleshooting."
@@ -105,24 +110,20 @@ msgstr ""
 "Rilevato un problema salvando la fattura. Consultare il log per la "
 "risoluzione dei problemi"
 
-#: lib/class_ajax.php:363
-msgid "Please enter an invoice id."
-msgstr "Per favore inserisci un id fattura."
-
-#: lib/class_ajax.php:384
+#: lib/class_ajax.php:366
 msgid "Unable to create 'wpi' folder in template folder. "
 msgstr "Impossibile creare la cartella 'wpi' nella cartella del Template. "
 
-#: lib/class_ajax.php:401
+#: lib/class_ajax.php:383
 msgid "Unable to open 'wpi' folder in template folder."
 msgstr "Impossibile aprire la cartella 'wpi' nella cartella del Template."
 
-#: lib/class_ajax.php:406
+#: lib/class_ajax.php:388
 #, php-format
 msgid "Success, (%s) template file(s) copied."
 msgstr "Copia di (%s) file(s) del template riuscita."
 
-#: lib/class_ajax.php:409
+#: lib/class_ajax.php:391
 msgid "No template files copied."
 msgstr "Files del template non copiati"
 
@@ -130,16 +131,17 @@ msgstr "Files del template non copiati"
 msgid "There are no options for this widget."
 msgstr "Non ci sono opzioni per questo widget."
 
-#: lib/class_functions.php:362 lib/class_ui.php:174 lib/class_ui.php:181
+#: lib/class_functions.php:362 lib/class_ui.php:182 lib/class_ui.php:189
+#: static/views/client-dashboard.php:194
 msgid "All"
 msgstr "Tutto"
 
-#: lib/class_functions.php:681
+#: lib/class_functions.php:682
 #, php-format
 msgid "Your Access Credentials [%s]"
 msgstr "Credenziali di accesso [%s]"
 
-#: lib/class_functions.php:682
+#: lib/class_functions.php:683
 #, php-format
 msgid ""
 "Dear customer,\n"
@@ -160,24 +162,24 @@ msgstr ""
 "Login: %s\n"
 "Password : %s"
 
-#: lib/class_functions.php:1282
+#: lib/class_functions.php:1283
 msgid "Today"
 msgstr "Oggi"
 
-#: lib/class_functions.php:1284
+#: lib/class_functions.php:1285
 msgid " Tomorrow "
 msgstr " Domani "
 
-#: lib/class_functions.php:1284
+#: lib/class_functions.php:1285
 msgid " Yesterday "
 msgstr " Ieri "
 
-#: lib/class_functions.php:1286
+#: lib/class_functions.php:1287
 #, php-format
 msgid " in %s days "
 msgstr " in %s giorni "
 
-#: lib/class_functions.php:1286
+#: lib/class_functions.php:1287
 msgid "days ago"
 msgstr "giorni fa"
 
@@ -340,13 +342,13 @@ msgstr "Stato pagamento: Completato"
 msgid "Pending"
 msgstr "In attesa"
 
-#: lib/class_functions.php:2273 lib/class_functions.php:2323
-#: lib/class_functions.php:2372
+#: lib/class_functions.php:2274 lib/class_functions.php:2324
+#: lib/class_functions.php:2373
 #, php-format
 msgid "Invoice #%s has been paid"
 msgstr "Fattura #%s pagata"
 
-#: lib/class_functions.php:2279
+#: lib/class_functions.php:2280
 #, php-format
 msgid ""
 "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You can "
@@ -359,17 +361,17 @@ msgstr ""
 "questo link:<br>%3s<br><br>Grazie per la Vostra affidabilità."
 "<br><br>Cordiali saluti,<br>%4s (%5s) "
 
-#: lib/class_functions.php:2293 lib/class_functions.php:2344
-#: lib/class_functions.php:2392
+#: lib/class_functions.php:2294 lib/class_functions.php:2345
+#: lib/class_functions.php:2393
 #, php-format
 msgid "WP-Invoice: Message with subject '%1s' was sent"
 msgstr "WP-Invoice: Il messaggio con oggetto '%1s' è stato inviato"
 
-#: lib/class_functions.php:2299
+#: lib/class_functions.php:2300
 msgid "Receipt eMailed"
 msgstr "Ricevuta inviata per email"
 
-#: lib/class_functions.php:2326
+#: lib/class_functions.php:2327
 #, php-format
 msgid ""
 "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s %7s."
@@ -383,7 +385,7 @@ msgstr ""
 "<br><br>ID: %9s<br>Nome: %10s<br>Email: %11s<br><br>--------------------<br>"
 "%12s "
 
-#: lib/class_functions.php:2374
+#: lib/class_functions.php:2375
 #, php-format
 msgid ""
 "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total payments: "
@@ -397,9 +399,26 @@ msgstr ""
 "%9s<br><br>Informazioni Utente:<br><br>ID: %10s<br>Nome: %11s<br>Email: "
 "%12s<br><br>--------------------<br>%13s "
 
+#: lib/class_functions.php:2819
+#, php-format
+msgid "Invoice %s not found."
+msgstr "Fattura %s non trovata."
+
+#: lib/class_functions.php:2845
+msgid "Enter Invoice ID"
+msgstr "Inserisci ID Fattura"
+
+#: lib/class_functions.php:2846 lib/class_settings.php:51
+msgid "Lookup"
+msgstr "Lookup"
+
 #: lib/class_gateway_base.php:24
 msgid "Customer Information"
 msgstr "Informazioni cliente"
+
+#: lib/class_gateway_base.php:225
+msgid "Terms must be accepted. Aborting payment."
+msgstr ""
 
 #: lib/class_invoice.php:745
 msgid "Status of invoice was changed to 'Paid'."
@@ -409,7 +428,7 @@ msgstr "Lo stato della fattura è stato cambiato in 'Pagato'."
 msgid "Created from "
 msgstr "Creato da"
 
-#: lib/class_invoice.php:765 lib/class_list_table.php:97
+#: lib/class_invoice.php:765 lib/class_list_table.php:121
 msgid "Created"
 msgstr ""
 
@@ -441,7 +460,7 @@ msgstr "Notifica Fattura"
 msgid "Reminder"
 msgstr "Promemoria"
 
-#: lib/class_legacy.php:399 static/views/unified-invoice-page-paid.php:114
+#: lib/class_legacy.php:399 static/views/unified-invoice-page-paid.php:122
 msgid "Receipt"
 msgstr "Ricevuta"
 
@@ -453,61 +472,61 @@ msgstr "Log importato da una vecchia versione di WPI"
 msgid "Imported Log from Web Invoice plugin"
 msgstr "Log importati dal plugin Web Invoice"
 
-#: lib/class_list_table.php:45
+#: lib/class_list_table.php:69
 msgid "View"
 msgstr "Visualizza"
 
-#: lib/class_list_table.php:94 lib/class_ui.php:151
+#: lib/class_list_table.php:118 lib/class_ui.php:159
 msgid "Title"
 msgstr "Titolo"
 
-#: lib/class_list_table.php:95
+#: lib/class_list_table.php:119
 msgid "Collected"
 msgstr ""
 
-#: lib/class_list_table.php:96 lib/class_ui.php:185
+#: lib/class_list_table.php:120 lib/class_ui.php:193
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: lib/class_list_table.php:98
+#: lib/class_list_table.php:122
 msgid "Updated"
 msgstr ""
 
-#: lib/class_list_table.php:99 lib/class_ui.php:172
-#: static/views/client-dashboard.php:133
+#: lib/class_list_table.php:123 lib/class_ui.php:180
+#: static/views/client-dashboard.php:135
 msgid "Status"
 msgstr "Stato"
 
-#: lib/class_list_table.php:100 lib/class_ui.php:179
+#: lib/class_list_table.php:124 lib/class_ui.php:187
 msgid "Type"
 msgstr "Tipo"
 
-#: lib/class_list_table.php:101 lib/class_ui.php:162
-#: static/views/client-dashboard.php:135
+#: lib/class_list_table.php:125 lib/class_ui.php:170
+#: static/views/client-dashboard.php:137
 msgid "ID"
 msgstr ""
 
-#: lib/class_list_table.php:141
+#: lib/class_list_table.php:165
 msgid "of"
 msgstr "di"
 
-#: lib/class_list_table.php:238
+#: lib/class_list_table.php:262
 msgid "Restore"
 msgstr "Ripristina"
 
-#: lib/class_list_table.php:239
+#: lib/class_list_table.php:263
 msgid "Archive"
 msgstr "Archivia"
 
-#: lib/class_list_table.php:240
+#: lib/class_list_table.php:264
 msgid "Delete Permanently"
 msgstr "Elimina definitivamente"
 
-#: lib/class_list_table.php:241
+#: lib/class_list_table.php:265
 msgid "Move to Trash"
 msgstr "Sposta nel cestino"
 
-#: lib/class_list_table.php:242
+#: lib/class_list_table.php:266
 msgid "Un-Archive"
 msgstr "Rimuovi da archivio"
 
@@ -516,23 +535,19 @@ msgid "Recurring"
 msgstr "Ricorrente"
 
 #: lib/class_settings.php:47
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:186
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:221
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:187
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:222
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:276
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:352
-#: static/views/unified-invoice-page-active.php:189
-#: static/views/unified-invoice-page-paid.php:181
-#: static/views/unified-invoice-page-refund.php:181
+#: static/views/unified-invoice-page-active.php:197
+#: static/views/unified-invoice-page-paid.php:191
+#: static/views/unified-invoice-page-refund.php:190
 msgid "Tax"
 msgstr "Tasse"
 
 #: lib/class_settings.php:50
 msgid "Pay Your Invoice"
 msgstr "Paga la tua fattura"
-
-#: lib/class_settings.php:51 lib/template.php:45
-msgid "Lookup"
-msgstr "Lookup"
 
 #: lib/class_settings.php:55
 msgid "Dropdown"
@@ -603,9 +618,9 @@ msgstr "Archiviato"
 msgid "Trashed"
 msgstr "Cestinato"
 
-#: lib/class_settings.php:106 static/views/unified-invoice-page-active.php:282
-#: static/views/unified-invoice-page-paid.php:274
-#: static/views/unified-invoice-page-refund.php:274
+#: lib/class_settings.php:106 static/views/unified-invoice-page-active.php:333
+#: static/views/unified-invoice-page-paid.php:315
+#: static/views/unified-invoice-page-refund.php:314
 msgid "Paid"
 msgstr "Pagato"
 
@@ -1833,9 +1848,9 @@ msgid "Cost"
 msgstr "Prezzo"
 
 #: lib/class_template_functions.php:40
-#: static/views/unified-invoice-page-active.php:184
-#: static/views/unified-invoice-page-paid.php:176
-#: static/views/unified-invoice-page-refund.php:176
+#: static/views/unified-invoice-page-active.php:192
+#: static/views/unified-invoice-page-paid.php:186
+#: static/views/unified-invoice-page-refund.php:185
 msgid "Quantity"
 msgstr "Quantità"
 
@@ -1881,14 +1896,14 @@ msgid "Balance:"
 msgstr "TOTALE"
 
 #: lib/class_template_functions.php:196
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:663
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:677
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:712
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:726
 msgid "Time"
 msgstr "Ora"
 
 #: lib/class_template_functions.php:197
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:664
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:678
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:713
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:727
 msgid "Event"
 msgstr "Evento"
 
@@ -1941,12 +1956,12 @@ msgstr "Data Scadenza:␣"
 msgid "Not set"
 msgstr "Non impostata"
 
-#: lib/class_template_functions.php:941
-msgid "No address information"
-msgstr ""
-
 #: lib/class_template_functions.php:971
 msgid "Untitled"
+msgstr ""
+
+#: lib/class_template_functions.php:1242 lib/class_template_functions.php:1247
+msgid "Unknown Client"
 msgstr ""
 
 #: lib/class_ui.php:20
@@ -1957,8 +1972,8 @@ msgstr "WP-Invoice"
 msgid "View All"
 msgstr "Visualizza tutto"
 
-#: lib/class_ui.php:24 lib/class_ui.php:548
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:195
+#: lib/class_ui.php:24 lib/class_ui.php:556
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:198
 msgid "Reports"
 msgstr "Reports"
 
@@ -1966,36 +1981,41 @@ msgstr "Reports"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: lib/class_ui.php:119
+#: lib/class_ui.php:60
+#, php-format
+msgid "I accept <a href=\"%s\" target=\"_blank\">terms and conditions</a>"
+msgstr ""
+
+#: lib/class_ui.php:127
 #, php-format
 msgid "\"Invoice(s) %s trashed.\""
 msgstr "\"Invoice(s) %s cestinata.\""
 
-#: lib/class_ui.php:121
+#: lib/class_ui.php:129
 #, php-format
 msgid "\"Invoice(s) %s restored.\""
 msgstr ""
 
-#: lib/class_ui.php:123
+#: lib/class_ui.php:131
 #, php-format
 msgid "\"Invoice(s) %s deleted.\""
 msgstr "\"Invoice(s) %s eliminata.\""
 
-#: lib/class_ui.php:125
+#: lib/class_ui.php:133
 #, php-format
 msgid "\"Invoice(s) %s unarchived.\""
 msgstr "\"Invoice(s) %s ripresa dall'archivio.\""
 
-#: lib/class_ui.php:127
+#: lib/class_ui.php:135
 #, php-format
 msgid "\"Invoice(s) %s archived.\""
 msgstr "\"Invoice(s) %s archiviata.\""
 
-#: lib/class_ui.php:137
+#: lib/class_ui.php:145
 msgid "General Information"
 msgstr "Informazioni generali"
 
-#: lib/class_ui.php:138
+#: lib/class_ui.php:146
 msgid ""
 "You are on the page which lists your invoices and other item types that you "
 "are using."
@@ -2003,31 +2023,31 @@ msgstr ""
 "Sei nella pagina che elenca le tue fatture ed altri tipi di oggetto che stai "
 "usando."
 
-#: lib/class_ui.php:139
+#: lib/class_ui.php:147
 msgid "Use filter box to find items you need."
 msgstr "Usare il filtro per trovare l'articolo desiderato"
 
-#: lib/class_ui.php:152
+#: lib/class_ui.php:160
 msgid "Start typing..."
 msgstr ""
 
-#: lib/class_ui.php:163
+#: lib/class_ui.php:171
 msgid "Paste ID here"
 msgstr ""
 
-#: lib/class_ui.php:199
+#: lib/class_ui.php:207
 msgid "Date from"
 msgstr ""
 
-#: lib/class_ui.php:211
+#: lib/class_ui.php:219
 msgid "Date to"
 msgstr ""
 
-#: lib/class_ui.php:236
+#: lib/class_ui.php:244
 msgid "WP-Invoice First-Use Setup"
 msgstr "WP-Invoice First-Use Setup"
 
-#: lib/class_ui.php:245 lib/class_ui.php:483
+#: lib/class_ui.php:253 lib/class_ui.php:491
 #, php-format
 msgid ""
 "Invoice page not selected. Visit <strong><i><a href=\"%s\">Settings Page</a> "
@@ -2039,7 +2059,7 @@ msgstr ""
 "pagina fattura</i></b> sotto la sezione <strong><i>Quando si visualizza una "
 "fattura</i></strong> . "
 
-#: lib/class_ui.php:248 lib/class_ui.php:486
+#: lib/class_ui.php:256 lib/class_ui.php:494
 #, php-format
 msgid ""
 "Selected invoice page does not exist. Visit <strong><i><a href=\"%s"
@@ -2052,7 +2072,7 @@ msgstr ""
 "<b><i>Mostra pagina fattura</i></b> sotto la sezione <strong><i>Quando si "
 "visualizza una fattura</i></strong> . "
 
-#: lib/class_ui.php:256 lib/class_ui.php:494
+#: lib/class_ui.php:264 lib/class_ui.php:502
 msgid ""
 "Your server does not support cURL. Payments could not be processed. Contact "
 "your server administrator."
@@ -2060,28 +2080,28 @@ msgstr ""
 "Il tuo server non supporta il cURL. Il pagamento non può essere processato. "
 "Contattare l'amministratore del server"
 
-#: lib/class_ui.php:260 lib/class_ui.php:879
+#: lib/class_ui.php:268 lib/class_ui.php:891
 #: lib/ui/wp-invoice_page_wpi_page_reports.php:10
 msgid "Overview"
 msgstr "Panoramica"
 
-#: lib/class_ui.php:261
+#: lib/class_ui.php:269
 msgid "Filter"
 msgstr ""
 
-#: lib/class_ui.php:272 lib/class_ui.php:503
+#: lib/class_ui.php:280 lib/class_ui.php:511
 msgid "Error"
 msgstr "Errore"
 
-#: lib/class_ui.php:272 lib/class_ui.php:503
+#: lib/class_ui.php:280 lib/class_ui.php:511
 msgid "Template not found:"
 msgstr "Template non trovato:"
 
-#: lib/class_ui.php:528
+#: lib/class_ui.php:536
 msgid "Creating New Invoice"
 msgstr "Creazione nuova fattura"
 
-#: lib/class_ui.php:529
+#: lib/class_ui.php:537
 msgid ""
 "Begin typing the recipient's email into the input box, or double-click to "
 "view list of possible options."
@@ -2089,19 +2109,19 @@ msgstr ""
 "Inizia digitando l'email del destinatario nella casella di input, o fai "
 "doppio-click per visualizzare la lista di opzioni disponibili."
 
-#: lib/class_ui.php:530
+#: lib/class_ui.php:538
 msgid "For new prospects, type in a new email address."
 msgstr "Per nuovi clienti, inserire un nuovo indirizzo e-mail."
 
-#: lib/class_ui.php:549
+#: lib/class_ui.php:557
 msgid "This page allows you to manage your sales statistics."
 msgstr "Questa pagina ti permette di gestire le statistiche delle tue vendite"
 
-#: lib/class_ui.php:565 lib/ui/wp-invoice_page_wpi_page_settings.php:6
+#: lib/class_ui.php:573 lib/ui/wp-invoice_page_wpi_page_settings.php:6
 msgid "Main"
 msgstr "Principale"
 
-#: lib/class_ui.php:566
+#: lib/class_ui.php:574
 msgid ""
 "<b>Business Name</b><br /> Enter your business name here. This field "
 "defaults to the blog name you chose during WordPress installation."
@@ -2110,7 +2130,7 @@ msgstr ""
 "campo è riempito di default con il nome del blog che scegli durante "
 "l'installazione di WordPress."
 
-#: lib/class_ui.php:567
+#: lib/class_ui.php:575
 msgid ""
 "<b>Business Address</b><br /> Enter your business address here. It will "
 "appear on the invoices and quotes you send."
@@ -2118,7 +2138,7 @@ msgstr ""
 "<b>Indirizzo Azienda</b><br /> Inserisci qui l'indirizzo della tua azienda. "
 "Comparirà sulle fatture e le quote che invii."
 
-#: lib/class_ui.php:568
+#: lib/class_ui.php:576
 msgid ""
 "<b>Business Phone</b><br /> Enter your business phone here. It will appear "
 "on the invoices and quotes you send."
@@ -2126,7 +2146,7 @@ msgstr ""
 "<b>Numero di telefono</b><br /> Inserisci qui il numero di telefono "
 "aziendale. Comparirà sulle fatture e le quote che invii."
 
-#: lib/class_ui.php:569
+#: lib/class_ui.php:577
 msgid ""
 "<b>Email Address</b><br /> Enter your email address here. It will appear on "
 "the invoices and quotes you send."
@@ -2134,7 +2154,7 @@ msgstr ""
 "<b>Indirizzo email</b><br /> Inserisci qui il tuo indirizzo email. Comparirà "
 "sulle fatture e le quote che invii."
 
-#: lib/class_ui.php:570
+#: lib/class_ui.php:578
 msgid ""
 "<b>Display Styles</b><br /> Here you can set, enable or disable the WP-"
 "Invoice default style settings. Change the default values only if you are an "
@@ -2148,7 +2168,7 @@ msgstr ""
 "di stile. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-main/\">Maggiori informazioni</a>"
 
-#: lib/class_ui.php:571
+#: lib/class_ui.php:579
 msgid ""
 "<b>Tax Handling</b><br /> Here you can set when tax calculation is done "
 "(depends on your country's fiscal system) and you can define a global "
@@ -2160,7 +2180,7 @@ msgstr ""
 "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
 "main/\">Maggiori informazioni</a>"
 
-#: lib/class_ui.php:572
+#: lib/class_ui.php:580
 msgid ""
 "<b>Advanced Settings</b><br /> These settings control advanced features that "
 "have to do with billing, installation features, design issues and general "
@@ -2174,11 +2194,11 @@ msgstr ""
 "sviluppatori. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-main/\">Maggiori informazioni</a>"
 
-#: lib/class_ui.php:574 lib/ui/wp-invoice_page_wpi_page_settings.php:11
+#: lib/class_ui.php:582 lib/ui/wp-invoice_page_wpi_page_settings.php:11
 msgid "Business Process"
 msgstr "Processo di business"
 
-#: lib/class_ui.php:575
+#: lib/class_ui.php:583
 msgid ""
 "<b>When creating an invoice</b><br />Options for managing invoice creating "
 "process. <a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/"
@@ -2189,7 +2209,7 @@ msgstr ""
 "com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">Maggiori "
 "informazioni</a>"
 
-#: lib/class_ui.php:576
+#: lib/class_ui.php:584
 msgid ""
 "<b>When viewing an invoice</b><br />Options for managing invoice view. <a "
 "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/"
@@ -2200,7 +2220,7 @@ msgstr ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
 "process/\">Maggiori informazioni</a>"
 
-#: lib/class_ui.php:577
+#: lib/class_ui.php:585
 msgid ""
 "<b>How to insert invoice</b><br />Here you have four choices that will "
 "define the way an invoice will appear on the invoice display page you have "
@@ -2213,7 +2233,7 @@ msgstr ""
 "tutorials/wp-invoice/wp-invoice-settings-business-process/\">Maggiori "
 "informazioni</a>"
 
-#: lib/class_ui.php:578
+#: lib/class_ui.php:586
 msgid ""
 "<b>After a payment has been completed</b><br />Here we have options that "
 "will create automatic email notifications on successful payment of an "
@@ -2227,7 +2247,7 @@ msgstr ""
 "tutorials/wp-invoice/wp-invoice-settings-business-process/\">Maggiori "
 "informazioni</a>"
 
-#: lib/class_ui.php:579
+#: lib/class_ui.php:587
 msgid ""
 "<b>Mail From options</b><br />This options allow you to change the default "
 "email address that WordPress sends it's mail from, and the name of the "
@@ -2236,7 +2256,7 @@ msgstr ""
 "<b>Opzioni mittente email</b><br />Queste opzioni consentono di cambiare il "
 "nome e l'email del mittente."
 
-#: lib/class_ui.php:580
+#: lib/class_ui.php:588
 msgid ""
 "<b>Google Analytics Events Tracking</b><br />If you are using <a target="
 "\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
@@ -2255,7 +2275,7 @@ msgstr ""
 "l'attività degli eventi vai a Contenuto -> Eventi nel tuo account Google "
 "Analytics."
 
-#: lib/class_ui.php:581
+#: lib/class_ui.php:589
 msgid ""
 "<u>Attempting to pay Invoices</u> - event is triggered on clicking \"Process "
 "Payment\" button on Invoice page."
@@ -2263,7 +2283,7 @@ msgstr ""
 "<u>Tentativo di pagare una fattura</u> - l'evento è avviato dal click sul "
 "bottone \"Process Payment\" sulla pagina della fattura."
 
-#: lib/class_ui.php:582
+#: lib/class_ui.php:590
 msgid ""
 "<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
 "customer."
@@ -2271,15 +2291,15 @@ msgstr ""
 "<u>Visualizza Fatture</u> - L'evento è scatenato quando la fattura  viene "
 "visualizzata dal cliente."
 
-#: lib/class_ui.php:583
+#: lib/class_ui.php:591
 msgid "<i>More Events soon!</i>"
 msgstr "<i>Più eventi a breve!</i> "
 
-#: lib/class_ui.php:585 lib/ui/wp-invoice_page_wpi_page_settings.php:16
+#: lib/class_ui.php:593 lib/ui/wp-invoice_page_wpi_page_settings.php:16
 msgid "Payment"
 msgstr "Pagamento"
 
-#: lib/class_ui.php:586
+#: lib/class_ui.php:594
 msgid ""
 "<b>Default Currency</b><br />Sets the default currency you will use in your "
 "invoices. Default value is U.S. Dollars."
@@ -2287,7 +2307,7 @@ msgstr ""
 "<b>Valuta di Default</b><br />Imposta la valuta di default che vedrete nelle "
 "vostre fatture. La valuta di default è U.S. Dollars."
 
-#: lib/class_ui.php:587
+#: lib/class_ui.php:595
 msgid ""
 "<b>Currency list</b><br>This expandable area allows you to manage the list "
 "of currencies you have. You can add new currencies or remove existing ones."
@@ -2309,7 +2329,7 @@ msgstr ""
 "una fattura esistente o che è attualmente selezionata come predefinita. Per "
 "fare questo, eliminare prima tutte le fatture che usano quella valuta."
 
-#: lib/class_ui.php:589
+#: lib/class_ui.php:597
 msgid ""
 "<b>Default Payment Method</b><br />Here you can choose what default payment "
 "method you want to use for invoice payments."
@@ -2317,7 +2337,7 @@ msgstr ""
 "<b>Metodo di pagamento di Default</b><br />Qui puoi scegliere quale metodo "
 "di pagamento di default vuoi usare per I pagamenti delle fatture."
 
-#: lib/class_ui.php:590
+#: lib/class_ui.php:598
 msgid ""
 "<b>Payment Gateways</b><br />Here you can specify Gateways which you want to "
 "use for your invoices by default. <a target=\"_blank\" href=\"https://"
@@ -2329,7 +2349,7 @@ msgstr ""
 "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/"
 "\">Maggiori informazioni.</a>"
 
-#: lib/class_ui.php:591
+#: lib/class_ui.php:599
 msgid ""
 "<b>Manual Payment Information</b><br />If you don't want to use payment "
 "gateways but offline payments, or if an invoice has no payment gateways "
@@ -2347,11 +2367,11 @@ msgstr ""
 "pagamento. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
 "tutorials/wp-invoice/wp-invoice-settings-payment/\">Maggiori informazioni</a>"
 
-#: lib/class_ui.php:593 lib/ui/wp-invoice_page_wpi_page_settings.php:21
+#: lib/class_ui.php:601 lib/ui/wp-invoice_page_wpi_page_settings.php:21
 msgid "E-Mail Templates"
 msgstr "Template e-mail"
 
-#: lib/class_ui.php:594
+#: lib/class_ui.php:602
 msgid ""
 "You can create as many e-mailed templates as needed, they can later be used "
 "to quickly create invoice notifications and reminders, and being sent "
@@ -2363,69 +2383,69 @@ msgstr ""
 "della fattura. Le seguenti variabili possono essere usate nei campi Oggetto "
 "o Contenuto del template email."
 
-#: lib/class_ui.php:596
+#: lib/class_ui.php:604
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:104
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:209
 #: static/views/invoice_lookup.php:8
-#: static/views/unified-invoice-page-active.php:149
-#: static/views/unified-invoice-page-paid.php:141
-#: static/views/unified-invoice-page-refund.php:141
+#: static/views/unified-invoice-page-active.php:155
+#: static/views/unified-invoice-page-paid.php:149
+#: static/views/unified-invoice-page-refund.php:148
 msgid "Invoice ID"
 msgstr "ID fattura"
 
-#: lib/class_ui.php:597
+#: lib/class_ui.php:605
 msgid "URL of invoice"
 msgstr "URL della fattura"
 
-#: lib/class_ui.php:598
+#: lib/class_ui.php:606
 msgid "Name or business name of receipient"
 msgstr "Nome o Ragione sociale del destinatario"
 
-#: lib/class_ui.php:599
+#: lib/class_ui.php:607
 msgid "Due BalanceID"
 msgstr "BalanceID Dovuto"
 
-#: lib/class_ui.php:600
+#: lib/class_ui.php:608
 msgid "Invoice title"
 msgstr "Titolo fattura"
 
-#: lib/class_ui.php:601
+#: lib/class_ui.php:609
 msgid "Description of Invoice"
 msgstr "Descrizione fattura"
 
-#: lib/class_ui.php:602 lib/ui/wp-invoice_page_wpi_page_settings.php:151
+#: lib/class_ui.php:610 lib/ui/wp-invoice_page_wpi_page_settings.php:153
 msgid "Business Name"
 msgstr "Ragione sociale"
 
-#: lib/class_ui.php:603
+#: lib/class_ui.php:611
 msgid "Business Email Address"
 msgstr "Email ragione sociale"
 
-#: lib/class_ui.php:604
+#: lib/class_ui.php:612
 msgid "Name of user who has created invoice"
 msgstr "Nome dell'utente che ha creato la fattura"
 
-#: lib/class_ui.php:605
+#: lib/class_ui.php:613
 msgid "Email of user who has created invoice"
 msgstr "E-mail dell'utente che ha creato la fattura"
 
-#: lib/class_ui.php:606
+#: lib/class_ui.php:614
 msgid "Invoice due date (if presented)"
 msgstr "Data di scadenza della fattura (se presentata)"
 
-#: lib/class_ui.php:607
+#: lib/class_ui.php:615
 msgid "Replaced by Invoice Type. (invoice, recurring invoice, quote)"
 msgstr "Sostituito dal tipo di fattura (fattura, fattura ricorrente, quota)."
 
-#: lib/class_ui.php:619
+#: lib/class_ui.php:627
 msgid "More..."
 msgstr "Altro..."
 
-#: lib/class_ui.php:621 lib/ui/wp-invoice_page_wpi_page_settings.php:26
+#: lib/class_ui.php:629 lib/ui/wp-invoice_page_wpi_page_settings.php:26
 msgid "Line Items"
 msgstr "Riga oggetti"
 
-#: lib/class_ui.php:622
+#: lib/class_ui.php:630
 msgid ""
 "Predefined Line Items are common services and/or products that you can "
 "create once and use in your invoices. For example, if you are a Web "
@@ -2449,27 +2469,30 @@ msgstr ""
 "com/tutorials/wp-invoice/wp-invoice-settings-predefined-line-items/"
 "\">Maggiori informazioni.</a>"
 
-#: lib/class_ui.php:624 lib/ui/wp-invoice_page_wpi_page_settings.php:31
+#: lib/class_ui.php:632 lib/ui/wp-invoice_page_wpi_page_settings.php:31
 msgid "Help"
 msgstr "Aiuto"
 
-#: lib/class_ui.php:625
+#: lib/class_ui.php:633
 msgid "This tab will help you troubleshoot your plugin."
 msgstr "Questa tab vi aiuterà a risolvere problemi con il vostro plugin."
 
-#: lib/class_ui.php:627
+#: lib/class_ui.php:635
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: lib/class_ui.php:628 lib/class_widgets.php:75
+#: lib/class_ui.php:636 lib/class_widgets.php:75
+#: static/views/unified-invoice-page-active.php:338
+#: static/views/unified-invoice-page-paid.php:319
+#: static/views/unified-invoice-page-refund.php:318
 msgid "Invoice History"
 msgstr "Cronologia fatture"
 
-#: lib/class_ui.php:629 lib/class_ui.php:633
+#: lib/class_ui.php:637 lib/class_ui.php:641
 msgid "Shortcode:"
 msgstr "Shortcode:"
 
-#: lib/class_ui.php:630
+#: lib/class_ui.php:638
 msgid ""
 "Works the same way as 'Invoice History' widget. Shows invoice list for "
 "currently logged in users."
@@ -2477,11 +2500,11 @@ msgstr ""
 "Funziona come il widget 'Cronologia fatture' . Mostra la lista fatture per "
 "l'utente correntemente loggato."
 
-#: lib/class_ui.php:632
+#: lib/class_ui.php:640
 msgid "Invoice Lookup"
 msgstr "Trova fatture"
 
-#: lib/class_ui.php:634
+#: lib/class_ui.php:642
 msgid ""
 "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
 "invoices by invoice numbers."
@@ -2489,45 +2512,45 @@ msgstr ""
 "Funziona come il widget 'Trova fatture' . Permette di cercare le tue fatture "
 "per numeri fatture."
 
-#: lib/class_ui.php:876
+#: lib/class_ui.php:888
 msgid "Payment Settings"
 msgstr "Impostazioni pagamento"
 
-#: lib/class_ui.php:881
+#: lib/class_ui.php:893
 msgid "Publish"
 msgstr "Pubblicare"
 
-#: lib/class_ui.php:883
+#: lib/class_ui.php:895
 msgid "User Information"
 msgstr "Informazioni utente"
 
-#: lib/class_ui.php:963
+#: lib/class_ui.php:975
 msgid "For more information:"
 msgstr "Per maggiori informazioni:"
 
-#: lib/class_ui.php:964
+#: lib/class_ui.php:976
 msgid ""
 "<a href=\"https://www.usabilitydynamics.com/product/wp-invoice\" target="
 "\"_blank\">WP-Invoice Product Page</a>"
 msgstr ""
 
-#: lib/class_ui.php:965
+#: lib/class_ui.php:977
 msgid ""
 "<a href=\"http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-"
 "wp-invoice\" target=\"_blank\">WP-Invoice FAQ</a>"
 msgstr ""
 
-#: lib/class_ui.php:971
+#: lib/class_ui.php:983
 msgid "Please upgrade Wordpress to the latest version for detailed help."
 msgstr "Aggiornare Wordpress all'ultima versione per aiuto dettagliato."
 
-#: lib/class_ui.php:971
+#: lib/class_ui.php:983
 msgid ""
 "Or visit <a href=\"https://www.usabilitydynamics.com/product/wp-invoice\" "
 "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
 msgstr ""
 
-#: lib/class_ui.php:1300 lib/gateways/class_wpi_authorize.php:80
+#: lib/class_ui.php:1312 lib/gateways/class_wpi_authorize.php:80
 #: lib/gateways/class_wpi_authorize.php:102
 #: lib/gateways/class_wpi_paypal.php:40 lib/gateways/class_wpi_paypal.php:54
 #: lib/gateways/class_wpi_twocheckout.php:42 lib/ui/first_time_setup.php:87
@@ -2536,86 +2559,86 @@ msgstr ""
 msgid "Yes"
 msgstr "Si"
 
-#: lib/class_ui.php:1300 lib/gateways/class_wpi_authorize.php:81
+#: lib/class_ui.php:1312 lib/gateways/class_wpi_authorize.php:81
 #: lib/gateways/class_wpi_authorize.php:103
 #: lib/gateways/class_wpi_paypal.php:39 lib/gateways/class_wpi_paypal.php:55
 #: lib/gateways/class_wpi_twocheckout.php:41 lib/ui/payment_processing.php:60
 msgid "No"
 msgstr "No"
 
-#: lib/class_ui.php:1303
+#: lib/class_ui.php:1315
 msgid "Select"
 msgstr "Seleziona"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Jan"
 msgstr "Gen"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Feb"
 msgstr "Feb"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Mar"
 msgstr "Mar"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Apr"
 msgstr "Apr"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "May"
 msgstr "Mag"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Jun"
 msgstr "Giu"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Jul"
 msgstr "Lug"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Aug"
 msgstr "Ago"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Sep"
 msgstr "Set"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Oct"
 msgstr "Ott"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Nov"
 msgstr "Nov"
 
-#: lib/class_ui.php:1321
+#: lib/class_ui.php:1333
 msgid "Dec"
 msgstr "Dic"
 
-#: lib/class_ui.php:1333
+#: lib/class_ui.php:1345
 msgid "Values are empty"
 msgstr "I valori sono vuoti"
 
-#: lib/class_ui.php:1355
+#: lib/class_ui.php:1367
 msgid "View Profile"
 msgstr "Vedi profilo"
 
-#: lib/class_ui.php:1358
+#: lib/class_ui.php:1370
 msgid "Get WP-CRM plugin to enhance user management."
 msgstr "Ottieni WP-CRM per migliorare la gestione degli utenti."
 
-#: lib/class_ui.php:1389
+#: lib/class_ui.php:1401
 msgid "WP-Invoice custom field"
 msgstr "Campo personalizzato WP-Invoice"
 
-#: lib/class_ui.php:1405
+#: lib/class_ui.php:1417
 msgid "<h3>WP-Invoice</h3>"
 msgstr "<h3>WP-Invoice</h3>"
 
-#: lib/class_ui.php:1406
+#: lib/class_ui.php:1418
 msgid ""
 "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
 "custom user data fields for payments forms.</p>"
@@ -2623,15 +2646,15 @@ msgstr ""
 "<p>L'opzione avanzata<b>Campo personalizzato WP-Invoice</b> può essere usata "
 "per aggiungere dati utente personalizzati nei form di pagamento.</p>"
 
-#: lib/class_ui.php:1407
+#: lib/class_ui.php:1419
 msgid "<p>Works for Authorize.net payment method only for now.</p>"
 msgstr "<p>Funziona per ora solo sul metodo di pagamento Authorize.net.</p>"
 
-#: lib/class_ui.php:1408
+#: lib/class_ui.php:1420
 msgid "<h3>WP-Invoice Notifications</h3>"
 msgstr "<h3>Notifiche WP-Invoice</h3>"
 
-#: lib/class_ui.php:1409
+#: lib/class_ui.php:1421
 msgid ""
 "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
 "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
@@ -2854,15 +2877,15 @@ msgstr "Ecco una lista delle funzioni che le API attuali supportano."
 msgid "Arguments:"
 msgstr "Argomenti:"
 
-#: lib/classes/class-WPI_Bootstrap.php:178
+#: lib/classes/class-WPI_Bootstrap.php:166
 msgid "Add-ons"
 msgstr ""
 
-#: lib/classes/class-WPI_Bootstrap.php:179
+#: lib/classes/class-WPI_Bootstrap.php:167
 msgid "WP-Invoice Add-ons Manager"
 msgstr ""
 
-#: lib/classes/class-client-dashboard.php:79
+#: lib/classes/class-client-dashboard.php:169
 #, php-format
 msgid ""
 "Client Dashboard page is not selected. Visit <strong><i><a href=\"%s"
@@ -2875,7 +2898,7 @@ msgstr ""
 msgid "Unnamed"
 msgstr ""
 
-#: lib/classes/class-unified-invoice-page.php:97
+#: lib/classes/class-unified-invoice-page.php:94
 msgid "Unified Page Template"
 msgstr ""
 
@@ -3032,7 +3055,7 @@ msgid "Zip"
 msgstr "CAP"
 
 #: lib/gateways/class_wpi_authorize.php:193
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:20
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:21
 msgid "Card Number"
 msgstr "Inserire un numero di carta di credito valido"
 
@@ -3150,7 +3173,7 @@ msgstr ""
 #: lib/gateways/class_wpi_interkassa.php:63
 #: lib/gateways/class_wpi_paypal.php:82 lib/gateways/class_wpi_stripe.php:38
 #: lib/gateways/class_wpi_twocheckout.php:72
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:172
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:174
 msgid "Email Address"
 msgstr "Indirizzo e-mail"
 
@@ -3369,53 +3392,53 @@ msgstr ""
 msgid "Subscription has been initiated. Plan: %s, Customer: %s"
 msgstr "Sottoscrizione iniziata. Piano: %s, Cliente: %s"
 
-#: lib/gateways/class_wpi_stripe.php:283
+#: lib/gateways/class_wpi_stripe.php:284
 msgid ""
 "Stripe Subscription has been initiated. Do not pay this invoice again. Thank "
 "you."
 msgstr ""
 "Sottoscrizione Stripe iniziata. Non pagare questa fattura di nuovo, grazie."
 
-#: lib/gateways/class_wpi_stripe.php:288
+#: lib/gateways/class_wpi_stripe.php:289
 msgid ""
 "Could not initiate Stripe Subscription. Contact site Administrator please."
 msgstr ""
 "Impossibile iniziare sottoscrizione Stripe. Contattare l'amministratore del "
 "sito."
 
-#: lib/gateways/class_wpi_stripe.php:342
+#: lib/gateways/class_wpi_stripe.php:343
 msgid " paid via STRIPE"
 msgstr "%s pagato con Stripe"
 
-#: lib/gateways/class_wpi_stripe.php:350
+#: lib/gateways/class_wpi_stripe.php:351
 msgid "Successfully processed by "
 msgstr "Elaborato con successo."
 
-#: lib/gateways/class_wpi_stripe.php:353
+#: lib/gateways/class_wpi_stripe.php:354
 msgid "STRIPE Card ID: "
 msgstr "Codice carta"
 
-#: lib/gateways/class_wpi_stripe.php:362
+#: lib/gateways/class_wpi_stripe.php:363
 msgid "Successfully paid. Thank you."
 msgstr "Pagato con successo. Grazie."
 
-#: lib/gateways/class_wpi_stripe.php:389
+#: lib/gateways/class_wpi_stripe.php:390
 msgid "Service is currently unavailable. Please try again later."
 msgstr "Servizio attualmente non disponibile. Riprovare più tardi"
 
-#: lib/gateways/class_wpi_stripe.php:393
+#: lib/gateways/class_wpi_stripe.php:394
 msgid "Unknown error occured. Please contact site administrator."
 msgstr "Errore sconosciuto. Contattare l'amministratore del sito."
 
-#: lib/gateways/class_wpi_stripe.php:397
+#: lib/gateways/class_wpi_stripe.php:398
 msgid "Stripe server is down! Try again later."
 msgstr "Il server Stripe non è raggiungibile. Riprova più tardi."
 
-#: lib/gateways/class_wpi_stripe.php:447
+#: lib/gateways/class_wpi_stripe.php:448
 msgid "Stripe Subscription Payment"
 msgstr "Pagamento Sottoscrizione Stripe"
 
-#: lib/gateways/class_wpi_stripe.php:479
+#: lib/gateways/class_wpi_stripe.php:480
 msgid "Stripe Subscription has been canceled"
 msgstr "Sottoscrizione Stripe cancellata"
 
@@ -3507,19 +3530,19 @@ msgstr "Accordo"
 msgid "Process Payment"
 msgstr "Elabora pagamento"
 
-#: lib/gateways/templates/wpi_authorize-frontend.tpl.php:21
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:62
+#: lib/gateways/templates/wpi_authorize-frontend.tpl.php:22
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:63
 #, php-format
 msgid "Process Payment of %s"
 msgstr "Process Payment of %s"
 
-#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:24
-#: lib/gateways/templates/wpi_paypal-frontend.tpl.php:61
-#: lib/gateways/templates/wpi_twocheckout-frontend.tpl.php:36
+#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:25
+#: lib/gateways/templates/wpi_paypal-frontend.tpl.php:62
+#: lib/gateways/templates/wpi_twocheckout-frontend.tpl.php:37
 msgid "Process Payment of "
 msgstr "Elabora pagamento di "
 
-#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:33
+#: lib/gateways/templates/wpi_interkassa-frontend.tpl.php:34
 msgid ""
 "This payment gateway does not support Recurring Billing. Try another one or "
 "contact site Administrator."
@@ -3539,30 +3562,21 @@ msgstr "Il tuo importo"
 msgid "Enter Amount"
 msgstr "Inserisci importo"
 
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:16
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:17
 msgid "Billing Information"
 msgstr "Mostra opzioni per fatture ricorrenti."
 
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:29
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:30
 msgid "CVC"
 msgstr "CVC"
 
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:38
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:39
 msgid "Expiration (Month)"
 msgstr "Mese di scadenza"
 
-#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:47
+#: lib/gateways/templates/wpi_stripe-frontend.tpl.php:48
 msgid "Expiration (Year)"
 msgstr "Anno di scadenza"
-
-#: lib/template.php:18
-#, php-format
-msgid "Invoice %s not found."
-msgstr "Fattura %s non trovata."
-
-#: lib/template.php:44
-msgid "Enter Invoice ID"
-msgstr "Inserisci ID Fattura"
 
 #: lib/ui/first_time_setup.php:12
 msgid ""
@@ -3595,7 +3609,7 @@ msgid "Select a page to display invoices:"
 msgstr "Seleziona una pagina per visualizzare le fatture:"
 
 #: lib/ui/first_time_setup.php:42
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:356
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:405
 msgid ""
 "Select whether to overwrite all page content, insert at the bottom of the "
 "content, or to look for the [wp-invoice] tag."
@@ -3609,27 +3623,27 @@ msgid "How to Insert Invoice:"
 msgstr "Come inserire la fattura:"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:408
 msgid "Overwrite All Page Content"
 msgstr "Sovrascrivi tutto il contenuto della pagina"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:408
 msgid "Place Below Content"
 msgstr "Inserisci contenuto sottostante"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:408
 msgid "Above Content"
 msgstr "Contenuto sovrastante"
 
 #: lib/ui/first_time_setup.php:48
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:408
 msgid "Replace [wp-invoice] Tag"
 msgstr "Replace [wp-invoice] Tag"
 
 #: lib/ui/first_time_setup.php:53
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:408
 msgid ""
 "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-invoice]</"
 "span> somewhere within your page content."
@@ -3662,7 +3676,7 @@ msgid " below. "
 msgstr "in basso."
 
 #: lib/ui/first_time_setup.php:167
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:105
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:106
 msgid "Save All Settings"
 msgstr "Salva Tutto"
 
@@ -3718,10 +3732,10 @@ msgid "Toggle Advanced"
 msgstr "Visualizza avanzate"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:198
-#: static/views/client-dashboard.php:134
-#: static/views/unified-invoice-page-active.php:158
-#: static/views/unified-invoice-page-paid.php:150
-#: static/views/unified-invoice-page-refund.php:150
+#: static/views/client-dashboard.php:136
+#: static/views/unified-invoice-page-active.php:164
+#: static/views/unified-invoice-page-paid.php:158
+#: static/views/unified-invoice-page-refund.php:157
 msgid "Due Date"
 msgstr "DATA SCADENZA"
 
@@ -3738,12 +3752,12 @@ msgid "Tax Method"
 msgstr "IVA"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:197
 msgid "Before Discount"
 msgstr "Prima dello sconto"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:237
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:197
 msgid "After Discount"
 msgstr "Dopo dello sconto"
 
@@ -3760,9 +3774,9 @@ msgid "New User Information"
 msgstr "Informazioni nuovo utente"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:268
-#: static/views/unified-invoice-page-active.php:280
-#: static/views/unified-invoice-page-paid.php:272
-#: static/views/unified-invoice-page-refund.php:272
+#: static/views/unified-invoice-page-active.php:331
+#: static/views/unified-invoice-page-paid.php:313
+#: static/views/unified-invoice-page-refund.php:312
 msgid "Email"
 msgstr "Email"
 
@@ -3787,7 +3801,7 @@ msgid "Default Payment Option"
 msgstr "Opzione di pagamento predefinita"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:413
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:524
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:573
 msgid "Client can change payment option."
 msgstr "Il cliente puo cambiare l'opzione di pagamento."
 
@@ -3849,9 +3863,9 @@ msgid "Administrative Adjustment"
 msgstr "Administrative Adjustment"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:564
-#: static/views/unified-invoice-page-active.php:279
-#: static/views/unified-invoice-page-paid.php:271
-#: static/views/unified-invoice-page-refund.php:271
+#: static/views/unified-invoice-page-active.php:330
+#: static/views/unified-invoice-page-paid.php:312
+#: static/views/unified-invoice-page-refund.php:311
 msgid "Refund"
 msgstr "Rimborsa"
 
@@ -3967,63 +3981,63 @@ msgstr "Nuova fattura da template"
 msgid "cancel"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:85
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:86
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:132
 msgid "Add Payment / Charge"
 msgstr "Aggiungi Importo"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:90
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:91
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:140
 msgid "Invoice paid in full."
 msgstr "Fattura pagata in toto."
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:182
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:183
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:268
 msgid "Charge Name"
 msgstr "Addebita al nome"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:185
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:186
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:274
-#: static/views/client-dashboard.php:137
-#: static/views/unified-invoice-page-active.php:187
-#: static/views/unified-invoice-page-active.php:226
-#: static/views/unified-invoice-page-paid.php:179
-#: static/views/unified-invoice-page-paid.php:218
-#: static/views/unified-invoice-page-refund.php:179
-#: static/views/unified-invoice-page-refund.php:218
+#: static/views/client-dashboard.php:139
+#: static/views/unified-invoice-page-active.php:195
+#: static/views/unified-invoice-page-active.php:234
+#: static/views/unified-invoice-page-paid.php:189
+#: static/views/unified-invoice-page-paid.php:228
+#: static/views/unified-invoice-page-refund.php:188
+#: static/views/unified-invoice-page-refund.php:227
 msgid "Amount"
 msgstr "Importo"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:187
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:222
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:188
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:223
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:278
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:354
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:725
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:774
 msgid "Total"
 msgstr "TOTALE"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:216
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:217
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:342
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:483
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:616
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:532
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:665
 msgid "Name"
 msgstr "Nome"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:219
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:220
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:348
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:722
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:771
 msgid "Qty."
 msgstr "QTA"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:220
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:221
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:350
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:723
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:772
 msgid "Price"
 msgstr "Prezzo"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:243
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:392
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:735
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:784
 msgid "Toggle Description"
 msgstr "Visualizza descrizione"
 
@@ -4044,9 +4058,9 @@ msgstr "Subtotale escluso IVA:"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:314
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:494
-#: static/views/unified-invoice-page-active.php:255
-#: static/views/unified-invoice-page-paid.php:247
-#: static/views/unified-invoice-page-refund.php:247
+#: static/views/unified-invoice-page-active.php:263
+#: static/views/unified-invoice-page-paid.php:257
+#: static/views/unified-invoice-page-refund.php:256
 msgid "Discount:"
 msgstr "SCONTO:"
 
@@ -4065,7 +4079,7 @@ msgstr "Aggiungi riga"
 msgid "Insert a predefined line item"
 msgstr "Inserisci un oggetto predefinito"
 
-#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:353
+#: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:354
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice_legacy.php:552
 msgid "Add Discount"
 msgstr "Aggiungi sconto"
@@ -4078,29 +4092,29 @@ msgstr "Vedi link intero"
 msgid "Invoice Link"
 msgstr "Link Fattura"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:72
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:73
 msgid "Collected and Uncollected Funds"
 msgstr "Fondi riscossi e non riscossi"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:110
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:111
 msgid "Top 10 Most Valuable Clients"
 msgstr "Top 10 clienti importanti"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:158
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:161
 msgid "Top Grossing Line Items"
 msgstr "Top incassi da oggetto"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:175
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:178
 msgid "Invoice Statistics"
 msgstr "Statistiche fattura"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:207
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:93
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:210
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:94
 msgid "Warning:"
 msgstr "Attenzione:"
 
-#: lib/ui/wp-invoice_page_wpi_page_reports.php:207
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:93
+#: lib/ui/wp-invoice_page_wpi_page_reports.php:210
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:94
 msgid "not found"
 msgstr "non trovato"
 
@@ -4108,56 +4122,56 @@ msgstr "non trovato"
 msgid "Settings updated."
 msgstr "Impostazioni aggiornate."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:75
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:76
 msgid "WP-Invoice Global Settings"
 msgstr "WP-Invoice Impostazioni Globali"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:133
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:135
 msgid "Business Logo"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:139
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:141
 msgid "Select Logo"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:160
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:162
 msgid "Business Address"
 msgstr "Indirizzo azienda"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:168
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:170
 msgid "Business Phone"
 msgstr "Telefono aziendale"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:177
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:179
 msgid "Display Styles"
 msgstr "Visualizza stili"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:182
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:184
 msgid "Do <b>not</b> load theme specific styles."
 msgstr "<b>Non</b> caricare stili specifici del tema."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:183
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:185
 #, php-format
 msgid "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
 msgstr "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:186
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:188
 msgid "Load default CSS styles on the front-end"
 msgstr "Carica stili CSS di default nel front-end"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:192
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:194
 msgid "Tax Handling"
 msgstr "Gestione tasse"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:195
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:197
 msgid "Calculate Taxable Subtotal"
 msgstr "Calcola subtotale tassabile"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:196
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:198
 msgid "Use global tax."
 msgstr "Usa tassa globale"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:199
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:201
 msgid ""
 "This will make all new invoices have default Tax value which can be changed "
 "for different invoice."
@@ -4165,55 +4179,55 @@ msgstr ""
 "Questo imposterà tutte le nuove fatture con un valore di tassa predefinito "
 "che potrà essere cambiato per diverse fatture."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:206
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:208
 msgid "Advanced Settings"
 msgstr "Impostazioni avanzate"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:209
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:211
 msgid "Allow partial payments."
 msgstr "Consenti pagamenti parziali."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:211
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:213
 msgid "Partial payments allowed by default."
 msgstr "Consenti pagamenti parziali  di default"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:213
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:215
 msgid "Show recurring billing options."
 msgstr "Mostra opzioni per fatture ricorrenti."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:214
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:216
 msgid "Enforce HTTPS on invoice pages, if available on this server."
 msgstr "Forza HTTPS nelle pagine fattura, se disponibile su questo server."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Minimum user level to manage WP-Invoice"
 msgstr "Livello utente minimo per gestire WP-Invoice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Subscriber"
 msgstr "Sottoscrittore"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Contributor"
 msgstr "Collaboratore"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Author"
 msgstr "Autore"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Editor"
 msgstr "Editore"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:217
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:219
 msgid "Administrator"
 msgstr "Amministratore"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:220
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:222
 msgid "Using Godaddy Hosting:"
 msgstr "Si usa hosting GoDaddy:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:221
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:223
 msgid ""
 "Special proxy must be used to process credit card transactions on GoDaddy "
 "servers."
@@ -4221,7 +4235,7 @@ msgstr ""
 "Va usato un proxy speciale per processare transazioni di carte di credito su "
 "server GoDaddy."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:229
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:231
 msgid ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
@@ -4229,7 +4243,7 @@ msgstr ""
 "Use custom templates. If checked, WP-Invoice will use templates in the 'wpi' "
 "folder in your active theme's folder."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:234
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:236
 msgid ""
 "Note: Currently there is no \"wpi\" folder in your active template's folder, "
 "WP-Invoice will attempt to create it after saving."
@@ -4237,7 +4251,7 @@ msgstr ""
 "Nota: attualmente non c'è nessuna cartella \"wpi\" nella cartella del "
 "template attivo. WP-Invoice proverà a crearla dopo il salvataggio."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:236
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:238
 msgid ""
 "A \"wpi\" folder has been found, any files with the proper file names will "
 "be used instead of the default template files."
@@ -4245,38 +4259,43 @@ msgstr ""
 "Una cartella \"wpi\" è stata trovata, tutti i file col nome adatto saranno "
 "usati al posto di quelli di default del template."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:239
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:241
 msgid "Install"
 msgstr "Installa"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:239
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:241
 msgid ""
 "the custom templates inside the <b>wpi</b> folder in your active theme's "
 "folder."
 msgstr ""
 "i template personalizzati dentro la cartella <b>wpi</b> del tema attivo."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:243
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:245
 msgid "Thousands Separator Symbol"
 msgstr "Simbolo separatore delle migliaia"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:249
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:251
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:268
 msgid "None"
 msgstr "Nessuno"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:259
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:262
+msgid "Decimal Separator Symbol"
+msgstr ""
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:278
 msgid "Show invoices only for logged in recipients."
 msgstr "Mostra fatture solo per destinatari registrati."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:262
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:281
 msgid "Send passwords to newly created recipients."
 msgstr "Invia password solo a utenti appena creati."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:265
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:284
 msgid "Turn off compatibility mode."
 msgstr "Disabilità modalità compatibilità."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:266
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:285
 msgid ""
 "By default the Compatibility Mode is on. If you encounter problems "
 "displaying your invoices then turn it off."
@@ -4284,49 +4303,67 @@ msgstr ""
 "Di default la modalità compatibilità è attiva. Se incontri problemi nel "
 "visualizzare le fatture disattivala."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:293
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:300
+msgid "Add \"Terms &amp; Conditions\" checkbox to regular invoices."
+msgstr ""
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:304
+msgid ""
+"This option allows you to add \"Terms &amp; Conditions\" checkbox to your "
+"regular invoices. Be sure you have specified Terms page ID below."
+msgstr ""
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:307
+msgid "\"T&amp;C\" Page ID:"
+msgstr ""
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:315
+msgid "Numeric value of WordPress page ID that has \"Terms &amp; Conditions\"."
+msgstr ""
+
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:342
 msgid "When creating an invoice"
 msgstr "Quando crei una fattura"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:296
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:345
 msgid "Automatically increment the invoice's custom ID by one."
 msgstr "Automatically increment the invoice's custom ID by one."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:302
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:351
 msgid "When viewing an invoice"
 msgstr "Quando visualizzi una fattura"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:310
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:359
 msgid "Activate Client Dashboard."
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:312
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:329
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:361
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:378
 msgid "New"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:314
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:363
 msgid "Display dashboard on the"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:316
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:365
 msgid "Not selected"
 msgstr ""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:328
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:345
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:377
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:394
 msgid "page."
 msgstr "pagina."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:332
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:381
 msgid "Display invoices on the"
 msgstr "Mostra fatture a"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:347
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:396
 msgid "Replace HTML title with invoice subject when viewing invoice."
 msgstr "Replace HTML title with invoice subject when viewing invoice."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:348
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:397
 msgid ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
@@ -4334,31 +4371,31 @@ msgstr ""
 "Replace page heading and navigation link title with invoice subject when "
 "viewing invoice."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:349
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:398
 msgid "Hide page heading and navigation link completely."
 msgstr "Hide page heading and navigation link completely."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:351
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:400
 msgid "Show my business name and address."
 msgstr "Visualizza la mia ragione sociale e l'indirizzo"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:352
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:401
 msgid "Show quantity breakdowns in the itemized list."
 msgstr "Show quantity breakdowns in the itemized list."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:357
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:406
 msgid "How to Insert Invoice"
 msgstr "Come inserire una fattura"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:362
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:411
 msgid "After a payment has been completed"
 msgstr "Dopo che un pagamento è completato"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:365
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:414
 msgid "Send email confirmation to the client."
 msgstr "Invia email di conferma al cliente"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:366
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:415
 #, php-format
 msgid ""
 "Send email notification to the address set for administrative purposes from "
@@ -4367,15 +4404,15 @@ msgstr ""
 "Invia notifiche email all'indirizzo configurato per fini amministrativi da "
 "<a href=\"%s\">Impostazioni generali</a>"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:367
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:416
 msgid "Send email notification to invoice creator."
 msgstr "Invia email di notifica al creatore della fattura."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:368
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:417
 msgid "Use CRM to send notifications"
 msgstr "Usa CRM per inviare le notifiche"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:368
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:417
 #, php-format
 msgid ""
 "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance notification "
@@ -4384,37 +4421,37 @@ msgstr ""
 "Ottieni il plugin <a class=\"small\" href=\"%s\">WP-CRM</a> per migliorare "
 "la gestione delle notifiche. "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:374
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:423
 msgid ""
 "This options allow you to change the default email address that WordPress "
 "sends it's mail from, and the name of the sender that the email is from."
 msgstr "Queste opzioni"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:375
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:424
 msgid "Mail From options"
 msgstr "Opzioni \"Mail da\""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:383
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:432
 msgid "Sender Name"
 msgstr "Nome del mittente"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:390
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:439
 msgid "The sender name that the email is from"
 msgstr "Il nome del mittente nelle email"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:395
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:444
 msgid "User E-mail"
 msgstr "e-mail utente"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:402
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:451
 msgid "Email address e.g. username@example.com"
 msgstr "Indirizzo e-mail"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:407
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:456
 msgid "Apply 'Mail From' settings."
 msgstr "Usa opzioni \"mittente email\""
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:419
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:468
 msgid ""
 "If you are using <b>Google Analytics Site Tracking</b> code on your site "
 "then you can track WP-Invoice events."
@@ -4422,59 +4459,59 @@ msgstr ""
 "Se stai usando codice <b>Google Analytics Site Tracking</b> sul tuo sito "
 "puoi tracciare gli eventi di WP-Invoice."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:420
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:469
 msgid "Google Analytics Events Tracking"
 msgstr "Google Analytics Events Tracking"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:427
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:476
 msgid "I want to track events."
 msgstr "Voglio tracciare gli eventi."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:432
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:481
 msgid "Track Invoices events:"
 msgstr "Voglio tracciare gli eventi."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:435
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:484
 msgid "Attempting to pay Invoices"
 msgstr "Tentativo di pagamento delle fatture"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:438
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:487
 msgid "View Invoices"
 msgstr "Visualizza fatture"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:466
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:515
 msgid "Default Currency"
 msgstr "Valuta di Default"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:476
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:525
 msgid "Currency list"
 msgstr "Lista Valute"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:481
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:530
 msgid "Code"
 msgstr "Codice"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:482
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:531
 msgid "Symbol"
 msgstr "Simbolo"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:506
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:555
 msgid "Add Currency"
 msgstr "Aggiungi valuta"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:517
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:566
 msgid "Default Payment Method"
 msgstr "Metodo di pagamento di Default"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:529
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:578
 msgid "Payment Gateways"
 msgstr "Gateway pagamento"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:590
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:639
 msgid "Manual Payment information"
 msgstr "Informazioni pagamento manuale"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:595
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:644
 msgid ""
 "If an invoice has no payment gateways, this message will be displayed "
 "offering the customer guidance on their course of action."
@@ -4482,19 +4519,19 @@ msgstr ""
 "Se una fattura non ha un gateway di pagamento, sarà mostrato questo "
 "messaggio come guida."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:617
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:666
 msgid "Subject"
 msgstr "Oggetto"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:618
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:667
 msgid "Content"
 msgstr "Contenuto"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:642
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:691
 msgid "Add Template"
 msgstr "Aggiungi template"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:693
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:742
 msgid ""
 "Setup your common services and products in here to streamline invoice "
 "creation."
@@ -4502,31 +4539,31 @@ msgstr ""
 "Imposta i servizi e i prodotti ordinari qui per semplificare la creazione "
 "delle fatture."
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:721
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:770
 msgid "Name & Description"
 msgstr "Nome e descrizione"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:724
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:773
 msgid "Tax %"
 msgstr "IVA"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:761
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:810
 msgid "Add Line Item"
 msgstr "Inserisci un oggetto predefinito"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:792
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:841
 msgid "Look up the $wpi_settings global settings array:"
 msgstr "Cerca nel $wpi_settings global settings array:"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:792
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:841
 msgid "Toggle $wpi_settings"
 msgstr "Visualizza $wpi_settings"
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:799
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:848
 msgid "Restore Backup of WP-Invoice Configuration"
 msgstr "Ripristina Backup della configurazione WP-Invoice "
 
-#: lib/ui/wp-invoice_page_wpi_page_settings.php:800
+#: lib/ui/wp-invoice_page_wpi_page_settings.php:849
 msgid "Download Backup of Current WP-Invoice Configuration."
 msgstr "Scarica backup della configurazione attuale di WP-Invoice."
 
@@ -4620,23 +4657,66 @@ msgstr ""
 msgid "paste the license key into input field for your product;"
 msgstr ""
 
-#: static/views/client-dashboard.php:93
+#: static/views/client-dashboard.php:102
 msgid "Access Denied"
 msgstr ""
 
-#: static/views/client-dashboard.php:94
+#: static/views/client-dashboard.php:103
 msgid ""
 "If you see this message please be sure you followed by proper link from the "
 "invoice page or log in to see your dashboard."
 msgstr ""
 
-#: static/views/client-dashboard.php:96
-#: static/views/unified-invoice-page-active.php:103
-msgid "Go Back"
+#: static/views/client-dashboard.php:105 static/views/client-dashboard.php:124
+#: static/views/unified-invoice-page-active.php:98
+msgid "Back to website"
 msgstr ""
 
-#: static/views/client-dashboard.php:136
+#: static/views/client-dashboard.php:138
 msgid "Summary"
+msgstr ""
+
+#: static/views/client-dashboard.php:145
+msgid "Loading..."
+msgstr ""
+
+#: static/views/client-dashboard.php:152
+msgid "Something went wrong while loading invoices. Try refreshing the page."
+msgstr ""
+
+#: static/views/client-dashboard.php:168
+msgid "No invoices found..."
+msgstr ""
+
+#: static/views/client-dashboard.php:179
+#: static/views/unified-invoice-page-active.php:255
+#: static/views/unified-invoice-page-paid.php:249
+#: static/views/unified-invoice-page-refund.php:248
+msgid "Total:"
+msgstr ""
+
+#: static/views/client-dashboard.php:184
+msgid "Previous"
+msgstr ""
+
+#: static/views/client-dashboard.php:184
+msgid "Next"
+msgstr ""
+
+#: static/views/client-dashboard.php:184
+msgid "Last"
+msgstr ""
+
+#: static/views/client-dashboard.php:184
+msgid "First"
+msgstr ""
+
+#: static/views/client-dashboard.php:187
+msgid "Invoices Per Page:"
+msgstr ""
+
+#: static/views/client-dashboard.php:211
+msgid "Powered by"
 msgstr ""
 
 #: static/views/invoice_page.php:3
@@ -4663,18 +4743,18 @@ msgid "You've made payments, but still owe:"
 msgstr "Hai effettuato pagamenti, ma devi ancora:"
 
 #: static/views/invoice_page.php:56
-#: static/views/unified-invoice-page-active.php:323
+#: static/views/unified-invoice-page-active.php:374
 msgid "Manual Payment Information"
 msgstr "Informazioni pagamento manuale"
 
 #: static/views/invoice_page.php:57
-#: static/views/unified-invoice-page-active.php:324
+#: static/views/unified-invoice-page-active.php:375
 msgid "Contact site Administrator for payment information please."
 msgstr ""
 "Contatta l'amministratore del sito per informazioni sul pagamento, grazie."
 
 #: static/views/invoice_page.php:63
-#: static/views/unified-invoice-page-active.php:330
+#: static/views/unified-invoice-page-active.php:381
 msgid ""
 "Sorry, there is no payment method available. Please contact Administrator."
 msgstr ""
@@ -4691,138 +4771,154 @@ msgstr "Vi abbiamo inviato la fattura"
 msgid "was paid."
 msgstr "pagato."
 
-#: static/views/unified-invoice-page-active.php:92
-#: static/views/unified-invoice-page-paid.php:92
-#: static/views/unified-invoice-page-refund.php:92
+#: static/views/unified-invoice-page-active.php:96
+#: static/views/unified-invoice-page-paid.php:96
+#: static/views/unified-invoice-page-refund.php:96
 msgid "My dashboard"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:98
-#: static/views/unified-invoice-page-paid.php:98
-#: static/views/unified-invoice-page-refund.php:98
+#: static/views/unified-invoice-page-active.php:104
+#: static/views/unified-invoice-page-paid.php:103
+#: static/views/unified-invoice-page-refund.php:103
 msgid "PDF"
 msgstr "PDF"
 
-#: static/views/unified-invoice-page-active.php:104
+#: static/views/unified-invoice-page-active.php:109
+msgid "Go Back"
+msgstr ""
+
+#: static/views/unified-invoice-page-active.php:110
 msgid "Make Payment"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:140
-#: static/views/unified-invoice-page-paid.php:132
-#: static/views/unified-invoice-page-refund.php:132
+#: static/views/unified-invoice-page-active.php:146
+#: static/views/unified-invoice-page-paid.php:140
+#: static/views/unified-invoice-page-refund.php:139
 msgid "Email:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:143
-#: static/views/unified-invoice-page-paid.php:135
-#: static/views/unified-invoice-page-refund.php:135
+#: static/views/unified-invoice-page-active.php:149
+#: static/views/unified-invoice-page-paid.php:143
+#: static/views/unified-invoice-page-refund.php:142
 msgid "Phone:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:153
-#: static/views/unified-invoice-page-paid.php:145
-#: static/views/unified-invoice-page-refund.php:145
+#: static/views/unified-invoice-page-active.php:159
+#: static/views/unified-invoice-page-paid.php:153
+#: static/views/unified-invoice-page-refund.php:152
 msgid "Issue Date"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:163
-#: static/views/unified-invoice-page-paid.php:155
-#: static/views/unified-invoice-page-refund.php:155
+#: static/views/unified-invoice-page-active.php:169
+#: static/views/unified-invoice-page-paid.php:163
+#: static/views/unified-invoice-page-refund.php:162
 msgid "Invoice for"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:182
-#: static/views/unified-invoice-page-active.php:225
-#: static/views/unified-invoice-page-paid.php:174
-#: static/views/unified-invoice-page-paid.php:217
-#: static/views/unified-invoice-page-refund.php:174
-#: static/views/unified-invoice-page-refund.php:217
+#: static/views/unified-invoice-page-active.php:190
+#: static/views/unified-invoice-page-active.php:233
+#: static/views/unified-invoice-page-paid.php:184
+#: static/views/unified-invoice-page-paid.php:227
+#: static/views/unified-invoice-page-refund.php:183
+#: static/views/unified-invoice-page-refund.php:226
 msgid "Description"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:186
-#: static/views/unified-invoice-page-paid.php:178
-#: static/views/unified-invoice-page-refund.php:178
+#: static/views/unified-invoice-page-active.php:194
+#: static/views/unified-invoice-page-paid.php:188
+#: static/views/unified-invoice-page-refund.php:187
 msgid "Unit Price"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:219
-#: static/views/unified-invoice-page-paid.php:211
-#: static/views/unified-invoice-page-refund.php:211
+#: static/views/unified-invoice-page-active.php:227
+#: static/views/unified-invoice-page-paid.php:221
+#: static/views/unified-invoice-page-refund.php:220
 msgid "Additional Charges"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:247
-#: static/views/unified-invoice-page-paid.php:239
-#: static/views/unified-invoice-page-refund.php:239
-msgid "Total:"
-msgstr ""
-
-#: static/views/unified-invoice-page-active.php:250
-#: static/views/unified-invoice-page-paid.php:242
-#: static/views/unified-invoice-page-refund.php:242
+#: static/views/unified-invoice-page-active.php:258
+#: static/views/unified-invoice-page-paid.php:252
+#: static/views/unified-invoice-page-refund.php:251
 msgid "Total Tax:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:260
-#: static/views/unified-invoice-page-paid.php:252
-#: static/views/unified-invoice-page-refund.php:252
+#: static/views/unified-invoice-page-active.php:268
+#: static/views/unified-invoice-page-paid.php:262
+#: static/views/unified-invoice-page-refund.php:261
 msgid "Other Adjustments:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:265
-#: static/views/unified-invoice-page-paid.php:257
-#: static/views/unified-invoice-page-refund.php:257
+#: static/views/unified-invoice-page-active.php:273
+#: static/views/unified-invoice-page-paid.php:267
+#: static/views/unified-invoice-page-refund.php:266
 msgid "Total Payments:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:269
-#: static/views/unified-invoice-page-paid.php:261
-#: static/views/unified-invoice-page-refund.php:261
+#: static/views/unified-invoice-page-active.php:277
+#: static/views/unified-invoice-page-paid.php:271
+#: static/views/unified-invoice-page-refund.php:270
 msgid "Amount Due:"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:281
-#: static/views/unified-invoice-page-paid.php:273
-#: static/views/unified-invoice-page-refund.php:273
+#: static/views/unified-invoice-page-active.php:290
+#: static/views/unified-invoice-page-paid.php:284
+#: static/views/unified-invoice-page-refund.php:283
+msgid "Discussion Thread"
+msgstr ""
+
+#: static/views/unified-invoice-page-active.php:301
+#: static/views/unified-invoice-page-paid.php:295
+#: static/views/unified-invoice-page-refund.php:294
+msgid "&larr; Previous Page"
+msgstr ""
+
+#: static/views/unified-invoice-page-active.php:302
+#: static/views/unified-invoice-page-paid.php:296
+#: static/views/unified-invoice-page-refund.php:295
+msgid "Next Page &rarr;"
+msgstr ""
+
+#: static/views/unified-invoice-page-active.php:317
+msgid "Leave a Response"
+msgstr ""
+
+#: static/views/unified-invoice-page-active.php:332
+#: static/views/unified-invoice-page-paid.php:314
+#: static/views/unified-invoice-page-refund.php:313
 msgid "Charge"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:283
-#: static/views/unified-invoice-page-paid.php:275
-#: static/views/unified-invoice-page-refund.php:275
+#: static/views/unified-invoice-page-active.php:334
+#: static/views/unified-invoice-page-paid.php:316
+#: static/views/unified-invoice-page-refund.php:315
 msgid "Adjustment"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:284
-#: static/views/unified-invoice-page-paid.php:276
-#: static/views/unified-invoice-page-refund.php:276
+#: static/views/unified-invoice-page-active.php:335
+#: static/views/unified-invoice-page-paid.php:317
+#: static/views/unified-invoice-page-refund.php:316
 msgid "Create"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:287
-msgid "Actions History"
-msgstr ""
-
-#: static/views/unified-invoice-page-active.php:359
+#: static/views/unified-invoice-page-active.php:408
 msgid "Payment Sent Successfully"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:361
+#: static/views/unified-invoice-page-active.php:410
 msgid ""
 "Thank you for your payment. You can check the invoice at your Invoices "
 "Dashboard."
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:364
+#: static/views/unified-invoice-page-active.php:413
 msgid "Check Receipt"
 msgstr ""
 
-#: static/views/unified-invoice-page-active.php:365
+#: static/views/unified-invoice-page-active.php:415
 msgid "View Dashboard"
 msgstr ""
 
-#: static/views/unified-invoice-page-refund.php:114
+#: static/views/unified-invoice-page-refund.php:121
 msgid "Receipt (Refunded)"
 msgstr ""
 
@@ -4861,6 +4957,9 @@ msgstr ""
 #, php-format
 msgid "<p><b>%s</b> can not be initialized. %s</p>"
 msgstr "<p><b>%s</b> non può essere inizializzato.  %s</p>"
+
+#~ msgid "Please enter an invoice id."
+#~ msgstr "Per favore inserisci un id fattura."
 
 #~ msgid ""
 #~ "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a "

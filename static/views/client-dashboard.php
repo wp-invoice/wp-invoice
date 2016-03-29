@@ -175,13 +175,13 @@ global $invoice, $wpi_settings;
 
         <div class="bottom-box">
           <div class="row">
-            <div class="col-xs-6 col-xs-push-6 text-right total">
+            <div class="col-xs-4 col-xs-push-8 text-right total">
               <span><?php _e('Total:', ud_get_wp_invoice()->domain); ?></span> <?php echo wpi_get_default_currency_sign(); ?>{{totalAmount}}
             </div>
 
-            <div class="col-xs-6 col-xs-pull-6">
+            <div class="col-xs-8 col-xs-pull-4">
 
-              <uib-pagination direction-links="false" boundary-links="true" items-per-page="perPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="paginate()"></uib-pagination>
+              <uib-pagination previous-text="<?php _e( 'Previous', ud_get_wp_invoice()->domain ); ?>" next-text="<?php _e( 'Next', ud_get_wp_invoice()->domain ); ?>" last-text="<?php _e( 'Last', ud_get_wp_invoice()->domain ); ?>" first-text="<?php _e( 'First', ud_get_wp_invoice()->domain ); ?>" direction-links="false" boundary-links="true" items-per-page="perPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="paginate()"></uib-pagination>
 
               <div class="per_page_wrapper">
                 <?php _e('Invoices Per Page:', ud_get_wp_invoice()->domain); ?>
@@ -208,7 +208,7 @@ global $invoice, $wpi_settings;
 <footer class="pagefooter">
   <div class="container">
     <a href="https://www.usabilitydynamics.com/product/wp-invoice" target="_blank">
-      <p>Powered by <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
+      <p><?php _e( 'Powered by', ud_get_wp_invoice()->domain ); ?> <span><img src="<?php echo ud_get_wp_invoice()->path( 'static/img/wp-invoice.png', 'url' ); ?>" alt="WP-Invoice" /></span> WP-Invoice</p>
     </a>
   </div><!--end /container-->
 </footer><!--end /pagefooter-->
