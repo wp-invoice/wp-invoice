@@ -471,18 +471,38 @@ class wpi_paypal extends wpi_gateway_base {
     private static function _ipn_verified($invoice = false) {
 
       if ($invoice) {
-        $request = self::get_api_url( $invoice->data ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $invoice->data );
       } else {
         global $wpi_settings;
-        $request = self::get_api_url( $wpi_settings ) . '?cmd=_notify-validate';
+        $request = self::get_api_url( $wpi_settings );
       }
 
-      foreach ($_POST as $key => $value) {
-        $value = urlencode(stripslashes($value));
-        $request .= "&$key=$value";
+      $_POST['cmd'] = '_notify-validate'; // set `cmd` param for post request
+
+// Commented because we need POST request for paypal IPN
+//      foreach ($_POST as $key => $value) {
+//        $value = urlencode(stripslashes($value));
+//        $request .= "&$key=$value";
+//      }
+
+      $response = wp_remote_post( $request, array(
+        'method' => 'POST',
+        'timeout' => 45,
+        'redirection' => 5,
+        'httpversion' => '1.0',
+        'blocking' => true,
+        'headers' => array(),
+        'body' => $_POST,
+        'cookies' => array()
+            )
+      );
+
+      if ( ! is_wp_error( $response ) ) {
+         return strstr($response['body'], 'VERIFIED') ? TRUE : FALSE;
+      } else {
+         return false;
       }
 
-      return strstr(file_get_contents($request), 'VERIFIED') ? TRUE : FALSE;
     }
 
   }
