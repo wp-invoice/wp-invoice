@@ -741,7 +741,9 @@ class WPI_UI {
     //** Include on all pages */
     wp_enqueue_script( 'jquery-ui-accordion' );
     wp_enqueue_script( 'jquery-ui-datepicker' );
-    wp_enqueue_script( 'jquery-ui-datepicker-i18n', ud_get_wp_invoice()->path( 'vendor/usabilitydynamics/lib-ui/static/scripts/fields/jqueryui/datepicker-i18n/jquery.ui.datepicker-'.$locale_short.'.js', 'url') );
+    if ( 'en' != $locale_short ) {
+      wp_enqueue_script('jquery-ui-datepicker-i18n', ud_get_wp_invoice()->path('vendor/usabilitydynamics/lib-ui/static/scripts/fields/jqueryui/datepicker-i18n/jquery.ui.datepicker-' . $locale_short . '.js', 'url'));
+    }
 
     //** Includes page-specific JS if it exists */
     wp_enqueue_script( 'wpi-this-page-js' );
