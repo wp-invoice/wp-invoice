@@ -741,7 +741,7 @@ class WPI_UI {
     //** Include on all pages */
     wp_enqueue_script( 'jquery-ui-accordion' );
     wp_enqueue_script( 'jquery-ui-datepicker' );
-    if ( 'en' != $locale_short ) {
+    if ( 'en' != $locale_short ) { // if default `en` language is chosen as locale, then no need to enqueue l10n file for datepicker
       wp_enqueue_script('jquery-ui-datepicker-i18n', ud_get_wp_invoice()->path('vendor/usabilitydynamics/lib-ui/static/scripts/fields/jqueryui/datepicker-i18n/jquery.ui.datepicker-' . $locale_short . '.js', 'url'));
     }
 
