@@ -391,7 +391,7 @@ class wpi_stripe extends wpi_gateway_base {
       } catch (Stripe_InvalidRequestError $e) {
 
         $response['error'] = true;
-        $data['messages'][] = __( 'Unknown error occured. Please contact site administrator.', ud_get_wp_invoice()->domain );
+        $data['messages'][] = $e->getMessage();
       } catch (Stripe_ApiError $e) {
 
         $response['error'] = true;
