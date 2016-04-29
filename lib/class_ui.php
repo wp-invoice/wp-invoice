@@ -401,13 +401,15 @@ class WPI_UI {
       'input_name' => 'wpi[new_invoice][user_email]',
       'input_class' => 'input_field',
       'input_id' => 'wp_invoice_userlookup',
-      'input_style' => ''
+      'input_style' => '', 
+      'input_action' =>'wpi_user_autocomplete_handler' 
+
     ) ), EXTR_SKIP );
     ?>
     <script type="text/javascript">
       jQuery( document ).ready( function () {
         jQuery( "#<?php echo $input_id; ?>" ).autocomplete( {
-          source: ajaxurl + '?action=wpi_user_autocomplete_handler',
+          source: ajaxurl + '?action=<?php echo $input_action; ?>',
           minLength: 3
         } );
         jQuery( "#<?php echo $input_id; ?>" ).focus();
