@@ -1006,7 +1006,7 @@ class WPI_UI {
   /**
    * Can overwite page title (heading)
    */
-  function the_title( $title = '', $post_id = '' ) {
+  static function the_title( $title = '', $post_id = '' ) {
     global $wpi_settings, $invoice_id, $wpdb;
     if ( $post_id == $wpi_settings[ 'web_invoice_page' ] ) {
       if ( $wpi_settings[ 'hide_page_title' ] == 'true' ) {
