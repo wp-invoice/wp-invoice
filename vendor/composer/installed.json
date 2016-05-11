@@ -11,7 +11,7 @@
         "dist": {
             "type": "zip",
             "url": "https://github.com/UsabilityDynamics/lib-utility/archive/0.3.6.zip",
-            "reference": null,
+            "reference": "0.3.6",
             "shasum": null
         },
         "require-dev": {
@@ -64,17 +64,17 @@
     },
     {
         "name": "usabilitydynamics/lib-wp-bootstrap",
-        "version": "1.1.9",
-        "version_normalized": "1.1.9.0",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "git@github.com:UsabilityDynamics/lib-wp-bootstrap",
-            "reference": "1.1.9"
+            "reference": "1.2.0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/UsabilityDynamics/lib-wp-bootstrap/archive/1.1.9.zip",
-            "reference": null,
+            "url": "https://github.com/UsabilityDynamics/lib-wp-bootstrap/archive/1.2.0.zip",
+            "reference": "1.2.0",
             "shasum": null
         },
         "require": {
@@ -112,7 +112,7 @@
         "dist": {
             "type": "zip",
             "url": "https://github.com/UsabilityDynamics/lib-ud-api-client/archive/1.1.5.zip",
-            "reference": null,
+            "reference": "1.1.5",
             "shasum": null
         },
         "require": {
@@ -153,7 +153,7 @@
         "dist": {
             "type": "zip",
             "url": "https://github.com/UsabilityDynamics/lib-ui/archive/0.3.4.zip",
-            "reference": null,
+            "reference": "0.3.4",
             "shasum": null
         },
         "require": {
@@ -227,7 +227,7 @@
         "dist": {
             "type": "zip",
             "url": "https://github.com/UsabilityDynamics/lib-wp-list-table/archive/1.0.8.zip",
-            "reference": null,
+            "reference": "1.0.8",
             "shasum": null
         },
         "require": {
