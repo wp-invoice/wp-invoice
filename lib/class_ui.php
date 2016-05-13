@@ -12,12 +12,14 @@ class WPI_UI {
    *
    */
   static function admin_menu() {
-    global $wpi_settings, $submenu, $wp_version;
+    global $wpi_settings, $submenu, $wp_version, $menu;
 
     /* Get capability required for this plugin's menu to be displayed to the user */
     $capability = self::get_capability_by_level( $wpi_settings[ 'user_level' ] );
 
-    $wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'WP-Invoice', ud_get_wp_invoice()->domain ), 'WP-Invoice', $capability, 'wpi_main', null, 'dashicons-money' );
+    //$wpi_settings[ 'pages' ][ 'main' ] = add_object_page( __( 'WP-Invoice', ud_get_wp_invoice()->domain ), 'WP-Invoice', $capability, 'wpi_main', null, 'dashicons-money' );
+    $wpi_settings[ 'pages' ][ 'main' ] = add_menu_page( __( 'WP-Invoice', ud_get_wp_invoice()->domain ), __( 'WP-Invoice', ud_get_wp_invoice()->domain ), $capability, 'wpi_main', null, 'dashicons-money', array_key_exists( 30, $menu ) ? null : 30 );
+
     $overview_page = new \UsabilityDynamics\UI\Page( 'wpi_main', __( 'View All', ud_get_wp_invoice()->domain ), __( 'View All', ud_get_wp_invoice()->domain ), $capability, 'wpi_main' );
     $wpi_settings[ 'pages' ][ 'main' ] = $overview_page->screen_id;
     $wpi_settings[ 'pages' ][ 'edit' ] = add_submenu_page( 'wpi_main', __( 'Add New', ud_get_wp_invoice()->domain ), __( 'Add New', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_manage_invoice', array( 'WPI_UI', 'page_loader' ) );
