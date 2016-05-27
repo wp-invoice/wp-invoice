@@ -1467,7 +1467,7 @@ class WPI_Functions {
     }
 
     //** But if recurring settings are defined then invoice type should be recurring */
-    if ( $invoice[ 'recurring' ][ 'active' ] == 'on' && !empty( $invoice['recurring'] ) ) {
+    if ( !empty( $invoice['recurring'] ) && $invoice[ 'recurring' ][ 'active' ] == 'on' ) {
       $ni->create_schedule( $invoice['recurring'] );
       $invoice_type = 'recurring';
     }
