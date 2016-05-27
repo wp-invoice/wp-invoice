@@ -265,7 +265,6 @@ class WPI_Settings_page {
                     'name' => 'decimal_separator_symbol',
                     'group' => 'wpi_settings',
                     'values' => array(
-                        '0' => __('None', ud_get_wp_invoice()->domain),
                         '.' => '.(period)',
                         ',' => ',(comma)'
                     ),
