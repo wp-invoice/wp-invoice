@@ -1079,11 +1079,11 @@ class WPI_Functions {
    * @author korotkov@ud
    * @since 3.08.4
    */
-  function get_highest_custom_id() {
+  static function get_highest_custom_id() {
     global $wpdb;
 
     $max_custom_id = $wpdb->get_results( "
-      SELECT max( `meta_value` ) AS max
+      SELECT max( cast( `meta_value` AS UNSIGNED ) ) AS max
       FROM `{$wpdb->postmeta}`
       WHERE `meta_key` = 'custom_id'
     ", ARRAY_A );
