@@ -1,3 +1,9 @@
+#### 4.1.3 ( August 30, 2016 )
+* Improved Stripe error notifications.
+* Fixed PayPal IPN issue.
+* Disabled the ability to select empty decimal separator.
+* Code cleanup.
+
 #### 4.1.2 ( March 29, 2016 )
 * Fixed ability to customize client dashboard.
 * Added new option for decimal separator symbol.
