@@ -7,10 +7,7 @@ WP-Invoice lets WordPress blog owners send itemized invoices to their clients. I
 [![Issues - Backlog](https://badge.waffle.io/wp-invoice/wp-invoice.png?label=backlog&title=Backlog)](http://waffle.io/wp-invoice/wp-invoice/)
 [![Issues - Active](https://badge.waffle.io/wp-invoice/wp-invoice.png?label=in progress&title=Active)](http://waffle.io/wp-invoice/wp-invoice/)
 ***
-[![Dependency Status](https://gemnasium.com/wp-invoice/wp-invoice.svg)](https://gemnasium.com/wp-invoice/wp-invoice)
-[![Scrutinizer Quality](http://img.shields.io/scrutinizer/g/wp-invoice/wp-invoice.svg)](https://scrutinizer-ci.com/g/wp-invoice/wp-invoice)
-[![Scrutinizer Coverage](http://img.shields.io/scrutinizer/coverage/g/wp-invoice/wp-invoice.svg)](https://scrutinizer-ci.com/g/wp-invoice/wp-invoice)
-[![CircleCI](https://circleci.com/gh/wp-invoice/wp-invoice.png?circle-token=178695563ddbe439a85b54eb64399cd54ac69b96)](https://circleci.com/gh/wp-invoice/wp-invoice)
+[![CircleCI](https://circleci.com/gh/wp-invoice/wp-invoice.svg?style=shield&circle-token=178695563ddbe439a85b54eb64399cd54ac69b96)](https://circleci.com/gh/wp-invoice/wp-invoice)
 ***
 
 WP-Invoice 4.0 is the most popular and flexible plugin for WordPress that allows you to make your site accept payments. Complete e-commerce solutions out of the box. Flexible and extendable.
