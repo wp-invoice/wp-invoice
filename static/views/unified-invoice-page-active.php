@@ -125,7 +125,7 @@ global $invoice, $wpi_settings;
 
       <div class="box-content">
         <div class="head-title">
-          <h2><?php echo wpi_get_invoice_type(); ?></h2>
+          <h2><?php _e( wpi_get_invoice_type(), ud_get_wp_invoice()->domain ); ?></h2>
         </div>
 
         <div class="box-inner-content">
