@@ -1036,7 +1036,7 @@ class WPI_UI {
    *
    */
   static function the_content( $content ) {
-    global $wpi_settings;
+    global $wpi_settings, $wp_version;
     /**
      * Well. Here I'm trying to fix conflicts with plugins such as Simple Facebook Connect.
      * I will try to determine the source of function hook calling using debug_backtrace() function.
@@ -1047,11 +1047,12 @@ class WPI_UI {
      * @author korotkov@ud
      * @since 3.08.6
      */
+    $call_level = ( version_compare( $wp_version, '4.7' ) >= 0 ) ? 3 : 2;
     if ( !WPI_Functions::is_true( isset( $wpi_settings['turn_off_compatibility_mode'] ) ? $wpi_settings['turn_off_compatibility_mode'] : false ) )
       if ( function_exists( 'debug_backtrace' ) )
         if ( $call_stack = debug_backtrace() )
-          if ( !empty( $call_stack[ 3 ][ 'file' ] ) )
-            if ( basename( $call_stack[ 3 ][ 'file' ] ) != 'post-template.php' )
+          if ( !empty( $call_stack[ $call_level ][ 'file' ] ) )
+            if ( basename( $call_stack[ $call_level ][ 'file' ] ) != 'post-template.php' )
               return $content;
 
     //** Continue as usually */
