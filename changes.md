@@ -1,3 +1,6 @@
+#### 4.1.4 ( December 8, 2016 )
+* Fixed WordPress 4.7 compatibility issue.
+
 #### 4.1.3 ( August 30, 2016 )
 * Improved Stripe error notifications.
 * Fixed PayPal IPN issue.
