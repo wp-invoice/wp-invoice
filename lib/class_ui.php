@@ -1050,8 +1050,8 @@ class WPI_UI {
     if ( !WPI_Functions::is_true( isset( $wpi_settings['turn_off_compatibility_mode'] ) ? $wpi_settings['turn_off_compatibility_mode'] : false ) )
       if ( function_exists( 'debug_backtrace' ) )
         if ( $call_stack = debug_backtrace() )
-          if ( !empty( $call_stack[ 2 ][ 'file' ] ) )
-            if ( basename( $call_stack[ 2 ][ 'file' ] ) != 'post-template.php' )
+          if ( !empty( $call_stack[ 3 ][ 'file' ] ) )
+            if ( basename( $call_stack[ 3 ][ 'file' ] ) != 'post-template.php' )
               return $content;
 
     //** Continue as usually */
