@@ -19,11 +19,11 @@ class WPI_Settings {
   var $data;
 
   /**
-   * Cunstruct
+   * Construct
    *
    * @param object $Core
    */
-  function WPI_Settings( &$Core ) {
+  function __construct( &$Core ) {
     $this->Core = $Core;
     $this->LoadOptions();
   }
