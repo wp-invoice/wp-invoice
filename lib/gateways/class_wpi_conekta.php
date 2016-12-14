@@ -367,7 +367,7 @@ class wpi_conekta extends wpi_gateway_base {
               $success = __("Successfully processed by ", ud_get_wp_invoice()->domain).$_SERVER['REMOTE_ADDR'];
               $invoice_obj->add_entry("attribute=invoice&note=$success&type=update");
               //** Log payer */
-              $payer_card = __("STRIPE Card ID: ", ud_get_wp_invoice()->domain).$charge->source->id;
+              $payer_card = __("Conekta Card ID: ", ud_get_wp_invoice()->domain).$charge->source->id;
               $invoice_obj->add_entry("attribute=invoice&note=$payer_card&type=update");
 
               $invoice_obj->save_invoice();

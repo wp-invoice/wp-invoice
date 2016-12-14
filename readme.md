@@ -16,7 +16,7 @@ WP-Invoice lets WordPress blog owners send itemized invoices to their clients. I
 
 Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog's special invoice page, view their invoice, and pay their bill using one of the available payment system. The control panel is very user-friendly and intuitive.
 
-Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (Eastern Europe), Stripe and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions and 2Checkout Recurring Billing. More gateways available as Add-ons.
+Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (Eastern Europe), Stripe, Conekta and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions, Conekta Subscriptions and 2Checkout Recurring Billing. More gateways available as Add-ons.
 
 > WP-Invoice on [GitHub](https://github.com/wp-invoice/wp-invoice)
 
@@ -54,6 +54,7 @@ Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (East
 * Interkassa (Eastern Europe)
 * Stripe
 * 2Checkout
+* Conekta (Mexico)
 * PayPal Payments Pro (Add-on)
 * USAePay (Add-on)
 

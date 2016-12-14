@@ -155,3 +155,33 @@ function stripeResponseHandler(status, response) {
     return false;
   }
 }
+
+/**
+ * Override existing function to match unified page needs
+ * @param status
+ * @param response
+ * @returns {boolean}
+ */
+function successResponseHandler(status, response) {
+  if (response.error) {
+    alert(response.error.message);
+  } else {
+    var f = jQuery("#online_payment_form-wpi_conekta");
+    var token = response['id'];
+    f.append("<input type='hidden' name='conektaTokenId' value='" + token + "' />");
+    var url = wpi_ajax.url+"?action="+jQuery("#wpi_action").val();
+    var message = '';
+    jQuery.post(url, jQuery("#online_payment_form-wpi_conekta").serialize(), function(d){
+      if ( d.success ) {
+        jQuery(document).trigger('wpi_payment_success');
+      } else if ( d.error ) {
+        jQuery.each( d.data.messages, function(k, v){
+          message += v +'\n\n';
+        });
+        alert( message );
+        location.reload(true);
+      }
+    }, 'json');
+    return false;
+  }
+}

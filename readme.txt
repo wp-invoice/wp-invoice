@@ -1,7 +1,7 @@
 === WP-Invoice - Web Invoice and Billing ===
-Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw1984, maxim.peshkov, ideric, MariaKravchenko
+Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw1984, maxim.peshkov, ideric, MariaKravchenko, Janee
 Donate link: https://www.usabilitydynamics.com/product/wp-invoice
-Tags: wp-invoice, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, 2checkout, merchantplus, mijireh checkout
+Tags: wp-invoice, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, conekta, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, 2checkout, merchantplus, mijireh checkout
 Requires at least: 4.0
 Tested up to: 4.6
 Stable tag: 4.1.3
@@ -18,7 +18,7 @@ WP-Invoice lets WordPress blog owners send itemized invoices to their clients. I
 
 Once an invoice is created from the WP admin section, an email with a brief description and a unique link is sent to client. Clients follow the link to your blog's special invoice page, view their invoice, and pay their bill using one of the available payment system. The control panel is very user-friendly and intuitive.
 
-Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (Eastern Europe), Stripe and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions and 2Checkout Recurring Billing. More gateways available as Add-ons.
+Credit card payments may be accepted via Authorize.net, PayPal, Conekta (Mexico), Interkassa (Eastern Europe), Stripe and 2Checkout. Subscriptions (Recurring Billing) implemented using Authorize.net ARB, PayPal Subscriptions, Stripe Subscriptions and 2Checkout Recurring Billing. More gateways available as Add-ons.
 
 > WP-Invoice on [GitHub](https://github.com/wp-invoice/wp-invoice)
 
@@ -56,6 +56,7 @@ Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (East
 * Interkassa (Eastern Europe)
 * Stripe
 * 2Checkout
+* Conekta (Mexico)
 * PayPal Payments Pro (Add-on)
 * USAePay (Add-on)
 * Mijireh Checkout (Add-on)
@@ -116,6 +117,9 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 8. View 3 standard reports - collected vs uncollected invoices, 10 most valuable clients and top grossing line items
 
 == Upgrade Notice ==
+
+= Version 4.1.2 =
+* Added Conekta Gateway.
 
 = Version 4.1.1 =
 * Important Security Update.
