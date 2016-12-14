@@ -1,3 +1,6 @@
+#### 4.1.4 ( Dicember 14, 2016 )
+* Added Conekta Gateway
+
 #### 4.1.3 ( August 30, 2016 )
 * Improved Stripe error notifications.
 * Fixed PayPal IPN issue.
