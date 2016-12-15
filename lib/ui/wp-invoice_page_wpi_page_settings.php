@@ -135,15 +135,27 @@ class WPI_Settings_page {
         <th width="200"><?php _e("Business Logo", ud_get_wp_invoice()->domain); ?></th>
         <td>
           <input type="hidden" id="business_logo_path" name="wpi_settings[business_logo]" value="<?php echo !empty($wpi_settings['business_logo']) ?$wpi_settings['business_logo']: '' ; ?>" />
-          <?php if ( !empty($wpi_settings['business_logo']) ): ?>
-            <img id="business_logo_img" style="max-width:100px;" src="<?php echo $wpi_settings['business_logo']; ?>" />
-          <?php endif; ?>
-          <button class="button-secondary business-logo-select clearfix" style="width:100px;" data-uploader_title="<?php _e('Select Logo', ud_get_wp_invoice()->domain); ?>"><?php _e('Select Logo', ud_get_wp_invoice()->domain); ?></button>
+
+          <table>
+            <tr>
+              <td>
+                <img id="business_logo_img" style="max-width:100px;" src="<?php echo !empty( $wpi_settings['business_logo'] ) ? $wpi_settings['business_logo'] : '//placehold.it/100?text='.__('No Logo', ud_get_wp_invoice()->domain); ?>" />
+              </td>
+              <td>
+                <button class="button-secondary business-logo-select" style="width:100px;" data-uploader_title="<?php _e('Select Logo', ud_get_wp_invoice()->domain); ?>"><?php _e('Select Logo', ud_get_wp_invoice()->domain); ?></button>
+                <?php if ( !empty( $wpi_settings['business_logo'] ) ): ?>
+                  <button id="business-logo-disable" class="button-secondary business-logo-disable"><?php _e('Disable', ud_get_wp_invoice()->domain); ?></button>
+                <?php endif; ?>
+              </td>
+            </tr>
+          </table>
+
           <script type="text/javascript">
             jQuery(document).ready(function(){
               jQuery('.business-logo-select').business_logo_select({
                 url_input: "#business_logo_path",
-                image: "#business_logo_img"
+                image: "#business_logo_img",
+                disable: "#business-logo-disable"
               });
             });
           </script>

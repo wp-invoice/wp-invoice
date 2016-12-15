@@ -756,11 +756,21 @@ jQuery( document ).ready( function () {
 
     var settings = jQuery.extend({
       url_input: '.url_input',
-      image: '.image_input'
+      image: '.image_input',
+      disable: '.disable_button'
     }, options );
 
     var file_frame;
     var that = this;
+
+    jQuery( settings.disable ).on( 'click', function(e) {
+
+      jQuery(settings.url_input).val('');
+      jQuery(settings.image).hide();
+      jQuery(e.target).hide();
+
+      return false;
+    } );
 
     this.on('click', function (event) {
 
@@ -784,7 +794,7 @@ jQuery( document ).ready( function () {
       // When an image is selected, run a callback.
       file_frame.on('select', function () {
         jQuery(settings.url_input).val(file_frame.state().get('selection').first().toJSON().url);
-        jQuery(settings.image).attr('src', file_frame.state().get('selection').first().toJSON().url);
+        jQuery(settings.image).show().attr('src', file_frame.state().get('selection').first().toJSON().url);
       });
 
       // Finally, open the modal
