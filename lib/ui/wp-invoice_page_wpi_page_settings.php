@@ -295,6 +295,9 @@ class WPI_Settings_page {
               <?php echo WPI_UI::checkbox("name=wpi_settings[turn_off_compatibility_mode]&value=true&label=" . __("Turn off compatibility mode.", ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['turn_off_compatibility_mode'])?$wpi_settings['turn_off_compatibility_mode']:false )); ?>
               <div class="description"><?php _e( 'By default the Compatibility Mode is on. If you encounter problems displaying your invoices then turn it off.', ud_get_wp_invoice()->domain ); ?></div>
             </li>
+            <li>
+              <?php echo WPI_UI::checkbox("name=wpi_settings[pre_release_updates]&value=true&label=" . __("Enable pre-release updates.", ud_get_wp_invoice()->domain), WPI_Functions::is_true( isset($wpi_settings['pre_release_updates'])?$wpi_settings['pre_release_updates']:false )); ?>
+            </li>
           </ul>
         </td>
       </tr>
