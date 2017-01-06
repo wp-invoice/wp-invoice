@@ -99,7 +99,7 @@ This Add-on allows you to export your invoices in the XML and JSON formats and i
 #### Installation
 
 1. Upload all the files into your wp-content/plugins directory, be sure to put them into a folder called "wp-invoice"
-2. Activate the plugin at the plugin administration page
+2. Activate the plugin at the plugin administration page.
 3. Follow set-up steps on main Invoice page
 4. To create your first invoice navigate to Invoice -> New Invoice, and select the user who will be the recipient.
 
