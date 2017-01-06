@@ -173,10 +173,10 @@ class WP_Invoice_AuthnetARB {
   }
 
   private function parseResults() {
-    $this->resultCode = $this->parseXML( '<resultCode>', '</resultCode>' );
-    $this->code = $this->parseXML( '<code>', '</code>' );
-    $this->text = $this->parseXML( '<text>', '</text>' );
-    $this->subscrId = $this->parseXML( '<subscriptionId>', '</subscriptionId>' );
+    $this->resultCode = $this->parseXML( '<resultCode>', '<\/resultCode>' );
+    $this->code = $this->parseXML( '<code>', '<\/code>' );
+    $this->text = $this->parseXML( '<text>', '<\/text>' );
+    $this->subscrId = $this->parseXML( '<subscriptionId>', '<\/subscriptionId>' );
 
     /*
     echo '$this->resultCode = '.$this->resultCode.'<br />';
@@ -186,8 +186,18 @@ class WP_Invoice_AuthnetARB {
      */
   }
 
+  /**
+   * Waaaaat? XML Parser? Seriously?
+   *
+   * @param $start
+   * @param $end
+   * @return mixed
+   */
   private function parseXML( $start, $end ) {
-    return preg_replace( '|^.*?' . $start . '(.*?)' . $end . '.*?$|i', '$1', substr( $this->response, 334 ) );
+    if ( preg_match( '/.*?' . $start . '(.*?)' . $end . '.*?/i', $this->response, $matches ) ) {
+      return !empty($matches[1]) ? $matches[1] : 'false';
+    }
+    return 'could not parse response';
   }
 
   public function setParameter( $field = "", $value = null ) {

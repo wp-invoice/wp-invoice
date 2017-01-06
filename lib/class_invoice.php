@@ -677,10 +677,9 @@ class WPI_Invoice {
     $this->data['net'] = number_format( (float)($total + $this->data['adjustments']), 2, '.', '' );
 
     //** Fixes calculations for recurring invoices - should be last to overwrite incorrect values. */
-    if( $this->data['type'] == 'recurring' ) {
+    if( $this->data['type'] == 'recurring' && $this->data['total_payments'] != 0 ) {
       $this->data['total_tax'] = number_format( (float)($this->data['subtotal'] * $avg_tax / 100), 2, '.', '' );
-      $this->data['net'] = number_format( (float)($this->data['subtotal'] - $this->data['total_discount'] + $this->data['total_tax']), 2, '.', '' );
-      unset($this->data['adjustments']);
+      $this->data['net'] = number_format( 0, 2, '.', '' );
     }
 
     if ( $refunds > 0 && $this->data['total_payments'] <= 0 ) {

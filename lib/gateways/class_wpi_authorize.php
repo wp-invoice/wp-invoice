@@ -556,10 +556,15 @@ class wpi_authorize extends wpi_gateway_base {
    * Handler for Silent Post Url
    */
   static function server_callback() {
+
+    if ( empty($_POST) ) {
+      die( 'Nothing to do here' );
+    }
+
     $arb = false;
     $fields = array();
 
-    foreach ($_REQUEST as $name => $value) {
+    foreach ($_POST as $name => $value) {
       $fields[$name] = $value;
       if ($name == 'x_subscription_id') {
         $arb = true;
@@ -584,14 +589,10 @@ class wpi_authorize extends wpi_gateway_base {
 
       $invoice_obj->add_entry("attribute=balance&note=$event_note&amount=$event_amount&type=$event_type");
 
-      // Complete subscription if last payment done
-      if ($invoice_obj->data['recurring']['wpi_authorize']['cycles'] <= $paynum) {
-        WPI_Functions::log_event(wpi_invoice_id_to_post_id($invoice_id), 'invoice', 'update', '', __('Subscription completely paid', ud_get_wp_invoice()->domain));
-        wp_invoice_mark_as_paid($invoice_id);
-      }
-
       $invoice_obj->save_invoice();
     }
+
+    echo 'OK';
 
   }
 
