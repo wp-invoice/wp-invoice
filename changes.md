@@ -1,3 +1,9 @@
+#### 4.1.5 ( January 6, 2017 )
+* Fixed deprecated code.
+* Enhanced logo management process.
+* Fixed contextual help.
+* Fixed Authorize.net ARB handling.
+
 #### 4.1.4 ( December 8, 2016 )
 * Fixed WordPress 4.7 compatibility issue.
 

@@ -2,7 +2,7 @@
   "name": "wp-invoice",
   "title": "WP-Invoice",
   "description": "WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.",
-  "version": "4.1.4",
+  "version": "4.1.5",
   "homepage": "https://www.usabilitydynamics.com/product/wp-invoice",
   "author": {
     "name": "UsabilityDynamics, Inc.",
