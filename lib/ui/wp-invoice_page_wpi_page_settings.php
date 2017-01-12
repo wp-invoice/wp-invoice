@@ -672,7 +672,6 @@ class WPI_Settings_page {
   static function email_templates($wpi_settings) {
 ?>
 <?php $notifications_array = apply_filters('wpi_email_templates', $wpi_settings['notification']); ?>
-    <?php //WPI_Functions::qc($notifications_array);  ?>
     <table class="ud_ui_dynamic_table widefat form-table" style="margin-bottom:8px;" auto_increment="true">
       <thead>
         <tr>
@@ -709,41 +708,6 @@ class WPI_Settings_page {
     </table>
 
     <?php
-  }
-
-  /**
-   * Log tab
-   *
-   * @param type $wpi_settings
-   */
-  function log($wpi_settings) {
-    ?>
-    <?php $wpi_log = get_option('wpi_log'); ?>
-    <?php if (is_array($wpi_log)) : ?>
-      <table class="form-table widefat" style="margin-bottom:10px;border-collapse:separate;">
-        <thead>
-          <tr>
-            <th style="width: 200px;"><?php _e('Time', ud_get_wp_invoice()->domain) ?></th>
-            <th style="width: 600px;" ><?php _e('Event', ud_get_wp_invoice()->domain) ?></th>
-          </tr>
-        </thead>
-        <tbody>
-      <?php foreach (array_reverse($wpi_log) as $event) : ?>
-            <tr>
-              <td><?php echo date("F j, Y, g:i a", $event[0]); ?></td>
-              <td><?php echo $event[1]; ?></td>
-            </tr>
-      <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th style="width: 200px;"><?php _e('Time', ud_get_wp_invoice()->domain) ?></th>
-            <th><?php _e('Event', ud_get_wp_invoice()->domain) ?></th>
-          </tr>
-        </tfoot>
-      </table>
-    <?php
-    endif;
   }
 
   /**
