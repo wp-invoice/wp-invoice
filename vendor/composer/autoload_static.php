@@ -4,11 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit757be751a53e2c155ecb0e8163d6d81f
+class ComposerStaticInitff366cc68d23fb20c7e5e2a05b74d7a6
 {
     public static $classMap = array (
         'UsabilityDynamics\\Job' => __DIR__ . '/..' . '/usabilitydynamics/lib-utility/lib/class-job.php',
         'UsabilityDynamics\\Loader' => __DIR__ . '/..' . '/usabilitydynamics/lib-utility/lib/class-loader.php',
+        'UsabilityDynamics\\SAAS_UTIL\\Register' => __DIR__ . '/..' . '/usabilitydynamics/lib-wp-saas-util/lib/classes/class-wp-saas-util.php',
         'UsabilityDynamics\\Structure' => __DIR__ . '/..' . '/usabilitydynamics/lib-utility/lib/class-structure.php',
         'UsabilityDynamics\\Term' => __DIR__ . '/..' . '/usabilitydynamics/lib-utility/lib/class-term.php',
         'UsabilityDynamics\\UD_API\\API' => __DIR__ . '/..' . '/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php',
@@ -46,7 +47,7 @@ class ComposerStaticInit757be751a53e2c155ecb0e8163d6d81f
         'UsabilityDynamics\\WPI\\LineCharge' => __DIR__ . '/../..' . '/lib/classes/class-line-charge.php',
         'UsabilityDynamics\\WPI\\LineItem' => __DIR__ . '/../..' . '/lib/classes/class-line-item.php',
         'UsabilityDynamics\\WPI\\UnifiedInvoicePage' => __DIR__ . '/../..' . '/lib/classes/class-unified-invoice-page.php',
-        'UsabilityDynamics\\WPI\\WPI_Bootstrap' => __DIR__ . '/../..' . '/lib/classes/class-WPI_Bootstrap.php',
+        'UsabilityDynamics\\WPI\\WPI_Bootstrap' => __DIR__ . '/../..' . '/lib/classes/class-wpi-bootstrap.php',
         'UsabilityDynamics\\WPLT\\Ajax' => __DIR__ . '/..' . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-ajax.php',
         'UsabilityDynamics\\WPLT\\Bootstrap' => __DIR__ . '/..' . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-bootstrap.php',
         'UsabilityDynamics\\WPLT\\Filter' => __DIR__ . '/..' . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-filter.php',
@@ -68,7 +69,7 @@ class ComposerStaticInit757be751a53e2c155ecb0e8163d6d81f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit757be751a53e2c155ecb0e8163d6d81f::$classMap;
+            $loader->classMap = ComposerStaticInitff366cc68d23fb20c7e5e2a05b74d7a6::$classMap;
 
         }, null, ClassLoader::class);
     }

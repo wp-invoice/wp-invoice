@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'UsabilityDynamics\\Job' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-job.php',
     'UsabilityDynamics\\Loader' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-loader.php',
+    'UsabilityDynamics\\SAAS_UTIL\\Register' => $vendorDir . '/usabilitydynamics/lib-wp-saas-util/lib/classes/class-wp-saas-util.php',
     'UsabilityDynamics\\Structure' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-structure.php',
     'UsabilityDynamics\\Term' => $vendorDir . '/usabilitydynamics/lib-utility/lib/class-term.php',
     'UsabilityDynamics\\UD_API\\API' => $vendorDir . '/usabilitydynamics/lib-ud-api-client/lib/classes/class-api.php',
@@ -45,7 +46,7 @@ return array(
     'UsabilityDynamics\\WPI\\LineCharge' => $baseDir . '/lib/classes/class-line-charge.php',
     'UsabilityDynamics\\WPI\\LineItem' => $baseDir . '/lib/classes/class-line-item.php',
     'UsabilityDynamics\\WPI\\UnifiedInvoicePage' => $baseDir . '/lib/classes/class-unified-invoice-page.php',
-    'UsabilityDynamics\\WPI\\WPI_Bootstrap' => $baseDir . '/lib/classes/class-WPI_Bootstrap.php',
+    'UsabilityDynamics\\WPI\\WPI_Bootstrap' => $baseDir . '/lib/classes/class-wpi-bootstrap.php',
     'UsabilityDynamics\\WPLT\\Ajax' => $vendorDir . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-ajax.php',
     'UsabilityDynamics\\WPLT\\Bootstrap' => $vendorDir . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-bootstrap.php',
     'UsabilityDynamics\\WPLT\\Filter' => $vendorDir . '/usabilitydynamics/lib-wp-list-table/lib/classes/class-filter.php',

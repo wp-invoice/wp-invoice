@@ -257,5 +257,39 @@
             "wordpress",
             "wp-list-table"
         ]
+    },
+    {
+        "name": "usabilitydynamics/lib-wp-saas-util",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "git@github.com:UsabilityDynamics/lib-wp-saas-util",
+            "reference": "1.0.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/UsabilityDynamics/lib-wp-saas-util/archive/1.0.1.zip",
+            "reference": "1.0.1",
+            "shasum": null
+        },
+        "type": "library",
+        "extra": {
+            "installer-name": "lib-wp-saas-util"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "description": "Saas utils.",
+        "homepage": "http://github.com/UsabilityDynamics/lib-wp-saas-util",
+        "support": {
+            "issues": "http://github.com/UsabilityDynamics/lib-wp-saas-util/issues"
+        }
     }
 ]

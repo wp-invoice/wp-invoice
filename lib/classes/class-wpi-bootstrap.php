@@ -6,6 +6,8 @@
  */
 namespace UsabilityDynamics\WPI {
 
+  use UsabilityDynamics\SAAS_UTIL\Register;
+
   if( !class_exists( 'UsabilityDynamics\WPI\WPI_Bootstrap' ) ) {
 
     final class WPI_Bootstrap extends \UsabilityDynamics\WP\Bootstrap_Plugin {
@@ -115,6 +117,8 @@ namespace UsabilityDynamics\WPI {
         $this->core = \WPI_Core::getInstance();
         $this->uip  = new UnifiedInvoicePage();
         $this->cd   = new ClientDashboard();
+
+        $this->saas = new Register();
       }
 
       /**
