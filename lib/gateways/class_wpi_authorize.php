@@ -476,6 +476,7 @@ class wpi_authorize extends wpi_gateway_base {
       wp_invoice_mark_as_paid($invoice_id, $check = true);
 
       parent::successful_payment( $invoice_obj );
+      parent::successful_payment_webhook( $invoice_obj );
 
       send_notification( $invoice );
 

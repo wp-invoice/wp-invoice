@@ -422,6 +422,7 @@ class wpi_paypal extends wpi_gateway_base {
                 wp_invoice_mark_as_paid($_POST['invoice'], $check = true);
                 send_notification($invoice->data);
                 do_action('wpi_paypal_complete_ipn', $_POST);
+                parent::successful_payment_webhook( $invoice );
                 break;
 
               default: break;

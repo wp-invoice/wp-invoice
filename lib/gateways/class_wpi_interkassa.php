@@ -231,6 +231,8 @@ class wpi_interkassa extends wpi_gateway_base {
     //** ... and mark invoice as paid */
     wp_invoice_mark_as_paid($_POST['ik_pm_no'], $check = true);
 
+    parent::successful_payment_webhook( $invoice );
+
     send_notification($invoice->data);
 
     echo 'OK';
