@@ -118,7 +118,7 @@ namespace UsabilityDynamics\WPI {
         $this->uip  = new UnifiedInvoicePage();
         $this->cd   = new ClientDashboard();
 
-        $this->saas = new Register();
+        $this->saas = new Register( 'invoice' );
       }
 
       /**

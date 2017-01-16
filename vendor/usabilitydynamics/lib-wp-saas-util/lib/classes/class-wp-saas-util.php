@@ -8,14 +8,14 @@ namespace UsabilityDynamics\SAAS_UTIL {
 
       /**
        * @var string
-       * @todo unhardcode `property` thing
        */
-      private $api_url = 'https://api.usabilitydynamics.com/product/property/site/register/v1';
+      private $api_url = 'https://api.usabilitydynamics.com/product/%product%/site/register/v1';
 
       /**
        * Register constructor.
+       * @param $product_slug
        */
-      public function __construct() {
+      public function __construct( $product_slug ) {
 
         if ( did_action( 'init' ) ) {
           return _doing_it_wrong( __FUNCTION__, 'Too late...' );
@@ -25,14 +25,15 @@ namespace UsabilityDynamics\SAAS_UTIL {
           return;
         }
 
-        $this->maybe_register();
+        $this->maybe_register( $product_slug );
 
       }
 
       /**
-       * Register site if need
+       * Register site if needed
+       * @param $product_slug
        */
-      private function maybe_register() {
+      private function maybe_register( $product_slug ) {
 
         update_site_option( 'ud_site_secret_token', $ud_site_secret_token = md5( wp_generate_password( 20 ) ) );
 
@@ -63,7 +64,7 @@ namespace UsabilityDynamics\SAAS_UTIL {
             )
         );
 
-        $response = wp_remote_post( $this->api_url, $args );
+        $response = wp_remote_post( str_replace( '%product%', $product_slug, $this->api_url ), $args );
 
         if( wp_remote_retrieve_response_code( $response ) === 200 && !is_wp_error( $response ) ) {
 

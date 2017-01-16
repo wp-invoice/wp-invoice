@@ -3,5 +3,5 @@
 Run somewhere in init class:
 
 ```
-$this->saas = new Register();
+$this->saas = new Register( 'invoice' );
 ```
