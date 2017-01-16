@@ -36,7 +36,7 @@ namespace UsabilityDynamics\UI {
             $path = self::_path_dir( $instance );
             break;
           case 'url':
-            $path = self::_path_url( $instance );
+            $path = plugin_dir_url( __FILE__ );
             break;
         }
         if( $path ) {
