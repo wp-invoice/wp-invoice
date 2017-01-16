@@ -79,8 +79,6 @@
 
 <div id="wpi_manage_page" class="wrap <?php echo (!empty($this_invoice->data['post_status']) ? 'wpi_invoice_status_' . $this_invoice->data['post_status'] : ''); ?>">
 
-<?php screen_icon("wpi"); ?>
-
 <h2>
   <span id="wpi_page_title"><?php _e((empty($this_invoice->data['ID']) ? 'New Invoice' : 'Edit Invoice'), ud_get_wp_invoice()->domain); ?></span>
   <input type="button" class="wpi_hide_until_saved button add-new-h2" onclick="wpi_show_paycharge_box();" value="<?php esc_attr(_e('Add Payment / Charge', ud_get_wp_invoice()->domain)) ?>" />
