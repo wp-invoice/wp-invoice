@@ -69,7 +69,7 @@ namespace UsabilityDynamics\WPI {
         global $invoice;
 
         $invoice = $_invoice;
-
+        
         $invoice['cd_permalink'] = get_invoice_permalink( $invoice['ID'] );
         $invoice['cd_due_date']  = wpi_get_invoice_due_date( 'm/d/Y' );
         $invoice['cd_invoice_id'] = invoice_id( array( 'return' => true ) );
@@ -77,8 +77,11 @@ namespace UsabilityDynamics\WPI {
         $invoice['cd_invoice_title'] = wpi_get_invoice_title();
         $invoice['cd_is_paid'] = is_paid();
         $invoice['cd_invoice_status'] = __( ucfirst( $invoice['post_status'] ), ud_get_wp_invoice()->domain );
+        
 
         if ( is_paid() ) {
+          $invoice['cd_date_paid'] = date_paid();
+
           $invoice['cd_invoice_total'] = wpi_get_total_payments( wpi_get_invoice_currency_sign() );
         } else {
           $invoice['cd_invoice_total'] = wpi_get_amount_due( wpi_get_invoice_currency_sign() );
@@ -136,10 +139,15 @@ namespace UsabilityDynamics\WPI {
             return array();
           }
         }
+		if( isset( $_GET['allowed_status'] ) && $_GET['allowed_status'] == 'paid' ){
+			$arr_allowed_status = array( 'paid' );
+		}else{
+			$arr_allowed_status = array_diff(apply_filters('cd_viewable_invoice_types', \WPI_Core::getInstance()->viewable_types()),array('paid'));
+		}
 
         $invoices_query = new \WP_Query(array(
           'post_type' => 'wpi_object',
-          'post_status' => apply_filters('cd_viewable_invoice_types', \WPI_Core::getInstance()->viewable_types()),
+          'post_status' => $arr_allowed_status,//apply_filters('cd_viewable_invoice_types', \WPI_Core::getInstance()->viewable_types()),
           'orderby' => 'modified',
           'meta_key' => 'user_email',
           'meta_value' => $current_user_email,
@@ -158,7 +166,12 @@ namespace UsabilityDynamics\WPI {
 
         return array(
           'total' => (int)$invoices_query->found_posts,
-          'items' => $invoice_objects
+          'items' => $invoice_objects,
+          'invoice_date_title' => 
+				  ( isset( $_GET['allowed_status'] ) && $_GET['allowed_status'] == 'paid' )
+			? __( "Paid date", ud_get_wp_invoice()->domain )
+			: __( "Due date", ud_get_wp_invoice()->domain )
+
         );
       }
 
