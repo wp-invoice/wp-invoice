@@ -57,10 +57,10 @@ global $invoice, $wpi_settings;
 
       <div class="col-sm-4">
         <?php if ( $logo_url = wpi_get_business_logo_url() ): ?>
-          <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
+          <div class="logo"><a href="<?php echo home_url(); ?>" ><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></a></div>
         <?php endif; ?>
           <?php if ( $business_name = wpi_get_business_name() ): ?>
-            <h1><?php echo $business_name; ?></h1>
+			<h1><a href="<?php echo home_url(); ?>"><?php echo $business_name; ?></a></h1>
           <?php endif; ?>
           <?php if ( $business_address = wpi_get_business_address() ): ?>
             <p><?php echo $business_address; ?></p>
@@ -101,9 +101,9 @@ global $invoice, $wpi_settings;
           </div>
           <h2><?php _e('Access Denied', ud_get_wp_invoice()->domain); ?></h2>
           <p><?php _e('If you see this message please be sure you followed by proper link from the invoice page or log in to see your dashboard.', ud_get_wp_invoice()->domain); ?></p>
-          <div class="success-buttons">
+<!--          <div class="success-buttons">
             <a href="<?php echo home_url(); ?>" class="btn btn-info"><?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
-          </div>
+          </div>-->
         </div><!--end /box-inner-content-->
       </div>
     </div><!--end /container-->
@@ -119,9 +119,15 @@ global $invoice, $wpi_settings;
             <div class="col-sm-5">
               <h2><?php echo wpi_get_client_dashboard_company_name(); ?></h2>
             </div>
-            <div class="col-sm-7 text-right">
+<!--            <div class="col-sm-7 text-right">
               <div class="btn-group" role="group" aria-label="...">
                 <a href="<?php echo home_url(); ?>" class="btn btn-back"> <?php _e( 'Back to website', ud_get_wp_invoice()->domain ); ?></a>
+              </div>
+            </div>-->
+			<div class="col-sm-7 text-right">
+              <div class="btn-group" role="group" aria-label="...">
+				<a ng-click="setInvoiceType('paid')" id="btn-paid" href="javascript://" class="btn btn-back"> <?php _e( 'Paid Invoices', ud_get_wp_invoice()->domain ); ?></a>
+                <a ng-click="setInvoiceType('other')" id="btn-other" href="javascript://" class="btn btn-back active"> <?php _e( 'Outstanding Invoices', ud_get_wp_invoice()->domain ); ?></a>
               </div>
             </div>
           </div>
@@ -133,7 +139,7 @@ global $invoice, $wpi_settings;
               <thead>
                 <tr>
                   <th style="width: 15%;"><?php _e( 'Status', ud_get_wp_invoice()->domain ); ?></th>
-                  <th style="width: 12%;"><?php _e( 'Due Date', ud_get_wp_invoice()->domain ); ?></th>
+				  <th style="width: 12%;" ng-bind-html="invoice_date_title" ></th>
                   <th><?php _e( 'ID', ud_get_wp_invoice()->domain ); ?></th>
                   <th><?php _e( 'Summary', ud_get_wp_invoice()->domain ); ?></th>
                   <th style="width: 10%;"><?php _e( 'Amount', ud_get_wp_invoice()->domain ); ?></th>
@@ -154,11 +160,13 @@ global $invoice, $wpi_settings;
                 </tr>
               </tbody>
               <tbody ng-if="!isError && !isLoading && displayInvoices.length">
-                <tr ng-repeat="invoice in displayInvoices" ng-click="goToInvoice(invoice.cd_permalink)">
+				<tr ng-repeat="invoice in displayInvoices" ng-click="goToInvoice(invoice.cd_permalink)" class="invoices {{invoice.cd_invoice_status}}" >
                   <td style="padding-right: 25px;"><span class="label label-{{invoice.post_status}}">{{invoice.cd_invoice_status}}</span></td>
-                  <td>{{invoice.cd_due_date}}</td>
+                  <td ng-if="invoice.post_status!='paid'">{{invoice.cd_due_date}}</td>
+                  <td ng-if="invoice.post_status=='paid'">{{invoice.cd_date_paid}}</td>
                   <td>{{invoice.cd_invoice_id}}</td>
-                  <td>[{{invoice.cd_invoice_type}}] <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
+                  <td ng-if="invoice.cd_invoice_type==='Invoice'"> <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
+                  <td ng-if="invoice.cd_invoice_type!=='Invoice'" >[{{invoice.cd_invoice_type}}] <a href="{{invoice.cd_permalink}}">{{invoice.cd_invoice_title}}</a></td>
                   <td ng-bind-html="invoice.cd_invoice_total"></td>
                 </tr>
               </tbody>
@@ -183,7 +191,7 @@ global $invoice, $wpi_settings;
 
               <uib-pagination previous-text="<?php _e( 'Previous', ud_get_wp_invoice()->domain ); ?>" next-text="<?php _e( 'Next', ud_get_wp_invoice()->domain ); ?>" last-text="<?php _e( 'Last', ud_get_wp_invoice()->domain ); ?>" first-text="<?php _e( 'First', ud_get_wp_invoice()->domain ); ?>" direction-links="false" boundary-links="true" items-per-page="perPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="paginate()"></uib-pagination>
 
-              <div class="per_page_wrapper">
+<!--              <div class="per_page_wrapper">
                 <?php _e('Invoices Per Page:', ud_get_wp_invoice()->domain); ?>
                 <select ng-model="perPage" ng-change="paginate()">
                   <option value="5">5</option>
@@ -193,7 +201,7 @@ global $invoice, $wpi_settings;
                   <option value="100">100</option>
                   <option value="-1"><?php _e( 'All', ud_get_wp_invoice()->domain ); ?></option>
                 </select>
-              </div>
+              </div>-->
 
             </div>
           </div>
