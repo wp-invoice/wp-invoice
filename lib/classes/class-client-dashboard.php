@@ -80,7 +80,7 @@ namespace UsabilityDynamics\WPI {
         
 
         if ( is_paid() ) {
-          $invoice['cd_date_paid'] = date_paid();
+          $invoice['cd_date_paid'] = date(apply_filters('wpi_date_paid_format', 'm/d/Y'), get_post_modified_time('U', false, $invoice['ID']));//date_paid();
 
           $invoice['cd_invoice_total'] = wpi_get_total_payments( wpi_get_invoice_currency_sign() );
         } else {
