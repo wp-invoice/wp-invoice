@@ -248,6 +248,33 @@ class WPI_Ajax {
     //**
     // Tags which can be used in Subject of notification email
     //*/
+
+    //** Business name according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice link */
+    $ary[ 'NotificationSubject' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationSubject' ] );
+
+	//** Format description */
+    $ary[ 'NotificationSubject' ] = str_replace( "%description%", $desc, $ary[ 'NotificationSubject' ] );
+
+    //** Business email according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator name */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator email */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice Due Date */
+    $ary[ 'NotificationSubject' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationSubject' ] );
+
+	//** Invoice type */
+    $ary[ 'NotificationSubject' ] = str_replace( "%type%", $type, $ary[ 'NotificationSubject' ] );
+	/*
+
+%pdf%*/    
     //** Invoice ID */
     $ary[ 'NotificationSubject' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationSubject' ] );
 
