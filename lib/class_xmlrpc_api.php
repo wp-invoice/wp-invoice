@@ -262,7 +262,7 @@ class WPI_XMLRPC_API {
    *
    * @return array
    */
-  function __register( $methods ) {
+  static function __register( $methods ) {
     $methods[ 'wp.invoice' ] = 'wpi_xmlrpc_request';
     return $methods;
   }
