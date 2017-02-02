@@ -211,7 +211,7 @@ class WPI_Ajax {
     $ary[ 'NotificationContent' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationContent' ] );
 
 	//** Custom Invoice ID */
-    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationContent' ] );
+    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id,  $ary[ 'NotificationContent' ] );
 
     //** Format description */
     $desc = ( !empty( $invoice[ 'post_content' ] ) ? strip_tags( $invoice[ 'post_content' ] ) : __( "No description given.", ud_get_wp_invoice()->domain ) );
