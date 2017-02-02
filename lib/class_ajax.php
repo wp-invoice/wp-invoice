@@ -186,6 +186,7 @@ class WPI_Ajax {
     $invoice = get_invoice( wpi_invoice_id_to_post_id( $invoice_id ) );
     $currency_symbol = ( !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : "$" );
     $invoice_id = ( !empty( $invoice[ 'meta' ][ 'custom_id' ] ) ? $invoice[ 'meta' ][ 'custom_id' ] : $invoice[ 'invoice_id' ] );
+    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : $invoice[ 'invoice_id' ] );
 
     //** Get creator user data */
     $creator = get_userdata( $invoice[ 'post_author' ] );
@@ -208,6 +209,9 @@ class WPI_Ajax {
     //*/
     //** Invoice ID */
     $ary[ 'NotificationContent' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationContent' ] );
+
+	//** Custom Invoice ID */
+    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationContent' ] );
 
     //** Format description */
     $desc = ( !empty( $invoice[ 'post_content' ] ) ? strip_tags( $invoice[ 'post_content' ] ) : __( "No description given.", ud_get_wp_invoice()->domain ) );
@@ -272,11 +276,12 @@ class WPI_Ajax {
 
 	//** Invoice type */
     $ary[ 'NotificationSubject' ] = str_replace( "%type%", $type, $ary[ 'NotificationSubject' ] );
-	/*
-
-%pdf%*/    
+ 
     //** Invoice ID */
     $ary[ 'NotificationSubject' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationSubject' ] );
+
+	//** Custom Invoice ID */
+    $ary[ 'NotificationSubject' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationSubject' ] );
 
     //** Recipients name */
     $ary[ 'NotificationSubject' ] = str_replace( "%recipient%", $invoice[ 'user_data' ][ 'display_name' ], $ary[ 'NotificationSubject' ] );
