@@ -9,7 +9,9 @@ abstract class wpi_gateway_base {
 
   const TEXT_INPUT_TYPE = 'text';
   const SELECT_INPUT_TYPE = 'select';
-
+  const TEXTAREA_INPUT_TYPE = 'textarea';
+  const CHECKBOX_INPUT_TYPE = 'checkbox';
+  
   var $options = array();
   var $front_end_fields = array();
 
