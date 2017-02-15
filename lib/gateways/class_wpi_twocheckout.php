@@ -12,7 +12,7 @@
 class wpi_twocheckout extends wpi_gateway_base {
   
   static $_options = array();
-
+  public $_country_arr, $_us_states_arr, $_canada_states_arr;
   /**
    * Constructor
    */
@@ -51,6 +51,323 @@ class wpi_twocheckout extends wpi_gateway_base {
     );
     
     //** Fields for front-end. */
+	$this->_us_states_arr = array(
+		'' => 'Select one',
+		'AL' => 'Alabama',
+		'AK' => 'Alaska',
+		'AS' => 'American Samoa',
+		'AZ' => 'Arizona',
+		'AR' => 'Arkansas',
+		'AA' => 'Armed Forces Americas',
+		'AE' => 'Armed Forces Europe, Middle East and Canada',
+		'AP' => 'Armed Forces Pacific',
+		'CA' => 'California',
+		'CO' => 'Colorado',
+		'CT' => 'Connecticut',
+		'DE' => 'Delaware',
+		'DC' => 'District of Columbia',
+		'FM' => 'Federated States of Micronesia',
+		'FL' => 'Florida',
+		'GA' => 'Georgia',
+		'GU' => 'Guam',
+		'HI' => 'Hawaii',
+		'ID' => 'Idaho',
+		'IL' => 'Illinois',
+		'IN' => 'Indiana',
+		'IA' => 'Iowa',
+		'KS' => 'Kansas',
+		'KY' => 'Kentucky',
+		'LA' => 'Louisiana',
+		'ME' => 'Maine',
+		'MH' => 'Marshall Islands',
+		'MD' => 'Maryland',
+		'MA' => 'Massachusetts',
+		'MI' => 'Michigan',
+		'MN' => 'Minnesota',
+		'MS' => 'Mississippi',
+		'MO' => 'Missouri',
+		'MT' => 'Montana',
+		'NE' => 'Nebraska',
+		'NV' => 'Nevada',
+		'NH' => 'New Hampshire',
+		'NJ' => 'New Jersey',
+		'NM' => 'New Mexico',
+		'NY' => 'New York',
+		'NC' => 'North Carolina',
+		'ND' => 'North Dakota',
+		'MP' => 'Northern Mariana Islands',
+		'OH' => 'Ohio',
+		'OK' => 'Oklahoma',
+		'OR' => 'Oregon',
+		'PW' => 'Palau',
+		'PA' => 'Pennsylvania',
+		'PR' => 'Puerto Rico',
+		'RI' => 'Rhode Island',
+		'SC' => 'South Carolina',
+		'SD' => 'South Dakota',
+		'TN' => 'Tennessee',
+		'TX' => 'Texas',
+		'UT' => 'Utah',
+		'VT' => 'Vermont',
+		'VI' => 'Virgin Islands',
+		'VA' => 'Virginia',
+		'WA' => 'Washington',
+		'WV' => 'West Virginia'
+      );
+    $this->_canada_states_arr = array(
+		'' => 'Select one', 'AB' => 'Alberta', 'BC' => 'British Columbia', 'MB' => 'Manitoba', 'NB' => 'New Brunswick', 'NF' => 'Newfoundland', 'NS' => 'Nova Scotia', 'NT' => 'Northwest Territories', 'NU' => 'Nunavut', 'ON' => 'Ontario', 'PE' => 'Prince Edward Island', 'QC' => 'Quebec', 'SK' => 'Saskatchewan', 'YT' => 'Yukon Territory'
+      );
+    $this->_country_arr = array(
+      ''=>'Choose Country',
+        'IND'=>'India',
+        'USA' => 'United States',
+        'GBR' => 'United Kingdom',
+        'CAN' => 'Canada',
+        'AUS' => 'Australia',
+        'ALA' => 'Åland Islands',
+        'AFG' => 'Afghanistan',
+        'ALB' => 'Albania',
+        'DZA' => 'Algeria',
+        'ASM' => 'American Samoa',
+        'AND' => 'Andorra',
+        'AGO' => 'Angola',
+        'AIA' => 'Anguilla',
+        'ATA' => 'Antarctica',
+        'ATG' => 'Antigua and Barbuda',
+        'ARG' => 'Argentina',
+        'ARM' => 'Armenia',
+        'ABW' => 'Aruba',
+        'AUS' => 'Australia',
+        'AUT' => 'Austria',
+        'AZE' => 'Azerbaijan',
+        'BHS' => 'Bahamas',
+        'BHR' => 'Bahrain',
+        'BGD' => 'Bangladesh',
+        'BRB' => 'Barbados',
+        'BLR' => 'Belarus',
+        'BEL' => 'Belgium',
+        'BLZ' => 'Belize',
+        'BEN' => 'Benin',
+        'BMU' => 'Bermuda',
+        'BTN' => 'Bhutan',
+        'BOL' => 'Bolivia',
+        'BES' => 'Bonaire, Sint Eustatius and Saba',
+        'BIH' => 'Bosnia and Herzegovina',
+        'BWA' => 'Botswana',
+        'BVT' => 'Bouvet Island',
+        'BRA' => 'Brazil',
+        'IOT' => 'British Indian Ocean Territory',
+        'BRN' => 'Brunei Darussalam',
+        'BGR' => 'Bulgaria',
+        'BFA' => 'Burkina Faso',
+        'BDI' => 'Burundi',
+        'KHM' => 'Cambodia',
+        'CMR' => 'Cameroon',
+        'CAN' => 'Canada',
+        'CPV' => 'Cape Verde',
+        'CYM' => 'Cayman Islands',
+        'CAF' => 'Central African Republic',
+        'TCD' => 'Chad',
+        'CHL' => 'Chile',
+        'CHN' => 'China',
+        'CXR' => 'Christmas Island',
+        'CCK' => 'Cocos (Keeling) Islands',
+        'COL' => 'Colombia',
+        'COM' => 'Comoros',
+        'COG' => 'Congo',
+        'COD' => 'Congo, the Democratic Republic of the',
+        'COK' => 'Cook Islands',
+        'CRI' => 'Costa Rica',
+        'CIV' => 'Cote D\'ivoire',
+        'HRV' => 'Croatia (Hrvatska)',
+        'CYP' => 'Cyprus',
+        'CZE' => 'Czech Republic',
+        'DNK' => 'Denmark',
+        'DJI' => 'Djibouti',
+        'DMA' => 'Dominica',
+        'DOM' => 'Dominican Republic',
+        'ECU' => 'Ecuador',
+        'EGY' => 'Egypt',
+        'SLV' => 'El Salvador',
+        'GNQ' => 'Equatorial Guinea',
+        'ERI' => 'Eritrea',
+        'EST' => 'Estonia',
+        'ETH' => 'Ethiopia',
+        'FLK' => 'Falkland Islands (Malvinas)',
+        'FRO' => 'Faroe Islands',
+        'FJI' => 'Fiji',
+        'FIN' => 'Finland',
+        'FRA' => 'France',
+        'FXX' => 'France, Metropolitan',
+        'GUF' => 'French Guiana',
+        'PYF' => 'French Polynesia',
+        'ATF' => 'French Southern Territories',
+        'GAB' => 'Gabon',
+        'GMB' => 'Gambia',
+        'GEO' => 'Georgia',
+        'DEU' => 'Germany',
+        'GHA' => 'Ghana',
+        'GIB' => 'Gibraltar',
+        'GRC' => 'Greece',
+        'GRL' => 'Greenland',
+        'GRD' => 'Grenada',
+        'GLP' => 'Guadeloupe',
+        'GUM' => 'Guam',
+        'GTM' => 'Guatemala',
+        'GGY' => 'Guernsey',
+        'GIN' => 'Guinea',
+        'GNB' => 'Guinea-Bissau',
+        'GUY' => 'Guyana',
+        'HTI' => 'Haiti',
+        'HMD' => 'Heard Island and Mcdonald Islands',
+        'HND' => 'Honduras',
+        'HKG' => 'Hong Kong',
+        'HUN' => 'Hungary',
+        'ISL' => 'Iceland',
+        'IND' => 'India',
+        'IDN' => 'Indonesia',
+        'IRQ' => 'Iraq',
+        'IRL' => 'Ireland',
+        'IMN' => 'Isle of Man',
+        'ISR' => 'Israel',
+        'ITA' => 'Italy',
+        'JAM' => 'Jamaica',
+        'JPN' => 'Japan',
+        'JEY' => 'Jersey',
+        'JOR' => 'Jordan',
+        'KAZ' => 'Kazakhstan',
+        'KEN' => 'Kenya',
+        'KIR' => 'Kiribati',
+        'KOR' => 'Korea, Republic of',
+        'KWT' => 'Kuwait',
+        'KGZ' => 'Kyrgyzstan',
+        'LAO' => 'Lao People\'s Democratic Republic',
+        'LVA' => 'Latvia',
+        'LBN' => 'Lebanon',
+        'LSO' => 'Lesotho',
+        'LBR' => 'Liberia',
+        'LBY' => 'Libyan Arab Jamahiriya',
+        'LIE' => 'Liechtenstein',
+        'LTU' => 'Lithuania',
+        'LUX' => 'Luxembourg',
+        'MAC' => 'Macao',
+        'MKD' => 'Macedonia',
+        'MDG' => 'Madagascar',
+        'MWI' => 'Malawi',
+        'MYS' => 'Malaysia',
+        'MDV' => 'Maldives',
+        'MLI' => 'Mali',
+        'MLT' => 'Malta',
+        'MHL' => 'Marshall Islands',
+        'MTQ' => 'Martinique',
+        'MRT' => 'Mauritania',
+        'MUS' => 'Mauritius',
+        'MYT' => 'Mayotte',
+        'MEX' => 'Mexico',
+        'FSM' => 'Micronesia, Federated States of',
+        'MDA' => 'Moldova, Republic of',
+        'MCO' => 'Monaco',
+        'MNG' => 'Mongolia',
+        'MNE' => 'Montenegro',
+        'MSR' => 'Montserrat',
+        'MAR' => 'Morocco',
+        'MOZ' => 'Mozambique',
+        'MMR' => 'Myanmar',
+        'NAM' => 'Namibia',
+        'NRU' => 'Nauru',
+        'NPL' => 'Nepal',
+        'NLD' => 'Netherlands',
+        'ANT' => 'Netherlands Antilles',
+        'NCL' => 'New Caledonia',
+        'NZL' => 'New Zealand',
+        'NIC' => 'Nicaragua',
+        'NER' => 'Niger',
+        'NGA' => 'Nigeria',
+        'NIU' => 'Niue',
+        'NFK' => 'Norfolk Island',
+        'MNP' => 'Northern Mariana Islands',
+        'NOR' => 'Norway',
+        'OMN' => 'Oman',
+        'PAK' => 'Pakistan',
+        'PLW' => 'Palau',
+        'PSE' => 'Palestinian Territory, Occupied',
+        'PAN' => 'Panama',
+        'PNG' => 'Papua New Guinea',
+        'PRY' => 'Paraguay',
+        'PER' => 'Peru',
+        'PHL' => 'Philippines',
+        'PCN' => 'Pitcairn',
+        'POL' => 'Poland',
+        'PRT' => 'Portugal',
+        'PRI' => 'Puerto Rico',
+        'QAT' => 'Qatar',
+        'REU' => 'Reunion',
+        'ROU' => 'Romania',
+        'RUS' => 'Russian Federation',
+        'RWA' => 'Rwanda',
+        'SHN' => 'Saint Helena',
+        'KNA' => 'Saint Kitts and Nevis',
+        'LCA' => 'Saint Lucia',
+        'SPM' => 'Saint Pierre and Miquelon',
+        'VCT' => 'Saint Vincent and the Grenadines',
+        'WSM' => 'Samoa',
+        'SMR' => 'San Marino',
+        'STP' => 'Sao Tome and Principe',
+        'SAU' => 'Saudi Arabia',
+        'SEN' => 'Senegal',
+        'SRB' => 'Serbia',
+        'SCG' => 'Serbia and Montenegro',
+        'SYC' => 'Seychelles',
+        'SLE' => 'Sierra Leone',
+        'SGP' => 'Singapore',
+        'SVK' => 'Slovakia',
+        'SVN' => 'Slovenia',
+        'SLB' => 'Solomon Islands',
+        'SOM' => 'Somalia',
+        'ZAF' => 'South Africa',
+        'SGS' => 'South Georgia and the South Sandwich Islands',
+        'ESP' => 'Spain',
+        'LKA' => 'Sri Lanka',
+        'SUR' => 'Suriname',
+        'SJM' => 'Svalbard and Jan Mayen Islands',
+        'SWZ' => 'Swaziland',
+        'SWE' => 'Sweden',
+        'CHE' => 'Switzerland',
+        'TWN' => 'Taiwan',
+        'TJK' => 'Tajikistan',
+        'TZA' => 'Tanzania, United Republic of',
+        'THA' => 'Thailand',
+        'TLS' => 'Timor-Leste',
+        'TGO' => 'Togo',
+        'TKL' => 'Tokelau',
+        'TON' => 'Tonga',
+        'TTO' => 'Trinidad and Tobago',
+        'TUN' => 'Tunisia',
+        'TUR' => 'Turkey',
+        'TKM' => 'Turkmenistan',
+        'TCA' => 'Turks and Caicos Islands',
+        'TUV' => 'Tuvalu',
+        'UGA' => 'Uganda',
+        'UKR' => 'Ukraine',
+        'ARE' => 'United Arab Emirates',
+        'GBR' => 'United Kingdom',
+        'USA' => 'United States',
+        'UMI' => 'United States Minor Outlying Islands',
+        'URY' => 'Uruguay',
+        'UZB' => 'Uzbekistan',
+        'VUT' => 'Vanuatu',
+        'VAT' => 'Vatican City State (Holy See)',
+        'VEN' => 'Venezuela',
+        'VNM' => 'Viet Nam',
+        'VGB' => 'Virgin Islands, British',
+        'VIR' => 'Virgin Islands, U.S.',
+        'WLF' => 'Wallis and Futuna Islands',
+        'ESH' => 'Western Sahara',
+        'YEM' => 'Yemen',
+        'YUG' => 'Yugoslavia',
+        'ZAR' => 'Zaire',
+        'ZMB' => 'Zambia',
+        'ZWE'=>'Zimbabwe');
     $this->front_end_fields = array(
         'customer_information' => array(
             'first_name' => array(
@@ -74,19 +391,26 @@ class wpi_twocheckout extends wpi_gateway_base {
             'phonenumber' => array(
                 'type' => 'text',
                 'class' => 'text-input',
-                'name' => 'phonenumber',
+                'name' => 'phone',
                 'label' => __('Phone', ud_get_wp_invoice()->domain)
             ),
             'streetaddress' => array(
                 'type' => 'text',
                 'class' => 'text-input',
                 'name' => 'street_address',
-                'label' => __('Address', ud_get_wp_invoice()->domain)
+                'label' => __('Address Line 1', ud_get_wp_invoice()->domain)
             ),
-            'country' => array(
+            'streetaddress2' => array(
                 'type' => 'text',
                 'class' => 'text-input',
+                'name' => 'street_address2',
+                'label' => __('Address Line 2', ud_get_wp_invoice()->domain)
+            ),
+            'country' => array(
+                'type' => 'select',
+                'class' => 'text-input',
                 'name' => 'country',
+				'values'=> serialize($this->_country_arr),
                 'label' => __('Country', ud_get_wp_invoice()->domain)
             ),
             'city' => array(
@@ -97,9 +421,26 @@ class wpi_twocheckout extends wpi_gateway_base {
             ),
             'state' => array(
                 'type' => 'text',
-                'class' => 'text-input',
+                'class' => 'text-input hidden state-input',
+                'liclass' => 'li-state',
                 'name' => 'state',
                 'label' => __('State/Province', ud_get_wp_invoice()->domain)
+            ),
+            'can_state' => array(
+				'type' => 'select',
+				'class' => 'text-input hidden state-input',
+				'liclass' => 'li-state',
+				'name' => 'state',
+				'values'=> serialize($this->_canada_states_arr),
+				'label' => __('State/Province', ud_get_wp_invoice()->domain)
+            ),
+            'usa_state' => array(
+				'type' => 'select',
+				'class' => 'text-input state-input',
+				'liclass' => 'li-state',
+				'name' => 'state',
+				'values'=> serialize($this->_us_states_arr),
+				'label' => __('State/Province', ud_get_wp_invoice()->domain)
             ),
             'zip' => array(
                 'type' => 'text',
@@ -165,7 +506,7 @@ class wpi_twocheckout extends wpi_gateway_base {
    */
   static function process_payment() {
     global $invoice;
-
+	
     $wp_users_id = $invoice['user_data']['ID'];
 
     // update user data
@@ -175,7 +516,8 @@ class wpi_twocheckout extends wpi_gateway_base {
     update_user_meta($wp_users_id, 'state', !empty($_REQUEST['state'])?$_REQUEST['state']:'' );
     update_user_meta($wp_users_id, 'zip', !empty($_REQUEST['zip'])?$_REQUEST['zip']:'' );
     update_user_meta($wp_users_id, 'streetaddress', !empty($_REQUEST['street_address'])?$_REQUEST['street_address']:'' );
-    update_user_meta($wp_users_id, 'phonenumber', !empty($_REQUEST['phonenumber'])?$_REQUEST['phonenumber']:'' );
+	update_user_meta($wp_users_id, 'streetaddress2', !empty($_REQUEST['street_address2'])?$_REQUEST['street_address2']:'' );
+    update_user_meta($wp_users_id, 'phonenumber', !empty($_REQUEST['phone'])?$_REQUEST['phone']:'' );
     update_user_meta($wp_users_id, 'country', !empty($_REQUEST['country'])?$_REQUEST['country']:'' );
 
     if ( !empty( $_REQUEST['crm_data'] ) ) {
@@ -197,7 +539,7 @@ class wpi_twocheckout extends wpi_gateway_base {
    * @param type $invoice
    */
   public function wpi_payment_fields($invoice) {
-
+	  
     $this->front_end_fields = apply_filters('wpi_crm_custom_fields', $this->front_end_fields, 'crm_data');
 
     if (!empty($this->front_end_fields)) {
@@ -225,11 +567,11 @@ class wpi_twocheckout extends wpi_gateway_base {
                 case self::TEXT_INPUT_TYPE:
                   ?>
 
-                  <li class="wpi_checkout_row">
+                  <li id="li_<?php echo  esc_attr($field_slug);?>"  class="wpi_checkout_row <?php echo ( $field_data['liclass']!=''?$field_data['liclass']:'' );?>">
                     <div class="control-group">
                       <label class="control-label" for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                       <div class="controls">
-                        <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:'');?>" />
+                        <input type="<?php echo esc_attr($field_data['type']); ?>" class="<?php echo esc_attr($field_data['class']); ?>"  name="<?php echo esc_attr($field_data['name']); ?>" value="<?php echo isset($field_data['value'])?$field_data['value']:(!empty($invoice['user_data'][$field_slug])?$invoice['user_data'][$field_slug]:get_user_meta($invoice['user_data']['ID'],$field_slug,true));?>" />
                       </div>
                     </div>
                   </li>
@@ -242,7 +584,7 @@ class wpi_twocheckout extends wpi_gateway_base {
                 case self::SELECT_INPUT_TYPE:
                   ?>
 
-                  <li class="wpi_checkout_row">
+                  <li id="li_<?php echo  esc_attr($field_slug);?>"  class="wpi_checkout_row <?php echo ( $field_data['liclass']!=''?$field_data['liclass']:'' );?>">
                     <label for="<?php echo esc_attr($field_slug); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                     <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
                   </li>
