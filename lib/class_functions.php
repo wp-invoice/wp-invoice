@@ -2018,6 +2018,33 @@ class WPI_Functions {
             'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
           );
           break;
+
+		case 'checkbox':
+
+          $values = array();
+          foreach( $attr_value['option_keys'] as $o_k => $o_v ) {
+            $values[$o_v] = $attr_value['option_labels'][$o_k];
+          }
+
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'checkbox',
+            'class' => 'checkbox-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], ud_get_wp_invoice()->domain ),
+            'values' => serialize($values),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
+
+		case 'textarea':
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'textarea',
+            'class' => 'textarea-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], ud_get_wp_invoice()->domain ),
+            'value' => get_user_meta( $invoice['user_data']['ID'], $attr_key, 1 )
+          );
+          break;
         
         default:
           $current_fields[ 'customer_information' ][ $attr_key ] = array(

@@ -418,7 +418,7 @@ class WPI_UI {
       } );
     </script>
     <input type="text" name="<?php echo $input_name; ?>" class="<?php echo $input_class; ?>"
-           id="<?php echo $input_id; ?>" style="<?php echo $input_style; ?>"/>
+           id="<?php echo $input_id; ?>" style="<?php echo $input_style; ?>" value="<?php echo isset($_GET['email'])?$_GET['email']:'' ?>"/>
   <?php
   }
 

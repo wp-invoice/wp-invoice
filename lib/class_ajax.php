@@ -186,6 +186,7 @@ class WPI_Ajax {
     $invoice = get_invoice( wpi_invoice_id_to_post_id( $invoice_id ) );
     $currency_symbol = ( !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : "$" );
     $invoice_id = ( !empty( $invoice[ 'meta' ][ 'custom_id' ] ) ? $invoice[ 'meta' ][ 'custom_id' ] : $invoice[ 'invoice_id' ] );
+    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : $invoice[ 'invoice_id' ] );
 
     //** Get creator user data */
     $creator = get_userdata( $invoice[ 'post_author' ] );
@@ -208,6 +209,9 @@ class WPI_Ajax {
     //*/
     //** Invoice ID */
     $ary[ 'NotificationContent' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationContent' ] );
+
+	//** Custom Invoice ID */
+    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationContent' ] );
 
     //** Format description */
     $desc = ( !empty( $invoice[ 'post_content' ] ) ? strip_tags( $invoice[ 'post_content' ] ) : __( "No description given.", ud_get_wp_invoice()->domain ) );
@@ -248,8 +252,36 @@ class WPI_Ajax {
     //**
     // Tags which can be used in Subject of notification email
     //*/
+
+    //** Business name according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice link */
+    $ary[ 'NotificationSubject' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationSubject' ] );
+
+	//** Format description */
+    $ary[ 'NotificationSubject' ] = str_replace( "%description%", $desc, $ary[ 'NotificationSubject' ] );
+
+    //** Business email according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator name */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator email */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice Due Date */
+    $ary[ 'NotificationSubject' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationSubject' ] );
+
+	//** Invoice type */
+    $ary[ 'NotificationSubject' ] = str_replace( "%type%", $type, $ary[ 'NotificationSubject' ] );
+ 
     //** Invoice ID */
     $ary[ 'NotificationSubject' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationSubject' ] );
+
+	//** Custom Invoice ID */
+    $ary[ 'NotificationSubject' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationSubject' ] );
 
     //** Recipients name */
     $ary[ 'NotificationSubject' ] = str_replace( "%recipient%", $invoice[ 'user_data' ][ 'display_name' ], $ary[ 'NotificationSubject' ] );

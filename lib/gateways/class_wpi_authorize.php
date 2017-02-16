@@ -303,12 +303,10 @@ class wpi_authorize extends wpi_gateway_base {
             //** Change field properties if we need */
             $field_data = apply_filters('wpi_payment_form_styles', $field_data, $field_slug, 'wpi_authorize');
             $html = '';
-
             ob_start();
 
             switch ( $field_data['type'] ) {
               case self::TEXT_INPUT_TYPE:
-
                 ?>
 
                 <li class="wpi_checkout_row">
@@ -333,6 +331,45 @@ class wpi_authorize extends wpi_gateway_base {
                 <li class="wpi_checkout_row">
                   <label for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
                   <?php echo WPI_UI::select("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
+                </li>
+
+                <?php
+
+                $html = ob_get_clean();
+
+                break;
+
+			  case self::CHECKBOX_INPUT_TYPE:
+
+                ?>
+
+                <li class="wpi_checkout_row">
+					<?php 
+					$values = maybe_unserialize($field_data['values']);
+					$k_cnt = 0;
+					foreach ($values as $k_val => $v_val) {
+						if($k_cnt==0){ ?>
+		                  <label for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
+						<?php }else{ ?>
+							</li><li class="wpi_checkout_row"><label>&nbsp;</label>
+						<?php }
+						$k_cnt++;
+						echo WPI_UI::checkbox("name={$k_val}&id={$k_val}&class={$field_data['class']}&group={$field_slug}&label={$v_val}"); ?>
+					<?php } ?>
+                </li>
+
+                <?php
+
+                $html = ob_get_clean();
+
+                break;
+
+              case self::TEXTAREA_INPUT_TYPE:
+
+                ?>
+                <li class="wpi_checkout_row">
+                  <label for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
+                  <?php echo WPI_UI::textarea("name={$field_data['name']}&values={$field_data['values']}&id={$field_slug}&class={$field_data['class']}"); ?>
                 </li>
 
                 <?php
