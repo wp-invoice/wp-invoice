@@ -344,18 +344,23 @@ class wpi_authorize extends wpi_gateway_base {
                 ?>
 
                 <li class="wpi_checkout_row">
+					<div class="control-group">
 					<?php 
 					$values = maybe_unserialize($field_data['values']);
 					$k_cnt = 0;
 					foreach ($values as $k_val => $v_val) {
 						if($k_cnt==0){ ?>
-		                  <label for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
+		                  <label class="control-label" for="<?php echo esc_attr( $field_slug ); ?>"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
 						<?php }else{ ?>
-							</li><li class="wpi_checkout_row"><label>&nbsp;</label>
-						<?php }
-						$k_cnt++;
-						echo WPI_UI::checkbox("name={$k_val}&id={$k_val}&class={$field_data['class']}&group={$field_slug}&label={$v_val}"); ?>
+							</div></li><li class="wpi_checkout_row"><div class="control-group"><label class="control-label" >&nbsp;</label>
+						<?php } ?>
+						<div class="controls" for="<?php echo $k_val; ?>" >
+						<?php
+							$k_cnt++;
+							echo WPI_UI::checkbox("name={$k_val}&id={$k_val}&class={$field_data['class']}&group={$field_slug}&label={$v_val}"); ?>
+						</div>
 					<?php } ?>
+					</div>
                 </li>
 
                 <?php
