@@ -251,7 +251,7 @@ class WPI_XMLRPC_API {
    */
   function __construct() {
     //** Extend standard XML-RPC */
-    add_filter( 'xmlrpc_methods', array( __CLASS__, '__register' ) );
+    add_filter( 'xmlrpc_methods', array( __CLASS__, 'r__register' ) );
     add_action( 'wpi_settings_before_help', 'wpi_help_api_reference' );
   }
 
@@ -262,7 +262,7 @@ class WPI_XMLRPC_API {
    *
    * @return array
    */
-  static function __register( $methods ) {
+  static function r__register( $methods ) {
     $methods[ 'wp.invoice' ] = 'wpi_xmlrpc_request';
     return $methods;
   }

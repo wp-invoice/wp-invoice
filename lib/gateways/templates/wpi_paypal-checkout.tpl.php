@@ -10,7 +10,7 @@ $custom = array('obj' => 'spc');
 <?php		foreach($atts['items'] as $item): ?>
 <?php			$item_tax = ($item['price']/100*$item['tax']); ?>
           <input type="checkbox" paypal_item_name="item_name_<?php echo $i; ?>" <?php echo ($atts['uncheck_items'] != 'true' ? 'checked="true"' : ''); ?>  style="display:none;" class="wpi_checkout_products wpi_paypal" item_price="<?php echo esc_attr( number_format( (float)($item['price']*$item['quantity'] + ($item['price']*$item['quantity']/100*$item['tax'])), 2, '.', '') ); ?>"  item_name="<?php echo esc_attr($item['name']); ?>" name="wpi_checkout[items][<?php echo esc_attr($item['name']); ?>]" value="true" />
-          <input type="hidden" paypal_item_name="item_name_<?php echo $i; ?>"  name="item_name_<?php echo $i; ?>" value="<?php echo esc_attr($item['name']); ?>" />
+          <input type="hidden" paypal_item_name="item_name_<?php echo $i; ?>"  name="item_name_<?php echo $i; ?>" value="<?php echo str_replace( "'", "&apos;", esc_attr( $item['name'] ) ); ?>" />
           <input type="hidden" paypal_item_name="item_name_<?php echo $i; ?>" name="item_number_<?php echo $i; ?>" value="<?php echo $i; ?>" />
           <input type="hidden" paypal_item_name="item_name_<?php echo $i; ?>" name="amount_<?php echo $i; ?>" value="<?php echo esc_attr( number_format( (float)$item['price'], 2, '.', '' ) ); ?>" />
           <input type="hidden" paypal_item_name="item_name_<?php echo $i; ?>" name="quantity_<?php echo $i; ?>" value="<?php echo esc_attr($item['quantity']); ?>" />
