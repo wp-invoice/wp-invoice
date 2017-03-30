@@ -176,126 +176,16 @@ class WPI_Ajax {
    * @global array $wpi_settings
    */
   static function get_notification_email() {
-    global $wpi_settings, $invoice;
-
-    require_once( ud_get_wp_invoice()->path( 'lib/class_template_functions.php', 'dir' ) );
 
     $template_id = intval( $_REQUEST[ 'template_id' ] );
     $invoice_id = intval( $_REQUEST[ 'wpi_invoiceid' ] );
 
-    $invoice = get_invoice( wpi_invoice_id_to_post_id( $invoice_id ) );
-    $currency_symbol = ( !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : "$" );
-    $invoice_id = ( !empty( $invoice[ 'meta' ][ 'custom_id' ] ) ? $invoice[ 'meta' ][ 'custom_id' ] : $invoice[ 'invoice_id' ] );
-    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : $invoice[ 'invoice_id' ] );
-
-    //** Get creator user data */
-    $creator = get_userdata( $invoice[ 'post_author' ] );
-
-    //** Due Date */
-    $due_date = get_due_date( $invoice );
-    $due_date = $due_date ? $due_date : __( 'Due date is not set', ud_get_wp_invoice()->domain );
-
-    //** Type */
-    $type = !empty( $invoice[ 'type' ] ) ? $invoice[ 'type' ] : __( 'invoice', ud_get_wp_invoice()->domain );
-    $type = $type == 'recurring' ? $type . ' ' . __( 'invoice', ud_get_wp_invoice()->domain ) : $type;
-
-    //** Load Templates */
-    $template_array = apply_filters( 'wpi_email_templates', $wpi_settings[ 'notification' ] );
-
-    $ary[ 'NotificationContent' ] = $template_array[ $template_id ][ 'content' ];
-
-    //**
-    // Tags which can be used in Content of notification email
-    //*/
-    //** Invoice ID */
-    $ary[ 'NotificationContent' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationContent' ] );
-
-	//** Custom Invoice ID */
-    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationContent' ] );
-
-    //** Format description */
-    $desc = ( !empty( $invoice[ 'post_content' ] ) ? strip_tags( $invoice[ 'post_content' ] ) : __( "No description given.", ud_get_wp_invoice()->domain ) );
-    $ary[ 'NotificationContent' ] = str_replace( "%description%", $desc, $ary[ 'NotificationContent' ] );
-
-    //** Recipient name */
-    $ary[ 'NotificationContent' ] = str_replace( "%recipient%", recipients_name( array( 'return' => true ) ), $ary[ 'NotificationContent' ] );
-
-    //** Invoice link */
-    $ary[ 'NotificationContent' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationContent' ] );
-
-    //** Invoice balance */
-    $ary[ 'NotificationContent' ] = str_replace( "%amount%", $currency_symbol . wp_invoice_currency_format( $invoice[ 'net' ] ), $ary[ 'NotificationContent' ] );
-
-    //** Invoice subject/title */
-    $ary[ 'NotificationContent' ] = str_replace( "%subject%", $invoice[ 'post_title' ], $ary[ 'NotificationContent' ] );
-
-    //** Business name according to business settings */
-    $ary[ 'NotificationContent' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationContent' ] );
-
-    //** Business email according to business settings */
-    $ary[ 'NotificationContent' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationContent' ] );
-
-    //** Invoice creator name */
-    $ary[ 'NotificationContent' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationContent' ] );
-
-    //** Invoice creator email */
-    $ary[ 'NotificationContent' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationContent' ] );
-
-    //** Invoice Due Date */
-    $ary[ 'NotificationContent' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationContent' ] );
-
-    //** Invoice type */
-    $ary[ 'NotificationContent' ] = str_replace( "%type%", $type, $ary[ 'NotificationContent' ] );
-
-    $ary[ 'NotificationSubject' ] = $template_array[ $template_id ][ 'subject' ];
-
-    //**
-    // Tags which can be used in Subject of notification email
-    //*/
-
-    //** Business name according to business settings */
-    $ary[ 'NotificationSubject' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationSubject' ] );
-
-    //** Invoice link */
-    $ary[ 'NotificationSubject' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationSubject' ] );
-
-	//** Format description */
-    $ary[ 'NotificationSubject' ] = str_replace( "%description%", $desc, $ary[ 'NotificationSubject' ] );
-
-    //** Business email according to business settings */
-    $ary[ 'NotificationSubject' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationSubject' ] );
-
-    //** Invoice creator name */
-    $ary[ 'NotificationSubject' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationSubject' ] );
-
-    //** Invoice creator email */
-    $ary[ 'NotificationSubject' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationSubject' ] );
-
-    //** Invoice Due Date */
-    $ary[ 'NotificationSubject' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationSubject' ] );
-
-	//** Invoice type */
-    $ary[ 'NotificationSubject' ] = str_replace( "%type%", $type, $ary[ 'NotificationSubject' ] );
- 
-    //** Invoice ID */
-    $ary[ 'NotificationSubject' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationSubject' ] );
-
-	//** Custom Invoice ID */
-    $ary[ 'NotificationSubject' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationSubject' ] );
-
-    //** Recipients name */
-    $ary[ 'NotificationSubject' ] = str_replace( "%recipient%", $invoice[ 'user_data' ][ 'display_name' ], $ary[ 'NotificationSubject' ] );
-
-    //** Invoice balance */
-    $ary[ 'NotificationSubject' ] = str_replace( "%amount%", $invoice[ 'net' ], $ary[ 'NotificationSubject' ] );
-
-    //** Invoice subject/title */
-    $ary[ 'NotificationSubject' ] = str_replace( "%subject%", $invoice[ 'post_title' ], $ary[ 'NotificationSubject' ] );
+    $template = WPI_Functions::preprocess_notification_template( $template_id, $invoice_id );
 
     $aryJson = array();
     //** Filter data before using. korotkov@ud */
-    $aryJson[ 'wpi_content' ] = apply_filters( 'wpi_notification_content', $ary[ 'NotificationContent' ], $invoice );
-    $aryJson[ 'wpi_subject' ] = apply_filters( 'wpi_notification_subject', $ary[ 'NotificationSubject' ], $invoice );
+    $aryJson[ 'wpi_content' ] = apply_filters( 'wpi_notification_content', $template->ary[ 'NotificationContent' ], $template->invoice );
+    $aryJson[ 'wpi_subject' ] = apply_filters( 'wpi_notification_subject', $template->ary[ 'NotificationSubject' ], $template->invoice );
 
     die( json_encode( $aryJson ) );
   }
@@ -306,7 +196,7 @@ class WPI_Ajax {
   static function send_notification() {
     global $wpi_settings;
 
-    if ( !current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ) {
+    if ( !WPI_Functions::current_user_can_send_notifications() ) {
       die( json_encode( array( 'status' => 403, 'message' => __( 'You are not allowed to perform this action.', ud_get_wp_invoice()->domain ) ) ) );
     }
 
@@ -325,11 +215,7 @@ class WPI_Ajax {
       die( json_encode( array( "status" => 500, "msg" => __( "The fields should not be empty. Please, check the fields data and try to send notification again.", ud_get_wp_invoice()->domain ) ) ) );
     }
 
-    //** If we are going to change our Mail From */
-    if ( !empty( $wpi_settings[ 'change_mail_from' ] ) && $wpi_settings[ 'change_mail_from' ] == 'true' ) {
-      add_filter( 'wp_mail_from', array( 'WPI_Functions', 'notification_mail_from' ) );
-      add_filter( 'wp_mail_from_name', array( 'WPI_Functions', 'notification_mail_from_name' ) );
-    }
+    WPI_Functions::maybe_override_mail_from();
 
     if ( wp_mail( $to, $subject, $message, $headers ) ) {
       $pretty_time = date( get_option( 'time_format' ) . " " . get_option( 'date_format' ), time() + get_option( 'gmt_offset' ) * 60 * 60 );

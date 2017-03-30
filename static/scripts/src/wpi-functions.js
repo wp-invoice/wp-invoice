@@ -243,7 +243,7 @@ function wpi_add_row ( element ) {
  */
 function wpi_show_error ( message ) {
   jQuery( '#wpi_single_error' ).remove();
-  jQuery( "<div id='wpi_single_error' class='error fade below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap h2' );
+  jQuery( "<div id='wpi_single_error' class='error fade below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap > h2' );
 }
 
 /**
@@ -251,7 +251,7 @@ function wpi_show_error ( message ) {
  */
 function wpi_show_success ( message ) {
   jQuery( '#message' ).remove();
-  jQuery( "<div id='message' class='updated below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap h2' );
+  jQuery( "<div id='message' class='updated below-h2'><p>" + message + "</p></div>" ).insertAfter( '.wrap > h2' );
 }
 
 /**
