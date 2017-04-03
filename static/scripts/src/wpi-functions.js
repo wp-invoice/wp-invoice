@@ -543,7 +543,7 @@ function wpi_load_email_notification () {
   var invoice_id = jQuery( "#wpi_invoice_id" ).val();
   if ( empty( invoice_id ) )
     invoice_id = jQuery( "#new_invoice_id" ).text();
-  if ( selected > 0 ) {
+  if ( selected ) {
     jQuery( "#wpi_template_loading" ).show();
     template_id_val = selected;
     jQuery.getJSON( ajaxurl, {action: 'wpi_get_notification_email', template_id: template_id_val, wpi_invoiceid: invoice_id}, function ( response ) {

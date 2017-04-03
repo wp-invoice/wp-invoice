@@ -177,7 +177,7 @@ class WPI_Ajax {
    */
   static function get_notification_email() {
 
-    $template_id = intval( $_REQUEST[ 'template_id' ] );
+    $template_id = $_REQUEST[ 'template_id' ];
     $invoice_id = intval( $_REQUEST[ 'wpi_invoiceid' ] );
 
     $template = WPI_Functions::preprocess_notification_template( $template_id, $invoice_id );
