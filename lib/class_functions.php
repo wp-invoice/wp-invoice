@@ -2172,6 +2172,154 @@ class WPI_Functions {
 
     return true;
   }
+
+  /**
+   * Override mail from if set in settings
+   */
+  static function maybe_override_mail_from() {
+    global $wpi_settings;
+
+    //** If we are going to change our Mail From */
+    if ( !empty( $wpi_settings[ 'change_mail_from' ] ) && $wpi_settings[ 'change_mail_from' ] == 'true' ) {
+      add_filter( 'wp_mail_from', array( 'WPI_Functions', 'notification_mail_from' ) );
+      add_filter( 'wp_mail_from_name', array( 'WPI_Functions', 'notification_mail_from_name' ) );
+    }
+  }
+
+  /**
+   * If current user can send notifications
+   * @return bool
+   */
+  static function current_user_can_send_notifications() {
+    global $wpi_settings;
+    return current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level']) );
+  }
+
+  /**
+   * @param $template_id
+   * @param $invoice_id
+   * @return stdClass
+   */
+  static function preprocess_notification_template( $template_id, $invoice_id ) {
+    global $wpi_settings, $invoice;
+
+    require_once( ud_get_wp_invoice()->path( 'lib/class_template_functions.php', 'dir' ) );
+
+    $invoice = get_invoice( wpi_invoice_id_to_post_id( $invoice_id ) );
+    $currency_symbol = ( !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : "$" );
+    $invoice_id = ( !empty( $invoice[ 'meta' ][ 'custom_id' ] ) ? $invoice[ 'meta' ][ 'custom_id' ] : $invoice[ 'invoice_id' ] );
+    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : $invoice[ 'invoice_id' ] );
+
+    //** Get creator user data */
+    $creator = get_userdata( $invoice[ 'post_author' ] );
+
+    //** Due Date */
+    $due_date = get_due_date( $invoice );
+    $due_date = $due_date ? $due_date : __( 'Due date is not set', ud_get_wp_invoice()->domain );
+
+    //** Type */
+    $type = !empty( $invoice[ 'type' ] ) ? $invoice[ 'type' ] : __( 'invoice', ud_get_wp_invoice()->domain );
+    $type = $type == 'recurring' ? $type . ' ' . __( 'invoice', ud_get_wp_invoice()->domain ) : $type;
+
+    //** Load Templates */
+    $template_array = apply_filters( 'wpi_email_templates', $wpi_settings[ 'notification' ] );
+
+    $ary[ 'NotificationContent' ] = $template_array[ $template_id ][ 'content' ];
+
+    //**
+    // Tags which can be used in Content of notification email
+    //*/
+    //** Invoice ID */
+    $ary[ 'NotificationContent' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationContent' ] );
+
+    //** Custom Invoice ID */
+    $ary[ 'NotificationContent' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationContent' ] );
+
+    //** Format description */
+    $desc = ( !empty( $invoice[ 'post_content' ] ) ? strip_tags( $invoice[ 'post_content' ] ) : __( "No description given.", ud_get_wp_invoice()->domain ) );
+    $ary[ 'NotificationContent' ] = str_replace( "%description%", $desc, $ary[ 'NotificationContent' ] );
+
+    //** Recipient name */
+    $ary[ 'NotificationContent' ] = str_replace( "%recipient%", recipients_name( array( 'return' => true ) ), $ary[ 'NotificationContent' ] );
+
+    //** Invoice link */
+    $ary[ 'NotificationContent' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationContent' ] );
+
+    //** Invoice balance */
+    $ary[ 'NotificationContent' ] = str_replace( "%amount%", $currency_symbol . wp_invoice_currency_format( $invoice[ 'net' ] ), $ary[ 'NotificationContent' ] );
+
+    //** Invoice subject/title */
+    $ary[ 'NotificationContent' ] = str_replace( "%subject%", $invoice[ 'post_title' ], $ary[ 'NotificationContent' ] );
+
+    //** Business name according to business settings */
+    $ary[ 'NotificationContent' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationContent' ] );
+
+    //** Business email according to business settings */
+    $ary[ 'NotificationContent' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationContent' ] );
+
+    //** Invoice creator name */
+    $ary[ 'NotificationContent' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationContent' ] );
+
+    //** Invoice creator email */
+    $ary[ 'NotificationContent' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationContent' ] );
+
+    //** Invoice Due Date */
+    $ary[ 'NotificationContent' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationContent' ] );
+
+    //** Invoice type */
+    $ary[ 'NotificationContent' ] = str_replace( "%type%", $type, $ary[ 'NotificationContent' ] );
+
+    $ary[ 'NotificationSubject' ] = $template_array[ $template_id ][ 'subject' ];
+
+    //**
+    // Tags which can be used in Subject of notification email
+    //*/
+
+    //** Business name according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_name%", $wpi_settings[ 'business_name' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice link */
+    $ary[ 'NotificationSubject' ] = str_replace( "%link%", get_invoice_permalink( $invoice[ 'invoice_id' ] ), $ary[ 'NotificationSubject' ] );
+
+    //** Format description */
+    $ary[ 'NotificationSubject' ] = str_replace( "%description%", $desc, $ary[ 'NotificationSubject' ] );
+
+    //** Business email according to business settings */
+    $ary[ 'NotificationSubject' ] = str_replace( "%business_email%", $wpi_settings[ 'email_address' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator name */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_name%", $creator->display_name, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice creator email */
+    $ary[ 'NotificationSubject' ] = str_replace( "%creator_email%", $creator->user_email, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice Due Date */
+    $ary[ 'NotificationSubject' ] = str_replace( "%due_date%", $due_date, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice type */
+    $ary[ 'NotificationSubject' ] = str_replace( "%type%", $type, $ary[ 'NotificationSubject' ] );
+
+    //** Invoice ID */
+    $ary[ 'NotificationSubject' ] = str_replace( "%invoice_id%", $invoice_id, $ary[ 'NotificationSubject' ] );
+
+    //** Custom Invoice ID */
+    $ary[ 'NotificationSubject' ] = str_replace( "%custom_invoice_id%", $custom_invoice_id, $ary[ 'NotificationSubject' ] );
+
+    //** Recipients name */
+    $ary[ 'NotificationSubject' ] = str_replace( "%recipient%", $invoice[ 'user_data' ][ 'display_name' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice balance */
+    $ary[ 'NotificationSubject' ] = str_replace( "%amount%", $invoice[ 'net' ], $ary[ 'NotificationSubject' ] );
+
+    //** Invoice subject/title */
+    $ary[ 'NotificationSubject' ] = str_replace( "%subject%", $invoice[ 'post_title' ], $ary[ 'NotificationSubject' ] );
+
+    $return = new stdClass();
+    $return->ary = $ary;
+    $return->invoice = $invoice;
+
+    return $return;
+  }
 }
 
 /**
