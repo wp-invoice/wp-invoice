@@ -20,6 +20,8 @@
      * Flags
      * @type {boolean}
      */
+	$scope.invoice_date_title ='';
+	$scope.allowed_status='other';
     $scope.isLoading = true;
     $scope.isError = false;
 
@@ -58,6 +60,23 @@
        */
       $scope.loadInvoices( 0, $scope.perPage );
     };
+	
+	/**
+	 * Click Paid/Unpaid invoice buttons
+	 * @param {type} type
+	 * 
+	 */
+	  $scope.setInvoiceType = function( type ) {
+		$scope.allowed_status = type;
+		$scope.loadInvoices( 0, $scope.perPage );
+		if( type == 'other' ) { 
+			$( "#btn-paid" ).removeClass( 'active' );
+			$( "#btn-other" ).addClass( 'active' );
+		} else {
+			$( "#btn-paid" ).addClass( 'active' );
+			$( "#btn-other" ).removeClass( 'active' );
+		}
+	};
 
     /**
      * Click invoice handler
@@ -91,7 +110,8 @@
           offset: offset,
           per_page: per_page,
           wpi_user_id: $scope.user.wpi_user_id || false,
-          wpi_token: $scope.user.wpi_token || false
+          wpi_token: $scope.user.wpi_token || false,
+		  allowed_status: $scope.allowed_status
         }
       } ).success(function(data) {
 
@@ -108,7 +128,8 @@
         $scope.displayInvoices = data.items;
         $scope.totalItems = data.total;
         $scope.totalAmount = data.amount;
-        $scope.isLoading = false;
+		$scope.invoice_date_title = data.invoice_date_title;
+		$scope.isLoading = false;
       });
     };
 
