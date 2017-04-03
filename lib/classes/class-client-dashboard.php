@@ -208,6 +208,8 @@ namespace UsabilityDynamics\WPI {
         $wp_styles->queue = array();
 
         wp_enqueue_style('wpi-unified-page-styles', ud_get_wp_invoice()->path('/static/styles/wpi-unified-page.css', 'url'));
+
+        do_action( 'wpi-client-dashboard-styles' );
       }
 
       /**

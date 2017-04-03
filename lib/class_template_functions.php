@@ -746,6 +746,14 @@ if ( !function_exists('is_quote') ) {
 if ( !function_exists('is_invoice') ) {
   function is_invoice() {
     global $invoice;
+
+    /**
+     * Hook for custom stuff
+     */
+    if ( apply_filters( 'wpi_invoice_is_invoice', false, $invoice ) ) {
+      return true;
+    }
+
     return $invoice['type'] == 'invoice' ? true : false ;
   }
 }
