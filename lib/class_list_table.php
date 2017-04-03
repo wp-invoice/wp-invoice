@@ -113,7 +113,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    * Set columns for your table
    */
   public function get_columns() {
-    return array(
+    return apply_filters( 'wpi-overview-columns', array(
         'cb'        => '<input type="checkbox" />',
         'title'     => __( 'Title', ud_get_wp_invoice()->domain ),
         'collected' => __( 'Collected', ud_get_wp_invoice()->domain ),
@@ -123,7 +123,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
         'status'    => __( 'Status', ud_get_wp_invoice()->domain ),
         'type'      => __( 'Type', ud_get_wp_invoice()->domain ),
         'id'        => __( 'ID', ud_get_wp_invoice()->domain )
-    );
+    ) );
   }
 
   /**
@@ -141,6 +141,15 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     );
 
     return $columns;
+  }
+
+  /**
+   * @param array $item
+   * @param array $column_name
+   * @return mixed|void
+   */
+  public function column_default( $item, $column_name ) {
+    return apply_filters( 'wpi-custom-column', !empty( $item->{$column_name} )?$item->{$column_name}:'no value' , $item, $column_name );
   }
 
   /**
