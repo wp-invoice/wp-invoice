@@ -195,9 +195,9 @@ global $invoice, $wpi_settings;
                 <?php $i = 0; while( $line_item = wpi_get_line_item( $i ) ) : ?>
                   <tr>
                     <td>
-                      <?php echo $line_item->get_name(); ?>
+                      <b><?php echo $line_item->get_name(); ?></b>
                       <?php if ( $_description = $line_item->get_description() ): ?>
-                        / <?php echo $_description; ?>
+                        <div><?php echo $_description; ?></div>
                       <?php endif; ?>
                     </td>
                     <?php if ( wpi_show_quantity_column() ): ?>

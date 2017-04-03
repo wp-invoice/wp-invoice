@@ -37,7 +37,7 @@ namespace UsabilityDynamics\WPI {
       public function get_description()
       {
         $_description = trim(strip_tags($this->item['description']));
-        return !empty($_description) ? $_description : false;
+        return !empty($_description) ? nl2br($_description) : false;
       }
 
       /**
