@@ -231,7 +231,9 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
    * @return mixed
    */
   public function column_status( $post ) {
-    return __( get_post_status_object($post->post_status)->label, ud_get_wp_invoice()->domain );
+    $status_object = get_post_status_object( $post->post_status );
+    if ( $status_object ) return __( get_post_status_object($post->post_status)->label, ud_get_wp_invoice()->domain );
+    return $post->post_status;
   }
 
   /**
