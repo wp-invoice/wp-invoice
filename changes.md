@@ -1,3 +1,6 @@
+#### 4.1.6.1 ( April 5, 2017 )
+* Fixed edit profile page.
+
 #### 4.1.6 ( April 4, 2017 )
 * Client Dashboard enhancements.
 * PayPal IPN handler fixes.
