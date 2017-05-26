@@ -3,8 +3,8 @@ Contributors: usability_dynamics, Anton Korotkoff, andypotanin, jbrw1984, maxim.
 Donate link: https://www.usabilitydynamics.com/product/wp-invoice
 Tags: wp-invoice, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, authorize.net, credit cards, recurring billing, ARB, stripe, paypal, interkassa, 2checkout, merchantplus, mijireh checkout
 Requires at least: 4.0
-Tested up to: 4.7
-Stable tag: 4.1.5
+Tested up to: 4.7.3
+Stable tag: 4.1.7
 License: GPLv2 or later
 WP-Invoice lets you create and send web-invoices and setup recurring billing for your clients.
 
@@ -152,6 +152,18 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 * New features.
 
 == Change Log ==
+
+= 4.1.7 =
+* Fixed edit profile page.
+
+= 4.1.6 =
+* Client Dashboard enhancements.
+* PayPal IPN handler fixes.
+* Added ability to create invoice from WP-CRM user profile.
+* 2Checkout Gateway fixes.
+* Custom invoice fields fixes.
+* Code cleanup.
+* Compatibility fixes.
 
 = 4.1.5 =
 * Fixed deprecated code.

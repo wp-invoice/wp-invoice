@@ -1,3 +1,15 @@
+#### 4.1.7 ( April 5, 2017 )
+* Fixed edit profile page.
+
+#### 4.1.6 ( April 4, 2017 )
+* Client Dashboard enhancements.
+* PayPal IPN handler fixes.
+* Added ability to create invoice from WP-CRM user profile.
+* 2Checkout Gateway fixes.
+* Custom invoice fields fixes.
+* Code cleanup.
+* Compatibility fixes.
+
 #### 4.1.5 ( January 6, 2017 )
 * Fixed deprecated code.
 * Enhanced logo management process.
