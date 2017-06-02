@@ -210,7 +210,7 @@ function postbox_publish($this_invoice) {
             <td>
               <?php
                 $custom_invoice_id = !empty($this_invoice['custom_id']) ? $this_invoice['custom_id'] : '';
-                if (empty($custom_invoice_id) && $wpi_settings['increment_invoice_id'] == 'true') {
+                if ((empty($custom_invoice_id) || empty($this_invoice['ID'])) && $wpi_settings['increment_invoice_id'] == 'true') {
                   $highest_custom_id = WPI_Functions::get_highest_custom_id();
                   $custom_invoice_id = ($highest_custom_id ? ($highest_custom_id + 1) : $this_invoice['invoice_id']);
                   echo WPI_UI::input("name=wpi_invoice[meta][custom_id]&value=$custom_invoice_id");
