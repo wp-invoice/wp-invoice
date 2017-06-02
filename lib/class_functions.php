@@ -2207,8 +2207,8 @@ class WPI_Functions {
 
     $invoice = get_invoice( wpi_invoice_id_to_post_id( $invoice_id ) );
     $currency_symbol = ( !empty( $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] ) ? $wpi_settings[ 'currency' ][ 'symbol' ][ $invoice[ 'default_currency_code' ] ] : "$" );
-    $invoice_id = ( !empty( $invoice[ 'meta' ][ 'custom_id' ] ) ? $invoice[ 'meta' ][ 'custom_id' ] : $invoice[ 'invoice_id' ] );
-    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : $invoice[ 'invoice_id' ] );
+    $invoice_id = $invoice[ 'invoice_id' ] ;
+    $custom_invoice_id = ( !empty( $invoice[ 'custom_id' ] ) ? $invoice[ 'custom_id' ] : '' );
 
     //** Get creator user data */
     $creator = get_userdata( $invoice[ 'post_author' ] );
