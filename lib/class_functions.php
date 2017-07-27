@@ -2046,6 +2046,16 @@ class WPI_Functions {
           );
           break;
         
+    case 'recaptcha':
+          $current_fields[ 'customer_information' ][ $attr_key ] = array(
+            'type' => 'recaptcha',
+            'class' => 'recaptcha-input',
+            'name' => $name . '[' . $attr_key . ']',
+            'label' => __( $attr_value[ 'title' ], ud_get_wp_invoice()->domain ),
+            'value' => '',
+          );
+          break;
+          
         default:
           $current_fields[ 'customer_information' ][ $attr_key ] = array(
             'type' => 'text',
