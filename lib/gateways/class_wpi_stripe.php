@@ -203,6 +203,11 @@ class wpi_stripe extends wpi_gateway_base {
 
                   break;
 
+                case self::RECAPTCHA_INPUT_TYPE:
+                  $this->display_recaptcha($field_data);
+                  
+                  break;
+
                 default:
                   break;
               }

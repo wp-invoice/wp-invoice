@@ -11,6 +11,7 @@ abstract class wpi_gateway_base {
   const SELECT_INPUT_TYPE = 'select';
   const TEXTAREA_INPUT_TYPE = 'textarea';
   const CHECKBOX_INPUT_TYPE = 'checkbox';
+  const RECAPTCHA_INPUT_TYPE = 'recaptcha';
   
   var $options = array();
   var $front_end_fields = array();
@@ -86,7 +87,26 @@ abstract class wpi_gateway_base {
    */
   static function process_payment() {
     check_ajax_referer( 'process-payment', 'security' );
-    global $wpi_settings, $invoice;
+    global $wpi_settings, $invoice, $wp_crm;
+
+    if(
+      !empty($wp_crm[ 'configuration' ][ 'recaptcha_site_key' ]) &&
+      isset($wp_crm['data_structure']['attributes']['recaptcha']['wp_invoice']) &&
+      $wp_crm['data_structure']['attributes']['recaptcha']['wp_invoice'] == 'true'
+    ){
+      if(!isset($_REQUEST['cc_data']['recaptcha']) || !WP_CRM_F::reCaptchaVerify($_REQUEST['cc_data']['recaptcha'])){
+        //** Response */
+        $response = array(
+            'success' => false,
+            'error' => true,
+            'data' => array(
+                'messages' => array( __("Captcha validation field.") ),
+              )
+        );
+        die(json_encode($response));
+      }
+    }
+
     //** Pull the invoice */
     $the_invoice = new WPI_Invoice();
     $invoice = $the_invoice->load_invoice("return=true&id=" . wpi_invoice_id_to_post_id($_REQUEST['invoice_id']));
@@ -234,6 +254,79 @@ abstract class wpi_gateway_base {
     if ( empty( $_POST['accept_terms'] ) || $_POST['accept_terms'] != 'true' ) {
       wpi_send_json_error(array('messages'=>array(__('Terms must be accepted. Aborting payment.', ud_get_wp_invoice()->domain)) ));
     }
+  }
+
+  /**
+   * Display recaptcha field.
+   * @author alim@udx
+   * @param $field_data
+   */
+  public function display_recaptcha($field_data){
+    global $wp_crm;
+
+    if(!empty($wp_crm[ 'configuration' ][ 'recaptcha_site_key' ])){
+      $site_key = $wp_crm[ 'configuration' ][ 'recaptcha_site_key' ];
+    }
+    else{
+      echo "<script>console.error('" . __("To enable chaptcha please set reCAPTCHA keys in CRM settings page.") . "');</script>";
+      return;
+    }
+
+    WP_CRM_F::force_script_inclusion( 'recaptcha' );
+
+    ?>
+    <li class="wpi_checkout_row wp_crm_recaptcha_container">
+      <div class="control-group wp_crm_recaptcha_div">
+        <label class="control-label"><?php _e($field_data['label'], ud_get_wp_invoice()->domain); ?></label>
+        <input class="crm-g-captcha-input" type="hidden" name="<?php echo esc_attr( $field_data['name'] ); ?>">
+        <div class='crm-g-recaptcha crm-clearfix controls clearfix' data-sitekey='<?php echo $site_key;?>'></div>
+        <span class="help-inline wp_crm_error_messages crm-clearfix"></span>
+      </div>
+    </li>
+    <style type="text/css">
+      .wp_crm_recaptcha_container .control-label{
+        margin-bottom: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      var type = jQuery("#wpi_form_type").val();
+      if ( typeof type != 'undefined' ){
+        var type_messages = window[type + '_messages'];
+        var type_rules = window[type + '_rules'];
+
+        type_rules["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
+            required: true
+          };
+
+        type_messages["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
+            required: "Are you human? Please verify the captcha."
+          };
+
+        function crm_recaptcha_onload(argument) {
+          jQuery('.crm-g-recaptcha').each(function(argument) {
+            var container = jQuery(this);
+            var formID = container.parents('form').attr('id');
+            var parameters = {
+              sitekey: container.data('sitekey'),
+              callback: function(response){
+                var input = jQuery('.crm-g-captcha-input', '#' + formID);
+                input.val(response);
+              },
+              'expired-callback': function(){
+                var input = jQuery('.crm-g-captcha-input', '#' + formID);
+                input.val('');
+              },
+            };
+            window[formID + '_recaptcha'] = grecaptcha.render(
+              this,
+              parameters
+            );
+
+          });
+        }
+      }
+    </script>
+    <?php
   }
 
   /**
