@@ -2481,7 +2481,7 @@ function wp_invoice_send_email_receipt( $invoice, $notification_data ) {
     $message = html_entity_decode( $message, ENT_QUOTES, 'UTF-8' );
     $subject = html_entity_decode( $subject, ENT_QUOTES, 'UTF-8' );
 
-    if ( wp_mail( "{$notification_data['user_name']} <{$notification_data['user_email']}>", $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" ) ) {
+    if ( wp_mail( $notification_data['user_email'], $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" ) ) {
       WPI_Functions::log_event( $notification_data[ 'invoice_id' ], 'invoice', 'emailed', '', __( 'Receipt eMailed', ud_get_wp_invoice()->domain ) );
     }
   }
@@ -2534,7 +2534,7 @@ function wp_invoice_send_me_notification( $invoice, $notification_data ) {
     $message = html_entity_decode( $message, ENT_QUOTES, 'UTF-8' );
     $subject = html_entity_decode( $subject, ENT_QUOTES, 'UTF-8' );
 
-    wp_mail( "{$notification_data['admin_name']} <{$notification_data['admin_email']}>", $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" );
+    wp_mail( $notification_data['admin_email'], $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" );
   }
 }
 
@@ -2579,7 +2579,7 @@ function wp_invoice_send_creator_notification( $invoice, $notification_data ) {
   } else {
     $message = html_entity_decode( $message, ENT_QUOTES, 'UTF-8' );
     $subject = html_entity_decode( $subject, ENT_QUOTES, 'UTF-8' );
-    wp_mail( "{$notification_data['creator_name']} <{$notification_data['creator_email']}>", $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" );
+    wp_mail( $notification_data['creator_email'], $subject, $message, implode( "\r\n", (array) $headers ) . "\r\n" );
   }
 }
 
