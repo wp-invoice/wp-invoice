@@ -527,6 +527,8 @@ class wpi_authorize extends wpi_gateway_base {
 
       send_notification( $invoice );
 
+      do_action( 'wpi_authorize_payment_success', $payment, $invoice );
+
       $data['messages'][] = $payment->getResponseText();
       $response['success'] = true;
       $response['error'] = false;
