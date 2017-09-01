@@ -219,7 +219,7 @@ class WPI_Ajax {
 
     WPI_Functions::maybe_override_mail_from();
 
-    if ( wp_mail( $to, $subject, apply_filters( 'wpi_notification_message', $message, $to, $subject ), apply_filters( 'wpi_notification_headers', $headers, $to, $subject ) ) ) {
+    if ( wp_mail( $to, $subject, apply_filters( 'wpi_notification_message', $message, $to, $subject, absint($_REQUEST[ 'invoice_id' ]) ), apply_filters( 'wpi_notification_headers', $headers, $to, $subject, absint($_REQUEST[ 'invoice_id' ]) ) ) ) {
       $pretty_time = date( get_option( 'time_format' ) . " " . get_option( 'date_format' ), time() + get_option( 'gmt_offset' ) * 60 * 60 );
       $text = __( "Notification Sent", ud_get_wp_invoice()->domain ) . ( isset( $_REQUEST[ 'template' ] ) && !empty( $_REQUEST[ 'template' ] ) ? " (" . $_REQUEST[ 'template' ] . ")" : "" ) . " " . __( 'to', ud_get_wp_invoice()->domain ) . " {$to} " . __( 'at', ud_get_wp_invoice()->domain ) . " {$pretty_time}.";
       WPI_Functions::log_event( wpi_invoice_id_to_post_id( $_REQUEST[ 'invoice_id' ] ), 'invoice', 'notification', '', $text, time() );
