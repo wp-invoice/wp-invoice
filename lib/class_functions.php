@@ -1178,33 +1178,6 @@ class WPI_Functions {
 
   }
 
-  /*
-   * Set Custom Screen Options
-   */
-  function wpi_screen_options() {
-    global $current_screen;
-
-    $output = '';
-
-    switch ( $current_screen->id ) {
-
-      case 'toplevel_page_wpi_main':
-
-        break;
-
-      case 'wp-invoice_page_wpi_page_manage_invoice':
-        $output .= '
-        <div id="wpi_screen_meta" class="metabox-prefs">
-          <label for="wpi_itemized-list-tax">
-          <input type="checkbox" ' . ( get_user_option( 'wpi_ui_display_itemized_tax' ) == 'true' ? 'checked="checked"' : '' ) . ' value="" id="wpi_itemized-list-tax" name="wpi_ui_display_itemized_tax" class="non-metabox-option">
-          Row Tax</label>
-        </div>';
-        break;
-    }
-
-    return $output;
-  }
-
   /**
    * Called by template_redirect to validate whether an invoice should be displayed
    */

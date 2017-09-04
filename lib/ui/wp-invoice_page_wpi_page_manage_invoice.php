@@ -50,16 +50,9 @@
   .wpi_hide_until_saved {display:none;}
   <?php endif; ?>
 
-  <?php //** Toggle inline tax CSS */ ?>
-  <?php if(get_user_option('wpi_ui_display_itemized_tax') != 'true') : ?>
-  .row_tax {display:none;}
-  .header .flexible_width_holder_content, .wp_invoice_itemized_list_row .flexible_width_holder_content, .wp_invoice_itemized_charge_row .flexible_width_holder_content { margin-right: 250px;}
-  .header .fixed_width_holder, .wp_invoice_itemized_list_row .fixed_width_holder, .wp_invoice_itemized_charge_row .fixed_width_holder { width: 240px; }
-  <?php else : ?>
   .row_tax {display:inline;}
   .header .flexible_width_holder_content, .wp_invoice_itemized_list_row .flexible_width_holder_content, .wp_invoice_itemized_charge_row .flexible_width_holder_content { margin-right: 300px;}
   .header .fixed_width_holder, .wp_invoice_itemized_list_row .fixed_width_holder, .wp_invoice_itemized_charge_row .fixed_width_holder { width: 280px; }
-  <?php endif; ?>
 
   <?php //** Toggle global tax CSS display */ ?>
   <?php if(get_user_option('wpi_ui_display_global_tax') != 'true') : ?>

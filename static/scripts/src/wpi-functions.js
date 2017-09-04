@@ -766,32 +766,6 @@ function wpi_update_charges_list () {
   } );
 }
 
-/*
- Adjusts UI widths dependong on if we are using itemized tax or not
- Also toggles .row_tax elements, which apply to header and tax input box span.
- Totals have to be recalculated in the end to reflect no line tax.
- */
-function wpi_adjust_for_tax_column ( action ) {
-  if ( action == 'show' ) {
-    flexible_width_holder_content = '300px'
-    fixed_width_holder = '280px'
-    jQuery( ".row_tax" ).show();
-  } else {
-    flexible_width_holder_content = '250px'
-    fixed_width_holder = '240px'
-    /* Set global Tax value as default */
-    if ( jQuery( '#wp_invoice_tax' ).length > 0 ) {
-      jQuery( ".row_tax input" ).val( jQuery( '#wp_invoice_tax' ).val() );
-      jQuery( ".row_charge_tax input" ).val( jQuery( '#wp_invoice_tax' ).val() );
-    } else {
-      jQuery( ".row_tax input" ).val( '' );
-    }
-    jQuery( ".row_tax" ).hide();
-  }
-  jQuery( ".header .flexible_width_holder_content, .wp_invoice_itemized_list_row .flexible_width_holder_content" ).css( 'margin-right', flexible_width_holder_content );
-  jQuery( ".header .fixed_width_holder, .wp_invoice_itemized_list_row .fixed_width_holder" ).css( 'width', fixed_width_holder );
-  wpi_recalc_totals();
-}
 function wp_invoice_add_time ( target, add_days ) {
   if ( add_days == 'clear' ) {
     jQuery( "#wpi_invoice_form #" + target + "_mm" ).val( '' );

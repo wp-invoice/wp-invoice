@@ -279,7 +279,6 @@ class WPI_Core {
     }
 
     add_action('the_post', array('WPI_Functions', 'the_post'));
-    add_filter("screen_settings", array($this->Functions, 'wpi_screen_options'), 10, 2);
 
     add_shortcode('wp-invoice-lookup', 'wp_invoice_lookup');
     add_shortcode('wp-invoice-history', 'wp_invoice_history');

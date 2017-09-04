@@ -261,18 +261,6 @@ jQuery( document ).ready( function () {
   } );
 
   /**
-   * Adjusts the UI for line-item tax.
-   * Toggles tax column and fixes widths.
-   */
-  jQuery( "#invoice-details-itemized-list-tax" ).click( function () {
-    if ( jQuery( "#invoice-details-itemized-list-tax" ).is( ":checked" ) ) {
-      wpi_adjust_for_tax_column( 'show' );
-    } else {
-      wpi_adjust_for_tax_column( 'hide' );
-    }
-  } );
-
-  /**
    * Button for adding another line to the itemized list
    */
   jQuery( '#wpi_predefined_services_select' ).click( function () {
