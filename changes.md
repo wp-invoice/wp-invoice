@@ -1,3 +1,9 @@
+#### 4.1.8 ( September 5, 2017 )
+* Fixed PayPal payment experience.
+* Added reCaptcha support with WP-CRM integration.
+* Added new filters and actions (for developers).
+* Fixed tax field on edit invoice page.
+
 #### 4.1.7 ( April 5, 2017 )
 * Fixed edit profile page.
 
