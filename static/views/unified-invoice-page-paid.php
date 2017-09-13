@@ -130,7 +130,7 @@ global $invoice, $wpi_settings;
             <?php endif; ?>
             <?php if ( show_business_info() ) : ?>
               <?php if ( $business_name = wpi_get_business_name() ): ?>
-                <h1><?php echo $business_name; ?></h1>
+                <h1 class="wp-invoice-business-name"><?php echo $business_name; ?></h1>
               <?php endif; ?>
               <?php if ( $business_address = wpi_get_business_address() ): ?>
                 <p><?php echo $business_address; ?></p>

@@ -65,7 +65,7 @@ global $invoice, $wpi_settings;
             <div class="logo"><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></div>
           <?php endif; ?>
             <?php if ( $business_name = wpi_get_business_name() ): ?>
-              <h1><?php echo $business_name; ?></h1>
+              <h1 class="wp-invoice-business-name"><?php echo $business_name; ?></h1>
             <?php endif; ?>
             <?php if ( $business_address = wpi_get_business_address() ): ?>
               <p><?php echo $business_address; ?></p>
@@ -136,7 +136,7 @@ global $invoice, $wpi_settings;
               <?php endif; ?>
               <?php if ( show_business_info() ) : ?>
                 <?php if ( $business_name = wpi_get_business_name() ): ?>
-                  <h1><?php echo $business_name; ?></h1>
+                  <h1 class="wp-invoice-business-name"><?php echo $business_name; ?></h1>
                 <?php endif; ?>
                 <?php if ( $business_address = wpi_get_business_address() ): ?>
                   <p><?php echo $business_address; ?></p>
@@ -312,7 +312,7 @@ global $invoice, $wpi_settings;
       </div>
       <?php endif; ?>
 
-      <?php if ( is_quote() ): ?>
+      <?php if ( is_quote() && comments_open() ): ?>
       <div id="quote-response-form">
         <h4><?php _e('Leave a Response', ud_get_wp_invoice()->domain); ?></h4>
         <div class="box-content">

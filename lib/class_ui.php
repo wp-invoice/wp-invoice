@@ -30,6 +30,7 @@ class WPI_UI {
     $wpi_settings[ 'pages' ][ 'settings' ] = add_submenu_page( 'wpi_main', __( 'Settings', ud_get_wp_invoice()->domain ), __( 'Settings', ud_get_wp_invoice()->domain ), $capability, 'wpi_page_settings', array( 'WPI_UI', 'page_loader' ) );
 
     /* Update screens information */
+    // @todo This is not very efficient since it makes a DB change every time an admin page is opened. 
     WPI_Settings::setOption( 'pages', $wpi_settings[ 'pages' ] );
 
     /* Register meta boxes */

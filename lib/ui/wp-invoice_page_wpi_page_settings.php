@@ -362,6 +362,14 @@ class WPI_Settings_page {
       </tr>
 
       <tr>
+        <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', ud_get_wp_invoice()->domain); ?>">
+    <?php _e('How to Insert Invoice', ud_get_wp_invoice()->domain); ?>
+          </a></th>
+        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(apply_filters('wpi_where_to_display_options', array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain)))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?> </td>
+      </tr>
+
+
+      <tr>
         <th><?php _e("When viewing an invoice", ud_get_wp_invoice()->domain) ?></th>
         <td>
           <ul class="wpi_settings_list">
@@ -411,15 +419,11 @@ class WPI_Settings_page {
             <li><?php echo WPI_UI::checkbox("name=replace_page_heading_with_subject&group=wpi_settings&value=true&label=" . __('Replace page heading and navigation link title with invoice subject when viewing invoice.', ud_get_wp_invoice()->domain), $wpi_settings['replace_page_heading_with_subject']); ?></li>
             <li><?php echo WPI_UI::checkbox("name=hide_page_title&group=wpi_settings&value=true&label=" . __('Hide page heading and navigation link completely.', ud_get_wp_invoice()->domain), $wpi_settings['hide_page_title']); ?></li>
 
-            <li><?php echo WPI_UI::checkbox("name=show_business_address&group=wpi_settings|globals&value=true&label=" . __('Show my business name and address.', ud_get_wp_invoice()->domain), $wpi_settings['globals']['show_business_address']); ?> </li>
+            <li><?php echo WPI_UI::checkbox("name=show_business_address&group=wpi_settings|globals&value=true&label=" . __('Show my business address.', ud_get_wp_invoice()->domain), $wpi_settings['globals']['show_business_address']); ?> </li>
+            
+            
             <li><?php echo WPI_UI::checkbox("name=show_quantities&group=wpi_settings|globals&value=true&label=" . __('Show quantity breakdowns in the itemized list.', ud_get_wp_invoice()->domain), $wpi_settings['globals']['show_quantities']); ?> </li>
           </ul></td>
-      </tr>
-      <tr>
-        <th> <a class="wp_invoice_tooltip"  title="<?php _e('Select whether to overwrite all page content, insert at the bottom of the content, or to look for the [wp-invoice] tag.', ud_get_wp_invoice()->domain); ?>">
-    <?php _e('How to Insert Invoice', ud_get_wp_invoice()->domain); ?>
-          </a></th>
-        <td><?php echo WPI_UI::select("name=where_to_display&group=wpi_settings&values=" . serialize(apply_filters('wpi_where_to_display_options', array("overwrite" => __("Overwrite All Page Content", ud_get_wp_invoice()->domain), "below_content" => __("Place Below Content", ud_get_wp_invoice()->domain), "above_content" => __("Above Content", ud_get_wp_invoice()->domain), "replace_tag" => __("Replace [wp-invoice] Tag", ud_get_wp_invoice()->domain)))) . "&current_value={$wpi_settings['where_to_display']}"); ?> <?php _e('If using the tag, place <span class="wp_invoice_explanation">[wp-invoice]</span> somewhere within your page content.', ud_get_wp_invoice()->domain) ?> </td>
       </tr>
       <tr>
         <th><?php _e("After a payment has been completed", ud_get_wp_invoice()->domain) ?></th>

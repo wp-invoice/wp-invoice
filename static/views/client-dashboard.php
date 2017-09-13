@@ -60,7 +60,7 @@ global $invoice, $wpi_settings;
           <div class="logo"><a href="<?php echo home_url(); ?>" ><img style="max-width: 90px;" src="<?php echo $logo_url; ?>" alt="Logo" /></a></div>
         <?php endif; ?>
           <?php if ( $business_name = wpi_get_business_name() ): ?>
-			<h1><a href="<?php echo home_url(); ?>"><?php echo $business_name; ?></a></h1>
+			<h1 class="wp-invoice-business-name"><a href="<?php echo home_url(); ?>"><?php echo $business_name; ?></a></h1>
           <?php endif; ?>
           <?php if ( $business_address = wpi_get_business_address() ): ?>
             <p><?php echo $business_address; ?></p>

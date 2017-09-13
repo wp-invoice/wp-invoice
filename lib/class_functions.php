@@ -813,7 +813,7 @@ class WPI_Functions {
    */
   static function current_page() {
     $pageURL = 'http';
-    if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
+    if ( is_ssl() ) {
       $pageURL .= "s";
     }
     $pageURL .= "://";
@@ -1195,12 +1195,11 @@ class WPI_Functions {
     }
 
     // Verify HTTPS.  If its enforced, but not active, we reload page, and do the process again
-    //print_r( $_SERVER );
 
     if ( !function_exists( 'wp_https_redirect' ) ) {
       session_start();
-      if ( !isset( $_SESSION[ 'https' ] ) ) {
-        if ( $wpi_settings[ 'force_https' ] == 'true' && ( !isset( $_SERVER[ 'HTTPS' ] ) || $_SERVER[ 'HTTPS' ] != "on" ) ) {
+      if ( !is_ssl() ) {
+        if ( $wpi_settings[ 'force_https' ] == 'true' && !is_ssl() ) {
           $_SESSION[ 'https' ] = 1;
           header( "Location: https://" . $_SERVER[ 'SERVER_NAME' ] . $_SERVER[ 'REQUEST_URI' ] );
           @session_destroy();
@@ -1551,11 +1550,11 @@ class WPI_Functions {
 
     //** check for currencies that are already used in invoices */
     $results = $wpdb->get_results( "
-      SELECT DISTINCT `{$wpdb->prefix}postmeta`.meta_value
+      SELECT DISTINCT `{$wpdb->postmeta}`.meta_value
       FROM `{$wpdb->posts}`
-      JOIN `{$wpdb->prefix}postmeta` ON ( `{$wpdb->posts}`.id = `{$wpdb->prefix}postmeta`.post_id )
+      JOIN `{$wpdb->postmeta}` ON ( `{$wpdb->posts}`.id = `{$wpdb->postmeta}`.post_id )
       WHERE `{$wpdb->posts}`.post_type = 'wpi_object'
-      AND `{$wpdb->prefix}postmeta`.meta_key = 'default_currency_code'
+      AND `{$wpdb->postmeta}`.meta_key = 'default_currency_code'
     " );
     foreach ( $results as $curr_row ) {
       $protected_currencies[ ] = $curr_row->meta_value;

@@ -1,3 +1,10 @@
+#### 4.1.9
+* Improved JavaScript library enques to follow common conventions.
+* Updated jquery.maskedinput.js to newer version to fix a JavaScript bug. 
+* Moved vendor JavaScript files into scripts/src/vendor.
+* Bundled Angular and jQuery libraries that were loading remotely into scripts/src/vendor.
+* If comments are not open on the page for invoice/quote then the comments block will not be displayed. This avoids showing an empty wrapper for comments but with no actual comment form. 
+ 
 #### 4.1.8 ( September 5, 2017 )
 * Fixed PayPal payment experience.
 * Added reCaptcha support with WP-CRM integration.

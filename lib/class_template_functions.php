@@ -778,6 +778,19 @@ if ( !function_exists('is_recurring') ) {
   }
 }
 
+
+/**
+ * Show business nam
+ * @return bool
+ */
+if ( !function_exists('show_business_name') ) {
+  function show_business_name() {
+    $core = WPI_Core::getInstance();
+    return $core->Settings->options['globals']['show_business_name'] == 'false' ? FALSE : TRUE;
+  }
+}
+
+
 /**
  * Show business info or not
  * @return bool
@@ -1172,7 +1185,7 @@ if ( !function_exists('wpi_user_can_view_dashboard') ) {
     $user = get_user_by('id', (int)$_GET['wpi_user_id']);
     if ( !is_a($user, 'WP_User') ) return false;
 
-    $token_to_check = md5( $user->ID.$user->user_email.AUTH_SALT );
+    $token_to_check = md5( $user->ID.$user->user_email. ( defined( 'AUTH_SALT' ) ? AUTH_SALT : '' ) );
 
     if ( $token_to_check == $_GET['wpi_token'] ) return true;
 
@@ -1198,7 +1211,7 @@ if ( !function_exists('wpi_get_dashboard_permalink') ) {
     /**
      * Generate link to dashboard
      */
-    $wpi_token = md5( $invoice_data->data['user_data']['ID'].$invoice_data->data['user_data']['user_email'].AUTH_SALT );
+    $wpi_token = md5( $invoice_data->data['user_data']['ID'].$invoice_data->data['user_data']['user_email']. ( defined( 'AUTH_SALT' ) ? AUTH_SALT : '' ) );
 
     global $wpi_settings;
     if ( get_option( "permalink_structure" ) ) {

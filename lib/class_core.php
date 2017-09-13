@@ -320,19 +320,21 @@ class WPI_Core {
       update_user_option($user_ID, 'wpi_ui_currency_options', 'true', true);
     }
             
-    wp_register_script('jquery.bind', ud_get_wp_invoice()->path( "static/scripts/jquery.bind.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.maskedinput', ud_get_wp_invoice()->path( "static/scripts/jquery.maskedinput.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.form', ud_get_wp_invoice()->path( "static/scripts/jquery.form.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.validate', 'https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js', array('jquery'));
-    wp_register_script('jquery.smookie', ud_get_wp_invoice()->path( "static/scripts/jquery.smookie.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.formatCurrency', ud_get_wp_invoice()->path( "static/scripts/jquery.formatCurrency.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.number.format', ud_get_wp_invoice()->path( "static/scripts/jquery.number.format.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.impromptu', ud_get_wp_invoice()->path( "static/scripts/jquery-impromptu.1.7.js", 'url' ), array('jquery'));
-    wp_register_script('jquery.field', ud_get_wp_invoice()->path( "static/scripts/jquery.field.min.js", 'url' ), array('jquery'));
-    wp_register_script('wpi-gateways', ud_get_wp_invoice()->path( "lib/gateways/js/wpi_gateways.js.php", 'url' ), array('jquery'));
+    wp_register_script('jquery.bind', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.bind.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.maskedinput', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.maskedinput.js", 'url' ), array('jquery'), '1.4.1', true );
+    wp_register_script('jquery.form', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.form.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.validate', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.validate-1.8.1.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.smookie', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.smookie.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.formatCurrency', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.formatCurrency.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.number.format', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.number.format.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.impromptu', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery-impromptu.1.7.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('jquery.field', ud_get_wp_invoice()->path( "static/scripts/vendor/jquery.field.min.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('wpi-gateways', ud_get_wp_invoice()->path( "lib/gateways/js/wpi_gateways.js.php", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('wpi.checkout', ud_get_wp_invoice()->path( "static/scripts/wpi-checkout.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+    wp_register_script('wpi_select2_js', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.js", 'url' ), array('jquery'), WP_INVOICE_VERSION_NUM, true );
+
     wp_register_script('jsapi', 'https://www.google.com/jsapi');
-    wp_register_script('wpi.checkout', ud_get_wp_invoice()->path( "static/scripts/wpi-checkout.js", 'url' ), array('jquery'));
-    wp_register_script('wpi_select2_js', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.js", 'url' ), array('jquery'));
+    
     wp_register_style('wpi_select2_css', ud_get_wp_invoice()->path( "lib/third-party/select2/select2.css", 'url' ), array());
 
     //** Masure dependancies are identified in case this script is included in other pages */
@@ -565,16 +567,14 @@ class WPI_Core {
     }
 
     //** Fixed WordPress filters if page is being opened in HTTPS mode */
-    if (isset($_SERVER['HTTPS']) && $_SERVER["HTTPS"] == "on") {
-      if (function_exists('force_ssl')) {
-        add_filter('option_siteurl', 'force_ssl');
-        add_filter('option_home', 'force_ssl');
-        add_filter('option_url', 'force_ssl');
-        add_filter('option_wpurl', 'force_ssl');
-        add_filter('option_stylesheet_url', 'force_ssl');
-        add_filter('option_template_url', 'force_ssl');
-        add_filter('script_loader_src', 'force_ssl');
-      }
+    if ( is_ssl() && function_exists('force_ssl')) {
+      add_filter('option_siteurl', 'force_ssl');
+      add_filter('option_home', 'force_ssl');
+      add_filter('option_url', 'force_ssl');
+      add_filter('option_wpurl', 'force_ssl');
+      add_filter('option_stylesheet_url', 'force_ssl');
+      add_filter('option_template_url', 'force_ssl');
+      add_filter('script_loader_src', 'force_ssl');
     }
 
     //** Lookup functionality */
