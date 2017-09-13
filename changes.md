@@ -4,8 +4,9 @@
 * Moved vendor JavaScript files into scripts/src/vendor.
 * Bundled Angular and jQuery libraries that were loading remotely into scripts/src/vendor.
 * If comments are not open on the page for invoice/quote then the comments block will not be displayed. This avoids showing an empty wrapper for comments but with no actual comment form. 
-* Added object acching to common invoice lookups.
+* Added object caching to common invoice lookups to reduce number of MySQL queries.
 * Removing extra and write-heavy methods.
+* Added support for using the `<!--more-->` tag in invoice description. Information beyond the fold is hidden from client-facing view.
 
 #### 4.1.8 ( September 5, 2017 )
 * Fixed PayPal payment experience.

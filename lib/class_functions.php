@@ -2786,11 +2786,11 @@ function get_invoice_permalink( $identificator ) {
     
   }
 
-  // cache result 
-  $_result = wp_cache_set( 'wpi-permalink-' . $identificator, 'wp-invoice', $_result );
+  // cache result 2
+  wp_cache_set( 'wpi-permalink-' . $identificator, $_result, 'wp-invoice' );
 
   return apply_filters( 'wpi_invoice_permalink', $_result, array( 
-    'id' => $id, 
+    'id' => isset( $_cached ) ? $_cached : $id, 
     'hash' => $hash, 
     'identificator' => $identificator,
     'cached' => isset( $_cached ) ? true : false
@@ -2810,7 +2810,10 @@ function get_invoice_id( $identificator ) {
 
   if( $_cached = wp_cache_get( 'wpi-alias-' . $identificator, 'wp-invoice' ) ) {
     return $_cached; 
-  }
+  } 
+  
+      //error_log( "invoice_id not in cache " . $identificator );
+
 
   $id = false;
   if ( strlen( $identificator ) == 32 ) {
@@ -2843,7 +2846,7 @@ function get_invoice_id( $identificator ) {
   
   
   // cache alias
-  wp_cache_set( 'wpi-alias-' . $identificator, 'wp-invoice', $id );
+  wp_cache_set( 'wpi-alias-' . $identificator, $id, 'wp-invoice' );
   
 
   return $id;

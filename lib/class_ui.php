@@ -1152,9 +1152,11 @@ class WPI_UI {
       }
     }
 
-    $order = array("\\r\\n", "\\n", "\\r","\\t");
-    $replace = array("\\\\r\\\\n", "\\\\n", "\\\\r", "\\\\t");
-    $encode_invoice_items = str_replace($order, $replace, json_encode($invoice_items));
+    $_json_items = json_encode( $encode_invoice_item );
+    
+    // @source https://stackoverflow.com/questions/7741415/strip-null-values-of-json-object
+    $_json_items = preg_replace('/,\s*"[^"]+":null|"[^"]+":null,?/', '', $_json_items);
+
     ?>
 
     <script type="text/javascript">
@@ -1169,7 +1171,7 @@ class WPI_UI {
         wpi.tax = '<?php echo !empty($wpi_invoice_object->data['tax'])?$wpi_invoice_object->data['tax']:''; ?>';
         wpi.business_name = '<?php echo ($wpi_settings['business_name']); ?>';
         wpi.user_data = {city: '<?php echo !empty($wpi_settings['user_data']['city']) ? $wpi_settings['user_data']['city'] : ''; ?>', state: '<?php echo !empty($wpi_settings['user_data']['state']) ? $wpi_settings['user_data']['state'] : ''; ?>', country: '<?php echo !empty($wpi_settings['user_data']['country']) ? $wpi_settings['user_data']['country'] : ''; ?>'}
-        wpi.invoice_items = jQuery.parseJSON( '<?php echo $encode_invoice_items; ?>' );
+        wpi.invoice_items = jQuery.parseJSON( '<?php echo $_json_items; ?>' );
 
         if ( typeof window._gaq != 'undefined' ) wpi.ga.tracking.init( <?php echo!empty($wpi_settings['ga_event_tracking']['events']['invoices']) ? json_encode($wpi_settings['ga_event_tracking']['events']['invoices']) : '{}'; ?> );
 
