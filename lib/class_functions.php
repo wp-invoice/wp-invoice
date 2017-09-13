@@ -2708,6 +2708,7 @@ function get_due_date( $invoice ) {
  * Find a full diff between two arrays.
  *
  * @param array $array1
+ * 
  * @param array $array2
  *
  * @return array
@@ -2743,32 +2744,58 @@ function get_invoice_permalink( $identificator ) {
   global $wpi_settings, $wpdb;
 
   $hash = "";
+  
   //** Check Invoice by ID and get hash */
-  if ( empty( $identificator ) ) return false;
-
-  $id = get_invoice_id( $identificator );
-
-  //** Get hash by post ID */
-  if ( !empty( $id ) ) {
-    $hash = $wpdb->get_var( $wpdb->prepare( "SELECT `meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'hash' AND `post_id` = '%d'",
-      $id
-    ) );
-  }
-
-  if ( empty( $hash ) || empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+  if ( empty( $identificator ) ) {
     return false;
   }
 
-  if ( get_option( "permalink_structure" ) ) {
-    return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
-  } else {
-    //** check if page is on front-end */
-    if ( get_option( 'page_on_front' ) == $wpi_settings[ 'web_invoice_page' ] ) {
-      return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
-    } else {
-      return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "&invoice_id=" . $hash;
-    }
+  // try to get cached permalin
+  if( $_cached = wp_cache_get( 'wpi-permalink-' . $identificator, 'wp-invoice' ) ) {
+    $_result = $_cached; 
   }
+
+
+  if( !isset( $_result ) ) {
+    
+    $id = get_invoice_id( $identificator );
+  
+    //** Get hash by post ID */
+    if ( !empty( $id ) ) {
+      $hash = $wpdb->get_var( $wpdb->prepare( "SELECT `meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'hash' AND `post_id` = '%d'",
+        $id
+      ) );
+    }
+  
+    if ( empty( $hash ) || empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+      $_result =  false;
+    } else {
+  
+    if ( get_option( "permalink_structure" ) ) {
+      $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
+    } else {
+      //** check if page is on front-end */
+      if ( get_option( 'page_on_front' ) == $wpi_settings[ 'web_invoice_page' ] ) {
+        $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
+      } else {
+        $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "&invoice_id=" . $hash;
+      }
+    }
+    
+    }
+    
+  }
+
+  // cache result 
+  $_result = wp_cache_set( 'wpi-permalink-' . $identificator, 'wp-invoice', $_result );
+
+  return apply_filters( 'wpi_invoice_permalink', $_result, array( 
+    'id' => $id, 
+    'hash' => $hash, 
+    'identificator' => $identificator,
+    'cached' => isset( $_cached ) ? true : false
+  ));
+  
 }
 
 /**
@@ -2779,6 +2806,11 @@ function get_invoice_permalink( $identificator ) {
  */
 function get_invoice_id( $identificator ) {
   global $wpdb;
+
+
+  if( $_cached = wp_cache_get( 'wpi-alias-' . $identificator, 'wp-invoice' ) ) {
+    return $_cached; 
+  }
 
   $id = false;
   if ( strlen( $identificator ) == 32 ) {
@@ -2808,6 +2840,11 @@ function get_invoice_id( $identificator ) {
       $identificator
     ) );
   }
+  
+  
+  // cache alias
+  wp_cache_set( 'wpi-alias-' . $identificator, 'wp-invoice', $id );
+  
 
   return $id;
 }
