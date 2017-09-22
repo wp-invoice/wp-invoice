@@ -1,1 +1,32 @@
-{"name":"wp-invoice","title":"WP-Invoice","description":"WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.","version":"4.1.8","homepage":"https://www.usabilitydynamics.com/product/wp-invoice","author":{"name":"UsabilityDynamics, Inc.","url":"https://usabilitydynamics.com"},"repository":{"type":"git","url":"https://github.com/wp-invoice/wp-invoice"},"engines":{"node":">= 0.10.0"},"dependencies":{"load-grunt-tasks":"^0.6.0","grunt":"^0.4.5"},"devDependencies":{"grunt-contrib-clean":"~0.5.0","grunt-markdown":"~0.4.0","grunt-contrib-less":"~0.8.3","grunt-contrib-uglify":"~0.2.4","grunt-contrib-watch":"~0.5.3","grunt-phpunit":"~0.3.3","grunt-shell":"~0.6.0","grunt-json-minify":"~0.4.0"}}
+{
+  "name": "wp-invoice",
+  "title": "WP-Invoice",
+  "description": "WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.",
+  "version": "4.1.8",
+  "homepage": "https://www.usabilitydynamics.com/product/wp-invoice",
+  "author": {
+    "name": "UsabilityDynamics, Inc.",
+    "url": "https://usabilitydynamics.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wp-invoice/wp-invoice"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "load-grunt-tasks": "^0.6.0",
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-markdown": "~0.4.0",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-phpunit": "~0.3.3",
+    "grunt-shell": "~0.6.0",
+    "grunt-json-minify": "~0.4.0"
+  }
+}
