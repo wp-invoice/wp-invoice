@@ -813,7 +813,7 @@ class WPI_Functions {
    */
   static function current_page() {
     $pageURL = 'http';
-    if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
+    if ( is_ssl() ) {
       $pageURL .= "s";
     }
     $pageURL .= "://";
@@ -1195,12 +1195,11 @@ class WPI_Functions {
     }
 
     // Verify HTTPS.  If its enforced, but not active, we reload page, and do the process again
-    //print_r( $_SERVER );
 
     if ( !function_exists( 'wp_https_redirect' ) ) {
       session_start();
-      if ( !isset( $_SESSION[ 'https' ] ) ) {
-        if ( $wpi_settings[ 'force_https' ] == 'true' && ( !isset( $_SERVER[ 'HTTPS' ] ) || $_SERVER[ 'HTTPS' ] != "on" ) ) {
+      if ( !is_ssl() ) {
+        if ( $wpi_settings[ 'force_https' ] == 'true' && !is_ssl() ) {
           $_SESSION[ 'https' ] = 1;
           header( "Location: https://" . $_SERVER[ 'SERVER_NAME' ] . $_SERVER[ 'REQUEST_URI' ] );
           @session_destroy();
@@ -1551,11 +1550,11 @@ class WPI_Functions {
 
     //** check for currencies that are already used in invoices */
     $results = $wpdb->get_results( "
-      SELECT DISTINCT `{$wpdb->prefix}postmeta`.meta_value
+      SELECT DISTINCT `{$wpdb->postmeta}`.meta_value
       FROM `{$wpdb->posts}`
-      JOIN `{$wpdb->prefix}postmeta` ON ( `{$wpdb->posts}`.id = `{$wpdb->prefix}postmeta`.post_id )
+      JOIN `{$wpdb->postmeta}` ON ( `{$wpdb->posts}`.id = `{$wpdb->postmeta}`.post_id )
       WHERE `{$wpdb->posts}`.post_type = 'wpi_object'
-      AND `{$wpdb->prefix}postmeta`.meta_key = 'default_currency_code'
+      AND `{$wpdb->postmeta}`.meta_key = 'default_currency_code'
     " );
     foreach ( $results as $curr_row ) {
       $protected_currencies[ ] = $curr_row->meta_value;
@@ -2709,6 +2708,7 @@ function get_due_date( $invoice ) {
  * Find a full diff between two arrays.
  *
  * @param array $array1
+ * 
  * @param array $array2
  *
  * @return array
@@ -2744,32 +2744,58 @@ function get_invoice_permalink( $identificator ) {
   global $wpi_settings, $wpdb;
 
   $hash = "";
+  
   //** Check Invoice by ID and get hash */
-  if ( empty( $identificator ) ) return false;
-
-  $id = get_invoice_id( $identificator );
-
-  //** Get hash by post ID */
-  if ( !empty( $id ) ) {
-    $hash = $wpdb->get_var( $wpdb->prepare( "SELECT `meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'hash' AND `post_id` = '%d'",
-      $id
-    ) );
-  }
-
-  if ( empty( $hash ) || empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+  if ( empty( $identificator ) ) {
     return false;
   }
 
-  if ( get_option( "permalink_structure" ) ) {
-    return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
-  } else {
-    //** check if page is on front-end */
-    if ( get_option( 'page_on_front' ) == $wpi_settings[ 'web_invoice_page' ] ) {
-      return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
-    } else {
-      return get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "&invoice_id=" . $hash;
-    }
+  // try to get cached permalin
+  if( $_cached = wp_cache_get( 'wpi-permalink-' . $identificator, 'wp-invoice' ) ) {
+    $_result = $_cached; 
   }
+
+
+  if( !isset( $_result ) ) {
+    
+    $id = get_invoice_id( $identificator );
+  
+    //** Get hash by post ID */
+    if ( !empty( $id ) ) {
+      $hash = $wpdb->get_var( $wpdb->prepare( "SELECT `meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'hash' AND `post_id` = '%d'",
+        $id
+      ) );
+    }
+  
+    if ( empty( $hash ) || empty( $wpi_settings[ 'web_invoice_page' ] ) ) {
+      $_result =  false;
+    } else {
+  
+    if ( get_option( "permalink_structure" ) ) {
+      $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
+    } else {
+      //** check if page is on front-end */
+      if ( get_option( 'page_on_front' ) == $wpi_settings[ 'web_invoice_page' ] ) {
+        $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "?invoice_id=" . $hash;
+      } else {
+        $_result = get_permalink( $wpi_settings[ 'web_invoice_page' ] ) . "&invoice_id=" . $hash;
+      }
+    }
+    
+    }
+    
+  }
+
+  // cache result 2
+  wp_cache_set( 'wpi-permalink-' . $identificator, $_result, 'wp-invoice' );
+
+  return apply_filters( 'wpi_invoice_permalink', $_result, array( 
+    'id' => isset( $_cached ) ? $_cached : $id, 
+    'hash' => $hash, 
+    'identificator' => $identificator,
+    'cached' => isset( $_cached ) ? true : false
+  ));
+  
 }
 
 /**
@@ -2780,6 +2806,14 @@ function get_invoice_permalink( $identificator ) {
  */
 function get_invoice_id( $identificator ) {
   global $wpdb;
+
+
+  if( $_cached = wp_cache_get( 'wpi-alias-' . $identificator, 'wp-invoice' ) ) {
+    return $_cached; 
+  } 
+  
+      //error_log( "invoice_id not in cache " . $identificator );
+
 
   $id = false;
   if ( strlen( $identificator ) == 32 ) {
@@ -2809,6 +2843,11 @@ function get_invoice_id( $identificator ) {
       $identificator
     ) );
   }
+  
+  
+  // cache alias
+  wp_cache_set( 'wpi-alias-' . $identificator, $id, 'wp-invoice' );
+  
 
   return $id;
 }

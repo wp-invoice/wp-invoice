@@ -219,9 +219,9 @@ namespace UsabilityDynamics\WPI {
         global $wp_scripts;
         $wp_scripts->queue = array();
 
-        wp_enqueue_script('angular-js', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js', null, '1.4.8' );
-        wp_enqueue_script('angular-js-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js', null, '1.4.8' );
-        wp_enqueue_script('wpi-client-dashboard', ud_get_wp_invoice()->path('/static/scripts/wpi-client-dashboard.js', 'url'), array('angular-js', 'angular-js-sanitize'), WP_INVOICE_VERSION_NUM );
+        wp_enqueue_script('angular-js', ud_get_wp_invoice()->path('/static/scripts/vendor/angular.min.js', 'url'), null, '1.4.8', true );
+        wp_enqueue_script('angular-js-sanitize', ud_get_wp_invoice()->path('/static/scripts/vendor/angular-sanitize.js', 'url'), null, '1.4.8', true );
+        wp_enqueue_script('wpi-client-dashboard', ud_get_wp_invoice()->path('/static/scripts/wpi-client-dashboard.js', 'url'), array('angular-js', 'angular-js-sanitize'), WP_INVOICE_VERSION_NUM, false );
       }
 
       /**

@@ -4,7 +4,7 @@
  * Plugin URI: https://www.usabilitydynamics.com/product/wp-invoice
  * Description: WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.
  * Author: Usability Dynamics, Inc.
- * Version: 4.1.8
+ * Version: 4.1.9
  * Requires at least: 4.0
  * Tested up to: 4.1.1
  * Text Domain: wp-invoice
@@ -20,7 +20,7 @@
 
 //** Define WPI Version */
 if ( !defined( 'WP_INVOICE_VERSION_NUM' ) ) {
-  define( 'WP_INVOICE_VERSION_NUM', '4.1.8' );
+  define( 'WP_INVOICE_VERSION_NUM', '4.1.9' );
 }
 
 //** Define shorthand for transdomain */

@@ -564,19 +564,70 @@ if ( !function_exists('the_description') ) {
   function the_description($args = '') {
     global $invoice;
 
-    $defaults = array('return' => false);
-    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+    $defaults = array('return' => false, 'show_all' => false, 'show_hidden' => false );
+    $args = wp_parse_args($args, $defaults);
 
     if (empty($invoice['post_content']))
       return;
 
-    $result = apply_filters('wpi_description', $invoice['post_content']);
+    $more_link_text = '';
 
-    if ($return) {
-      return $result;
+
+    //$content = apply_filters('the_content', $content);
+
+    $content = $invoice['post_content'];
+
+    if ( preg_match( '/<!--more(.*?)?-->/', $content, $matches ) ) {
+        $content = explode( $matches[0], $content, 2 );
+        
+        if ( ! empty( $matches[1] ) && ! empty( $more_link_text ) )
+                $more_link_text = strip_tags( wp_kses_no_null( trim( $matches[1] ) ) );
+    
+        $has_teaser = true;
+    } else {
+        $content = array( $content );
     }
 
-    echo $result;
+  $_output = '';
+  
+  //print_r($content);
+  foreach( $content as $_step => $_content ) {
+  
+    //$content = apply_filters('wpi_description', $invoice['post_content']);
+    $_content = apply_filters('wpi_description', $_content );
+
+//echo '$_step ' .  $_step;
+
+    //print_r($content[0]);die();
+    if( $_step === 0 ) {
+      $_output .= '<div class="wpi-above-fold">' . $_content . '</div>';
+    } else {
+      
+      
+    // by default don't go below the --more-- break.
+    if( isset( $args[ 'show_all' ] ) && $args[ 'show_all' ]  ) {
+      $_output .= '<div class="wpi-below-fold">' . $_content . '</div>';
+    }
+    
+    // by default don't go below the --more-- break.
+    if( isset( $args[ 'show_hidden' ]) && $args[ 'show_hidden' ] &&  isset( $_content ) ) {
+      $_output .= '<span class="wpi-below-the-fold-content" style="display:none">' . $_content . '</span>';
+      $_output .= '<a href="#detail" class="wpi-below-the-fold-trigger">Toggle Detail</a>';
+    }
+      
+    }
+    
+    // $content = str_replace( '<p></p>', '', $content );
+    
+}
+
+
+    if ($_output) {
+      return $_output;
+    }
+
+    echo $_output;
+    
   }
 }
 
@@ -777,6 +828,19 @@ if ( !function_exists('is_recurring') ) {
     return false;
   }
 }
+
+
+/**
+ * Show business nam
+ * @return bool
+ */
+if ( !function_exists('show_business_name') ) {
+  function show_business_name() {
+    $core = WPI_Core::getInstance();
+    return $core->Settings->options['globals']['show_business_name'] == 'false' ? FALSE : TRUE;
+  }
+}
+
 
 /**
  * Show business info or not
@@ -1172,7 +1236,7 @@ if ( !function_exists('wpi_user_can_view_dashboard') ) {
     $user = get_user_by('id', (int)$_GET['wpi_user_id']);
     if ( !is_a($user, 'WP_User') ) return false;
 
-    $token_to_check = md5( $user->ID.$user->user_email.AUTH_SALT );
+    $token_to_check = md5( $user->ID.$user->user_email. ( defined( 'AUTH_SALT' ) ? AUTH_SALT : '' ) );
 
     if ( $token_to_check == $_GET['wpi_token'] ) return true;
 
@@ -1198,7 +1262,7 @@ if ( !function_exists('wpi_get_dashboard_permalink') ) {
     /**
      * Generate link to dashboard
      */
-    $wpi_token = md5( $invoice_data->data['user_data']['ID'].$invoice_data->data['user_data']['user_email'].AUTH_SALT );
+    $wpi_token = md5( $invoice_data->data['user_data']['ID'].$invoice_data->data['user_data']['user_email']. ( defined( 'AUTH_SALT' ) ? AUTH_SALT : '' ) );
 
     global $wpi_settings;
     if ( get_option( "permalink_structure" ) ) {
