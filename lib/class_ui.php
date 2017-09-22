@@ -1152,7 +1152,7 @@ class WPI_UI {
       }
     }
 
-    $_json_items = json_encode( $encode_invoice_item );
+    $_json_items = json_encode( $invoice_items );
     
     // @source https://stackoverflow.com/questions/7741415/strip-null-values-of-json-object
     $_json_items = preg_replace('/,\s*"[^"]+":null|"[^"]+":null,?/', '', $_json_items);
