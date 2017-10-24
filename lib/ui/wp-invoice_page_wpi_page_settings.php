@@ -757,6 +757,7 @@ class WPI_Settings_page {
             <th style="width:40px;"><?php _e("Price", ud_get_wp_invoice()->domain) ?></th>
             <th style="width:40px;"><?php _e("Tax %", ud_get_wp_invoice()->domain) ?></th>
             <th style="width:40px;"><?php _e("Total", ud_get_wp_invoice()->domain) ?></th>
+            <?php do_action( 'wpi_predefined_services_after_table_head_col' ); ?>
           </tr>
         </thead>
         <tbody>
@@ -786,12 +787,13 @@ class WPI_Settings_page {
               <td>
                 <span class="row_total" id="total_item_<?php echo $slug; ?>" ></span>
               </td>
+              <?php do_action( 'wpi_predefined_services_after_table_body_col', array( 'slug' => $slug, 'item' => $itemized_item ) ); ?>
             </tr>
     <?php endforeach; ?>
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="5">
+            <th colspan="<?php echo apply_filters( 'wpi_predefined_services_footer_colspan', 5 ) ?>">
               <input type='button' class="button wpi_button wpi_add_row" value="<?php esc_attr(_e("Add Line Item", ud_get_wp_invoice()->domain)) ?>"/>
             </th>
           </tr>
