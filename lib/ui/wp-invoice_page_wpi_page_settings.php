@@ -720,6 +720,9 @@ class WPI_Settings_page {
    * @param type $wpi_settings
    */
   static function predefined($wpi_settings) {
+
+    do_action('wpi_settings_before_predefined', $wpi_settings);
+
     ?>
     <p><?php _e('Setup your common services and products in here to streamline invoice creation.', ud_get_wp_invoice()->domain); ?></p>
     <script type="text/javascript">

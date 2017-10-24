@@ -348,7 +348,7 @@ jQuery( document ).ready( function () {
   /**
    * Deletes a dynamic table row
    */
-  jQuery( '.wpi_dynamic_table_row .row_delete' ).on( 'click', function ( event ) {
+  jQuery( document ).on( 'click', '.wpi_dynamic_table_row .row_delete', function ( event ) {
     var table = jQuery( this ).parents( '.ud_ui_dynamic_table' );
     var current_row = jQuery( this ).parents( '.wpi_dynamic_table_row' );
 
