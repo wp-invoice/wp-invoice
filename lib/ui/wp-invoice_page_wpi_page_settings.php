@@ -729,6 +729,7 @@ class WPI_Settings_page {
       jQuery(document).ready( function() {
         wpi_recalc_totals();
         jQuery('#wpi_predefined_services_div tbody').sortable({
+          handle: '.row_drag',
           stop: function( event, ui ) {
             jQuery.each(jQuery('tr', ui.item.parent()), function(key, tr){
               var slug = jQuery(tr).attr('slug');
@@ -766,6 +767,7 @@ class WPI_Settings_page {
               <td>
                 <span>
                   <span class="row_delete">&nbsp;</span>
+                  <span class="row_drag" style="left: 54px;">&nbsp;</span>
                     <input type="text" class="item_name input_field" name="wpi_settings[predefined_services][<?php echo $slug; ?>][name]" value="<?php echo htmlspecialchars(stripslashes($itemized_item['name'])); ?>" />
                     <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e("Toggle Description", ud_get_wp_invoice()->domain) ?></span></span>
                 </span>
