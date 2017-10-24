@@ -922,6 +922,7 @@ function add_itemized_list_row ( where ) {
   var lastRow = jQuery( '#' + where + ' .wp_invoice_itemized_list_row:last' ).clone();
   var id = parseInt( jQuery( '.id', lastRow ).html() ) + 1;
   jQuery( '.id', lastRow ).html( id );
+  lastRow.attr( 'slug', id );
   if ( where == 'invoice_list' ) {
     // Update items if this is an itemized list
     jQuery( '.item_name', lastRow ).attr( 'name', 'wpi_invoice[itemized_list][' + id + '][name]' );

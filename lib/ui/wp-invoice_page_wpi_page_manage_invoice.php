@@ -203,6 +203,24 @@
           <?php endif; ?>
         </ul>
 
+        <script type="text/javascript">
+          jQuery(document).ready( function() {
+            jQuery('#invoice_list.itemized_list').sortable({
+              handle: ".row_drag",
+              items: "li.wp_invoice_itemized_list_row",
+              stop: function( event, ui ) {
+                jQuery.each(jQuery('li.wp_invoice_itemized_list_row', ui.item.parent()), function(key, tr){
+                  var slug = jQuery(tr).attr('slug');
+                  jQuery('input,textarea', tr).each(function(k, v){
+                    jQuery(v).attr('name', String(jQuery(v).attr('name')).replace(String(slug), String(key+1)));
+                  });
+                  jQuery(tr).attr('slug', key+1);
+                });
+              }
+            });
+          });
+        </script>
+
         <ul id="invoice_list" class="itemized_list clearfix">
           <li class="header clearfix">
             <span class="name"><?php _e("Name", ud_get_wp_invoice()->domain) ?></span>
@@ -225,11 +243,12 @@
           $counter = 1;
           ?>
           <?php foreach((array)$this_invoice->data['itemized_list'] as $itemized_item) : ?>
-            <li class="wp_invoice_itemized_list_row clearfix" id="wp_invoice_itemized_list_row_<?php echo $counter; ?>">
+            <li class="wp_invoice_itemized_list_row clearfix" id="wp_invoice_itemized_list_row_<?php echo $counter; ?>" slug="<?php echo $counter; ?>">
               <span class="id hidden"><?php echo $counter; ?></span>
               <div class="flexible_width_holder">
                 <div class="flexible_width_holder_content">
                   <span class="row_delete">&nbsp;</span>
+                  <span class="row_drag">&nbsp;</span>
                   <input class="item_name input_field" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][name]" value="<?php echo stripslashes($itemized_item['name']); ?>" />
                   <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e('Toggle Description', ud_get_wp_invoice()->domain) ?></span></span>
                 </div>
