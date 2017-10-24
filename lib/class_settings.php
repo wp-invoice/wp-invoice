@@ -487,6 +487,8 @@ class WPI_Settings {
       if ( !isset( $new_settings[ $checkbox_name ] ) ) unset( $this->options[ $checkbox_name ] );
     }
 
+    $this->options = apply_filters( 'wpi_options_pre_commit_updates', $this->options, $new_settings );
+
     $this->CommitUpdates();
 
     //** Update global variable */
