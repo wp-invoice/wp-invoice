@@ -732,7 +732,7 @@ class WPI_Settings_page {
           stop: function( event, ui ) {
             jQuery.each(jQuery('tr', ui.item.parent()), function(key, tr){
               var slug = jQuery(tr).attr('slug');
-              jQuery('input,textarea', tr).each(function(k, v){
+              jQuery('input,textarea,select', tr).each(function(k, v){
                 jQuery(v).attr('name', String(jQuery(v).attr('name')).replace(String(slug), String(key)));
               });
               jQuery(tr).attr('slug', key);

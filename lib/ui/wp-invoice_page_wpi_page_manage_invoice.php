@@ -211,7 +211,7 @@
               stop: function( event, ui ) {
                 jQuery.each(jQuery('li.wp_invoice_itemized_list_row', ui.item.parent()), function(key, tr){
                   var slug = jQuery(tr).attr('slug');
-                  jQuery('input,textarea', tr).each(function(k, v){
+                  jQuery('input,textarea,select', tr).each(function(k, v){
                     jQuery(v).attr('name', String(jQuery(v).attr('name')).replace(String(slug), String(key+1)));
                   });
                   jQuery(tr).attr('slug', key+1);
