@@ -261,6 +261,7 @@
               </span>
               <?php $item_description_style = empty($itemized_item['description']) ? 'none' : 'block'; ?>
               <textarea style="display: <?php echo $item_description_style; ?>" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][description]" class="item_description"><?php echo stripslashes($itemized_item['description']); ?></textarea>
+              <?php do_action( 'wpi_edit_invoice_itemized_list_item', array( 'item' => $itemized_item, 'counter' => $counter, 'current_invoice' => $this_invoice ) ); ?>
             </li>
             <?php $counter++; ?>
           <?php endforeach; ?>
