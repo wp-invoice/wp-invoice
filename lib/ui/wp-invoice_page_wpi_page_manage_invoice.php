@@ -349,7 +349,7 @@
                 $service['tax'] = !empty($service['tax'])?$service['tax']:'';
                 $_name = htmlspecialchars(stripslashes($service['name']));
                 $_description = htmlspecialchars(stripslashes($service['description']));
-                $services_array["{$_name}|{$_description}|{$service['quantity']}|{$service['price']}|{$service['tax']}"] = $_name . ": " . $service['quantity'] . " x ". $service['price'];
+                $services_array[apply_filters( 'wpi_line_items_select_option_value', "{$_name}|{$_description}|{$service['quantity']}|{$service['price']}|{$service['tax']}", $service )] = $_name . ": " . $service['quantity'] . " x ". $service['price'];
               }
 
               //** Make sure there are more services than the label */
