@@ -529,7 +529,9 @@ function wpi_insert_predefined_service () {
     jQuery( "#invoice_list li.wp_invoice_itemized_list_row:last .item_description" ).show();
     jQuery( '#invoice_list li.wp_invoice_itemized_list_row:last .item_description' ).val( description );
   }
-  jQuery( "#wpi_predefined_services" ).val( 1 );
+  setTimeout(function(){
+    jQuery( "#wpi_predefined_services" ).val( '' );
+  }, 100);
   wpi_recalc_totals();
 }
 /*
