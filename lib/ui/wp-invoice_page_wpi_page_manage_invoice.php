@@ -70,6 +70,8 @@
   #post-body .wp_themeSkin .mceStatusbar a.mceResize {top:0;}
 </style>
 
+<?php do_action( 'wpi_edit_invoice_page_top', $this_invoice ); ?>
+
 <div id="wpi_manage_page" class="wrap <?php echo (!empty($this_invoice->data['post_status']) ? 'wpi_invoice_status_' . $this_invoice->data['post_status'] : ''); ?>">
 
 <h2>
