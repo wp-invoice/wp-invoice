@@ -1485,13 +1485,13 @@ class WPI_Functions {
 
     //** Add line items */
     foreach ( $invoice[ 'itemized_list' ] as $line_item ) {
-      $ni->line_item( array(
+      $ni->line_item( apply_filters( 'wpi_save_invoice_itemized_list_item', array(
         'name' => $line_item[ 'name' ],
         'description' => $line_item[ 'description' ],
         'quantity' => $line_item[ 'quantity' ],
         'price' => $line_item[ 'price' ],
         'tax_rate' => $line_item[ 'tax' ]
-      ) );
+      ), $line_item ) );
     }
 
     //** Add line items for charges */

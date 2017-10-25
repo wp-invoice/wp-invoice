@@ -440,6 +440,8 @@ class WPI_Invoice {
     $this->data['itemized_list'][$items_in_list]['line_total_tax'] = $quantity * $price * ($tax_rate / 100);
     $this->data['itemized_list'][$items_in_list]['line_total_before_tax'] = $quantity * $price;
     $this->data['itemized_list'][$items_in_list]['line_total_after_tax'] = $quantity * $price * (1 + ($tax_rate / 100));
+
+    $this->data['itemized_list'][$items_in_list] = apply_filters( 'wpi_line_item', $this->data['itemized_list'][$items_in_list], $args );
   }
 
   /**
