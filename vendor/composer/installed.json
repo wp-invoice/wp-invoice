@@ -216,49 +216,6 @@
         ]
     },
     {
-        "name": "usabilitydynamics/lib-wp-list-table",
-        "version": "1.0.8",
-        "version_normalized": "1.0.8.0",
-        "source": {
-            "type": "git",
-            "url": "git@github.com:UsabilityDynamics/lib-wp-list-table",
-            "reference": "1.0.8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/UsabilityDynamics/lib-wp-list-table/archive/1.0.8.zip",
-            "reference": "1.0.8",
-            "shasum": null
-        },
-        "require": {
-            "php": ">=5.3",
-            "usabilitydynamics/lib-ui": "~0.3"
-        },
-        "type": "library",
-        "extra": {
-            "installer-name": "lib-wp-list-table"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "lib/classes"
-            ]
-        },
-        "license": [
-            "MIT"
-        ],
-        "description": "Advanced Ajax List Table & Filter library for Wordpress",
-        "homepage": "https://github.com/UsabilityDynamics/lib-wp-list-table",
-        "keywords": [
-            "ajax",
-            "filter",
-            "library",
-            "search",
-            "wordpress",
-            "wp-list-table"
-        ]
-    },
-    {
         "name": "usabilitydynamics/lib-wp-saas-util",
         "version": "1.0.4",
         "version_normalized": "1.0.4.0",
@@ -291,5 +248,48 @@
         "support": {
             "issues": "http://github.com/UsabilityDynamics/lib-wp-saas-util/issues"
         }
+    },
+    {
+        "name": "usabilitydynamics/lib-wp-list-table",
+        "version": "1.0.9",
+        "version_normalized": "1.0.9.0",
+        "source": {
+            "type": "git",
+            "url": "git@github.com:UsabilityDynamics/lib-wp-list-table",
+            "reference": "1.0.9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/UsabilityDynamics/lib-wp-list-table/archive/1.0.9.zip",
+            "reference": "1.0.9",
+            "shasum": null
+        },
+        "require": {
+            "php": ">=5.3",
+            "usabilitydynamics/lib-ui": "~0.3"
+        },
+        "type": "library",
+        "extra": {
+            "installer-name": "lib-wp-list-table"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/classes"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "description": "Advanced Ajax List Table & Filter library for Wordpress",
+        "homepage": "https://github.com/UsabilityDynamics/lib-wp-list-table",
+        "keywords": [
+            "ajax",
+            "filter",
+            "library",
+            "search",
+            "wordpress",
+            "wp-list-table"
+        ]
     }
 ]
