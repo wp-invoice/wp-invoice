@@ -155,79 +155,80 @@ class WPI_UI {
 
     $list_table = new New_WPI_List_Table(array(
         'filter' => array(
-            'fields' => array(
-                array(
-                  'id' => 's',
-                  'name' => __('Title', ud_get_wp_invoice()->domain),
-                  'placeholder' => __('Start typing...', ud_get_wp_invoice()->domain),
-                  'type' => 'text',
-                  'map' => array(
-                    'class' => 'post', // Available: 'post','meta','taxonomy'
-                    'type' => 'string', // Available: 'string', 'number'
-                    'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
-                  )
-                ),
-                array(
-                    'id' => 'invoice_id',
-                    'name' => __('ID', ud_get_wp_invoice()->domain),
-                    'placeholder' => __('Paste ID here', ud_get_wp_invoice()->domain),
+            'fields' => apply_filters( 'wpi_overview_filter_fields', array(
+                  array(
+                    'id' => 's',
+                    'name' => __('Title', ud_get_wp_invoice()->domain),
+                    'placeholder' => __('Start typing...', ud_get_wp_invoice()->domain),
                     'type' => 'text',
                     'map' => array(
-                        'class' => 'meta', // Available: 'post','meta','taxonomy'
+                      'class' => 'post', // Available: 'post','meta','taxonomy'
+                      'type' => 'string', // Available: 'string', 'number'
+                      'compare' => '=' // Available: '=', 'IN', 'NOT IN', etc..
+                    )
+                  ),
+                  array(
+                      'id' => 'invoice_id',
+                      'name' => __('ID', ud_get_wp_invoice()->domain),
+                      'placeholder' => __('Paste ID here', ud_get_wp_invoice()->domain),
+                      'type' => 'text',
+                      'map' => array(
+                          'class' => 'meta', // Available: 'post','meta','taxonomy'
+                          'type' => 'string'
+                      )
+                  ),
+                  array(
+                    'id' => 'post_status',
+                    'name' => __('Status', ud_get_wp_invoice()->domain),
+                    'type' => 'select',
+                    'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => __('All', ud_get_wp_invoice()->domain) ) ),
+                    'std' => 'active'
+                  ),
+                  array(
+                    'id' => 'type',
+                    'name' => __( 'Type', ud_get_wp_invoice()->domain ),
+                    'type' => 'select',
+                    'options' => apply_filters( 'wpi_overview_filter_types', array( '' => __('All', ud_get_wp_invoice()->domain) ) )
+                  ),
+                  array(
+                      'id' => 'user_email',
+                      'name' => __( 'Recipient', ud_get_wp_invoice()->domain ),
+                      'type' => 'select_advanced',
+                      'js_options' => array(
+                        'allowClear' => true,
+                      ),
+                      'multiple' => false,
+                      'url' => admin_url( 'admin-ajax.php?action=wpi_search_recipient' ),
+                      'map' => array(
+                        'class' => 'meta',
                         'type' => 'string'
-                    )
-                ),
-                array(
-                  'id' => 'post_status',
-                  'name' => __('Status', ud_get_wp_invoice()->domain),
-                  'type' => 'select',
-                  'options' => apply_filters( 'wpi_overview_filter_statuses', array( 'any' => __('All', ud_get_wp_invoice()->domain) ) ),
-                  'std' => 'active'
-                ),
-                array(
-                  'id' => 'type',
-                  'name' => __( 'Type', ud_get_wp_invoice()->domain ),
-                  'type' => 'select',
-                  'options' => apply_filters( 'wpi_overview_filter_types', array( '' => __('All', ud_get_wp_invoice()->domain) ) )
-                ),
-                array(
-                    'id' => 'user_email',
-                    'name' => __( 'Recipient', ud_get_wp_invoice()->domain ),
-                    'type' => 'select_advanced',
-                    'js_options' => array(
-                      'allowClear' => true,
-                    ),
-                    'multiple' => false,
-                    'url' => admin_url( 'admin-ajax.php?action=wpi_search_recipient' ),
-                    'map' => array(
-                      'class' => 'meta',
-                      'type' => 'string'
-                    )
-                ),
-                array(
-                    'id' => 'post_date_min',
-                    'name' => __( 'Date from', ud_get_wp_invoice()->domain ),
-                    'type' => 'date',
-                    'js_options' => array(
-                        'allowClear' => true,
-                    ),
-                    'map' => array(
-                        'class' => 'date_query',
-                        'compare' => 'after'
-                    )
-                ),
-                array(
-                    'id' => 'post_date_max',
-                    'name' => __( 'Date to', ud_get_wp_invoice()->domain ),
-                    'type' => 'date',
-                    'js_options' => array(
-                        'allowClear' => true,
-                    ),
-                    'map' => array(
-                        'class' => 'date_query',
-                        'compare' => 'before'
-                    )
-                )
+                      )
+                  ),
+                  array(
+                      'id' => 'post_date_min',
+                      'name' => __( 'Date from', ud_get_wp_invoice()->domain ),
+                      'type' => 'date',
+                      'js_options' => array(
+                          'allowClear' => true,
+                      ),
+                      'map' => array(
+                          'class' => 'date_query',
+                          'compare' => 'after'
+                      )
+                  ),
+                  array(
+                      'id' => 'post_date_max',
+                      'name' => __( 'Date to', ud_get_wp_invoice()->domain ),
+                      'type' => 'date',
+                      'js_options' => array(
+                          'allowClear' => true,
+                      ),
+                      'map' => array(
+                          'class' => 'date_query',
+                          'compare' => 'before'
+                      )
+                  )
+               )
             )
         )
     ));
