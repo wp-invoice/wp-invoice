@@ -200,6 +200,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
     $r .= '<ul>';
     $r .= '<li><a href="'.$edit_user_url.'">' . $post->user_data['display_name'] . '</a></li>';
     $r .= '<li>' . $post->user_data['user_email'] . '</li>';
+    $r .= apply_filters( 'wpi_invoice_list_column_recipient', '', $post );
     $r .= '</ul>';
 
     return $r;
