@@ -357,6 +357,9 @@ class WPI_Ajax {
                                           WHERE `post_title` LIKE '%{$_REQUEST['term']}%'
                                             AND `post_type` = 'wpi_object'
                                           LIMIT 10" );
+
+    $invoices_found = apply_filters( 'wpi_after_template_autocomplete_handler', $invoices_found, $_REQUEST['term'] );
+
     die( json_encode( $invoices_found ) );
   }
 
