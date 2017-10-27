@@ -531,6 +531,7 @@ function wpi_insert_predefined_service () {
   }
   setTimeout(function(){
     jQuery( "#wpi_predefined_services" ).val( '' );
+    jQuery( "#wpi_predefined_services" ).select2('data', null);
   }, 100);
   wpi_recalc_totals();
 }

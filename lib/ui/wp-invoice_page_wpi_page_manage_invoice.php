@@ -338,7 +338,7 @@
             <?php
             if(is_array($wpi_settings['predefined_services'])) {
               //** Convert predefined services into special array */
-              $services_array[""] = __("Insert a predefined line item", ud_get_wp_invoice()->domain);
+              $services_array[""] = '';
               foreach($wpi_settings['predefined_services'] as $service) {
                 //** skip blanks */
                 if( empty($service['name']) ) {
@@ -363,6 +363,15 @@
               }
             }
             ?>
+
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+                jQuery('#wpi_predefined_services').select2({
+                  placeholder: "Search Line Items",
+                  width: 'resolve'
+                });
+              });
+            </script>
 
             <input type="button" class="button wpi_button" id="wpi_add_discount" value="<?php esc_attr(_e("Add Discount", ud_get_wp_invoice()->domain)) ?>"/>
             <span id="wpi_discount_mismatch_error"></span>
