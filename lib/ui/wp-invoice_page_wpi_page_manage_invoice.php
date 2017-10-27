@@ -251,14 +251,14 @@
                 <div class="flexible_width_holder_content">
                   <span class="row_delete">&nbsp;</span>
                   <span class="row_drag">&nbsp;</span>
-                  <input class="item_name input_field" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][name]" value="<?php echo stripslashes($itemized_item['name']); ?>" />
+                  <input type="text" class="item_name input_field" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][name]" value="<?php echo stripslashes($itemized_item['name']); ?>" />
                   <span class="wpi_add_description_text">&nbsp;<span class="content"><?php _e('Toggle Description', ud_get_wp_invoice()->domain) ?></span></span>
                 </div>
               </div>
               <span class="fixed_width_holder">
-                <span class="row_quantity"><input autocomplete="off"  value="<?php echo stripslashes($itemized_item['quantity']); ?>" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][quantity]" id="qty_item_<?php echo $counter; ?>"  class="item_quantity input_field"></span>
-                <span class="row_price"><input autocomplete="off" value="<?php echo stripslashes($itemized_item['price']); ?>"  name="wpi_invoice[itemized_list][<?php echo $counter; ?>][price]" id="price_item_<?php echo $counter; ?>"  class="item_price input_field"></span>
-                <span class="row_tax column-invoice-details-itemized-list-tax"><input autocomplete="off" value="<?php echo stripslashes($itemized_item['tax_rate']); ?>" class="line_tax_item input_field"  name="wpi_invoice[itemized_list][<?php echo $counter; ?>][tax]"></span>
+                <span class="row_quantity"><input type="text" autocomplete="off"  value="<?php echo stripslashes($itemized_item['quantity']); ?>" name="wpi_invoice[itemized_list][<?php echo $counter; ?>][quantity]" id="qty_item_<?php echo $counter; ?>"  class="item_quantity input_field" /></span>
+                <span class="row_price"><input type="text" autocomplete="off" value="<?php echo stripslashes($itemized_item['price']); ?>"  name="wpi_invoice[itemized_list][<?php echo $counter; ?>][price]" id="price_item_<?php echo $counter; ?>"  class="item_price input_field" /></span>
+                <span class="row_tax column-invoice-details-itemized-list-tax"><input type="text" autocomplete="off" value="<?php echo stripslashes($itemized_item['tax_rate']); ?>" class="line_tax_item input_field"  name="wpi_invoice[itemized_list][<?php echo $counter; ?>][tax]" /></span>
                 <span class="row_total" id="total_item_<?php echo $counter; ?>" ></span>
               </span>
               <?php $item_description_style = empty($itemized_item['description']) ? 'none' : 'block'; ?>
