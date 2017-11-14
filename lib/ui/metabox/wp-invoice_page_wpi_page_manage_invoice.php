@@ -186,6 +186,9 @@ function postbox_publish($this_invoice) {
 
           </li>
         <?php } ?>
+
+        <?php do_action('wpi_publish_options_after', $this_invoice); ?>
+
       </ul>
       <table class="form-table">
         <thead>

@@ -752,6 +752,10 @@ class WPI_Invoice {
       $data['post_date'] = $this->data['post_date'];
     }
 
+    if( !empty( $this->data['post_date_gmt'] ) ) {
+      $data['post_date_gmt'] = $this->data['post_date_gmt'];
+    }
+
     if(empty($data['post_title'])) {
       return false;
     }

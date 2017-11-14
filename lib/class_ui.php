@@ -72,7 +72,12 @@ class WPI_UI {
 
     foreach( (array)$objects_count = wp_count_posts('wpi_object') as $status => $count ) {
       if ( $count ) {
-        $statuses[$status] = __( ucfirst( $status ), ud_get_wp_invoice()->domain ) . ' ('.$count.') ';
+        $status_object = get_post_status_object( $status );
+        $status_label = __( ucfirst( $status ), ud_get_wp_invoice()->domain ) . ' ('.$count.') ';
+        if ( $status_object ) {
+          $status_label = __( $status_object->label, ud_get_wp_invoice()->domain ). ' ('.$count.') ';
+        }
+        $statuses[$status] = $status_label;
       }
     }
 

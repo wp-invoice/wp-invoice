@@ -65,7 +65,7 @@ class New_WPI_List_Table extends \UsabilityDynamics\WPLT\WP_List_Table {
   public static function add_view_link( $actions = array(), $post = false ) {
 
     if ( $post ) {
-      if ( $post->post_status != 'trash' && $post->post_status != 'archived' ) {
+      if ( in_array( $post->post_status, WPI_Core::getInstance()->viewable_types() ) ) {
         $actions['view'] = '<a target="_blank" href="'.get_invoice_permalink($post->ID).'">'.__( 'View', ud_get_wp_invoice()->domain ).'</a>';
       }
     }

@@ -354,6 +354,86 @@ class WPI_Core {
     if ($this->Functions->is_true($wpi_settings['use_css'])) {
       wp_register_style('wpi-default-style', ud_get_wp_invoice()->path( "static/views/wpi-default-style.css", 'url' ), array(), WP_INVOICE_VERSION_NUM);
     }
+
+    /**
+     * Add Publish Later option to publish box
+     */
+    add_action( 'wpi_publish_options', function($this_invoice) {
+      ob_start();
+      ?>
+        <script type="text/javascript">
+          jQuery(document).ready(function(){
+            jQuery(document).on( 'change', '.wpi_wpi_invoice_publish_later_', function() {
+              if ( jQuery(this).is(':checked') ) {
+                jQuery('.wpi_publish_later_date_time').show();
+                jQuery('.wpi_publish_later_date_time input').attr('required','required');
+              } else {
+                jQuery('.wpi_publish_later_date_time').hide();
+                jQuery('.wpi_publish_later_date_time input').removeAttr('required');
+              }
+            });
+            jQuery('.wpi_wpi_invoice_publish_later_').change();
+          });
+        </script>
+        <li class="wpi_publish_later">
+          <?php echo WPI_UI::checkbox("name=wpi_invoice[publish_later]&value=true&label=".__('Publish Later', ud_get_wp_invoice()->domain), !empty($this_invoice['publish_later']) ? $this_invoice['publish_later'] : false); ?>
+          <div style="padding-top:5px;" class="wpi_publish_later_date_time timestampdiv hidden">
+            <?php WPI_Functions::select_publish_time( $this_invoice ) ?>
+          </div>
+        </li>
+      <?php
+      echo ob_get_clean();
+    },9);
+
+    /**
+     * Handle Scheduling an invoice publish date
+     */
+    add_filter( 'wpi_invoice_pre_save', function( $invoice_object, $invoice_data ) {
+      if ( !empty( $invoice_data['publish_later'] ) && $invoice_data['publish_later'] == 'on' ) {
+        if ( empty( $invoice_data['publish_date_time'] ) || !is_array( $invoice_data['publish_date_time'] ) ) return $invoice_object;
+
+        foreach( $invoice_data['publish_date_time'] as $date_part => $date_part_value ) {
+          if ( !is_numeric( $date_part_value ) ) return $invoice_object;
+        }
+
+        $future_date_time = strtotime( $mysql_date_time = sprintf(
+            '%3$s-%2$s-%1$s %4$s:%5$s:%6$s',
+            $invoice_data['publish_date_time']['jj'],
+            $invoice_data['publish_date_time']['mm'],
+            $invoice_data['publish_date_time']['aa'],
+            $invoice_data['publish_date_time']['hh'],
+            $invoice_data['publish_date_time']['mn'],
+            $invoice_data['publish_date_time']['ss']
+        ) );
+
+        if ( $future_date_time <= current_time( 'timestamp' ) ) return $invoice_object;
+
+        $invoice_object->set(array(
+          'post_status' => 'future',
+          'publish_later' => 'on',
+          'publish_date_time' => $invoice_data['publish_date_time'],
+          'post_date' => $mysql_date_time,
+          'post_date_gmt' => date( 'Y-m-d H:i:s', $future_date_time - ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) )
+        ));
+
+      } else {
+        $invoice_object->set(array(
+          'post_status' => 'active'
+        ));
+      }
+
+      return $invoice_object;
+    }, 10, 2);
+
+    /**
+     * Handle status change for invoice object
+     */
+    add_action('future_to_publish', function($post){
+      if ( $post && $post->post_type === 'wpi_object' ){
+        $post->post_status = 'active';
+        wp_update_post( $post );
+      }
+    });
   }
 
   /**
@@ -474,7 +554,7 @@ class WPI_Core {
    * @filter wpi_viewable_types
    */
   function viewable_types() {
-    return array('paid', 'active', 'pending', 'refund');
+    return apply_filters( 'wpi_viewable_invoice_types', array('paid', 'active', 'pending', 'refund') );
   }
 
   /**

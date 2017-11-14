@@ -1355,6 +1355,49 @@ class WPI_Functions {
   }
 
   /**
+   * @param $invoice_data
+   */
+  static function select_publish_time( $invoice_data ) {
+    global $wp_locale;
+
+    if ( empty($invoice_data['post_status']) ) {
+      $edit = false;
+    } else {
+      $edit = !(in_array($invoice_data['post_status'], array('paid', 'pending')) && (!$invoice_data['post_date_gmt'] || '0000-00-00 00:00:00' == $invoice_data['post_date_gmt']));
+      $post_date = $invoice_data['post_date'];
+    }
+
+    $time_adj = current_time('timestamp');
+    $jj = ($edit) ? mysql2date( 'd', $post_date, false ) : gmdate( 'd', $time_adj );
+    $mm = ($edit) ? mysql2date( 'm', $post_date, false ) : gmdate( 'm', $time_adj );
+    $aa = ($edit) ? mysql2date( 'Y', $post_date, false ) : gmdate( 'Y', $time_adj );
+    $hh = ($edit) ? mysql2date( 'H', $post_date, false ) : gmdate( 'H', $time_adj );
+    $mn = ($edit) ? mysql2date( 'i', $post_date, false ) : gmdate( 'i', $time_adj );
+    $ss = ($edit) ? mysql2date( 's', $post_date, false ) : gmdate( 's', $time_adj );
+
+    $month = '<label><span class="screen-reader-text">' . __( 'Month' ) . '</span><select id="mm" name="wpi_invoice[publish_date_time][mm]">';
+    for ( $i = 1; $i < 13; $i = $i +1 ) {
+      $monthnum = zeroise($i, 2);
+      $monthtext = $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) );
+      $month .= "\t\t\t" . '<option value="' . $monthnum . '" data-text="' . $monthtext . '" ' . selected( $monthnum, $mm, false ) . '>';
+      $month .= sprintf( __( '%1$s-%2$s' ), $monthnum, $monthtext ) . "</option>\n";
+    }
+    $month .= '</select></label>';
+
+    $day = '<label><span class="screen-reader-text">' . __( 'Day' ) . '</span><input type="text" id="jj" name="wpi_invoice[publish_date_time][jj]" value="' . $jj . '" size="2" maxlength="2" autocomplete="off" /></label>';
+    $year = '<label><span class="screen-reader-text">' . __( 'Year' ) . '</span><input type="text" id="aa" name="wpi_invoice[publish_date_time][aa]" value="' . $aa . '" size="4" maxlength="4" autocomplete="off" /></label>';
+    $hour = '<label><span class="screen-reader-text">' . __( 'Hour' ) . '</span><input type="text" id="hh" name="wpi_invoice[publish_date_time][hh]" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>';
+    $minute = '<label><span class="screen-reader-text">' . __( 'Minute' ) . '</span><input type="text" id="mn" name="wpi_invoice[publish_date_time][mn]" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
+
+    echo '<div class="timestamp-wrap">';
+    /* translators: 1: month, 2: day, 3: year, 4: hour, 5: minute */
+    printf( __( '%1$s %2$s, %3$s @ %4$s:%5$s' ), $month, $day, $year, $hour, $minute );
+
+    echo '</div><input type="hidden" id="ss" name="wpi_invoice[publish_date_time][ss]" value="' . $ss . '" />';
+
+  }
+
+  /**
    * Handles saving and updating
    * Can also handle AJAX save/update function
    *
