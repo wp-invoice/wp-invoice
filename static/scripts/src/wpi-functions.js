@@ -685,7 +685,18 @@ function wpi_save_invoice () {
     type: "POST",
     url: ajaxurl,
     success: function ( data ) {
-      jQuery( "#ajax-response" ).show();
+
+      // response handler function if ugly. I don't want to refactor all this shit right now. Just adding this error checker. korotkov@ud
+      if ( typeof data == 'object' ) {
+        if ( !data.success ) {
+          jQuery( "#ajax-response" ).removeClass('update').addClass('error').show();
+          jQuery( "#ajax-response p" ).html( data.data.message );
+          jQuery('html').animate({scrollTop: jQuery('body').offset().top});
+          return;
+        }
+      }
+
+      jQuery( "#ajax-response" ).addClass('update').removeClass('error').show();
       jQuery( "#ajax-response p" ).html( data );
       // Show invoice message box
       // Show invoice log
@@ -718,6 +729,8 @@ function wpi_save_invoice () {
         jQuery( this ).attr( 'href', permalink + url_annex );
 
       } );
+
+      jQuery('html').animate({scrollTop: jQuery('body').offset().top});
 
       // Update status box
       wpi_update_status_box();
