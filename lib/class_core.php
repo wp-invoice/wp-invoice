@@ -359,6 +359,8 @@ class WPI_Core {
      * Add Publish Later option to publish box
      */
     add_action( 'wpi_publish_options', function($this_invoice) {
+      global $wpi_settings;
+      $available_notifications = $wpi_settings['notification'];
       ob_start();
       ?>
         <script type="text/javascript">
@@ -377,8 +379,21 @@ class WPI_Core {
         </script>
         <li class="wpi_publish_later">
           <?php echo WPI_UI::checkbox("name=wpi_invoice[publish_later]&value=true&label=".__('Publish Later', ud_get_wp_invoice()->domain), !empty($this_invoice['publish_later']) ? $this_invoice['publish_later'] : false); ?>
-          <div style="padding-top:5px;" class="wpi_publish_later_date_time timestampdiv hidden">
-            <?php WPI_Functions::select_publish_time( $this_invoice ) ?>
+          <div style="padding-top:5px;" class="wpi_publish_later_date_time hidden">
+            <div class="timestampdiv">
+              <?php WPI_Functions::select_publish_time( $this_invoice ) ?>
+            </div>
+            <label>
+              <?php _e( 'Client Notification', ud_get_wp_invoice()->domain ) ?>
+              <select name="wpi_invoice[publish_later_notification]" class="widefat">
+                <option value="0"><?php _e( 'Do not send any', ud_get_wp_invoice()->domain ) ?></option>
+                <?php if ( !empty( $available_notifications ) && is_array( $available_notifications ) ): ?>
+                    <?php foreach( $available_notifications as $notification_key => $notification ): ?>
+                      <option <?php selected( $notification_key, !empty($this_invoice['publish_later_notification'])?$this_invoice['publish_later_notification']:false ) ?> value="<?php echo $notification_key ?>"><?php echo $notification['name'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+              </select>
+            </label>
           </div>
         </li>
       <?php
@@ -413,7 +428,8 @@ class WPI_Core {
           'publish_later' => 'on',
           'publish_date_time' => $invoice_data['publish_date_time'],
           'post_date' => $mysql_date_time,
-          'post_date_gmt' => date( 'Y-m-d H:i:s', $future_date_time - ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) )
+          'post_date_gmt' => date( 'Y-m-d H:i:s', $future_date_time - ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
+          'publish_later_notification' => $invoice_data['publish_later_notification']
         ));
 
       } else {
@@ -428,11 +444,48 @@ class WPI_Core {
     /**
      * Handle status change for invoice object
      */
-    add_action('future_to_publish', function($post){
-      if ( $post && $post->post_type === 'wpi_object' ){
+    add_action( 'future_to_publish', function( $post ) {
+      if ( $post && $post->post_type === 'wpi_object' ) {
         $post->post_status = 'active';
-        wp_update_post( $post );
+        $updated = wp_update_post( $post );
+        if ( $updated && !is_wp_error( $updated ) ) {
+
+          $notification = get_post_meta( $post->ID, 'publish_later_notification', 1 );
+          if ( empty( $notification ) ) return false;
+
+          if ( !is_callable( array( '\WPI_Functions', 'preprocess_notification_template' ) ) ) return false;
+
+          $template = WPI_Functions::preprocess_notification_template( $notification, $post->ID );
+
+          if ( !DOING_CRON ) return false;
+
+          //** Setup, and send our e-mail */
+          $headers = array( "From: " . get_bloginfo() . " <" . get_bloginfo( 'admin_email' ) . ">" );
+          $message = html_entity_decode( $template->ary['NotificationContent'], ENT_QUOTES, 'UTF-8' );
+          $subject = html_entity_decode( $template->ary['NotificationSubject'], ENT_QUOTES, 'UTF-8' );
+          $to = $template->invoice['user_email'];
+
+          //** Validate for empty fields data */
+          if ( empty( $to ) || empty( $subject ) || empty( $message ) ) return false;
+
+          WPI_Functions::maybe_override_mail_from();
+
+          if ( wp_mail( $to, $subject, apply_filters( 'wpi_notification_message', $message, $to, $subject, absint( $template->invoice['invoice_id'] ) ), apply_filters( 'wpi_notification_headers', $headers, $to, $subject, absint( $template->invoice['invoice_id'] ) ) ) ) {
+            $pretty_time = date( get_option( 'time_format' ) . " " . get_option( 'date_format' ), current_time( 'timestamp' ) );
+            $text = __( "Notification Sent", ud_get_wp_invoice()->domain ) . " (" . $subject . ") " . __( 'to', ud_get_wp_invoice()->domain ) . " {$to} " . __( 'at', ud_get_wp_invoice()->domain ) . " {$pretty_time}.";
+            WPI_Functions::log_event( $post->ID, 'invoice', 'notification', '', $text, time() );
+          }
+
+        }
       }
+    });
+
+    /**
+     *
+     */
+    add_filter( 'wpi_custom_meta', function( $keys ) {
+      $keys[] = 'publish_later_notification';
+      return $keys;
     });
   }
 
