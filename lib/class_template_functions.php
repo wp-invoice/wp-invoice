@@ -560,74 +560,54 @@ if ( !function_exists('balance_due') ) {
  * @param mixed $args
  * @return mixed
  */
-if ( !function_exists('the_description') ) {
+if (!function_exists('the_description')) {
   function the_description($args = '') {
     global $invoice;
 
-    $defaults = array('return' => false, 'show_all' => false, 'show_hidden' => false );
+    $defaults = array('return' => false, 'show_all' => false, 'show_hidden' => false);
     $args = wp_parse_args($args, $defaults);
 
     if (empty($invoice['post_content']))
       return;
 
-    $more_link_text = '';
-
-
-    //$content = apply_filters('the_content', $content);
-
     $content = $invoice['post_content'];
 
-    if ( preg_match( '/<!--more(.*?)?-->/', $content, $matches ) ) {
-        $content = explode( $matches[0], $content, 2 );
-        
-        if ( ! empty( $matches[1] ) && ! empty( $more_link_text ) )
-                $more_link_text = strip_tags( wp_kses_no_null( trim( $matches[1] ) ) );
-    
-        $has_teaser = true;
+    if (preg_match('/<!--more(.*?)?-->/', $content, $matches)) {
+      $content = explode($matches[0], $content, 2);
     } else {
-        $content = array( $content );
+      $content = array($content);
     }
 
-  $_output = '';
-  
-  //print_r($content);
-  foreach( $content as $_step => $_content ) {
-  
-    //$content = apply_filters('wpi_description', $invoice['post_content']);
-    $_content = apply_filters('wpi_description', $_content );
+    $_output = '';
 
-//echo '$_step ' .  $_step;
+    foreach ($content as $_step => $_content) {
 
-    //print_r($content[0]);die();
-    if( $_step === 0 ) {
-      $_output .= '<div class="wpi-above-fold">' . $_content . '</div>';
-    } else {
-      
-      
-    // by default don't go below the --more-- break.
-    if( isset( $args[ 'show_all' ] ) && $args[ 'show_all' ]  ) {
-      $_output .= '<div class="wpi-below-fold">' . $_content . '</div>';
+      $_content = apply_filters('wpi_description', $_content);
+
+      if ($_step === 0) {
+        $_output .= '<div class="wpi-above-fold">' . $_content . '</div>';
+      } else {
+
+
+        // by default don't go below the --more-- break.
+        if (isset($args['show_all']) && $args['show_all']) {
+          $_output .= '<div class="wpi-below-fold">' . $_content . '</div>';
+        }
+
+        // by default don't go below the --more-- break.
+        if (isset($args['show_hidden']) && $args['show_hidden'] && isset($_content)) {
+          $_output .= '<span class="wpi-below-the-fold-content" style="display:none">' . $_content . '</span>';
+          $_output .= '<a href="#detail" class="wpi-below-the-fold-trigger">Toggle Detail</a>';
+        }
+
+      }
     }
-    
-    // by default don't go below the --more-- break.
-    if( isset( $args[ 'show_hidden' ]) && $args[ 'show_hidden' ] &&  isset( $_content ) ) {
-      $_output .= '<span class="wpi-below-the-fold-content" style="display:none">' . $_content . '</span>';
-      $_output .= '<a href="#detail" class="wpi-below-the-fold-trigger">Toggle Detail</a>';
-    }
-      
-    }
-    
-    // $content = str_replace( '<p></p>', '', $content );
-    
-}
 
-
-    if ($_output) {
+    if ($args['return']) {
       return $_output;
     }
 
     echo $_output;
-    
   }
 }
 
