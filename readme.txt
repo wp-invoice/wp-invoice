@@ -102,7 +102,7 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 
 == Frequently Asked Questions ==
 
-[WP-Invoice FAQ](http://feedback.usabilitydynamics.com/knowledgebase/topics/41347-wp-invoice)
+[WP-Invoice FAQ](https://www.usabilitydynamics.com/product/wp-invoice/docs/home)
 
 == Screenshots ==
 
