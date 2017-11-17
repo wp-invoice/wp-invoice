@@ -21,7 +21,7 @@
     "php": ">=5.3",
     "usabilitydynamics/lib-ui": "0.3.4",
     "usabilitydynamics/lib-utility": "0.3.7",
-    "usabilitydynamics/lib-wp-bootstrap": "1.2.1",
+    "usabilitydynamics/lib-wp-bootstrap": "1.2.3",
     "usabilitydynamics/lib-ud-api-client": "1.1.5.1",
     "usabilitydynamics/lib-wp-list-table": "1.0.9",
     "usabilitydynamics/lib-wp-saas-util": "1.0.4"
