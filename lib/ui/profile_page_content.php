@@ -6,7 +6,9 @@
 <table class="form-table" ><tr>
       <th><h3><?php _e('Billing / Invoicing Info', ud_get_wp_invoice()->domain) ?></h3></th>
       <td>
-		<input type="button" onclick="window.location.href='<?php echo $wpi_settings['links']['manage_invoice'].$email; ?>'" class="button" value="<?php echo  __('Send New Invoice', ud_get_wp_invoice()->domain) ?>" id="crm_new_invioce"/>
+        <?php if ( current_user_can(WPI_UI::get_capability_by_level($wpi_settings['user_level'])) ): ?>
+          <input type="button" onclick="window.location.href='<?php echo $wpi_settings['links']['manage_invoice'].$email; ?>'" class="button" value="<?php echo  __('Send New Invoice', ud_get_wp_invoice()->domain) ?>" id="crm_new_invioce"/>
+        <?php endif; ?>
       </td>
     </tr>
 </table>
