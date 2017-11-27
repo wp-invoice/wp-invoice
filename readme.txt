@@ -161,6 +161,7 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 * Added object caching to common invoice lookups to reduce number of MySQL queries.
 * Removing extra and write-heavy methods.
 * Added sorting option for line items.
+* Added new feature of Future Publishing.
 * Added actions and filters for developers.
 * Added/Fixed compatibility with other plugins and add-ons.
 

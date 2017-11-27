@@ -22,7 +22,7 @@ Credit card payments may be accepted via Authorize.net, PayPal, Interkassa (East
 
 #### Features
 
-* Free and Paid [Add-ons](https://www.usabilitydynamics.com/products#category-wp-invoice) available.
+* Free [Add-ons](https://www.usabilitydynamics.com/products#category-wp-invoice) available.
 * WP-CRM Integration.
 * Brand new user interface for much improved invoicing filtering and searching.
 * Partial Payments with minimum amount.

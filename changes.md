@@ -1,11 +1,12 @@
-#### 4.1.9
+#### 4.1.9 ( November 27, 2017 )
 * Improved JavaScript library enqueues to follow common conventions.
-* Updated jquery.maskedinput.js to newer version to fix a JavaScript bug. 
+* Updated jquery.maskedinput.js to newer version to fix a JavaScript bug.
 * Moved vendor JavaScript files into scripts/src/vendor.
 * Bundled Angular and jQuery libraries that were loading remotely into scripts/src/vendor.
 * Added object caching to common invoice lookups to reduce number of MySQL queries.
 * Removing extra and write-heavy methods.
 * Added sorting option for line items.
+* Added new feature of Future Publishing.
 * Added actions and filters for developers.
 * Added/Fixed compatibility with other plugins and add-ons.
 
