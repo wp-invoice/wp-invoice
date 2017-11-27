@@ -1,12 +1,13 @@
 #### 4.1.9
-* Improved JavaScript library enques to follow common conventions.
+* Improved JavaScript library enqueues to follow common conventions.
 * Updated jquery.maskedinput.js to newer version to fix a JavaScript bug. 
 * Moved vendor JavaScript files into scripts/src/vendor.
 * Bundled Angular and jQuery libraries that were loading remotely into scripts/src/vendor.
-* If comments are not open on the page for invoice/quote then the comments block will not be displayed. This avoids showing an empty wrapper for comments but with no actual comment form. 
 * Added object caching to common invoice lookups to reduce number of MySQL queries.
 * Removing extra and write-heavy methods.
-* Added support for using the `<!--more-->` tag in invoice description. Information beyond the fold is hidden from client-facing view.
+* Added sorting option for line items.
+* Added actions and filters for developers.
+* Added/Fixed compatibility with other plugins and add-ons.
 
 #### 4.1.8 ( September 5, 2017 )
 * Fixed PayPal payment experience.
