@@ -2430,11 +2430,19 @@ function wpi_is_full_paid_invoice( $invoice_id ) {
   $invoice_obj->load_invoice( "id={$invoice_id}" );
 
   $object_id = wpi_invoice_id_to_post_id( $invoice_id );
-  $payment_history = $wpdb->get_results( "SELECT * FROM {$wpdb->base_prefix}wpi_object_log WHERE object_id = '{$object_id}' AND action = 'add_payment'", ARRAY_A );
+  $payment_history = $wpdb->get_results( "SELECT *
+    FROM {$wpdb->base_prefix}wpi_object_log
+    WHERE object_id = '{$object_id}'
+      AND ( action = 'add_payment' OR action = 'refund' OR action = 'do_adjustment' )", ARRAY_A );
   $paid_amount = 0;
 
   foreach ( $payment_history as $payment ) {
-    $paid_amount += abs( $payment[ 'value' ] );
+    if ( $payment['action'] == 'add_payment' )
+      $paid_amount += abs( $payment[ 'value' ] );
+    if ( $payment['action'] == 'do_adjustment' )
+      $paid_amount += $payment[ 'value' ];
+    if ( $payment['action'] == 'refund' )
+      $paid_amount -= $payment[ 'value' ];
   }
 
   return $paid_amount >= ( $invoice_obj->data[ 'subtotal' ] - $invoice_obj->data[ 'total_discount' ] );
