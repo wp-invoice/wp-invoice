@@ -719,10 +719,7 @@ if ( !function_exists('date_paid') ) {
 if ( !function_exists('is_payment_made') ) {
   function is_payment_made() {
     global $invoice;
-    if (!empty($invoice['total_payments'])) {
-      return $invoice['total_payments'] > 0 && $invoice['total_payments'] < $invoice['subtotal'] - $invoice['total_discount'] + $invoice['total_tax'];
-    }
-    return false;
+    return $invoice['net'] > 0 && $invoice['total_payments'] > 0;
   }
 }
 
