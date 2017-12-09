@@ -641,7 +641,7 @@ namespace UsabilityDynamics\UD_API {
                 }
               }
               //** Sort the list */
-              usort( $more_products, array( 'WPI_Create_Functions', 'order_sort' ) );
+              usort( $more_products, array( '\WPI_Create_Functions', 'order_sort' ) );
               //** Set transient for one day */
               set_transient( $this->token . "-more", $more_products, (60 * 60 * 24) );
             }
