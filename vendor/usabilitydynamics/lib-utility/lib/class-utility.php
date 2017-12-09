@@ -306,7 +306,7 @@ namespace UsabilityDynamics {
           $token = str_replace( '%2B', md5( '%2B' ), $token );
           $arr = array();
           parse_str( $token, $arr );
-          array_walk_recursive( $arr, create_function( '&$value,$key', '$value = str_replace( md5( "%2B" ), "+", $value );' ) );
+          array_walk_recursive( $arr, array( '\WPI_Create_Functions', 'parse_str' ) );
           $data = self::extend( $data, $arr );
         }
         return $data;
@@ -2009,7 +2009,7 @@ namespace UsabilityDynamics {
 
           return false;
         }
-        add_action( 'admin_menu', create_function( '', "add_menu_page( __( 'Log' ,UD_API_Transdomain ), __( 'Log',UD_API_Transdomain ), current_user_can( 'manage_options' ), 'ud_log', array( 'UD_API', 'show_log_page' ) );" ) );
+        add_action( 'admin_menu', array( 'WPI_Create_Functions', 'add_log_page' ) );
       }
 
       /**
@@ -2078,7 +2078,8 @@ namespace UsabilityDynamics {
       static public function replace_data( $str = '', $values = array(), $brackets = array( 'left' => '[', 'right' => ']' ) ) {
         $values       = (array) $values;
         $replacements = array_keys( $values );
-        array_walk( $replacements, create_function( '&$val', '$val = "' . $brackets[ 'left' ] . '".$val."' . $brackets[ 'right' ] . '";' ) );
+        \WPI_Create_Functions::$brackets;
+        array_walk( $replacements, array( '\WPI_Create_Functions', 'replace_data' ) );
 
         return str_replace( $replacements, array_values( $values ), $str );
       }
@@ -2383,7 +2384,7 @@ namespace UsabilityDynamics {
        * @author odokienko@UD
        */
       static public function cleanup_extra_whitespace( $content ) {
-        $content = preg_replace_callback( '~<(?:table|ul|ol )[^>]*>.*?<\/( ?:table|ul|ol )>~ims', create_function( '$matches', 'return preg_replace(\'~>[\s]+<((?:t[rdh]|li|\/tr|/table|/ul ))~ims\',\'><$1\',$matches[0]);' ), $content );
+        $content = preg_replace_callback( '~<(?:table|ul|ol )[^>]*>.*?<\/( ?:table|ul|ol )>~ims', array( '\WPI_Create_Functions', 'cleanup_extra_whitespace' ), $content );
 
         return $content;
       }
@@ -2529,7 +2530,7 @@ namespace UsabilityDynamics {
        */
       static public function json_encode( $arr ) {
         // convmap since 0x80 char codes so it takes all multibyte codes (above ASCII 127). So such characters are being "hidden" from normal json_encoding
-        array_walk_recursive( $arr, create_function( '&$item, $key', 'if (is_string($item)) $item = mb_encode_numericentity($item, array (0x80, 0xffff, 0, 0xffff), "UTF-8");' ) );
+        array_walk_recursive( $arr, array( '\WPI_Create_Functions', 'json_encode' ) );
         return mb_decode_numericentity( json_encode( $arr ), array( 0x80, 0xffff, 0, 0xffff ), 'UTF-8' );
       }
       

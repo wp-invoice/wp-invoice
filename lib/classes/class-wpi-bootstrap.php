@@ -57,6 +57,11 @@ namespace UsabilityDynamics\WPI {
          */
         require_once( ud_get_wp_invoice()->path( 'lib/class_functions.php', 'dir' ) );
 
+	      /**
+	       * Create Functions helper
+	       */
+	      require_once( ud_get_wp_invoice()->path( 'lib/class_create_functions.php', 'dir' ) );
+
         /** 
          * Settings API 
          * @todo: Refactor.
