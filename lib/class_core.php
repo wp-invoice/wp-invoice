@@ -173,7 +173,6 @@ class WPI_Core {
 
     //** Set additional dynamic settings */
     $wpi_settings['frontend_path'] = $this->frontend_path;
-    $wpi_settings['total_invoice_count'] = $wpdb->get_var("SELECT COUNT(*) FROM " . $wpdb->posts . " WHERE post_type = 'wpi_object' AND post_title != ''");
     $wpi_settings['links']['overview_page'] = 'admin.php?page=wpi_main';
     $wpi_settings['links']['settings_page'] = 'admin.php?page=wpi_page_settings';
     $wpi_settings['links']['manage_invoice'] = 'admin.php?page=wpi_page_manage_invoice';
