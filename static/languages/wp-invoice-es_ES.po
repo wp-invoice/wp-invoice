@@ -496,7 +496,7 @@ msgstr "Creado"
 
 #: lib/class_invoice.php:770
 msgid " by "
-msgstr "por"
+msgstr " por "
 
 #: lib/class_invoice.php:779
 msgid "Recurring invoice updated."
@@ -548,7 +548,7 @@ msgstr "Recaudado"
 
 #: lib/class_list_table.php:120 lib/class_ui.php:200
 msgid "Recipient"
-msgstr "Recibidor"
+msgstr "Destinatario"
 
 #: lib/class_list_table.php:122
 msgid "Updated"
@@ -2504,7 +2504,7 @@ msgstr "Nombre o nombre del negocio como remitente"
 
 #: lib/class_ui.php:616
 msgid "Due BalanceID"
-msgstr "Debido ID de Balance"
+msgstr "ID de Balance pendiente"
 
 #: lib/class_ui.php:617
 msgid "Invoice title"
@@ -3850,7 +3850,7 @@ msgstr "Enviar factura a papelera"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:251
 msgid "Save"
-msgstr "ذخیره"
+msgstr "Guardar"
 
 #: lib/ui/metabox/wp-invoice_page_wpi_page_manage_invoice.php:267
 msgid "New User Information"
@@ -3983,27 +3983,24 @@ msgid "Toggle History Detail"
 msgstr "Alternar detalle del historial"
 
 #: lib/ui/payment_accordion.php:4
-#, fuzzy
 msgid "PayPal Setup"
-msgstr "Suscripción de PayPal creada"
+msgstr "Configuración PayPal"
 
 #: lib/ui/payment_accordion.php:12 lib/ui/payment_processing.php:10
 msgid "PayPal Pay Button URL"
-msgstr ""
+msgstr "URL de botón de PayPal"
 
 #: lib/ui/payment_accordion.php:21
-#, fuzzy
 msgid "Credit Card Setup"
-msgstr "Configuración de tarjeta de crédito ACI:"
+msgstr "Configuración de tarjeta de crédito:"
 
 #: lib/ui/payment_accordion.php:29 lib/ui/payment_processing.php:19
 msgid "Gateway Username"
 msgstr "Nombre de usuario Gateway"
 
 #: lib/ui/payment_accordion.php:34 lib/ui/payment_processing.php:24
-#, fuzzy
 msgid "Gateway Transaction Key"
-msgstr "Puerta de entrada el identificador de transacción"
+msgstr "Gateway Transaction Key"
 
 #: lib/ui/payment_processing.php:2
 msgid "PayPal"
@@ -4094,7 +4091,7 @@ msgstr "Nombre a cobrar"
 #: static/views/unified-invoice-page-refund.php:188
 #: static/views/unified-invoice-page-refund.php:227
 msgid "Amount"
-msgstr "Cantidad"
+msgstr "Importe"
 
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:181
 #: lib/ui/wp-invoice_page_wpi_page_manage_invoice.php:234
@@ -4341,7 +4338,7 @@ msgid ""
 "folder in your active theme's folder."
 msgstr ""
 "Use plantillas personalizadas. Si se marca, WP-Invoice usará plantillas en "
-"la carpeta 'spi' en la carpeta de tu tema activo."
+"la carpeta ‘wpi' en la carpeta de tu tema activo."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:266
 msgid ""
@@ -4489,7 +4486,7 @@ msgstr "Mostrar mi nombre de la empresa y la dirección."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:443
 msgid "Show quantity breakdowns in the itemized list."
-msgstr "Mostrar averías cantidad en la lista detallada."
+msgstr "Mostrar cantidades desglosadas en la lista detallada."
 
 #: lib/ui/wp-invoice_page_wpi_page_settings.php:447
 msgid "After a payment has been completed"
@@ -4799,6 +4796,7 @@ msgstr "Cargando…"
 #: static/views/client-dashboard.php:158
 msgid "Something went wrong while loading invoices. Try refreshing the page."
 msgstr ""
+"Algo fallo mientras se cargaban las facturas.  Intente recargar la pagina."
 
 #: static/views/client-dashboard.php:176
 msgid "No invoices found..."
@@ -4976,7 +4974,7 @@ msgstr "Total a pagar:"
 #: static/views/unified-invoice-page-paid.php:271
 #: static/views/unified-invoice-page-refund.php:270
 msgid "Amount Due:"
-msgstr "Importe debido:"
+msgstr "Importe pendiente:"
 
 #: static/views/unified-invoice-page-active.php:290
 #: static/views/unified-invoice-page-paid.php:284
