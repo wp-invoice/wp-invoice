@@ -1,3 +1,8 @@
+#### 4.1.10 ( February 9, 2018 )
+* Fixed calculation of invoice total paid amount.
+* Fixed unnecessary SQL query on every page.
+* Added Feedback form to plugin settings.
+
 #### 4.1.9 ( November 27, 2017 )
 * Improved JavaScript library enqueues to follow common conventions.
 * Updated jquery.maskedinput.js to newer version to fix a JavaScript bug.
