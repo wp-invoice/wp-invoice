@@ -708,6 +708,8 @@ class WPI_Invoice {
       'ID',
       'subject',
       'description',
+      'post_title',
+      'post_name',
       'post_status',
       'post_content',
       'post_date',
