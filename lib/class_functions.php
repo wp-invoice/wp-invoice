@@ -1462,8 +1462,9 @@ class WPI_Functions {
     //** Custom ID */
     $ni->set( array( 'custom_id' => $invoice[ 'meta' ][ 'custom_id' ] ) );
 
+    $invoice_type = get_post_meta($invoice[ 'ID' ],'type',true);
     //** type is 'invoice' by default */
-    $invoice_type = 'invoice';
+    $invoice_type = $invoice_type? $invoice_type : 'invoice';
 
     //** If $invoice object has type definition then use it */
     if ( !empty( $invoice[ 'type' ] ) ) {
