@@ -30,10 +30,10 @@ class WPI_Functions {
     }
 
     //** Cannot use quotes */
-    $text = str_replace( '"', '-', $text );
+      WPI_Create_Functions::$echo_text = str_replace( '"', '-', $text );
 
-    add_filter( 'wp_footer', create_function( '$nothing,$echo_text = "' . $text . '"', 'echo \'<script type="text/javascript">if(typeof console == "object"){console.log("\' . $echo_text . \'");}</script>\'; ' ) );
-    add_filter( 'admin_footer', create_function( '$nothing,$echo_text = "' . $text . '"', 'echo \'<script type="text/javascript">if(typeof console == "object"){console.log("\' . $echo_text . \'");}</script>\'; ' ) );
+    add_filter( 'wp_footer', array( 'WPI_Create_Functions', 'footer_log' ) );
+    add_filter( 'admin_footer', array( 'WPI_Create_Functions', 'footer_log' ) );
 
   }
 
@@ -905,7 +905,8 @@ class WPI_Functions {
   static function print_messages() {
     global $wpi_messages;
 
-    if ( count( $wpi_messages ) < 1 ) {
+
+    if ( count( (array)$wpi_messages ) < 1 ) {
       return;
     }
 

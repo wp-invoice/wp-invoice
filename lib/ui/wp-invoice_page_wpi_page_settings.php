@@ -56,7 +56,7 @@ $wpi_settings_tabs = array(
 $wpi_settings_tabs = apply_filters('wpi_settings_tabs', $wpi_settings_tabs);
 
 //** Put the tabs into position */
-usort($wpi_settings_tabs, create_function('$a,$b', ' return $a["position"] - $b["position"]; '));
+usort($wpi_settings_tabs, array( 'WPI_Create_Functions', 'position_sort'));
 
 if (isset($_REQUEST['message'])) {
   switch ($_REQUEST['message']) {
