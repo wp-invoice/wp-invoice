@@ -244,7 +244,9 @@ class WPI_Core {
       add_action('wpi_before_process_payment', array('wpi_gateway_base', 'handle_terms_acceptance'));
     }
 
-    add_action('wp_ajax_wpi_get_user_date', create_function('', ' die(WPI_Ajax::get_user_date($_REQUEST["user_email"]));'));
+    add_action('wp_ajax_wpi_get_user_date', function(){
+      die(WPI_Ajax::get_user_date($_REQUEST["user_email"]));
+    });
     add_action('wp_ajax_wpi_process_manual_event', array('WPI_Ajax', 'process_manual_event'));
     add_action('wp_ajax_wpi_get_notification_email', array('WPI_Ajax', 'get_notification_email'));
     add_action('wp_ajax_wpi_save_invoice', array('WPI_Ajax', 'save_invoice'));
@@ -283,10 +285,14 @@ class WPI_Core {
     add_shortcode('wp-invoice-history', 'wp_invoice_history');
 
     //** Load invoice lookup widget */
-    add_action('widgets_init', create_function('', 'return register_widget("InvoiceLookupWidget");'));
+    add_action('widgets_init', function(){
+      return register_widget("InvoiceLookupWidget");
+    });
 
     //** load user's invoice history widget */
-    add_action('widgets_init', create_function('', 'return register_widget("InvoiceHistoryWidget");'));
+    add_action('widgets_init', function(){
+      return register_widget("InvoiceHistoryWidget");
+    });
 
     add_action('wpi_invoice_object_delete', array('WPI_Functions', 'delete_invoice_log'));
 

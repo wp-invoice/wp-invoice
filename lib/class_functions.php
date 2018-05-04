@@ -9,35 +9,6 @@ setlocale( LC_MONETARY, 'en_US' );
 class WPI_Functions {
 
   /**
-   * PHP function to echoing a message to JS console
-   * Ported from WP-Property
-   *
-   * @since 3.0.3
-   */
-  static function console_log( $text = false ) {
-    global $wpi_settings;
-
-    if ( isset( $wpi_settings[ 'developer_mode' ] ) && $wpi_settings[ 'developer_mode' ] != 'true' ) {
-      return;
-    }
-
-    if ( empty( $text ) ) {
-      return;
-    }
-
-    if ( is_array( $text ) || is_object( $text ) ) {
-      $text = str_replace( "\n", '', print_r( $text, true ) );
-    }
-
-    //** Cannot use quotes */
-    $text = str_replace( '"', '-', $text );
-
-    add_filter( 'wp_footer', create_function( '$nothing,$echo_text = "' . $text . '"', 'echo \'<script type="text/javascript">if(typeof console == "object"){console.log("\' . $echo_text . \'");}</script>\'; ' ) );
-    add_filter( 'admin_footer', create_function( '$nothing,$echo_text = "' . $text . '"', 'echo \'<script type="text/javascript">if(typeof console == "object"){console.log("\' . $echo_text . \'");}</script>\'; ' ) );
-
-  }
-
-  /**
    * Function for performing a wpi_object search
    *
    * @since 3.0
@@ -905,7 +876,7 @@ class WPI_Functions {
   static function print_messages() {
     global $wpi_messages;
 
-    if ( count( $wpi_messages ) < 1 ) {
+    if ( empty( $wpi_messages ) ) {
       return;
     }
 

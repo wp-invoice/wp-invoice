@@ -26,9 +26,18 @@ abstract class wpi_gateway_base {
     $this->type = get_class($this);
     __('Customer Information', ud_get_wp_invoice()->domain);
     add_filter('sync_billing_update', array('wpi_gateway_base', 'sync_billing_filter'), 10, 3);
-    add_filter('wpi_recurring_settings', create_function(' $gateways ', ' $gateways[] = "' . $this->type . '"; return $gateways; '));
+    add_filter('wpi_recurring_settings', array( $this, 'wpi_recurring_settings' ));
     add_action('wpi_recurring_settings_' . $this->type, array($this, 'recurring_settings'));
     add_action('wpi_payment_fields_' . $this->type, array($this, 'wpi_payment_fields'));
+  }
+
+  /**
+   * @param $gateways
+   * @return array
+   */
+  public function wpi_recurring_settings( $gateways ) {
+    $gateways[] = $this->type;
+    return $gateways;
   }
 
   /**
