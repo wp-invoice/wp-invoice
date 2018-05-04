@@ -1375,3 +1375,6 @@ ul.wpi_sublist {
   text-decoration: none;
   box-shadow: none;
 }
+.wpi_publish_later label {
+  display: inline;
+}
