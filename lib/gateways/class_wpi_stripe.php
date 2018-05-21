@@ -264,7 +264,9 @@ class wpi_stripe extends wpi_gateway_base {
               "amount" => (float)$invoice['net']*100,
               "interval" => $invoice['recurring']['wpi_stripe']['interval'],
               "interval_count" => $invoice['recurring']['wpi_stripe']['interval_count'],
-              "name" => $invoice['post_title'],
+              "product" => array(
+                "name" => $invoice['post_title']
+              ),
               "currency" => strtolower($invoice['default_currency_code']),
               "id" => $invoice['invoice_id'])
             );
