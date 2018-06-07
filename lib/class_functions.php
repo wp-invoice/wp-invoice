@@ -718,10 +718,10 @@ class WPI_Functions {
       'after_tax' => $amount + ( $amount / 100 * $tax )
     );
 
-    if ( !empty( $charge_items ) ) {
+    if ( !empty( $charge_items ) && is_array( $charge_items ) ) {
       $charge_items[ ] = $new_item;
     } else {
-      $charge_items[ 0 ] = $new_item;
+      $charge_items = array( $new_item );
     }
 
     update_post_meta( $post_id, 'itemized_charges', $charge_items );
@@ -1074,6 +1074,7 @@ class WPI_Functions {
     if ( !is_array( $array ) ) {
       return false;
     }
+    $return = array();
     foreach ( $array as $key => $value ) {
       if ( !empty( $value ) ) {
         $return[ $key ] = $value;
@@ -2066,6 +2067,8 @@ class WPI_Functions {
    * @return array
    */
   static function wpi_crm_custom_notification( $current ) {
+
+    if ( !is_array( $current ) ) $current = array();
 
     foreach ( WPI_Core::$crm_notification_actions as $action_key => $action_name ) {
       $current[ $action_key ] = $action_name;

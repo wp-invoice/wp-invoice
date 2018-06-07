@@ -375,6 +375,8 @@ class WPI_UI {
       'input_style' => ''
     ) ), EXTR_SKIP );
 
+    $empty_rows = array();
+    $return = array();
     $return[ ] = "<select name='{$input_name}'  class='{$input_class}'  id='{$input_id}' style='{$input_style}' >";
     $return[ ] = '<option value=""></option>';
 

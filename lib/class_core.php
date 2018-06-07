@@ -489,6 +489,7 @@ class WPI_Core {
      *
      */
     add_filter( 'wpi_custom_meta', function( $keys ) {
+      if ( !is_array( $keys ) ) $keys = array();
       $keys[] = 'publish_later_notification';
       return $keys;
     });

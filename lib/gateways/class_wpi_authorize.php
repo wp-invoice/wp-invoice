@@ -529,6 +529,7 @@ class wpi_authorize extends wpi_gateway_base {
 
       do_action( 'wpi_authorize_payment_success', $payment, $invoice );
 
+      if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
       $data['messages'][] = $payment->getResponseText();
       $response['success'] = true;
       $response['error'] = false;

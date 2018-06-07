@@ -36,6 +36,7 @@ abstract class wpi_gateway_base {
    * @return array
    */
   public function wpi_recurring_settings( $gateways ) {
+    if ( !is_array( $gateways ) ) $gateways = array();
     $gateways[] = $this->type;
     return $gateways;
   }

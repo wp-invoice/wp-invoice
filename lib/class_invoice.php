@@ -22,6 +22,8 @@ class WPI_Invoice {
     global $wpdb;
     $data = wp_parse_args( $args, array() );
 
+    if ( !is_array( $this->data ) ) $this->data = array();
+
     foreach($data as $meta_key => $meta_value) {
       $this->data[$meta_key] = $meta_value;
     }

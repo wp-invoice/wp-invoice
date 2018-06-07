@@ -240,6 +240,7 @@ class wpi_stripe extends wpi_gateway_base {
         $token = $_POST['stripeToken'];
       } else {
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = __('The order cannot be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.', ud_get_wp_invoice()->domain);
 
         $response['data'] = $data;
@@ -288,11 +289,12 @@ class wpi_stripe extends wpi_gateway_base {
               send_notification( $invoice );
               update_post_meta( wpi_invoice_id_to_post_id( $invoice['invoice_id'] ), '_stripe_customer_id', $customer->id );
 
+              if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
               $data['messages'][] = __( 'Stripe Subscription has been initiated. Do not pay this invoice again. Thank you.', ud_get_wp_invoice()->domain );
               $response['success'] = true;
               $response['error'] = false;
             } else {
-
+              if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
               $data['messages'][] = __( 'Could not initiate Stripe Subscription. Contact site Administrator please.', ud_get_wp_invoice()->domain );
               $response['success'] = false;
               $response['error'] = true;
@@ -368,10 +370,12 @@ class wpi_stripe extends wpi_gateway_base {
               parent::successful_payment_webhook( $invoice_obj );
               send_notification( $invoice );
 
+              if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
               $data['messages'][] = __( 'Successfully paid. Thank you.', ud_get_wp_invoice()->domain );
               $response['success'] = true;
               $response['error'] = false;
             } else {
+              if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
               $data['messages'][] = $charge->failure_message;
               $response['success'] = false;
               $response['error'] = true;
@@ -391,22 +395,27 @@ class wpi_stripe extends wpi_gateway_base {
         $e_json = $e->getJsonBody();
         $err = $e_json['error'];
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = $err['message'];
       } catch (Stripe_ApiConnectionError $e) {
 
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = __( 'Service is currently unavailable. Please try again later.', ud_get_wp_invoice()->domain );
       } catch (Stripe_InvalidRequestError $e) {
 
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = $e->getMessage();
       } catch (Stripe_ApiError $e) {
 
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = __( 'Stripe server is down! Try again later.', ud_get_wp_invoice()->domain );
       } catch (Exception $e) {
 
         $response['error'] = true;
+        if ( empty( $data['messages'] ) || !is_array( $data['messages'] ) ) $data['messages'] = array();
         $data['messages'][] = $e->getMessage();
       }
 

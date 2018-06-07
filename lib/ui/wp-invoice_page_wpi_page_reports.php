@@ -90,6 +90,7 @@ class WPI_Reports_page {
         <?php
         if(isset($wpi_reports['collected_client_value']) && is_array($wpi_reports['collected_client_value'])) {
           $counter = 0;
+          $mvcs_array = array();
           foreach($wpi_reports['collected_client_value'] as $client_email => $client_value) {
             if($counter == 10) {
               break;
@@ -128,6 +129,7 @@ class WPI_Reports_page {
         <?php
         if($wpi_reports['line_item_counts']) {
           $counter = 0;
+          $line_items_array = array();
           foreach($wpi_reports['line_item_counts'] as $line_item_name => $line_item_count) {
 
             if($counter == 10) {
