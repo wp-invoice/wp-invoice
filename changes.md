@@ -1,3 +1,6 @@
+#### 4.2.1 ( August 7, 2018 )
+* PHP 7.2 Compatibility fixes.
+
 #### 4.2.0 ( June 4, 2018 )
 * Improved Spanish and added French localization
 * Fixed PHP 7.2 Warnings
