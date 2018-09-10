@@ -33,7 +33,7 @@ $wpi_settings_tabs = array(
         'callback' => array('WPI_Settings_page', 'help')
     ),
     'feedback' => array(
-        'label' => __('Feedback', ud_get_wp_invoice()->domain),
+        'label' => __('Support', ud_get_wp_invoice()->domain),
         'position' => 600,
         'callback' => function() {
           ?>
