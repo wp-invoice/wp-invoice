@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP-INVOICE 4.*.*\n"
-"POT-Creation-Date: 2018-03-26 14:55+0300\n"
+"POT-Creation-Date: 2018-09-25 14:54+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
