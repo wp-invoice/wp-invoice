@@ -104,7 +104,7 @@ abstract class wpi_gateway_base {
       isset($wp_crm['data_structure']['attributes']['recaptcha']['wp_invoice']) &&
       $wp_crm['data_structure']['attributes']['recaptcha']['wp_invoice'] == 'true'
     ){
-      if(!isset($_REQUEST['cc_data']['recaptcha']) || !WP_CRM_F::reCaptchaVerify($_REQUEST['cc_data']['recaptcha'])){
+      if(!isset($_REQUEST['g-recaptcha-response']) || !WP_CRM_F::reCaptchaVerify($_REQUEST['g-recaptcha-response'])){
         //** Response */
         $response = array(
             'success' => false,
@@ -300,40 +300,37 @@ abstract class wpi_gateway_base {
     </style>
     <script type="text/javascript">
       var type = jQuery("#wpi_form_type").val();
-      if ( typeof type != 'undefined' ){
-        var type_messages = window[type + '_messages'];
-        var type_rules = window[type + '_rules'];
-
-        type_rules["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
+      function crm_recaptcha_onload(argument) {
+        if ( typeof type != 'undefined' ){
+          var type_messages = window[type + '_messages'];
+          var type_rules = window[type + '_rules'];
+          type_rules["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
             required: true
           };
-
-        type_messages["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
+          type_messages["<?php echo esc_attr( $field_data['name'] ); ?>"] = {
             required: "Are you human? Please verify the captcha."
           };
-
-        function crm_recaptcha_onload(argument) {
-          jQuery('.crm-g-recaptcha').each(function(argument) {
-            var container = jQuery(this);
-            var formID = container.parents('form').attr('id');
-            var parameters = {
-              sitekey: container.data('sitekey'),
-              callback: function(response){
-                var input = jQuery('.crm-g-captcha-input', '#' + formID);
-                input.val(response);
-              },
-              'expired-callback': function(){
-                var input = jQuery('.crm-g-captcha-input', '#' + formID);
-                input.val('');
-              },
-            };
-            window[formID + '_recaptcha'] = grecaptcha.render(
+        }
+        jQuery('.crm-g-recaptcha').each(function(argument) {
+          var container = jQuery(this);
+          var formID = container.parents('form').attr('id');
+          var parameters = {
+            sitekey: container.data('sitekey'),
+            callback: function(response){
+              var input = jQuery('.crm-g-captcha-input', '#' + formID);
+              input.val(response);
+            },
+            'expired-callback': function(){
+              var input = jQuery('.crm-g-captcha-input', '#' + formID);
+              input.val('');
+            },
+          };
+          window[formID + '_recaptcha'] = grecaptcha.render(
               this,
               parameters
-            );
+          );
 
-          });
-        }
+        });
       }
     </script>
     <?php
