@@ -301,6 +301,7 @@ abstract class wpi_gateway_base {
     <script type="text/javascript">
       var type = jQuery("#wpi_form_type").val();
       function crm_recaptcha_onload(argument) {
+        if ( typeof grecaptcha.render == 'undefined' ) return;
         if ( typeof type != 'undefined' ){
           var type_messages = window[type + '_messages'];
           var type_rules = window[type + '_rules'];
@@ -332,6 +333,7 @@ abstract class wpi_gateway_base {
 
         });
       }
+      jQuery(document).on('wpi_payment_form_changed', crm_recaptcha_onload);
     </script>
     <?php
   }
