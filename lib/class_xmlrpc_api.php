@@ -150,6 +150,11 @@ $wpi_xml_rpc_api_reference = array(
           'description' => 'Amount to be paid.',
           'required' => true,
           'type' => 'Number'
+        ), //** Add optional detail */
+        'detail' => array(
+          'description' => 'Note to be added to log.',
+          'required' => false,
+          'type' => 'String'
         )
       ),
       'return' => 'WPI_Invoice|WP_Error'
@@ -550,7 +555,8 @@ class WPI_XMLRPC_API {
     //** Default arguments */
     $defaults = array(
       'ID' => false,
-      'amount' => false
+      'amount' => false,
+      'detail' => false
     );
 
     //** Parse arguments */
@@ -585,9 +591,14 @@ class WPI_XMLRPC_API {
     }
 
     //** Add payment item */
+    if($detail === FALSE) {
+        $note = 'Paid ' . ( (float) $amount ) . ' ' . $invoice->data[ 'default_currency_code' ] . ' via XML-RPC API';   
+    } else {
+        $note = 'Paid ' . ( (float) $amount ) . ' ' . $invoice->data[ 'default_currency_code' ] . ' via XML-RPC API - ' . $detail;
+    }
     $invoice->add_entry( array(
       'attribute' => 'balance',
-      'note' => 'Paid ' . ( (float) $amount ) . ' ' . $invoice->data[ 'default_currency_code' ] . ' via XML-RPC API',
+      'note' => $note,
       'amount' => (float) $amount,
       'type' => 'add_payment'
     ) );
