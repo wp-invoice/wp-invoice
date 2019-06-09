@@ -159,7 +159,7 @@ class wpi_stripe extends wpi_gateway_base {
           $html = '';
           ob_start();
           ?>
-          <ul class="wpi_checkout_block">
+          <ul class="wpi_checkout_block customer_information">
             <li class="section_title"><?php _e(ucwords(str_replace('_', ' ', $key)), ud_get_wp_invoice()->domain); ?></li>
             <?php
             $html = ob_get_clean();
@@ -253,6 +253,10 @@ class wpi_stripe extends wpi_gateway_base {
           require_once( ud_get_wp_invoice()->path( "lib/third-party/stripe/lib/Stripe.php", 'dir' ) );
         }
         $pk = trim($invoice['billing']['wpi_stripe']['settings'][$invoice['billing']['wpi_stripe']['settings']['mode']['value'].'_secret_key']['value']);
+        $phone      = !empty($_REQUEST['phonenumber']) ? $_REQUEST['phonenumber'] : '';
+        $first_name = !empty($_REQUEST['first_name'])  ? $_REQUEST['first_name']  : '';
+        $last_name  = !empty($_REQUEST['last_name'])   ? $_REQUEST['last_name']   : '';
+        $full_name  = $first_name . " " . $last_name;
 
         Stripe::setApiKey($pk);
 
@@ -275,8 +279,10 @@ class wpi_stripe extends wpi_gateway_base {
             $customer = Stripe_Customer::create(array(
               "card" => $token,
               "plan" => $invoice['invoice_id'],
-              "email" => $invoice['user_email'])
-            );
+              "email" => $invoice['user_email'],
+              'phone' => $phone,
+              'name' => trim($full_name),
+            ));
 
             if ( !empty( $plan->id ) && !empty( $plan->amount ) && !empty( $customer->id ) ) {
 
@@ -304,6 +310,8 @@ class wpi_stripe extends wpi_gateway_base {
 
           //** If regular payment */
           case false:
+            $invoice_id  = $invoice['invoice_id'];
+            $wp_users_id = $invoice['user_data']['ID'];
 
             //** Support partial payments */
             if ($invoice['deposit_amount'] > 0) {
@@ -318,19 +326,33 @@ class wpi_stripe extends wpi_gateway_base {
               $amount = $invoice['net'];
             }
 
+            // $customer = Stripe_Customer::create(array(
+            //   "card" => $token,
+            //   "email" => $invoice['user_email'],
+						// 	'phone' => $phone,
+            //   'name' => trim($full_name),
+            //   'address' => array(
+            //     'line1'       => !empty($_REQUEST['address1']) ? $_REQUEST['address1'] : '',
+            //     'city'        => !empty($_REQUEST['city'])     ? $_REQUEST['city']     : '',
+            //     'country'     => !empty($_REQUEST['country'])  ? $_REQUEST['country']  : '',
+            //     'postal_code' => !empty($_REQUEST['zip'])      ? $_REQUEST['zip']      : '',
+            //     'state'       => !empty($_REQUEST['state'])    ? $_REQUEST['state']    : '',
+            //   ),
+            // ));
+
             $charge = Stripe_Charge::create(array(
               "amount" => (float)$amount*100,
               "currency" => strtolower( $invoice['default_currency_code'] ),
               "card" => $token,
+              // "source" => $customer['default_source'],
+              // "customer" => $customer->id,
               "description" => $invoice['invoice_id'].' ['.$invoice['post_title'].' / '.get_bloginfo('url').' / '.$invoice['user_email'].']'
             ));
 
             if ( $charge->paid ) {
 
-              $invoice_id  = $invoice['invoice_id'];
-              $wp_users_id = $invoice['user_data']['ID'];
-
               //** update user data */
+              // add_user_meta($wp_users_id, '_stripe_customer_id', $customer->id);
               update_user_meta($wp_users_id, 'last_name', !empty($_REQUEST['last_name'])?$_REQUEST['last_name']:'' );
               update_user_meta($wp_users_id, 'first_name', !empty($_REQUEST['first_name'])?$_REQUEST['first_name']:'' );
               update_user_meta($wp_users_id, 'city', !empty($_REQUEST['city'])?$_REQUEST['city']:'' );
