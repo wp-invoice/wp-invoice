@@ -1,0 +1,36 @@
+.sigPad {
+  clear: both;
+  margin-bottom: 30px;
+  width: 370px !important;
+}
+.sigPad label.error {
+  background: transparent !important;
+}
+.sigPad label::after {
+  content: none !important;
+}
+.sigPad label::before {
+  border: none !important;
+}
+.sigPad .sigTitle {
+  font-size: 1.5em;
+}
+.sigPad .typeItDesc,
+.sigPad .drawItDesc {
+  border-top: 1px solid #e8e8c0;
+}
+.sigPad .sigWrapper {
+  border: none;
+}
+.sigPad .pad {
+  border: 1px solid #eee;
+}
+.sigPad input {
+  border: 1px solid #666;
+  margin: 0;
+  max-width: none !important;
+  width: 100% !important;
+}
+.signedPad {
+  margin-bottom: 30px;
+}

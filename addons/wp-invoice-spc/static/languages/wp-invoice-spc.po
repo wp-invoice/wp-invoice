@@ -1,0 +1,715 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Invoice SPC\n"
+"POT-Creation-Date: 2014-09-25 19:00+0200\n"
+"PO-Revision-Date: 2014-09-25 19:02+0200\n"
+"Last-Translator: \n"
+"Language-Team: Usability Dynamics, inc. <anton.korotkov@usabilitydynamics."
+"com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: ../../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: /.git\n"
+
+#: lib/class-wp-invoice-spc.php:64
+msgid "First Name"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:68
+msgid "Last Name"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:72
+msgid "Phone"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:76
+msgid "Email"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:83
+msgid "Credit Card"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:87
+msgid "Expiration Date"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:91
+msgid "Card Code"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:98
+msgid "Street Address"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:102
+msgid "City"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:106
+msgid "State/Province"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:110
+msgid "Zip/Postal Code"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:114
+msgid "Country"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:296
+msgid "Every 10 Minutes"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:328
+msgid "Transaction complete."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:341
+msgid ""
+"<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout "
+"Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+"tutorials/wp-invoice/single-page-checkout/\">More...</a>"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:343 lib/class-wp-invoice-spc.php:1116
+msgid "Single Page Checkout"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:344
+msgid ""
+"Create single page checkout forms that are then visible in the \"Invoice\" "
+"overview."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:345
+msgid ""
+"You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</"
+"b>. Options:"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:347
+msgid "The title that will be displayed in control panel overview."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:348
+msgid "ID of page that has sales terms, inserts a link into SPC to the page."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:349
+msgid "A comma separated list of items that the SPC is for."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:350
+msgid "PHP function to be executed when transaction is complete."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:351
+msgid "A CSV list of Title of any custom attributes for the checkout."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:352
+msgid ""
+"`true/false` value. If true then custom amount field will appear on SPC. Do "
+"not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:353
+msgid ""
+"Disabled the checkout items, only use this if you are using some sort of JS "
+"script to enable them back on."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:354
+msgid ""
+"Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:355
+msgid "CSV list of gateways available for payment."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:355
+msgid " Available values: "
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:364
+msgid ""
+"Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount=\"true"
+"\" fee=\"5%\"]</b>"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:466
+msgid "Terms must be accepted."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:471
+msgid "An e-mail address is required."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:475
+msgid "You must enter a name."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:479
+msgid "You must enter a valid credit card number."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:483
+msgid "You must enter an expiration date."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:494
+msgid "No items"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:643
+msgid "Thank you. Your payment has been processed."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:657
+msgid "Transaction Error: "
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:657
+msgid ""
+"There was an error with the transaction. Please select another payment "
+"venue, or contact support."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:714
+msgid "Custom Amount: "
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:716
+msgid "Items: "
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:719
+msgid " of fee."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:722 lib/class-wp-invoice-spc.php:724
+msgid "Transaction #"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:745
+msgid "Default Checkout Form"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:772 lib/class-wp-invoice-spc.php:1055
+msgid "Amount"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:773
+msgid "Custom amount from SPC"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:815
+#, php-format
+msgid "Transaction #%s was successfully completed."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:818
+msgid "paid in"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:884
+#, php-format
+msgid "I accept the <a href=\"%s\" target=\"_blank\">terms and conditions</a>."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:980
+msgid "Processing..."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:981
+msgid "Process Payment"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:982
+msgid "Hacking?"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:983
+msgid "Redirecting to PayPal. Wait please..."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:1103
+msgid "Single Payment"
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:1120
+msgid "Enforce SSL on checkout pages."
+msgstr ""
+
+#: lib/class-wp-invoice-spc.php:1121
+msgid ""
+"As for regular invoice pages, HTTPS should be enforced on pages that have a "
+"checkout form."
+msgstr ""
+
+#: static/views/wpi_checkout.php:33
+msgid "Payment Method"
+msgstr ""
+
+#: static/views/wpi_checkout.php:36
+msgid "Method"
+msgstr ""
+
+#: static/views/wpi_checkout.php:87
+msgid "Specified gateways are not available"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:26
+msgid "Could not create index on your posts table for the `guid` column"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:27
+msgid "Could not update a post&rsquo;s GUID"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:28
+msgid "Could not remove the index from `guid`"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:41
+msgid "Run GUID-fix"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:62
+msgid "CF GUID-Fix"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:66
+msgid ""
+"Post GUIDs are now unique! <b>You should now disable and remove this plugin."
+"</b>"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
+msgid "What does this plugin do?"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:82
+msgid ""
+"Corrects duplicate GUID values created with versions of WordPress that "
+"exhibited a <a href=\"http://core.trac.wordpress.org/ticket/15041\">non-"
+"unique GUID bug</a>."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:83
+msgid ""
+"Clicking the button below runs the plugin to ensure your guids are unique."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:86
+msgid "Fix Your GUIDs"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-guid-fix.php:100
+msgid "You should not be here."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:138
+#, php-format
+msgid "Job %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:197
+msgid "Could not load job with unknown ID."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:252
+#, php-format
+msgid "Job Batch %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:382
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:383
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:386
+msgid "Jobs"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:384
+msgid "New Job"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:385
+msgid "View Job"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-job.php:388
+msgid "UsabilityDynamics Jobs."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:187
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:219
+msgid "Required file not found."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:868
+msgid "Invalid file type."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:877
+msgid "Could not create mentioned directory."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:916
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:981
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:993
+msgid "Could not get image dimensions (headers)"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1534
+#, php-format
+msgid ""
+"You cannot call UD\\Utility::log() before the %1$s hook, since the current "
+"user is not yet known."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:1547
+msgid "Log Started."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2015
+#, php-format
+msgid "You cannot call UD\\Utility::add_log_page() after the %1$s hook."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2042
+msgid "Log Page for"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2043
+msgid "Clear Log"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2046
+msgid "Timestamp"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2047
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:382
+msgid "Type"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2048
+msgid "Event"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2049
+msgid "User"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2050
+msgid "Related Object"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-utility/lib/class-utility.php:2060
+msgid "None"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:328
+msgid ""
+"Class \\UsabilityDynamics\\UD_API\\Bootstrap does not exist. Be sure all "
+"required plugins and (or) composer modules installed and activated."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:336
+msgid "Licenses client can not be activated due to invalid 'licenses' schema."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:357
+msgid ""
+"Product requires license, but product ID and (or) referrer is undefined. "
+"Please, be sure, that license schema has all required data."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:366
+msgid ""
+"Class \\UsabilityDynamics\\UD_API\\Manager does not exist. Be sure all "
+"required plugins installed and activated."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:403
+#, php-format
+msgid ""
+"Module <b>%s</b> is not installed or the version is old, class <b>%s</b> "
+"does not exist."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-bootstrap.php:407
+#, php-format
+msgid ""
+"Module <b>%s</b> should be updated to the latest version, class <b>%s</b> "
+"must have version <b>%s</b> or higher."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
+msgid "Welcome to Usability Dynamics, Inc."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:85
+msgid "UD Notices"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:103
+msgid "Usability Dynamics, Inc. Dashboard"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-dashboard.php:104
+msgid "Thank you for using our products."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:145
+#, php-format
+msgid "<p><b>%s</b> is not active due to following errors:</p> %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:159
+#, php-format
+msgid "<p><b>%s</b> has the following additional notices:</p> %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:161
+#, php-format
+msgid "<p><b>%s</b> is active, but has the following notices:</p> %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-errors.php:163
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:196
+msgid "Dismiss this notice"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:285
+msgid "Install package not available."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:286
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:287
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:288
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:289
+msgid "Plugin install failed."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:290
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:301
+msgid "Plugin activation failed."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:302
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:193
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:415
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
+msgid "Show Details"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:416
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
+msgid "Hide Details"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:417
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:418
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:422
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:423
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:424
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:425
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:426
+msgid "All installations have been completed."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:427
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-bulk-installer.php:519
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:549
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:149
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:152
+msgid "Private Repository"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:157
+msgid "Pre-Packaged"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:162
+msgid "WordPress Repository"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
+msgid "Required"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:166
+msgid "Recommended"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:169
+msgid "Not Installed"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:171
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:284
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:401
+msgid "Install"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:307
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:402
+msgid "Activate"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:364
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:380
+msgid "Plugin"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:381
+msgid "Source"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-list-table.php:383
+msgid "Status"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:177
+msgid "Install Required Plugins"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:178
+msgid "Install Plugins"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:180
+msgid "Something went wrong."
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:191
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:192
+msgid "Return to the dashboard"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:194
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: vendor/usabilitydynamics/lib-wp-bootstrap/lib/classes/class-tgm-plugin-activation.php:195
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: wp-invoice-spc.php:43
+msgid ""
+"Distributive is broken. composer.json is missed. Try to remove and upload "
+"plugin again."
+msgstr ""
+
+#: wp-invoice-spc.php:51
+#, php-format
+msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
+msgstr ""
+
+#: wp-invoice-spc.php:59
+#, php-format
+msgid ""
+"Distributive is broken. %s file is missed. Try to remove and upload plugin "
+"again."
+msgstr ""
+
+#: wp-invoice-spc.php:63
+msgid ""
+"Distributive is broken. Plugin loader is not available. Try to remove and "
+"upload plugin again."
+msgstr ""
+
+#: wp-invoice-spc.php:84
+#, php-format
+msgid "<p><b>%s</b> can not be initialized. %s</p>"
+msgstr ""

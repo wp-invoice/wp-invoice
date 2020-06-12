@@ -1,0 +1,5027 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Invoice\n"
+"POT-Creation-Date: 2018-08-17 15:18+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Usability Dynamics, inc.\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: test\n"
+
+#: l10n.php:3
+#, fuzzy
+#| msgid "Invoices"
+msgid "Invoice"
+msgstr "Rechnungen"
+
+#: l10n.php:4 lib/class-wp-invoice-pdf.php:623
+#, fuzzy
+msgid "INVOICE"
+msgstr "Rechnung"
+
+#: l10n.php:5
+msgid "Quote"
+msgstr ""
+
+#: l10n.php:6 lib/class-wp-invoice-pdf.php:620
+#, fuzzy
+msgid "QUOTE"
+msgstr "Anbot"
+
+#: lib/class-wp-invoice-pdf.php:137 lib/class-wp-invoice-pdf.php:180
+#, fuzzy
+msgid "View PDF"
+msgstr "PDF ansehen"
+
+#: lib/class-wp-invoice-pdf.php:150 lib/class-wp-invoice-pdf.php:200
+msgid "Download PDF"
+msgstr "Rechnung als PDF anzeigen"
+
+#: lib/class-wp-invoice-pdf.php:200
+#, fuzzy
+msgid "PDF"
+msgstr "PDF"
+
+#: lib/class-wp-invoice-pdf.php:258
+#, fuzzy
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: lib/class-wp-invoice-pdf.php:261
+#, fuzzy
+msgid "Do not automatically insert PDF link on bottom of invoices."
+msgstr "PDF Link nicht automatisch am Ende der Rechnung einfügen."
+
+#: lib/class-wp-invoice-pdf.php:267
+#, fuzzy
+msgid "PDF Logo"
+msgstr "PDF Logo"
+
+#: lib/class-wp-invoice-pdf.php:270
+#, fuzzy
+msgid "Display logo in the PDF."
+msgstr "Logo im PDF anzeigen."
+
+#: lib/class-wp-invoice-pdf.php:276
+#, fuzzy
+#| msgid "Select"
+msgid "Select Logo"
+msgstr "AuswÃ¤hlen"
+
+#: lib/class-wp-invoice-pdf.php:290
+#, fuzzy
+msgid "Header Settings"
+msgstr "Kundeneingang E-Mail-Header"
+
+#: lib/class-wp-invoice-pdf.php:293
+#, fuzzy
+msgid "Display recipient name and address."
+msgstr "Firmenname und Adresse anzeigen."
+
+#: lib/class-wp-invoice-pdf.php:294
+#, fuzzy
+msgid "Display invoice description."
+msgstr "Rechnungsbeschreibung anzeigen."
+
+#: lib/class-wp-invoice-pdf.php:299
+#, fuzzy
+msgid "Select template"
+msgstr "Template wählen"
+
+#: lib/class-wp-invoice-pdf.php:311
+#, fuzzy
+msgid "Terms &amp; Conditions:"
+msgstr "Zahlungsbedingungen"
+
+#: lib/class-wp-invoice-pdf.php:314
+#, fuzzy
+msgid "Display Terms and Conditions"
+msgstr "Zahlungsbedingungen anzeigen."
+
+#: lib/class-wp-invoice-pdf.php:321
+#, fuzzy
+msgid "Text of Term and Conditions for the Invoice/Quote"
+msgstr "Text von Laufzeit und Konditionen fÃ¼r die Rechnung / Quote"
+
+#: lib/class-wp-invoice-pdf.php:327 static/views/pdf_quote.php:292
+#: static/views/pdf_quote_remastered.php:304
+#, fuzzy
+msgid "Notes"
+msgstr "Anmerkungen"
+
+#: lib/class-wp-invoice-pdf.php:330
+#, fuzzy
+msgid "Display Notes"
+msgstr "Anmerkungen anzeigen."
+
+#: lib/class-wp-invoice-pdf.php:337
+msgid ""
+"Notes will be displayed towards the bottom of the Invoice/Quote, depending "
+"on the template."
+msgstr ""
+"Noten in Richtung der Unterseite der Rechnung / Quote angezeigt werden, abhÃ"
+"¤ngig von der Vorlage."
+
+#: lib/class-wp-invoice-pdf.php:353
+#, fuzzy
+msgid "PDF Invoice"
+msgstr "PDF Rechnung"
+
+#: lib/class-wp-invoice-pdf.php:617
+#, fuzzy
+msgid "RECEIPT"
+msgstr "Quittung"
+
+#: lib/classes/class-pdf-template.php:27 lib/classes/class-pdf-template.php:35
+#: lib/classes/class-pdf-template.php:54 lib/classes/class-pdf-template.php:72
+msgid "Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:88
+msgid "Name is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:95
+msgid "Phone is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:408
+#: lib/classes/class-pdf-template.php:450
+#, fuzzy
+msgid "Unnamed"
+msgstr "Benutzername"
+
+#: static/views/pdf_quote.php:111
+#, fuzzy
+#| msgid "Due Date: "
+msgid "Due Date:"
+msgstr "FÃ¤llig am:"
+
+#: static/views/pdf_quote.php:118 static/views/pdf_quote.php:273
+#: static/views/pdf_quote_bold.php:213 static/views/pdf_quote_modern.php:224
+#: static/views/pdf_quote_remastered.php:285
+#, fuzzy
+#| msgid "Amount"
+msgid "Amount Due:"
+msgstr "Betrag"
+
+#: static/views/pdf_quote.php:124
+msgid "Attn:"
+msgstr ""
+
+#: static/views/pdf_quote.php:134
+msgid "Bill To:"
+msgstr ""
+
+#: static/views/pdf_quote.php:146
+#, fuzzy
+#| msgid "Phone"
+msgid "Phone:"
+msgstr "Telefon"
+
+#: static/views/pdf_quote.php:177 static/views/pdf_quote_remastered.php:189
+#, fuzzy
+msgid "Description"
+msgstr "Toggle"
+
+#: static/views/pdf_quote.php:178 static/views/pdf_quote_remastered.php:190
+msgid "Quantity"
+msgstr "Anzahl"
+
+#: static/views/pdf_quote.php:179 static/views/pdf_quote_remastered.php:191
+#, fuzzy
+msgid "Price"
+msgstr "Preis"
+
+#: static/views/pdf_quote.php:180 static/views/pdf_quote.php:217
+#: static/views/pdf_quote_remastered.php:192
+#: static/views/pdf_quote_remastered.php:229
+msgid "Amount"
+msgstr "Betrag"
+
+#: static/views/pdf_quote.php:182 static/views/pdf_quote_remastered.php:194
+#, fuzzy
+msgid "Tax"
+msgstr "USt."
+
+#: static/views/pdf_quote.php:216 static/views/pdf_quote_remastered.php:228
+#, fuzzy
+msgid "Charge"
+msgstr "GEBÜHREN"
+
+#: static/views/pdf_quote.php:236 static/views/pdf_quote_bold.php:176
+#: static/views/pdf_quote_modern.php:187
+#: static/views/pdf_quote_remastered.php:248
+#, fuzzy
+msgid "Total:"
+msgstr "Rechnungssumme exkl. USt."
+
+#: static/views/pdf_quote.php:242 static/views/pdf_quote_bold.php:182
+#: static/views/pdf_quote_modern.php:193
+#: static/views/pdf_quote_remastered.php:254
+#, fuzzy
+msgid "Total Tax:"
+msgstr "Globale Steuerrate verwenden"
+
+#: static/views/pdf_quote.php:250 static/views/pdf_quote_bold.php:190
+#: static/views/pdf_quote_modern.php:201
+#: static/views/pdf_quote_remastered.php:262
+#, fuzzy
+msgid "Discount:"
+msgstr "Rabatt"
+
+#: static/views/pdf_quote.php:258 static/views/pdf_quote_bold.php:198
+#: static/views/pdf_quote_modern.php:209
+#: static/views/pdf_quote_remastered.php:270
+#, fuzzy
+msgid "Other Adjustments:"
+msgstr "Anpassung:"
+
+#: static/views/pdf_quote.php:266 static/views/pdf_quote_bold.php:206
+#: static/views/pdf_quote_modern.php:217
+#: static/views/pdf_quote_remastered.php:278
+#, fuzzy
+msgid "Total Payments:"
+msgstr "Teilzahlungen erlauben"
+
+#: static/views/pdf_quote.php:281 static/views/pdf_quote_bold.php:221
+#: static/views/pdf_quote_modern.php:232
+#: static/views/pdf_quote_remastered.php:293
+#, fuzzy
+msgid "Invoice Refunded"
+msgstr ""
+"Die Funktion wurde ausgeführt, es wurde keine Rechnungs ID gefunden, eine "
+"neue Rechnung wird angenommen."
+
+#: static/views/pdf_quote.php:304 static/views/pdf_quote_remastered.php:316
+#, fuzzy
+msgid "Terms &amp; Conditions"
+msgstr "Zahlungsbedingungen"
+
+#: static/views/pdf_quote_bold.php:75
+msgid "ISSUED:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:80
+msgid "DUE:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:85 static/views/pdf_quote_modern.php:84
+#, fuzzy
+msgid "AMOUNT DUE:"
+msgstr "Rechnungssumme"
+
+#: static/views/pdf_quote_bold.php:121 static/views/pdf_quote_modern.php:136
+#, fuzzy
+msgid "ITEMS"
+msgstr "Keine Artikel"
+
+#: static/views/pdf_quote_bold.php:124 static/views/pdf_quote_bold.php:157
+#: static/views/pdf_quote_modern.php:139 static/views/pdf_quote_modern.php:168
+msgid "DESCRIPTION"
+msgstr "Beschreibung"
+
+#: static/views/pdf_quote_bold.php:125 static/views/pdf_quote_modern.php:140
+#, fuzzy
+msgid "QTY"
+msgstr "Menge"
+
+#: static/views/pdf_quote_bold.php:126 static/views/pdf_quote_modern.php:141
+msgid "PRICE"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:127 static/views/pdf_quote_modern.php:142
+#, fuzzy
+msgid "SUM"
+msgstr "Gesamt"
+
+#: static/views/pdf_quote_bold.php:129 static/views/pdf_quote_modern.php:144
+msgid "TAX"
+msgstr "Umsatzsteuer"
+
+#: static/views/pdf_quote_bold.php:154 static/views/pdf_quote_modern.php:165
+msgid "CHARGES"
+msgstr "GEBÃHREN"
+
+#: static/views/pdf_quote_bold.php:158 static/views/pdf_quote_modern.php:169
+msgid "AMOUNT"
+msgstr "Betrag"
+
+#: static/views/pdf_quote_bold.php:230 static/views/pdf_quote_modern.php:241
+msgid "TERMS &amp; CONDITIONS"
+msgstr "Zahlungsbedingungen"
+
+#: static/views/pdf_quote_bold.php:241 static/views/pdf_quote_modern.php:252
+msgid "NOTES"
+msgstr "Anmerkungen"
+
+#: static/views/pdf_quote_modern.php:78
+#, fuzzy
+#| msgid "DUE DATE"
+msgid "DUE DATE:"
+msgstr "FÃ¤lligkeitsdatum"
+
+#: static/views/pdf_quote_modern.php:90
+#, fuzzy
+#| msgid "ATTN"
+msgid "ATTN:"
+msgstr "z.H."
+
+#: static/views/pdf_quote_modern.php:100
+#, fuzzy
+#| msgid "BILL TO"
+msgid "BILL TO:"
+msgstr "EmpfÃ¤nger"
+
+#: static/views/pdf_quote_modern.php:111
+#, fuzzy
+#| msgid "TELEPHONE"
+msgid "PHONE:"
+msgstr "Telefon"
+
+#: static/views/pdf_quote_remastered.php:137
+msgid "Email"
+msgstr "E-Mail"
+
+#: static/views/pdf_quote_remastered.php:141
+msgid "Phone"
+msgstr "Telefon"
+
+#: static/views/pdf_quote_remastered.php:148
+#, fuzzy
+msgid "Invoice ID"
+msgstr "Rechnungs-ID"
+
+#: static/views/pdf_quote_remastered.php:152
+#, fuzzy
+msgid "Issue Date"
+msgstr "Fälligkeitsdatum"
+
+#: static/views/pdf_quote_remastered.php:157
+#, fuzzy
+msgid "Due Date"
+msgstr "Fälligkeitsdatum"
+
+#: static/views/pdf_quote_remastered.php:163
+#, fuzzy
+#| msgid "Invoice History"
+msgid "Invoice For"
+msgstr "Rechnungshistorie"
+
+#: wp-invoice-pdf.php:47
+msgid ""
+"Distributive is broken. composer.json is missed. Try to remove and upload "
+"plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:55
+#, php-format
+msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
+msgstr ""
+
+#: wp-invoice-pdf.php:63
+#, php-format
+msgid ""
+"Distributive is broken. %s file is missed. Try to remove and upload plugin "
+"again."
+msgstr ""
+
+#: wp-invoice-pdf.php:67
+msgid ""
+"Distributive is broken. Plugin loader is not available. Try to remove and "
+"upload plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:88
+#, fuzzy, php-format
+msgid "<p><b>%s</b> can not be initialized. %s</p>"
+msgstr "<b>%s</b> %s wurde installiert."
+
+#~ msgid "July"
+#~ msgstr "Juli"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "October"
+#~ msgstr "Oktober"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "Dezember"
+
+#~ msgid "January"
+#~ msgstr "Januar"
+
+#~ msgid "February"
+#~ msgstr "Februar"
+
+#~ msgid "March"
+#~ msgstr "Marz"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "May"
+#~ msgstr "Mai"
+
+#~ msgid "June"
+#~ msgstr "Juni"
+
+#~ msgid ""
+#~ "Enter a valid URL of an image you would like to use in the PDF as a logo."
+#~ msgstr ""
+#~ "Geben Sie eine gÃ¼ltige URL fÃ¼r ein Bild, das Sie gerne in der PDF als "
+#~ "Logo zu verwenden."
+
+#, fuzzy
+#~ msgid "Default Font"
+#~ msgstr ""
+#~ "Die Standard-Schriftart ist Helvetica (Kern). Wenn Sie irgendwelche "
+#~ "Probleme mit aktuellen Schrift haben die Wahl versuchen Sie einen anderen."
+
+#~ msgid ""
+#~ "The default font is Helvetica (core). If you will have any problems with "
+#~ "current font try choosing another one."
+#~ msgstr ""
+#~ "Die Standard-Schriftart ist Helvetica (Kern). Wenn Sie irgendwelche "
+#~ "Probleme mit aktuellen Schrift haben die Wahl versuchen Sie einen anderen."
+
+#~ msgid "ADDRESS"
+#~ msgstr "Adresse"
+
+#~ msgid "TOTAL"
+#~ msgstr "Rechnungssumme exkl. USt."
+
+#~ msgid "DISCOUNT"
+#~ msgstr "Rabatt"
+
+#~ msgid "BALANCE"
+#~ msgstr "Rechnungssumme inkl. USt."
+
+#~ msgid "QUANTITY"
+#~ msgstr "Menge"
+
+#, fuzzy
+#~ msgid "Fix Your GUIDs"
+#~ msgstr "Ihr Betrag"
+
+#, fuzzy
+#~ msgid "Job %s"
+#~ msgstr "\"Rechnung(en) %s gelöscht.\""
+
+#, fuzzy
+#~ msgid "Could not load job with unknown ID."
+#~ msgstr "Konnte nicht aufgrund eines unbekannten Fehlers zurÃ¼ck."
+
+#, fuzzy
+#~ msgid "Job Batch %s"
+#~ msgstr "\"Rechnung(en) %s gelöscht.\""
+
+#, fuzzy
+#~ msgid "New Job"
+#~ msgstr "Neu hinzufügen"
+
+#, fuzzy
+#~ msgid "View Job"
+#~ msgstr "Anzeigen"
+
+#, fuzzy
+#~ msgid "Required file not found."
+#~ msgstr "Template nicht gefunden:"
+
+#, fuzzy
+#~ msgid "Invalid file type."
+#~ msgstr "Typ"
+
+#, fuzzy
+#~ msgid "Could not create mentioned directory."
+#~ msgstr "Das Abonnement konnte nicht erstellt werden."
+
+#, fuzzy
+#~ msgid ""
+#~ "You cannot call UD\\Utility::log() before the %1$s hook, since the "
+#~ "current user is not yet known."
+#~ msgstr ""
+#~ "Sie können UD_API::log() nicht vor dem %1$s hook aufrufen, da der "
+#~ "aktuelle Benutzer noch nicht bekannt ist."
+
+#, fuzzy
+#~ msgid "Log Started."
+#~ msgstr "Log gestartet."
+
+#, fuzzy
+#~ msgid "Log Page for"
+#~ msgstr "Log zurücksetzen"
+
+#, fuzzy
+#~ msgid "Clear Log"
+#~ msgstr "Log zurücksetzen"
+
+#, fuzzy
+#~ msgid "Timestamp"
+#~ msgstr ""
+#~ "Erlaubt tags: <code> [blog_name] </ code>, <code> [Monat] </ code>, "
+#~ "<code> [Tag] </ code>, <code> [Jahr] </ code>, <code> [Stunde] </ code>, "
+#~ "<code> [Minute] </ code>, <code> [zweite] </ code> und <code> [timestamp] "
+#~ "</ code>"
+
+#, fuzzy
+#~ msgid "Type"
+#~ msgstr "Typ"
+
+#, fuzzy
+#~ msgid "Event"
+#~ msgstr "Ereignis"
+
+#, fuzzy
+#~ msgid "User"
+#~ msgstr "Benutzer Information"
+
+#, fuzzy
+#~ msgid "Related Object"
+#~ msgstr ""
+#~ "Holen Sie sich diese von Ihrem Kreditkartenprozessor. Wenn die "
+#~ "Transaktionen nicht durchmachen, ist wahrscheinlich falsch dieses Zeichen."
+
+#, fuzzy
+#~ msgid "None"
+#~ msgstr "Keine(r)"
+
+#, fuzzy
+#~ msgid "UD Notices"
+#~ msgstr "UD Fehler"
+
+#, fuzzy
+#~ msgid "Dismiss this notice"
+#~ msgstr "Beachten Sie die"
+
+#, fuzzy
+#~ msgid "Install package not available."
+#~ msgstr "Installieren"
+
+#, fuzzy
+#~ msgid "Plugin install failed."
+#~ msgstr "Installieren"
+
+#, fuzzy
+#~ msgid "Plugin activation failed."
+#~ msgstr "Der Zeitplan wurde mit der Aktivierung des Plugins erstellt."
+
+#, fuzzy
+#~ msgid "Plugin activated successfully."
+#~ msgstr "Plugin aktiviert."
+
+#, fuzzy
+#~ msgid "Show Details"
+#~ msgstr "Zeigen"
+
+#, fuzzy
+#~ msgid "Hide Details"
+#~ msgstr "Verstecken"
+
+#, fuzzy
+#~ msgid "%1$s installed successfully."
+#~ msgstr "Das Update wurde erfolgreich ausgefÃ¼hrt."
+
+#, fuzzy
+#~ msgid "All installations have been completed."
+#~ msgstr "Nachdem eine Bezahlung durchgefÃ¼hrt wurde"
+
+#, fuzzy
+#~ msgid "WordPress Repository"
+#~ msgstr "Neuen WordPress Benutzer anlegen?"
+
+#, fuzzy
+#~ msgid "Required"
+#~ msgstr "Berechtigung benötigt."
+
+#, fuzzy
+#~ msgid "Recommended"
+#~ msgstr "Standard charset des Blogs verwenden. Es ist %s. <i>(Empfohlen)</i>"
+
+#, fuzzy
+#~ msgid "Not Installed"
+#~ msgstr "Feature installiert, mit der Version"
+
+#, fuzzy
+#~ msgid "Installed But Not Activated"
+#~ msgstr "Plugin aktiviert."
+
+#~ msgid "Install"
+#~ msgstr "Installieren"
+
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "Aktiv"
+
+#, fuzzy
+#~ msgid "Plugin"
+#~ msgstr "Plugin aktiviert."
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#, fuzzy
+#~ msgid "Install Required Plugins"
+#~ msgstr "Installieren"
+
+#, fuzzy
+#~ msgid "Install Plugins"
+#~ msgstr "Installieren"
+
+#, fuzzy
+#~ msgid "Something went wrong."
+#~ msgstr ""
+#~ "Etwas ist beim Export Prozess schiefgelaufen. Prüfen Sie ob das gewählte "
+#~ "XML Encoding unterstützt wird."
+
+#, fuzzy
+#~ msgid "The following plugin was activated successfully:"
+#~ msgstr "Plugin aktiviert."
+
+#, fuzzy
+#~ msgid "Please enter a note and numeric amount."
+#~ msgstr "Bitte eine Nachricht und einen numerischen Betrag eingeben."
+
+#, fuzzy
+#~ msgid "paid in"
+#~ msgstr "bezahlt in"
+
+#, fuzzy
+#~ msgid "charge added"
+#~ msgstr "zusätzliche Gebühr"
+
+#, fuzzy
+#~ msgid "adjusted"
+#~ msgstr "angepasst"
+
+#, fuzzy
+#~ msgid "refunded"
+#~ msgstr "erstattet"
+
+#, fuzzy
+#~ msgid "Event Added: %1s."
+#~ msgstr "Event hinzugefügt: %1s"
+
+#, fuzzy
+#~ msgid "Could not save entry in invoice log. %1s"
+#~ msgstr "Der Eintrag konnte nicht im Rechnungs-Log gesichert werden. %1s"
+
+#, fuzzy
+#~ msgid "Due date is not set"
+#~ msgstr "Fälligkeitsdatum ist nicht gesetzt"
+
+#, fuzzy
+#~ msgid "invoice"
+#~ msgstr "Rechnung"
+
+#, fuzzy
+#~ msgid "No description given."
+#~ msgstr "Keine zusätzlichen Informationen angefügt."
+
+#, fuzzy
+#~ msgid ""
+#~ "The fields should not be empty. Please, check the fields data and try to "
+#~ "send notification again."
+#~ msgstr ""
+#~ "Diese Felder sollten nicht leer sein. Bitte die Eingabe überprüfen und "
+#~ "die Benachrichtigung erneut senden."
+
+#, fuzzy
+#~ msgid "Notification Sent"
+#~ msgstr "Benachrichtigung gesendet"
+
+#, fuzzy
+#~ msgid "Successfully sent the invoice notification!"
+#~ msgstr "Rechnungsbenachrichtigung erfolgreich versandt."
+
+#, fuzzy
+#~ msgid "Unable to send the e-mail. Please, try again later."
+#~ msgstr ""
+#~ "Die E-Mail konnte nicht gesendet werden. Bitte später nochmals versuchen."
+
+#, fuzzy
+#~ msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
+#~ msgstr "Gespeichert. <a target='_blank' href='%s'>Rechnung ansehen</a>"
+
+#, fuzzy
+#~ msgid "Invoice id #"
+#~ msgstr "Rechnungs-ID"
+
+#, fuzzy
+#~ msgid ""
+#~ "There was a problem with saving the invoice. Reference the log for "
+#~ "troubleshooting."
+#~ msgstr ""
+#~ "Es gab ein Problem beim Speichern der Rechnung. Zur Fehlerbehandlung "
+#~ "bitte im Log nachsehen."
+
+#, fuzzy
+#~ msgid "Please enter an invoice id."
+#~ msgstr "Bitte die Rechnungs-id angeben."
+
+#, fuzzy
+#~ msgid "Unable to create 'wpi' folder in template folder. "
+#~ msgstr "Der Ordner 'wpi' konnte nicht im Template Ordner erstellt werden."
+
+#, fuzzy
+#~ msgid "Unable to open 'wpi' folder in template folder."
+#~ msgstr "Der Ordner 'wpi' konnte nicht im Template Ordner geöffnet werden."
+
+#, fuzzy
+#~ msgid "Success, (%s) template file(s) copied."
+#~ msgstr "(%s) Template Datei(en) wurden erfolgreich kopiert."
+
+#, fuzzy
+#~ msgid "No template files copied."
+#~ msgstr "Es wurden keine Template Dateien kopiert."
+
+#, fuzzy
+#~ msgid "There are no options for this widget."
+#~ msgstr "Es gibt keine Optionen für dieses Widget."
+
+#, fuzzy
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#, fuzzy
+#~ msgid "Today"
+#~ msgstr "Heute"
+
+#, fuzzy
+#~ msgid " Tomorrow "
+#~ msgstr "␣Morgen␣"
+
+#, fuzzy
+#~ msgid " Yesterday "
+#~ msgstr "Gestern"
+
+#, fuzzy
+#~ msgid " in %s days "
+#~ msgstr "in %s Tagen"
+
+#, fuzzy
+#~ msgid "days ago"
+#~ msgstr "Tage vorher"
+
+#~ msgid "Invoice #[invoice_id] has been paid"
+#~ msgstr "Rechnung #[invoice_id] has been paid"
+
+#~ msgid ""
+#~ "Dear [user_name],\n"
+#~ "[business_name] has received your payment for the invoice.\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Thank you very much for your patronage.\n"
+#~ "\n"
+#~ "Best regards,\n"
+#~ "[business_name] ([from])"
+#~ msgstr ""
+#~ "Hallo [user_name],\n"
+#~ "[business_name] hat die Zahlung fÃ¼r die Rechnung erhalten.\n"
+#~ "\n"
+#~ "Der Rechnungsstatus und die Zahlungshistorie kÃ¶nnen hier abgerufen "
+#~ "werden:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Vielen Dank fÃ¼r Ihre Treue.\n"
+#~ "\n"
+#~ "Mit freundlichen GrÃ¼Ãen\n"
+#~ "[business_name] ([from])"
+
+#~ msgid "Invoice #[invoice_id] has been paid by [user_name]"
+#~ msgstr "Rechnung #[invoice_id] wurde von [user_name] bezahlt"
+
+#~ msgid ""
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+#~ msgstr ""
+#~ "[user_name] hat die Rechnung #[invoice_id] bezahlt.\n"
+#~ "[invoice_title]\n"
+#~ "Gesamte Zahlungen: [default_currency_code] [total_payments] von "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "Rechnungsstatus und Zahlungshistorie hier abrufen:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Benutzerinformation:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "E-Mail: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+
+#~ msgid ""
+#~ "Dear [creator_name],\n"
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+#~ msgstr ""
+#~ "Hallo [creator_name],\n"
+#~ "[user_name] hat die Rechnung #[invoice_id] bezahlt.\n"
+#~ "\n"
+#~ "[invoice_title]\n"
+#~ "Gesamte Zahlungen: [default_currency_code] [total_payments] von "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "Rechnungsstatus und Zahlungshistorie hier abrufen:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Benutzerinformation:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "E-Mail: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+
+#, fuzzy
+#~ msgid "Add New"
+#~ msgstr "Neu hinzufügen"
+
+#~ msgid "Add New Invoice"
+#~ msgstr "Neue Rechnung hinzufÃ¼gen"
+
+#~ msgid "Edit Invoice"
+#~ msgstr "Rechnung bearbeiten"
+
+#~ msgid "New Invoice"
+#~ msgstr "Neue Rechnung"
+
+#~ msgid "View Invoice"
+#~ msgstr "Rechnung anzeigen"
+
+#~ msgid "Search Invoices"
+#~ msgstr "Rechnungen suchen"
+
+#~ msgid "No invoices found"
+#~ msgstr "Keine Rechnungen gefunden"
+
+#~ msgid "No invoices found in Trash"
+#~ msgstr "Keine Rechnungen im Papierkorb gefunden"
+
+#~ msgid "WP-Invoice Notification"
+#~ msgstr "WP-Invoice Benachrichtigung"
+
+#~ msgid ""
+#~ "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a "
+#~ "target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
+#~ msgstr ""
+#~ "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a "
+#~ "target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
+
+#, fuzzy
+#~ msgid "Premium Features"
+#~ msgstr "Premium Features"
+
+#~ msgid "Support Forum"
+#~ msgstr "Support Forum"
+
+#, fuzzy
+#~ msgid "User Guide"
+#~ msgstr "Benutzer Information"
+
+#~ msgid "Payment status: Complete"
+#~ msgstr "Zahlungsstatus: Abgeschlossen"
+
+#~ msgid "Pending"
+#~ msgstr "Unerledigt"
+
+#~ msgid "Invoice #%s has been paid"
+#~ msgstr "Rechnung #%s wurde bezahlt"
+
+#~ msgid ""
+#~ "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You "
+#~ "can overview invoice status and payment history by clicking this link:<br>"
+#~ "%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,"
+#~ "<br>%4s (%5s)"
+#~ msgstr ""
+#~ "Hallo %1s,<br>%2s hat die Zahlung fÃ¼r die Rechnung erhalten."
+#~ "<br><br>Rechnungsstatus und Zahlungshistorie kann hier abgerufen werden:"
+#~ "<br>%3s<br><br>Vielen Dank fÃ¼r Ihre Treue<br><br>Mit freundlichen "
+#~ "GrÃ¼Ãen,<br>%4s (%5s)"
+
+#~ msgid "WP-Invoice: Message with subject '%1s' was sent"
+#~ msgstr "WP-Invoice: Die Nachricht mit dem Betreff '%1s' wurde gesendet"
+
+#~ msgid "Receipt eMailed"
+#~ msgstr "Die Quittung wurde per E-Mail versandt"
+
+#~ msgid ""
+#~ "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s "
+#~ "%7s.<br><br>You can overview invoice status and payment history by "
+#~ "clicking this link:<br>%8s<br><br>User information:<br><br>ID: "
+#~ "%9s<br>Name: %10s<br>Email: %11s<br><br>--------------------<br>%12s"
+#~ msgstr ""
+#~ "%1s hat die Rechnung #%2s bezahlt.<br><br>%3s<br>Alle Zahlungen: %4s %5s "
+#~ "of %6s %7s.<br><br>Rechnungsstatus und Zahlungshistorie kann hier "
+#~ "abgerufen werden:<br>%8s<br><br>Benutzerinformation<br><br>ID: "
+#~ "%9s<br>Name: %10s<br>E-Mail: %11s<br><br>--------------------<br>%12s"
+
+#~ msgid ""
+#~ "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total "
+#~ "payments: %5s %6s of %7s %8s.<br><br>You can overview invoice status and "
+#~ "payment history by clicking this link:<br>%9s<br><br>User information:"
+#~ "<br><br>ID: %10s<br>Name: %11s<br>Email: %12s<br><br>--------------------"
+#~ "<br>%13s"
+#~ msgstr ""
+#~ "Hello %1s, <br><br>%2s hat die Rechnung #%3s bezahlt.<br><br>%4s<br>Alle "
+#~ "Zahlungen: %5s %6s of %7s %8s.<br><br>Rechnungsstatus und "
+#~ "Zahlungshistorie kann hier abgerufen werden:<br>"
+#~ "%9s<br><br>Benutzerinformation<br><br>ID: %10s<br>Name: %11s<br>E-Mail: "
+#~ "%12s<br><br>--------------------<br>%13s"
+
+#, fuzzy
+#~ msgid "Customer Information"
+#~ msgstr "Benutzer Information"
+
+#~ msgid "Status of invoice was changed to 'Paid'."
+#~ msgstr "Rechnungsstatus wurde auf BEZAHLT geÃ¤ndert."
+
+#~ msgid "Created from "
+#~ msgstr "Erstellt aus "
+
+#~ msgid "Created by "
+#~ msgstr "Erstellt von"
+
+#~ msgid "Recurring invoice updated."
+#~ msgstr "Update der wiederkehrenden Rechnung erfolgt."
+
+#~ msgid "Quote updated."
+#~ msgstr "Update des Anbots erfolgt."
+
+#~ msgid "Updated."
+#~ msgstr "Update erfolgt."
+
+#~ msgid "Automatically created using legacy data"
+#~ msgstr "Automatisch erstellt unter der Verwendung von Altdaten."
+
+#~ msgid "Invoice Notification"
+#~ msgstr "Rechnungsbenachrichtigung"
+
+#~ msgid "Reminder"
+#~ msgstr "Erinnerung"
+
+#~ msgid "Receipt"
+#~ msgstr "Quittung"
+
+#~ msgid "Imported Log from old WPI Version"
+#~ msgstr "Log aus alter WPI Version importieren"
+
+#~ msgid "Imported Log from Web Invoice plugin"
+#~ msgstr "Log Daten aus dem Web Invoice plugin wurden importiert."
+
+#, fuzzy
+#~ msgid "Display"
+#~ msgstr "Anmerkungen anzeigen."
+
+#, fuzzy
+#~ msgid "Show all dates"
+#~ msgstr "Zeigen"
+
+#, fuzzy
+#~ msgid "Nothing found."
+#~ msgstr "Es wurde nichts gefunden."
+
+#, fuzzy
+#~ msgid "Bulk Actions"
+#~ msgstr "Es gibt keine Aktionen"
+
+#, fuzzy
+#~ msgid "Apply"
+#~ msgstr "'Gesendet von' Einstellungen anlegen."
+
+#~ msgid "Recurring"
+#~ msgstr "Wiederkehrend"
+
+#~ msgid "Pay Your Invoice"
+#~ msgstr "Rechnung bezahlen"
+
+#, fuzzy
+#~ msgid "Lookup"
+#~ msgstr "Nachschlagen"
+
+#~ msgid "Dropdown"
+#~ msgstr "Dropdown"
+
+#, fuzzy
+#~ msgid "First Name"
+#~ msgstr "Vorname"
+
+#, fuzzy
+#~ msgid "Last Name"
+#~ msgstr "Nachname"
+
+#~ msgid "Company Name"
+#~ msgstr "Firma"
+
+#, fuzzy
+#~ msgid "Phone Number"
+#~ msgstr "Telefon"
+
+#, fuzzy
+#~ msgid "Street Address"
+#~ msgstr "Straße"
+
+#, fuzzy
+#~ msgid "City"
+#~ msgstr "Ort"
+
+#, fuzzy
+#~ msgid "State"
+#~ msgstr "Bundesland"
+
+#~ msgid "ZIP"
+#~ msgstr "PLZ"
+
+#~ msgid "Active"
+#~ msgstr "Aktiv"
+
+#~ msgid "Archived"
+#~ msgstr "Archviert"
+
+#~ msgid "Trashed"
+#~ msgstr "im Papierkorb"
+
+#~ msgid "Paid"
+#~ msgstr "Bezahlt"
+
+#~ msgid "United States"
+#~ msgstr "Veneinigte Staaten von Amerika"
+
+#~ msgid "Albania"
+#~ msgstr "Albanien"
+
+#~ msgid "Algeria"
+#~ msgstr "Algerien"
+
+#~ msgid "Andorra"
+#~ msgstr "Andorra"
+
+#~ msgid "Angola"
+#~ msgstr "Angola"
+
+#~ msgid "Anguilla"
+#~ msgstr "Anguilla"
+
+#~ msgid "Antigua and Barbuda"
+#~ msgstr "Antigua und Barbuda"
+
+#~ msgid "Argentina"
+#~ msgstr "Argentinien"
+
+#~ msgid "Armenia"
+#~ msgstr "Armenien"
+
+#~ msgid "Aruba"
+#~ msgstr "Aruba"
+
+#~ msgid "Australia"
+#~ msgstr "Australien"
+
+#~ msgid "Austria"
+#~ msgstr "Ãsterreich"
+
+#~ msgid "Azerbaijan Republic"
+#~ msgstr "Republik Aserbaidschan"
+
+#~ msgid "Bahamas"
+#~ msgstr "Bahamas"
+
+#~ msgid "Bahrain"
+#~ msgstr "Bahrain"
+
+#~ msgid "Barbados"
+#~ msgstr "Babados"
+
+#~ msgid "Belgium"
+#~ msgstr "Belgien"
+
+#~ msgid "Belize"
+#~ msgstr "Belize"
+
+#~ msgid "Benin"
+#~ msgstr "Benin"
+
+#~ msgid "Bermuda"
+#~ msgstr "Bermuda"
+
+#~ msgid "Bhutan"
+#~ msgstr "Bhutan"
+
+#~ msgid "Bolivia"
+#~ msgstr "Bolivien"
+
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "Bosnien und Herzegovina"
+
+#~ msgid "Botswana"
+#~ msgstr "Botswana"
+
+#~ msgid "Brazil"
+#~ msgstr "Brasilien"
+
+#~ msgid "British Virgin Islands"
+#~ msgstr "British Virgin Islands"
+
+#~ msgid "Brunei"
+#~ msgstr "Brunei"
+
+#~ msgid "Bulgaria"
+#~ msgstr "Bulgarien"
+
+#~ msgid "Burkina Faso"
+#~ msgstr "Burkina Faso"
+
+#~ msgid "Burundi"
+#~ msgstr "Burundi"
+
+#~ msgid "Cambodia"
+#~ msgstr "Cambodia"
+
+#~ msgid "Canada"
+#~ msgstr "Kanada"
+
+#~ msgid "Cape Verde"
+#~ msgstr "Kap Verde"
+
+#~ msgid "Cayman Islands"
+#~ msgstr "Cayman Inseln"
+
+#~ msgid "Chad"
+#~ msgstr "Chad"
+
+#~ msgid "Chile"
+#~ msgstr "Chile"
+
+#~ msgid "China"
+#~ msgstr "China"
+
+#~ msgid "Colombia"
+#~ msgstr "Kolumbien"
+
+#~ msgid "Comoros"
+#~ msgstr "Komoren"
+
+#~ msgid "Cook Islands"
+#~ msgstr "Cook Islands"
+
+#~ msgid "Costa Rica"
+#~ msgstr "Costa Rica"
+
+#~ msgid "Croatia"
+#~ msgstr "Kroatien"
+
+#~ msgid "Cyprus"
+#~ msgstr "Zypern"
+
+#~ msgid "Czech Republic"
+#~ msgstr "Tschechische Republik"
+
+#~ msgid "Democratic Republic of the Congo"
+#~ msgstr "Demokratische Republik Kongo"
+
+#~ msgid "Denmark"
+#~ msgstr "DÃ¤nemark"
+
+#~ msgid "Djibouti"
+#~ msgstr "Dschibuti"
+
+#~ msgid "Dominica"
+#~ msgstr "Dominica"
+
+#~ msgid "Dominican Republic"
+#~ msgstr "Dominikanische Republik"
+
+#~ msgid "Ecuador"
+#~ msgstr "Ekuador"
+
+#~ msgid "El Salvador"
+#~ msgstr "El Salvador"
+
+#~ msgid "Eritrea"
+#~ msgstr "Eritrea"
+
+#~ msgid "Estonia"
+#~ msgstr "Estland"
+
+#~ msgid "Ethiopia"
+#~ msgstr "Ãthiopien"
+
+#~ msgid "Falkland Islands"
+#~ msgstr "Falkland Inseln"
+
+#~ msgid "Faroe Islands"
+#~ msgstr "FÃ¤rÃ¶er Inseln"
+
+#~ msgid "Federated States of Micronesia"
+#~ msgstr "FÃ¶derierten Staaten von Mikronesien"
+
+#, fuzzy
+#~ msgid "Fiji"
+#~ msgstr "Fidschi"
+
+#~ msgid "Finland"
+#~ msgstr "Finnland"
+
+#~ msgid "France"
+#~ msgstr "Frankreich"
+
+#~ msgid "French Guiana"
+#~ msgstr "FranzÃ¶sisch-Guayana"
+
+#~ msgid "French Polynesia"
+#~ msgstr "FranzÃ¶sisch-Polynesien"
+
+#~ msgid "Gabon Republic"
+#~ msgstr "Republik Gabun"
+
+#~ msgid "Gambia"
+#~ msgstr "Gambia"
+
+#~ msgid "Germany"
+#~ msgstr "Deutschland"
+
+#~ msgid "Gibraltar"
+#~ msgstr "Gibraltar"
+
+#~ msgid "Greece"
+#~ msgstr "Griechenland"
+
+#~ msgid "Greenland"
+#~ msgstr "GÃ¶nland"
+
+#~ msgid "Grenada"
+#~ msgstr "Grenada"
+
+#~ msgid "Guadeloupe"
+#~ msgstr "Guadeloupe"
+
+#~ msgid "Guatemala"
+#~ msgstr "Guatemala"
+
+#~ msgid "Guinea"
+#~ msgstr "Guinea"
+
+#~ msgid "Guinea Bissau"
+#~ msgstr "Guinea-Bissau"
+
+#~ msgid "Guyana"
+#~ msgstr "Guyana"
+
+#~ msgid "Honduras"
+#~ msgstr "Honduras"
+
+#~ msgid "Hong Kong"
+#~ msgstr "Hong Kong"
+
+#~ msgid "Hungary"
+#~ msgstr "Ungarn"
+
+#~ msgid "Iceland"
+#~ msgstr "Island"
+
+#~ msgid "India"
+#~ msgstr "Indien"
+
+#~ msgid "Indonesia"
+#~ msgstr "Indonesien"
+
+#~ msgid "Ireland"
+#~ msgstr "Irland"
+
+#~ msgid "Israel"
+#~ msgstr "Israel"
+
+#~ msgid "Italy"
+#~ msgstr "Italien"
+
+#~ msgid "Jamaica"
+#~ msgstr "Jamaika"
+
+#~ msgid "Japan"
+#~ msgstr "Japan"
+
+#~ msgid "Jordan"
+#~ msgstr "Jordan"
+
+#~ msgid "Kazakhstan"
+#~ msgstr "Kasachstan"
+
+#~ msgid "Kenya"
+#~ msgstr "Kenia"
+
+#~ msgid "Kiribati"
+#~ msgstr "Kiribati"
+
+#~ msgid "Kuwait"
+#~ msgstr "Kuwait"
+
+#~ msgid "Kyrgyzstan"
+#~ msgstr "Kirgisistan"
+
+#~ msgid "Laos"
+#~ msgstr "Laos"
+
+#~ msgid "Latvia"
+#~ msgstr "Lettland"
+
+#~ msgid "Lesotho"
+#~ msgstr "Lesotho"
+
+#~ msgid "Liechtenstein"
+#~ msgstr "Liechtenstein"
+
+#, fuzzy
+#~ msgid "Lithuania"
+#~ msgstr "Litauen"
+
+#~ msgid "Luxembourg"
+#~ msgstr "Luxembourg"
+
+#~ msgid "Madagascar"
+#~ msgstr "Madagaskar"
+
+#~ msgid "Malawi"
+#~ msgstr "Malawi"
+
+#~ msgid "Malaysia"
+#~ msgstr "Malaysia"
+
+#~ msgid "Maldives"
+#~ msgstr "Malediven"
+
+#~ msgid "Mali"
+#~ msgstr "Mali"
+
+#~ msgid "Malta"
+#~ msgstr "Malta"
+
+#~ msgid "Marshall Islands"
+#~ msgstr "Marshall-Inseln"
+
+#~ msgid "Martinique"
+#~ msgstr "Martinique"
+
+#~ msgid "Mauritania"
+#~ msgstr "Mauretanien"
+
+#~ msgid "Mauritius"
+#~ msgstr "Mauritius"
+
+#~ msgid "Mayotte"
+#~ msgstr "Mayotte"
+
+#~ msgid "Mexico"
+#~ msgstr "Mexiko"
+
+#~ msgid "Mongolia"
+#~ msgstr "Mongolei"
+
+#~ msgid "Montserrat"
+#~ msgstr "Montserrat"
+
+#~ msgid "Morocco"
+#~ msgstr "Marokko"
+
+#~ msgid "Mozambique"
+#~ msgstr "Mosambik"
+
+#~ msgid "Namibia"
+#~ msgstr "Namibia"
+
+#~ msgid "Nauru"
+#~ msgstr "Nauru"
+
+#~ msgid "Nepal"
+#~ msgstr "Nepal"
+
+#~ msgid "Netherlands"
+#~ msgstr "Niederlande"
+
+#~ msgid "Netherlands Antilles"
+#~ msgstr "NiederlÃ¤ndische Antillen"
+
+#~ msgid "New Caledonia"
+#~ msgstr "Neukaledonien"
+
+#~ msgid "New Zealand"
+#~ msgstr "Neu Seeland"
+
+#~ msgid "Nicaragua"
+#~ msgstr "Nicaragua"
+
+#~ msgid "Niger"
+#~ msgstr "Niger"
+
+#~ msgid "Niue"
+#~ msgstr "Niue"
+
+#~ msgid "Norfolk Island"
+#~ msgstr "Norfolk-Insel"
+
+#~ msgid "Norway"
+#~ msgstr "Norwegen"
+
+#~ msgid "Oman"
+#~ msgstr "Oman"
+
+#~ msgid "Palau"
+#~ msgstr "Palau"
+
+#~ msgid "Panama"
+#~ msgstr "Panama"
+
+#~ msgid "Papua New Guinea"
+#~ msgstr "Papua Neu Guniea"
+
+#~ msgid "Peru"
+#~ msgstr "Peru"
+
+#~ msgid "Philippines"
+#~ msgstr "Philippinen"
+
+#~ msgid "Pitcairn Islands"
+#~ msgstr "Pitcairn-Inseln"
+
+#~ msgid "Poland"
+#~ msgstr "Polen"
+
+#~ msgid "Portugal"
+#~ msgstr "Portugal"
+
+#~ msgid "Qatar"
+#~ msgstr "Katar"
+
+#~ msgid "Republic of the Congo"
+#~ msgstr "Republik Kongo"
+
+#~ msgid "Reunion"
+#~ msgstr "Wiedervereinigung"
+
+#~ msgid "Romania"
+#~ msgstr "RumÃ¤nien"
+
+#~ msgid "Russia"
+#~ msgstr "Russland"
+
+#~ msgid "Rwanda"
+#~ msgstr "Ruanda"
+
+#~ msgid "Saint Vincent and the Grenadines"
+#~ msgstr "St. Vincent und die Grenadinen"
+
+#~ msgid "Samoa"
+#~ msgstr "Samoa"
+
+#~ msgid "San Marino"
+#~ msgstr "San Marino"
+
+#~ msgid "Sao Tome and Principe"
+#~ msgstr "Sao Tome und Principe"
+
+#~ msgid "Saudi Arabia"
+#~ msgstr "Saudi Arabien"
+
+#~ msgid "Senegal"
+#~ msgstr "Senegal"
+
+#~ msgid "Seychelles"
+#~ msgstr "Seychellen"
+
+#~ msgid "Sierra Leone"
+#~ msgstr "Sierra Leone"
+
+#~ msgid "Singapore"
+#~ msgstr "Singapur"
+
+#, fuzzy
+#~ msgid "Slovakia"
+#~ msgstr "Slovakei"
+
+#, fuzzy
+#~ msgid "Slovenia"
+#~ msgstr "Slovenien"
+
+#~ msgid "Solomon Islands"
+#~ msgstr "Salomon-Inseln"
+
+#~ msgid "Somalia"
+#~ msgstr "Somalia"
+
+#~ msgid "South Africa"
+#~ msgstr "SÃ¼d Afrika"
+
+#~ msgid "South Korea"
+#~ msgstr "SÃ¼d Korea"
+
+#~ msgid "Spain"
+#~ msgstr "Spanien"
+
+#~ msgid "Sri Lanka"
+#~ msgstr "Sri Lanka"
+
+#~ msgid "St. Helena"
+#~ msgstr "St. Helena"
+
+#~ msgid "St. Kitts and Nevis"
+#~ msgstr "St. Kitts und Nevis"
+
+#~ msgid "St. Lucia"
+#~ msgstr "St. Lucia"
+
+#~ msgid "St. Pierre and Miquelon"
+#~ msgstr "St. Pierre und Miquelon"
+
+#~ msgid "Suriname"
+#~ msgstr "Suriname"
+
+#~ msgid "Svalbard and Jan Mayen Islands"
+#~ msgstr "Spitzbergen und Jan-Mayen-Inseln"
+
+#~ msgid "Swaziland"
+#~ msgstr "Swasiland"
+
+#~ msgid "Sweden"
+#~ msgstr "Schweden"
+
+#~ msgid "Switzerland"
+#~ msgstr "Schweiz"
+
+#~ msgid "Taiwan"
+#~ msgstr "Taiwan"
+
+#~ msgid "Tajikistan"
+#~ msgstr "Tadschikistan"
+
+#~ msgid "Tanzania"
+#~ msgstr "Tansania"
+
+#~ msgid "Thailand"
+#~ msgstr "Thailand"
+
+#~ msgid "Togo"
+#~ msgstr "Togo"
+
+#~ msgid "Tonga"
+#~ msgstr "Tonga"
+
+#~ msgid "Trinidad and Tobago"
+#~ msgstr "Trinidad und Tobago"
+
+#~ msgid "Tunisia"
+#~ msgstr "Tunesien"
+
+#~ msgid "Turkey"
+#~ msgstr "TÃ¼rkei"
+
+#~ msgid "Turkmenistan"
+#~ msgstr "Turkmenistan"
+
+#~ msgid "Turks and Caicos Islands"
+#~ msgstr "Turks-und Caicosinseln"
+
+#~ msgid "Tuvalu"
+#~ msgstr "Tuvalu"
+
+#~ msgid "Uganda"
+#~ msgstr "Uganda"
+
+#~ msgid "Ukraine"
+#~ msgstr "Ukrine"
+
+#~ msgid "United Arab Emirates"
+#~ msgstr "Vereinigte Arabische Emirate"
+
+#~ msgid "United Kingdom"
+#~ msgstr "GroÃ Britannien"
+
+#~ msgid "Uruguay"
+#~ msgstr "uruguay"
+
+#~ msgid "Vanuatu"
+#~ msgstr "Vanuatu"
+
+#~ msgid "Vatican City State"
+#~ msgstr "Vatikanstaat"
+
+#~ msgid "Venezuela"
+#~ msgstr "Venezuela"
+
+#~ msgid "Vietnam"
+#~ msgstr "Vietnam"
+
+#~ msgid "Wallis and Futuna Islands"
+#~ msgstr "Wallis und Futuna"
+
+#~ msgid "Yemen"
+#~ msgstr "Jemen"
+
+#~ msgid "Zambia"
+#~ msgstr "Sambia"
+
+#~ msgid "Alabama"
+#~ msgstr "Alabama"
+
+#~ msgid "Alaska"
+#~ msgstr "Alaska"
+
+#~ msgid "American Samoa"
+#~ msgstr "Amerikanische Samoa"
+
+#~ msgid "Arizona"
+#~ msgstr "Arizona"
+
+#~ msgid "Arkansas"
+#~ msgstr "Arkansas"
+
+#~ msgid "California"
+#~ msgstr "Californien"
+
+#~ msgid "Colorado"
+#~ msgstr "Colorado"
+
+#~ msgid "Connecticut"
+#~ msgstr "Connecticut"
+
+#~ msgid "Delaware"
+#~ msgstr "Delaware"
+
+#~ msgid "District of Columbia"
+#~ msgstr "District of Columbia"
+
+#~ msgid "Florida"
+#~ msgstr "Florida"
+
+#~ msgid "Georgia"
+#~ msgstr "Georgia"
+
+#~ msgid "Guam"
+#~ msgstr "Guam"
+
+#~ msgid "Hawaii"
+#~ msgstr "Hawaii"
+
+#~ msgid "Idaho"
+#~ msgstr "Idaho"
+
+#~ msgid "Illinois"
+#~ msgstr "Illinois"
+
+#~ msgid "Indiana"
+#~ msgstr "Indiana"
+
+#~ msgid "Iowa"
+#~ msgstr "Iowa"
+
+#~ msgid "Kansas"
+#~ msgstr "Kansas"
+
+#~ msgid "Kentucky"
+#~ msgstr "Kentucky"
+
+#~ msgid "Louisiana"
+#~ msgstr "Louisiana"
+
+#~ msgid "Maine"
+#~ msgstr "Maine"
+
+#~ msgid "Maryland"
+#~ msgstr "Maryland"
+
+#~ msgid "Massachusetts"
+#~ msgstr "Massachusetts"
+
+#~ msgid "Michigan"
+#~ msgstr "Michigan"
+
+#~ msgid "Minnesota"
+#~ msgstr "Minnesota"
+
+#~ msgid "Mississippi"
+#~ msgstr "Mississippi"
+
+#~ msgid "Missouri"
+#~ msgstr "Missouri"
+
+#~ msgid "Montana"
+#~ msgstr "Montana"
+
+#~ msgid "Nebraska"
+#~ msgstr "Nebraska"
+
+#~ msgid "Nevada"
+#~ msgstr "Nevada"
+
+#~ msgid "New Hampshire"
+#~ msgstr "New Hampshire"
+
+#~ msgid "New Jersey"
+#~ msgstr "New Jersey"
+
+#~ msgid "New Mexico"
+#~ msgstr "New Mexico"
+
+#~ msgid "New York"
+#~ msgstr "New York"
+
+#~ msgid "North Carolina"
+#~ msgstr "North Carolina"
+
+#~ msgid "North Dakota"
+#~ msgstr "North Dakota"
+
+#~ msgid "Northern Mariana Islands"
+#~ msgstr "Northern Mariana Islands"
+
+#~ msgid "Ohio"
+#~ msgstr "Ohio"
+
+#~ msgid "Oklahoma"
+#~ msgstr "Oklahoma"
+
+#~ msgid "Oregon"
+#~ msgstr "Oregon"
+
+#~ msgid "Pennsylvania"
+#~ msgstr "Pennsylvania"
+
+#~ msgid "Puerto Rico"
+#~ msgstr "Puerto Rico"
+
+#~ msgid "Rhode Island"
+#~ msgstr "Rhode Island"
+
+#~ msgid "South Carolina"
+#~ msgstr "South Carolina"
+
+#~ msgid "South Dakota"
+#~ msgstr "South Dakota"
+
+#~ msgid "Tennessee"
+#~ msgstr "Tennessee"
+
+#~ msgid "Texas"
+#~ msgstr "Texas"
+
+#~ msgid "Utah"
+#~ msgstr "Utah"
+
+#~ msgid "Vermont"
+#~ msgstr "Vermont"
+
+#~ msgid "Virgin Islands"
+#~ msgstr "Virgin Islands"
+
+#~ msgid "Virginia"
+#~ msgstr "Virginia"
+
+#~ msgid "Washington"
+#~ msgstr "Washington"
+
+#~ msgid "West Virginia"
+#~ msgstr "West Virginia"
+
+#~ msgid "Wisconsin"
+#~ msgstr "Wisconsin"
+
+#~ msgid "Wyoming"
+#~ msgstr "Wyoming"
+
+#~ msgid "Alberta"
+#~ msgstr "Alberta"
+
+#~ msgid "British Columbia"
+#~ msgstr "British Columbia"
+
+#~ msgid "Manitoba"
+#~ msgstr "Manitoba"
+
+#~ msgid "New Brunswick"
+#~ msgstr "New Brunswick"
+
+#~ msgid "Newfoundland"
+#~ msgstr "Neufundland"
+
+#~ msgid "Northwest Territory"
+#~ msgstr "Northwest Territory"
+
+#~ msgid "Nova Scotia"
+#~ msgstr "Neuschottland"
+
+#~ msgid "Ontario"
+#~ msgstr "Ontario"
+
+#~ msgid "Prince Edward Island"
+#~ msgstr "Prince Edward Island"
+
+#~ msgid "Quebec"
+#~ msgstr "Quebec"
+
+#~ msgid "Saskatchewan"
+#~ msgstr "Saskatchewan"
+
+#~ msgid "Yukon Territory"
+#~ msgstr "Yukon-Territorium"
+
+#~ msgid "Australian Dollars"
+#~ msgstr "Australische Dollar"
+
+#~ msgid "Canadian Dollars"
+#~ msgstr "Kanadische Dollar"
+
+#~ msgid "Euro"
+#~ msgstr "Euro"
+
+#~ msgid "Pounds Sterling"
+#~ msgstr "Pfund Sterling"
+
+#~ msgid "Yen"
+#~ msgstr "Yen"
+
+#~ msgid "U.S. Dollars"
+#~ msgstr "U.S. Dollar"
+
+#~ msgid "New Zealand Dollar"
+#~ msgstr "Neuseeland-Dollar"
+
+#~ msgid "Swiss Franc"
+#~ msgstr "Schweizerfranken"
+
+#~ msgid "Hong Kong Dollar"
+#~ msgstr "Hong Kong Dollar"
+
+#~ msgid "Singapore Dollar"
+#~ msgstr "Singapur-Dollar"
+
+#~ msgid "Swedish Krona"
+#~ msgstr "Schwedische Krone"
+
+#~ msgid "Danish Krone"
+#~ msgstr "DÃ¤nische Krone"
+
+#~ msgid "Polish Zloty"
+#~ msgstr "Polnischer Zloty"
+
+#~ msgid "Norwegian Krone"
+#~ msgstr "Norwegische Krone"
+
+#~ msgid "Hungarian Forint"
+#~ msgstr "Ungarische Forint"
+
+#~ msgid "Czech Koruna"
+#~ msgstr "Tschechische Koruna"
+
+#~ msgid "Israeli Shekel"
+#~ msgstr "Israelische Shekel"
+
+#~ msgid "Mexican Peso"
+#~ msgstr "Mexikanische Peso"
+
+#~ msgid "South African Rand"
+#~ msgstr "South African Rand"
+
+#~ msgid "[New Invoice] %subject%"
+#~ msgstr "[Neue Rechnung] %subject%"
+
+#, fuzzy
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you the %type% in the amount of %amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link% \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "Hallo %recipient%, \n"
+#~ "\n"
+#~ "%business_name% hat eine %recurring% Rechnung Ã¼ber den Betrag von %amount"
+#~ "% gesandt. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "Die Rechnung kann Ã¼ber folgenden Link online eingesehen, gedruckt und "
+#~ "bezahlt werden: \n"
+#~ "%link% \n"
+#~ "\n"
+#~ "SchÃ¶ne GrÃ¼Ãe, \n"
+#~ "%business_name% (%business_email%)"
+
+#~ msgid "[Reminder] %subject%"
+#~ msgstr "[Zahlungserinnerung] %subject%"
+
+#, fuzzy
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you a reminder for the %type% in the amount of "
+#~ "%amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link%. \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "Hallo %recipient%, \n"
+#~ "\n"
+#~ "%business_name% hat eine Zahlungserinnerung fÃ¼r die %recurring% Rechnung "
+#~ "Ã¼ber den Betrag von %amount% gesandt. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "Die Rechnung kann Ã¼ber diese Link angesehen, ausgedruckt und bezahlt "
+#~ "werden: \n"
+#~ "%link%. \n"
+#~ "\n"
+#~ "SchÃ¶ne GrÃ¼Ãe, \n"
+#~ "%business_name% (%business_email%)"
+
+#~ msgid "Send Receipt"
+#~ msgstr "Quittung senden"
+
+#~ msgid "[Payment Received] %subject%"
+#~ msgstr "[Zahlung erhalten] %subject%"
+
+#, fuzzy
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has received your payment for the %type% in the amount of "
+#~ "%amount%. \n"
+#~ "\n"
+#~ "Thank you very much for your patronage. \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "Hallo %recipient%, \n"
+#~ "\n"
+#~ "%business_name% hat die Zahlung fÃ¼r die %recurring% Rechnung Ã¼ber den "
+#~ "Betrag von %amount% erhalten \n"
+#~ "\n"
+#~ "Danke fÃ¼r Ihr Vertrauen. \n"
+#~ "\n"
+#~ "SchÃ¶ne GrÃ¼Ãe, \n"
+#~ "%business_name% (%business_email%)"
+
+#~ msgid "Web Design Services"
+#~ msgstr "Web Design Services"
+
+#~ msgid "Web Development Services"
+#~ msgstr "Web Entwicklungs Services"
+
+#~ msgid "old options found, converted into new format, and deleted."
+#~ msgstr ""
+#~ "alte Optionen wurden gefunden, in das neue Format konvertiert und "
+#~ "gelÃ¶scht."
+
+#~ msgid "Item"
+#~ msgstr "Beschreibung"
+
+#, fuzzy
+#~ msgid "Cost"
+#~ msgstr "Betrag"
+
+#~ msgid ""
+#~ "Partial payment is not available because of an error.\\nContact "
+#~ "Administirator for more information."
+#~ msgstr ""
+#~ "Teilzahlung ist nicht verfÃ¼gbar, da von einem Fehler. \\nContact "
+#~ "Administirator fÃ¼r weitere Informationen."
+
+#~ msgid "Subtotal:"
+#~ msgstr "Zwischensumme:"
+
+#~ msgid "Tax:"
+#~ msgstr "Ust."
+
+#~ msgid "Discounts:"
+#~ msgstr "Rabatt(e):"
+
+#~ msgid "Received Payment:"
+#~ msgstr "Erhaltene Zahlung:"
+
+#, fuzzy
+#~ msgid "Balance:"
+#~ msgstr "Gesamt:"
+
+#, fuzzy
+#~ msgid "Time"
+#~ msgstr "Ereigniss Datum & Zeit"
+
+#~ msgid "There are no any actions"
+#~ msgstr "Es gibt keine Aktionen"
+
+#, fuzzy
+#~ msgid "Payment Amount"
+#~ msgstr ""
+#~ "Beispiel: <b>[wpi_checkout title=\"Stromrechnung\" custom_amount=\"true\" "
+#~ "fee=\"5%\"]</b>"
+
+#, fuzzy
+#~ msgid "Min. Payment Due:"
+#~ msgstr "Fälligkeitsdatum"
+
+#, fuzzy
+#~ msgid "Statement Balance:"
+#~ msgstr "Gesamt:"
+
+#~ msgid "Other"
+#~ msgstr "Andere"
+
+#~ msgid ""
+#~ "This invoice allows partial payments, please select the amount you would "
+#~ "like to pay."
+#~ msgstr ""
+#~ "Diese Rechnung gewÃ¤hrt eine Teilzahlungsoption, bitte den "
+#~ "Teilzahlungsbetrag auswÃ¤hlten."
+
+#, fuzzy
+#~ msgid "Payment Method"
+#~ msgstr "Zahlungsart"
+
+#, fuzzy
+#~ msgid "WP-Invoice"
+#~ msgstr "WP-Invoice Benachrichtigung"
+
+#~ msgid "View All"
+#~ msgstr "Alle anzeigen"
+
+#, fuzzy
+#~ msgid "Reports"
+#~ msgstr "Berichte"
+
+#~ msgid ""
+#~ "Invoice page not selected. Visit <strong><i><a href=\"%s\">Settings Page</"
+#~ "a> - Business Process</i></strong> and set <b><i>Display invoice page</"
+#~ "i></b> under <strong><i>When viewing an invoice</i></strong> section."
+#~ msgstr ""
+#~ "Die Rechnungsseite wurde nicht ausgewÃ¤hlt. <strong><i><a href=\"%s"
+#~ "\">Einstellungen</a> - GeschÃ¤ftsprozess</i></strong> aufrufen und  "
+#~ "<b><i>Rechnungsseite anzeigen</i></b> auswÃ¤hlen unter "
+#~ "<strong><i>Rechnung anzeigen</i></strong>."
+
+#~ msgid ""
+#~ "Selected invoice page does not exist. Visit <strong><i><a href=\"%s"
+#~ "\">Settings Page</a> - Business Process</i></strong> and set "
+#~ "<b><i>Display invoice page</i></b> under <strong><i>When viewing an "
+#~ "invoice</i></strong> section."
+#~ msgstr ""
+#~ "Die ausgewÃ¤hlte Rechnungsseite existiert nicht. <strong><i><a href=\"%s"
+#~ "\">Einstellungen</a> - GeschÃ¤ftsprozess</i></strong> aufrufen und  "
+#~ "<b><i>Rechnungsseite anzeigen</i></b> auswÃ¤hlen unter "
+#~ "<strong><i>Rechnung anzeigen</i></strong>."
+
+#~ msgid ""
+#~ "Your server does not support cURL. Payments could not be processed. "
+#~ "Contact your server administrator."
+#~ msgstr ""
+#~ "Der Server unterstÃ¼tzt cURL nicht. Die Zahlung konnte nicht ausgefÃ¼hrt "
+#~ "werden. Kontaktieren sie den Server Administrator."
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
+
+#~ msgid "Template not found:"
+#~ msgstr "Template nicht gefunden:"
+
+#~ msgid "Creating New Invoice"
+#~ msgstr "Neue Rechnung erstellen"
+
+#~ msgid ""
+#~ "Begin typing the recipient's email into the input box, or double-click to "
+#~ "view list of possible options."
+#~ msgstr ""
+#~ "Tragen Sie die EmpfÃ¤nger E-Mailadressen in das Eingabefeld oder "
+#~ "doppelklicken Sie um die Liste mit Einstellungsoptionen zu zeigen."
+
+#~ msgid "For new prospects, type in a new email address."
+#~ msgstr "FÃ¼r neue Kunden, eine neue E-Mail-Adresse eingeben."
+
+#~ msgid "\"Invoice(s) %s trashed.\""
+#~ msgstr "\"Rechnung(en) %s im Papierkorb.\""
+
+#~ msgid "\"Invoice(s) %s untrashed.\""
+#~ msgstr "\"Rechnung(en) %s nicht mehr im Papierkorb.\""
+
+#~ msgid "\"Invoice(s) %s deleted.\""
+#~ msgstr "\"Rechnung(en) %s gelÃ¶scht.\""
+
+#~ msgid "\"Invoice(s) %s unarchived.\""
+#~ msgstr "\"Rechnung(en) %s nicht mehr im Archiv.\""
+
+#~ msgid "\"Invoice(s) %s archived.\""
+#~ msgstr "\"Rechnung(en) %s archiviert.\""
+
+#, fuzzy
+#~ msgid "General Information"
+#~ msgstr "Allgemeine Information"
+
+#~ msgid ""
+#~ "You are on the page which lists your invoices and other item types that "
+#~ "you are using."
+#~ msgstr ""
+#~ "Auf dieser Seite werden die Rechnungen und andere benutzte Elemente "
+#~ "angezeigt."
+
+#~ msgid "Use filter box to find items you need."
+#~ msgstr "Benutzen Sie die Filteroption."
+
+#~ msgid "This page allows you to manage your sales statistics."
+#~ msgstr "Auf dieser Seite kann die Verkaufsstatistik verwaltet werden."
+
+#, fuzzy
+#~ msgid "Main"
+#~ msgstr "Haupt"
+
+#~ msgid ""
+#~ "<b>Business Name</b><br /> Enter your business name here. This field "
+#~ "defaults to the blog name you chose during WordPress installation."
+#~ msgstr ""
+#~ "<b>Unternehmensname</b><br /> Hier den Unternehmensnamen eintragen. "
+#~ "Dieses Feld Ã¼bernimmt den Blognamen aus der Wordpress Installation."
+
+#~ msgid ""
+#~ "<b>Business Address</b><br /> Enter your business address here. It will "
+#~ "appear on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>Unternehmensadresse</b><br /> Hier den Unternehmensadresse eintragen. "
+#~ "Erscheint auf den Rechnungen und Angeboten."
+
+#~ msgid ""
+#~ "<b>Business Phone</b><br /> Enter your business phone here. It will "
+#~ "appear on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>Telefonnummer</b><br /> Hier den Telefonnummer eintragen. Erscheint "
+#~ "auf den Rechnungen und Angeboten."
+
+#~ msgid ""
+#~ "<b>Email Address</b><br /> Enter your email address here. It will appear "
+#~ "on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>E-Mail</b><br /> Hier die E-Mail eintragen. Erscheint auf den "
+#~ "Rechnungen und Angeboten."
+
+#~ msgid ""
+#~ "<b>Display Styles</b><br /> Here you can set, enable or disable the WP-"
+#~ "Invoice default style settings. Change the default values only if you are "
+#~ "an advanced user who understands CSS styles and is able to create their "
+#~ "own stylesheets. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Anzeige Stiles</b><br /> Hier kÃ¶nnen die Wp-invoice Style "
+#~ "Einstellungen eingestellt, aktiviert und deaktiviert werden. Die "
+#~ "vorgegebenen Werte sollten nur von fortgeschrittenen Benutzern mit CSS "
+#~ "Kenntnissen zum Erstellen von eigenen Stylesheets geÃ¤ndert werden. <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-main/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>Tax Handling</b><br /> Here you can set when tax calculation is done "
+#~ "(depends on your country's fiscal system) and you can define a global "
+#~ "default tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Mehrwertsteuer</b><br /> Einstellungen zur Mehrwertsteuer Kalkulation "
+#~ "(abhÃ¤ngig von dem Steuersystem Ihres Landes) und fÃ¼r die Ã¼bergeordnete "
+#~ "Standardeinstellung. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/"
+#~ "\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>Advanced Settings</b><br /> These settings control advanced features "
+#~ "that have to do with billing, installation features, design issues and "
+#~ "general actions for administrators and developers. <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Profi Einstellungen</b><br /> Hier werden die Profieinstellungen fÃ¼r "
+#~ "Rechnungsstellung, Installationseinstellungen, Design, generelle Aktionen "
+#~ "fÃ¼r Administratoren und Entwickler vorgenommen. . <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-main/\">Weiterâ¦</a>"
+
+#, fuzzy
+#~ msgid "Business Process"
+#~ msgstr "Geschäftsprozess"
+
+#~ msgid ""
+#~ "<b>When creating an invoice</b><br />Options for managing invoice "
+#~ "creating process. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</"
+#~ "a>"
+#~ msgstr ""
+#~ "<b>Rechnungen erstellen</b><br />Optionen fÃ¼r die Rechnungserstellung. "
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>When viewing an invoice</b><br />Options for managing invoice view. <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Rechnungen ansehen</b><br />Optionen fÃ¼r die Anzeige von Rechnungen. "
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>How to insert invoice</b><br />Here you have four choices that will "
+#~ "define the way an invoice will appear on the invoice display page you "
+#~ "have set before. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</"
+#~ "a>"
+#~ msgstr ""
+#~ "<b>Rechnung einfÃ¼gen</b><br />4 AuswahlmÃ¶glichkeiten fÃ¼r die Anzeige "
+#~ "der Rechnung auf der Rechnungsanzeigeseite (welche vorab definiert "
+#~ "wurde). <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-business-process/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>After a payment has been completed</b><br />Here we have options that "
+#~ "will create automatic email notifications on successful payment of an "
+#~ "invoice (partial or complete). <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+#~ "process/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Nach Abschluss des Rechnungsprozesses</b><br />Hier gibt es Optionen "
+#~ "fÃ¼r die automatische E-Mail Benachrichtigungen fÃ¼r die erfolgreiche "
+#~ "Bezahlung einer Rechnung (teilweise oder komplett). <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-business-process/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "<b>Mail From options</b><br />This options allow you to change the "
+#~ "default email address that WordPress sends it's mail from, and the name "
+#~ "of the sender that the email is from."
+#~ msgstr ""
+#~ "<b>Optionen Absender</b><br />Hier kann die vorgegebene E-Mailadresse von "
+#~ "der Wordpress die E-Mails versendet und der Name des Absenders "
+#~ "eingestellt werden."
+
+#~ msgid ""
+#~ "<b>Google Analytics Events Tracking</b><br />If you are using <a target="
+#~ "\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
+#~ "tracking/asyncTracking.html\">Google Analytics code snippet</a> for "
+#~ "tracking site activity then you can do it better with WP-Invoice Event "
+#~ "Tracking feature. Tick events you want to track in your Google Analytics "
+#~ "account and see where/when/what people do. To view Events activity go to "
+#~ "Content -> Events in your Google Analytics account."
+#~ msgstr ""
+#~ "<b>Google Analytics Events Tracking</b><br />Wenn Sie <a target=\"_blank"
+#~ "\" href=\"http://code.google.com/intl/en/apis/analytics/docs/tracking/"
+#~ "asyncTracking.html\">Google Analytics code snippet</a> fÃ¼r das Tracking "
+#~ "von SeitenaktivitÃ¤ten verwenden, dann verwenden Sie besser das WP-"
+#~ "Invoice Event Tracking Feature. WÃ¤hlen Sie die Events, die Sie in Ihrem "
+#~ "Google Account verfolgen und sehen wollen und wo/wann/was die Benutzer "
+#~ "tun. Die Event AktivitÃ¤ten sehen Sie unter  Content -> Events in Ihrem "
+#~ "Google Analytics Konto."
+
+#~ msgid ""
+#~ "<u>Attempting to pay Invoices</u> - event is triggered on clicking "
+#~ "\"Process Payment\" button on Invoice page."
+#~ msgstr ""
+#~ "<u>Zahlungsversuch Rechnungen</u> - der Event wird mit Klick auf den "
+#~ "\"Zahlung ausfÃ¼hren\" Button auf der Rechnungsseite ausgelÃ¶st."
+
+#~ msgid ""
+#~ "<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
+#~ "customer."
+#~ msgstr ""
+#~ "<u>Rechnungen ansehen</u> - der Event wird ausgelÃ¶st, wenn die Rechnung "
+#~ "vom Kunden angesehen wird."
+
+#~ msgid "<i>More Events soon!</i>"
+#~ msgstr "<i>Weitere Events folgen!</i>"
+
+#, fuzzy
+#~ msgid "Payment"
+#~ msgstr "Zahlung"
+
+#~ msgid ""
+#~ "<b>Default Currency</b><br />Sets the default currency you will use in "
+#~ "your invoices. Default value is U.S. Dollars."
+#~ msgstr ""
+#~ "<b>StandardwÃ¤hrung</b><br />Einstellung der StandardwÃ¤hrung die in den "
+#~ "Rechnungen verwendet wird. StandardwÃ¤hrung: U.S. Dollars."
+
+#~ msgid ""
+#~ "<b>Currency list</b><br>This expandable area allows you to manage the "
+#~ "list of currencies you have. You can add new currencies or remove "
+#~ "existing ones.<br>Be aware, if you add a new currency please make sure "
+#~ "that it corresponds to ISO 4217 and the currency code can be accepted by "
+#~ "the payment services / gateways you are using. Here's a <a href=\"http://"
+#~ "en.wikipedia.org/wiki/List_of_circulating_currencies\">list of "
+#~ "currencies</a> with ISO codes and currency symbols.<br>Note that you "
+#~ "cannot delete a currency which has already been used in an existing "
+#~ "invoice or that is currently selected as default. To do so, delete any "
+#~ "invoices using that currency first."
+#~ msgstr ""
+#~ "<b>WÃ¤hrungsliste</b><br>In diesem erweiterteren Bereich kÃ¶nnen die "
+#~ "bestehenden WÃ¤hrungen administriert werden. Neue WÃ¤hrungen kÃ¶nnen "
+#~ "hinzugefÃ¼gt oder bestehende entfernt werden.<br>Wenn eine neue WÃ¤hrung "
+#~ "hinzugefÃ¼gt wird ist sicherzustellen, dass sie ISO 4217 entspricht und "
+#~ "der WÃ¤hrungscode von den genutzten Zahlungsservices / Gateway akzeptiert "
+#~ "wird. Hier ein Link zu einer <a href=\"http://en.wikipedia.org/wiki/"
+#~ "List_of_circulating_currencies\">WÃ¤hrungsliste</a> mit ISO Codes und WÃ"
+#~ "¤hrungssymbolen.<br>Achtung: eine WÃ¤hrung die bereits in einer "
+#~ "bestehenden Rechnung verwendet wurde oder als Standard ausgewÃ¤hlt wurde "
+#~ "kann nicht gelÃ¶scht werden. Um diese WÃ¤hrung zu lÃ¶schen, mÃ¼ssen diese "
+#~ "Rechnungen zuerst gelÃ¶scht werden."
+
+#~ msgid ""
+#~ "<b>Default Payment Method</b><br />Here you can choose what default "
+#~ "payment method you want to use for invoice payments."
+#~ msgstr ""
+#~ "<b>Standard Zahlungsoption</b><br />Hier die Standard Zahlungsoption fÃ¼r "
+#~ "die Bezahlung der Rechnungen auswÃ¤hlen."
+
+#~ msgid ""
+#~ "<b>Payment Gateways</b><br />Here you can specify Gateways which you want "
+#~ "to use for your invoices by default. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/"
+#~ "\">More...</a>"
+#~ msgstr ""
+#~ "<b>Zahlungs-Gateways</b><br />Hier werden die Standard-Zahlungs-Gateways "
+#~ "ausgewÃ¤hlt. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-payment/\">Weiterâ¦</a>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>Manual Payment Information</b><br />If you don't want to use payment "
+#~ "gateways but offline payments, or if an invoice has no payment gateways "
+#~ "enabled, the text in this field will appear as a message to the customer, "
+#~ "offering guidance on how to pay you. Write a short text with your bank "
+#~ "account number or any other way you want to accept the offline payment. "
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-payment/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Zahlungs-Information manual</b><br />Wenn Sie keine Zahlungs-Gateways "
+#~ "sondern Offline Bezahlung verwenden mÃ¶chten, oder wenn eine Rechnung "
+#~ "keine Gateways aktiviert hat, wird der Text in diesem Feld als Nachricht "
+#~ "an den Kunden angezeigt, um Instruktionen fÃ¼r die Bezahlung der Rechnung "
+#~ "zu geben. Schreiben Sie einen kurzen Text mit den Kontodaten oder wie sie "
+#~ "die Offline Bezahlung erhalten mÃ¶chten.<a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "payment/\">Weiterâ¦</a>"
+
+#, fuzzy
+#~ msgid "E-Mail Templates"
+#~ msgstr "E-Mail Templates"
+
+#, fuzzy
+#~ msgid ""
+#~ "You can create as many e-mailed templates as needed, they can later be "
+#~ "used to quickly create invoice notifications and reminders, and being "
+#~ "sent directly from an invoice page. The following variables can be used "
+#~ "within the Subject or the Content of the e-mail templates:"
+#~ msgstr ""
+#~ "Es können beliebig viele E-Mail Temples erstellt werden. Diese können "
+#~ "später für die Schnellerstellung von E-Mail Benachrichtigungen und "
+#~ "Erinnerungen verwendet und direkt aus der Rechnungsseite gesandt werden. "
+#~ "Die folgenden Variablen können für den Betreff oder den Inhalt der "
+#~ "Templates verwendet werden:"
+
+#~ msgid "URL of invoice"
+#~ msgstr "URL der Rechnung"
+
+#~ msgid "Name or business name of receipient"
+#~ msgstr "Name oder Firma des EmpfÃ¤ngers"
+
+#~ msgid "Due BalanceID"
+#~ msgstr "ID fÃ¤lliger Betrag"
+
+#~ msgid "Invoice title"
+#~ msgstr "Rechnungstitel"
+
+#~ msgid "Description of Invoice"
+#~ msgstr "Rechnungsbeschreibung"
+
+#, fuzzy
+#~ msgid "Business Name"
+#~ msgstr "Firma"
+
+#~ msgid "Business Email Address"
+#~ msgstr "Firma E-Mail Adresse"
+
+#~ msgid "Name of user who has created invoice"
+#~ msgstr "Name des Benutzers der die Rechnung erstellt hat"
+
+#~ msgid "Email of user who has created invoice"
+#~ msgstr "E-Mail des Benutzers der die Rechnung erstellt hat"
+
+#~ msgid "Invoice due date (if presented)"
+#~ msgstr "FÃ¤lligkeitsdatum der Rechnung"
+
+#~ msgid "Replaced by Invoice Type. (invoice, recurring invoice, quote)"
+#~ msgstr ""
+#~ "Von Rechnungstyp ersetzt. (Rechnung, wiederkehrende Rechnung, Zitat)"
+
+#~ msgid "More..."
+#~ msgstr "Weiter..."
+
+#, fuzzy
+#~ msgid "Line Items"
+#~ msgstr "Sortimentsartikel"
+
+#~ msgid ""
+#~ "Predefined Line Items are common services and/or products that you can "
+#~ "create once and use in your invoices. For example, if you are a Web "
+#~ "professional and your usual invoice has at least an hour of Web Design "
+#~ "or / and Web Development services, you can create these item entries to "
+#~ "save yourself from typing it every time. When you create a new invoice or "
+#~ "quote (with the Quotes Premium Feature), or edit an existing one, you "
+#~ "will be able to select these items from a list and if you want, edit the "
+#~ "name, description, quantity, price and tax. <a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "predefined-line-items/\">More...</a>"
+#~ msgstr ""
+#~ "Vordefinierte Sortimentsartikel sind allgemeine Dienstleistungen und/oder "
+#~ "Produkte die einmal angelegt und fortlaufend in den Rechnungen verwendet "
+#~ "werden. Beispielsweise als Webdesigner hat die Standardrechnung zumindest "
+#~ "eine Leistungsstunde Webdesign/Webentwicklung. Diese Posten kÃ¶nnen hier "
+#~ "erstellt werden um sie nicht jedes mal wieder neu tippen zu mÃ¼ssen. Bei "
+#~ "der Erstellung einer neuen Rechnung oder eines Angebotes (Quote Premium "
+#~ "Feature) oder dem Editieren einer bestehenden, kÃ¶nnen diese Posten aus "
+#~ "einer Liste ausgewÃ¤hlt und wenn notwendig vollstÃ¤ndig editiert werden. "
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-predefined-line-items/\">Weiterâ¦</a>"
+
+#, fuzzy
+#~ msgid "Help"
+#~ msgstr "Hilfe"
+
+#, fuzzy
+#~ msgid "This tab will help you troubleshoot your plugin."
+#~ msgstr ""
+#~ "Dieser Reiter hilft bei der Fehlersuche im Plugin und überprüft ob "
+#~ "Updates der Premium Features vorhanden sind"
+
+#~ msgid "Shortcodes"
+#~ msgstr "Shortcodes"
+
+#~ msgid "Shortcode:"
+#~ msgstr "Shortcode:"
+
+#~ msgid ""
+#~ "Works the same way as 'Invoice History' widget. Shows invoice list for "
+#~ "currently logged in users."
+#~ msgstr ""
+#~ "Funktioniert wie das 'Rechnungshistorie' Widget. Zeigt die Rechnungsliste "
+#~ "der gegenwÃ¤rtig angemeldeten Benutzer."
+
+#~ msgid "Invoice Lookup"
+#~ msgstr "Rechnungssuche"
+
+#~ msgid ""
+#~ "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
+#~ "invoices by invoice numbers."
+#~ msgstr ""
+#~ "Funktioniert wie das 'Rechnungshistorie' Widget. Rechnungen nach "
+#~ "Rechnungsnummer suchen."
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Total Collected"
+#~ msgstr "Gesamtbetrag"
+
+#, fuzzy
+#~ msgid "Recipient"
+#~ msgstr "Empfänger"
+
+#, fuzzy
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#, fuzzy
+#~ msgid "Overview"
+#~ msgstr "Overview"
+
+#~ msgid "Publish"
+#~ msgstr "Publizieren"
+
+#~ msgid "User Information"
+#~ msgstr "Benutzer Information"
+
+#~ msgid "For more information:"
+#~ msgstr "Mehr Information"
+
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">WP-Invoice Product Page</a>"
+#~ msgstr ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">WP-Invoice Produkt Seite</a>"
+
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoice Forums</a>"
+#~ msgstr ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoice Forums</a>"
+
+#~ msgid "Please upgrade Wordpress to the latest version for detailed help."
+#~ msgstr ""
+#~ "FÃ¼r detaillierte Hilfe bitte Wordpress auf die aktuelle Version "
+#~ "aktualisieren."
+
+#~ msgid ""
+#~ "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+#~ "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
+#~ msgstr ""
+#~ "Oder sie besuchen <a href=\"https://usabilitydynamics.com/products/wp-"
+#~ "invoice/\" target=\"_blank\">WP-Invoice Help Page</a> von "
+#~ "UsabilityDynamics.com"
+
+#, fuzzy
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#, fuzzy
+#~ msgid "No"
+#~ msgstr "Nov"
+
+#~ msgid "Values are empty"
+#~ msgstr "Keine Werte angegeben"
+
+#~ msgid "View Profile"
+#~ msgstr "Profil anzeigen"
+
+#~ msgid "Get WP-CRM plugin to enhance user management."
+#~ msgstr "WP-CRM fÃ¼r verbesserte Benutzerverwaltung"
+
+#, fuzzy
+#~ msgid "WP-Invoice custom field"
+#~ msgstr ""
+#~ "<p>Erweiterte Optionen <b>WP-Invoice custom field</b> may be used for "
+#~ "adding custom user data fields for payments forms.</p>"
+
+#~ msgid "<h3>WP-Invoice</h3>"
+#~ msgstr "<h3>WP-Invoice</h3>"
+
+#~ msgid ""
+#~ "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
+#~ "custom user data fields for payments forms.</p>"
+#~ msgstr ""
+#~ "<p>Erweiterte Optionen <b>WP-Invoice custom field</b> may be used for "
+#~ "adding custom user data fields for payments forms.</p>"
+
+#~ msgid "<p>Works for Authorize.net payment method only for now.</p>"
+#~ msgstr "<p>Works for Authorize.net payment method only for now.</p>"
+
+#~ msgid "<h3>WP-Invoice Notifications</h3>"
+#~ msgstr "<h3>WP-Invoice Notifications</h3>"
+
+#~ msgid ""
+#~ "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
+#~ "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
+#~ "Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you "
+#~ "can use this shortcodes:</p>"
+#~ msgstr ""
+#~ "<p>FÃ¼r Ihre Benachrichtigung einer beliebigen TrÃ¤ger Aktion &mdash; "
+#~ "<i>WPI: Invoice Paid (Client Rezept)</i>, <i>WPI: Invoice Paid (Notify "
+#~ "Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; "
+#~ "kann dieser Shortcode verwendet werden:</p>"
+
+#, fuzzy
+#~ msgid "Find"
+#~ msgstr "Dieses Chargify Produkt konnte nicht gefunden werden."
+
+#, fuzzy
+#~ msgid "Title:"
+#~ msgstr "Titel"
+
+#, fuzzy
+#~ msgid "Message:"
+#~ msgstr "Nachricht:"
+
+#~ msgid "Button Text:"
+#~ msgstr "Button Text:"
+
+#, fuzzy
+#~ msgid "User's Paid and Pending Invoices"
+#~ msgstr "User&#8217;s bezahlte und ausstehende Rechnungen"
+
+#~ msgid "Types to display:"
+#~ msgstr "Typen, um Anzeige:"
+
+#, fuzzy
+#~ msgid "Statuses to display:"
+#~ msgstr "Anmerkungen anzeigen."
+
+#~ msgid "Method requires \"subject\" argument to be passed."
+#~ msgstr "Methode erfordert \"Thema\"-Argument Ã¼bergeben werden."
+
+#~ msgid ""
+#~ "Method requires \"user_email\" in \"user_data\" argument to be passed."
+#~ msgstr ""
+#~ "Methode erfordert \"user_email\" in \"user_data\"-Argument Ã¼bergeben "
+#~ "werden."
+
+#~ msgid "User Email is malformed."
+#~ msgstr "Benutzer E-Mail ist fehlerhaft."
+
+#~ msgid "Method requires \"items\" or \"charges\" argument to be passed."
+#~ msgstr ""
+#~ "Methode erfordert \"Produkte\" oder \"GebÃ¼hren\"-Argument Ã¼bergeben "
+#~ "werden."
+
+#~ msgid "Unknown invoice type."
+#~ msgstr "Unbekannt Rechnungstyp."
+
+#~ msgid ""
+#~ "Method requires correct \"recurring\" argument if \"type\" is recurring."
+#~ msgstr ""
+#~ "Methode erfordert richtige \"wiederkehrende\" Argument bei \"Art\" ist "
+#~ "wiederkehrend."
+
+#~ msgid "Cannot use \"deposit\" with \"recurring\" type."
+#~ msgstr "Kann nicht mit \"Kaution\" mit \"wiederkehrende\"-Typ."
+
+#~ msgid "Cannot use \"deposit\" with \"quote\" type."
+#~ msgstr "Kann nicht mit \"Kaution\" mit \"quote\"-Typ."
+
+#~ msgid "Method requires \"status\" argument to be passed."
+#~ msgstr "Methode erfordert \"Status\"-Argument Ã¼bergeben werden."
+
+#~ msgid "Unknown invoice status."
+#~ msgstr "Unbekannter Rechnungsstatus."
+
+#, fuzzy
+#~ msgid "Discount name is required."
+#~ msgstr "Rabattmenge ist notwendig."
+
+#~ msgid "Discount type is required. (\"amount\" or \"percent\")."
+#~ msgstr "Rabattart ist notwendig. (\"Menge\" oder \"Prozent\")."
+
+#~ msgid "Discount amount is required."
+#~ msgstr "Rabattmenge ist notwendig."
+
+#~ msgid ""
+#~ "One or more \"items\" have malformed structure. Cannot create Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Produkte\" haben missgebildete Struktur. Kann nicht "
+#~ "erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"items\" have wrong \"quantity\" value. Cannot create "
+#~ "Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Produkte\" haben falsch \"QuantitÃ¤t\"-Wert. Kann "
+#~ "nicht erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"items\" have wrong \"price\" value. Cannot create Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Produkte\" haben falsche \"Preis\"-Wert. Kann nicht "
+#~ "erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"items\" have wrong \"tax_rate\" value. Cannot create "
+#~ "Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Produkte\" haben falsche \"steuer_satz\"-Wert. Kann "
+#~ "nicht erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"charges\" have malformed structure. Cannot create Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Kosten\" wurden missgebildete Struktur. Kann nicht "
+#~ "erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"charges\" have wrong \"amount\" value. Cannot create "
+#~ "Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Kosten\" wurden falsche \"Menge\"-Wert. Kann nicht "
+#~ "erstellt Rechnung."
+
+#~ msgid ""
+#~ "One or more \"charges\" have wrong \"tax\" value. Cannot create Invoice."
+#~ msgstr ""
+#~ "Ein oder mehrere \"Kosten\" wurden falsch \"Steuer\"-Wert. Kann nicht "
+#~ "erstellt Rechnung."
+
+#, fuzzy
+#~ msgid "Unknown \"tax_method\"."
+#~ msgstr "USt."
+
+#~ msgid "Argument \"ID\" is required."
+#~ msgstr "Argument \"ID\" ist nicht erforderlich."
+
+#~ msgid "Cannot be refunded. No payments found."
+#~ msgstr "KÃ¶nnen nicht erstattet werden. Keine Zahlungen gefunden."
+
+#~ msgid "Could not refund due to unknown error."
+#~ msgstr "Konnte nicht aufgrund eines unbekannten Fehlers zurÃ¼ck."
+
+#~ msgid "Argument \"amount\" is required."
+#~ msgstr "Argument \"Menge\" ist nicht erforderlich."
+
+#~ msgid "Argument \"amount\" is malformed."
+#~ msgstr "Argument \"Menge\" ist fehlerhaft."
+
+#~ msgid "Invoice is completely paid. Payments are not acceptable anymore."
+#~ msgstr ""
+#~ "Rechnung ist vollstÃ¤ndig bezahlt. Keine weiteren Zahlungen akzeptiert."
+
+#~ msgid "Cannot pay more that the balance is. Maximum is "
+#~ msgstr "Kann nicht mehr bezahlen, dass sich die Waage. Maximum ist"
+
+#~ msgid "Partial payments are not allowed. Pay minimum is "
+#~ msgstr "Teilzahlungen sind nicht erlaubt. Pay Minimum"
+
+#~ msgid "Minimum allowed payment is "
+#~ msgstr "Mindest erlaubt Zahlung"
+
+#~ msgid "Access denied. Do not have rights."
+#~ msgstr "Zugang verweigert. Sie haben keine Rechte."
+
+#~ msgid "Requested method is absent in API Reference"
+#~ msgstr "Anfragemethode ist in API-Referenz fehlt"
+
+#, fuzzy
+#~ msgid "Unknown method"
+#~ msgstr "Unbekannter Fehler. "
+
+#~ msgid "WP-Invoice XML-RPC API Reference"
+#~ msgstr "WP-Invoice XML-RPC API-Referenz"
+
+#~ msgid "Toggle"
+#~ msgstr "Toggle"
+
+#~ msgid "Examples"
+#~ msgstr "Beispiele"
+
+#~ msgid "Below is a list of available functions that current API supports."
+#~ msgstr ""
+#~ "Unten finden Sie eine Liste der verfÃ¼gbaren Funktionen, dass die "
+#~ "aktuellen API unterstÃ¼tzt."
+
+#, fuzzy
+#~ msgid "Arguments:"
+#~ msgstr "Anpassung:"
+
+#, fuzzy
+#~ msgid "Gateway Username"
+#~ msgstr "Gateway-Benutzername"
+
+#, fuzzy
+#~ msgid "Your credit card processor will provide you with a gateway username."
+#~ msgstr ""
+#~ "Ihre Kreditkartenprozessor werden Sie mit einem Benutzernamen Gateway "
+#~ "bereitzustellen."
+
+#, fuzzy
+#~ msgid "Gateway Transaction Key"
+#~ msgstr "Transaktions#"
+
+#, fuzzy
+#~ msgid ""
+#~ "You will be able to generate this in your credit card processor's control "
+#~ "panel."
+#~ msgstr ""
+#~ "Sie werden in der Lage sein, dies in der Systemsteuerung Ihre "
+#~ "Kreditkartenprozessors generieren."
+
+#, fuzzy
+#~ msgid "Gateway URL"
+#~ msgstr "Gateway URL"
+
+#, fuzzy
+#~ msgid ""
+#~ "This is the URL provided to you by your credit card processing company."
+#~ msgstr ""
+#~ "Dies ist die URL, die Ihnen Ihr Kreditkarten-Unternehmen zur VerfÃ¼gung "
+#~ "gestellt."
+
+#, fuzzy
+#~ msgid "Recurring Billing Gateway URL"
+#~ msgstr ""
+#~ "Wiederkehrende Fakturierung Gateway URL ist wahrscheinlich von der "
+#~ "Gateway-URL anders, und wird fast immer mit Authorize.net sein. Beraten "
+#~ "werden - Testkreditkartennummern werden abgelehnt, auch wenn im Testmodus."
+
+#, fuzzy
+#~ msgid ""
+#~ "Recurring billing gateway URL is most likely different from the Gateway "
+#~ "URL, and will almost always be with Authorize.net. Be advised - test "
+#~ "credit card numbers will be declined even when in test mode."
+#~ msgstr ""
+#~ "Wiederkehrende Fakturierung Gateway URL ist wahrscheinlich von der "
+#~ "Gateway-URL anders, und wird fast immer mit Authorize.net sein. Beraten "
+#~ "werden - Testkreditkartennummern werden abgelehnt, auch wenn im Testmodus."
+
+#, fuzzy
+#~ msgid "Test / Live Mode"
+#~ msgstr "Test / Live Modus"
+
+#, fuzzy
+#~ msgid "Test - Do Not Process Transactions"
+#~ msgstr "Test - Keine Transaktionen durchführen"
+
+#, fuzzy
+#~ msgid "Live - Process Transactions"
+#~ msgstr "Test - Keine Transaktionen durchführen"
+
+#, fuzzy
+#~ msgid "Delimiter Character"
+#~ msgstr "Trennzeichens"
+
+#, fuzzy
+#~ msgid ""
+#~ "Get this from your credit card processor. If the transactions are not "
+#~ "going through, this character is most likely wrong."
+#~ msgstr ""
+#~ "Holen Sie sich diese von Ihrem Kreditkartenprozessor. Wenn die "
+#~ "Transaktionen nicht durchmachen, ist wahrscheinlich falsch dieses Zeichen."
+
+#, fuzzy
+#~ msgid "Encapsulation Character"
+#~ msgstr "Encapsulation Charakter"
+
+#, fuzzy
+#~ msgid ""
+#~ "Authorize.net default is blank. Otherwise, get this from your credit card "
+#~ "processor. If the transactions are going through, but getting strange "
+#~ "responses, this character is most likely wrong."
+#~ msgstr ""
+#~ "Authorize.net Standardeinstellung ist leer. Andernfalls erhalten Sie bei "
+#~ "Ihrem Kreditkarten-Prozessor. Wenn die Transaktionen durchmachen, aber "
+#~ "immer seltsame Reaktionen, ist wahrscheinlich falsch dieses Zeichen."
+
+#, fuzzy
+#~ msgid "Email Customer (on success)"
+#~ msgstr "Kunde benachrichtigen (bei Erfolg)"
+
+#, fuzzy
+#~ msgid "Merchant Email"
+#~ msgstr "HÃ¤ndler ID"
+
+#, fuzzy
+#~ msgid ""
+#~ "Email address to which the merchant's copy of the customer confirmation "
+#~ "email should be sent. If a value is submitted, an email will be sent to "
+#~ "this address as well as the address(es) configured in the Merchant "
+#~ "Interface."
+#~ msgstr ""
+#~ "E-Mail-Adresse, an die der Händler die Kopie der Kundenbestätigung per E-"
+#~ "Mail gesendet werden soll. Wenn ein Wert gesendet wird, eine E-Mail an "
+#~ "diese Adresse sowie die Adresse (n) in der Merchant-Schnittstelle "
+#~ "konfiguriert gesendet werden."
+
+#, fuzzy
+#~ msgid "Customer Receipt Email Header"
+#~ msgstr "Kundeneingang E-Mail-Header"
+
+#, fuzzy
+#~ msgid "Security: MD5 Hash"
+#~ msgstr "Sicherheit: MD5-Hash"
+
+#, fuzzy
+#~ msgid "Delim Data"
+#~ msgstr "Sales Report Daten"
+
+#, fuzzy
+#~ msgid "Silent Post URL"
+#~ msgstr "Silent-Beitrag URL"
+
+#, fuzzy
+#~ msgid ""
+#~ "Silent Post responses are returned in real-time, meaning as soon as the "
+#~ "transaction processes the Silent Post is sent to your specified URL. Go "
+#~ "to https://account.authorize.net -> Settings -> Silent Post URL and copy "
+#~ "this URL to input field. Required only for Recurring Billing and not for "
+#~ "all Merchants."
+#~ msgstr ""
+#~ "Antworten Stille Post sind in Echtzeit zurück, was bedeutet, sobald die "
+#~ "Transaktion verarbeitet die Stille Post an die angegebene URL gesendet. "
+#~ "Zum https://account.authorize.net -> Einstellungen -> Stille Beitrag URL "
+#~ "und kopieren Sie diese URL-Eingabefeld. Nur für Wiederkehrende Rechnungen "
+#~ "und nicht für alle Kaufleute erforderlich."
+
+#, fuzzy
+#~ msgid "User Email"
+#~ msgstr "user_email geändert."
+
+#, fuzzy
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#, fuzzy
+#~ msgid "Zip"
+#~ msgstr "Zip"
+
+#, fuzzy
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#, fuzzy
+#~ msgid "Card Number"
+#~ msgstr "Eine gültige Kreditkartennummer muss angegeben werden."
+
+#, fuzzy
+#~ msgid "Expiration Month"
+#~ msgstr "Monat(e)"
+
+#, fuzzy
+#~ msgid "Expiration Year"
+#~ msgstr "Alaufdatum"
+
+#~ msgid "Card Code"
+#~ msgstr "Kartencode"
+
+#, fuzzy
+#~ msgid "Authorize.net ARB"
+#~ msgstr "Authorize.net ARB"
+
+#, fuzzy
+#~ msgid "Bill Every"
+#~ msgstr "Rechnung alle"
+
+#, fuzzy
+#~ msgid "Day(s)"
+#~ msgstr "Tag(e)"
+
+#, fuzzy
+#~ msgid "Month(s)"
+#~ msgstr "Monat(e)"
+
+#, fuzzy
+#~ msgid "Billing Cycles"
+#~ msgstr "Wiederholungen"
+
+#, fuzzy
+#~ msgid "Payment Date"
+#~ msgstr "Datum"
+
+#~ msgid "Automatically."
+#~ msgstr "Automatisch."
+
+#~ msgid "In One Week"
+#~ msgstr "In einer Woche"
+
+#~ msgid "In 30 Days"
+#~ msgstr "In 30 Tagen"
+
+#, fuzzy
+#~ msgid "Clear"
+#~ msgstr "Log zurücksetzen"
+
+#, fuzzy
+#~ msgid "Subscription initiated, Subcription ID"
+#~ msgstr "Subskription gestartet, Abo ID"
+
+#~ msgid ""
+#~ "One-time credit card payment is processed successfully. However, "
+#~ "recurring billing setup failed. "
+#~ msgstr ""
+#~ "Einmalzahlung mit Kreditkarte wurde erfolgreich durchgefÃ¼hrt. Das Setup "
+#~ "der wiederkehrenden Zahlung ist fehlgeschlagen."
+
+#, fuzzy
+#~ msgid "Response Code: "
+#~ msgstr "Antwort Code:"
+
+#, fuzzy
+#~ msgid "Subscription error"
+#~ msgstr "Abo Fehler"
+
+#, fuzzy
+#~ msgid "Subscription completely paid"
+#~ msgstr "Das Abo wurde komplett bezahlt"
+
+#~ msgid "Shop ID"
+#~ msgstr "Shop ID"
+
+#~ msgid "Secret Key"
+#~ msgstr "Secret Key"
+
+#, fuzzy
+#~ msgid "Test Key"
+#~ msgstr "API Schlüssel"
+
+#, fuzzy
+#~ msgid "Status URL"
+#~ msgstr ""
+#~ "Verwenden Sie diese URL als Status-URL in Merchant-Einstellungen auf "
+#~ "einmal Zahlungen benachrichtigt zu werden."
+
+#~ msgid ""
+#~ "Use this URL as Status URL in Merchant settings to get notified once "
+#~ "payments made."
+#~ msgstr ""
+#~ "Verwenden Sie diese URL als Status-URL in Merchant-Einstellungen auf "
+#~ "einmal Zahlungen benachrichtigt zu werden."
+
+#~ msgid "Email Address"
+#~ msgstr "E-Mail Adresse"
+
+#~ msgid "State/Province"
+#~ msgstr "Bundesland"
+
+#~ msgid "Zip/Postal Code"
+#~ msgstr "PLZ"
+
+#, fuzzy
+#~ msgid "InterKassa Recurring Billing"
+#~ msgstr "InterKassa Wiederkehrende Rechnung"
+
+#, fuzzy
+#~ msgid "Currently InterKassa gateway does not support Recurring Billing"
+#~ msgstr ""
+#~ "Derzeit InterKassa Gateway unterstützt keine wiederkehrende Zahlungen"
+
+#~ msgid "Direct access not allowed"
+#~ msgstr "Direkter Zugriff verweigert"
+
+#, fuzzy
+#~ msgid "%s paid via InterKassa [%s]"
+#~ msgstr "%s mit PayPal bezahlt"
+
+#, fuzzy
+#~ msgid "Transaction ID: %s"
+#~ msgstr "Transaktion #%s erfolgreich abgeschlossen."
+
+#, fuzzy
+#~ msgid "Bank Name"
+#~ msgstr "Name"
+
+#, fuzzy
+#~ msgid "Account Number"
+#~ msgstr ""
+#~ "<b>Zahlungs-Information manual</b><br />Wenn Sie keine Zahlungs-Gateways "
+#~ "sondern Offline Bezahlung verwenden möchten, oder wenn eine Rechnung "
+#~ "keine Gateways aktiviert hat, wird der Text in diesem Feld als Nachricht "
+#~ "an den Kunden angezeigt, um Instruktionen für die Bezahlung der Rechnung "
+#~ "zu geben. Schreiben Sie einen kurzen Text mit den Kontodaten oder wie sie "
+#~ "die Offline Bezahlung erhalten möchten.<a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "payment/\">Weiter…</a>"
+
+#, fuzzy
+#~ msgid "Payoneer Recurring Billing"
+#~ msgstr "Optionen für wiederkehrende Rechnungen anzeigen."
+
+#~ msgid "PayPal Username"
+#~ msgstr "PayPal Benutzername"
+
+#~ msgid "Use in Test Mode"
+#~ msgstr "Im Testmodus verwenden"
+
+#, fuzzy
+#~ msgid "Use PayPal SandBox for test mode"
+#~ msgstr "Google Sandbox für den Testmodus verwenden"
+
+#, fuzzy
+#~ msgid "PayPal IPN URL"
+#~ msgstr "PayPal IPN URL"
+
+#~ msgid ""
+#~ "Once IPN is integrated, sellers can automate their back office so they "
+#~ "don't have to wait for payments to come in to trigger order fulfillment. "
+#~ "Setup this URL into your PayPal Merchant Account Settings."
+#~ msgstr ""
+#~ "Sobald IPN integriert ist, kÃ¶nnen VerkÃ¤ufer ihre Back-Office zu "
+#~ "automatisieren, damit sie nicht warten mÃ¼ssen, fÃ¼r Zahlungen zu kommen, "
+#~ "um die AuftragserfÃ¼llung auslÃ¶sen. Setup-diese URL in Ihrem PayPal-HÃ"
+#~ "¤ndler-Konto-Einstellungen."
+
+#, fuzzy
+#~ msgid "Send IPN URL with payment request?"
+#~ msgstr "Senden IPN URL mit Zahlungsaufforderung?"
+
+#~ msgid "Use this option if you did not set IPN in your PayPal account."
+#~ msgstr ""
+#~ "Verwenden Sie diese Option, wenn Sie nicht das IPN in Ihr PayPal-Konto "
+#~ "festlegen."
+
+#, fuzzy
+#~ msgid "PayPal Subscriptions"
+#~ msgstr "PayPal"
+
+#, fuzzy
+#~ msgid "Week(s)"
+#~ msgstr "In einer Woche"
+
+#, fuzzy
+#~ msgid "Year(s)"
+#~ msgstr "\"Rechnung(en) %s gelöscht.\""
+
+#, fuzzy
+#~ msgid "PayPal Subscription created"
+#~ msgstr "Paypal Subskription erstellt"
+
+#, fuzzy
+#~ msgid "PayPal Subscription cancelled"
+#~ msgstr "Paypal Subskription gelöscht"
+
+#, fuzzy
+#~ msgid "PayPal Subscription payment failed"
+#~ msgstr "PayPal Subskription Zahlungsfehler"
+
+#, fuzzy
+#~ msgid "%1s paid for subscription %2s"
+#~ msgstr "%1s bezahlt für Subskription %2s"
+
+#, fuzzy
+#~ msgid "PayPal Subscription term is finished"
+#~ msgstr "PayPal Subskription Dauer abgelaufen"
+
+#, fuzzy
+#~ msgid "PayPal Subscription modified"
+#~ msgstr "PayPal Subskription modifiziert"
+
+#, fuzzy
+#~ msgid "%s paid via PayPal"
+#~ msgstr "%s mit PayPal bezahlt"
+
+#, fuzzy
+#~ msgid "PayPal Payer email: %s"
+#~ msgstr "PayPal Zahlungssender E-Mail: %s"
+
+#, fuzzy
+#~ msgid "Test Secret Key"
+#~ msgstr "Secret Key"
+
+#, fuzzy
+#~ msgid "Test Publishable Key"
+#~ msgstr "API Schlüssel"
+
+#, fuzzy
+#~ msgid "Live Secret Key"
+#~ msgstr "Secret Key"
+
+#, fuzzy
+#~ msgid "Live Publishable Key"
+#~ msgstr "Test / Live Modus"
+
+#, fuzzy
+#~ msgid "Mode"
+#~ msgstr "Modus"
+
+#, fuzzy
+#~ msgid "Webhook URL"
+#~ msgstr "Webhook URL"
+
+#~ msgid ""
+#~ "Use webhooks to be notified about events that happen in your Stripe "
+#~ "account."
+#~ msgstr ""
+#~ "Verwenden webhooks Ã¼ber Ereignisse, die in Ihrem Konto Streifen "
+#~ "passieren benachrichtigt."
+
+#, fuzzy
+#~ msgid "Stripe Subscriptions"
+#~ msgstr "Verfügbare Abonnements"
+
+#, fuzzy
+#~ msgid "Specifies billing frequency."
+#~ msgstr "Definiert Bezahlrythmus"
+
+#, fuzzy
+#~ msgid "Interval"
+#~ msgstr "Intervall"
+
+#, fuzzy
+#~ msgid "Week"
+#~ msgstr "In einer Woche"
+
+#, fuzzy
+#~ msgid "Month"
+#~ msgstr "Monat(e)"
+
+#, fuzzy
+#~ msgid "Year"
+#~ msgstr ""
+#~ "Erlaubt tags: <code> [blog_name] </ code>, <code> [Monat] </ code>, "
+#~ "<code> [Tag] </ code>, <code> [Jahr] </ code>, <code> [Stunde] </ code>, "
+#~ "<code> [Minute] </ code>, <code> [zweite] </ code> und <code> [timestamp] "
+#~ "</ code>"
+
+#~ msgid ""
+#~ "The number of the unit specified in the interval parameter. For example, "
+#~ "you could specify an interval_count of 3 and an interval of \"month\" for "
+#~ "quarterly billing (every 3 months)."
+#~ msgstr ""
+#~ "Die Anzahl der im Intervall-Parameter angegebenen Einheit. Zum Beispiel "
+#~ "kÃ¶nnten Sie eine interval_count von 3 und ein Intervall von \"Monat\" "
+#~ "fÃ¼r vierteljÃ¤hrliche Abrechnung (alle 3 Monate) angeben."
+
+#, fuzzy
+#~ msgid "Interval Count"
+#~ msgstr ""
+#~ "Die Anzahl der im Intervall-Parameter angegebenen Einheit. Zum Beispiel "
+#~ "könnten Sie eine interval_count von 3 und ein Intervall von \"Monat\" für "
+#~ "vierteljährliche Abrechnung (alle 3 Monate) angeben."
+
+#~ msgid ""
+#~ "The order cannot be processed. You have not been charged. Please confirm "
+#~ "that you have JavaScript enabled and try again."
+#~ msgstr ""
+#~ "Die Bestellung kann nicht verarbeitet werden. Sie wurden nicht erhoben. "
+#~ "Bitte bestÃ¤tigen Sie, dass Sie Javascript aktiviert und erneut versuchen."
+
+#~ msgid ""
+#~ "Stripe Subscription has been initiated. Do not pay this invoice again. "
+#~ "Thank you."
+#~ msgstr ""
+#~ "Streifen-Abonnement wurde eingeleitet. Diese Rechnung zu bezahlen nicht "
+#~ "mehr. Danke."
+
+#~ msgid ""
+#~ "Could not initiate Stripe Subscription. Contact site Administrator please."
+#~ msgstr ""
+#~ "Konnte nicht initiieren Stripe-Abonnement. Kontakt Seite Administrator "
+#~ "bitte."
+
+#, fuzzy
+#~ msgid " paid via STRIPE"
+#~ msgstr "%s mit PayPal bezahlt"
+
+#, fuzzy
+#~ msgid "STRIPE Card ID: "
+#~ msgstr "Streifenkarte ID:"
+
+#, fuzzy
+#~ msgid "Service is currently unavailable. Please try again later."
+#~ msgstr ""
+#~ "Die E-Mail konnte nicht gesendet werden. Bitte spÃ¤ter nochmals versuchen."
+
+#, fuzzy
+#~ msgid "Unknown error occured. Please contact site administrator."
+#~ msgstr "Unbekannter Fehler. Bitte kontaktieren Sie den Administrator."
+
+#, fuzzy
+#~ msgid "Stripe server is down! Try again later."
+#~ msgstr ""
+#~ "Stripe Server ist offline. Bitte versuchen Sie es später noch einmal."
+
+#, fuzzy
+#~ msgid "Stripe Subscription Payment"
+#~ msgstr "PayPal Subskription Zahlungsfehler"
+
+#, fuzzy
+#~ msgid "2Checkout Seller ID"
+#~ msgstr "Händler ID"
+
+#, fuzzy
+#~ msgid "2Checkout Secret Word"
+#~ msgstr "Secret Key"
+
+#, fuzzy
+#~ msgid "Demo Mode"
+#~ msgstr "Modus"
+
+#, fuzzy
+#~ msgid "Use 2Checkout Demo Mode"
+#~ msgstr "Im Testmodus verwenden"
+
+#, fuzzy
+#~ msgid "2Checkout Recurring Billing"
+#~ msgstr "Optionen für wiederkehrende Rechnungen anzeigen."
+
+#, fuzzy
+#~ msgid "Specifies billing duration."
+#~ msgstr "Definiert Bezahlrythmus"
+
+#, fuzzy
+#~ msgid "Duration"
+#~ msgstr "Beschreibung"
+
+#, fuzzy
+#~ msgid "%s paid via 2Checkout"
+#~ msgstr "%s mit PayPal bezahlt"
+
+#, fuzzy
+#~ msgid "2Checkout buyer email: %s"
+#~ msgstr "Google Buyer ID: %s"
+
+#, fuzzy
+#~ msgid "Recurring billing stopped."
+#~ msgstr "Optionen für wiederkehrende Rechnungen anzeigen."
+
+#, fuzzy
+#~ msgid "Recurring installment failed."
+#~ msgstr "Update der wiederkehrenden Rechnung erfolgt."
+
+#, fuzzy
+#~ msgid "Recurring installments completed."
+#~ msgstr "Wiederkehrend"
+
+#, fuzzy
+#~ msgid "Recurring sale restarted."
+#~ msgstr "Wiederkehrend"
+
+#, fuzzy
+#~ msgid "Agreement"
+#~ msgstr "Übereinkunft"
+
+#, fuzzy
+#~ msgid "Process Payment"
+#~ msgstr "Zahlungsdurchführung %s"
+
+#~ msgid "Process Payment of %s"
+#~ msgstr "ZahlungsdurchfÃ¼hrung %s"
+
+#, fuzzy
+#~ msgid "Process Payment of "
+#~ msgstr "Zahlungsdurchführung %s"
+
+#~ msgid ""
+#~ "This payment gateway does not support Recurring Billing. Try another one "
+#~ "or contact site Administrator."
+#~ msgstr ""
+#~ "Das Payment-Gateway unterstÃ¼tzt keine wiederkehrende Zahlungen. "
+#~ "Versuchen Sie ein anderes oder Kontakt Website-Administrator."
+
+#, fuzzy
+#~ msgid "Payment Details"
+#~ msgstr "Zahlung"
+
+#, fuzzy
+#~ msgid "Not set"
+#~ msgstr "Fälligkeitsdatum ist nicht gesetzt"
+
+#, fuzzy
+#~ msgid "Process Payer Information"
+#~ msgstr "PayPal Zahlungssender E-Mail: %s"
+
+#, fuzzy
+#~ msgid "Custom Amount"
+#~ msgstr "Sonder-Betrag:"
+
+#, fuzzy
+#~ msgid "Your Amount"
+#~ msgstr "Ihr Betrag"
+
+#, fuzzy
+#~ msgid "Enter Amount"
+#~ msgstr "Betrag eingeben"
+
+#, fuzzy
+#~ msgid "Billing Information"
+#~ msgstr "Wiederholungen"
+
+#, fuzzy
+#~ msgid "CVC"
+#~ msgstr "CVC"
+
+#, fuzzy
+#~ msgid "Expiration (Month)"
+#~ msgstr "Monat(e)"
+
+#, fuzzy
+#~ msgid "Expiration (Year)"
+#~ msgstr "Alaufdatum"
+
+#, fuzzy
+#~ msgid "Invoice %s not found."
+#~ msgstr "Rechnung %s wurde nicht gefunden."
+
+#, fuzzy
+#~ msgid "Enter Invoice ID"
+#~ msgstr "Bitte geben Sie die Rechnungs ID ein"
+
+#, fuzzy
+#~ msgid "Hide"
+#~ msgstr "Verstecken"
+
+#~ msgid "Show"
+#~ msgstr "Zeigen"
+
+#, fuzzy
+#~ msgid "Filter Results"
+#~ msgstr "Resultate filtern"
+
+#, fuzzy
+#~ msgid "Restore"
+#~ msgstr "Wiederherstellen"
+
+#, fuzzy
+#~ msgid "Archive"
+#~ msgstr "Archiv"
+
+#, fuzzy
+#~ msgid "Delete Permanently"
+#~ msgstr "Endgültig löschen"
+
+#, fuzzy
+#~ msgid "Move to Trash"
+#~ msgstr "in den Papierkorb"
+
+#, fuzzy
+#~ msgid "Un-Archive"
+#~ msgstr "aus dem Archiv"
+
+#, fuzzy
+#~ msgid "Edit &#8220;%s&#8221;"
+#~ msgstr "Edit &#8220;%s&#8221;"
+
+#, fuzzy
+#~ msgid "Edit this item"
+#~ msgstr "Diesen Artikel editieren"
+
+#, fuzzy
+#~ msgid "Edit"
+#~ msgstr "Editieren"
+
+#, fuzzy
+#~ msgid "Un-Archive this item"
+#~ msgstr "Archivieren rückgängig machen"
+
+#, fuzzy
+#~ msgid "Archive this item"
+#~ msgstr "Diesen Artikel archivieren"
+
+#, fuzzy
+#~ msgid "Restore this item from the Trash"
+#~ msgstr "Artikel aus dem Papierkorb holen"
+
+#, fuzzy
+#~ msgid "Move this item to the Trash"
+#~ msgstr "Artikel in den Papierkorb legen"
+
+#, fuzzy
+#~ msgid "Trash"
+#~ msgstr "Papierkorb"
+
+#, fuzzy
+#~ msgid "Delete this item permanently"
+#~ msgstr "Diesen Artikel permanent löschen"
+
+#, fuzzy
+#~ msgid "View &#8220;%s&#8221;"
+#~ msgstr "Zeige &#8220;%s&#8221;"
+
+#, fuzzy
+#~ msgid " ago"
+#~ msgstr "Tage vorher"
+
+#~ msgid "WP-Invoice First-Use Setup"
+#~ msgstr "Premium Features"
+
+#~ msgid ""
+#~ "Thank you for installing WP-Invoice.  Please provide the necessary "
+#~ "information to complete the first-time setup."
+#~ msgstr ""
+#~ "Danke, dass Sie fÃ¼r die Installation von WP-Invoice. Bitte geben Sie die "
+#~ "notwendigen Informationen, um die erstmalige Einrichtung abzuschlieÃen."
+
+#, fuzzy
+#~ msgid "Basic Setup"
+#~ msgstr "Grundlegende Einstellungen"
+
+#, fuzzy
+#~ msgid "Business Name:"
+#~ msgstr "Firma"
+
+#~ msgid ""
+#~ "Your clients will have to follow their secure link to this page to see "
+#~ "their invoice. Opening this page without following a link will result in "
+#~ "the standard page content begin shown."
+#~ msgstr ""
+#~ "Ihre Kunden werden ihre sicheren Link zu dieser Seite folgen, um ihre "
+#~ "Rechnung zu sehen. Ãffnungs diese Seite ohne einen Link wird in der "
+#~ "Standard-Seiteninhalt beginnen gezeigt fÃ¼hren."
+
+#, fuzzy
+#~ msgid "Select a page to display invoices:"
+#~ msgstr "Es wurde versucht die Rechnungen zu bezahlen"
+
+#~ msgid ""
+#~ "Select whether to overwrite all page content, insert at the bottom of the "
+#~ "content, or to look for the [wp-invoice] tag."
+#~ msgstr ""
+#~ "WÃ¤hlen Sie, ob alle Seiteninhalte Ã¼berschreiben, legen Sie auf den "
+#~ "Boden der Inhalte oder fÃ¼r die [wp-Rechnung] Tag aussehen."
+
+#, fuzzy
+#~ msgid "How to Insert Invoice:"
+#~ msgstr "Wie die Rechnung einzufügen ist:"
+
+#~ msgid "Overwrite All Page Content"
+#~ msgstr "Gesamten Seiteninhalt Ã¼berschreiben"
+
+#~ msgid "Place Below Content"
+#~ msgstr "Unterhalb des Inhalts platzieren"
+
+#~ msgid "Above Content"
+#~ msgstr "Oberhalb des Inhalts"
+
+#~ msgid "Replace [wp-invoice] Tag"
+#~ msgstr "[wp-invoice] Tag ersetzen"
+
+#~ msgid ""
+#~ "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-"
+#~ "invoice]</span> somewhere within your page content."
+#~ msgstr ""
+#~ "Wenn Sie den Tag, Ort <span class=\"wp_invoice_explanation\"> [wp-"
+#~ "Rechnung] </ span> irgendwo in Ihrem Inhalt."
+
+#, fuzzy
+#~ msgid "Default Payment Method:"
+#~ msgstr ""
+#~ "<b>Standard Zahlungsoption</b><br />Hier die Standard Zahlungsoption für "
+#~ "die Bezahlung der Rechnungen auswählen."
+
+#, fuzzy
+#~ msgid "Client can change payment method:"
+#~ msgstr "Der Kunde kann die Zahlungsoption ändern."
+
+#, fuzzy
+#~ msgid "Accept "
+#~ msgstr "Annehmen␣"
+
+#, fuzzy
+#~ msgid "Notice the "
+#~ msgstr "Beachten Sie die"
+
+#, fuzzy
+#~ msgid " Tab "
+#~ msgstr " Tab"
+
+#, fuzzy
+#~ msgid " below. "
+#~ msgstr " unten."
+
+#, fuzzy
+#~ msgid "Save All Settings"
+#~ msgstr "Speichern"
+
+#, fuzzy
+#~ msgid "Send Notification"
+#~ msgstr ""
+#~ "Diese Felder sollten nicht leer sein. Bitte die Eingabe überprüfen und "
+#~ "die Benachrichtigung erneut senden."
+
+#, fuzzy
+#~ msgid "Template:"
+#~ msgstr "Template wählen"
+
+#, fuzzy
+#~ msgid "Subject:"
+#~ msgstr "Betreff:"
+
+#, fuzzy
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
+
+#, fuzzy
+#~ msgid "View Online"
+#~ msgstr "Anzeigen"
+
+#, fuzzy
+#~ msgid "Enter Payment"
+#~ msgstr "Zahlung"
+
+#, fuzzy
+#~ msgid "Minimum Payment"
+#~ msgstr "Mindest erlaubt Zahlung"
+
+#, fuzzy
+#~ msgid "Recurring Bill"
+#~ msgstr "Empfänger"
+
+#, fuzzy
+#~ msgid "Toggle Advanced"
+#~ msgstr "Erweiterte Toggle"
+
+#, fuzzy
+#~ msgid "Custom Invoice ID"
+#~ msgstr "Rechnung bearbeiten"
+
+#, fuzzy
+#~ msgid "Tax Method"
+#~ msgstr "USt."
+
+#, fuzzy
+#~ msgid "Before Discount"
+#~ msgstr "vor Rabatt"
+
+#, fuzzy
+#~ msgid "After Discount"
+#~ msgstr "nach Rabatt"
+
+#, fuzzy
+#~ msgid "Trash Invoice"
+#~ msgstr "Papierkorb"
+
+#, fuzzy
+#~ msgid "Save"
+#~ msgstr "Speichern"
+
+#, fuzzy
+#~ msgid "New User Information"
+#~ msgstr "Benutzer Information"
+
+#~ msgid ""
+#~ "If checked a WordPress user account will be created, otherwise the new "
+#~ "user will only be visible within WP-Invoice."
+#~ msgstr ""
+#~ "Wenn aktiviert ein Wordpress-Benutzerkonto erstellt werden, da sonst der "
+#~ "neue Benutzer wird nur sichtbar im WP-Rechnung sein."
+
+#, fuzzy
+#~ msgid "Create WordPress User Account?"
+#~ msgstr "Neuen WordPress Benutzer anlegen?"
+
+#, fuzzy
+#~ msgid "Default Payment Option"
+#~ msgstr "Der Kunde kann die Zahlungsoption ändern."
+
+#~ msgid "Client can change payment option."
+#~ msgstr "Der Kunde kann die Zahlungsoption Ã¤ndern."
+
+#, fuzzy
+#~ msgid "Manual Payment only"
+#~ msgstr "Einzelzahlung"
+
+#, fuzzy
+#~ msgid "Accepted Payments"
+#~ msgstr "Die Bedingungen müssen akzeptiert werden."
+
+#, fuzzy
+#~ msgid "Currency"
+#~ msgstr "Währung"
+
+#, fuzzy
+#~ msgid "Toggle Advanced Payment Options"
+#~ msgstr "Toggle Erweiterte Optionen"
+
+#~ msgid ""
+#~ "To manage payment settings you should accept at least one payment method. "
+#~ "Visit <a href=\"%s\">Payment Settings page</a> to setup."
+#~ msgstr ""
+#~ "Um Zahlungseinstellungen zu verwalten sollte zumindest eine "
+#~ "Zahlungsoption akzeptiert werden. FÃ¼r das Setup: <a href=\"%s\">Payment "
+#~ "Settings page</a>"
+
+#~ msgid ""
+#~ "If you do not want to use any payment venue then <a href=\"%s\">setup "
+#~ "Manual Payment information</a>."
+#~ msgstr ""
+#~ "Wenn keine Zahlungsoption verwendet werden soll: <a href=\"%s\">Manuelle "
+#~ "Zahlungsinformation festlegen</a>."
+
+#, fuzzy
+#~ msgid "Invoice Status and History"
+#~ msgstr "Rechnungshistorie"
+
+#, fuzzy
+#~ msgid "Event Type"
+#~ msgstr "Ereignis Art"
+
+#, fuzzy
+#~ msgid "Receive Payment"
+#~ msgstr "Zahlung erhalten"
+
+#, fuzzy
+#~ msgid "Add Charge"
+#~ msgstr "Gebühr hinzufügen"
+
+#, fuzzy
+#~ msgid "Administrative Adjustment"
+#~ msgstr "Administrative Richtigstellung"
+
+#, fuzzy
+#~ msgid "Refund"
+#~ msgstr "Rückerstattung"
+
+#~ msgid ""
+#~ "Note: Recurring bills cannot have administrative adjustments or "
+#~ "additional charges, only received payments."
+#~ msgstr ""
+#~ "Hinweis: Wiederkehrende Rechnungen kÃ¶nnen nicht administrative "
+#~ "Anpassungen oder zusÃ¤tzliche GebÃ¼hren, nur ZahlungseingÃ¤nge."
+
+#, fuzzy
+#~ msgid "Event Amount"
+#~ msgstr "Ereignis"
+
+#, fuzzy
+#~ msgid "Charge Tax"
+#~ msgstr "USt."
+
+#, fuzzy
+#~ msgid "Event Date & Time"
+#~ msgstr "Ereigniss Datum & Zeit"
+
+#, fuzzy
+#~ msgid "Event Note"
+#~ msgstr "Ereignissnotiz"
+
+#, fuzzy
+#~ msgid "Process Charge / Payment"
+#~ msgstr "Zahlungsdurchführung %s"
+
+#, fuzzy
+#~ msgid "Toggle History Detail"
+#~ msgstr "Schalten Geschichte-Detail"
+
+#, fuzzy
+#~ msgid "PayPal Setup"
+#~ msgstr "PayPal Einstellungen"
+
+#~ msgid "PayPal Pay Button URL"
+#~ msgstr "PayPal Pay Button URL"
+
+#, fuzzy
+#~ msgid "Credit Card Setup"
+#~ msgstr "Kreditkarte"
+
+#, fuzzy
+#~ msgid "PayPal"
+#~ msgstr "PayPal"
+
+#~ msgid "Credit Card"
+#~ msgstr "Kreditkarte"
+
+#, fuzzy
+#~ msgid "Test / Live Mode:"
+#~ msgstr "Test / Live Modus"
+
+#, fuzzy
+#~ msgid "Email Customer (on success):"
+#~ msgstr "Kunde benachrichtigen (bei Erfolg)"
+
+#, fuzzy
+#~ msgid "Delim Data:"
+#~ msgstr "Sales Report Daten"
+
+#, fuzzy
+#~ msgid "True"
+#~ msgstr "Richtig"
+
+#, fuzzy
+#~ msgid "False"
+#~ msgstr "Falsch"
+
+#, fuzzy
+#~ msgid "Toggle Advanced Options"
+#~ msgstr "Toggle Erweiterte Optionen"
+
+#, fuzzy
+#~ msgid "Billing / Invoicing Info"
+#~ msgstr "Abrechnung / Fakturierung Info"
+
+#, fuzzy
+#~ msgid "E-mail Address:"
+#~ msgstr "Die E-Mailadresse muss eingegeben werden."
+
+#, fuzzy
+#~ msgid "Create New"
+#~ msgstr "Neuen Empfänger erstellen"
+
+#, fuzzy
+#~ msgid "Existing Invoice:"
+#~ msgstr ""
+#~ "<b>Währungsliste</b><br>In diesem erweiterteren Bereich können die "
+#~ "bestehenden Währungen administriert werden. Neue Währungen können "
+#~ "hinzugefügt oder bestehende entfernt werden.<br>Wenn eine neue Währung "
+#~ "hinzugefügt wird ist sicherzustellen, dass sie ISO 4217 entspricht und "
+#~ "der Währungscode von den genutzten Zahlungsservices / Gateway akzeptiert "
+#~ "wird. Hier ein Link zu einer <a href=\"http://en.wikipedia.org/wiki/"
+#~ "List_of_circulating_currencies\">Währungsliste</a> mit ISO Codes und "
+#~ "Währungssymbolen.<br>Achtung: eine Währung die bereits in einer "
+#~ "bestehenden Rechnung verwendet wurde oder als Standard ausgewählt wurde "
+#~ "kann nicht gelöscht werden. Um diese Währung zu löschen, müssen diese "
+#~ "Rechnungen zuerst gelöscht werden."
+
+#, fuzzy
+#~ msgid "New Invoice from Template"
+#~ msgstr "Neue Rechnung"
+
+#, fuzzy
+#~ msgid "Add Payment / Charge"
+#~ msgstr "Gebühr hinzufügen"
+
+#, fuzzy
+#~ msgid "Invoice paid in full."
+#~ msgstr "Rechnung komplett bezahlt."
+
+#, fuzzy
+#~ msgid "Charge Name"
+#~ msgstr "Gebühr hinzufügen"
+
+#, fuzzy
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgid "Qty."
+#~ msgstr "Stk."
+
+#, fuzzy
+#~ msgid "Amount Discount"
+#~ msgstr "Rabattbetrag"
+
+#, fuzzy
+#~ msgid "Percent Discount"
+#~ msgstr "% Rabatt"
+
+#, fuzzy
+#~ msgid "Subtotal Excluding Tax:"
+#~ msgstr "Ohne Zwischensumme Steuern:"
+
+#, fuzzy
+#~ msgid "Sales Tax:"
+#~ msgstr "Mehrwertsteuer"
+
+#, fuzzy
+#~ msgid "Add Line"
+#~ msgstr "Sortimentsartikel"
+
+#, fuzzy
+#~ msgid "Insert a predefined line item"
+#~ msgstr "Einen vordefinierten Einzelposten einfügen"
+
+#, fuzzy
+#~ msgid "Add Discount"
+#~ msgstr "Rabatt"
+
+#, fuzzy
+#~ msgid "Click to view full link"
+#~ msgstr "Klicken um vollen Link anzuzeigen."
+
+#, fuzzy
+#~ msgid "Invoice Link"
+#~ msgstr "Rechnungssuche"
+
+#, fuzzy
+#~ msgid "Collected and Uncollected Funds"
+#~ msgstr "Die gesammelten und nicht abgeholte Gelder"
+
+#, fuzzy
+#~ msgid "Top 10 Most Valuable Clients"
+#~ msgstr "Die 10 wertvollsten Kunden"
+
+#, fuzzy
+#~ msgid "Top Grossing Line Items"
+#~ msgstr "Sortimentsartikel"
+
+#, fuzzy
+#~ msgid "Invoice Statistics"
+#~ msgstr "Rechnungstitel"
+
+#~ msgid "Warning:"
+#~ msgstr "Achtung:"
+
+#~ msgid "not found"
+#~ msgstr "nicht gefunden"
+
+#, fuzzy
+#~ msgid "Settings updated."
+#~ msgstr "Update der Einstellungen erfolgt."
+
+#, fuzzy
+#~ msgid "WP-Invoice Global Settings"
+#~ msgstr "WP-Invoice Benachrichtigung"
+
+#, fuzzy
+#~ msgid "Business Address"
+#~ msgstr "Firmenanschrift"
+
+#, fuzzy
+#~ msgid "Business Phone"
+#~ msgstr ""
+#~ "<b>Telefonnummer</b><br /> Hier den Telefonnummer eintragen. Erscheint "
+#~ "auf den Rechnungen und Angeboten."
+
+#, fuzzy
+#~ msgid "Do <b>not</b> load theme specific styles."
+#~ msgstr "Themenspezifische Stiles <b>nicht</b> laden."
+
+#~ msgid ""
+#~ "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
+#~ msgstr ""
+#~ "WP-Invoice wird mit einem angepassten Stylesheet designt fÃ¼r  <b>%s</b> "
+#~ "ausgeliefert"
+
+#, fuzzy
+#~ msgid "Load default CSS styles on the front-end"
+#~ msgstr "Standard CSS Styles im Front-End laden"
+
+#, fuzzy
+#~ msgid "Tax Handling"
+#~ msgstr ""
+#~ "<b>Mehrwertsteuer</b><br /> Einstellungen zur Mehrwertsteuer Kalkulation "
+#~ "(abhängig von dem Steuersystem Ihres Landes) und für die übergeordnete "
+#~ "Standardeinstellung. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-main/"
+#~ "\">Weiter…</a>"
+
+#, fuzzy
+#~ msgid "Calculate Taxable Subtotal"
+#~ msgstr "Berechnen Steuerpflichtige Zwischensumme"
+
+#, fuzzy
+#~ msgid "Use global tax."
+#~ msgstr "Globale Steuerrate verwenden"
+
+#~ msgid ""
+#~ "This will make all new invoices have default Tax value which can be "
+#~ "changed for different invoice."
+#~ msgstr ""
+#~ "Dies wird alle neuen Rechnungen haben Standardsteuerwert, der fÃ¼r die "
+#~ "Rechnungsstellung geÃ¤ndert werden kann."
+
+#, fuzzy
+#~ msgid "Advanced Settings"
+#~ msgstr ""
+#~ "<b>Profi Einstellungen</b><br /> Hier werden die Profieinstellungen für "
+#~ "Rechnungsstellung, Installationseinstellungen, Design, generelle Aktionen "
+#~ "für Administratoren und Entwickler vorgenommen. . <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-main/\">Weiter…</a>"
+
+#, fuzzy
+#~ msgid "Allow partial payments."
+#~ msgstr "Teilzahlung(en) erlauben"
+
+#, fuzzy
+#~ msgid "Partial payments allowed by default."
+#~ msgstr "Teilzahlungen sind nicht erlaubt. Pay Minimum"
+
+#~ msgid "Show recurring billing options."
+#~ msgstr "Optionen fÃ¼r wiederkehrende Rechnungen anzeigen."
+
+#~ msgid "Enforce HTTPS on invoice pages, if available on this server."
+#~ msgstr "HTTPS auf Rechnungsseite erzwingen (falls am Server verfÃ¼gbar)."
+
+#~ msgid "Minimum user level to manage WP-Invoice"
+#~ msgstr ""
+#~ "Mindest notwendige Benutzerrechte um Ãnderungen am Plugin vorzunehmen."
+
+#~ msgid "Subscriber"
+#~ msgstr "Subscriber"
+
+#~ msgid "Contributor"
+#~ msgstr "Contributor"
+
+#~ msgid "Author"
+#~ msgstr "Author"
+
+#~ msgid "Editor"
+#~ msgstr "Editor"
+
+#~ msgid "Administrator"
+#~ msgstr "Administrator"
+
+#~ msgid "Using Godaddy Hosting:"
+#~ msgstr "Wenn Sie Godaddy Hosting benutzen:"
+
+#~ msgid ""
+#~ "Special proxy must be used to process credit card transactions on GoDaddy "
+#~ "servers."
+#~ msgstr ""
+#~ "Sondervollmacht muss verwendet werden, um Kreditkartentransaktionen auf "
+#~ "GoDaddy Server zu verarbeiten."
+
+#~ msgid ""
+#~ "Use custom templates. If checked, WP-Invoice will use templates in the "
+#~ "'wpi' folder in your active theme's folder."
+#~ msgstr ""
+#~ "Eigene/Angepasste Templates verwenden. Wenn aktiviert, wird WP-Invoice "
+#~ "die Templates aus dem 'wpi' Ordner im Ordner des aktiven Themes verwenden."
+
+#~ msgid ""
+#~ "Note: Currently there is no \"wpi\" folder in your active template's "
+#~ "folder, WP-Invoice will attempt to create it after saving."
+#~ msgstr ""
+#~ "Hinweis: Derzeit gibt es keine \"WPI\"-Ordner in Ihrem Ordner aktiven "
+#~ "Vorlage ist, wird WP-Rechnung versuchen, es nach dem Speichern erstellen."
+
+#~ msgid ""
+#~ "A \"wpi\" folder has been found, any files with the proper file names "
+#~ "will be used instead of the default template files."
+#~ msgstr ""
+#~ "A \"WPI\"-Ordner gefunden wurde, alle Dateien mit den richtigen "
+#~ "Dateinamen anstelle der Standard-Template-Dateien verwendet werden."
+
+#, fuzzy
+#~ msgid ""
+#~ "the custom templates inside the <b>wpi</b> folder in your active theme's "
+#~ "folder."
+#~ msgstr ""
+#~ "Eigene/Angepasste Templates verwenden. Wenn aktiviert, wird WP-Invoice "
+#~ "die Templates aus dem 'wpi' Ordner im Ordner des aktiven Themes verwenden."
+
+#~ msgid "Thousands Separator Symbol"
+#~ msgstr "Tausender Trennzeichen"
+
+#, fuzzy
+#~ msgid "Show invoices only for logged in recipients."
+#~ msgstr "Zeigen Rechnung nur fÃ¼r die angemeldeten EmpfÃ¤ngern."
+
+#~ msgid "Turn off compatibility mode."
+#~ msgstr ""
+#~ "<b>Zahlungs-Information manual</b><br />Wenn Sie keine Zahlungs-Gateways "
+#~ "sondern Offline Bezahlung verwenden mÃ¶chten, oder wenn eine Rechnung "
+#~ "keine Gateways aktiviert hat, wird der Text in diesem Feld als Nachricht "
+#~ "an den Kunden angezeigt, um Instruktionen fÃ¼r die Bezahlung der Rechnung "
+#~ "zu geben. Schreiben Sie einen kurzen Text mit den Kontodaten oder wie sie "
+#~ "die Offline Bezahlung erhalten mÃ¶chten.<a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "payment/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "By default the Compatibility Mode is on. If you encounter problems "
+#~ "displaying your invoices then turn it off."
+#~ msgstr ""
+#~ "Es kÃ¶nnen beliebig viele E-Mail Temples erstellt werden. Diese kÃ¶nnen "
+#~ "spÃ¤ter fÃ¼r die Schnellerstellung von E-Mail Benachrichtigungen und "
+#~ "Erinnerungen verwendet und direkt aus der Rechnungsseite gesandt werden. "
+#~ "Die folgenden Variablen kÃ¶nnen fÃ¼r den Betreff oder den Inhalt der "
+#~ "Templates verwendet werden:"
+
+#, fuzzy
+#~ msgid "When creating an invoice"
+#~ msgstr ""
+#~ "<b>Rechnungen erstellen</b><br />Optionen für die Rechnungserstellung. <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">Weiter…</a>"
+
+#~ msgid "Automatically increment the invoice's custom ID by one."
+#~ msgstr "Rechnungs-ID automatisch um 1 erhÃ¶hen."
+
+#, fuzzy
+#~ msgid "When viewing an invoice"
+#~ msgstr "HTML Titel durch den Rechnungsbetreff ersetzen."
+
+#, fuzzy
+#~ msgid "page."
+#~ msgstr "Gesamten Seiteninhalt überschreiben"
+
+#~ msgid "Replace HTML title with invoice subject when viewing invoice."
+#~ msgstr "HTML Titel durch den Rechnungsbetreff ersetzen."
+
+#~ msgid ""
+#~ "Replace page heading and navigation link title with invoice subject when "
+#~ "viewing invoice."
+#~ msgstr ""
+#~ "Seitenheader und Seitentitel beim Anzeigen der Rechnung durch dem "
+#~ "Rechnungsbetreff ersetzen."
+
+#~ msgid "Hide page heading and navigation link completely."
+#~ msgstr "Seitenheader und Navigationslink komplett verbergen."
+
+#~ msgid "Show quantity breakdowns in the itemized list."
+#~ msgstr "Anzahl in der gegliederten Liste anzeigen."
+
+#, fuzzy
+#~ msgid "How to Insert Invoice"
+#~ msgstr "Wie die Rechnung einzufügen ist:"
+
+#~ msgid "After a payment has been completed"
+#~ msgstr "Nachdem eine Bezahlung durchgefÃ¼hrt wurde"
+
+#~ msgid "Send email confirmation to the client."
+#~ msgstr "E-Mail BestÃ¤tigung an den Kunden senden."
+
+#~ msgid ""
+#~ "Send email notification to the address set for administrative purposes "
+#~ "from <a href=\"%s\">General Settings</a>"
+#~ msgstr ""
+#~ "E-Mail Benachrichtigung an die Admin-Adresse aus den <a href=\"%s"
+#~ "\">General Settings</a> senden."
+
+#~ msgid "Send email notification to invoice creator."
+#~ msgstr "E-Mail Benachrichtigung an den Erstellet der Rechnung versenden."
+
+#~ msgid "Use CRM to send notifications"
+#~ msgstr "CRM fÃ¼r den Versand von Benachrichtigungen verwenden"
+
+#~ msgid ""
+#~ "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance "
+#~ "notification management."
+#~ msgstr ""
+#~ "<a class=\"small\" href=\"%s\">WP-CRM plugin</a> installieren fÃ¼r "
+#~ "verbesserte Benachtigungsverwaltung."
+
+#, fuzzy
+#~ msgid ""
+#~ "This options allow you to change the default email address that WordPress "
+#~ "sends it's mail from, and the name of the sender that the email is from."
+#~ msgstr ""
+#~ "<b>Optionen Absender</b><br />Hier kann die vorgegebene E-Mailadresse von "
+#~ "der Wordpress die E-Mails versendet und der Name des Absenders "
+#~ "eingestellt werden."
+
+#, fuzzy
+#~ msgid "Mail From options"
+#~ msgstr ""
+#~ "<b>Optionen Absender</b><br />Hier kann die vorgegebene E-Mailadresse von "
+#~ "der Wordpress die E-Mails versendet und der Name des Absenders "
+#~ "eingestellt werden."
+
+#~ msgid "Sender Name"
+#~ msgstr "Name des Absenders"
+
+#~ msgid "The sender name that the email is from"
+#~ msgstr "Absender der E-Mail"
+
+#~ msgid "User E-mail"
+#~ msgstr "Benutzer E-Mail"
+
+#~ msgid "Email address e.g. username@example.com"
+#~ msgstr "E-Mail Adresse z.B. username@example.com"
+
+#~ msgid "Apply 'Mail From' settings."
+#~ msgstr "'Gesendet von' Einstellungen anlegen."
+
+#~ msgid ""
+#~ "If you are using <b>Google Analytics Site Tracking</b> code on your site "
+#~ "then you can track WP-Invoice events."
+#~ msgstr ""
+#~ "Wenn Sie <b> Google Analytics-Tracking-Site </ b>-Code auf Ihrer Website, "
+#~ "dann kÃ¶nnen Sie WP-Invoice Ereignisse zu verfolgen."
+
+#~ msgid "Google Analytics Events Tracking"
+#~ msgstr "Google Analytics Events Tracking"
+
+#~ msgid "I want to track events."
+#~ msgstr "Ich mÃ¶chte die Events aufzeichnen"
+
+#~ msgid "Track Invoices events:"
+#~ msgstr "RechnungsaktivitÃ¤t verfolgen"
+
+#~ msgid "Attempting to pay Invoices"
+#~ msgstr "Es wurde versucht die Rechnungen zu bezahlen"
+
+#~ msgid "View Invoices"
+#~ msgstr "Rechnungen ansehen"
+
+#~ msgid "Currency list"
+#~ msgstr "Liste der WÃ¤hrungen"
+
+#, fuzzy
+#~ msgid "Code"
+#~ msgstr ""
+#~ "Erlaubt tags: <code> [blog_name] </ code>, <code> [Monat] </ code>, "
+#~ "<code> [Tag] </ code>, <code> [Jahr] </ code>, <code> [Stunde] </ code>, "
+#~ "<code> [Minute] </ code>, <code> [zweite] </ code> und <code> [timestamp] "
+#~ "</ code>"
+
+#~ msgid "Symbol"
+#~ msgstr "Symbol"
+
+#, fuzzy
+#~ msgid "Add Currency"
+#~ msgstr "Währung"
+
+#, fuzzy
+#~ msgid "Default Payment Method"
+#~ msgstr ""
+#~ "<b>Standard Zahlungsoption</b><br />Hier die Standard Zahlungsoption für "
+#~ "die Bezahlung der Rechnungen auswählen."
+
+#, fuzzy
+#~ msgid "Payment Gateways"
+#~ msgstr ""
+#~ "Wenn eine Rechnung hat keine Zahlungs-Gateways, wird diese Meldung "
+#~ "angezeigt wird, dem Kunden Leitlinien für ihr Vorgehen werden."
+
+#, fuzzy
+#~ msgid "Manual Payment information"
+#~ msgstr ""
+#~ "Wenn keine Zahlungsoption verwendet werden soll: <a href=\"%s\">Manuelle "
+#~ "Zahlungsinformation festlegen</a>."
+
+#~ msgid ""
+#~ "If an invoice has no payment gateways, this message will be displayed "
+#~ "offering the customer guidance on their course of action."
+#~ msgstr ""
+#~ "Wenn eine Rechnung hat keine Zahlungs-Gateways, wird diese Meldung "
+#~ "angezeigt wird, dem Kunden Leitlinien fÃ¼r ihr Vorgehen werden."
+
+#, fuzzy
+#~ msgid "Subject"
+#~ msgstr "Betreff:"
+
+#, fuzzy
+#~ msgid "Content"
+#~ msgstr "Oberhalb des Inhalts"
+
+#, fuzzy
+#~ msgid "Add Template"
+#~ msgstr "Template wählen"
+
+#~ msgid ""
+#~ "Setup your common services and products in here to streamline invoice "
+#~ "creation."
+#~ msgstr ""
+#~ "Richten Sie Ihre gemeinsame Dienstleistungen und Produkte in hier, um die "
+#~ "Rechnungserstellung zu optimieren."
+
+#, fuzzy
+#~ msgid "Name & Description"
+#~ msgstr ""
+#~ "Vordefinierte Sortimentsartikel sind allgemeine Dienstleistungen und/oder "
+#~ "Produkte die einmal angelegt und fortlaufend in den Rechnungen verwendet "
+#~ "werden. Beispielsweise als Webdesigner hat die Standardrechnung zumindest "
+#~ "eine Leistungsstunde Webdesign/Webentwicklung. Diese Posten können hier "
+#~ "erstellt werden um sie nicht jedes mal wieder neu tippen zu müssen. Bei "
+#~ "der Erstellung einer neuen Rechnung oder eines Angebotes (Quote Premium "
+#~ "Feature) oder dem Editieren einer bestehenden, können diese Posten aus "
+#~ "einer Liste ausgewählt und wenn notwendig vollständig editiert werden. <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-predefined-line-items/\">Weiter…</a>"
+
+#, fuzzy
+#~ msgid "Tax %"
+#~ msgstr "USt."
+
+#, fuzzy
+#~ msgid "Add Line Item"
+#~ msgstr "Einen vordefinierten Einzelposten einfügen"
+
+#~ msgid "Look up the $wpi_settings global settings array:"
+#~ msgstr "Suchen Sie die $ wpi_settings globalen Einstellungen Array:"
+
+#~ msgid "Toggle $wpi_settings"
+#~ msgstr "Toggle $ wpi_settings"
+
+#~ msgid "Restore Backup of WP-Invoice Configuration"
+#~ msgstr "Sicherungskopie der WP-Invoice Einstellungen anlegen"
+
+#~ msgid "Download Backup of Current WP-Invoice Configuration."
+#~ msgstr "Sicherungskopie der WP-Invoice Einstellungen herunterladen"
+
+#, fuzzy
+#~ msgid "Welcome, %s!"
+#~ msgstr "Willkommen, %s!"
+
+#, fuzzy
+#~ msgid "We have sent you a quote in the amount of %s."
+#~ msgstr "Wir haben Ihnen ein Anbot über die Summe von %s gesendet."
+
+#, fuzzy
+#~ msgid "We have sent you invoice %1s with a balance of %2s."
+#~ msgstr "Hier die Rechnungsaufstellung %1s über den Betrag von %2s."
+
+#, fuzzy
+#~ msgid "This is a recurring bill."
+#~ msgstr "Empfänger"
+
+#~ msgid "You've made payments, but still owe:"
+#~ msgstr "Sie haben Zahlungen geleistet, aber noch schuldig:"
+
+#, fuzzy
+#~ msgid "Manual Payment Information"
+#~ msgstr ""
+#~ "Wenn keine Zahlungsoption verwendet werden soll: <a href=\"%s\">Manuelle "
+#~ "Zahlungsinformation festlegen</a>."
+
+#~ msgid "Contact site Administrator for payment information please."
+#~ msgstr ""
+#~ "Bitte den Website-Administrator fÃ¼r die Zahlungsinformation kontaktieren."
+
+#, fuzzy
+#~ msgid "Payment Receipt"
+#~ msgstr "Quittung"
+
+#, fuzzy
+#~ msgid "We have sent you invoice"
+#~ msgstr "Hier die Rechnungsaufstellung %1s über den Betrag von %2s."
+
+#, fuzzy
+#~ msgid "was paid."
+#~ msgstr "bezahlt in"
+
+#, fuzzy
+#~ msgid "Licenses"
+#~ msgstr ""
+#~ "Es gibt keine verfügbaren Premium Funktionen. Prüfen Sie Ihre Lizenz für "
+#~ "die aktuelle Domain."
+
+#, fuzzy
+#~ msgid "More Products"
+#~ msgstr "Produkte"
+
+#, fuzzy
+#~ msgid "%s License is not active."
+#~ msgstr "Aktiv"
+
+#, fuzzy
+#~ msgid "Product deactivated successfully."
+#~ msgstr "Produkt"
+
+#, fuzzy
+#~ msgid "Products activated successfully."
+#~ msgstr "Plugin aktiviert."
+
+#, fuzzy
+#~ msgid "UsabilityDynamics Product"
+#~ msgstr "Produkt"
+
+#, fuzzy
+#~ msgid "No active %s plugins found."
+#~ msgstr ""
+#~ "Für diesen Benutzer wurden keine aktiven Abonnements gefunden werden."
+
+#, fuzzy
+#~ msgid "Product"
+#~ msgstr "Produkt"
+
+#~ msgid "Version"
+#~ msgstr "Version"
+
+#, fuzzy
+#~ msgid "Activation Status"
+#~ msgstr "Der Zeitplan wurde mit der Aktivierung des Plugins erstellt."
+
+#, fuzzy
+#~ msgid "Deactivate"
+#~ msgstr ""
+#~ "Die Plugin Datenbank Tabellen sind verschwunden. Bitte das Plugin "
+#~ "deaktivieren und reaktivieren um sie neu anzulegen."
+
+#, fuzzy
+#~ msgid "Try again"
+#~ msgstr ""
+#~ "Stripe Server ist offline. Bitte versuchen Sie es später noch einmal."
+
+#, fuzzy
+#~ msgid "More Details"
+#~ msgstr "Weiter..."
+
+#~ msgid "Check for Updates"
+#~ msgstr "Auf aktuelle Version prÃ¼fen"
+
+#, fuzzy
+#~ msgid "Activate Products"
+#~ msgstr "Produkte"
+
+#~ msgid "The API key could not be generated."
+#~ msgstr "Der API Key konnte nicht generiert werden."
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred during premium feature check. API Key '<b>%s</b>' is "
+#~ "incorrect."
+#~ msgstr ""
+#~ "Ein Fehler ist wÃ¤hrend dem Premium Feature Check aufgetreten: <b>%s</b>."
+
+#~ msgid "Response code from requested server is %s."
+#~ msgstr "Antwortnachricht vom gewÃ¼nschten Server is %s."
+
+#~ msgid ""
+#~ "Requested server returned empty result or timeout was exceeded. Please, "
+#~ "try again later."
+#~ msgstr ""
+#~ "Angeforderte Server zurÃ¼ck leer Ergebnis oder Zeitlimit wurde "
+#~ "Ã¼berschritten. Bitte versuchen Sie es spÃ¤ter erneut."
+
+#, fuzzy
+#~ msgid "There are no available premium features."
+#~ msgstr "Premium features deaktivieren."
+
+#, fuzzy
+#~ msgid ""
+#~ "No premium features were downloaded because the setting is disabled. "
+#~ "Enable in the \"Main\" tab."
+#~ msgstr ""
+#~ "Das Update wurde erfolgreich ausgefÃ¼hrt, aber es wurden keine Features "
+#~ "geladen, da die Einstellung deaktiviert ist. Bitte aktivieren unter  "
+#~ "\"Main\" ."
+
+#~ msgid ""
+#~ "Specific directory for uploading premium features can not be created."
+#~ msgstr ""
+#~ "Spezielles Verzeichnis zum hochladen der pemium Funktionen kann nicht "
+#~ "angelegt werden."
+
+#~ msgid "<b>%s</b> updated from version %s to %s ."
+#~ msgstr "<b>%s</b> aktualisiert von Version %s nach %s ."
+
+#~ msgid "There are no file permissions to upload or update premium features."
+#~ msgstr ""
+#~ "Es gibt keine Dateiberechtigung zum hochladen oder aktualisieren der "
+#~ "Premium Funktionen."
+
+#~ msgid ""
+#~ "There are no available premium features. Check your licenses for the "
+#~ "current domain"
+#~ msgstr ""
+#~ "Es gibt keine verfÃ¼gbaren Premium Funktionen. PrÃ¼fen Sie Ihre Lizenz "
+#~ "fÃ¼r die aktuelle Domain."
+
+#~ msgid "You have the latest premium features versions."
+#~ msgstr "Sie haben die aktuelle Version der Premium Funktionen"
+
+#~ msgid "Loaded user from passed ID."
+#~ msgstr "Benutzer von genehmigter ID geladen."
+
+#~ msgid "Loaded user from e-mail."
+#~ msgstr "Benutzer von E-Mail Adresse geladen."
+
+#~ msgid "User info not, found - assuming new user."
+#~ msgstr ""
+#~ "Die Benutzerinformation wurde nicht gefunden â ein neuer Benutzer wird "
+#~ "angenommen."
+
+#~ msgid "function executed, no invoice ID found, assuming new invoice."
+#~ msgstr ""
+#~ "Die Funktion wurde ausgefÃ¼hrt, es wurde keine Rechnungs ID gefunden, "
+#~ "eine neue Rechnung wird angenommen."
+
+#~ msgid "function executed, invoice_id: "
+#~ msgstr "Die Funktion wurde ausgefÃ¼hrt, Rechnungs ID:"
+
+#~ msgid "Warning: no user information loaded for this invoice."
+#~ msgstr ""
+#~ "Achtung: FÃ¼r diese Rechnung konnte keine Benutzerinformation geladen "
+#~ "werden."
+
+#~ msgid "Error saving invoice. Subject (Title) cannot be empty."
+#~ msgstr ""
+#~ "Fehler beim Speichern der Rechnung. Betreff (Subject) darf nicht leer "
+#~ "sein."
+
+#~ msgid "Error saving invoice. Query used: "
+#~ msgstr "Fehler beim Speichern der Rechnung. Benutzte Anfrage:"
+
+#~ msgid "There is not enough quantifiable data to generate any graphs."
+#~ msgstr ""
+#~ "Es bestehen bisher nicht ausreichend Daten fÃ¼r die Erstellung des "
+#~ "Diagramms."
+
+#~ msgid "Daily"
+#~ msgstr "TÃ¤glich"
+
+#~ msgid "Visualize Sales"
+#~ msgstr "Visualisieren Vertrieb"
+
+#~ msgid ""
+#~ "Allowed tags: <code>[blog_name]</code>, <code>[month]</code>, "
+#~ "<code>[day]</code>, <code>[year]</code>, <code>[hour]</code>, "
+#~ "<code>[minute]</code>, <code>[second]</code> and <code>[timestamp]</code>"
+#~ msgstr ""
+#~ "Erlaubt tags: <code> [blog_name] </ code>, <code> [Monat] </ code>, "
+#~ "<code> [Tag] </ code>, <code> [Jahr] </ code>, <code> [Stunde] </ code>, "
+#~ "<code> [Minute] </ code>, <code> [zweite] </ code> und <code> [timestamp] "
+#~ "</ code>"
+
+#~ msgid ""
+#~ "Something went wrong with exporting process. Check if XML Encoding you "
+#~ "selected is supported."
+#~ msgstr ""
+#~ "Etwas ist beim Export Prozess schiefgelaufen. PrÃ¼fen Sie ob das gewÃ"
+#~ "¤hlte XML Encoding unterstÃ¼tzt wird."
+
+#~ msgid ""
+#~ "It is unable to import data from the file that you specified. It may be "
+#~ "broken or empty. Make sure that you select proper <code>WP-Invoice XML</"
+#~ "code> or <code>WP-Invoice JSON</code> file which has at least 1 object."
+#~ msgstr ""
+#~ "Es ist nicht in der Lage, Daten aus der Datei, die Sie angegeben "
+#~ "importieren. Es kann kaputt oder leer ist. Stellen Sie sicher, dass Sie "
+#~ "die richtige <code> WP-Invoice XML </ code> oder <code> WP-Invoice JSON "
+#~ "</ code>-Datei, die mindestens ein Objekt hat zu wÃ¤hlen."
+
+#~ msgid ""
+#~ "You forgot to specify dump file. Make sure that you select proper "
+#~ "<code>WP-Invoice XML</code> or <code>WP-Invoice JSON</code> file."
+#~ msgstr ""
+#~ "Sie haben vergessen, Dump-Datei angeben. Stellen Sie sicher, dass Sie die "
+#~ "richtige <code> WP-Invoice XML </ code> oder <code> WP-Invoice JSON "
+#~ "<Code /> Datei auszuwÃ¤hlen."
+
+#~ msgid ""
+#~ "<b>WP-Invoice Power Tools</b> feature allows you to Import data from "
+#~ "another WP-Invoice powered site."
+#~ msgstr ""
+#~ "<b> WP-Invoice Power Tools </ b>-Funktion kÃ¶nnen Sie Daten von einem "
+#~ "anderen WP-Rechnung betrieben Website importieren."
+
+#~ msgid ""
+#~ "If you already have <code>WP-Invoice XML</code> or <code>WP-Invoice JSON</"
+#~ "code> export file from another site then you can specify it in the form "
+#~ "below. Once ready click '<b>Import</b>' button."
+#~ msgstr ""
+#~ "Wenn Sie bereits WP-Invoice XML </ code> oder <code> WP-Invoice JSON "
+#~ "<Code /> Export-Datei von einer anderen Website <code> dann kÃ¶nnen Sie "
+#~ "es in der folgenden Form angeben. Einmal fertig, klicken Sie '<b> Import "
+#~ "</ b> \"-Taste."
+
+#~ msgid ""
+#~ "<b>WP-Invoice Power Tools</b> feature allows you to export your existing "
+#~ "<i>WP-Invoice Objects</i><sup>1</sup> and import them into another WP-"
+#~ "Invoice powered site."
+#~ msgstr ""
+#~ "<b> WP-Invoice Power Tools </ b>-Funktion kÃ¶nnen Sie Ihre vorhandenen "
+#~ "<i> WP-Invoice Objekte exportieren </ i> <sup> 1 </ sup> und importieren "
+#~ "Sie sie in einem anderen WP-Rechnung betrieben Ort."
+
+#~ msgid ""
+#~ "Export dump can be downloaded in two different formats: <code>JSON</code> "
+#~ "and <code>XML</code><sup>2</sup>."
+#~ msgstr ""
+#~ "<code> JSON </ code> und <code> XML </ code> <sup> 2 </ sup>: Export-Dump "
+#~ "kann in zwei verschiedenen Formaten heruntergeladen werden."
+
+#~ msgid ""
+#~ "Click button below if you need to export <b>ALL</b> WP-Invoice Objects."
+#~ msgstr ""
+#~ "Klicken Sie die SchaltflÃ¤che unten, wenn Sie <b> ALL </ b> WP-Invoice "
+#~ "Objekte exportieren mÃ¼ssen."
+
+#~ msgid ""
+#~ "Under WP-Invoice Objects we mean Invoices, Quotes, Receipts, <abbr title="
+#~ "\"Single Page Checkout\">SPC</abbr> transactions and any other types of "
+#~ "invoices."
+#~ msgstr ""
+#~ "Unter WP-Invoice-Objekte, dass wir Rechnungen, Kostenvoranschlag, "
+#~ "Quittungen, <abbr title=\"single Seite Checkout\"> SPC </ abbr> "
+#~ "Transaktionen und alle anderen Arten von Rechnungen."
+
+#~ msgid ""
+#~ "<u>Default Format</u> - format that will be used for generating export "
+#~ "file dump. You can specify format using dropdown next to \"Export\" "
+#~ "button."
+#~ msgstr ""
+#~ "<u>Standardformat</u> - Format fÃ¼r den export file dump. Das Format kann "
+#~ "Ã¼ber das Dropdown neben dem \"Export\" Button ausgewÃ¤hlt werden."
+
+#~ msgid ""
+#~ "<u>XML Charset</u> - the charset of the dump file content. It is "
+#~ "recommended to use default but you can change it to some supported "
+#~ "charset. Note that unsupported charsets can make export failed."
+#~ msgstr ""
+#~ "<u>XML Charset</u> - charset des dump Files. Es wird empfohlen die "
+#~ "Standardeinstellungen zu verwenden, aber diese kÃ¶nnen zu einigen "
+#~ "unterstÃ¼tzen charsets verÃ¤ndert werden. Achtung: nicht unterstÃ¼tzte "
+#~ "charsets kÃ¶nnen fehlerhafte Exporte generieren."
+
+#~ msgid ""
+#~ "<u>XML Version</u> - the value which is used for XML formatted dump "
+#~ "files. Usually is \"1.0\""
+#~ msgstr ""
+#~ "<u>XML Version</u> - der Wert fÃ¼r XML formatierte dump files. "
+#~ "Ãblicherweise \"1.0\""
+
+#~ msgid ""
+#~ "<u>Log History</u> - options for log history exports. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u>Log History</u> - Optionen fÃ¼r den log history Export. Siehe "
+#~ "untenstehende Beschreibung:"
+
+#~ msgid ""
+#~ "<u>Filename Format</u> - specify pattern for dump filename to use. Use "
+#~ "allowed tags below."
+#~ msgstr ""
+#~ "<u>Filename Format</u> - specify pattern for dump filename to use. Use "
+#~ "allowed tags below."
+
+#~ msgid ""
+#~ "<u>Advanced Options</u> - some advanced useful options. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u>Advanced Options</u> - some advanced useful options. See descriptions "
+#~ "below:"
+
+#~ msgid ""
+#~ "if you are SURE that you don't need your invoice objects any more then "
+#~ "this option will delete invoices after export is done. Note that you "
+#~ "won't be able to restore them."
+#~ msgstr ""
+#~ "wenn Sie SICHER sind, dass sie die Rechnungsobjekte nicht mehr "
+#~ "benÃ¶tigen, dann werden mit dieser Option die exportieren Objekte nach "
+#~ "dem Export gelÃ¶scht. Achtung: diese Objekte kÃ¶nnen dann nicht "
+#~ "wiederhergestellt werden."
+
+#~ msgid ""
+#~ "<u>Log History</u> - options for log history imports. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u>Log History</u> - options for log history imports. See descriptions "
+#~ "below:"
+
+#~ msgid ""
+#~ "whether or not to add log item with information about importing invoice "
+#~ "object."
+#~ msgstr ""
+#~ "whether or not to add log item with information about importing invoice "
+#~ "object."
+
+#~ msgid ""
+#~ "<u>Recipients</u> - options for management recipients. See descriptions "
+#~ "below:"
+#~ msgstr ""
+#~ "<u>EmpfÃ¤nger</u> - options for management recipients. See descriptions "
+#~ "below:"
+
+#~ msgid ""
+#~ "You can decide what to do if user doesn't exist using the dropdown <i>'If "
+#~ "Recipient does not exist'.</i>"
+#~ msgstr ""
+#~ "Sie kÃ¶nnen entscheiden was geschieht, wenn der Benutzer im Dropdown "
+#~ "MenÃ¼ nicht existiert <i>'Wenn Benutzer nicht existiert'.</i>"
+
+#~ msgid ""
+#~ "In order to the option that you have selected above, you'll be able to "
+#~ "select <i>'User Role'</i> or <i>'Specify Recipient (e-mail)'</i>."
+#~ msgstr ""
+#~ "Als Folge der getÃ¤tigten Optionsauswahl (oben) kann weiters gewÃ¤hlt "
+#~ "werden: <i>'Benutzerrolle'</i> or <i>'EmpfÃ¤nger spezifizieren (E-Mail)'</"
+#~ "i>."
+
+#~ msgid ""
+#~ "You are not allowed to make that action. You are not a recipient of this "
+#~ "quote. Plese login under proper account."
+#~ msgstr ""
+#~ "Sie haben keine Rechte fÃ¼r diese Aktion. Sie sind nicht Adressat dieses "
+#~ "Angebotes. Bitte loggen Sie sich unter dem richtigen Account ein."
+
+#~ msgid "Quote has been accepted and converted to invoice. Refreshing..."
+#~ msgstr ""
+#~ "Angebot wurde angenommen und zu einer Rechnung umgewandelt. Es wird neu "
+#~ "geladenâ¦"
+
+#~ msgid ""
+#~ "<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout "
+#~ "Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/single-page-checkout/\">More...</a>"
+#~ msgstr ""
+#~ "<b>Einzelseiten Checkout</b><br /> Haupteinstellungen fÃ¼r das Premium "
+#~ "Feature (Einzelseite). <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/single-page-checkout/"
+#~ "\">Mehrâ¦</a>"
+
+#~ msgid "Single Page Checkout"
+#~ msgstr "Einzelseiten Checkout"
+
+#~ msgid ""
+#~ "Create single page checkout forms that are then visible in the \"Invoice"
+#~ "\" overview."
+#~ msgstr ""
+#~ "Erzeuge die Formulare der einzelne Checkout Seite die in der \"Invoice\" "
+#~ "Ãbersicht angezeigt werden."
+
+#~ msgid ""
+#~ "You can create Single Checkout Page by using shortcode <b>[wpi_checkout]</"
+#~ "b>. Options:"
+#~ msgstr ""
+#~ "Mit dem Shortcode <b>[wpi_checkout]</b> kann eine einzelne Checkout Seite "
+#~ "erzeugt werden. Optionen:"
+
+#~ msgid ""
+#~ "`true/false` value. If true then custom amount field will appear on SPC. "
+#~ "Do not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+#~ msgstr ""
+#~ "`true/false` value. If true then custom amount field will appear on SPC. "
+#~ "Do not use <u>fee</u> and <u>items</u> in case of custom_amount is true."
+
+#~ msgid ""
+#~ "Disabled the checkout items, only use this if you are using some sort of "
+#~ "JS script to enable them back on."
+#~ msgstr ""
+#~ "Checkout Artikel deaktiviert. Dies nur verwenden wenn eine Art JS fÃ¼r "
+#~ "die Reaktivierung verwendet wird."
+
+#~ msgid ""
+#~ "Percent value of fee applied to items amounts (ex. fee=2 or fee=\"2%\" )"
+#~ msgstr ""
+#~ "Prozentwert der GebÃ¼hr die zu den Artikel-BetrÃ¤gen verrechnet wird (zB "
+#~ "fee=2 or fee=\"2%\" )"
+
+#~ msgid ""
+#~ "Example: <b>[wpi_checkout title=\"Water Bill Payment\" custom_amount="
+#~ "\"true\" fee=\"5%\"]</b>"
+#~ msgstr ""
+#~ "Beispiel: <b>[wpi_checkout title=\"Stromrechnung\" custom_amount=\"true\" "
+#~ "fee=\"5%\"]</b>"
+
+#~ msgid ""
+#~ "There was an error with the transaction. Please select another payment "
+#~ "venue, or contact support."
+#~ msgstr ""
+#~ "Es gab einen Fehler mit der Transaktion. Bitte eine andere Zahlungsoption "
+#~ "wÃ¤hlen oder den Support kontaktieren."
+
+#~ msgid ""
+#~ " was successfully completed, but invoice of the current transaction could "
+#~ "not be saved. We advise You to add transaction's invoice manually."
+#~ msgstr ""
+#~ " wurde erfolgreich fertiggestellt, aber die Rechnung der aktuellen "
+#~ "Transaktion konnte nicht gespeichert werden. Bitte die Rechnung der "
+#~ "Transaktion manuell beifÃ¼gen."
+
+#~ msgid ""
+#~ "I accept the <a href=\"%s\" target=\"_blank\">terms and conditions</a>."
+#~ msgstr ""
+#~ "Ich akzeptiere die <a href=\"%s\" target=\"_blank\">Lieferungs- und "
+#~ "Zahlungsbedingungen</a>."
+
+#~ msgid ""
+#~ "As for regular invoice pages, HTTPS should be enforced on pages that have "
+#~ "a checkout form."
+#~ msgstr ""
+#~ "Wie fÃ¼r normale Rechnungsseiten, sollte HTTPS auf Seiten, die eine Kasse "
+#~ "Form haben durchgesetzt werden."
+
+#~ msgid "Disable automatic Premium Feature updates."
+#~ msgstr "Automatische Premium Feature Updates deaktivieren."
+
+#~ msgid ""
+#~ "This tab show a list of the premium features which are available for "
+#~ "purchase and those which you have purchased for WP-Invoice. You can see a "
+#~ "list of features available for purchase in the WP-Invoice Premium "
+#~ "Features section of our website. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-premium-"
+#~ "features/\">More...</a>"
+#~ msgstr ""
+#~ "Dieser Reiter zeigt eine Liste mit den angebotenen Premium Features und "
+#~ "den bereits fÃ¼r WP_Invoice erworbenen. Eine Liste mit allen verfÃ¼gbaren "
+#~ "WP-Invoice Premium Features auf unserer Webseite. <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-premium-features/\">Weiterâ¦</a>"
+
+#~ msgid ""
+#~ "Check for any premium feature updates from the Usability Dynamics Update "
+#~ "server:"
+#~ msgstr ""
+#~ "PrÃ¼fen Sie, ob Premium-Feature-Updates von der Usability Dynamics Update-"
+#~ "Server:"
+
+#~ msgid "Check Updates"
+#~ msgstr "PrÃ¼fe Aktualisierungen"
+
+#, fuzzy
+#~ msgid "Your Domain"
+#~ msgstr "Ihr Betrag"
+
+#~ msgid ""
+#~ "When purchasing the premium features you will need to specify your domain "
+#~ "to add the license correctly.  This is your domain:"
+#~ msgstr ""
+#~ "Beim Kauf der Premium-Funktionen, die Sie benÃ¶tigen, um Ihre DomÃ¤ne "
+#~ "angeben, um die Lizenz korrekt hinzuzufÃ¼gen. Das ist Ihre Domain:"
+
+#, fuzzy
+#~ msgid "WP-Invoice API Key"
+#~ msgstr "Rechnungs-ID"
+
+#~ msgid ""
+#~ "Some subscription based premium features require an API key that is "
+#~ "specific to this domain and WP-Invoice. You can get this from your "
+#~ "account on <a href=\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
+#~ msgstr ""
+#~ "Einige Abo-basierten Premium-Funktionen benÃ¶tigen einen API-SchlÃ¼ssel, "
+#~ "die speziell fÃ¼r diese Domain und WP-Invoice ist. Sie kÃ¶nnen diese von "
+#~ "Ihrem Konto auf <a href=\"#\" target=\"_blank\"> UsabilityDynamics.com </ "
+#~ "a> zu bekommen."
+
+#~ msgid "[purchase feature]"
+#~ msgstr "[purchase feature]"
+
+#~ msgid ""
+#~ "This feature is disabled because it requires WP-Invoice %1$s or higher."
+#~ msgstr ""
+#~ "Dieses Feature ist deaktiviert weil es WP-Invoice %1$s oder hÃ¶her "
+#~ "benÃ¶tigt."
+
+#~ msgid "Disable premium feature."
+#~ msgstr "Premium features deaktivieren."
+
+#~ msgid "Feature installed, using version"
+#~ msgstr "Feature installiert, mit der Version"
+
+#~ msgid ""
+#~ "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this "
+#~ "feature."
+#~ msgstr ""
+#~ "FÃ¼r dieses Feature hier klicken <a href=\"%s\">UsabilityDynamics.com</a>."
+
+#, fuzzy
+#~ msgid ""
+#~ "There are no available premium features. Try clicking Check Updates "
+#~ "button above."
+#~ msgstr "Premium features deaktivieren."
+
+#, fuzzy
+#~ msgid "Active Invoice(s)"
+#~ msgstr "Rechnungen ansehen"
+
+#, fuzzy
+#~ msgid "Paid Invoice(s)"
+#~ msgstr "Rechnungen ansehen"
+
+#~ msgid ""
+#~ "Global WP-Invoice Settings were successfully migrated to the new version."
+#~ msgstr ""
+#~ "Die globalen WP-Invoice Einstellungen wurden erfolgreich in die neue "
+#~ "Version Ã¼bernommen."
+
+#~ msgid "Invoices were migrated to the new version with errors."
+#~ msgstr ""
+#~ "Achtung: die Rechnungen wurden fehlerhaft in die neue Version Ã¼bernommen."
+
+#~ msgid "Invoices were successfully migrated to the new version."
+#~ msgstr "Die Rechnungen wurden erfolgreich in die neue Version Ã¼bernommen."
+
+#~ msgid "Log data were successfully migrated to the new version."
+#~ msgstr "Die Log Daten wurden erfolgreich in die neue Version Ã¼bernommen."
+
+#~ msgid "Log data were migrated to the new version with errors."
+#~ msgstr ""
+#~ "Achtung: die Log Daten wurden fehlerhaft in die neue Version Ã¼bernommen."
+
+#~ msgid "Old WP-Invoice version %s was found."
+#~ msgstr "Eine veraltete WP-Invoice Version %s wurde gefunden"
+
+#~ msgid "Web Invoice setting options were successfully imported."
+#~ msgstr "Web Invoice Einstellungen wurden erfolgreich importiert."
+
+#~ msgid "Invoices from Web Invoice plugin were migrated with errors."
+#~ msgstr ""
+#~ "Die Rechnungen aus dem Web Invoice plugin wurden fehlerhaft Ã¼bernommen."
+
+#~ msgid "Invoices from Web Invoice plugin were successfully migrated."
+#~ msgstr ""
+#~ "Die Rechnungen aus dem Web Invoice plugin wurden erfolgreich Ã¼bernommen."
+
+#~ msgid "Log data from Web Invoice plugin were successfully migrated."
+#~ msgstr ""
+#~ "Die Log Daten aus dem Web Invoice plugin wurden erfolgreich Ã¼bernommen."
+
+#~ msgid "Log data from Web Invoice plugin were migrated with errors."
+#~ msgstr ""
+#~ "Die Log Daten aus dem Web Invoice plugin wurden fehlerhaft Ã¼bernommen."
+
+#, fuzzy
+#~ msgid "Google Wallet"
+#~ msgstr "Google Checkout"
+
+#~ msgid "Use Google SandBox for test mode"
+#~ msgstr "Google Sandbox fÃ¼r den Testmodus verwenden"
+
+#~ msgid "API callback URL"
+#~ msgstr "API callback URL"
+
+#~ msgid ""
+#~ "Specify a URL for Google to notify you of new orders and changes in order "
+#~ "state."
+#~ msgstr ""
+#~ "URL fÃ¼r Google angeben, um Ã¼ber neue Bestellungen und Ãnderungen im "
+#~ "Auftragsstatus benachrichtigt zu werden."
+
+#~ msgid ""
+#~ "If you use Google Wallet for subscriptions then these options will be "
+#~ "used to determine billing period."
+#~ msgstr ""
+#~ "Wenn Sie Google Wallet fÃ¼r Abonnements nutzen dann diese Optionen wird "
+#~ "verwendet, um Abrechnungszeitraum zu bestimmen."
+
+#, fuzzy
+#~ msgid "Google Wallet Billing Period"
+#~ msgstr "Google Checkout"
+
+#~ msgid "Semi Monthly"
+#~ msgstr "Alle 2 Wochen"
+
+#~ msgid "Every Two Months"
+#~ msgstr "Alle 2 Monate"
+
+#~ msgid "Quarterly"
+#~ msgstr "VierteljÃ¤hrlich"
+
+#~ msgid ""
+#~ "This option specifies the latest date that you can charge the customer "
+#~ "for the subscription. This element can help you to ensure that you do not "
+#~ "overcharge your customers."
+#~ msgstr ""
+#~ "Diese Option gibt das letzte Datum, das Sie den Kunden fÃ¼r das "
+#~ "Abonnement zu laden. Dieses Element kann Ihnen helfen, um "
+#~ "sicherzustellen, dass Sie Ihre Kunden nicht Ã¼berladen."
+
+#, fuzzy
+#~ msgid "No Charge After"
+#~ msgstr "Betrag abbuchen:"
+
+#~ msgid "Google Buyer ID: %s"
+#~ msgstr "Google Buyer ID: %s"
+
+#~ msgid "Minimum Core Version"
+#~ msgstr "Minimum Core Version"
+
+#~ msgid "Branded Billing"
+#~ msgstr "Branded Billing"
+
+#, fuzzy
+#~ msgid "Send Invoice"
+#~ msgstr "Rechnung senden"
+
+#~ msgid "Select Network Type"
+#~ msgstr "WÃ¤hle Netzwerktyp"
+
+#~ msgid "Sales Statistics"
+#~ msgstr "Verkaufsstatistiken"
+
+#, fuzzy
+#~ msgid "Last Week"
+#~ msgstr "Nachname"
+
+#, fuzzy
+#~ msgid "Goals"
+#~ msgstr "Falsch"
+
+#~ msgid "Day Goal"
+#~ msgstr "Tagesziel"
+
+#, fuzzy
+#~ msgid "Week Goal"
+#~ msgstr "WÃ¶chentlich"
+
+#, fuzzy
+#~ msgid "Month Goal"
+#~ msgstr "Monatlich"
+
+#, fuzzy
+#~ msgid "My Invoices"
+#~ msgstr "Rechnungen"
+
+#, fuzzy
+#~ msgid "No invoices"
+#~ msgstr "Keine Rechnungen gefunden"
+
+#, fuzzy
+#~ msgid "My Statistics"
+#~ msgstr "Rechnungstitel"
+
+#, fuzzy
+#~ msgid "Total invoices"
+#~ msgstr "Rechnungen importieren"
+
+#, fuzzy
+#~ msgid "Total dept"
+#~ msgstr "Gesamtbetrag"
+
+#, fuzzy
+#~ msgid "Total balance"
+#~ msgstr "Gesamtbetrag"

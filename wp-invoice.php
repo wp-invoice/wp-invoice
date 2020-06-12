@@ -87,7 +87,7 @@ if( !function_exists( 'ud_check_wp_invoice' ) ) {
 
 }
 
-if( !function_exists( 'ud_my_wp_plugin_message' ) ) {
+if( !function_exists( 'ud_wp_invoice_message' ) ) {
   /**
    * Renders admin notes in case there are errors on plugin init
    *
@@ -107,4 +107,7 @@ if( !function_exists( 'ud_my_wp_plugin_message' ) ) {
 if( ud_check_wp_invoice() ) {
   //** Initialize. */
   ud_get_wp_invoice();
+  if( class_exists( '\UsabilityDynamics\WPA\Addons' ) ) {
+    new \UsabilityDynamics\WPA\Addons( ud_get_wp_invoice()->get_instance() );
+  }
 }

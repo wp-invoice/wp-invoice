@@ -1,0 +1,358 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Invoice PDF\n"
+"POT-Creation-Date: 2018-08-17 15:26+0300\n"
+"PO-Revision-Date: 2018-08-17 15:26+0300\n"
+"Last-Translator: Ben van Es van Conkelenberghe <vertalingen@bvevc.nl>\n"
+"Language-Team: Usability Dynamics, inc. <anton.korotkov@usabilitydynamics."
+"com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: test\n"
+"X-Poedit-SearchPathExcluded-3: node_modules\n"
+
+#: l10n.php:3
+#, fuzzy
+#| msgid "Invoice ID"
+msgid "Invoice"
+msgstr "Factuur ID "
+
+#: l10n.php:4 lib/class-wp-invoice-pdf.php:623
+msgid "INVOICE"
+msgstr "FACTUUR"
+
+#: l10n.php:5
+msgid "Quote"
+msgstr ""
+
+#: l10n.php:6 lib/class-wp-invoice-pdf.php:620
+msgid "QUOTE"
+msgstr "OFFERTE"
+
+#: lib/class-wp-invoice-pdf.php:137 lib/class-wp-invoice-pdf.php:180
+msgid "View PDF"
+msgstr "Bekijk PDF"
+
+#: lib/class-wp-invoice-pdf.php:150 lib/class-wp-invoice-pdf.php:200
+msgid "Download PDF"
+msgstr "PDF downloaden"
+
+#: lib/class-wp-invoice-pdf.php:200
+msgid "PDF"
+msgstr "PDF"
+
+#: lib/class-wp-invoice-pdf.php:258
+msgid "Settings"
+msgstr "Instellingen"
+
+#: lib/class-wp-invoice-pdf.php:261
+msgid "Do not automatically insert PDF link on bottom of invoices."
+msgstr "Voeg geen automatisch PDF-link op bodem van facturen."
+
+#: lib/class-wp-invoice-pdf.php:267
+msgid "PDF Logo"
+msgstr "PDF Logo"
+
+#: lib/class-wp-invoice-pdf.php:270
+msgid "Display logo in the PDF."
+msgstr "Logo weergeven in de PDF."
+
+#: lib/class-wp-invoice-pdf.php:276
+msgid "Select Logo"
+msgstr "Selecteer logo"
+
+#: lib/class-wp-invoice-pdf.php:290
+msgid "Header Settings"
+msgstr "Koptekst instellingen"
+
+#: lib/class-wp-invoice-pdf.php:293
+msgid "Display recipient name and address."
+msgstr "Naam van geadresseerde en adres weergeven"
+
+#: lib/class-wp-invoice-pdf.php:294
+msgid "Display invoice description."
+msgstr "Beschrijving van de factuur weergeven."
+
+#: lib/class-wp-invoice-pdf.php:299
+msgid "Select template"
+msgstr "Selecteer sjabloon"
+
+#: lib/class-wp-invoice-pdf.php:311
+msgid "Terms &amp; Conditions:"
+msgstr "Algemene voorwaarden"
+
+#: lib/class-wp-invoice-pdf.php:314
+msgid "Display Terms and Conditions"
+msgstr "Weergave voorwaarden"
+
+#: lib/class-wp-invoice-pdf.php:321
+msgid "Text of Term and Conditions for the Invoice/Quote"
+msgstr "Tekst van de termijn en voorwaarden voor de factuur/offerte"
+
+#: lib/class-wp-invoice-pdf.php:327 static/views/pdf_quote.php:292
+#: static/views/pdf_quote_remastered.php:304
+msgid "Notes"
+msgstr "Notities"
+
+#: lib/class-wp-invoice-pdf.php:330
+msgid "Display Notes"
+msgstr "Weergave notities"
+
+#: lib/class-wp-invoice-pdf.php:337
+msgid ""
+"Notes will be displayed towards the bottom of the Invoice/Quote, depending "
+"on the template."
+msgstr ""
+"Notities worden weergegeven naar de onderkant van de factuur/offerte, "
+"afhankelijk van de sjabloon."
+
+#: lib/class-wp-invoice-pdf.php:353
+msgid "PDF Invoice"
+msgstr "PDF factuur"
+
+#: lib/class-wp-invoice-pdf.php:617
+msgid "RECEIPT"
+msgstr "ONTVANGER"
+
+#: lib/classes/class-pdf-template.php:27 lib/classes/class-pdf-template.php:35
+#: lib/classes/class-pdf-template.php:54 lib/classes/class-pdf-template.php:72
+msgid "Undefined"
+msgstr "Niet gespecificeerd"
+
+#: lib/classes/class-pdf-template.php:88
+msgid "Name is Undefined"
+msgstr "Naam is niet gedefinieerd"
+
+#: lib/classes/class-pdf-template.php:95
+msgid "Phone is Undefined"
+msgstr "Telefoon is niet gedefinieerd"
+
+#: lib/classes/class-pdf-template.php:408
+#: lib/classes/class-pdf-template.php:450
+msgid "Unnamed"
+msgstr "Naamloos"
+
+#: static/views/pdf_quote.php:111
+msgid "Due Date:"
+msgstr "Vervaldag"
+
+#: static/views/pdf_quote.php:118 static/views/pdf_quote.php:273
+#: static/views/pdf_quote_bold.php:213 static/views/pdf_quote_modern.php:224
+#: static/views/pdf_quote_remastered.php:285
+msgid "Amount Due:"
+msgstr "verschuldigd bedrag:"
+
+#: static/views/pdf_quote.php:124
+msgid "Attn:"
+msgstr "Att:"
+
+#: static/views/pdf_quote.php:134
+msgid "Bill To:"
+msgstr "Rekening aan:"
+
+#: static/views/pdf_quote.php:146
+msgid "Phone:"
+msgstr "Telefoon:"
+
+#: static/views/pdf_quote.php:177 static/views/pdf_quote_remastered.php:189
+msgid "Description"
+msgstr "Omschrijving"
+
+#: static/views/pdf_quote.php:178 static/views/pdf_quote_remastered.php:190
+msgid "Quantity"
+msgstr "Aantal"
+
+#: static/views/pdf_quote.php:179 static/views/pdf_quote_remastered.php:191
+msgid "Price"
+msgstr "Prijs"
+
+#: static/views/pdf_quote.php:180 static/views/pdf_quote.php:217
+#: static/views/pdf_quote_remastered.php:192
+#: static/views/pdf_quote_remastered.php:229
+msgid "Amount"
+msgstr "Bedrag"
+
+#: static/views/pdf_quote.php:182 static/views/pdf_quote_remastered.php:194
+msgid "Tax"
+msgstr "BTW"
+
+#: static/views/pdf_quote.php:216 static/views/pdf_quote_remastered.php:228
+msgid "Charge"
+msgstr "Kosten"
+
+#: static/views/pdf_quote.php:236 static/views/pdf_quote_bold.php:176
+#: static/views/pdf_quote_modern.php:187
+#: static/views/pdf_quote_remastered.php:248
+msgid "Total:"
+msgstr "Totaal:"
+
+#: static/views/pdf_quote.php:242 static/views/pdf_quote_bold.php:182
+#: static/views/pdf_quote_modern.php:193
+#: static/views/pdf_quote_remastered.php:254
+msgid "Total Tax:"
+msgstr "Totale BTW:"
+
+#: static/views/pdf_quote.php:250 static/views/pdf_quote_bold.php:190
+#: static/views/pdf_quote_modern.php:201
+#: static/views/pdf_quote_remastered.php:262
+msgid "Discount:"
+msgstr "Korting:"
+
+#: static/views/pdf_quote.php:258 static/views/pdf_quote_bold.php:198
+#: static/views/pdf_quote_modern.php:209
+#: static/views/pdf_quote_remastered.php:270
+msgid "Other Adjustments:"
+msgstr "Overige toegevoegde: "
+
+#: static/views/pdf_quote.php:266 static/views/pdf_quote_bold.php:206
+#: static/views/pdf_quote_modern.php:217
+#: static/views/pdf_quote_remastered.php:278
+msgid "Total Payments:"
+msgstr "Totale betalingen:"
+
+#: static/views/pdf_quote.php:281 static/views/pdf_quote_bold.php:221
+#: static/views/pdf_quote_modern.php:232
+#: static/views/pdf_quote_remastered.php:293
+msgid "Invoice Refunded"
+msgstr "Factuur terugbetaald"
+
+#: static/views/pdf_quote.php:304 static/views/pdf_quote_remastered.php:316
+msgid "Terms &amp; Conditions"
+msgstr "Algemene voorwaarden"
+
+#: static/views/pdf_quote_bold.php:75
+msgid "ISSUED:"
+msgstr "GESCHIL"
+
+#: static/views/pdf_quote_bold.php:80
+msgid "DUE:"
+msgstr "VERSCHULDIGD"
+
+#: static/views/pdf_quote_bold.php:85 static/views/pdf_quote_modern.php:84
+msgid "AMOUNT DUE:"
+msgstr "VERSCHULDIGD BEDRAG"
+
+#: static/views/pdf_quote_bold.php:121 static/views/pdf_quote_modern.php:136
+msgid "ITEMS"
+msgstr "ARTIKELEN"
+
+#: static/views/pdf_quote_bold.php:124 static/views/pdf_quote_bold.php:157
+#: static/views/pdf_quote_modern.php:139 static/views/pdf_quote_modern.php:168
+msgid "DESCRIPTION"
+msgstr "OMSCHRIJVING"
+
+#: static/views/pdf_quote_bold.php:125 static/views/pdf_quote_modern.php:140
+msgid "QTY"
+msgstr "AANTAL"
+
+#: static/views/pdf_quote_bold.php:126 static/views/pdf_quote_modern.php:141
+msgid "PRICE"
+msgstr "PRIJS"
+
+#: static/views/pdf_quote_bold.php:127 static/views/pdf_quote_modern.php:142
+msgid "SUM"
+msgstr "TOTAAL"
+
+#: static/views/pdf_quote_bold.php:129 static/views/pdf_quote_modern.php:144
+msgid "TAX"
+msgstr "BTW"
+
+#: static/views/pdf_quote_bold.php:154 static/views/pdf_quote_modern.php:165
+msgid "CHARGES"
+msgstr "KOSTEN:"
+
+#: static/views/pdf_quote_bold.php:158 static/views/pdf_quote_modern.php:169
+msgid "AMOUNT"
+msgstr "BEDRAG"
+
+#: static/views/pdf_quote_bold.php:230 static/views/pdf_quote_modern.php:241
+msgid "TERMS &amp; CONDITIONS"
+msgstr "ALGEMENE VOORWAARDEN"
+
+#: static/views/pdf_quote_bold.php:241 static/views/pdf_quote_modern.php:252
+msgid "NOTES"
+msgstr "NOTITIES"
+
+#: static/views/pdf_quote_modern.php:78
+msgid "DUE DATE:"
+msgstr "VERVALDATUM:"
+
+#: static/views/pdf_quote_modern.php:90
+msgid "ATTN:"
+msgstr "ATT:"
+
+#: static/views/pdf_quote_modern.php:100
+msgid "BILL TO:"
+msgstr "REKENING AAN:"
+
+#: static/views/pdf_quote_modern.php:111
+msgid "PHONE:"
+msgstr "TELEFOON:"
+
+#: static/views/pdf_quote_remastered.php:137
+msgid "Email"
+msgstr "Email"
+
+#: static/views/pdf_quote_remastered.php:141
+msgid "Phone"
+msgstr "Telefoon"
+
+#: static/views/pdf_quote_remastered.php:148
+msgid "Invoice ID"
+msgstr "Factuur ID "
+
+#: static/views/pdf_quote_remastered.php:152
+msgid "Issue Date"
+msgstr "Datum van uitgifte:"
+
+#: static/views/pdf_quote_remastered.php:157
+msgid "Due Date"
+msgstr "Vervaldatum"
+
+#: static/views/pdf_quote_remastered.php:163
+msgid "Invoice For"
+msgstr "Factuur voor"
+
+#: wp-invoice-pdf.php:47
+msgid ""
+"Distributive is broken. composer.json is missed. Try to remove and upload "
+"plugin again."
+msgstr ""
+"Distributieve is gebroken. composer.json kan niet gevonden worden. Probeer "
+"de plugin te verwijderen en opnieuw te uploaden."
+
+#: wp-invoice-pdf.php:55
+#, php-format
+msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
+msgstr "Plugin heeft versie %s of hoger van PHP nodig. Uw huidige versie is %s"
+
+#: wp-invoice-pdf.php:63
+#, php-format
+msgid ""
+"Distributive is broken. %s file is missed. Try to remove and upload plugin "
+"again."
+msgstr ""
+"Distributieve is gebroken. %s bestand kan niet gevonden worden. Probeer de "
+"plugin te verwijderen en opnieuw te uploaden."
+
+#: wp-invoice-pdf.php:67
+msgid ""
+"Distributive is broken. Plugin loader is not available. Try to remove and "
+"upload plugin again."
+msgstr ""
+"Distributieve is gebroken. Plugin-lader is niet beschikbaar. Probeer de "
+"plugin te verwijderen en opnieuw te uploaden."
+
+#: wp-invoice-pdf.php:88
+#, php-format
+msgid "<p><b>%s</b> can not be initialized. %s</p>"
+msgstr "<p><b>%s</b> kan niet worden geïnitialiseerd. %s</p>"
