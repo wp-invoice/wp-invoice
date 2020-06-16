@@ -394,6 +394,11 @@ if ( !function_exists('show_partial_payments') ) {
               my_amount.val( payment_amount.val() );
               set_pay_button_value();
             });
+            my_amount.on("touchleave", function(){
+              var new_value = my_amount.val();
+              payment_amount.val( validate_amount( new_value ) );
+              set_pay_button_value();
+            }
           } else {
             alert( "<?php _e('Partial payment is not available because of an error.\nContact Administirator for more information.', ud_get_wp_invoice()->domain) ?>" );
           }

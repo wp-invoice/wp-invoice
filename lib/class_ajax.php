@@ -242,7 +242,7 @@ class WPI_Ajax {
 
     $invoice_id = WPI_Functions::save_invoice( $_REQUEST[ 'wpi_invoice' ] );
     if ( $invoice_id ) {
-      echo sprintf( __( "Saved. <a target='_blank' href='%s'>View Invoice</a>", ud_get_wp_invoice()->domain ), get_invoice_permalink( $invoice_id ) ) . ". " . __( 'Invoice id #', ud_get_wp_invoice()->domain ) . "<span id='new_invoice_id'>$invoice_id</span>.";
+      echo sprintf( __( "Saved. <a target='_blank' href='%s'>View Invoice</a>", ud_get_wp_invoice()->domain ), get_invoice_permalink( $invoice_id ) ) . ". " . __( 'Invoice id #', ud_get_wp_invoice()->domain ) . "<span id='new_invoice_id'>".wpi_post_id_to_invoice_id($invoice_id)."</span>.";
     } else {
       echo __( "There was a problem with saving the invoice. Reference the log for troubleshooting.", ud_get_wp_invoice()->domain );
     }

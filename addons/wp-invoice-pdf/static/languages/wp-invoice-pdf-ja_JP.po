@@ -1,0 +1,5683 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Invoice\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-17 15:25+0300\n"
+"PO-Revision-Date: 2018-08-17 15:25+0300\n"
+"Last-Translator: Anton <antonkorotkoff@gmail.com>\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: test\n"
+
+# @ wp-invoice
+#: l10n.php:3
+msgid "Invoice"
+msgstr "請求書"
+
+#: l10n.php:4 lib/class-wp-invoice-pdf.php:623
+#, fuzzy
+msgid "INVOICE"
+msgstr "請求書"
+
+#: l10n.php:5
+msgid "Quote"
+msgstr ""
+
+#: l10n.php:6 lib/class-wp-invoice-pdf.php:620
+#, fuzzy
+msgid "QUOTE"
+msgstr "見積りが更新されました。"
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:137 lib/class-wp-invoice-pdf.php:180
+#, fuzzy
+msgid "View PDF"
+msgstr "表示"
+
+#: lib/class-wp-invoice-pdf.php:150 lib/class-wp-invoice-pdf.php:200
+msgid "Download PDF"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:200
+msgid "PDF"
+msgstr ""
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:258
+msgid "Settings"
+msgstr "設定"
+
+#: lib/class-wp-invoice-pdf.php:261
+msgid "Do not automatically insert PDF link on bottom of invoices."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:267
+msgid "PDF Logo"
+msgstr ""
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:270
+#, fuzzy
+msgid "Display logo in the PDF."
+msgstr "表示"
+
+#: lib/class-wp-invoice-pdf.php:276
+msgid "Select Logo"
+msgstr ""
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:290
+#, fuzzy
+msgid "Header Settings"
+msgstr "顧客領収書メール ヘッダー"
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:293
+#, fuzzy
+msgid "Display recipient name and address."
+msgstr "自分の事業名と住所を表示。"
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:294
+#, fuzzy
+msgid "Display invoice description."
+msgstr "請求書の説明"
+
+# @ default
+#: lib/class-wp-invoice-pdf.php:299
+#, fuzzy
+msgid "Select template"
+msgstr "選択"
+
+#: lib/class-wp-invoice-pdf.php:311
+#, fuzzy
+msgid "Terms &amp; Conditions:"
+msgstr "取引条件"
+
+#: lib/class-wp-invoice-pdf.php:314
+#, fuzzy
+msgid "Display Terms and Conditions"
+msgstr "取引条件"
+
+#: lib/class-wp-invoice-pdf.php:321
+msgid "Text of Term and Conditions for the Invoice/Quote"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:327 static/views/pdf_quote.php:292
+#: static/views/pdf_quote_remastered.php:304
+#, fuzzy
+msgid "Notes"
+msgstr "備考"
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:330
+#, fuzzy
+msgid "Display Notes"
+msgstr "備考"
+
+#: lib/class-wp-invoice-pdf.php:337
+msgid ""
+"Notes will be displayed towards the bottom of the Invoice/Quote, depending "
+"on the template."
+msgstr ""
+
+# @ wp-invoice
+#: lib/class-wp-invoice-pdf.php:353
+#, fuzzy
+msgid "PDF Invoice"
+msgstr "請求書"
+
+#: lib/class-wp-invoice-pdf.php:617
+#, fuzzy
+msgid "RECEIPT"
+msgstr "領収書"
+
+#: lib/classes/class-pdf-template.php:27 lib/classes/class-pdf-template.php:35
+#: lib/classes/class-pdf-template.php:54 lib/classes/class-pdf-template.php:72
+msgid "Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:88
+msgid "Name is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:95
+msgid "Phone is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:408
+#: lib/classes/class-pdf-template.php:450
+msgid "Unnamed"
+msgstr ""
+
+#: static/views/pdf_quote.php:111
+msgid "Due Date:"
+msgstr ""
+
+#: static/views/pdf_quote.php:118 static/views/pdf_quote.php:273
+#: static/views/pdf_quote_bold.php:213 static/views/pdf_quote_modern.php:224
+#: static/views/pdf_quote_remastered.php:285
+msgid "Amount Due:"
+msgstr ""
+
+#: static/views/pdf_quote.php:124
+msgid "Attn:"
+msgstr ""
+
+#: static/views/pdf_quote.php:134
+msgid "Bill To:"
+msgstr ""
+
+#: static/views/pdf_quote.php:146
+msgid "Phone:"
+msgstr ""
+
+#: static/views/pdf_quote.php:177 static/views/pdf_quote_remastered.php:189
+msgid "Description"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote.php:178 static/views/pdf_quote_remastered.php:190
+msgid "Quantity"
+msgstr "数量"
+
+# @ wp-invoice
+#: static/views/pdf_quote.php:179 static/views/pdf_quote_remastered.php:191
+msgid "Price"
+msgstr "価格"
+
+# @ wp-invoice
+#: static/views/pdf_quote.php:180 static/views/pdf_quote.php:217
+#: static/views/pdf_quote_remastered.php:192
+#: static/views/pdf_quote_remastered.php:229
+msgid "Amount"
+msgstr "数量"
+
+# @ wp-invoice
+#: static/views/pdf_quote.php:182 static/views/pdf_quote_remastered.php:194
+msgid "Tax"
+msgstr "税"
+
+#: static/views/pdf_quote.php:216 static/views/pdf_quote_remastered.php:228
+msgid "Charge"
+msgstr ""
+
+#: static/views/pdf_quote.php:236 static/views/pdf_quote_bold.php:176
+#: static/views/pdf_quote_modern.php:187
+#: static/views/pdf_quote_remastered.php:248
+msgid "Total:"
+msgstr ""
+
+#: static/views/pdf_quote.php:242 static/views/pdf_quote_bold.php:182
+#: static/views/pdf_quote_modern.php:193
+#: static/views/pdf_quote_remastered.php:254
+msgid "Total Tax:"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote.php:250 static/views/pdf_quote_bold.php:190
+#: static/views/pdf_quote_modern.php:201
+#: static/views/pdf_quote_remastered.php:262
+msgid "Discount:"
+msgstr "割引:"
+
+#: static/views/pdf_quote.php:258 static/views/pdf_quote_bold.php:198
+#: static/views/pdf_quote_modern.php:209
+#: static/views/pdf_quote_remastered.php:270
+msgid "Other Adjustments:"
+msgstr ""
+
+#: static/views/pdf_quote.php:266 static/views/pdf_quote_bold.php:206
+#: static/views/pdf_quote_modern.php:217
+#: static/views/pdf_quote_remastered.php:278
+msgid "Total Payments:"
+msgstr ""
+
+#: static/views/pdf_quote.php:281 static/views/pdf_quote_bold.php:221
+#: static/views/pdf_quote_modern.php:232
+#: static/views/pdf_quote_remastered.php:293
+msgid "Invoice Refunded"
+msgstr ""
+
+#: static/views/pdf_quote.php:304 static/views/pdf_quote_remastered.php:316
+msgid "Terms &amp; Conditions"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:75
+msgid "ISSUED:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:80
+msgid "DUE:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:85 static/views/pdf_quote_modern.php:84
+msgid "AMOUNT DUE:"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:121 static/views/pdf_quote_modern.php:136
+#, fuzzy
+msgid "ITEMS"
+msgstr "取扱品目"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:124 static/views/pdf_quote_bold.php:157
+#: static/views/pdf_quote_modern.php:139 static/views/pdf_quote_modern.php:168
+msgid "DESCRIPTION"
+msgstr "取引明細"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:125 static/views/pdf_quote_modern.php:140
+msgid "QTY"
+msgstr "数量"
+
+#: static/views/pdf_quote_bold.php:126 static/views/pdf_quote_modern.php:141
+msgid "PRICE"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:127 static/views/pdf_quote_modern.php:142
+msgid "SUM"
+msgstr "合計"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:129 static/views/pdf_quote_modern.php:144
+msgid "TAX"
+msgstr "税"
+
+#: static/views/pdf_quote_bold.php:154 static/views/pdf_quote_modern.php:165
+#, fuzzy
+msgid "CHARGES"
+msgstr "料金"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:158 static/views/pdf_quote_modern.php:169
+msgid "AMOUNT"
+msgstr "金額"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:230 static/views/pdf_quote_modern.php:241
+msgid "TERMS &amp; CONDITIONS"
+msgstr "取引条件"
+
+# @ wp-invoice
+#: static/views/pdf_quote_bold.php:241 static/views/pdf_quote_modern.php:252
+msgid "NOTES"
+msgstr "備考"
+
+#: static/views/pdf_quote_modern.php:78
+msgid "DUE DATE:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:90
+msgid "ATTN:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:100
+msgid "BILL TO:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:111
+msgid "PHONE:"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote_remastered.php:137
+msgid "Email"
+msgstr "電子メール"
+
+# @ wp-invoice
+#: static/views/pdf_quote_remastered.php:141
+msgid "Phone"
+msgstr "電話"
+
+# @ wp-invoice
+#: static/views/pdf_quote_remastered.php:148
+msgid "Invoice ID"
+msgstr "請求 ID"
+
+#: static/views/pdf_quote_remastered.php:152
+msgid "Issue Date"
+msgstr ""
+
+# @ wp-invoice
+#: static/views/pdf_quote_remastered.php:157
+#, fuzzy
+msgid "Due Date"
+msgstr "締切期日"
+
+#: static/views/pdf_quote_remastered.php:163
+msgid "Invoice For"
+msgstr ""
+
+#: wp-invoice-pdf.php:47
+msgid ""
+"Distributive is broken. composer.json is missed. Try to remove and upload "
+"plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:55
+#, php-format
+msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
+msgstr ""
+
+#: wp-invoice-pdf.php:63
+#, php-format
+msgid ""
+"Distributive is broken. %s file is missed. Try to remove and upload plugin "
+"again."
+msgstr ""
+
+#: wp-invoice-pdf.php:67
+msgid ""
+"Distributive is broken. Plugin loader is not available. Try to remove and "
+"upload plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:88
+#, php-format
+msgid "<p><b>%s</b> can not be initialized. %s</p>"
+msgstr ""
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Default Font"
+#~ msgstr "既定の通貨"
+
+# @ wp-invoice
+#~ msgid "DUE DATE"
+#~ msgstr "締切期日"
+
+# @ wp-invoice
+#~ msgid "ATTN"
+#~ msgstr "宛"
+
+# @ wp-invoice
+#~ msgid "BILL TO"
+#~ msgstr "請求先"
+
+# @ wp-invoice
+#~ msgid "ADDRESS"
+#~ msgstr "住所"
+
+# @ wp-invoice
+#~ msgid "TELEPHONE"
+#~ msgstr "電話"
+
+# @ wp-invoice
+#~ msgid "TOTAL"
+#~ msgstr "合計"
+
+# @ wp-invoice
+#~ msgid "DISCOUNT"
+#~ msgstr "値引き"
+
+# @ wp-invoice
+#~ msgid "BALANCE"
+#~ msgstr "残高"
+
+# @ wp-invoice
+#~ msgid "QUANTITY"
+#~ msgstr "数量"
+
+# @ wp-invoice
+#~ msgid "AMOUNT DUE"
+#~ msgstr "未払い金額"
+
+#, fuzzy
+#~ msgid "Fix Your GUIDs"
+#~ msgstr "あなたのドメイン"
+
+#, fuzzy
+#~ msgid "Job %s"
+#~ msgstr "\"請求 %s 破棄済.\""
+
+#, fuzzy
+#~ msgid "Job Batch %s"
+#~ msgstr "\"請求 %s 破棄済.\""
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "New Job"
+#~ msgstr "新規追加"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "View Job"
+#~ msgstr "表示"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Required file not found."
+#~ msgstr "請求書 %s は見つかりません。"
+
+#, fuzzy
+#~ msgid "Invalid file type."
+#~ msgstr "タイプ"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Could not create mentioned directory."
+#~ msgstr "サブスクリプションを作成できませんでした。"
+
+# @ default
+#, fuzzy
+#~ msgid ""
+#~ "You cannot call UD\\Utility::log() before the %1$s hook, since the "
+#~ "current user is not yet known."
+#~ msgstr ""
+#~ "現在のユーザーが不明なので、%1$s フックの前の UD_API::log() を呼び出すこと"
+#~ "はできません。"
+
+# @ wp-invoice
+#~ msgid "Log Started."
+#~ msgstr "ログ開始しました。"
+
+# @ default
+#, fuzzy
+#~ msgid "You cannot call UD\\Utility::add_log_page() after the %1$s hook."
+#~ msgstr ""
+#~ "現在のユーザーが不明なので、%1$s フックの前の UD_API::log() を呼び出すこと"
+#~ "はできません。"
+
+# @ wpp
+#, fuzzy
+#~ msgid "Log Page for"
+#~ msgstr "ページ。"
+
+# @ wpp
+#~ msgid "Clear Log"
+#~ msgstr "ログをクリア"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Timestamp"
+#~ msgstr "時間"
+
+# @ wp-invoice
+#~ msgid "Type"
+#~ msgstr "タイプ"
+
+# @ wp-invoice
+#~ msgid "Event"
+#~ msgstr "イベント"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "User"
+#~ msgstr "ユーザー ガイド"
+
+# @ default
+#~ msgid "None"
+#~ msgstr "なし"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "UD Notices"
+#~ msgstr "UD エラー"
+
+#, fuzzy
+#~ msgid "Dismiss this notice"
+#~ msgstr "お知らせ "
+
+#, fuzzy
+#~ msgid "Install package not available."
+#~ msgstr "インストール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Plugin install failed."
+#~ msgstr "インストール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Plugin activation failed."
+#~ msgstr "プラグインのライセンス認証とスケジュールが作成されました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Plugin activated successfully."
+#~ msgstr "プラグイン有効化済。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Show Details"
+#~ msgstr "表示"
+
+#, fuzzy
+#~ msgid "Hide Details"
+#~ msgstr "非表示"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "%1$s installed successfully."
+#~ msgstr "サブスクリプション # %s が正常に取り消されました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "All installations have been completed."
+#~ msgstr "支払いが完了"
+
+#, fuzzy
+#~ msgid "WordPress Repository"
+#~ msgstr "ワードプレスのユーザー アカウントを作成しますか？"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Not Installed"
+#~ msgstr "機能がインストールされました。使用バージョン"
+
+#, fuzzy
+#~ msgid "Installed But Not Activated"
+#~ msgstr "プラグイン有効化済。"
+
+# @ wp-invoice
+#~ msgid "Install"
+#~ msgstr "インストール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "アクティブ"
+
+#, fuzzy
+#~ msgid "Plugin"
+#~ msgstr "プラグイン有効化済。"
+
+# @ wp-invoice
+#~ msgid "Status"
+#~ msgstr "ステータス"
+
+#, fuzzy
+#~ msgid "Install Required Plugins"
+#~ msgstr "インストール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Install Plugins"
+#~ msgstr "インストール"
+
+#, fuzzy
+#~ msgid "The following plugin was activated successfully:"
+#~ msgstr "プラグイン有効化済。"
+
+# @ wp-invoice
+#~ msgid "Please enter a note and numeric amount."
+#~ msgstr "メモおよび金額の数値を入力してください。"
+
+# @ wp-invoice
+#~ msgid "paid in"
+#~ msgstr "支払"
+
+# @ wp-invoice
+#~ msgid "charge added"
+#~ msgstr "料金追加"
+
+# @ wp-invoice
+#~ msgid "adjusted"
+#~ msgstr "調整済"
+
+# @ wp-invoice
+#~ msgid "refunded"
+#~ msgstr "払戻済"
+
+# @ wp-invoice
+#~ msgid "Event Added: %1s."
+#~ msgstr "イベント追加:  %1s"
+
+# @ wp-invoice
+#~ msgid "Could not save entry in invoice log. %1s"
+#~ msgstr "請求ログにエントリを保存できませんでした。 %1s"
+
+# @ wp-invoice
+#~ msgid "Due date is not set"
+#~ msgstr "期限の日付が設定されていません"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "invoice"
+#~ msgstr "請求書"
+
+# @ wp-invoice
+#~ msgid "No description given."
+#~ msgstr "説明がありません。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "The fields should not be empty. Please, check the fields data and try to "
+#~ "send notification again."
+#~ msgstr ""
+#~ "フィールドを空にすることはできません。フィールド データを確認し、再度通知"
+#~ "を送信してください。"
+
+# @ wp-invoice
+#~ msgid "Notification Sent"
+#~ msgstr "通知を送信済"
+
+# @ wp-invoice
+#~ msgid "to"
+#~ msgstr "宛先"
+
+# @ wp-invoice
+#~ msgid "at"
+#~ msgstr "場所"
+
+# @ wp-invoice
+#~ msgid "Successfully sent the invoice notification!"
+#~ msgstr "請求書通知は正常に送信されました ！"
+
+# @ wp-invoice
+#~ msgid "Unable to send the e-mail. Please, try again later."
+#~ msgstr "メールを送信できませんでした。しばらくしてから再度お試しください。"
+
+# @ wp-invoice
+#~ msgid "Saved. <a target='_blank' href='%s'>View Invoice</a>"
+#~ msgstr "保存済。<a target='_blank' href='%s'>請求書の表示</a>"
+
+# @ wp-invoice
+#~ msgid "Invoice id #"
+#~ msgstr "請求 id #"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "There was a problem with saving the invoice. Reference the log for "
+#~ "troubleshooting."
+#~ msgstr ""
+#~ "請求書を保存する際に問題が発生しました。トラブルシューティングのためにログ"
+#~ "を参照してください。"
+
+# @ wp-invoice
+#~ msgid "Please enter an invoice id."
+#~ msgstr "請求書の id を入力してください。"
+
+# @ wp-invoice
+#~ msgid "Unable to create 'wpi' folder in template folder. "
+#~ msgstr "テンプレート フォルダーに 'wpi' フォルダーを作成できません。 "
+
+# @ wp-invoice
+#~ msgid "Unable to open 'wpi' folder in template folder."
+#~ msgstr "テンプレートフォルダーの 'wpi' フォルダーを開けませんでした。"
+
+# @ wp-invoice
+#~ msgid "Success, (%s) template file(s) copied."
+#~ msgstr "成功、 (%s) のテンプレート ファイルがコピーされました。"
+
+# @ wp-invoice
+#~ msgid "No template files copied."
+#~ msgstr "テンプレート ファイルはコピーされませんでした。"
+
+#, fuzzy
+#~ msgid "There are no options for this widget."
+#~ msgstr "高度な支払いオプションの切替"
+
+# @ wp-invoice
+# @ default
+#~ msgid "All"
+#~ msgstr "すべて"
+
+# @ wp-invoice
+#~ msgid "Today"
+#~ msgstr "今日"
+
+# @ wp-invoice
+#~ msgid " Tomorrow "
+#~ msgstr "明日  "
+
+# @ wp-invoice
+#~ msgid " Yesterday "
+#~ msgstr "昨日  "
+
+# @ wp-invoice
+#~ msgid " in %s days "
+#~ msgstr " %s 日中  "
+
+# @ wp-invoice
+#~ msgid "days ago"
+#~ msgstr "日前  "
+
+# @ wp_crm
+#~ msgid "Invoice #[invoice_id] has been paid"
+#~ msgstr "請求書#  [invoice_id] は支払済"
+
+# @ wp_crm
+#~ msgid ""
+#~ "Dear [user_name],\n"
+#~ "[business_name] has received your payment for the invoice.\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Thank you very much for your patronage.\n"
+#~ "\n"
+#~ "Best regards,\n"
+#~ "[business_name] ([from])"
+#~ msgstr ""
+#~ "Dear [user_name],\n"
+#~ "[business_name] has received your payment for the invoice.\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "Thank you very much for your patronage.\n"
+#~ "\n"
+#~ "Best regards,\n"
+#~ "[business_name] ([from])"
+
+# @ wp_crm
+#~ msgid "Invoice #[invoice_id] has been paid by [user_name]"
+#~ msgstr "Invoice #[invoice_id] has been paid by [user_name]"
+
+# @ wp_crm
+#~ msgid ""
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+#~ msgstr ""
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+
+# @ wp_crm
+#~ msgid ""
+#~ "Dear [creator_name],\n"
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+#~ msgstr ""
+#~ "Dear [creator_name],\n"
+#~ "[user_name] has paid invoice #[invoice_id].\n"
+#~ "\n"
+#~ "[invoice_title]\n"
+#~ "Total payments: [default_currency_code] [total_payments] of "
+#~ "[default_currency_code] [total].\n"
+#~ "\n"
+#~ "You can overview invoice status and payment history by clicking this "
+#~ "link:\n"
+#~ "[permalink]\n"
+#~ "\n"
+#~ "User information:\n"
+#~ "\n"
+#~ "ID: [user_id]\n"
+#~ "Name: [user_name]\n"
+#~ "Email: [user_email]\n"
+#~ "\n"
+#~ "--------------------\n"
+#~ "[site]"
+
+# @ wp-invoice
+#~ msgid "Invoices"
+#~ msgstr "請求書"
+
+# @ wp-invoice
+#~ msgid "Add New"
+#~ msgstr "新規追加"
+
+# @ wp-invoice
+#~ msgid "Add New Invoice"
+#~ msgstr "新しい請求書を追加"
+
+# @ wp-invoice
+#~ msgid "Edit Invoice"
+#~ msgstr "請求書の編集"
+
+# @ wp-invoice
+#~ msgid "New Invoice"
+#~ msgstr "新しい請求書"
+
+# @ wp-invoice
+#~ msgid "View Invoice"
+#~ msgstr "納品書の表示"
+
+# @ wp-invoice
+#~ msgid "Search Invoices"
+#~ msgstr "請求書検索"
+
+# @ wp-invoice
+#~ msgid "No invoices found"
+#~ msgstr "請求書が見つかりませんでした"
+
+# @ wp-invoice
+#~ msgid "No invoices found in Trash"
+#~ msgstr "ゴミ箱には請求書がありません"
+
+# @ default
+#~ msgid "WP-Invoice Notification"
+#~ msgstr "WP-Invoice 通知"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Find out how to <a target=\"_blank\" href=\"%s\">Extend</a> your <a "
+#~ "target=\"_blank\" href=\"%s\">WP-Invoice</a> plugin"
+#~ msgstr ""
+#~ "調べる方法を<a target=\"_blank\" href=\"%s\">拡張するために</a>あなたの<a "
+#~ "target=\"_blank\" href=\"%s\"WP-Invoice</a>のプラグイン"
+
+# @ wp-invoice
+#~ msgid "Premium Features"
+#~ msgstr "プレミアム機能"
+
+# @ wp-invoice
+#~ msgid "Support Forum"
+#~ msgstr "サポート フォーラム"
+
+# @ wp-invoice
+#~ msgid "User Guide"
+#~ msgstr "ユーザー ガイド"
+
+# @ wp-invoice
+#~ msgid "Payment status: Complete"
+#~ msgstr "お支払いのステータス： 完了"
+
+# @ wp-invoice
+#~ msgid "Pending"
+#~ msgstr "保留中"
+
+# @ wp-invoice
+#~ msgid "Invoice #%s has been paid"
+#~ msgstr "請求書 #%s は支払済"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Dear %1s,<br>%2s has received your payment for the invoice.<br><br>You "
+#~ "can overview invoice status and payment history by clicking this link:<br>"
+#~ "%3s<br><br>Thank you very much for your patronage.<br><br>Best regards,"
+#~ "<br>%4s (%5s)"
+#~ msgstr ""
+#~ "%1s 様<br><br>ご愛顧ありがとうございます。<br>%2s は、確かにあなたからの請"
+#~ "求書へのお支払いを受領いたしました。<br><br>請求書のステータスと支払い履歴"
+#~ "の参照のためには、このリンクをクリックしてください。<br>%3s<br><br>以上、"
+#~ "よろしくお願いいたします<br>%4s (%5s)"
+
+# @ wp-invoice
+#~ msgid "WP-Invoice: Message with subject '%1s' was sent"
+#~ msgstr "WP-Invoice: 件名 '%1s' のメッセージが送信されました"
+
+# @ wp-invoice
+#~ msgid "Receipt eMailed"
+#~ msgstr "メールで領収書を送信"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "%1s has paid invoice #%2s.<br><br>%3s<br>Total payments: %4s %5s of %6s "
+#~ "%7s.<br><br>You can overview invoice status and payment history by "
+#~ "clicking this link:<br>%8s<br><br>User information:<br><br>ID: "
+#~ "%9s<br>Name: %10s<br>Email: %11s<br><br>--------------------<br>%12s"
+#~ msgstr ""
+#~ "%1s が請求書 #%2s.を支払いました。<br><br>%3s<br>合計の支払い:  %4s %5s "
+#~ "of %6s %7s。<br><br>請求書のステータスと支払い履歴は、このリンクをクリック"
+#~ "すると参照できます。<br>%8s<br><br>ユーザー情報:<br><br>ID: %9s<br>名前: "
+#~ "%10s<br>メール: %11s<br><br>--------------------<br>%12s"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Hello %1s,<br><br>%2s has paid invoice #%3s.<br><br>%4s<br>Total "
+#~ "payments: %5s %6s of %7s %8s.<br><br>You can overview invoice status and "
+#~ "payment history by clicking this link:<br>%9s<br><br>User information:"
+#~ "<br><br>ID: %10s<br>Name: %11s<br>Email: %12s<br><br>--------------------"
+#~ "<br>%13s"
+#~ msgstr ""
+#~ "こんにちは、%1s 様<br><br>%2s が請求書 #%3sの支払いをしました。<br><br>"
+#~ "%4s<br>合計支払額： %5s %6s of %7s %8s<br><br>請求書のステータスと支払い履"
+#~ "歴は、このリンクをクリックすると参照できます。<br>%9s<br><br>ユーザー情報:"
+#~ "<br><br>ID: %10s<br>名前:  %11s<br>メール: "
+#~ "%12s<br><br>--------------------<br>%13s　"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Customer Information"
+#~ msgstr "顧客領収書メール ヘッダー"
+
+# @ wp-invoice
+#~ msgid "Status of invoice was changed to 'Paid'."
+#~ msgstr "請求書の状態は '支払済' に変更されました。"
+
+# @ wp-invoice
+#~ msgid "Created from "
+#~ msgstr "作成元 "
+
+# @ wp-invoice
+#~ msgid "Created by "
+#~ msgstr "作成者 "
+
+# @ wp-invoice
+#~ msgid "Recurring invoice updated."
+#~ msgstr "定期的な請求書が更新されました。"
+
+# @ wp-invoice
+#~ msgid "Quote updated."
+#~ msgstr "見積りが更新されました。"
+
+# @ wp-invoice
+#~ msgid "Updated."
+#~ msgstr "更新済。"
+
+# @ wp-invoice
+#~ msgid "Automatically created using legacy data"
+#~ msgstr "レガシ データを使用して自動的に作成"
+
+# @ wp-invoice
+#~ msgid "Invoice Notification"
+#~ msgstr "請求書通知"
+
+# @ wp-invoice
+#~ msgid "Reminder"
+#~ msgstr "Reminder"
+
+# @ wp-invoice
+#~ msgid "Receipt"
+#~ msgstr "領収書"
+
+# @ wp-invoice
+#~ msgid "Imported Log from old WPI Version"
+#~ msgstr "WPI の古いバージョンからインポートされたログ"
+
+# @ wp-invoice
+#~ msgid "Imported Log from Web Invoice plugin"
+#~ msgstr "Web Invoiceプラグインからインポートされたログ"
+
+# @ wp-invoice
+#~ msgid "Display"
+#~ msgstr "表示"
+
+# @ wp-invoice
+#~ msgid "records"
+#~ msgstr "レコード"
+
+# @ wp-invoice
+#~ msgid "Show all dates"
+#~ msgstr "すべての日時を表示"
+
+# @ default
+#~ msgid "Nothing found."
+#~ msgstr "何も見つかりませんでした。"
+
+#, fuzzy
+#~ msgid "Bulk Actions"
+#~ msgstr "アクションがありません。"
+
+#, fuzzy
+#~ msgid "Apply"
+#~ msgstr "「送信元」 の設定を適用。"
+
+# @ wp-invoice
+#~ msgid "Recurring"
+#~ msgstr "自動更新"
+
+# @ wp-invoice
+#~ msgid "Pay Your Invoice"
+#~ msgstr "請求書を支払う"
+
+# @ wp-invoice
+#~ msgid "Lookup"
+#~ msgstr "検索"
+
+# @ wp-invoice
+#~ msgid "Dropdown"
+#~ msgstr "ドロップダウン"
+
+# @ wp-invoice
+#~ msgid "First Name"
+#~ msgstr "名（ローマ字 - 例：Taro）"
+
+# @ wp-invoice
+#~ msgid "Last Name"
+#~ msgstr "姓（ローマ字 - 例：Yamada）"
+
+# @ wp-invoice
+#~ msgid "Company Name"
+#~ msgstr "会社名"
+
+# @ wp-invoice
+#~ msgid "Phone Number"
+#~ msgstr "電話番号"
+
+# @ wp-invoice
+#~ msgid "Street Address"
+#~ msgstr "住所"
+
+# @ wp-invoice
+#~ msgid "City"
+#~ msgstr "市区町村"
+
+# @ wp-invoice
+#~ msgid "State"
+#~ msgstr "都道府県"
+
+# @ wp-invoice
+#~ msgid "ZIP"
+#~ msgstr "郵便番号"
+
+# @ wp-invoice
+#~ msgid "Active"
+#~ msgstr "アクティブ"
+
+# @ wp-invoice
+#~ msgid "Archived"
+#~ msgstr "アーカイブ済"
+
+# @ wp-invoice
+#~ msgid "Trashed"
+#~ msgstr "破棄済"
+
+# @ wp-invoice
+#~ msgid "Paid"
+#~ msgstr "支払済"
+
+# @ wp-invoice
+#~ msgid "United States"
+#~ msgstr "United States"
+
+# @ wp-invoice
+#~ msgid "Albania"
+#~ msgstr "Albania"
+
+# @ wp-invoice
+#~ msgid "Algeria"
+#~ msgstr "Algeria"
+
+# @ wp-invoice
+#~ msgid "Andorra"
+#~ msgstr "Andorra"
+
+# @ wp-invoice
+#~ msgid "Angola"
+#~ msgstr "Angola"
+
+# @ wp-invoice
+#~ msgid "Anguilla"
+#~ msgstr "Anguilla"
+
+# @ wp-invoice
+#~ msgid "Antigua and Barbuda"
+#~ msgstr "Antigua and Barbuda"
+
+# @ wp-invoice
+#~ msgid "Argentina"
+#~ msgstr "Argentina"
+
+# @ wp-invoice
+#~ msgid "Armenia"
+#~ msgstr "Armenia"
+
+# @ wp-invoice
+#~ msgid "Aruba"
+#~ msgstr "Aruba"
+
+# @ wp-invoice
+#~ msgid "Australia"
+#~ msgstr "Australia"
+
+# @ wp-invoice
+#~ msgid "Austria"
+#~ msgstr "Austria"
+
+# @ wp-invoice
+#~ msgid "Azerbaijan Republic"
+#~ msgstr "Azerbaijan Republic"
+
+# @ wp-invoice
+#~ msgid "Bahamas"
+#~ msgstr "Bahamas"
+
+# @ wp-invoice
+#~ msgid "Bahrain"
+#~ msgstr "Bahrain"
+
+# @ wp-invoice
+#~ msgid "Barbados"
+#~ msgstr "Barbados"
+
+# @ wp-invoice
+#~ msgid "Belgium"
+#~ msgstr "Belgium"
+
+# @ wp-invoice
+#~ msgid "Belize"
+#~ msgstr "Belize"
+
+# @ wp-invoice
+#~ msgid "Benin"
+#~ msgstr "Benin"
+
+# @ wp-invoice
+#~ msgid "Bermuda"
+#~ msgstr "Bermuda"
+
+# @ wp-invoice
+#~ msgid "Bhutan"
+#~ msgstr "Bhutan"
+
+# @ wp-invoice
+#~ msgid "Bolivia"
+#~ msgstr "Bolivia"
+
+# @ wp-invoice
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "Bosnia and Herzegovina"
+
+# @ wp-invoice
+#~ msgid "Botswana"
+#~ msgstr "Botswana"
+
+# @ wp-invoice
+#~ msgid "Brazil"
+#~ msgstr "Brazil"
+
+# @ wp-invoice
+#~ msgid "British Virgin Islands"
+#~ msgstr "British Virgin Islands"
+
+# @ wp-invoice
+#~ msgid "Brunei"
+#~ msgstr "Brunei"
+
+# @ wp-invoice
+#~ msgid "Bulgaria"
+#~ msgstr "Bulgaria"
+
+# @ wp-invoice
+#~ msgid "Burkina Faso"
+#~ msgstr "Burkina Faso"
+
+# @ wp-invoice
+#~ msgid "Burundi"
+#~ msgstr "Burundi"
+
+# @ wp-invoice
+#~ msgid "Cambodia"
+#~ msgstr "Cambodia"
+
+# @ wp-invoice
+#~ msgid "Canada"
+#~ msgstr "Canada"
+
+# @ wp-invoice
+#~ msgid "Cape Verde"
+#~ msgstr "Cape Verde"
+
+# @ wp-invoice
+#~ msgid "Cayman Islands"
+#~ msgstr "Cayman Islands"
+
+# @ wp-invoice
+#~ msgid "Chad"
+#~ msgstr "Chad"
+
+# @ wp-invoice
+#~ msgid "Chile"
+#~ msgstr "Chile"
+
+# @ wp-invoice
+#~ msgid "China"
+#~ msgstr "China"
+
+# @ wp-invoice
+#~ msgid "Colombia"
+#~ msgstr "Colombia"
+
+# @ wp-invoice
+#~ msgid "Comoros"
+#~ msgstr "Comoros"
+
+# @ wp-invoice
+#~ msgid "Cook Islands"
+#~ msgstr "Cook Islands"
+
+# @ wp-invoice
+#~ msgid "Costa Rica"
+#~ msgstr "Costa Rica"
+
+# @ wp-invoice
+#~ msgid "Croatia"
+#~ msgstr "Croatia"
+
+# @ wp-invoice
+#~ msgid "Cyprus"
+#~ msgstr "Cyprus"
+
+# @ wp-invoice
+#~ msgid "Czech Republic"
+#~ msgstr "Czech Republic"
+
+# @ wp-invoice
+#~ msgid "Democratic Republic of the Congo"
+#~ msgstr "Democratic Republic of the Congo"
+
+# @ wp-invoice
+#~ msgid "Denmark"
+#~ msgstr "Denmark"
+
+# @ wp-invoice
+#~ msgid "Djibouti"
+#~ msgstr "Djibouti"
+
+# @ wp-invoice
+#~ msgid "Dominica"
+#~ msgstr "Dominica"
+
+# @ wp-invoice
+#~ msgid "Dominican Republic"
+#~ msgstr "Dominican Republic"
+
+# @ wp-invoice
+#~ msgid "Ecuador"
+#~ msgstr "Ecuador"
+
+# @ wp-invoice
+#~ msgid "El Salvador"
+#~ msgstr "El Salvador"
+
+# @ wp-invoice
+#~ msgid "Eritrea"
+#~ msgstr "Eritrea"
+
+# @ wp-invoice
+#~ msgid "Estonia"
+#~ msgstr "Estonia"
+
+# @ wp-invoice
+#~ msgid "Ethiopia"
+#~ msgstr "Ethiopia"
+
+# @ wp-invoice
+#~ msgid "Falkland Islands"
+#~ msgstr "Falkland Islands"
+
+# @ wp-invoice
+#~ msgid "Faroe Islands"
+#~ msgstr "Faroe Islands"
+
+# @ wp-invoice
+#~ msgid "Federated States of Micronesia"
+#~ msgstr "Federated States of Micronesia"
+
+# @ wp-invoice
+#~ msgid "Fiji"
+#~ msgstr "Fiji"
+
+# @ wp-invoice
+#~ msgid "Finland"
+#~ msgstr "Finland"
+
+# @ wp-invoice
+#~ msgid "France"
+#~ msgstr "France"
+
+# @ wp-invoice
+#~ msgid "French Guiana"
+#~ msgstr "French Guiana"
+
+# @ wp-invoice
+#~ msgid "French Polynesia"
+#~ msgstr "French Polynesia"
+
+# @ wp-invoice
+#~ msgid "Gabon Republic"
+#~ msgstr "Gabon Republic"
+
+# @ wp-invoice
+#~ msgid "Gambia"
+#~ msgstr "Gambia"
+
+# @ wp-invoice
+#~ msgid "Germany"
+#~ msgstr "Germany"
+
+# @ wp-invoice
+#~ msgid "Gibraltar"
+#~ msgstr "Gibraltar"
+
+# @ wp-invoice
+#~ msgid "Greece"
+#~ msgstr "Greece"
+
+# @ wp-invoice
+#~ msgid "Greenland"
+#~ msgstr "Greenland"
+
+# @ wp-invoice
+#~ msgid "Grenada"
+#~ msgstr "Grenada"
+
+# @ wp-invoice
+#~ msgid "Guadeloupe"
+#~ msgstr "Guadeloupe"
+
+# @ wp-invoice
+#~ msgid "Guatemala"
+#~ msgstr "Guatemala"
+
+# @ wp-invoice
+#~ msgid "Guinea"
+#~ msgstr "Guinea"
+
+# @ wp-invoice
+#~ msgid "Guinea Bissau"
+#~ msgstr "Guinea Bissau"
+
+# @ wp-invoice
+#~ msgid "Guyana"
+#~ msgstr "Guyana"
+
+# @ wp-invoice
+#~ msgid "Honduras"
+#~ msgstr "Honduras"
+
+# @ wp-invoice
+#~ msgid "Hong Kong"
+#~ msgstr "Hong Kong"
+
+# @ wp-invoice
+#~ msgid "Hungary"
+#~ msgstr "Hungary"
+
+# @ wp-invoice
+#~ msgid "Iceland"
+#~ msgstr "Iceland"
+
+# @ wp-invoice
+#~ msgid "India"
+#~ msgstr "India"
+
+# @ wp-invoice
+#~ msgid "Indonesia"
+#~ msgstr "Indonesia"
+
+# @ wp-invoice
+#~ msgid "Ireland"
+#~ msgstr "Ireland"
+
+# @ wp-invoice
+#~ msgid "Israel"
+#~ msgstr "Israel"
+
+# @ wp-invoice
+#~ msgid "Italy"
+#~ msgstr "Italy"
+
+# @ wp-invoice
+#~ msgid "Jamaica"
+#~ msgstr "Jamaica"
+
+# @ wp-invoice
+#~ msgid "Japan"
+#~ msgstr "Japan"
+
+# @ wp-invoice
+#~ msgid "Jordan"
+#~ msgstr "Jordan"
+
+# @ wp-invoice
+#~ msgid "Kazakhstan"
+#~ msgstr "Kazakhstan"
+
+# @ wp-invoice
+#~ msgid "Kenya"
+#~ msgstr "Kenya"
+
+# @ wp-invoice
+#~ msgid "Kiribati"
+#~ msgstr "Kiribati"
+
+# @ wp-invoice
+#~ msgid "Kuwait"
+#~ msgstr "Kuwait"
+
+# @ wp-invoice
+#~ msgid "Kyrgyzstan"
+#~ msgstr "Kyrgyzstan"
+
+# @ wp-invoice
+#~ msgid "Laos"
+#~ msgstr "Laos"
+
+# @ wp-invoice
+#~ msgid "Latvia"
+#~ msgstr "Latvia"
+
+# @ wp-invoice
+#~ msgid "Lesotho"
+#~ msgstr "Lesotho"
+
+# @ wp-invoice
+#~ msgid "Liechtenstein"
+#~ msgstr "Liechtenstein"
+
+# @ wp-invoice
+#~ msgid "Lithuania"
+#~ msgstr "Lithuania"
+
+# @ wp-invoice
+#~ msgid "Luxembourg"
+#~ msgstr "Luxembourg"
+
+# @ wp-invoice
+#~ msgid "Madagascar"
+#~ msgstr "Madagascar"
+
+# @ wp-invoice
+#~ msgid "Malawi"
+#~ msgstr "Malawi"
+
+# @ wp-invoice
+#~ msgid "Malaysia"
+#~ msgstr "Malaysia"
+
+# @ wp-invoice
+#~ msgid "Maldives"
+#~ msgstr "Maldives"
+
+# @ wp-invoice
+#~ msgid "Mali"
+#~ msgstr "Mali"
+
+# @ wp-invoice
+#~ msgid "Malta"
+#~ msgstr "Malta"
+
+# @ wp-invoice
+#~ msgid "Marshall Islands"
+#~ msgstr "Marshall Islands"
+
+# @ wp-invoice
+#~ msgid "Martinique"
+#~ msgstr "Martinique"
+
+# @ wp-invoice
+#~ msgid "Mauritania"
+#~ msgstr "Mauritania"
+
+# @ wp-invoice
+#~ msgid "Mauritius"
+#~ msgstr "Mauritius"
+
+# @ wp-invoice
+#~ msgid "Mayotte"
+#~ msgstr "Mayotte"
+
+# @ wp-invoice
+#~ msgid "Mexico"
+#~ msgstr "Mexico"
+
+# @ wp-invoice
+#~ msgid "Mongolia"
+#~ msgstr "Mongolia"
+
+# @ wp-invoice
+#~ msgid "Montserrat"
+#~ msgstr "Montserrat"
+
+# @ wp-invoice
+#~ msgid "Morocco"
+#~ msgstr "Morocco"
+
+# @ wp-invoice
+#~ msgid "Mozambique"
+#~ msgstr "Mozambique"
+
+# @ wp-invoice
+#~ msgid "Namibia"
+#~ msgstr "Namibia"
+
+# @ wp-invoice
+#~ msgid "Nauru"
+#~ msgstr "Nauru"
+
+# @ wp-invoice
+#~ msgid "Nepal"
+#~ msgstr "Nepal"
+
+# @ wp-invoice
+#~ msgid "Netherlands"
+#~ msgstr "Netherlands"
+
+# @ wp-invoice
+#~ msgid "Netherlands Antilles"
+#~ msgstr "Netherlands Antilles"
+
+# @ wp-invoice
+#~ msgid "New Caledonia"
+#~ msgstr "New Caledonia"
+
+# @ wp-invoice
+#~ msgid "New Zealand"
+#~ msgstr "New Zealand"
+
+# @ wp-invoice
+#~ msgid "Nicaragua"
+#~ msgstr "Nicaragua"
+
+# @ wp-invoice
+#~ msgid "Niger"
+#~ msgstr "Niger"
+
+# @ wp-invoice
+#~ msgid "Niue"
+#~ msgstr "Niue"
+
+# @ wp-invoice
+#~ msgid "Norfolk Island"
+#~ msgstr "Norfolk Island"
+
+# @ wp-invoice
+#~ msgid "Norway"
+#~ msgstr "Norway"
+
+# @ wp-invoice
+#~ msgid "Oman"
+#~ msgstr "Oman"
+
+# @ wp-invoice
+#~ msgid "Palau"
+#~ msgstr "Palau"
+
+# @ wp-invoice
+#~ msgid "Panama"
+#~ msgstr "Panama"
+
+# @ wp-invoice
+#~ msgid "Papua New Guinea"
+#~ msgstr "Papua New Guinea"
+
+# @ wp-invoice
+#~ msgid "Peru"
+#~ msgstr "Peru"
+
+# @ wp-invoice
+#~ msgid "Philippines"
+#~ msgstr "Philippines"
+
+# @ wp-invoice
+#~ msgid "Pitcairn Islands"
+#~ msgstr "Pitcairn Islands"
+
+# @ wp-invoice
+#~ msgid "Poland"
+#~ msgstr "Poland"
+
+# @ wp-invoice
+#~ msgid "Portugal"
+#~ msgstr "Portugal"
+
+# @ wp-invoice
+#~ msgid "Qatar"
+#~ msgstr "Qatar"
+
+# @ wp-invoice
+#~ msgid "Republic of the Congo"
+#~ msgstr "Republic of the Congo"
+
+# @ wp-invoice
+#~ msgid "Reunion"
+#~ msgstr "Reunion"
+
+# @ wp-invoice
+#~ msgid "Romania"
+#~ msgstr "Romania"
+
+# @ wp-invoice
+#~ msgid "Russia"
+#~ msgstr "Russia"
+
+# @ wp-invoice
+#~ msgid "Rwanda"
+#~ msgstr "Rwanda"
+
+# @ wp-invoice
+#~ msgid "Saint Vincent and the Grenadines"
+#~ msgstr "Saint Vincent and the Grenadines"
+
+# @ wp-invoice
+#~ msgid "Samoa"
+#~ msgstr "Samoa"
+
+# @ wp-invoice
+#~ msgid "San Marino"
+#~ msgstr "San Marino"
+
+# @ wp-invoice
+#~ msgid "Sao Tome and Principe"
+#~ msgstr "Sao Tome and Principe"
+
+# @ wp-invoice
+#~ msgid "Saudi Arabia"
+#~ msgstr "Saudi Arabia"
+
+# @ wp-invoice
+#~ msgid "Senegal"
+#~ msgstr "Senegal"
+
+# @ wp-invoice
+#~ msgid "Seychelles"
+#~ msgstr "Seychelles"
+
+# @ wp-invoice
+#~ msgid "Sierra Leone"
+#~ msgstr "Sierra Leone"
+
+# @ wp-invoice
+#~ msgid "Singapore"
+#~ msgstr "Singapore"
+
+# @ wp-invoice
+#~ msgid "Slovakia"
+#~ msgstr "Slovakia"
+
+# @ wp-invoice
+#~ msgid "Slovenia"
+#~ msgstr "Slovenia"
+
+# @ wp-invoice
+#~ msgid "Solomon Islands"
+#~ msgstr "Solomon Islands"
+
+# @ wp-invoice
+#~ msgid "Somalia"
+#~ msgstr "Somalia"
+
+# @ wp-invoice
+#~ msgid "South Africa"
+#~ msgstr "South Africa"
+
+# @ wp-invoice
+#~ msgid "South Korea"
+#~ msgstr "South Korea"
+
+# @ wp-invoice
+#~ msgid "Spain"
+#~ msgstr "Spain"
+
+# @ wp-invoice
+#~ msgid "Sri Lanka"
+#~ msgstr "Sri Lanka"
+
+# @ wp-invoice
+#~ msgid "St. Helena"
+#~ msgstr "St. Helena"
+
+# @ wp-invoice
+#~ msgid "St. Kitts and Nevis"
+#~ msgstr "St. Kitts and Nevis"
+
+# @ wp-invoice
+#~ msgid "St. Lucia"
+#~ msgstr "St. Lucia"
+
+# @ wp-invoice
+#~ msgid "St. Pierre and Miquelon"
+#~ msgstr "St. Pierre and Miquelon"
+
+# @ wp-invoice
+#~ msgid "Suriname"
+#~ msgstr "Suriname"
+
+# @ wp-invoice
+#~ msgid "Svalbard and Jan Mayen Islands"
+#~ msgstr "Svalbard and Jan Mayen Islands"
+
+# @ wp-invoice
+#~ msgid "Swaziland"
+#~ msgstr "Swaziland"
+
+# @ wp-invoice
+#~ msgid "Sweden"
+#~ msgstr "Sweden"
+
+# @ wp-invoice
+#~ msgid "Switzerland"
+#~ msgstr "Switzerland"
+
+# @ wp-invoice
+#~ msgid "Taiwan"
+#~ msgstr "Taiwan"
+
+# @ wp-invoice
+#~ msgid "Tajikistan"
+#~ msgstr "Tajikistan"
+
+# @ wp-invoice
+#~ msgid "Tanzania"
+#~ msgstr "Tanzania"
+
+# @ wp-invoice
+#~ msgid "Thailand"
+#~ msgstr "Thailand"
+
+# @ wp-invoice
+#~ msgid "Togo"
+#~ msgstr "Togo"
+
+# @ wp-invoice
+#~ msgid "Tonga"
+#~ msgstr "Tonga"
+
+# @ wp-invoice
+#~ msgid "Trinidad and Tobago"
+#~ msgstr "Trinidad and Tobago"
+
+# @ wp-invoice
+#~ msgid "Tunisia"
+#~ msgstr "Tunisia"
+
+# @ wp-invoice
+#~ msgid "Turkey"
+#~ msgstr "Turkey"
+
+# @ wp-invoice
+#~ msgid "Turkmenistan"
+#~ msgstr "Turkmenistan"
+
+# @ wp-invoice
+#~ msgid "Turks and Caicos Islands"
+#~ msgstr "Turks and Caicos Islands"
+
+# @ wp-invoice
+#~ msgid "Tuvalu"
+#~ msgstr "Tuvalu"
+
+# @ wp-invoice
+#~ msgid "Uganda"
+#~ msgstr "Uganda"
+
+# @ wp-invoice
+#~ msgid "Ukraine"
+#~ msgstr "Ukraine"
+
+# @ wp-invoice
+#~ msgid "United Arab Emirates"
+#~ msgstr "United Arab Emirates"
+
+# @ wp-invoice
+#~ msgid "United Kingdom"
+#~ msgstr "United Kingdom"
+
+# @ wp-invoice
+#~ msgid "Uruguay"
+#~ msgstr "Uruguay"
+
+# @ wp-invoice
+#~ msgid "Vanuatu"
+#~ msgstr "Vanuatu"
+
+# @ wp-invoice
+#~ msgid "Vatican City State"
+#~ msgstr "Vatican City State"
+
+# @ wp-invoice
+#~ msgid "Venezuela"
+#~ msgstr "Venezuela"
+
+# @ wp-invoice
+#~ msgid "Vietnam"
+#~ msgstr "Vietnam"
+
+# @ wp-invoice
+#~ msgid "Wallis and Futuna Islands"
+#~ msgstr "Wallis and Futuna Islands"
+
+# @ wp-invoice
+#~ msgid "Yemen"
+#~ msgstr "Yemen"
+
+# @ wp-invoice
+#~ msgid "Zambia"
+#~ msgstr "Zambia"
+
+# @ wp-invoice
+#~ msgid "Alabama"
+#~ msgstr "Alabama"
+
+# @ wp-invoice
+#~ msgid "Alaska"
+#~ msgstr "Alaska"
+
+# @ wp-invoice
+#~ msgid "American Samoa"
+#~ msgstr "American Samoa"
+
+# @ wp-invoice
+#~ msgid "Arizona"
+#~ msgstr "Arizona"
+
+# @ wp-invoice
+#~ msgid "Arkansas"
+#~ msgstr "Arkansas"
+
+# @ wp-invoice
+#~ msgid "California"
+#~ msgstr "California"
+
+# @ wp-invoice
+#~ msgid "Colorado"
+#~ msgstr "Colorado"
+
+# @ wp-invoice
+#~ msgid "Connecticut"
+#~ msgstr "Connecticut"
+
+# @ wp-invoice
+#~ msgid "Delaware"
+#~ msgstr "Delaware"
+
+# @ wp-invoice
+#~ msgid "District of Columbia"
+#~ msgstr "District of Columbia"
+
+# @ wp-invoice
+#~ msgid "Florida"
+#~ msgstr "Florida"
+
+# @ wp-invoice
+#~ msgid "Georgia"
+#~ msgstr "Georgia"
+
+# @ wp-invoice
+#~ msgid "Guam"
+#~ msgstr "Guam"
+
+# @ wp-invoice
+#~ msgid "Hawaii"
+#~ msgstr "Hawaii"
+
+# @ wp-invoice
+#~ msgid "Idaho"
+#~ msgstr "Idaho"
+
+# @ wp-invoice
+#~ msgid "Illinois"
+#~ msgstr "Illinois"
+
+# @ wp-invoice
+#~ msgid "Indiana"
+#~ msgstr "Indiana"
+
+# @ wp-invoice
+#~ msgid "Iowa"
+#~ msgstr "Iowa"
+
+# @ wp-invoice
+#~ msgid "Kansas"
+#~ msgstr "Kansas"
+
+# @ wp-invoice
+#~ msgid "Kentucky"
+#~ msgstr "Kentucky"
+
+# @ wp-invoice
+#~ msgid "Louisiana"
+#~ msgstr "Louisiana"
+
+# @ wp-invoice
+#~ msgid "Maine"
+#~ msgstr "Maine"
+
+# @ wp-invoice
+#~ msgid "Maryland"
+#~ msgstr "Maryland"
+
+# @ wp-invoice
+#~ msgid "Massachusetts"
+#~ msgstr "Massachusetts"
+
+# @ wp-invoice
+#~ msgid "Michigan"
+#~ msgstr "Michigan"
+
+# @ wp-invoice
+#~ msgid "Minnesota"
+#~ msgstr "Minnesota"
+
+# @ wp-invoice
+#~ msgid "Mississippi"
+#~ msgstr "Mississippi"
+
+# @ wp-invoice
+#~ msgid "Missouri"
+#~ msgstr "Missouri"
+
+# @ wp-invoice
+#~ msgid "Montana"
+#~ msgstr "Montana"
+
+# @ wp-invoice
+#~ msgid "Nebraska"
+#~ msgstr "Nebraska"
+
+# @ wp-invoice
+#~ msgid "Nevada"
+#~ msgstr "Nevada"
+
+# @ wp-invoice
+#~ msgid "New Hampshire"
+#~ msgstr "New Hampshire"
+
+# @ wp-invoice
+#~ msgid "New Jersey"
+#~ msgstr "New Jersey"
+
+# @ wp-invoice
+#~ msgid "New Mexico"
+#~ msgstr "New Mexico"
+
+# @ wp-invoice
+#~ msgid "New York"
+#~ msgstr "New York"
+
+# @ wp-invoice
+#~ msgid "North Carolina"
+#~ msgstr "North Carolina"
+
+# @ wp-invoice
+#~ msgid "North Dakota"
+#~ msgstr "North Dakota"
+
+# @ wp-invoice
+#~ msgid "Northern Mariana Islands"
+#~ msgstr "Northern Mariana Islands"
+
+# @ wp-invoice
+#~ msgid "Ohio"
+#~ msgstr "Ohio"
+
+# @ wp-invoice
+#~ msgid "Oklahoma"
+#~ msgstr "Oklahoma"
+
+# @ wp-invoice
+#~ msgid "Oregon"
+#~ msgstr "Oregon"
+
+# @ wp-invoice
+#~ msgid "Pennsylvania"
+#~ msgstr "Pennsylvania"
+
+# @ wp-invoice
+#~ msgid "Puerto Rico"
+#~ msgstr "Puerto Rico"
+
+# @ wp-invoice
+#~ msgid "Rhode Island"
+#~ msgstr "Rhode Island"
+
+# @ wp-invoice
+#~ msgid "South Carolina"
+#~ msgstr "South Carolina"
+
+# @ wp-invoice
+#~ msgid "South Dakota"
+#~ msgstr "South Dakota"
+
+# @ wp-invoice
+#~ msgid "Tennessee"
+#~ msgstr "Tennessee"
+
+# @ wp-invoice
+#~ msgid "Texas"
+#~ msgstr "Texas"
+
+# @ wp-invoice
+#~ msgid "Utah"
+#~ msgstr "Utah"
+
+# @ wp-invoice
+#~ msgid "Vermont"
+#~ msgstr "Vermont"
+
+# @ wp-invoice
+#~ msgid "Virgin Islands"
+#~ msgstr "Virgin Islands"
+
+# @ wp-invoice
+#~ msgid "Virginia"
+#~ msgstr "Virginia"
+
+# @ wp-invoice
+#~ msgid "Washington"
+#~ msgstr "Washington"
+
+# @ wp-invoice
+#~ msgid "West Virginia"
+#~ msgstr "West Virginia"
+
+# @ wp-invoice
+#~ msgid "Wisconsin"
+#~ msgstr "Wisconsin"
+
+# @ wp-invoice
+#~ msgid "Wyoming"
+#~ msgstr "Wyoming"
+
+# @ wp-invoice
+#~ msgid "Alberta"
+#~ msgstr "Alberta"
+
+# @ wp-invoice
+#~ msgid "British Columbia"
+#~ msgstr "British Columbia"
+
+# @ wp-invoice
+#~ msgid "Manitoba"
+#~ msgstr "Manitoba"
+
+# @ wp-invoice
+#~ msgid "New Brunswick"
+#~ msgstr "New Brunswick"
+
+# @ wp-invoice
+#~ msgid "Newfoundland"
+#~ msgstr "Newfoundland"
+
+# @ wp-invoice
+#~ msgid "Northwest Territory"
+#~ msgstr "Northwest Territory"
+
+# @ wp-invoice
+#~ msgid "Nova Scotia"
+#~ msgstr "Nova Scotia"
+
+# @ wp-invoice
+#~ msgid "Ontario"
+#~ msgstr "Ontario"
+
+# @ wp-invoice
+#~ msgid "Prince Edward Island"
+#~ msgstr "Prince Edward Island"
+
+# @ wp-invoice
+#~ msgid "Quebec"
+#~ msgstr "Quebec"
+
+# @ wp-invoice
+#~ msgid "Saskatchewan"
+#~ msgstr "Saskatchewan"
+
+# @ wp-invoice
+#~ msgid "Yukon Territory"
+#~ msgstr "Yukon Territory"
+
+# @ wp-invoice
+#~ msgid "Australian Dollars"
+#~ msgstr "Australian Dollars"
+
+# @ wp-invoice
+#~ msgid "Canadian Dollars"
+#~ msgstr "Canadian Dollars"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Euro"
+#~ msgstr "Euros"
+
+# @ wp-invoice
+#~ msgid "Pounds Sterling"
+#~ msgstr "Pounds Sterling"
+
+# @ wp-invoice
+#~ msgid "Yen"
+#~ msgstr "Yen"
+
+# @ wp-invoice
+#~ msgid "U.S. Dollars"
+#~ msgstr "U.S. Dollars"
+
+# @ wp-invoice
+#~ msgid "New Zealand Dollar"
+#~ msgstr "New Zealand Dollar"
+
+# @ wp-invoice
+#~ msgid "Swiss Franc"
+#~ msgstr "Swiss Franc"
+
+# @ wp-invoice
+#~ msgid "Hong Kong Dollar"
+#~ msgstr "Hong Kong Dollar"
+
+# @ wp-invoice
+#~ msgid "Singapore Dollar"
+#~ msgstr "Singapore Dollar"
+
+# @ wp-invoice
+#~ msgid "Swedish Krona"
+#~ msgstr "Swedish Krona"
+
+# @ wp-invoice
+#~ msgid "Danish Krone"
+#~ msgstr "Danish Krone"
+
+# @ wp-invoice
+#~ msgid "Polish Zloty"
+#~ msgstr "Polish Zloty"
+
+# @ wp-invoice
+#~ msgid "Norwegian Krone"
+#~ msgstr "Norwegian Krone"
+
+# @ wp-invoice
+#~ msgid "Hungarian Forint"
+#~ msgstr "Hungarian Forint"
+
+# @ wp-invoice
+#~ msgid "Czech Koruna"
+#~ msgstr "Czech Koruna"
+
+# @ wp-invoice
+#~ msgid "Israeli Shekel"
+#~ msgstr "Israeli Shekel"
+
+# @ wp-invoice
+#~ msgid "Mexican Peso"
+#~ msgstr "Mexican Peso"
+
+# @ wp-invoice
+#~ msgid "South African Rand"
+#~ msgstr "South African Rand"
+
+# @ wp-invoice
+#~ msgid "[New Invoice] %subject%"
+#~ msgstr "[New Invoice] %subject%"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you the %type% in the amount of %amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link% \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you %type% invoice in the amount of %amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link% \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+
+# @ wp-invoice
+#~ msgid "[Reminder] %subject%"
+#~ msgstr "[Reminder] %subject%"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you a reminder for the %type% in the amount of "
+#~ "%amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link%. \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has sent you a reminder for the %type% invoice in the "
+#~ "amount of %amount%. \n"
+#~ "\n"
+#~ "%description% \n"
+#~ "\n"
+#~ "You may pay, view and print the invoice online by visiting the following "
+#~ "link: \n"
+#~ "%link%. \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+
+# @ wp-invoice
+#~ msgid "Send Receipt"
+#~ msgstr "Send Receipt"
+
+# @ wp-invoice
+#~ msgid "[Payment Received] %subject%"
+#~ msgstr "[Payment Received] %subject%"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Dear %recipient%, \n"
+#~ "\n"
+#~ "%business_name% has received your payment for the %type% in the amount of "
+#~ "%amount%. \n"
+#~ "\n"
+#~ "Thank you very much for your patronage. \n"
+#~ "\n"
+#~ "Best regards, \n"
+#~ "%business_name% (%business_email%)"
+#~ msgstr ""
+#~ "%recipient% 様 \n"
+#~ "\n"
+#~ "%business_name% は、 %type%の 請求額の %amount% の支払いを受け取りました。"
+#~ "いつもご愛顧ありがとうございます。\n"
+#~ "\n"
+#~ "以上、よろしくお願いします。 \n"
+#~ "%business_name% (%business_email%)"
+
+# @ wp-invoice
+#~ msgid "Web Design Services"
+#~ msgstr "Web デザイン サービス"
+
+# @ wp-invoice
+#~ msgid "Web Development Services"
+#~ msgstr "ウェブ開発サービス"
+
+# @ wp-invoice
+#~ msgid "old options found, converted into new format, and deleted."
+#~ msgstr ""
+#~ "古いオプションが見つかりましたが、新しい形式に変換され、削除されました。"
+
+# @ wp-invoice
+#~ msgid "Item"
+#~ msgstr "品目"
+
+# @ wp-invoice
+#~ msgid "Cost"
+#~ msgstr "コスト"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "Partial payment is not available because of an error.\\nContact "
+#~ "Administirator for more information."
+#~ msgstr ""
+#~ "部分的な支払いは、エラーのためご利用いただけません。詳しくは、"
+#~ "Administirator に問い合わせください。"
+
+# @ wp-invoice
+#~ msgid "Charges"
+#~ msgstr "料金"
+
+# @ wp-invoice
+#~ msgid "Subtotal:"
+#~ msgstr "小計："
+
+# @ wp-invoice
+#~ msgid "Tax:"
+#~ msgstr "税:"
+
+# @ wp-invoice
+#~ msgid "Discounts:"
+#~ msgstr "値引："
+
+# @ wp-invoice
+#~ msgid "Adjustments:"
+#~ msgstr "調整額:"
+
+# @ wp-invoice
+#~ msgid "Received Payment:"
+#~ msgstr "受領したお支払い："
+
+# @ wp-invoice
+#~ msgid "Balance:"
+#~ msgstr "残高:"
+
+# @ wp-invoice
+#~ msgid "Time"
+#~ msgstr "時間"
+
+# @ wp-invoice
+#~ msgid "There are no any actions"
+#~ msgstr "アクションがありません。"
+
+# @ wp-invoice
+#~ msgid "Payment Amount"
+#~ msgstr "支払額"
+
+# @ wp-invoice
+#~ msgid "Min. Payment Due:"
+#~ msgstr "最少額お支払期限："
+
+# @ wp-invoice
+#~ msgid "Statement Balance:"
+#~ msgstr "明細書の残高:"
+
+# @ wp-invoice
+#~ msgid "Other"
+#~ msgstr "その他"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This invoice allows partial payments, please select the amount you would "
+#~ "like to pay."
+#~ msgstr ""
+#~ "この請求書は部分支払いが可能です。支払いたい金額を選択してください。"
+
+# @ wp-invoice
+#~ msgid "Payment Method"
+#~ msgstr "お支払い方法"
+
+# @ wp-invoice
+#~ msgid "Due Date: "
+#~ msgstr "期日:　"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "WP-Invoice"
+#~ msgstr "WP-Invoice API キー"
+
+# @ wp-invoice
+#~ msgid "View All"
+#~ msgstr "すべてを表示"
+
+# @ wp-invoice
+#~ msgid "Reports"
+#~ msgstr "レポート"
+
+# @ wp-invoice
+#~ msgid "Error"
+#~ msgstr "エラー"
+
+# @ wp-invoice
+#~ msgid "Template not found:"
+#~ msgstr "テンプレートが見つかりません："
+
+# @ wp-invoice
+#~ msgid "Creating New Invoice"
+#~ msgstr "新しい請求書を作成します。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Begin typing the recipient's email into the input box, or double-click to "
+#~ "view list of possible options."
+#~ msgstr ""
+#~ "受信者の電子メールを入力ボックスに入力を開始、またはダブルクリックして選択"
+#~ "可能なオプションの一覧を表示してください。"
+
+# @ wp-invoice
+#~ msgid "For new prospects, type in a new email address."
+#~ msgstr "新規の見込み客、新しいメール アドレスを入力してください。"
+
+# @ wp-invoice
+#~ msgid "\"Invoice(s) %s trashed.\""
+#~ msgstr "\"請求 %s 破棄済.\""
+
+# @ wp-invoice
+#~ msgid "\"Invoice(s) %s untrashed.\""
+#~ msgstr "\"請求 %s 未破棄.\""
+
+# @ wp-invoice
+#~ msgid "\"Invoice(s) %s deleted.\""
+#~ msgstr "\"請求 %s 削除済.\""
+
+# @ wp-invoice
+#~ msgid "\"Invoice(s) %s unarchived.\""
+#~ msgstr "\"請求 %s 未アーカイブ.\""
+
+# @ wp-invoice
+#~ msgid "\"Invoice(s) %s archived.\""
+#~ msgstr "\"請求 %s アーカイブ済.\""
+
+# @ wp-invoice
+#~ msgid "General Information"
+#~ msgstr "一般的な情報"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "You are on the page which lists your invoices and other item types that "
+#~ "you are using."
+#~ msgstr ""
+#~ "あなたがいるこのページは、請求書とご使用中のその他の種類の項目の一覧を表示"
+#~ "しています。"
+
+# @ wp-invoice
+#~ msgid "Use filter box to find items you need."
+#~ msgstr "お探しの品目を検索するフィルター ボックスをご使用ください。"
+
+# @ wp-invoice
+#~ msgid "This page allows you to manage your sales statistics."
+#~ msgstr "このページでは販売統計が管理できます。"
+
+# @ wp-invoice
+#~ msgid "Main"
+#~ msgstr "メイン"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Business Name</b><br /> Enter your business name here. This field "
+#~ "defaults to the blog name you chose during WordPress installation."
+#~ msgstr ""
+#~ "<b>ビジネス名</b><br>ここにあなたのビジネスの名前を入力します。このフィー"
+#~ "ルドの初期値は、ワードプレスのインストール時に選択したブログ名です。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Business Address</b><br /> Enter your business address here. It will "
+#~ "appear on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>ビジネス アドレス</b><br>ここにあなたのビジネスのアドレスを入力してくだ"
+#~ "さい。それは、請求書とあなたが送る見積りに表示されます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Business Phone</b><br /> Enter your business phone here. It will "
+#~ "appear on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>ビジネス電話</b><br>ここにあなたのビジネスの電話を入力してください。そ"
+#~ "れは、請求書とあなたが送る見積りに表示されます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Email Address</b><br /> Enter your email address here. It will appear "
+#~ "on the invoices and quotes you send."
+#~ msgstr ""
+#~ "<b>メール アドレス</b><br>ここにあなたのメール アドレスを入力してくださ"
+#~ "い。それは、請求書とあなたが送る見積りに表示されます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Display Styles</b><br /> Here you can set, enable or disable the WP-"
+#~ "Invoice default style settings. Change the default values only if you are "
+#~ "an advanced user who understands CSS styles and is able to create their "
+#~ "own stylesheets. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>表示スタイル</b><br>WP-Invoice の既定のスタイルの、有効または無効の設定"
+#~ "は、ここで設定することができます。もしあなたが、CSS スタイルを理解し、独自"
+#~ "のスタイル シートを作成することができる高度なユーザーなら、既定値を変更で"
+#~ "きます。<a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-main/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Tax Handling</b><br /> Here you can set when tax calculation is done "
+#~ "(depends on your country's fiscal system) and you can define a global "
+#~ "default tax. <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>税処理</b><br>税計算が終わったらここで設定することができます (あなたの"
+#~ "国の財政システムによって異なります)、既定のグローバル税を定義できます。<a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-main/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Advanced Settings</b><br /> These settings control advanced features "
+#~ "that have to do with billing, installation features, design issues and "
+#~ "general actions for administrators and developers. <a target=\"_blank\" "
+#~ "href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-main/\">More...</a>"
+#~ msgstr ""
+#~ "<b>高度な設定</b><br>これらの設定は請求のインストール機能、設計上の問題、"
+#~ "管理者と開発者のための一般的なアクションを行う高度な機能を制御します。 <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-main/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid "Business Process"
+#~ msgstr "ビジネス プロセス"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>When creating an invoice</b><br />Options for managing invoice "
+#~ "creating process. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</"
+#~ "a>"
+#~ msgstr ""
+#~ "<b>請求書を作成するとき</b><br>請求書の作成プロセスを管理するためのオプ"
+#~ "ション。 <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-business-process/\">詳しくは ..."
+#~ "</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>When viewing an invoice</b><br />Options for managing invoice view. <a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">More...</a>"
+#~ msgstr ""
+#~ "<b>請求書を表示する場合</b><br>請求書のビューを管理するためのオプション。"
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-business-process/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>How to insert invoice</b><br />Here you have four choices that will "
+#~ "define the way an invoice will appear on the invoice display page you "
+#~ "have set before. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/wp-invoice-settings-business-process/\">More...</"
+#~ "a>"
+#~ msgstr ""
+#~ "<b>請求書を挿入する方法</b><br>以前に設定した請求書の表示ページを定義する"
+#~ "には表示方法の 4 つの選択肢があります。 <a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "business-process/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>After a payment has been completed</b><br />Here we have options that "
+#~ "will create automatic email notifications on successful payment of an "
+#~ "invoice (partial or complete). <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-business-"
+#~ "process/\">More...</a>"
+#~ msgstr ""
+#~ "<b>支払いが完了後</b><br>に、請求書への決済 (部分または完全) に対して自動"
+#~ "メール通知を作成するオプションがあります。 <a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "business-process/\">詳しくは ...</a>"
+
+# @ default
+#~ msgid ""
+#~ "<b>Mail From options</b><br />This options allow you to change the "
+#~ "default email address that WordPress sends it's mail from, and the name "
+#~ "of the sender that the email is from."
+#~ msgstr ""
+#~ "<b>メールからのオプション</b><br>このオプションでは、ワードプレスのメール"
+#~ "と e メールからは、送信者の名前を送信しますデフォルトの電子メール アドレス"
+#~ "を変更できます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Google Analytics Events Tracking</b><br />If you are using <a target="
+#~ "\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
+#~ "tracking/asyncTracking.html\">Google Analytics code snippet</a> for "
+#~ "tracking site activity then you can do it better with WP-Invoice Event "
+#~ "Tracking feature. Tick events you want to track in your Google Analytics "
+#~ "account and see where/when/what people do. To view Events activity go to "
+#~ "Content -> Events in your Google Analytics account."
+#~ msgstr ""
+#~ "<b>Google アナリティクスのイベント追跡</b><br />もし、あなたが<a target="
+#~ "\"_blank\" href=\"http://code.google.com/intl/en/apis/analytics/docs/"
+#~ "tracking/asyncTracking.html\">Google アナリティクス コード スニペット</a>"
+#~ "をサイトの利用状況を追跡するために使用しているとすれば、WP-Invoiceのイベン"
+#~ "トトラッキング機能が使用できます。Google アナリティクスアカウントでトラッ"
+#~ "キングして、人々がどこで、いつ、何を参照したいイベントに印をつけてくださ"
+#~ "い。イベント活動を表示するには、あなたのGoogle アナリティクス アカウント"
+#~ "の コンテンツ -> イベント に行ってください。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<u>Attempting to pay Invoices</u> - event is triggered on clicking "
+#~ "\"Process Payment\" button on Invoice page."
+#~ msgstr ""
+#~ "<u>請求書が支払われようとしています</u>- 請求書ページの「支払処理」ボタン"
+#~ "をクリックすると、イベントが開始されます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<u>View Invoices</u> - event is triggered when Invoice was viewed by the "
+#~ "customer."
+#~ msgstr ""
+#~ "<u>請求書の表示</u>- 請求書が顧客によって表示されたときにイベントが開始さ"
+#~ "れます。"
+
+# @ wp-invoice
+#~ msgid "<i>More Events soon!</i>"
+#~ msgstr "<i>今後のイベントをお楽しみに！</i>"
+
+# @ wp-invoice
+#~ msgid "Payment"
+#~ msgstr "お支払い"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Default Currency</b><br />Sets the default currency you will use in "
+#~ "your invoices. Default value is U.S. Dollars."
+#~ msgstr ""
+#~ "<b>通貨の規定値設定</b><br>請求書に使用する通貨の規定値を設定します。初期"
+#~ "値は米ドルです。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Currency list</b><br>This expandable area allows you to manage the "
+#~ "list of currencies you have. You can add new currencies or remove "
+#~ "existing ones.<br>Be aware, if you add a new currency please make sure "
+#~ "that it corresponds to ISO 4217 and the currency code can be accepted by "
+#~ "the payment services / gateways you are using. Here's a <a href=\"http://"
+#~ "en.wikipedia.org/wiki/List_of_circulating_currencies\">list of "
+#~ "currencies</a> with ISO codes and currency symbols.<br>Note that you "
+#~ "cannot delete a currency which has already been used in an existing "
+#~ "invoice or that is currently selected as default. To do so, delete any "
+#~ "invoices using that currency first."
+#~ msgstr ""
+#~ "<b>通貨リスト</b><br>この拡張エリアで通貨の一覧が管理できます。新しい通貨"
+#~ "の追加または既存のものの削除ができます。<br>新しい通貨を追加する場合は、 "
+#~ "ISO 4217 に対応するか、またその通貨コードがご利用の決済サービスやゲート"
+#~ "ウェイによって受け入れられるかどうかに注意してください。ISO コードと通貨記"
+#~ "号と<a href=\"http://en.wikipedia.org/wiki/List_of_circulating_currencies"
+#~ "\">通貨の一覧</a>はこちらです。<br>既に既存の請求に使用されている、また"
+#~ "は、現在既定値として選択されている通貨は削除できないので注意してください。"
+#~ "これを行う場合は、まずその通貨を使用しているすべての請求書を削除する必要が"
+#~ "あります。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Default Payment Method</b><br />Here you can choose what default "
+#~ "payment method you want to use for invoice payments."
+#~ msgstr ""
+#~ "<b>デフォルトの支払い方法</b><br>ここで、請求書の支払いに使用するデフォル"
+#~ "トの支払い方法が選択できます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Payment Gateways</b><br />Here you can specify Gateways which you want "
+#~ "to use for your invoices by default. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/"
+#~ "\">More...</a>"
+#~ msgstr ""
+#~ "<b>支払ゲートウェイ</b><br>ここではあなたの請求書の既定で使用するゲート"
+#~ "ウェイが指定できます。 <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-payment/\">"
+#~ "詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<b>Manual Payment Information</b><br />If you don't want to use payment "
+#~ "gateways but offline payments, or if an invoice has no payment gateways "
+#~ "enabled, the text in this field will appear as a message to the customer, "
+#~ "offering guidance on how to pay you. Write a short text with your bank "
+#~ "account number or any other way you want to accept the offline payment. "
+#~ "<a target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-payment/\">More...</a>"
+#~ msgstr ""
+#~ "<b>手動のお支払い情報</b><br>支払ゲートウェイではなくオフラインの支払を使"
+#~ "用したい場合、または請求書に対して有効な支払いゲートウェイが存在しない場合"
+#~ "は、このフィールド内のテキストがあなたへの支払い方法に関するガイダンス、顧"
+#~ "客へのメッセージとして表示されます。あなたの銀行口座番号やオフラインの支払"
+#~ "いが受け取れる他の方法を短いテキストで記入してください。<a target=\"_blank"
+#~ "\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-payment/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid "E-Mail Templates"
+#~ msgstr "電子メール テンプレート"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "You can create as many e-mailed templates as needed, they can later be "
+#~ "used to quickly create invoice notifications and reminders, and being "
+#~ "sent directly from an invoice page. The following variables can be used "
+#~ "within the Subject or the Content of the e-mail templates:"
+#~ msgstr ""
+#~ "必要に応じて電子メールのテンプレートはいくつでも作成できます、請求通知、リ"
+#~ "マインダーを後ですばやく作成するために使用でき、請求書のページから直接送信"
+#~ "することができます。以下の変数は、件名や電子メール テンプレートのコンテン"
+#~ "ツ内で使用することができます。"
+
+# @ wp-invoice
+#~ msgid "URL of invoice"
+#~ msgstr "請求書の URL"
+
+# @ wp-invoice
+#~ msgid "Name or business name of receipient"
+#~ msgstr "受取人の氏名またはビジネス名"
+
+# @ wp-invoice
+#~ msgid "Due BalanceID"
+#~ msgstr "期末残高 ID"
+
+# @ wp-invoice
+#~ msgid "Invoice title"
+#~ msgstr "請求書のタイトル"
+
+# @ wp-invoice
+#~ msgid "Description of Invoice"
+#~ msgstr "請求書の説明"
+
+# @ wp-invoice
+#~ msgid "Business Name"
+#~ msgstr "事業名"
+
+# @ wp-invoice
+#~ msgid "Business Email Address"
+#~ msgstr "ビジネス　メール アドレス"
+
+# @ wp-invoice
+#~ msgid "Name of user who has created invoice"
+#~ msgstr "請求書を作成したユーザーの名前"
+
+# @ wp-invoice
+#~ msgid "Email of user who has created invoice"
+#~ msgstr "請求書を作成したユーザーの電子メール"
+
+# @ wp-invoice
+#~ msgid "Invoice due date (if presented)"
+#~ msgstr "請求書の期限日 (表示される場合)"
+
+# @ wp-invoice
+#~ msgid "More..."
+#~ msgstr "詳細 ..."
+
+# @ wp-invoice
+#~ msgid "Line Items"
+#~ msgstr "取扱品目"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Predefined Line Items are common services and/or products that you can "
+#~ "create once and use in your invoices. For example, if you are a Web "
+#~ "professional and your usual invoice has at least an hour of Web Design "
+#~ "or / and Web Development services, you can create these item entries to "
+#~ "save yourself from typing it every time. When you create a new invoice or "
+#~ "quote (with the Quotes Premium Feature), or edit an existing one, you "
+#~ "will be able to select these items from a list and if you want, edit the "
+#~ "name, description, quantity, price and tax. <a target=\"_blank\" href="
+#~ "\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-"
+#~ "predefined-line-items/\">More...</a>"
+#~ msgstr ""
+#~ "定義済みの取扱品目は、一度作成すれば、あなたの請求書に共通サービスまたは製"
+#~ "品として使用することができます。例えば、あなたがウェブ専門家で、通常の請求"
+#~ "書では、Web デザインまたはWeb 開発サービスの時間が少なくとも1時間以上の場"
+#~ "合、毎回入力する時間を節約するために、これらのアイテムのエントリを作成する"
+#~ "ことができます。新しい請求書または見積り （見積りプレミアム機能を使用)を作"
+#~ "成または、既存のものを編集するとき、これらの項目を一覧から選択し、必要に応"
+#~ "じて、名前、説明、数量、価格および税を編集することができます。 <a target="
+#~ "\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-"
+#~ "invoice-settings-predefined-line-items/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#~ msgid "Help"
+#~ msgstr "ヘルプ"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "This tab will help you troubleshoot your plugin."
+#~ msgstr ""
+#~ "このタブは、プレミアム機能の更新のチェックとプラグインのトラブルシューティ"
+#~ "ングに役立ちます。"
+
+# @ wp-invoice
+#~ msgid "Shortcodes"
+#~ msgstr "ショート コード"
+
+# @ wp-invoice
+# @ default
+#~ msgid "Invoice History"
+#~ msgstr "インボイス履歴"
+
+# @ wp-invoice
+#~ msgid "Shortcode:"
+#~ msgstr "ショート コード:"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Works the same way as 'Invoice History' widget. Shows invoice list for "
+#~ "currently logged in users."
+#~ msgstr ""
+#~ "請求書履歴のウィジェットと同じように動作します。現在ログイン中のユーザの請"
+#~ "求書一覧を表示します。"
+
+# @ wp-invoice
+#~ msgid "Invoice Lookup"
+#~ msgstr "請求書照合"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Works the same way as 'Invoice Lookup' widget. Allows you to search your "
+#~ "invoices by invoice numbers."
+#~ msgstr ""
+#~ "「請求書参照」ウィジェットと同じように動作します。お客様の請求書を請求書番"
+#~ "号で検索することができます。"
+
+# @ wp-invoice
+#~ msgid "Title"
+#~ msgstr "タイトル"
+
+# @ wp-invoice
+#~ msgid "Total Collected"
+#~ msgstr "集金合計"
+
+# @ wp-invoice
+#~ msgid "Recipient"
+#~ msgstr "受信者"
+
+# @ wp-invoice
+#~ msgid "Date"
+#~ msgstr "日付"
+
+# @ wp-invoice
+#~ msgid "Payment Settings"
+#~ msgstr "支払い設定"
+
+# @ default
+# @ wp-invoice
+#~ msgid "Overview"
+#~ msgstr "概要"
+
+# @ wp-invoice
+#~ msgid "Publish"
+#~ msgstr "発行"
+
+# @ wp-invoice
+#~ msgid "User Information"
+#~ msgstr "ユーザー情報"
+
+# @ wp-invoice
+#~ msgid "For more information:"
+#~ msgstr "詳細情報："
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">WP-Invoice Product Page</a>"
+#~ msgstr ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/\" target="
+#~ "\"_blank\">WP-Invoice 製品ページ</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoice Forums</a>"
+#~ msgstr ""
+#~ "<a href=\"https://usabilitydynamics.com/products/wp-invoice/forum/\" "
+#~ "target=\"_blank\">WP-Invoiceフォーラム</a>"
+
+# @ wp-invoice
+#~ msgid "Please upgrade Wordpress to the latest version for detailed help."
+#~ msgstr ""
+#~ "詳細なヘルプのためには、Wordpress を最新のバージョンにアップグレードしてく"
+#~ "ださい。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Or visit <a href=\"https://usabilitydynamics.com/products/wp-invoice/\" "
+#~ "target=\"_blank\">WP-Invoice Help Page</a> on UsabilityDynamics.com"
+#~ msgstr ""
+#~ "または、UsabilityDynamics.com の <a href=\"https://usabilitydynamics.com/"
+#~ "products/wp-invoice/\" target=\"_blank\">WP-Invoice ヘルプのページ</a> を"
+#~ "ご参照ください。"
+
+# @ wp-invoice
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+# @ wp-invoice
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+# @ default
+#~ msgid "Select"
+#~ msgstr "選択"
+
+# @ wp-invoice
+#~ msgid "Values are empty"
+#~ msgstr "値が空です。"
+
+# @ wp-invoice
+#~ msgid "View Profile"
+#~ msgstr "プロフィール表示"
+
+# @ wp-invoice
+#~ msgid "Get WP-CRM plugin to enhance user management."
+#~ msgstr "ユーザー管理を強化するために WP CRM プラグインを取得してください。"
+
+# @ wp-invoice
+#~ msgid "WP-Invoice custom field"
+#~ msgstr "WP-Invoice のカスタム フィールド"
+
+# @ wp-invoice
+#~ msgid "<h3>WP-Invoice</h3>"
+#~ msgstr "<h3>WP-Invoice</h3>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<p>Advanced option <b>WP-Invoice custom field</b> may be used for adding "
+#~ "custom user data fields for payments forms.</p>"
+#~ msgstr ""
+#~ "<p>高度なオプション<b>WP-Invoice のカスタム フィールド</b>は、支払いフォー"
+#~ "ム用のカスタムユーザー データ フィールドを追加するために使用できます。</p>"
+
+# @ wp-invoice
+#~ msgid "<p>Works for Authorize.net payment method only for now.</p>"
+#~ msgstr "<p>現在動作するのは、Authorize.net の支払方法のみです。</p>"
+
+# @ wp-invoice
+#~ msgid "<h3>WP-Invoice Notifications</h3>"
+#~ msgstr "<h3>WP-Invoice 通知</h3>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "<p>For your notifications on any of this Trigger actions &mdash; <i>WPI: "
+#~ "Invoice Paid (Client Receipt)</i>, <i>WPI: Invoice Paid (Notify "
+#~ "Administrator)</i>, <i>WPI: Invoice Paid (Notify Creator)</i> &mdash; you "
+#~ "can use this shortcodes:</p>"
+#~ msgstr ""
+#~ "<p>このトリガ ・ アクションのいずれかのあなたへの通知 &mdash;<i>WPI: 請求"
+#~ "書の支払い （クライアント領収書）</i>、 <i>WPI: 請求書の支払い （通知管理"
+#~ "者)</i>、 <i>WPI: 請求書支払い (通知の作成者)</i> — このショート コードを"
+#~ "使用できます：</p>"
+
+#, fuzzy
+#~ msgid "Find"
+#~ msgstr "この Chargify 製品が見つかりませんでした。"
+
+# @ default
+#~ msgid "Title:"
+#~ msgstr "タイトル:"
+
+# @ wp-invoice
+# @ default
+#~ msgid "Message:"
+#~ msgstr "メッセージ："
+
+# @ default
+#~ msgid "Button Text:"
+#~ msgstr "ボタンのテキスト:"
+
+# @ default
+#, fuzzy
+#~ msgid "User's Paid and Pending Invoices"
+#~ msgstr "ユーザー&#8217;s 支払済と保留中の請求書"
+
+#, fuzzy
+#~ msgid "Types to display:"
+#~ msgstr "表示"
+
+#, fuzzy
+#~ msgid "Statuses to display:"
+#~ msgstr "表示"
+
+#, fuzzy
+#~ msgid "User Email is malformed."
+#~ msgstr "user_email 変更済。"
+
+#, fuzzy
+#~ msgid "Unknown invoice type."
+#~ msgstr "タイプ"
+
+#, fuzzy
+#~ msgid "Unknown invoice status."
+#~ msgstr "請求書の状態は '支払済' に変更されました。"
+
+#, fuzzy
+#~ msgid "Discount name is required."
+#~ msgstr "値引き"
+
+#, fuzzy
+#~ msgid "Discount amount is required."
+#~ msgstr "金額割引"
+
+#, fuzzy
+#~ msgid "Unknown \"tax_method\"."
+#~ msgstr "税方式"
+
+#, fuzzy
+#~ msgid "Argument \"ID\" is required."
+#~ msgstr "販売アカウント ID"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Invoice not found"
+#~ msgstr ""
+#~ "機能が実行されましたが、請求書の ID は見つかりません。新規の請求書ですか。"
+
+#, fuzzy
+#~ msgid "Argument \"amount\" is required."
+#~ msgstr "金額"
+
+#, fuzzy
+#~ msgid "Argument \"amount\" is malformed."
+#~ msgstr "金額"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Minimum allowed payment is "
+#~ msgstr "最低支払額"
+
+#, fuzzy
+#~ msgid "Unknown method"
+#~ msgstr "お支払い方法"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "WP-Invoice XML-RPC API Reference"
+#~ msgstr "WP-Invoice API キー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Toggle"
+#~ msgstr "高度な切替"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Examples"
+#~ msgstr "有効期限"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Arguments:"
+#~ msgstr "調整額:"
+
+# @ wp-invoice
+#~ msgid "Gateway Username"
+#~ msgstr "ゲートウェイ ユーザー名"
+
+# @ wp-invoice
+#~ msgid "Your credit card processor will provide you with a gateway username."
+#~ msgstr ""
+#~ "あなたのクレジット カードのプロセッサがゲートウェイ ユーザー名を提供しま"
+#~ "す。"
+
+# @ wp-invoice
+#~ msgid "Gateway Transaction Key"
+#~ msgstr "ゲートウェイ　 トランザクションのキー"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "You will be able to generate this in your credit card processor's control "
+#~ "panel."
+#~ msgstr ""
+#~ "これはあなたのクレジット カードのプロセッサのコントロール・パネルで生成で"
+#~ "きます。"
+
+# @ wp-invoice
+#~ msgid "Gateway URL"
+#~ msgstr "ゲートウェイ URL"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This is the URL provided to you by your credit card processing company."
+#~ msgstr ""
+#~ "これはあなたのクレジット カード処理会社によって提供される URL です。"
+
+# @ wp-invoice
+#~ msgid "Recurring Billing Gateway URL"
+#~ msgstr "定期請求用ゲートウェイ URL"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Recurring billing gateway URL is most likely different from the Gateway "
+#~ "URL, and will almost always be with Authorize.net. Be advised - test "
+#~ "credit card numbers will be declined even when in test mode."
+#~ msgstr ""
+#~ "定期的な支払いゲートウェイ URL は、ゲートウェイ URL とは異なり、ほぼ常に "
+#~ "Authorize.net と連動します。注意 - テスト モード時でもテスト用のクレジッ"
+#~ "ト カード番号は拒否されます。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Test / Live Mode"
+#~ msgstr "テスト/ライブ モード："
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Live - Process Transactions"
+#~ msgstr "ゲートウェイ　 トランザクションのキー"
+
+# @ wp-invoice
+#~ msgid "Delimiter Character"
+#~ msgstr "区切り文字"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Get this from your credit card processor. If the transactions are not "
+#~ "going through, this character is most likely wrong."
+#~ msgstr ""
+#~ "これはあなたのクレジット カードのプロセッサから取得します。トランザクショ"
+#~ "ンが通過しない場合は、この文字は間違いの可能性があります。"
+
+# @ wp-invoice
+#~ msgid "Encapsulation Character"
+#~ msgstr "カプセル化文字"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Authorize.net default is blank. Otherwise, get this from your credit card "
+#~ "processor. If the transactions are going through, but getting strange "
+#~ "responses, this character is most likely wrong."
+#~ msgstr ""
+#~ "Authorize.net の既定値は空白です。それ以外の場合は、このあなたのクレジッ"
+#~ "ト カードのプロセッサから取得します。トランザクションを通過しても、思いも"
+#~ "寄らない応答を取得する場合は、この文字は間違いの可能性があります。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Email Customer (on success)"
+#~ msgstr "顧客にメール (成功時) :"
+
+# @ wp-invoice
+#~ msgid "Merchant Email"
+#~ msgstr "販売者メール"
+
+# @ wp-invoice
+#~ msgid "Customer Receipt Email Header"
+#~ msgstr "顧客領収書メール ヘッダー"
+
+# @ wp-invoice
+#~ msgid "Security: MD5 Hash"
+#~ msgstr "セキュリティ: MD5 ハッシュ"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Delim Data"
+#~ msgstr "区切り データ:"
+
+#, fuzzy
+#~ msgid "Silent Post URL"
+#~ msgstr "請求書の URL"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "User Email"
+#~ msgstr "user_email 変更済。"
+
+# @ wp-invoice
+#~ msgid "Address"
+#~ msgstr "住所"
+
+#, fuzzy
+#~ msgid "Zip"
+#~ msgstr "郵便番号"
+
+# @ wp-invoice
+#~ msgid "Country"
+#~ msgstr "国"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Card Number"
+#~ msgstr "あなたのクレジット カード番号を入力する必要があります。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Expiration Month"
+#~ msgstr "月"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Expiration Year"
+#~ msgstr "年"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Card Code"
+#~ msgstr "あなたのクレジット カード CVV コードを入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "Bill Every"
+#~ msgstr "請求頻度"
+
+# @ wp-invoice
+#~ msgid "Day(s)"
+#~ msgstr "日毎"
+
+# @ wp-invoice
+#~ msgid "Month(s)"
+#~ msgstr "か月毎"
+
+# @ wp-invoice
+#~ msgid "Billing Cycles"
+#~ msgstr "請求サイクル"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Payment Date"
+#~ msgstr "日付"
+
+# @ wp-invoice
+#~ msgid "Automatically."
+#~ msgstr "自動。"
+
+# @ wp-invoice
+#~ msgid "In One Week"
+#~ msgstr "1 週間以内"
+
+# @ wp-invoice
+#~ msgid "In 30 Days"
+#~ msgstr "30 日間以内"
+
+# @ wp-invoice
+#~ msgid "Clear"
+#~ msgstr "取消"
+
+# @ wp-invoice
+#~ msgid "Subscription initiated, Subcription ID"
+#~ msgstr "開始された購読、購読ID"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "One-time credit card payment is processed successfully. However, "
+#~ "recurring billing setup failed. "
+#~ msgstr ""
+#~ "一回のみのクレジットカード支払い処理が成功しましたが、定期的な請求の設定に"
+#~ "は失敗しました。  "
+
+# @ wp-invoice
+#~ msgid "Response Code: "
+#~ msgstr "レスポンスコード：  "
+
+# @ wp-invoice
+#~ msgid "Subscription error"
+#~ msgstr "予約申し込みエラー"
+
+# @ wp-invoice
+#~ msgid "Subscription completely paid"
+#~ msgstr "予約購読完済"
+
+#, fuzzy
+#~ msgid "Shop ID"
+#~ msgstr "販売アカウント ID"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Secret Key"
+#~ msgstr "API キー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Test Key"
+#~ msgstr "API キー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Status URL"
+#~ msgstr "ステータス"
+
+# @ wp-invoice
+#~ msgid "Email Address"
+#~ msgstr "メールアドレス"
+
+# @ wp-invoice
+#~ msgid "State/Province"
+#~ msgstr "都道府県"
+
+# @ wp-invoice
+#~ msgid "Zip/Postal Code"
+#~ msgstr "郵便番号"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "InterKassa Recurring Billing"
+#~ msgstr "定期請求用ゲートウェイ URL"
+
+# @ wp-invoice
+#~ msgid "Direct access not allowed"
+#~ msgstr "直接アクセス不可"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "%s paid via InterKassa [%s]"
+#~ msgstr "%s が PayPal 経由で支払われました"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Transaction ID: %s"
+#~ msgstr "Google Buyer ID: %s"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Bank Name"
+#~ msgstr "名前"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Account Number"
+#~ msgstr ""
+#~ "<b>手動のお支払い情報</b><br>支払ゲートウェイではなくオフラインの支払を使"
+#~ "用したい場合、または請求書に対して有効な支払いゲートウェイが存在しない場合"
+#~ "は、このフィールド内のテキストがあなたへの支払い方法に関するガイダンス、顧"
+#~ "客へのメッセージとして表示されます。あなたの銀行口座番号やオフラインの支払"
+#~ "いが受け取れる他の方法を短いテキストで記入してください。<a target=\"_blank"
+#~ "\" href=\"https://usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-"
+#~ "settings-payment/\">詳しくは ...</a>"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Payoneer Recurring Billing"
+#~ msgstr "定期請求用ゲートウェイ URL"
+
+# @ wp-invoice
+#~ msgid "PayPal Username"
+#~ msgstr "ペイパルのユーザー名"
+
+# @ wp-invoice
+#~ msgid "Use in Test Mode"
+#~ msgstr "テストモードで使用"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Use PayPal SandBox for test mode"
+#~ msgstr "Google サンドボックスのテストモードを使用"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "PayPal IPN URL"
+#~ msgstr "PayPal 支払ボタンの URL"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "PayPal Subscriptions"
+#~ msgstr "ペイパル"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Week(s)"
+#~ msgstr "1 週間以内"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Year(s)"
+#~ msgstr "年"
+
+# @ wp-invoice
+#~ msgid "PayPal Subscription created"
+#~ msgstr "PayPal 購読が作成されました"
+
+# @ wp-invoice
+#~ msgid "PayPal Subscription cancelled"
+#~ msgstr "PayPal 購読が取り消されました"
+
+# @ wp-invoice
+#~ msgid "PayPal Subscription payment failed"
+#~ msgstr "PayPal 購読の支払いに失敗しました"
+
+# @ wp-invoice
+#~ msgid "%1s paid for subscription %2s"
+#~ msgstr "%1s が %2s の購読に支払われました"
+
+# @ wp-invoice
+#~ msgid "PayPal Subscription term is finished"
+#~ msgstr "PayPal の購読期間が終了しました"
+
+# @ wp-invoice
+#~ msgid "PayPal Subscription modified"
+#~ msgstr "PayPal 購読が修正されました"
+
+# @ wp-invoice
+#~ msgid "%s paid via PayPal"
+#~ msgstr "%s が PayPal 経由で支払われました"
+
+# @ wp-invoice
+#~ msgid "PayPal Payer email: %s"
+#~ msgstr "PayPal 支払者の Email: %s"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Test Secret Key"
+#~ msgstr "API キー"
+
+#, fuzzy
+#~ msgid "Test Publishable Key"
+#~ msgstr "API キー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Live Secret Key"
+#~ msgstr "テスト/ライブ モード："
+
+#, fuzzy
+#~ msgid "Live Publishable Key"
+#~ msgstr "テスト/ライブ モード："
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Mode"
+#~ msgstr "テストモードで使用"
+
+#, fuzzy
+#~ msgid "Webhook URL"
+#~ msgstr "請求書の URL"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Stripe Subscriptions"
+#~ msgstr "利用可能なサブスクリプション"
+
+#, fuzzy
+#~ msgid "Specifies billing frequency."
+#~ msgstr "請求サイクル"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Interval"
+#~ msgstr "インストール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Week"
+#~ msgstr "1 週間以内"
+
+# @ wp-invoice
+#~ msgid "Month"
+#~ msgstr "月"
+
+# @ wp-invoice
+#~ msgid "Year"
+#~ msgstr "年"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Interval Count"
+#~ msgstr "イベントの数量"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Subscription has been initiated. Plan: %s, Customer: %s"
+#~ msgstr "開始された購読、購読ID"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid " paid via STRIPE"
+#~ msgstr "%s が PayPal 経由で支払われました"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Successfully processed by "
+#~ msgstr "アーカイブに成功しました。"
+
+#, fuzzy
+#~ msgid "STRIPE Card ID: "
+#~ msgstr "カード"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Successfully paid. Thank you."
+#~ msgstr "アーカイブに成功しました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Service is currently unavailable. Please try again later."
+#~ msgstr "メールを送信できませんでした。しばらくしてから再度お試しください。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Stripe Subscription Payment"
+#~ msgstr "PayPal 購読の支払いに失敗しました"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Stripe Subscription has been canceled"
+#~ msgstr "PayPal 購読が取り消されました"
+
+#, fuzzy
+#~ msgid "2Checkout Seller ID"
+#~ msgstr "販売アカウント ID"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Demo Mode"
+#~ msgstr "テストモードで使用"
+
+#, fuzzy
+#~ msgid "Use 2Checkout Demo Mode"
+#~ msgstr "テストモードで使用"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "2Checkout Recurring Billing"
+#~ msgstr "定期請求用ゲートウェイ URL"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Specifies billing duration."
+#~ msgstr "請求サイクル"
+
+# @ wpi_gateway
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Duration"
+#~ msgstr "説明"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "%s paid via 2Checkout"
+#~ msgstr "%s が PayPal 経由で支払われました"
+
+#, fuzzy
+#~ msgid "2Checkout buyer email: %s"
+#~ msgstr "Google Buyer ID: %s"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Recurring billing stopped."
+#~ msgstr "定期請求用ゲートウェイ URL"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Recurring installment failed."
+#~ msgstr "定期的な請求書が更新されました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Recurring installments completed."
+#~ msgstr "自動更新"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Recurring sale restarted."
+#~ msgstr "自動更新"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Process Payment"
+#~ msgstr "支払いを処理　　"
+
+# @ wp-invoice
+#~ msgid "Process Payment of %s"
+#~ msgstr "%s の支払い処理"
+
+# @ wp-invoice
+#~ msgid "Process Payment of "
+#~ msgstr "支払いを処理　　"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Payment Details"
+#~ msgstr "お支払い"
+
+#, fuzzy
+#~ msgid "Not set"
+#~ msgstr "期限の日付が設定されていません"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Process Payer Information"
+#~ msgstr "PayPal 支払者の Email: %s"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Custom Amount"
+#~ msgstr "金額"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Your Amount"
+#~ msgstr "金額"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Enter Amount"
+#~ msgstr "イベントの数量"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Billing Information"
+#~ msgstr "請求サイクル"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Expiration (Month)"
+#~ msgstr "月"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Expiration (Year)"
+#~ msgstr "年"
+
+# @ wp-invoice
+#~ msgid "Invoice %s not found."
+#~ msgstr "請求書 %s は見つかりません。"
+
+# @ wp-invoice
+#~ msgid "Enter Invoice ID"
+#~ msgstr "請求 ID を入力"
+
+# @ wp-invoice
+#~ msgid "Hide"
+#~ msgstr "非表示"
+
+# @ wp-invoice
+#~ msgid "Show"
+#~ msgstr "表示"
+
+# @ wp-invoice
+#~ msgid "Filter Results"
+#~ msgstr "フィルターの結果"
+
+# @ wp-invoice
+#~ msgid "Restore"
+#~ msgstr "回復"
+
+# @ wp-invoice
+#~ msgid "Archive"
+#~ msgstr "アーカイブ"
+
+# @ wp-invoice
+#~ msgid "Delete Permanently"
+#~ msgstr "完全削除"
+
+# @ wp-invoice
+#~ msgid "Move to Trash"
+#~ msgstr "ゴミ箱に移動"
+
+# @ wp-invoice
+#~ msgid "Un-Archive"
+#~ msgstr "アーカイブしない"
+
+# @ wp-invoice
+#~ msgid "Edit &#8220;%s&#8221;"
+#~ msgstr "編集 &#8220;%s&#8221;"
+
+# @ wp-invoice
+#~ msgid "Edit this item"
+#~ msgstr "この品目を編集"
+
+# @ wp-invoice
+#~ msgid "Edit"
+#~ msgstr "編集"
+
+# @ wp-invoice
+#~ msgid "Un-Archive this item"
+#~ msgstr "このアイテムをアーカイブしない"
+
+# @ wp-invoice
+#~ msgid "Archive this item"
+#~ msgstr "この品目をアーカイブ"
+
+# @ wp-invoice
+#~ msgid "Restore this item from the Trash"
+#~ msgstr "ゴミ箱からこの品目を回復"
+
+# @ wp-invoice
+#~ msgid "Move this item to the Trash"
+#~ msgstr "この品目をゴミ箱に移動"
+
+# @ wp-invoice
+#~ msgid "Trash"
+#~ msgstr "ゴミ箱"
+
+# @ wp-invoice
+#~ msgid "Delete this item permanently"
+#~ msgstr "この品目を完全に削除"
+
+# @ wp-invoice
+#~ msgid "View &#8220;%s&#8221;"
+#~ msgstr "表示 &#8220;%s&#8221;"
+
+# @ wp-invoice
+#~ msgid "View"
+#~ msgstr "表示"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid " ago"
+#~ msgstr "日前  "
+
+# @ wp-invoice
+#~ msgid "of"
+#~ msgstr "の"
+
+# @ wp-invoice
+#~ msgid "WP-Invoice First-Use Setup"
+#~ msgstr "WP-Invoice 初期設定"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Thank you for installing WP-Invoice.  Please provide the necessary "
+#~ "information to complete the first-time setup."
+#~ msgstr ""
+#~ "WP-Invoice をインストールしていただき感謝します。初期設定に必要な情報を入"
+#~ "力してください。"
+
+# @ wp-invoice
+#~ msgid "Basic Setup"
+#~ msgstr "基本設定"
+
+# @ wp-invoice
+#~ msgid "Business Name:"
+#~ msgstr "事業名："
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Your clients will have to follow their secure link to this page to see "
+#~ "their invoice. Opening this page without following a link will result in "
+#~ "the standard page content begin shown."
+#~ msgstr ""
+#~ "あなたの顧客は請求書を見るために安全なリンクを経由する必要があります。以下"
+#~ "のリンクを経由しない場合は一般的な内容が結果として表示されます。"
+
+# @ wp-invoice
+#~ msgid "Select a page to display invoices:"
+#~ msgstr "請求書を表示するためにページを選択："
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Select whether to overwrite all page content, insert at the bottom of the "
+#~ "content, or to look for the [wp-invoice] tag."
+#~ msgstr ""
+#~ "すべてのページのコンテンツを上書きし、コンテンツの下部に挿入するか [wp-"
+#~ "invoice] タグを探すかを選択します。"
+
+# @ wp-invoice
+#~ msgid "How to Insert Invoice:"
+#~ msgstr "インボイスの挿入方法："
+
+# @ wp-invoice
+#~ msgid "Overwrite All Page Content"
+#~ msgstr "すべてのページ内容を上書き"
+
+# @ wp-invoice
+#~ msgid "Place Below Content"
+#~ msgstr "下記内容を配置"
+
+# @ wp-invoice
+#~ msgid "Above Content"
+#~ msgstr "上記内容"
+
+# @ wp-invoice
+#~ msgid "Replace [wp-invoice] Tag"
+#~ msgstr " [wp-invoice]タグを配置"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "If using the tag, place <span class=\"wp_invoice_explanation\">[wp-"
+#~ "invoice]</span> somewhere within your page content."
+#~ msgstr ""
+#~ "タグを使用する場合は、 <span class=\\\"wp_invoice_explanation\\\">[wp-"
+#~ "invoice]</span>をページのコンテンツ内のどこかに配置します。"
+
+# @ wp-invoice
+#~ msgid "Default Payment Method:"
+#~ msgstr "支払い方法初期値："
+
+# @ wp-invoice
+#~ msgid "Client can change payment method:"
+#~ msgstr "クライアントは、支払方法を変更することができます。"
+
+# @ wp-invoice
+#~ msgid "Accept "
+#~ msgstr "受け入れる"
+
+# @ wp-invoice
+#~ msgid "Notice the "
+#~ msgstr "お知らせ "
+
+# @ wp-invoice
+#~ msgid " Tab "
+#~ msgstr "タブ "
+
+# @ wp-invoice
+#~ msgid " below. "
+#~ msgstr "以下。 "
+
+# @ wp-invoice
+#~ msgid "Save All Settings"
+#~ msgstr "すべての設定を保存します。"
+
+# @ wp-invoice
+#~ msgid "Send Notification"
+#~ msgstr "通知を送信"
+
+# @ wp-invoice
+#~ msgid "To:"
+#~ msgstr "宛先："
+
+# @ wp-invoice
+#~ msgid "Template:"
+#~ msgstr "テンプレート:"
+
+# @ wp-invoice
+#~ msgid "Subject:"
+#~ msgstr "件名："
+
+# @ default
+# @ wp-invoice
+#~ msgid "Cancel"
+#~ msgstr "キャンセル"
+
+# @ wp-invoice
+#~ msgid "View Online"
+#~ msgstr "オンライン表示"
+
+# @ wp-invoice
+#~ msgid "Enter Payment"
+#~ msgstr "支払を入力"
+
+# @ wp-invoice
+#~ msgid "Allow Partial Payment"
+#~ msgstr "部分的な支払いを許可"
+
+# @ wp-invoice
+#~ msgid "Minimum Payment"
+#~ msgstr "最低支払額"
+
+# @ wp-invoice
+#~ msgid "Recurring Bill"
+#~ msgstr "定期的な支払"
+
+# @ wp-invoice
+#~ msgid "Toggle Advanced"
+#~ msgstr "高度な切替"
+
+# @ wp-invoice
+#~ msgid "Custom Invoice ID"
+#~ msgstr "カスタム請求書 ID"
+
+# @ wp-invoice
+#~ msgid "Global Tax"
+#~ msgstr "グローバル税"
+
+# @ wp-invoice
+#~ msgid "Tax Method"
+#~ msgstr "税方式"
+
+# @ wp-invoice
+#~ msgid "Before Discount"
+#~ msgstr "割引前"
+
+# @ wp-invoice
+#~ msgid "After Discount"
+#~ msgstr "割引後"
+
+# @ wp-invoice
+#~ msgid "Trash Invoice"
+#~ msgstr "請求を破棄"
+
+# @ wp-invoice
+#~ msgid "Save"
+#~ msgstr "保存"
+
+# @ wp-invoice
+#~ msgid "New User Information"
+#~ msgstr "新規ユーザー情報"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "If checked a WordPress user account will be created, otherwise the new "
+#~ "user will only be visible within WP-Invoice."
+#~ msgstr ""
+#~ "チェックした場合、ワードプレスのユーザー アカウントが作成されます。それ以"
+#~ "外の場合、新規ユーザーは WP-Invoice 内のみに表示されます。"
+
+# @ wp-invoice
+#~ msgid "Create WordPress User Account?"
+#~ msgstr "ワードプレスのユーザー アカウントを作成しますか？"
+
+# @ wp-invoice
+#~ msgid "Username"
+#~ msgstr "ユーザー名"
+
+# @ wp-invoice
+#~ msgid "Default Payment Option"
+#~ msgstr "デフォルトのお支払いオプション"
+
+# @ wp-invoice
+#~ msgid "Client can change payment option."
+#~ msgstr "クライアントは、支払いオプションを変更できます。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Manual Payment only"
+#~ msgstr "手動のお支払い情報"
+
+# @ wp-invoice
+#~ msgid "Accepted Payments"
+#~ msgstr "支払許可"
+
+# @ wp-invoice
+#~ msgid "Currency"
+#~ msgstr "通貨"
+
+# @ wp-invoice
+#~ msgid "Toggle Advanced Payment Options"
+#~ msgstr "高度な支払いオプションの切替"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "To manage payment settings you should accept at least one payment method. "
+#~ "Visit <a href=\"%s\">Payment Settings page</a> to setup."
+#~ msgstr ""
+#~ "支払い設定を管理するには、少なくとも 1 つの支払方法を受け入れる必要があり"
+#~ "ます。<a href=\"%s\">支払い設定ページ</a>を参照しセットアップしてくださ"
+#~ "い。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "If you do not want to use any payment venue then <a href=\"%s\">setup "
+#~ "Manual Payment information</a>."
+#~ msgstr ""
+#~ "すべての支払い方式を使用しない場合は、<a href=\"%s\">マニュアルお支払い情"
+#~ "報をセットアップ</a>してください。"
+
+# @ wp-invoice
+#~ msgid "Invoice Status and History"
+#~ msgstr "請求書のステータスと履歴"
+
+# @ wp-invoice
+#~ msgid "Event Type"
+#~ msgstr "イベントの種類"
+
+# @ wp-invoice
+#~ msgid "Receive Payment"
+#~ msgstr "支払いを受ける"
+
+# @ wp-invoice
+#~ msgid "Add Charge"
+#~ msgstr "チャージを追加"
+
+# @ wp-invoice
+#~ msgid "Administrative Adjustment"
+#~ msgstr "管理的調整"
+
+# @ wp-invoice
+#~ msgid "Refund"
+#~ msgstr "払い戻し"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Note: Recurring bills cannot have administrative adjustments or "
+#~ "additional charges, only received payments."
+#~ msgstr ""
+#~ "注: 定期的な請求では管理的調整や料金追加をすることはできません。支払いの領"
+#~ "収だけが有効です。"
+
+# @ wp-invoice
+#~ msgid "Event Amount"
+#~ msgstr "イベントの数量"
+
+# @ wp-invoice
+#~ msgid "Charge Tax"
+#~ msgstr "課税"
+
+# @ wp-invoice
+#~ msgid "Event Date & Time"
+#~ msgstr "イベント日時"
+
+# @ wp-invoice
+#~ msgid "Event Note"
+#~ msgstr "イベントの注記"
+
+# @ wp-invoice
+#~ msgid "Process Charge / Payment"
+#~ msgstr "チャージ/支払い 処理"
+
+# @ wp-invoice
+#~ msgid "Toggle History Detail"
+#~ msgstr "詳細履歴の切替"
+
+# @ wp-invoice
+#~ msgid "PayPal Setup"
+#~ msgstr "PayPal 設定"
+
+# @ wp-invoice
+#~ msgid "PayPal Pay Button URL"
+#~ msgstr "PayPal 支払ボタンの URL"
+
+# @ wp-invoice
+#~ msgid "Credit Card Setup"
+#~ msgstr "クレジット カードのセットアップ"
+
+# @ wp-invoice
+#~ msgid "PayPal"
+#~ msgstr "ペイパル"
+
+# @ wp-invoice
+#~ msgid "Credit Card"
+#~ msgstr "クレジットカード"
+
+# @ wp-invoice
+#~ msgid "Test / Live Mode:"
+#~ msgstr "テスト/ライブ モード："
+
+# @ wp-invoice
+#~ msgid "Email Customer (on success):"
+#~ msgstr "顧客にメール (成功時) :"
+
+# @ wp-invoice
+#~ msgid "Delim Data:"
+#~ msgstr "区切り データ:"
+
+# @ wp-invoice
+#~ msgid "True"
+#~ msgstr "真"
+
+# @ wp-invoice
+#~ msgid "False"
+#~ msgstr "偽"
+
+# @ wp-invoice
+#~ msgid "Toggle Advanced Options"
+#~ msgstr "高度なオプションの切替"
+
+# @ wp-invoice
+#~ msgid "Billing / Invoicing Info"
+#~ msgstr "売上/請求情報"
+
+# @ wp-invoice
+#~ msgid "E-mail Address:"
+#~ msgstr "メール アドレス:"
+
+# @ wp-invoice
+#~ msgid "Create New"
+#~ msgstr "新規作成"
+
+# @ wp-invoice
+#~ msgid "Existing Invoice:"
+#~ msgstr "既存の請求："
+
+# @ wp-invoice
+#~ msgid "New Invoice from Template"
+#~ msgstr "テンプレートからの新規請求書"
+
+# @ wp-invoice
+#~ msgid "Add Payment / Charge"
+#~ msgstr "支払い/チャージ を追加"
+
+# @ wp-invoice
+#~ msgid "Invoice paid in full."
+#~ msgstr "請求書は、完済されました。"
+
+# @ wp-invoice
+#~ msgid "Charge Name"
+#~ msgstr "担当名"
+
+# @ wp-invoice
+#~ msgid "Total"
+#~ msgstr "合計"
+
+# @ wp-invoice
+# @ wpi_gateway
+#~ msgid "Name"
+#~ msgstr "名前"
+
+# @ wp-invoice
+#~ msgid "Qty."
+#~ msgstr "数量"
+
+# @ wp-invoice
+#~ msgid "Toggle Description"
+#~ msgstr "説明の切替"
+
+# @ wp-invoice
+#~ msgid "Amount Discount"
+#~ msgstr "金額割引"
+
+# @ wp-invoice
+#~ msgid "Percent Discount"
+#~ msgstr "パーセント割引"
+
+# @ wp-invoice
+#~ msgid "Subtotal Excluding Tax:"
+#~ msgstr "税抜き小計"
+
+# @ wp-invoice
+#~ msgid "Sales Tax:"
+#~ msgstr "消費税:"
+
+# @ wp-invoice
+#~ msgid "Add Line"
+#~ msgstr "行を追加"
+
+# @ wp-invoice
+#~ msgid "Insert a predefined line item"
+#~ msgstr "定義済みの行項目を挿入"
+
+# @ wp-invoice
+#~ msgid "Add Discount"
+#~ msgstr "割引を追加"
+
+# @ wp-invoice
+#~ msgid "Click to view full link"
+#~ msgstr "完全リンクを表示 をクリック"
+
+# @ wp-invoice
+#~ msgid "Invoice Link"
+#~ msgstr "請求書のリンク"
+
+# @ wp-invoice
+#~ msgid "Collected and Uncollected Funds"
+#~ msgstr "集金済み、未収の資金"
+
+# @ wp-invoice
+#~ msgid "Top 10 Most Valuable Clients"
+#~ msgstr "トップ 10 の最も貴重なクライアント"
+
+# @ wp-invoice
+#~ msgid "Top Grossing Line Items"
+#~ msgstr "高収益取扱い品目"
+
+# @ wp-invoice
+#~ msgid "Invoice Statistics"
+#~ msgstr "請求書の統計"
+
+# @ wp-invoice
+#~ msgid "Warning:"
+#~ msgstr "警告:"
+
+# @ wp-invoice
+#~ msgid "not found"
+#~ msgstr "見つかりません"
+
+# @ wp-invoice
+#~ msgid "Settings updated."
+#~ msgstr "設定を更新しました。"
+
+# @ wp-invoice
+#~ msgid "WP-Invoice Global Settings"
+#~ msgstr "WP-Invoiceのグローバル設定"
+
+# @ wp-invoice
+#~ msgid "Business Address"
+#~ msgstr "事業所住所"
+
+# @ wp-invoice
+#~ msgid "Business Phone"
+#~ msgstr "事業所電話"
+
+# @ wp-invoice
+#~ msgid "Do <b>not</b> load theme specific styles."
+#~ msgstr "特定スタイルのテーマ取り込みを<b>しないで</b>ください。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "WP-Invoice is shipped with a custom stylesheet designed for <b>%s</b>"
+#~ msgstr ""
+#~ "WP-Invoice には、<b>%s</b>用に設計されたカスタム スタイル シートが付属して"
+#~ "います"
+
+# @ wp-invoice
+#~ msgid "Load default CSS styles on the front-end"
+#~ msgstr "フロント エンドでのデフォルトの CSS スタイルを読み込む"
+
+# @ wp-invoice
+#~ msgid "Tax Handling"
+#~ msgstr "税の取扱い"
+
+# @ wp-invoice
+#~ msgid "Calculate Taxable Subtotal"
+#~ msgstr "課税の小計を計算"
+
+# @ wp-invoice
+#~ msgid "Use global tax."
+#~ msgstr "グローバル税を使用。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This will make all new invoices have default Tax value which can be "
+#~ "changed for different invoice."
+#~ msgstr ""
+#~ "これを変更すると既定の税の値となり、すべての新規の請求書の税の値が変更され"
+#~ "ます。"
+
+# @ wp-invoice
+#~ msgid "Advanced Settings"
+#~ msgstr "高度な設定"
+
+# @ wp-invoice
+#~ msgid "Allow partial payments."
+#~ msgstr "部分的な支払いを許可。"
+
+#, fuzzy
+#~ msgid "Partial payments allowed by default."
+#~ msgstr "部分的な支払いを許可。"
+
+# @ wp-invoice
+#~ msgid "Show recurring billing options."
+#~ msgstr "定期的な支払いオプションを表示。"
+
+# @ wp-invoice
+#~ msgid "Enforce HTTPS on invoice pages, if available on this server."
+#~ msgstr "このサーバー上で利用可能な場合は、HTTPS を請求書のページに適用。"
+
+# @ wp-invoice
+#~ msgid "Minimum user level to manage WP-Invoice"
+#~ msgstr "WP-Invoice を管理するための最低ユーザー レベル"
+
+# @ wp-invoice
+#~ msgid "Subscriber"
+#~ msgstr "購読者"
+
+# @ wp-invoice
+#~ msgid "Contributor"
+#~ msgstr "寄稿者"
+
+# @ wp-invoice
+#~ msgid "Author"
+#~ msgstr "著者"
+
+# @ wp-invoice
+#~ msgid "Editor"
+#~ msgstr "エディター"
+
+# @ wp-invoice
+#~ msgid "Administrator"
+#~ msgstr "管理者"
+
+# @ wp-invoice
+#~ msgid "Using Godaddy Hosting:"
+#~ msgstr "Godaddy ホスティングを使用："
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Special proxy must be used to process credit card transactions on GoDaddy "
+#~ "servers."
+#~ msgstr ""
+#~ " GoDaddy のサーバー上では、クレジット カードのトランザクションを処理するた"
+#~ "めには特別なプロキシの使用する必要があります。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Use custom templates. If checked, WP-Invoice will use templates in the "
+#~ "'wpi' folder in your active theme's folder."
+#~ msgstr ""
+#~ "カスタム テンプレートを使用してください。チェックした場合、アクティブな"
+#~ "テーマのフォルダー内の 'wpi' フォルダーのテンプレートがWP-Invoiceに使用さ"
+#~ "れます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Note: Currently there is no \"wpi\" folder in your active template's "
+#~ "folder, WP-Invoice will attempt to create it after saving."
+#~ msgstr ""
+#~ "注: 現在作業中のテンプレート フォルダーには\\\"wpi\\\"フォルダーがありませ"
+#~ "ん。WP-Invoice は保存後に作成を試みます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "A \"wpi\" folder has been found, any files with the proper file names "
+#~ "will be used instead of the default template files."
+#~ msgstr ""
+#~ "A \"wpi\" フォルダーが見つかりました。適切なファイル名を持つすべてのファイ"
+#~ "ルが、既定のテンプレート ファイルの代わりに使用されます。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "the custom templates inside the <b>wpi</b> folder in your active theme's "
+#~ "folder."
+#~ msgstr ""
+#~ "アクティブなテーマのフォルダー内の<b>wpi</b>フォルダー内のカスタム テンプ"
+#~ "レート。"
+
+# @ wp-invoice
+#~ msgid "Thousands Separator Symbol"
+#~ msgstr "三桁の区切り記号"
+
+# @ wp-invoice
+#~ msgid "When creating an invoice"
+#~ msgstr "請求書の作成時"
+
+# @ wp-invoice
+#~ msgid "Automatically increment the invoice's custom ID by one."
+#~ msgstr "自動的に請求書のカスタム ID を 1 ずつ増分します。"
+
+# @ wp-invoice
+#~ msgid "When viewing an invoice"
+#~ msgstr "請求書を表示するとき"
+
+# @ wp-invoice
+#~ msgid "Display invoices on the"
+#~ msgstr "上に請求書を表示"
+
+# @ wp-invoice
+#~ msgid "page."
+#~ msgstr "ページ。"
+
+# @ wp-invoice
+#~ msgid "Replace HTML title with invoice subject when viewing invoice."
+#~ msgstr ""
+#~ "請求書を表示するときは、HTML タイトルを請求書の題名と交換してください。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Replace page heading and navigation link title with invoice subject when "
+#~ "viewing invoice."
+#~ msgstr ""
+#~ "請求書を表示するときは、ページの見出しとナビゲーション リンクのタイトルを"
+#~ "請求書の題名と交換してください。"
+
+# @ wp-invoice
+#~ msgid "Hide page heading and navigation link completely."
+#~ msgstr "ページの見出しやナビゲーション リンクを完全に隠します。"
+
+# @ wp-invoice
+#~ msgid "Show my business name and address."
+#~ msgstr "自分の事業名と住所を表示。"
+
+# @ wp-invoice
+#~ msgid "Show quantity breakdowns in the itemized list."
+#~ msgstr "数量の内訳明細を一覧に表示します。"
+
+# @ wp-invoice
+#~ msgid "How to Insert Invoice"
+#~ msgstr "請求書の挿入方法"
+
+# @ wp-invoice
+#~ msgid "After a payment has been completed"
+#~ msgstr "支払いが完了"
+
+# @ wp-invoice
+#~ msgid "Send email confirmation to the client."
+#~ msgstr "電子メールの確認をクライアントに送信します。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Send email notification to the address set for administrative purposes "
+#~ "from <a href=\"%s\">General Settings</a>"
+#~ msgstr ""
+#~ "管理目的のための <a href=\"%s\">全般的な設定</a>から設定されたアドレスに電"
+#~ "子メール通知を送信します。"
+
+# @ wp-invoice
+#~ msgid "Send email notification to invoice creator."
+#~ msgstr "請求書の作成者に電子メール通知を送信します。"
+
+# @ wp-invoice
+#~ msgid "Use CRM to send notifications"
+#~ msgstr "CRM を使用し通知を送信する"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Get <a class=\"small\" href=\"%s\">WP-CRM plugin</a> to enhance "
+#~ "notification management."
+#~ msgstr ""
+#~ "通知の管理を強化する<a class=\"small\" href=\"%s\">WP CRM プラグイン</a>を"
+#~ "取得。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This options allow you to change the default email address that WordPress "
+#~ "sends it's mail from, and the name of the sender that the email is from."
+#~ msgstr ""
+#~ "このオプションで、デフォルトのワードプレスのメールと 電子メール アドレスを"
+#~ "送る送信者の名前を変更できます。"
+
+# @ wp-invoice
+#~ msgid "Mail From options"
+#~ msgstr "メール送信元オプション"
+
+# @ wp-invoice
+#~ msgid "Sender Name"
+#~ msgstr "送信者名"
+
+# @ wp-invoice
+#~ msgid "The sender name that the email is from"
+#~ msgstr "電子メール発信元の送信者名"
+
+# @ wp-invoice
+#~ msgid "User E-mail"
+#~ msgstr "ユーザーの電子メール"
+
+# @ wp-invoice
+#~ msgid "Email address e.g. username@example.com"
+#~ msgstr "メール アドレス　 例： username@example.com"
+
+# @ wp-invoice
+#~ msgid "Apply 'Mail From' settings."
+#~ msgstr "「送信元」 の設定を適用。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "If you are using <b>Google Analytics Site Tracking</b> code on your site "
+#~ "then you can track WP-Invoice events."
+#~ msgstr ""
+#~ "サイトに<b>Google Analytics Site Tracking</b>コードを使用している場合は、 "
+#~ "WP-Invoice イベントを追跡できます。"
+
+# @ wp-invoice
+#~ msgid "Google Analytics Events Tracking"
+#~ msgstr "Google アナリティクスのイベント追跡"
+
+# @ wp-invoice
+#~ msgid "I want to track events."
+#~ msgstr "イベントを追跡したいと思います。"
+
+# @ wp-invoice
+#~ msgid "Track Invoices events:"
+#~ msgstr "請求書のイベントを追跡："
+
+# @ wp-invoice
+#~ msgid "Attempting to pay Invoices"
+#~ msgstr "請求書を支払おうとしています。"
+
+# @ wp-invoice
+#~ msgid "View Invoices"
+#~ msgstr "請求書の表示"
+
+# @ wp-invoice
+#~ msgid "Default Currency"
+#~ msgstr "既定の通貨"
+
+# @ wp-invoice
+#~ msgid "Currency list"
+#~ msgstr "通貨リスト"
+
+# @ wp-invoice
+#~ msgid "Code"
+#~ msgstr "コード"
+
+# @ wp-invoice
+#~ msgid "Symbol"
+#~ msgstr "シンボル"
+
+# @ wp-invoice
+#~ msgid "Add Currency"
+#~ msgstr "通貨を追加"
+
+# @ wp-invoice
+#~ msgid "Default Payment Method"
+#~ msgstr "デフォルトの支払い方法"
+
+# @ wp-invoice
+#~ msgid "Payment Gateways"
+#~ msgstr "支払ゲートウェイ"
+
+# @ wp-invoice
+#~ msgid "Manual Payment information"
+#~ msgstr "手動のお支払い情報"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "If an invoice has no payment gateways, this message will be displayed "
+#~ "offering the customer guidance on their course of action."
+#~ msgstr ""
+#~ "請求書に決済ゲートウェイがない場合、行動指針にしたがってカスタマーガイダン"
+#~ "スを提供してこのメッセージが表示されます。"
+
+# @ wp-invoice
+#~ msgid "Subject"
+#~ msgstr "件名"
+
+# @ wp-invoice
+#~ msgid "Content"
+#~ msgstr "内容"
+
+# @ wp-invoice
+#~ msgid "Add Template"
+#~ msgstr "テンプレートを追加"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Setup your common services and products in here to streamline invoice "
+#~ "creation."
+#~ msgstr ""
+#~ "一般的なサービスおよび請求書の作成を合理化するためにここで製品をセットアッ"
+#~ "プします。"
+
+# @ wp-invoice
+#~ msgid "Name & Description"
+#~ msgstr "名前 & 説明"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Tax %"
+#~ msgstr "税"
+
+# @ wp-invoice
+#~ msgid "Add Line Item"
+#~ msgstr "取扱品名を追加"
+
+# @ wp-invoice
+#~ msgid "Look up the $wpi_settings global settings array:"
+#~ msgstr "$wpi_settings のグローバル設定の配列を見る："
+
+# @ wp-invoice
+#~ msgid "Toggle $wpi_settings"
+#~ msgstr "$wpi_settings 切替"
+
+# @ wp-invoice
+#~ msgid "Restore Backup of WP-Invoice Configuration"
+#~ msgstr "WP-Invoice 構成のバックアップを復元"
+
+# @ wp-invoice
+#~ msgid "Download Backup of Current WP-Invoice Configuration."
+#~ msgstr "WP-Invoiceの現在の構成のバックアップをダウンロードします。"
+
+#, fuzzy
+#~ msgid "Some another feature"
+#~ msgstr "[purchase feature]"
+
+# @ wp-invoice
+#~ msgid "Welcome, %s!"
+#~ msgstr "ようこそ、%s さん！"
+
+# @ wp-invoice
+#~ msgid "We have sent you a quote in the amount of %s."
+#~ msgstr "合計 %s 円の見積りを送信しました。"
+
+# @ wp-invoice
+#~ msgid "We have sent you invoice %1s with a balance of %2s."
+#~ msgstr "請求書  %1s を送信しました。請求残高は、%2s です。"
+
+# @ wp-invoice
+#~ msgid "This is a recurring bill."
+#~ msgstr "これは定期的な請求です。"
+
+# @ wp-invoice
+#~ msgid "You've made payments, but still owe:"
+#~ msgstr "お支払いいただきましたが、まだ以下の残高があります。"
+
+# @ wp-invoice
+#~ msgid "Manual Payment Information"
+#~ msgstr "自動支払い情報"
+
+# @ wp-invoice
+#~ msgid "Contact site Administrator for payment information please."
+#~ msgstr "お支払情報は、サイト管理者までお問い合わせください。"
+
+# @ wp-invoice
+#~ msgid "Payment Receipt"
+#~ msgstr "支払い受領"
+
+# @ wp-invoice
+#~ msgid "We have sent you invoice"
+#~ msgstr "請求書を送信しました"
+
+# @ wp-invoice
+#~ msgid "was paid."
+#~ msgstr "支払いました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "More Products"
+#~ msgstr "製品"
+
+#, fuzzy
+#~ msgid "%s License is not active."
+#~ msgstr "アクティブな請求書"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Product deactivated successfully."
+#~ msgstr "製品"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Products activated successfully."
+#~ msgstr "プラグイン有効化済。"
+
+#, fuzzy
+#~ msgid "UsabilityDynamics Product"
+#~ msgstr "製品"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "No active %s plugins found."
+#~ msgstr "ユーザーのアクティブな購読はありません。"
+
+# @ wp-invoice
+#~ msgid "Product"
+#~ msgstr "製品"
+
+# @ wpi_gateway
+# @ wp-invoice
+#~ msgid "Version"
+#~ msgstr "バージョン"
+
+#, fuzzy
+#~ msgid "Activation Status"
+#~ msgstr "プラグインのライセンス認証とスケジュールが作成されました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Deactivate"
+#~ msgstr ""
+#~ "プラグイン データベース テーブルはもうありません。再作成するために、プラグ"
+#~ "インを無効化または再開してください。"
+
+#, fuzzy
+#~ msgid "Try again"
+#~ msgstr "メールを送信できませんでした。しばらくしてから再度お試しください。"
+
+#, fuzzy
+#~ msgid "More Details"
+#~ msgstr "詳細 ..."
+
+# @ wp-invoice
+#~ msgid "Check for Updates"
+#~ msgstr "更新プログラムの確認"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Activate Products"
+#~ msgstr "製品"
+
+# @ wp-invoice
+#~ msgid "Google Wallet"
+#~ msgstr "Google Wallet"
+
+# @ wp-invoice
+#~ msgid "Merchant ID"
+#~ msgstr "販売アカウント ID"
+
+# @ wp-invoice
+#~ msgid "Use Google SandBox for test mode"
+#~ msgstr "Google サンドボックスのテストモードを使用"
+
+# @ wp-invoice
+#~ msgid "API callback URL"
+#~ msgstr "APIコールバック URL"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Specify a URL for Google to notify you of new orders and changes in order "
+#~ "state."
+#~ msgstr "新規注文と変更の注文状態を通知するため、Googleの URLを指定。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Google Wallet Subscriptions"
+#~ msgstr "利用可能なサブスクリプション"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "If you use Google Wallet for subscriptions then these options will be "
+#~ "used to determine billing period."
+#~ msgstr ""
+#~ "予約購読に Google Checkout を使用すると、これらのオプションは請求日の決定"
+#~ "に利用されます。"
+
+# @ wp-invoice
+#~ msgid "Google Wallet Billing Period"
+#~ msgstr "Google Wallet 請求日"
+
+# @ wp-invoice
+#~ msgid "Daily"
+#~ msgstr "毎日"
+
+# @ wp-invoice
+#~ msgid "Weekly"
+#~ msgstr "毎週"
+
+# @ wp-invoice
+#~ msgid "Semi Monthly"
+#~ msgstr "隔週"
+
+# @ wp-invoice
+#~ msgid "Monthly"
+#~ msgstr "毎月"
+
+# @ wp-invoice
+#~ msgid "Every Two Months"
+#~ msgstr "隔月"
+
+# @ wp-invoice
+#~ msgid "Quarterly"
+#~ msgstr "季刊（年に４回）"
+
+# @ wp-invoice
+#~ msgid "Yearly"
+#~ msgstr "毎年"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This option specifies the latest date that you can charge the customer "
+#~ "for the subscription. This element can help you to ensure that you do not "
+#~ "overcharge your customers."
+#~ msgstr ""
+#~ "このオプションで顧客の注文に対して最新の日程を指定することができます。この"
+#~ "機能で顧客に対する請求超過を防止することができます。"
+
+# @ wp-invoice
+#~ msgid "No Charge After"
+#~ msgstr "以後は請求しない"
+
+# @ wp-invoice
+#~ msgid "%s paid via Google Wallet"
+#~ msgstr "%s を Google Wallet 経由で支払い済み"
+
+# @ wp-invoice
+#~ msgid "Google Buyer ID: %s"
+#~ msgstr "Google Buyer ID: %s"
+
+# @ wp-invoice
+#~ msgid "Total Discount"
+#~ msgstr "値引き合計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Daily Sales"
+#~ msgstr "毎日"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid " Sales"
+#~ msgstr "販売のログ"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "loading"
+#~ msgstr "hpadding"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Default Format"
+#~ msgstr "既定の通貨"
+
+# @ wpi_gateway
+# @ wp-invoice
+#, fuzzy
+#~ msgid "XML Version"
+#~ msgstr "バージョン"
+
+# @ wp-invoice
+# @ default
+#, fuzzy
+#~ msgid "Log History"
+#~ msgstr "インボイス履歴"
+
+# @ wp-invoice
+# @ default
+#, fuzzy
+#~ msgid "Export Invoice log history."
+#~ msgstr "インボイス履歴"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Recipients"
+#~ msgstr "受信者"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "If Recipient does not exist:"
+#~ msgstr "このサブスクリプションは存在しません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Create new Recipient"
+#~ msgstr "受信者"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "User Role:"
+#~ msgstr "ユーザー ガイド"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Export Invoices"
+#~ msgstr "請求書の編集"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Import Invoices"
+#~ msgstr "請求書"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Invoice Import"
+#~ msgstr "請求 ID"
+
+# @ wp-invoice
+# @ default
+#, fuzzy
+#~ msgid "Invoice Export"
+#~ msgstr "インボイス履歴"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Import"
+#~ msgstr "レポート"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Export/Import Invoices"
+#~ msgstr "請求書の挿入方法"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "I accept <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>"
+#~ msgstr "<a href=\"#\" target=\"_blank\">もっと教えてください。</a>"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Accept Quote"
+#~ msgstr "受け入れる"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Response:"
+#~ msgstr "レスポンスコード：  "
+
+# @ wp-invoice
+#~ msgid "Send Response"
+#~ msgstr "Send Response"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Send Question"
+#~ msgstr "通知を送信"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Comments"
+#~ msgstr "コンポーネント"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "E-mail"
+#~ msgstr "電子メール"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Update Comment"
+#~ msgstr "製品を更新"
+
+# @ default
+#, fuzzy
+#~ msgid "Submit Reply"
+#~ msgstr "送信"
+
+# @ wp-invoice
+#~ msgid "Expiration Date"
+#~ msgstr "有効期限"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Every 10 Minutes"
+#~ msgstr "隔月"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Transaction complete."
+#~ msgstr "予約購読完済"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "<b>Single Page Checkout</b><br /> Main settings for Single Page Checkout "
+#~ "Premium Feature. <a target=\"_blank\" href=\"https://usabilitydynamics."
+#~ "com/tutorials/wp-invoice/single-page-checkout/\">More...</a>"
+#~ msgstr ""
+#~ "<b>請求書を作成するとき</b><br>請求書の作成プロセスを管理するためのオプ"
+#~ "ション。 <a target=\"_blank\" href=\"https://usabilitydynamics.com/"
+#~ "tutorials/wp-invoice/wp-invoice-settings-business-process/\">詳しくは ..."
+#~ "</a>"
+
+# @ wp-invoice
+#~ msgid "Single Page Checkout"
+#~ msgstr "Single Page Checkout"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "You must enter a name."
+#~ msgstr "あなたの姓を入力する必要があります。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "You must enter a valid credit card number."
+#~ msgstr "あなたのクレジット カード番号を入力する必要があります。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "You must enter an expiration date."
+#~ msgstr "クレジット カードの有効期限を入力する必要があります。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Items: "
+#~ msgstr "品目"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Transaction #"
+#~ msgstr "ゲートウェイ　 トランザクションのキー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Transaction #%s was successfully completed."
+#~ msgstr "サブスクリプション # %s が正常に取り消されました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid " Charge Amount: "
+#~ msgstr "以後は請求しない"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Items of Transaction:"
+#~ msgstr "ゲートウェイ　 トランザクションのキー"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "I accept the <a href=\"%s\" target=\"_blank\">terms and conditions</a>."
+#~ msgstr "<a href=\"#\" target=\"_blank\">もっと教えてください。</a>"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Single Payment"
+#~ msgstr "支払を入力"
+
+# @ wp-invoice
+#~ msgid "Archived."
+#~ msgstr "保管しました。"
+
+# @ wp-invoice
+#~ msgid "Successfully archived."
+#~ msgstr "アーカイブに成功しました。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Method"
+#~ msgstr "税方式"
+
+# @ wpp
+#~ msgid "API service not specified."
+#~ msgstr "API サービスが指定されていません。"
+
+# @ wpp
+#~ msgid "API Failure: %1s."
+#~ msgstr "API エラー: %1s."
+
+# @ wp-invoice
+#~ msgid "UD Error"
+#~ msgstr "UD エラー"
+
+# @ wp-invoice
+#~ msgid "Disable automatic Premium Feature updates."
+#~ msgstr "プレミアム機能の自動更新を無効にする。"
+
+# @ wp-invoice
+#~ msgid "Subscription Payments"
+#~ msgstr "サブスクリプションの支払い"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Check for any premium feature updates from the Usability Dynamics Update "
+#~ "server:"
+#~ msgstr ""
+#~ "ユーザビリティ ダイナミクス更新サーバーからのプレミアム機能アップデートを"
+#~ "確認します。"
+
+# @ wp-invoice
+#~ msgid "Check Updates"
+#~ msgstr "更新を確認"
+
+# @ wp-invoice
+#~ msgid "Your Domain"
+#~ msgstr "あなたのドメイン"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "When purchasing the premium features you will need to specify your domain "
+#~ "to add the license correctly.  This is your domain:"
+#~ msgstr ""
+#~ "プレミアム機能を購入するとき、ライセンスを正しく追加するドメインを指定する"
+#~ "必要があります。これはあなたのドメインです："
+
+# @ wp-invoice
+#~ msgid "WP-Invoice API Key"
+#~ msgstr "WP-Invoice API キー"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Some subscription based premium features require an API key that is "
+#~ "specific to this domain and WP-Invoice. You can get this from your "
+#~ "account on <a href=\"#\" target=\"_blank\">UsabilityDynamics.com</a>."
+#~ msgstr ""
+#~ "いくつかのサブスクリプション ベースのプレミアム機能は、このドメインと WP-"
+#~ "Invoice 固有 API キーが必要です。 <a href=\"#\" target=\"_blank"
+#~ "\">>UsabilityDynamics.com</a>のアカウントからこれを得ることができます。"
+
+# @ wp-invoice
+#~ msgid "[purchase feature]"
+#~ msgstr "[purchase feature]"
+
+# @ default
+#~ msgid ""
+#~ "This feature is disabled because it requires WP-Invoice %1$s or higher."
+#~ msgstr ""
+#~ "WP-Invoice %1$s またはそれ以上が必要なためこの機能は無効化されています。"
+
+# @ wp-invoice
+#~ msgid "Disable premium feature."
+#~ msgstr "プレミアム機能を無効にします。"
+
+# @ wp-invoice
+#~ msgid "Feature installed, using version"
+#~ msgstr "機能がインストールされました。使用バージョン"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Please visit <a href=\"%s\">UsabilityDynamics.com</a> to purchase this "
+#~ "feature."
+#~ msgstr ""
+#~ "この機能を購入するには<a href=\"%s\">UsabilityDynamics.com</a>を参照してく"
+#~ "ださい。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "There are no available premium features. Try clicking Check Updates "
+#~ "button above."
+#~ msgstr "利用可能なプレミアム機能はありません。"
+
+# @ default
+#~ msgid "Cheatin&#8217; uh?"
+#~ msgstr "不正行為&#8217;  ですか？"
+
+# @ wp-invoice
+#~ msgid "Sales Log"
+#~ msgstr "販売のログ"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "An error occurred during premium feature check: <b> %s </b>."
+#~ msgstr "プレミアム機能チェック中にエラーが発生しました: <b>%s </b>。"
+
+# @ wp-invoice
+#~ msgid "per unit"
+#~ msgstr "単位当たり"
+
+# @ wp-invoice
+#~ msgid "quantity based"
+#~ msgstr "数量ベース"
+
+# @ wp-invoice
+#~ msgid "metered"
+#~ msgstr "従量制"
+
+# @ wp-invoice
+#~ msgid "Subscription Based Payments via Chargify"
+#~ msgstr "Chargify 経由でサブスクリプションベースの支払い"
+
+# @ wp-invoice
+#~ msgid "WPI API Key "
+#~ msgstr "WPI API キー　"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Oops, it looks like you haven't set your WPI API key on the Premium "
+#~ "Features tab. Chargify will <strong>not</strong> work in it's current "
+#~ "state."
+#~ msgstr ""
+#~ "おっと、プレミアム機能のタブに Chargify 意志 WPI API キーを設定していない"
+#~ "ようです。現在の状態では動作<strong>しません</strong>。"
+
+# @ wp-invoice
+#~ msgid "Domain"
+#~ msgstr "ドメイン"
+
+# @ wp-invoice
+#~ msgid "API Key"
+#~ msgstr "API キー"
+
+# @ wp-invoice
+#~ msgid "Chargify Product Information"
+#~ msgstr "Chargify の製品情報"
+
+# @ wp-invoice
+#~ msgid "No products currently found, please update your API settings and "
+#~ msgstr "なにも製品が見つかりません。API の設定を更新してください。  "
+
+# @ wp-invoice
+#~ msgid "Check for Chargify Products"
+#~ msgstr "Chargify 製品をチェックしてください。"
+
+# @ wp-invoice
+#~ msgid "Go"
+#~ msgstr "実行"
+
+# @ wp-invoice
+#~ msgid "Products Last Updated At"
+#~ msgstr "最終製品更新"
+
+# @ wp-invoice
+#~ msgid "Management Shortcode"
+#~ msgstr "管理のショート コード"
+
+# @ wp-invoice
+#~ msgid "Trial"
+#~ msgstr "トライアル"
+
+# @ wp-invoice
+#~ msgid "Components"
+#~ msgstr "コンポーネント"
+
+# @ default
+#~ msgid ""
+#~ "Did you know that you can now accept subscription payments using <a href="
+#~ "\"http://chargify.com\" target=\"_blank\">Chargify</a> and our <a href=\"#"
+#~ "\">Single Page Checkout</a> Premium Feature?"
+#~ msgstr ""
+#~ "今<a href=\\\"http://chargify.com\\\" target=\\\"_blank\\\">Chargify</a>と"
+#~ "私たちの<a href=\\\"#\\\">単一のページのチェック アウト</a>のプレミアム機"
+#~ "能を使用してサブスクリプションの支払いを受け入れることができることをご存知"
+#~ "でしたか？"
+
+# @ wp-invoice
+#~ msgid "<a href=\"#\" target=\"_blank\">Tell Me More</a>"
+#~ msgstr "<a href=\"#\" target=\"_blank\">もっと教えてください。</a>"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Oops, something is wrong with the API. Did you remember to save the WPI "
+#~ "settings first?"
+#~ msgstr "おっと、API が変です。最初にWPI 設定を保存しましたか？"
+
+# @ wp-invoice
+#~ msgid "This is a subscription based product. "
+#~ msgstr "これは、サブスクリプション ベースの製品です。　　"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Products updated. Please <a href=\"javascript:window.location.reload();"
+#~ "\">refresh</a>."
+#~ msgstr ""
+#~ "製品は更新されました。<a href=\"javascript:window.location.reload();\">リ"
+#~ "フレッシュ</a>してください。"
+
+# @ wp-invoice
+#~ msgid "You must enter your first name."
+#~ msgstr "あなたの名前を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your last name."
+#~ msgstr "あなたの姓を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your e-mail."
+#~ msgstr "あなたの電子メールを入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your credit card number."
+#~ msgstr "あなたのクレジット カード番号を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your credit card expiration date."
+#~ msgstr "クレジット カードの有効期限を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your credit card CVV code."
+#~ msgstr "あなたのクレジット カード CVV コードを入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your city."
+#~ msgstr "あなたの市町村を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your state."
+#~ msgstr "あなたの都道府県を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your address."
+#~ msgstr "あなたの住所を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your country."
+#~ msgstr "あなたの国を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "You must enter your zip."
+#~ msgstr "あなたの郵便番号を入力する必要があります。"
+
+# @ wp-invoice
+#~ msgid "Please input the credit card expiration date as \"MM/YYYY\"."
+#~ msgstr ""
+#~ " \"MM/YYYY\"としてクレジット カードの有効期限の日付を入力してください。"
+
+# @ wp-invoice
+#~ msgid "The Chargify API is not enabled."
+#~ msgstr "Chargify API は有効になっていません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Customer cannot be found."
+#~ msgstr "顧客が見つかりません。"
+
+# @ wp-invoice
+#~ msgid "Cannot cancel, you're no longer logged in."
+#~ msgstr "キャンセルができません、今はログインしていません。"
+
+# @ wp-invoice
+#~ msgid "This subscription does not exist."
+#~ msgstr "このサブスクリプションは存在しません。"
+
+# @ wp-invoice
+#~ msgid "This is not your subscription."
+#~ msgstr "これは、あなたのサブスクリプションではありません。"
+
+# @ wp-invoice
+#~ msgid "Could not remove subscription."
+#~ msgstr "サブスクリプションを削除できませんでした。"
+
+# @ wp-invoice
+#~ msgid "Subscription # %s successfully canceled."
+#~ msgstr "サブスクリプション # %s が正常に取り消されました。"
+
+# @ wp-invoice
+#~ msgid "Could not find this Chargify product."
+#~ msgstr "この Chargify 製品が見つかりませんでした。"
+
+# @ wp-invoice
+#~ msgid "Pricing"
+#~ msgstr "価格設定"
+
+# @ wp-invoice
+#~ msgid "Full Cost"
+#~ msgstr "全原価"
+
+# @ wp-invoice
+#~ msgid "Components (Add-Ons)"
+#~ msgstr "コンポーネント (アドオン)"
+
+# @ wp-invoice
+#~ msgid "Available Subscriptions"
+#~ msgstr "利用可能なサブスクリプション"
+
+# @ wp-invoice
+#~ msgid "My Subscriptions"
+#~ msgstr "マイ サブスクリプション"
+
+# @ wp-invoice
+#~ msgid "Expires"
+#~ msgstr "有効期限"
+
+# @ wp-invoice
+#~ msgid "Card"
+#~ msgstr "カード"
+
+# @ wp-invoice
+#~ msgid "Update"
+#~ msgstr "更新"
+
+# @ wp-invoice
+#~ msgid "Oops, it looks like you're not subscribed to anything."
+#~ msgstr "おっと、あなたが何も購読はしていないようです。"
+
+# @ wp-invoice
+#~ msgid "Plan"
+#~ msgstr "計画"
+
+# @ wp-invoice
+#~ msgid "Subscribe"
+#~ msgstr "購読"
+
+# @ wp-invoice
+#~ msgid "More Info"
+#~ msgstr "詳しい情報"
+
+# @ wp-invoice
+#~ msgid "About"
+#~ msgstr "について"
+
+# @ wp-invoice
+#~ msgid "Subscribe to"
+#~ msgstr "購読するには"
+
+# @ wp-invoice
+#~ msgid "N/A"
+#~ msgstr "N/A"
+
+# @ wp-invoice
+#~ msgid "Schedule created with plugin activation."
+#~ msgstr "プラグインのライセンス認証とスケジュールが作成されました。"
+
+# @ wp-invoice
+#~ msgid "Plugin activated. No older versions found, installing version "
+#~ msgstr ""
+#~ "プラグインが有効になりました。インストール中のものより古いバージョンは見つ"
+#~ "かりません、　　"
+
+# @ wp-invoice
+#~ msgid "Plugin deactivated."
+#~ msgstr "プラグインは、無効化されました。"
+
+# @ wp-invoice
+#~ msgid "user_email changed."
+#~ msgstr "user_email 変更済。"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "The plugin database tables are gone, deactivate and reactivate plugin to "
+#~ "re-create them."
+#~ msgstr ""
+#~ "プラグイン データベース テーブルはもうありません。再作成するために、プラグ"
+#~ "インを無効化または再開してください。"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Archived"
+#~ msgstr "アーカイブ済"
+
+# @ wp-invoice
+#~ msgid "Archived <span class=\"count\">(%s)</span>"
+#~ msgid_plural "Archived <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "アーカイブされた <span class=\"count\">(%s)</span>"
+#~ msgstr[1] "アーカイブされた <span class=\"count\">(%s)</span>"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Active"
+#~ msgstr "アクティブ"
+
+# @ wp-invoice
+#~ msgid "Due Invoices <span class=\"count\">(%s)</span>"
+#~ msgid_plural "Due Invoices <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "請求書の期日 <span class=\"count\">(%s)</span>"
+#~ msgstr[1] "請求書の期日 <span class=\"count\">(%s)</span>"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Paid"
+#~ msgstr "支払済"
+
+# @ wp-invoice
+#~ msgid "Paid <span class=\"count\">(%s)</span>"
+#~ msgid_plural "Paid <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "Paid <span class=\"count\">(%s)</span>"
+#~ msgstr[1] "Paid <span class=\"count\">(%s)</span>"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Trash"
+#~ msgstr "ゴミ箱"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Pending"
+#~ msgstr "保留中"
+
+# @ default
+#~ msgctxt "wpi_object"
+#~ msgid "Refund"
+#~ msgstr "払い戻し"
+
+# @ wp-invoice
+#~ msgid "The API key could not be generated."
+#~ msgstr "API キーを生成できませんでした。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred during premium feature check. API Key '<b>%s</b>' is "
+#~ "incorrect."
+#~ msgstr "プレミアム機能チェック中にエラーが発生しました: <b>%s</b>。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Could not do remote request."
+#~ msgstr "サブスクリプションを削除できませんでした。"
+
+# @ wp-invoice
+#~ msgid "There are no available premium features."
+#~ msgstr "利用可能なプレミアム機能はありません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "No premium features were downloaded because the setting is disabled. "
+#~ "Enable in the \"Main\" tab."
+#~ msgstr ""
+#~ "更新プログラムは正常に実行されましたが、設定が無効なため、機能はダウンロー"
+#~ "ドされませんでした。 \"Main\"タブで有効にしてください。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "WP-Invoice Premium Feature: %s"
+#~ msgstr "プレミアム機能"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "There are no file permissions to upload or update premium features."
+#~ msgstr "利用可能なプレミアム機能はありません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid ""
+#~ "There are no available premium features. Check your licenses for the "
+#~ "current domain"
+#~ msgstr "利用可能なプレミアム機能はありません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "You have the latest premium features versions."
+#~ msgstr "利用可能なプレミアム機能はありません。"
+
+# @ wp-invoice
+#~ msgid "Loaded user from passed ID."
+#~ msgstr "Loaded user from passed ID."
+
+# @ wp-invoice
+#~ msgid "Loaded user from e-mail."
+#~ msgstr "電子メールからロードされたユーザー。"
+
+# @ wp-invoice
+#~ msgid "User info not, found - assuming new user."
+#~ msgstr "ユーザー情報が、見つかりません - 新しいユーザーですか。"
+
+# @ wp-invoice
+#~ msgid "function executed, no invoice ID found, assuming new invoice."
+#~ msgstr ""
+#~ "機能が実行されましたが、請求書の ID は見つかりません。新規の請求書ですか。"
+
+# @ wp-invoice
+#~ msgid "function executed, invoice_id: "
+#~ msgstr "機能が実行されました invoice_id: "
+
+# @ wp-invoice
+#~ msgid "Warning: no user information loaded for this invoice."
+#~ msgstr "警告: この請求書にはユーザー情報が読み込まれていません。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Error saving invoice. Subject (Title) cannot be empty."
+#~ msgstr ""
+#~ "請求書の保存エラーです。件名 (タイトル) を空にすることはできません。"
+
+# @ wp-invoice
+#~ msgid "Error saving invoice. Query used: "
+#~ msgstr "請求書の保存エラー。使用クエリ: "
+
+# @ wp-invoice
+#~ msgid ""
+#~ "This tab show a list of the premium features which are available for "
+#~ "purchase and those which you have purchased for WP-Invoice. You can see a "
+#~ "list of features available for purchase in the WP-Invoice Premium "
+#~ "Features section of our website. <a target=\"_blank\" href=\"https://"
+#~ "usabilitydynamics.com/tutorials/wp-invoice/wp-invoice-settings-premium-"
+#~ "features/\">More...</a>"
+#~ msgstr ""
+#~ "このタブは購入可能なプレミアム機能リスト、またはすでに購入済で利用してい"
+#~ "る WP-Invoice の機能を表示します。当社のウェブサイトの WP-Invoice のプレミ"
+#~ "アム機能セクションで購入可能な機能のリストを参照することができます。<a "
+#~ "target=\"_blank\" href=\"https://usabilitydynamics.com/tutorials/wp-"
+#~ "invoice/wp-invoice-settings-premium-features/\">詳しくは ...</a>"
+
+# @ default
+#~ msgid "Active Invoice(s)"
+#~ msgstr "アクティブな請求書"
+
+# @ default
+#~ msgid "Paid Invoice(s)"
+#~ msgstr "支払済の請求書"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "You currently do not have any invoices"
+#~ msgstr "請求ログにエントリを保存できませんでした。 %1s"
+
+# @ wp-invoice
+#~ msgid ""
+#~ "Global WP-Invoice Settings were successfully migrated to the new version."
+#~ msgstr ""
+#~ "WP-Invoiceのグローバル設定は、新しいバージョンに正常に移行されました。"
+
+# @ wp-invoice
+#~ msgid "Invoices were migrated to the new version with errors."
+#~ msgstr "請求書は、エラーのために新しいバージョンに移行されました。"
+
+# @ wp-invoice
+#~ msgid "Invoices were successfully migrated to the new version."
+#~ msgstr "請求書は、新しいバージョンに正常に移行されました。"
+
+# @ wp-invoice
+#~ msgid "Log data were successfully migrated to the new version."
+#~ msgstr "ログ データは、新しいバージョンに正常に移行されました。"
+
+# @ wp-invoice
+#~ msgid "Log data were migrated to the new version with errors."
+#~ msgstr ""
+#~ "ログ データは、エラーが発生しましたが新しいバージョンに移行されました。"
+
+# @ wp-invoice
+#~ msgid "Old WP-Invoice version %s was found."
+#~ msgstr "WP-Invoice の古いバージョン %s が見つかりました。"
+
+# @ wp-invoice
+#~ msgid "Web Invoice setting options were successfully imported."
+#~ msgstr "Web Invoice オプションの設定は正常にインポートされました。"
+
+# @ wp-invoice
+#~ msgid "Invoices from Web Invoice plugin were migrated with errors."
+#~ msgstr ""
+#~ "Web Invoice プラグインから請求書が移行されましたがエラーが発生しました。"
+
+# @ wp-invoice
+#~ msgid "Invoices from Web Invoice plugin were successfully migrated."
+#~ msgstr "Web Invoiceプラグインから請求書が正常に移行されました。"
+
+# @ wp-invoice
+#~ msgid "Log data from Web Invoice plugin were successfully migrated."
+#~ msgstr "Web Invoiceプラグインからログ ・ データは正しく移行されました。"
+
+# @ wp-invoice
+#~ msgid "Log data from Web Invoice plugin were migrated with errors."
+#~ msgstr ""
+#~ "Web Invoiceのプラグインからログ データが移行されましたがエラーが発生しまし"
+#~ "た。"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Sales Statistics"
+#~ msgstr "請求書の統計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Last Day"
+#~ msgstr "姓（ローマ字 - 例：Yamada）"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Last Week"
+#~ msgstr "姓（ローマ字 - 例：Yamada）"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Last Month"
+#~ msgstr "月"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "My Invoice Statistics"
+#~ msgstr "請求書の統計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "My Invoices"
+#~ msgstr "請求書"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "No invoices"
+#~ msgstr "請求書が見つかりませんでした"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "My Statistics"
+#~ msgstr "請求書の統計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Total invoices"
+#~ msgstr "請求書の編集"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Total paid"
+#~ msgstr "合計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Total dept"
+#~ msgstr "合計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Total balance"
+#~ msgstr "集金合計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Branded Billing"
+#~ msgstr "定期的な請求"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Goals"
+#~ msgstr "合計"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Show Goal lines"
+#~ msgstr "すべての日時を表示"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Day Goal"
+#~ msgstr "毎日"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Week Goal"
+#~ msgstr "毎週"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Month Goal"
+#~ msgstr "毎月"
+
+# @ wp-invoice
+#, fuzzy
+#~ msgid "Send Invoice"
+#~ msgstr "新しい請求書"

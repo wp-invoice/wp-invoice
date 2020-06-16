@@ -1,3 +1,15 @@
+#### 4.3.0 ( June 16, 2020 )
+* Updated composer modules.
+* Fixed Invoice ID inconsistency.
+* Fixed Recaptcha support.
+* Fixed support of special characters in certain fields.
+* Fixed XMLRPC API.
+* Updated WP compatibility to 5.1
+* Fixed Stripe payment handler.
+* Fixed mobile experience.
+* Included add-ons to plugin.
+* Removed licenses for add-ons.
+
 #### 4.2.2 ( August 7, 2018 )
 * Fixed warnings related to PHP 7.*
 * Added Support tab

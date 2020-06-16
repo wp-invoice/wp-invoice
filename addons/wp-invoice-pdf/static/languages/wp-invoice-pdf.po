@@ -1,0 +1,350 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Invoice PDF\n"
+"POT-Creation-Date: 2018-08-17 15:16+0300\n"
+"PO-Revision-Date: 2018-08-17 15:17+0300\n"
+"Last-Translator: \n"
+"Language-Team: Usability Dynamics, inc. <anton.korotkov@usabilitydynamics."
+"com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: test\n"
+"X-Poedit-SearchPathExcluded-4: static/scripts\n"
+"X-Poedit-SearchPathExcluded-5: static/styles\n"
+
+#: l10n.php:3
+msgid "Invoice"
+msgstr ""
+
+#: l10n.php:4 lib/class-wp-invoice-pdf.php:623
+msgid "INVOICE"
+msgstr ""
+
+#: l10n.php:5
+msgid "Quote"
+msgstr ""
+
+#: l10n.php:6 lib/class-wp-invoice-pdf.php:620
+msgid "QUOTE"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:137 lib/class-wp-invoice-pdf.php:180
+msgid "View PDF"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:150 lib/class-wp-invoice-pdf.php:200
+msgid "Download PDF"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:200
+msgid "PDF"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:258
+msgid "Settings"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:261
+msgid "Do not automatically insert PDF link on bottom of invoices."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:267
+msgid "PDF Logo"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:270
+msgid "Display logo in the PDF."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:276
+msgid "Select Logo"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:290
+msgid "Header Settings"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:293
+msgid "Display recipient name and address."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:294
+msgid "Display invoice description."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:299
+msgid "Select template"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:311
+msgid "Terms &amp; Conditions:"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:314
+msgid "Display Terms and Conditions"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:321
+msgid "Text of Term and Conditions for the Invoice/Quote"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:327 static/views/pdf_quote.php:292
+#: static/views/pdf_quote_remastered.php:304
+msgid "Notes"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:330
+msgid "Display Notes"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:337
+msgid ""
+"Notes will be displayed towards the bottom of the Invoice/Quote, depending "
+"on the template."
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:353
+msgid "PDF Invoice"
+msgstr ""
+
+#: lib/class-wp-invoice-pdf.php:617
+msgid "RECEIPT"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:27 lib/classes/class-pdf-template.php:35
+#: lib/classes/class-pdf-template.php:54 lib/classes/class-pdf-template.php:72
+msgid "Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:88
+msgid "Name is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:95
+msgid "Phone is Undefined"
+msgstr ""
+
+#: lib/classes/class-pdf-template.php:408
+#: lib/classes/class-pdf-template.php:450
+msgid "Unnamed"
+msgstr ""
+
+#: static/views/pdf_quote.php:111
+msgid "Due Date:"
+msgstr ""
+
+#: static/views/pdf_quote.php:118 static/views/pdf_quote.php:273
+#: static/views/pdf_quote_bold.php:213 static/views/pdf_quote_modern.php:224
+#: static/views/pdf_quote_remastered.php:285
+msgid "Amount Due:"
+msgstr ""
+
+#: static/views/pdf_quote.php:124
+msgid "Attn:"
+msgstr ""
+
+#: static/views/pdf_quote.php:134
+msgid "Bill To:"
+msgstr ""
+
+#: static/views/pdf_quote.php:146
+msgid "Phone:"
+msgstr ""
+
+#: static/views/pdf_quote.php:177 static/views/pdf_quote_remastered.php:189
+msgid "Description"
+msgstr ""
+
+#: static/views/pdf_quote.php:178 static/views/pdf_quote_remastered.php:190
+msgid "Quantity"
+msgstr ""
+
+#: static/views/pdf_quote.php:179 static/views/pdf_quote_remastered.php:191
+msgid "Price"
+msgstr ""
+
+#: static/views/pdf_quote.php:180 static/views/pdf_quote.php:217
+#: static/views/pdf_quote_remastered.php:192
+#: static/views/pdf_quote_remastered.php:229
+msgid "Amount"
+msgstr ""
+
+#: static/views/pdf_quote.php:182 static/views/pdf_quote_remastered.php:194
+msgid "Tax"
+msgstr ""
+
+#: static/views/pdf_quote.php:216 static/views/pdf_quote_remastered.php:228
+msgid "Charge"
+msgstr ""
+
+#: static/views/pdf_quote.php:236 static/views/pdf_quote_bold.php:176
+#: static/views/pdf_quote_modern.php:187
+#: static/views/pdf_quote_remastered.php:248
+msgid "Total:"
+msgstr ""
+
+#: static/views/pdf_quote.php:242 static/views/pdf_quote_bold.php:182
+#: static/views/pdf_quote_modern.php:193
+#: static/views/pdf_quote_remastered.php:254
+msgid "Total Tax:"
+msgstr ""
+
+#: static/views/pdf_quote.php:250 static/views/pdf_quote_bold.php:190
+#: static/views/pdf_quote_modern.php:201
+#: static/views/pdf_quote_remastered.php:262
+msgid "Discount:"
+msgstr ""
+
+#: static/views/pdf_quote.php:258 static/views/pdf_quote_bold.php:198
+#: static/views/pdf_quote_modern.php:209
+#: static/views/pdf_quote_remastered.php:270
+msgid "Other Adjustments:"
+msgstr ""
+
+#: static/views/pdf_quote.php:266 static/views/pdf_quote_bold.php:206
+#: static/views/pdf_quote_modern.php:217
+#: static/views/pdf_quote_remastered.php:278
+msgid "Total Payments:"
+msgstr ""
+
+#: static/views/pdf_quote.php:281 static/views/pdf_quote_bold.php:221
+#: static/views/pdf_quote_modern.php:232
+#: static/views/pdf_quote_remastered.php:293
+msgid "Invoice Refunded"
+msgstr ""
+
+#: static/views/pdf_quote.php:304 static/views/pdf_quote_remastered.php:316
+msgid "Terms &amp; Conditions"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:75
+msgid "ISSUED:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:80
+msgid "DUE:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:85 static/views/pdf_quote_modern.php:84
+msgid "AMOUNT DUE:"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:121 static/views/pdf_quote_modern.php:136
+msgid "ITEMS"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:124 static/views/pdf_quote_bold.php:157
+#: static/views/pdf_quote_modern.php:139 static/views/pdf_quote_modern.php:168
+msgid "DESCRIPTION"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:125 static/views/pdf_quote_modern.php:140
+msgid "QTY"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:126 static/views/pdf_quote_modern.php:141
+msgid "PRICE"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:127 static/views/pdf_quote_modern.php:142
+msgid "SUM"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:129 static/views/pdf_quote_modern.php:144
+msgid "TAX"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:154 static/views/pdf_quote_modern.php:165
+msgid "CHARGES"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:158 static/views/pdf_quote_modern.php:169
+msgid "AMOUNT"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:230 static/views/pdf_quote_modern.php:241
+msgid "TERMS &amp; CONDITIONS"
+msgstr ""
+
+#: static/views/pdf_quote_bold.php:241 static/views/pdf_quote_modern.php:252
+msgid "NOTES"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:78
+msgid "DUE DATE:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:90
+msgid "ATTN:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:100
+msgid "BILL TO:"
+msgstr ""
+
+#: static/views/pdf_quote_modern.php:111
+msgid "PHONE:"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:137
+msgid "Email"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:141
+msgid "Phone"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:148
+msgid "Invoice ID"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:152
+msgid "Issue Date"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:157
+msgid "Due Date"
+msgstr ""
+
+#: static/views/pdf_quote_remastered.php:163
+msgid "Invoice For"
+msgstr ""
+
+#: wp-invoice-pdf.php:47
+msgid ""
+"Distributive is broken. composer.json is missed. Try to remove and upload "
+"plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:55
+#, php-format
+msgid "Plugin requires PHP %s or higher. Your current PHP version is %s"
+msgstr ""
+
+#: wp-invoice-pdf.php:63
+#, php-format
+msgid ""
+"Distributive is broken. %s file is missed. Try to remove and upload plugin "
+"again."
+msgstr ""
+
+#: wp-invoice-pdf.php:67
+msgid ""
+"Distributive is broken. Plugin loader is not available. Try to remove and "
+"upload plugin again."
+msgstr ""
+
+#: wp-invoice-pdf.php:88
+#, php-format
+msgid "<p><b>%s</b> can not be initialized. %s</p>"
+msgstr ""
