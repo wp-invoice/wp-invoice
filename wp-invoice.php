@@ -4,9 +4,9 @@
  * Plugin URI: https://www.usabilitydynamics.com/product/wp-invoice
  * Description: WP-Invoice lets WordPress blog owners send itemized invoices to their clients. Ideal for web developers, SEO consultants, general contractors, or anyone with a WordPress blog and clients to bill.
  * Author: Usability Dynamics, Inc.
- * Version: 4.2.2
+ * Version: 4.3.0
  * Requires at least: 4.0
- * Tested up to: 5.1
+ * Tested up to: 5.4
  * Text Domain: wp-invoice
  * Author URI: http://www.usabilitydynamics.com
  * GitHub Plugin URI: wp-invoice/wp-invoice
@@ -14,13 +14,13 @@
  * Support: https://wordpress.org/support/plugin/wp-invoice
  * UserVoice: http://feedback.usabilitydynamics.com/forums/9692-wp-invoice
  *
- * Copyright 2012 - 2018 Usability Dynamics, Inc.  ( email : info@usabilitydynamics.com )
+ * Copyright 2012 - 2020 Usability Dynamics, Inc.  ( email : info@usabilitydynamics.com )
  *
  */
 
 //** Define WPI Version */
 if ( !defined( 'WP_INVOICE_VERSION_NUM' ) ) {
-  define( 'WP_INVOICE_VERSION_NUM', '4.2.2' );
+  define( 'WP_INVOICE_VERSION_NUM', '4.3.0' );
 }
 
 //** Define shorthand for transdomain */
@@ -87,7 +87,7 @@ if( !function_exists( 'ud_check_wp_invoice' ) ) {
 
 }
 
-if( !function_exists( 'ud_my_wp_plugin_message' ) ) {
+if( !function_exists( 'ud_wp_invoice_message' ) ) {
   /**
    * Renders admin notes in case there are errors on plugin init
    *
@@ -107,4 +107,7 @@ if( !function_exists( 'ud_my_wp_plugin_message' ) ) {
 if( ud_check_wp_invoice() ) {
   //** Initialize. */
   ud_get_wp_invoice();
+  if( class_exists( '\UsabilityDynamics\WPA\Addons' ) ) {
+    new \UsabilityDynamics\WPA\Addons( ud_get_wp_invoice()->get_instance() );
+  }
 }

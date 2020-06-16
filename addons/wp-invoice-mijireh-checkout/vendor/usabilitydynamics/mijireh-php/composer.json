@@ -1,0 +1,29 @@
+{
+  "name": "usabilitydynamics/mijireh-php",
+  "description": "PHP Client for Mijireh Checkout",
+  "type": "library",
+  "minimum-stability": "dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UsabilityDynamics/mijireh-php"
+  },
+  "homepage": "https://github.com/UsabilityDynamics/mijireh-php",
+  "keywords": [
+    "library",
+    "api",
+    "client"
+  ],
+  "license": "GPLv2",
+  "author": [
+    {
+      "name": "UsabilityDynamics, Inc.",
+      "homepage": "http://usabilitydynamics.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  },
+  "autoload": {
+    "classmap": [ "lib/classes" ]
+  }
+}

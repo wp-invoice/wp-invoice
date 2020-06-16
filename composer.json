@@ -64,7 +64,9 @@
           }
         },
         "product" : false
-      }
+      },
+      "addons":[{"slug":"wpibl","product_id":"wp-invoice\/wp-invoice-business-locations","path":"addons\/wp-invoice-business-locations\/wp-invoice-business-locations.php","name":"WP-Invoice: Business Locations"},{"slug":"wpies","product_id":"wp-invoice\/wp-invoice-electronic-signature","path":"addons\/wp-invoice-electronic-signature\/wp-invoice-electronic-signature.php","name":"WP-Invoice: Electronic Signature"},{"slug":"wpimc","product_id":"wp-invoice\/wp-invoice-mijireh-checkout","path":"addons\/wp-crm-group-messages\/wp-crm-group-messages.php","name":"WP-Invoice: Mijireh Checkout"},{"slug":"wpipp","product_id":"wp-invoice\/wp-invoice-paypal-pro","path":"addons\/wp-invoice-paypal-pro\/wp-invoice-paypal-pro.php","name":"WP-Invoice: Paypal Pro"},{"slug":"wpip","product_id":"wp-invoice\/wp-invoice-pdf","path":"addons\/wp-invoice-pdf\/wp-invoice-pdf.php","name":"WP-Invoice: PDF"},{"slug":"wpipt","product_id":"wp-invoice\/wp-invoice-power-tools","path":"addons\/wp-invoice-power-tools\/wp-invoice-power-tools.php","name":"WP-Invoice: Power Tools"},{"slug":"wpiq","product_id":"wp-invoice\/wp-invoice-quotes","path":"addons\/wp-invoice-quotes\/wp-invoice-quotes.php","name":"WP-Invoice: Quotes"},{"slug":"wpis","product_id":"wp-invoice\/wp-invoice-spc","path":"addons\/wp-invoice-spc\/wp-invoice-spc.php","name":"WP-Invoice: Single Page Checkout"},{"slug":"wpiue","product_id":"wp-invoice\/wp-invoice-usa-epay","path":"addons\/wp-invoice-usa-epay\/wp-invoice-usa-epay.php","name":"WP-Invoice: USAePay"}],
+      "addons_homepage" : "https://wp-invoice.github.io/addons/"
     }
   }
 }
