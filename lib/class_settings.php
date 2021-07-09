@@ -431,6 +431,7 @@ class WPI_Settings {
     $this->options[ 'notification' ][ 3 ][ 'subject' ] = __( "[Payment Received] %subject%", ud_get_wp_invoice()->domain );
     $this->options[ 'notification' ][ 3 ][ 'content' ] = __( "Dear %recipient%, \n\n%business_name% has received your payment for the %type% in the amount of %amount%. \n\nThank you very much for your patronage. \n\nBest regards, \n%business_name% (%business_email%)", ud_get_wp_invoice()->domain );
 
+    $this->options = apply_filters('wpi_load_options',$this->options );
   }
 
   /**
