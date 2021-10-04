@@ -1,3 +1,6 @@
+#### 4.3.1 ( October 4, 2021 )
+* Remove Support tab.
+
 #### 4.3.0 ( June 16, 2020 )
 * Updated composer modules.
 * Fixed Invoice ID inconsistency.
