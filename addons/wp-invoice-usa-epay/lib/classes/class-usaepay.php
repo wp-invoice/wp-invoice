@@ -834,7 +834,7 @@ namespace UsabilityDynamics\WPI_USA_EPAY {
           <tr><th><b>Test</b></th><th><b>Result</b></th></tr>
           <tr><td valign="Top">Checking PHP Version</td>
             <td valign="top"><?php
-              if (version_compare(phpversion(), "4.3.0")) {
+              if (version_compare(phpversion(), "4.3.1")) {
                 ?><font color="green">Ok</font><br>
                 PHP version <?php echo phpversion() ?> on <?php echo PHP_OS ?> detected. 
                 <?php
