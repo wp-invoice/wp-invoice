@@ -118,7 +118,7 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 == Upgrade Notice ==
 
 = Version 4.3.1 =
-* Remove Support tab.
+* Removed Support tab.
 
 = Version 4.3.0 =
 * Final release. No more updates.
@@ -159,7 +159,7 @@ Please see the [wp-invoice plugin home page](https://www.usabilitydynamics.com/p
 
 == Change Log ==
 = 4.3.1 =
-* Remove Support tab.
+* Removed Support tab.
 
 = 4.3.0 =
 * Updated composer modules.

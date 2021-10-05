@@ -1,5 +1,5 @@
 #### 4.3.1 ( October 4, 2021 )
-* Remove Support tab.
+* Removed Support tab.
 
 #### 4.3.0 ( June 16, 2020 )
 * Updated composer modules.
